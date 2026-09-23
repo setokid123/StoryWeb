@@ -1,5 +1,18 @@
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
+import http from "node:http";
+
+/** Browser-like form navigation; fetch() cannot send Sec-Fetch-Mode: navigate. Returns status/location/set-cookie. */
+function navigatePost(url, origin) {
+  return new Promise((resolve, reject) => {
+    const request = http.request(url, { method: "POST", headers: { Origin: origin, "Sec-Fetch-Site": "same-origin", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-User": "?1", "Sec-Fetch-Dest": "document" } }, (res) => {
+      res.resume();
+      res.on("end", () => resolve({ status: res.statusCode, location: res.headers.location ?? null, setCookie: [].concat(res.headers["set-cookie"] ?? []) }));
+    });
+    request.on("error", reject);
+    request.end();
+  });
+}
 
 const base = process.env.STORYWEB_TEST_URL ?? "http://127.0.0.1:3000";
 const password = process.env.STORYWEB_TEST_ADMIN_PASSWORD;
@@ -51,18 +64,25 @@ try {
   assert.match(lockedHtml, /Mở trang truyện tiếp theo/);
   assert.ok(!lockedHtml.includes(secondText), "Locked chapter body leaked into HTML");
 
-  const visit = await fetch(`${base}/unlock/visit`, { redirect: "manual" });
+  // Link unlock needs a same-origin, user-initiated navigation (bare GET is refused).
+  assert.equal((await fetch(`${base}/unlock/visit`, { redirect: "manual" })).status, 400);
+  if (gateMode === "example") {
+    // Admin enables link mode through the settings API (requires CLICK_UNLOCK_ENABLED=true + example.com URL on the server).
+    const current = await (await fetch(`${base}/api/admin/settings`, { headers: { Cookie: adminCookie } })).json();
+    const enable = await fetch(`${base}/api/admin/settings`, { method: "PUT", headers: { "Content-Type": "application/json", Cookie: adminCookie }, body: JSON.stringify({ version: current.settings.version, unlockEnabled: true, unlockMode: "link", unlockLinkUrl: null, adSlots: current.settings.adSlots }) });
+    if (!enable.ok) throw new Error(`Enable link mode failed ${enable.status}: ${await enable.text()}`);
+  }
+  const visit = await navigatePost(`${base}/unlock/visit`, new URL(base).origin);
   if (gateMode === "disabled") {
     assert.equal(visit.status, 503);
-    assert.equal(visit.headers.get("set-cookie"), null);
+    assert.equal(visit.setCookie.length, 0);
     console.log("Smoke test passed: admin auth, PostgreSQL publication, free chapter, locked chapter, disabled gate.");
   } else {
-    assert.equal(visit.status, 302);
-    assert.equal(visit.headers.get("location"), "https://example.com/storyweb-test");
-    const unlockHeader = visit.headers.get("set-cookie") ?? "";
+    assert.equal(visit.status, 303);
+    assert.equal(visit.location, "https://example.com/storyweb-test");
+    const unlockHeader = visit.setCookie.find((value) => value.startsWith("storyweb_unlock=")) ?? "";
     assert.match(unlockHeader, /Max-Age=300/i);
     const unlockCookie = unlockHeader.split(";")[0];
-    assert.ok(unlockCookie.startsWith("storyweb_click_unlock="));
 
     const secondOpen = await fetch(`${base}/doc/${slug}/2`, { headers: { Cookie: unlockCookie } });
     assert.match(await secondOpen.text(), new RegExp(secondText));

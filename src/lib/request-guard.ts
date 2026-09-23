@@ -12,6 +12,8 @@ export type ApiErrorCode =
   | "not_found"
   | "email_unavailable"
   | "rate_limited"
+  | "mode_not_ready"
+  | "conflict"
   | "not_configured"
   | "unavailable";
 

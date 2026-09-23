@@ -1,4 +1,4 @@
-// Verifies that migration 0002 (B1) applies on a database that already ran 0000 + 0001 and has content,
+// Verifies that migrations 0002 (B1) and later (0003 M2) apply on a database that already ran 0000 + 0001 and has content,
 // without losing users/stories/chapters. Needs an EMPTY scratch database:
 //
 //   STORYWEB_TEST_MIGRATION_DB_URL=postgres://localhost:5432/storyweb_migration_test node scripts/test-migration.mjs
@@ -51,6 +51,15 @@ try {
   for (const table of ["user_sessions", "auth_rate_limits"]) {
     const { rows } = await client.query("SELECT to_regclass($1) AS t", [`public.${table}`]);
     assert.ok(rows[0].t, `${table} missing`);
+  }
+  // 0003 (M2): single settings row, everything off; new tables exist.
+  if (tags.some((tag) => tag.startsWith("0003_"))) {
+    const { rows: settingsRows } = await client.query("SELECT id, unlock_enabled, unlock_mode, unlock_revision, ad_slots FROM site_settings");
+    assert.deepEqual(settingsRows, [{ id: "default", unlock_enabled: false, unlock_mode: "link", unlock_revision: 1, ad_slots: {} }]);
+    for (const table of ["site_settings_audit", "unlock_challenges"]) {
+      const { rows } = await client.query("SELECT to_regclass($1) AS t", [`public.${table}`]);
+      assert.ok(rows[0].t, `${table} missing`);
+    }
   }
   // Deleting an owner must not delete their stories.
   const { rows: [editor] } = await client.query("INSERT INTO users (email, display_name, role) VALUES ('e@example.test', 'E', 'editor') RETURNING id");
