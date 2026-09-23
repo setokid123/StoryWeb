@@ -6,9 +6,13 @@ Một thư viện số yên tĩnh, giàu chất biên tập. Ưu tiên đọc l�
 
 ## Màu và chữ
 
-- Nền giấy `#fbf9f5`, nền ấm `#f5f1e9`, chữ `#27313a`.
-- Điểm nhấn đất nung `#ad624b`; xanh đậm `#182e35` cho thanh thể loại/footer.
-- Tiêu đề và nội dung chương: Georgia/serif. Điều hướng, nhãn, nút: Arial/sans-serif.
+- Hai chế độ (Sáng/Tối) áp dụng trên toàn site, thiết kế có chiều sâu thay vì chỉ đảo ngược màu.
+- Sáng: Nền giấy `#fbf9f5`, nền ấm `#f5f1e9`, chữ `#27313a`. Điểm nhấn đất nung `#ad624b`; xanh đậm `#182e35`.
+- Tối: Nền giấy tối `#192426`, nền bề mặt `#1f2d2f`, chữ `#e4e5e0`. Điểm nhấn `#d38d78`.
+- Phông chữ tiếng Việt:
+  - **Lora (Serif)**: Dùng cho tiêu đề và nội dung chương. Lora mang lại cảm giác văn học cổ điển, bộ dấu tiếng Việt mượt mà, hỗ trợ tốt cho việc đọc đoạn văn dài mà không gây mỏi mắt. Cỡ chữ 400, 500, 600, 700. Fallback: Georgia, 'Times New Roman'.
+  - **Inter (Sans-serif)**: Dùng cho điều hướng, nhãn, nút, giao diện UI. Tối ưu hóa độ rõ nét màn hình nhỏ. Cỡ chữ 400, 600, 700, 800. Fallback: Arial, Helvetica.
+  - Sử dụng `next/font/google` subset `vietnamese` để tối ưu tải phông.
 - Cỡ chữ đọc mặc định 19px, cho chỉnh 16–26px. Dòng chữ rộng tối đa 720px, line-height xấp xỉ 2.
 
 ## Component và trạng thái

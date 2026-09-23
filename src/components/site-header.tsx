@@ -2,12 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Menu, Search, X } from "lucide-react";
+import { BookOpen, Menu, Search, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "@/components/theme-provider";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { resolved, setTheme } = useTheme();
+
+  const isDark = resolved === "dark";
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
+
   const links = [
     { href: "/", label: "Trang chủ" },
     { href: "/tim-kiem", label: "Khám phá" },
@@ -28,6 +34,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="site-header__actions">
+          <button className="icon-button" type="button" aria-label={isDark ? "Chế độ sáng" : "Chế độ tối"} onClick={toggleTheme}>{isDark ? <Sun size={20} /> : <Moon size={20} />}</button>
           <Link className="icon-button header-search" href="/tim-kiem" aria-label="Tìm kiếm truyện"><Search size={20} /></Link>
           <Link className="header-cta" href="/tim-kiem">Bắt đầu đọc <span>↗</span></Link>
           <button className="icon-button menu-toggle" type="button" aria-label={menuOpen ? "Đóng menu" : "Mở menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button>
