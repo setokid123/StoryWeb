@@ -21,10 +21,12 @@ Với chương khóa: chỉ trả body khi chương miễn phí hoặc cookie m�
 
 Luồng click mở khóa được cài sẵn ở `/unlock/visit`, nhưng mặc định tắt. Khi được cấu hình, lượt nhấp chủ động vào nút mở tab mới sẽ nhận cookie ký HMAC 5 phút rồi chuyển đến URL trong môi trường. Nó xác minh **lượt nhấp lên link trên website**, không xác minh người đọc đã xem trang đích hay mua hàng. Link Shopee còn yêu cầu `SHOPEE_GATE_APPROVED=true` sau khi có chấp thuận riêng. Điều khoản Shopee Affiliate cập nhật 08/07/2026 cấm popup/pop-under và tự chuyển hướng: https://help.shopee.vn/portal/10/article/122944 . Hoa hồng theo đơn thành công, không theo click: https://help.shopee.vn/portal/10/article/123035 .
 
-Để mở khóa bằng quảng cáo, dùng mạng quảng cáo có thưởng cho web và chỉ cấp quyền sau sự kiện hoàn thành hợp lệ. Ví dụ Google Ad Manager Offerwall: https://support.google.com/admanager/answer/12726063?hl=en . Cần kiểm tra chống gian lận và khả năng xác minh của nhà cung cấp trước khi đưa vào production.
+Đợt M2/U4 dự kiến cho admin bật/tắt và chọn một trong hai phương thức mở khóa: nhấp liên kết hoặc xem quảng cáo có thưởng. Quyền đọc vẫn hết hạn sau 5 phút; các block quảng cáo hiển thị là độc lập với quyền mở chương. Xem [kế hoạch và ranh giới agent](ADS_UNLOCK_PLAN.md). Đây là kế hoạch, chưa phải tính năng đã chạy.
+
+Để mở khóa bằng quảng cáo, cần nhà cung cấp quảng cáo có thưởng cho **web** và bằng chứng hoàn thành mà server xác minh được trước khi cấp quyền đọc. [Google Ad Manager rewarded web](https://support.google.com/admanager/answer/9116812?hl=en) có sự kiện thưởng phía trình duyệt nhưng nói rõ xác minh server chỉ có cho app, không có cho web. [Google Offerwall](https://support.google.com/admanager/answer/12726063?hl=en) tự quản quyền truy cập của Offerwall; không giả định quyền đó tự ánh xạ sang cookie mở chương của StoryWeb. Nếu chưa có provider phù hợp, mode rewarded vẫn tắt trong production.
 
 ## Việc tiếp theo
 
 1. Thêm UI đăng nhập/đăng ký, quản lý tài khoản và chuyển tủ truyện/tiến độ đọc từ LocalStorage sang tài khoản.
 2. Phân trang chương và tìm kiếm có index khi kho truyện tăng.
-3. Tích hợp quảng cáo có thưởng/gói đọc sau khi có nhà cung cấp và quyền sử dụng; thêm audit và backup.
+3. Triển khai M2/U4: các block quảng cáo, giao diện điều hướng chương và admin switch; chỉ bật quảng cáo có thưởng sau khi có provider xác minh web và kiểm thử end-to-end. Thêm audit và backup.

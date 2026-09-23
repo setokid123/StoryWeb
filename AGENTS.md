@@ -4,9 +4,9 @@
 
 ## Phân vai mặc định
 
-- **Codex:** kiến trúc, tích hợp, kiểm tra build, bảo mật luồng mở khóa, review cuối.
-- **Claude Code:** dữ liệu PostgreSQL/Drizzle, xác thực, API, CMS và nghiệp vụ server.
-- **Antigravity:** nghiên cứu và triển khai UI/UX, responsive, accessibility, design system.
+- **Codex:** kiến trúc, chốt contract giữa agent, review bảo mật, tích hợp, kiểm tra build và deploy.
+- **Claude Code:** code **toàn bộ logic dự án**, gồm state phía client, server, PostgreSQL/Drizzle, xác thực, API, CMS, quyền đọc và tích hợp dịch vụ/quảng cáo.
+- **Antigravity:** thiết kế và code **giao diện**: component trình bày, bố cục, CSS, responsive, accessibility và design system. Nhận dữ liệu/callback từ lớp logic; không tự quyết định quyền truy cập hoặc trạng thái hoàn thành quảng cáo.
 
 Phân vai là mặc định để tránh sửa đè. Người dùng có thể giao việc khác. Mỗi agent cần nhận một mục trên `docs/WORKBOARD.md` trước khi sửa. Nếu phải sửa file thuộc phạm vi agent khác, ghi chú vào board và bàn giao thay đổi trước.
 
@@ -17,8 +17,8 @@ Phân vai là mặc định để tránh sửa đè. Người dùng có thể gi
 3. Không xóa hoặc ghi đè thay đổi chưa commit của agent khác. Bàn giao bằng commit/PR hoặc ghi rõ file đã sửa và kiểm tra đã chạy.
 4. Trước khi bàn giao: chạy `npm run typecheck`, `npm run lint`, `npm run build`; nếu không chạy được, ghi lý do và lỗi cụ thể.
 5. UI phải hỗ trợ màn hình nhỏ, điều hướng bàn phím, trạng thái loading/empty/error khi có dữ liệu thật. Giữ giao diện tiếng Việt.
-6. Không gửi nội dung chương khóa xuống client nếu chưa xác thực quyền đọc trên server. Chương 1 miễn phí mặc định; các chương sau dùng cookie ký tên, hết hạn sau 5 phút ở bản dựng hiện tại.
-7. Luồng click mở khóa nằm sau cờ cấu hình và mặc định tắt. Chỉ cấu hình link Shopee sau khi người dùng cung cấp chấp thuận riêng; không tự mở popup hoặc tự chuyển hướng. Xem `docs/ARCHITECTURE.md`.
+6. Không gửi nội dung chương khóa xuống client nếu chưa xác thực quyền đọc trên server. Chương 1 miễn phí mặc định; các chương sau dùng cookie ký tên, hết hạn sau 5 phút ở bản dựng hiện tại. Kế hoạch hai phương thức mở khóa nằm trong `docs/ADS_UNLOCK_PLAN.md`.
+7. Luồng click mở khóa nằm sau cờ cấu hình và mặc định tắt. Chỉ cấu hình link Shopee sau khi người dùng cung cấp chấp thuận riêng; không tự mở popup hoặc tự chuyển hướng. Quảng cáo có thưởng chỉ cấp quyền sau bằng chứng mà server xác minh được; callback trình duyệt đơn thuần không đủ. Xem `docs/ARCHITECTURE.md`.
 
 ## Cấu trúc
 

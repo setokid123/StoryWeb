@@ -1,18 +1,18 @@
-# Giao việc cho Claude Code và Antigravity
+# Giao việc hiện tại cho Claude Code và Antigravity
 
-Hai việc đã tách file và worktree. Bạn mở đúng thư mục bên dưới trong từng app, rồi gửi câu nhắc tương ứng. Hai agent tự đọc file chi tiết, nhận việc trên `docs/WORKBOARD.md` trong nhánh của mình, sửa mã, kiểm tra và commit. Codex sẽ review trước khi đưa lên `main`.
+M2 và U4 bắt đầu từ cùng một commit `main` trên **hai worktree mới**. Mở đúng thư mục trong từng extension VS Code, rồi gửi câu nhắc bên dưới. Các file `CLAUDE_B1.md`, `ANTIGRAVITY_U3.md` và `ANTIGRAVITY_U3_THEME_FONT.md` là lịch sử đã hoàn tất, không phải nhiệm vụ hiện tại.
 
-| Agent | Mở thư mục này | Nhánh đã tạo | File giao việc |
+| Agent | Thư mục mở trong VS Code | Nhánh | File giao việc |
 | --- | --- | --- | --- |
-| Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-b1` | `claude/b1-multi-user-auth` | `docs/assignments/CLAUDE_B1.md` |
-| Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u3` | `antigravity/u3-studio-reader` | `docs/assignments/ANTIGRAVITY_U3.md` |
+| Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-m2` | `claude/m2-ads-unlock-logic` | `docs/assignments/CLAUDE_M2.md` |
+| Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u4` | `antigravity/u4-reader-ads-ui` | `docs/assignments/ANTIGRAVITY_U4.md` |
 
 ## Câu nhắc gửi cho Claude Code
 
-> Hãy đọc `AGENTS.md`, `CLAUDE.md` và `docs/assignments/CLAUDE_B1.md` trong workspace đang mở, rồi thực hiện toàn bộ B1 theo file giao việc. Worktree và nhánh đã tạo sẵn; kiểm tra `git status` trước khi sửa. Cập nhật dòng B1 trên `docs/WORKBOARD.md` trong nhánh của bạn, chạy kiểm tra, commit và bàn giao commit, API contract cùng phần còn thiếu. Không push `main`, không deploy, không chạy migration trên Railway production.
+> Mở worktree `E:\Dev\StoryWeb\.worktrees\claude-m2`. Đọc `AGENTS.md`, `CLAUDE.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/assignments/CLAUDE_M2.md` và `docs/WORKBOARD.md`; nhận M2 trên workboard. Từ nay bạn code toàn bộ logic dự án, cả client và server, không chỉ backend. Hãy xây settings/admin API, hai mode mở khóa, bảo vệ quyền đọc 5 phút, state và tích hợp display ads theo assignment. Rewarded chỉ bật khi provider web có bằng chứng server xác minh được; nếu chưa có thì giữ fail-closed. Antigravity làm view U4; phối hợp bằng typed props và ghép view sau khi U4 commit. Chạy test/typecheck/lint/build, commit nhánh M2 và bàn giao; không sửa CSS của Antigravity, không push main/deploy/migration production.
 
 ## Câu nhắc gửi cho Antigravity
 
-> Hãy mở đúng worktree `E:\Dev\StoryWeb\.worktrees\antigravity-u3`, đọc `AGENTS.md`, `docs/assignments/ANTIGRAVITY_U3_THEME_FONT.md` và **review mới nhất** `docs/reviews/U3_THEME_FONT_REVIEW_2026-09-23.md`. Sửa 3 lỗi lint, đồng bộ theme khi hệ thống đổi lúc trang đang mở, tăng tương phản chữ dialog tối và dọn trailing whitespace. Giữ kết quả font tiếng Việt và focus dialog đã đạt. Chạy lại typecheck/lint/build/diff check, cập nhật U3 trên workboard, commit nhánh U3 và bàn giao mã commit. Không push `main` hoặc deploy.
+> Mở worktree `E:\Dev\StoryWeb\.worktrees\antigravity-u4`. Đọc `AGENTS.md`, `.agents/rules/project-context.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/assignments/ANTIGRAVITY_U4.md` và `docs/WORKBOARD.md`; nhận U4 trên workboard. Bạn chỉ thiết kế và code giao diện: bốn nút điều hướng trong ảnh, drawer danh sách chương, block quảng cáo, dialog khóa hai mode và trang switch admin. Làm view nhận props/callback, không tự code API, entitlement, state hoặc provider. Kiểm tra Sáng/Tối ở 360/768/1280 px, bàn phím, typecheck/lint/build; commit nhánh U4 và bàn giao props/ảnh. Không push main hoặc deploy.
 
-Nếu một app đang mở `E:\Dev\StoryWeb` (nhánh `main`), hãy mở đúng worktree của agent trước khi gửi câu nhắc. Không để cả hai app sửa trực tiếp `main`. Sau khi hai bên bàn giao, gửi commit/nhánh cho Codex review và tích hợp.
+Antigravity bàn giao view trước bước Claude ghép với logic. Nếu cả hai cần cùng một file, ghi yêu cầu vào workboard và dùng thứ tự bàn giao; không sửa đè worktree khác. Codex review và tích hợp sau cùng.
