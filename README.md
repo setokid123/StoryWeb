@@ -32,7 +32,7 @@ Project cần hai service: PostgreSQL và ứng dụng Next.js kết nối repos
 | `SHOPEE_GATE_APPROVED` | `false` cho tới khi có chấp thuận riêng |
 | `NEXT_PUBLIC_SITE_URL` | Domain HTTPS của web sau khi tạo domain |
 
-`railway.json` chạy `npm run db:migrate` trước khi đưa bản deploy lên và kiểm tra `/api/health`. Tạo domain Railway cho service web rồi kiểm tra trang chủ, `/panel` và route health. Không lưu mật khẩu, token hoặc URL database trong Git.
+`.railway/railway.ts` quản lý nguồn GitHub, biến tham chiếu PostgreSQL, lệnh `npm run db:migrate` trước deploy và health check `/api/health`. Áp dụng thay đổi hạ tầng bằng `railway config plan` rồi `railway config apply`. Tạo domain Railway cho service web rồi kiểm tra trang chủ, `/panel` và route health. Không lưu mật khẩu, token hoặc URL database trong Git.
 
 ## Quyền đọc chương
 
