@@ -17,7 +17,9 @@ const base2 = process.env.STORYWEB_TEST_URL_2 ?? base;
 const adminPassword = process.env.STORYWEB_TEST_ADMIN_PASSWORD;
 if (!adminPassword) throw new Error("Set STORYWEB_TEST_ADMIN_PASSWORD.");
 if (!process.env.DATABASE_URL) throw new Error("Set DATABASE_URL to the same local/test DB the app uses.");
-if (/railway|rlwy\.net/i.test(process.env.DATABASE_URL) && process.env.STORYWEB_TEST_ALLOW_REMOTE !== "1") throw new Error("Refusing to run against a Railway database.");
+// Never the production database (Railway names it "railway"); other remote DBs need an explicit opt-in.
+const testDbName = new URL(process.env.DATABASE_URL).pathname.slice(1);
+if (testDbName === "railway" || (/railway|rlwy.net/i.test(process.env.DATABASE_URL) && process.env.STORYWEB_TEST_ALLOW_REMOTE !== "1")) throw new Error("Refusing to run against a production/Railway database without STORYWEB_TEST_ALLOW_REMOTE=1 and a separate test database.");
 
 const run = randomUUID().slice(0, 8);
 // Unique client address per run so the per-IP limits of earlier runs do not interfere.

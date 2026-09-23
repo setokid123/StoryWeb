@@ -10,7 +10,7 @@ import pg from "pg";
 
 const url = process.env.STORYWEB_TEST_MIGRATION_DB_URL;
 if (!url) throw new Error("Set STORYWEB_TEST_MIGRATION_DB_URL to an empty scratch database.");
-if (/railway|rlwy\.net/i.test(url)) throw new Error("Refusing to run against a Railway database.");
+if (new URL(url).pathname.slice(1) === "railway" || (/railway|rlwy.net/i.test(url) && process.env.STORYWEB_TEST_ALLOW_REMOTE !== "1")) throw new Error("Refusing to run against a production/Railway database without STORYWEB_TEST_ALLOW_REMOTE=1 and a separate test database.");
 
 const journal = JSON.parse(await readFile(new URL("../drizzle/meta/_journal.json", import.meta.url), "utf8"));
 const client = new pg.Client({ connectionString: url });
