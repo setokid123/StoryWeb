@@ -1,0 +1,42 @@
+# StoryWeb — quy ước chung cho coding agents
+
+Đọc `README.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md` trước khi nhận việc. Đây là cùng một repository được dùng bởi Codex, Claude Code và Antigravity.
+
+## Phân vai mặc định
+
+- **Codex:** kiến trúc, tích hợp, kiểm tra build, bảo mật luồng mở khóa, review cuối.
+- **Claude Code:** dữ liệu PostgreSQL/Drizzle, xác thực, API, CMS và nghiệp vụ server.
+- **Antigravity:** nghiên cứu và triển khai UI/UX, responsive, accessibility, design system.
+
+Phân vai là mặc định để tránh sửa đè. Người dùng có thể giao việc khác. Mỗi agent cần nhận một mục trên `docs/WORKBOARD.md` trước khi sửa. Nếu phải sửa file thuộc phạm vi agent khác, ghi chú vào board và bàn giao thay đổi trước.
+
+## Quy tắc làm việc
+
+1. Giữ `main` luôn build được. Sau commit đầu tiên, mỗi agent dùng một nhánh/worktree riêng: `codex/*`, `claude/*`, `antigravity/*`.
+2. Không chạy đồng thời `npm install` hoặc sửa `package.json`, `package-lock.json`, `src/db/schema.ts`, `src/app/globals.css` từ nhiều agent. Ghi chủ sở hữu tạm thời trên workboard.
+3. Không xóa hoặc ghi đè thay đổi chưa commit của agent khác. Bàn giao bằng commit/PR hoặc ghi rõ file đã sửa và kiểm tra đã chạy.
+4. Trước khi bàn giao: chạy `npm run typecheck`, `npm run lint`, `npm run build`; nếu không chạy được, ghi lý do và lỗi cụ thể.
+5. UI phải hỗ trợ màn hình nhỏ, điều hướng bàn phím, trạng thái loading/empty/error khi có dữ liệu thật. Giữ giao diện tiếng Việt.
+6. Không gửi nội dung chương khóa xuống client nếu chưa xác thực quyền đọc trên server. Chương 1 miễn phí mặc định; các chương sau dùng cookie ký tên, hết hạn sau 5 phút ở bản dựng hiện tại.
+7. Luồng click mở khóa nằm sau cờ cấu hình và mặc định tắt. Chỉ cấu hình link Shopee sau khi người dùng cung cấp chấp thuận riêng; không tự mở popup hoặc tự chuyển hướng. Xem `docs/ARCHITECTURE.md`.
+
+## Cấu trúc
+
+- `src/app`: routes và page server components.
+- `src/components`: thành phần giao diện dùng lại.
+- `src/data/stories.ts`: dữ liệu mẫu.
+- `src/lib/managed-stories.ts`: kho JSON local cho panel đăng truyện; thay bằng PostgreSQL trước khi deploy nhiều instance.
+- `src/db`: schema và kết nối PostgreSQL, chưa được nối vào UI.
+- `docs`: quyết định kiến trúc, thiết kế và bảng việc.
+
+Ưu tiên thay đổi nhỏ, có mô tả rõ file và hành vi. Không tự tuyên bố tính năng production khi mới là bản demo.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
