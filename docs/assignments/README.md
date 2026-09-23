@@ -1,18 +1,20 @@
-# Giao việc hiện tại cho Claude Code và Antigravity
+# Giao việc hiện tại — U5 / M3
 
-M2 và U4 bắt đầu từ cùng một commit `main` trên **hai worktree mới**. Mở đúng thư mục trong từng extension VS Code, rồi gửi câu nhắc bên dưới. Các file `CLAUDE_B1.md`, `ANTIGRAVITY_U3.md` và `ANTIGRAVITY_U3_THEME_FONT.md` là lịch sử đã hoàn tất, không phải nhiệm vụ hiện tại.
+Codex đã lập [kế hoạch trang đọc](../READER_U5_M3_PLAN.md). Antigravity và Claude Code làm trên hai worktree riêng từ cùng một commit kế hoạch; người dùng mở đúng thư mục trong extension VS Code rồi gửi câu nhận việc dưới đây. Các file U4/M2 là lịch sử, không phải nhiệm vụ hiện tại.
 
 | Agent | Thư mục mở trong VS Code | Nhánh | File giao việc |
 | --- | --- | --- | --- |
-| Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-m2` | `claude/m2-ads-unlock-logic` | `docs/assignments/CLAUDE_M2.md` |
-| Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u4` | `antigravity/u4-reader-ads-ui` | `docs/assignments/ANTIGRAVITY_U4.md` |
+| Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u5` | `antigravity/u5-reader-polish` | [ANTIGRAVITY_U5.md](ANTIGRAVITY_U5.md) |
+| Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-m3` | `claude/m3-reader-preferences-test-unlock` | [CLAUDE_M3.md](CLAUDE_M3.md) |
 
-## Câu nhắc gửi cho Claude Code
+## Gửi Antigravity
 
-> Mở worktree `E:\Dev\StoryWeb\.worktrees\claude-m2`. Đọc `AGENTS.md`, `CLAUDE.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/assignments/CLAUDE_M2.md` và `docs/WORKBOARD.md`; nhận M2 trên workboard. Từ nay bạn code toàn bộ logic dự án, cả client và server, không chỉ backend. Hãy xây settings/admin API, hai mode mở khóa, bảo vệ quyền đọc 5 phút, state và tích hợp display ads theo assignment. Rewarded chỉ bật khi provider web có bằng chứng server xác minh được; nếu chưa có thì giữ fail-closed. Antigravity làm view U4; phối hợp bằng typed props và ghép view sau khi U4 commit. Chạy test/typecheck/lint/build, commit nhánh M2 và bàn giao; không sửa CSS của Antigravity, không push main/deploy/migration production.
+> Mở worktree `E:\Dev\StoryWeb\.worktrees\antigravity-u5`. Đọc `AGENTS.md`, `docs/READER_U5_M3_PLAN.md`, `docs/assignments/ANTIGRAVITY_U5.md`, `docs/WORKBOARD.md`; nhận U5. Thiết kế và code view/CSS trang đọc: tên truyện và “Hết chương” lớn hơn, 4 nút đồng kiểu/căn giữa, panel tùy chỉnh đọc, responsive Sáng/Tối. Chỉ làm giao diện nhận props/callback; không sửa logic. Chạy typecheck/lint/build, commit và bàn giao props cùng ảnh/walkthrough.
 
-## Câu nhắc gửi cho Antigravity
+## Gửi Claude Code
 
-> Mở worktree `E:\Dev\StoryWeb\.worktrees\antigravity-u4`. Đọc `AGENTS.md`, `.agents/rules/project-context.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/assignments/ANTIGRAVITY_U4.md` và `docs/WORKBOARD.md`; nhận U4 trên workboard. Bạn chỉ thiết kế và code giao diện: bốn nút điều hướng trong ảnh, drawer danh sách chương, block quảng cáo, dialog khóa hai mode và trang switch admin. Làm view nhận props/callback, không tự code API, entitlement, state hoặc provider. Kiểm tra Sáng/Tối ở 360/768/1280 px, bàn phím, typecheck/lint/build; commit nhánh U4 và bàn giao props/ảnh. Không push main hoặc deploy.
+> Mở worktree `E:\Dev\StoryWeb\.worktrees\claude-m3`. Đọc `AGENTS.md`, `CLAUDE.md`, `docs/READER_U5_M3_PLAN.md`, `docs/assignments/CLAUDE_M3.md`, `docs/WORKBOARD.md`; nhận M3. Bạn phụ trách toàn bộ logic client/server: preference có lưu/validate/migrate, tích hợp view U5 sau bàn giao, và luồng test mở khóa 5 phút bằng `example.com` trên môi trường riêng. Giữ server guard/body khóa không lộ; không bật Shopee/rewarded mock production. Chạy typecheck/lint/build và test, commit rồi bàn giao.
 
-Antigravity bàn giao view trước bước Claude ghép với logic. Nếu cả hai cần cùng một file, ghi yêu cầu vào workboard và dùng thứ tự bàn giao; không sửa đè worktree khác. Codex review và tích hợp sau cùng.
+## Thứ tự tích hợp
+
+Hai agent có thể làm độc lập ngay. Antigravity chốt props view trước khi Claude ghép; Claude chuẩn bị model/test song song. Codex review hai commit, tích hợp và chạy thử ở môi trường tách production (I3). Không sửa trực tiếp worktree của nhau hoặc push `main`.
