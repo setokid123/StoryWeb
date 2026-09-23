@@ -1,6 +1,6 @@
 # Thư Các — StoryWeb
 
-Website đọc truyện tiếng Việt dùng Next.js 16, React 19, TypeScript, PostgreSQL và Drizzle. Trang công khai có danh mục, tìm kiếm, chi tiết truyện, trình đọc và tủ truyện lưu trong trình duyệt. `/panel` cho quản trị viên đăng nhập, soạn truyện/chương, lưu nháp, xuất bản, sửa và xóa.
+Website đọc truyện tiếng Việt dùng Next.js 16, React 19, TypeScript, PostgreSQL và Drizzle. Trang công khai có danh mục, tìm kiếm, chi tiết truyện, trình đọc và tủ truyện lưu trong trình duyệt. `/panel` cho quản trị viên và tài khoản tác giả soạn truyện/chương theo quyền sở hữu. Backend tài khoản độc giả/tác giả đã có; giao diện đăng nhập/đăng ký cho tài khoản mới sẽ được bổ sung sau.
 
 ## Chạy local
 
@@ -15,6 +15,8 @@ npm run dev
 Trên máy Windows này, nếu PowerShell chưa tìm thấy Node/npm, thêm `C:\Program Files\nodejs` vào `PATH` của phiên shell.
 
 Kiểm tra mã: `npm run typecheck`, `npm run lint`, `npm run build`. Route `/api/health` trả 200 khi kết nối PostgreSQL hoạt động.
+
+API tài khoản, phân quyền Studio, giới hạn đăng nhập và cách tạo editor/admin nằm trong [tài liệu B1](docs/AUTH_API.md). Mật khẩu panel cũ vẫn dùng được trong thời gian chuyển tiếp.
 
 Nếu có dữ liệu CMS cũ ở `content/published-stories.json`, chạy `node scripts/import-stories.mjs [đường-dẫn-file]` một lần sau migration. Script bỏ qua truyện đã tồn tại.
 

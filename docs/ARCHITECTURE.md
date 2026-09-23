@@ -2,7 +2,7 @@
 
 ## Trạng thái hiện tại
 
-Next.js App Router + React + TypeScript, CSS thuần, icon Lucide. Truyện mẫu ở `src/data/stories.ts`; panel `/panel` tạo bản nháp, thêm chương và xuất bản vào PostgreSQL qua Drizzle. Truyện xuất bản xuất hiện ở trang chủ/tìm kiếm/chi tiết/đọc. Tủ truyện và cài đặt đọc ở LocalStorage. Thân chương chỉ được truy vấn sau khi server kiểm tra quyền. Panel hiện dùng một mật khẩu từ môi trường, chưa có tài khoản nhiều tác giả. Railway dùng migration trước deploy và health check kiểm tra PostgreSQL.
+Next.js App Router + React + TypeScript, CSS thuần, icon Lucide. Truyện mẫu ở `src/data/stories.ts`; panel `/panel` tạo bản nháp, thêm chương và xuất bản vào PostgreSQL qua Drizzle. Truyện xuất bản xuất hiện ở trang chủ/tìm kiếm/chi tiết/đọc. Tủ truyện và cài đặt đọc ở LocalStorage. Thân chương chỉ được truy vấn sau khi server kiểm tra quyền. Backend có session tài khoản reader/editor/admin và giới hạn quyền tác giả theo `stories.owner_id`; mật khẩu admin cũ còn dùng trong thời gian chuyển tiếp. UI tài khoản mới chưa triển khai. Railway dùng migration trước deploy và health check kiểm tra PostgreSQL.
 
 ## Vì sao stack này
 
@@ -25,6 +25,6 @@ Luồng click mở khóa được cài sẵn ở `/unlock/visit`, nhưng mặc �
 
 ## Việc tiếp theo
 
-1. Thêm auth/session nhiều tác giả và quyền reader/editor/admin; rate limit đăng nhập.
+1. Thêm UI đăng nhập/đăng ký, quản lý tài khoản và chuyển tủ truyện/tiến độ đọc từ LocalStorage sang tài khoản.
 2. Phân trang chương và tìm kiếm có index khi kho truyện tăng.
 3. Tích hợp quảng cáo có thưởng/gói đọc sau khi có nhà cung cấp và quyền sử dụng; thêm audit và backup.

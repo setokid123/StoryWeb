@@ -257,6 +257,24 @@ try {
     assert.equal(other.status, 429);
   });
 
+  await step("client IP rate limit uses the first X-Forwarded-For address across proxy hops", async () => {
+    const connectingIp = `203.0.113.${Number.parseInt(run.slice(0, 2), 16)}`;
+    for (let attempt = 0; attempt < 10; attempt += 1) {
+      const result = await call("/api/admin/login", {
+        method: "POST",
+        body: { password: `${adminPassword}-wrong` },
+        headers: { "X-Forwarded-For": `${connectingIp}, 192.0.2.${attempt + 1}` },
+      });
+      assert.equal(result.status, 401, `attempt ${attempt + 1}`);
+    }
+    const blocked = await call("/api/admin/login", {
+      method: "POST",
+      body: { password: adminPassword },
+      headers: { "X-Forwarded-For": `${connectingIp}, 192.0.2.250` },
+    });
+    assert.equal(blocked.status, 429, "The changing proxy hop must not reset the client's limit");
+  });
+
   console.log(`B1 auth test passed (${passed} groups).`);
 } finally {
   if (adminCookie) {

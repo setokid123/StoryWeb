@@ -32,7 +32,7 @@ Khi trình duyệt có cả hai cookie: admin tài khoản > admin mật khẩu 
 | `PATCH /api/auth/account` (đổi mật khẩu) | user | 5 lần / 15 phút |
 | `POST /api/admin/login` (cũ) | IP | 10 lần / 15 phút (xóa khi đúng) |
 
-Mỗi lần thử được đếm **trước** khi kiểm tra mật khẩu, nên vượt ngưỡng thì mật khẩu đúng cũng bị 429 tới hết cửa sổ. IP lấy phần tử **cuối** của `X-Forwarded-For` (proxy Railway thêm vào).
+Mỗi lần thử được đếm **trước** khi kiểm tra mật khẩu, nên vượt ngưỡng thì mật khẩu đúng cũng bị 429 tới hết cửa sổ. IP lấy phần tử **đầu** của `X-Forwarded-For`. [Nhân viên Railway xác nhận](https://station.railway.com/questions/security-critical-questions-on-edge-prox-8fddd775) edge kiểm soát header này, phần tử đầu là IP kết nối thật; các phần tử sau có thể là hop nội bộ. [Railway cũng khuyến nghị](https://station.railway.com/questions/which-header-should-i-rely-on-for-real-c-d78a6f96) dùng phần tử đầu khi tuyến có CDN. Không coi phần tử cuối là IP người dùng.
 
 ### Kiểm tra nguồn (CSRF)
 

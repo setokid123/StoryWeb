@@ -79,10 +79,10 @@ export function crossOrigin() {
 }
 
 /**
- * Railway's edge proxy appends the connecting address to X-Forwarded-For, so the last hop is the one
- * a client cannot forge. Used only as a rate-limit key; the per-email limit does not depend on it.
+ * Railway's edge proxy controls X-Forwarded-For; its first address is the connecting client.
+ * Later addresses may be proxy hops. Used only as a rate-limit key; the per-email limit is separate.
  */
 export function clientIp(request: Request) {
-  const forwarded = request.headers.get("x-forwarded-for")?.split(",").at(-1)?.trim();
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   return (forwarded || request.headers.get("x-real-ip") || "unknown").slice(0, 64);
 }
