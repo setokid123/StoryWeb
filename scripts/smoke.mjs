@@ -76,6 +76,6 @@ try {
 } finally {
   if (id && adminCookie) {
     const cleanup = await fetch(`${base}/api/admin/stories`, { method: "DELETE", headers: { "Content-Type": "application/json", Cookie: adminCookie }, body: JSON.stringify({ id }) });
-    if (!cleanup.ok) console.error("Smoke cleanup failed:", await cleanup.text());
+    if (!cleanup.ok) throw new Error(`Smoke cleanup failed ${cleanup.status}: ${await cleanup.text()}`);
   }
 }

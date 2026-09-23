@@ -29,6 +29,8 @@ export type StoryInput = Pick<ManagedStory, "slug" | "title" | "author" | "genre
 
 export class ManagedStoryError extends Error {}
 
+const storyIdPattern = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+
 type StoryRow = typeof stories.$inferSelect;
 type ChapterRow = Pick<typeof chapters.$inferSelect, "storyId" | "number" | "title" | "body">;
 
@@ -76,7 +78,7 @@ function isUniqueViolation(error: unknown): boolean {
 
 export async function saveManagedStory(input: StoryInput): Promise<ManagedStory> {
   if (sampleStories.some((story) => story.slug === input.slug)) throw new ManagedStoryError("Đường dẫn truyện đã được dùng.");
-  if (input.id && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(input.id)) throw new ManagedStoryError("ID truyện không hợp lệ.");
+  if (input.id && !storyIdPattern.test(input.id)) throw new ManagedStoryError("ID truyện không hợp lệ.");
   const db = getDb();
   const id = input.id ?? randomUUID();
   const now = new Date();
@@ -135,7 +137,7 @@ export async function saveManagedStory(input: StoryInput): Promise<ManagedStory>
 }
 
 export async function removeManagedStory(id: string): Promise<void> {
-  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) throw new ManagedStoryError("ID truyện không hợp lệ.");
+  if (!storyIdPattern.test(id)) throw new ManagedStoryError("ID truyện không hợp lệ.");
   const [removed] = await getDb().delete(stories).where(eq(stories.id, id)).returning({ id: stories.id });
   if (!removed) throw new ManagedStoryError("Không tìm thấy truyện cần xóa.");
 }
