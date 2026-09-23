@@ -8,10 +8,13 @@
 // This script needs the same CLICK_UNLOCK_SECRET / REWARDED_MOCK_SECRET / STORYWEB_TEST_ADMIN_PASSWORD / DATABASE_URL.
 import assert from "node:assert/strict";
 import { createHmac, randomUUID } from "node:crypto";
+import http from "node:http";
 import pg from "pg";
 
 const base = process.env.STORYWEB_TEST_URL ?? "http://127.0.0.1:3100";
 const base2 = process.env.STORYWEB_TEST_URL_2;
+// Optional instance whose DATABASE_URL points nowhere (DB outage → everything must fail closed).
+const base3 = process.env.STORYWEB_TEST_URL_DB_DOWN;
 const adminPassword = process.env.STORYWEB_TEST_ADMIN_PASSWORD;
 const unlockSecret = process.env.CLICK_UNLOCK_SECRET;
 const mockSecret = process.env.REWARDED_MOCK_SECRET;
@@ -31,14 +34,31 @@ const createdEmails = [];
 const slug = `m2-${run}`;
 const bodies = [1, 2, 3].map((n) => `Nội dung chương ${n} bí mật ${run}`);
 
+/** node:http instead of fetch: undici forces Sec-Fetch-Mode: cors, so browser navigations cannot be simulated. */
+function rawRequest(target, { method, headers, body }) {
+  return new Promise((resolve, reject) => {
+    const request = http.request(target, { method, headers }, (res) => {
+      const chunks = [];
+      res.on("data", (chunk) => chunks.push(chunk));
+      res.on("end", () => {
+        const out = new Headers();
+        for (const [key, value] of Object.entries(res.headers)) for (const item of [].concat(value ?? [])) out.append(key, item);
+        resolve({ status: res.statusCode, headers: out, text: Buffer.concat(chunks).toString("utf8") });
+      });
+    });
+    request.on("error", reject);
+    if (body !== undefined) request.write(body);
+    request.end();
+  });
+}
+
 async function call(path, { method = "GET", body, cookie, headers = {}, url = base, origin = true } = {}) {
-  const response = await fetch(`${url}${path}`, {
+  const response = await rawRequest(`${url}${path}`, {
     method,
-    redirect: "manual",
     headers: { "X-Forwarded-For": ip, ...(origin && method !== "GET" ? { Origin: new URL(url).origin } : {}), ...(body !== undefined ? { "Content-Type": "application/json" } : {}), ...(cookie ? { Cookie: cookie } : {}), ...headers },
     body: body === undefined ? undefined : JSON.stringify(body),
   });
-  const text = await response.text();
+  const text = response.text;
   for (const secret of [unlockSecret, mockSecret, adminPassword]) assert.ok(!text.includes(secret), `Secret leaked from ${method} ${path}`);
   let json;
   try { json = JSON.parse(text); } catch { json = undefined; }
@@ -72,11 +92,13 @@ function forgeGrant(mode, revision, expiresAt) {
 
 async function chapterVisible(number, cookie, url = base) {
   const html = await call(`/doc/${slug}/${number}`, { cookie, url });
-  const rsc = await call(`/doc/${slug}/${number}`, { cookie, url, headers: { RSC: "1" } });
   const inHtml = html.text.includes(bodies[number - 1]);
-  assert.equal(rsc.text.includes(bodies[number - 1]), inHtml, "HTML and RSC payload must agree");
+  // Client-navigation payload (RSC) must not leak a body the HTML withholds.
+  const rsc = await fetch(`${url}/doc/${slug}/${number}?_rsc=m2`, { headers: { RSC: "1", "X-Forwarded-For": ip, ...(cookie ? { Cookie: cookie } : {}) } });
+  if (!inHtml) assert.ok(!(await rsc.text()).includes(bodies[number - 1]), "locked body leaked in RSC payload");
   return { visible: inHtml, html: html.text };
 }
+const NAV = { "Sec-Fetch-Site": "same-origin", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-User": "?1", "Sec-Fetch-Dest": "document" };
 
 function mockSign(nonce, providerRef) {
   return createHmac("sha256", mockSecret).update(`${nonce}.${providerRef}`).digest("hex");
@@ -108,13 +130,13 @@ try {
     assert.equal((await call("/api/admin/settings", { cookie: editorCookie })).status, 403);
     assert.equal((await put({ unlockEnabled: true }, { cookie: editorCookie })).status, 403);
     const page = await call("/panel/cai-dat", { cookie: editorCookie });
-    assert.ok(!page.text.includes("Bật mở khóa chương"));
+    assert.ok(!page.text.includes("Bảo vệ chương khóa"));
     assert.equal((await call("/panel/cai-dat")).status, 307);
     const admin = await settings();
     assert.equal(admin.readiness.link.state, "ready");
     assert.equal(admin.readiness.rewarded.state, "ready");
     assert.equal(admin.effectiveMode, "off");
-    assert.ok((await call("/panel/cai-dat", { cookie: adminCookie })).text.includes("Bật mở khóa chương"));
+    assert.ok((await call("/panel/cai-dat", { cookie: adminCookie })).text.includes("Bảo vệ chương khóa"));
   });
 
   await step("settings validation, CSRF, version conflict", async () => {
@@ -137,8 +159,8 @@ try {
     assert.ok((await chapterVisible(1)).visible);
     const locked = await chapterVisible(2);
     assert.ok(!locked.visible);
-    assert.ok(!locked.html.includes("Mở liên kết giới thiệu") && !locked.html.includes("Xem quảng cáo để mở khóa"));
-    assert.equal((await call("/unlock/visit", { method: "POST" })).status, 503);
+    assert.ok(!locked.html.includes("Mở liên kết giới thiệu") && !locked.html.includes("Xem quảng cáo mở khóa"));
+    assert.equal((await call("/unlock/visit", { method: "POST", headers: NAV })).status, 503);
     assert.equal((await call("/api/unlock/rewarded/start", { method: "POST" })).status, 503);
   });
 
@@ -151,7 +173,15 @@ try {
     assert.equal(linkRevision, before + 1);
     assert.equal(enable.json.effectiveMode, "link");
     assert.ok((await chapterVisible(2)).html.includes("Mở liên kết giới thiệu"));
-    assert.equal((await call("/unlock/visit")).status, 405);
+    // GET (U4 <a target=_blank>) needs Fetch Metadata of a user-activated same-origin navigation.
+    assert.equal((await call("/unlock/visit")).status, 400, "GET without Fetch Metadata");
+    assert.equal((await call("/unlock/visit", { headers: { ...NAV, "Sec-Fetch-Site": "cross-site" } })).status, 400, "cross-site link");
+    assert.equal((await call("/unlock/visit", { headers: { ...NAV, "Sec-Fetch-User": "?0" } })).status, 400, "not user-activated");
+    assert.equal((await call("/unlock/visit", { headers: { ...NAV, "Sec-Fetch-Dest": "image" } })).status, 400, "<img> request");
+    assert.equal((await call("/unlock/visit", { headers: { ...NAV, "Sec-Purpose": "prefetch" } })).status, 400, "prefetch");
+    const viaGet = await call("/unlock/visit", { headers: NAV });
+    assert.equal(viaGet.status, 303);
+    assert.ok(cookieFrom(viaGet, "storyweb_unlock"));
     assert.equal((await call("/unlock/visit", { method: "POST", origin: false, headers: { Origin: "https://evil.example" } })).status, 403);
     assert.equal((await call("/unlock/visit", { method: "POST", headers: { "Sec-Fetch-User": "?0", "Sec-Fetch-Mode": "navigate" } })).status, 400);
     const visit = await call("/unlock/visit", { method: "POST", headers: { "Sec-Fetch-User": "?1", "Sec-Fetch-Mode": "navigate" } });
@@ -180,8 +210,8 @@ try {
     rewardedRevision = result.json.settings.unlockRevision;
     assert.equal(rewardedRevision, linkRevision + 1);
     assert.ok(!(await chapterVisible(2, linkGrant)).visible);
-    assert.equal((await call("/unlock/visit", { method: "POST" })).status, 503);
-    assert.ok((await chapterVisible(2)).html.includes("Xem quảng cáo để mở khóa"));
+    assert.equal((await call("/unlock/visit", { method: "POST", headers: NAV })).status, 503);
+    assert.ok((await chapterVisible(2)).html.includes("Xem quảng cáo mở khóa"));
   });
 
   await step("rewarded: forged/replayed callbacks, wrong reader, single claim", async () => {
@@ -237,9 +267,28 @@ try {
     assert.equal(refuse.status, 409);
     assert.equal(refuse.json.code, "mode_not_ready");
     const page = await chapterVisible(2, undefined, base2);
-    assert.ok(!page.visible && !page.html.includes("Xem quảng cáo để mở khóa"), "no fake rewarded button");
+    assert.ok(!page.visible && !page.html.includes("Xem quảng cáo mở khóa"), "no fake rewarded button");
     assert.equal((await call("/api/unlock/rewarded/start", { method: "POST", url: base2 })).status, 503);
     assert.equal((await call("/api/unlock/rewarded/mock-complete", { method: "POST", url: base2, body: { nonce: "a".repeat(64) } })).status, 404);
+    // Provider callback while no provider is configured → 503, never verified.
+    assert.equal((await call("/api/unlock/rewarded/callback", { method: "POST", origin: false, url: base2, body: { nonce: "a".repeat(64), providerRef: "ref-x-0000", signature: "0".repeat(64) } })).status, 503);
+  });
+
+  await step("provider errors: malformed callback bodies are rejected", async () => {
+    const raw = await fetch(`${base}/api/unlock/rewarded/callback`, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{not json" });
+    assert.equal(raw.status, 400);
+    assert.equal((await call("/api/unlock/rewarded/callback", { method: "POST", origin: false, body: { nonce: "zz", providerRef: "x", signature: "y" } })).status, 401);
+    assert.equal((await call("/api/unlock/rewarded/callback", { method: "POST", origin: false, body: { nonce: "b".repeat(64), providerRef: `ref-${run}-9`, signature: mockSign("b".repeat(64), `ref-${run}-9`) } })).status, 409, "unknown nonce");
+  });
+
+  if (base3) await step("database outage: unlock, grants and settings fail closed", async () => {
+    const forged = forgeGrant("link", 1, Date.now() + 60_000);
+    assert.equal((await call("/unlock/visit", { method: "POST", url: base3, headers: NAV })).status, 503);
+    assert.equal((await call("/unlock/visit", { url: base3, headers: NAV })).status, 503);
+    assert.equal((await call("/api/unlock/rewarded/start", { method: "POST", url: base3 })).status, 503);
+    assert.equal((await call("/api/admin/settings", { cookie: adminCookie, url: base3 })).status, 503);
+    const locked = await call("/doc/thanh-pho-sau-con-mua/3", { url: base3, cookie: forged });
+    assert.ok(locked.status >= 500 || !locked.text.includes("reader-text"), "no chapter body while settings are unreadable");
   });
 
   await step("display slots: hidden when off, rendered when on, reader_end only on readable chapters", async () => {

@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentType } from "react";
-import type { AdSlotStatus, AdSlotViewProps } from "@/components/view-contracts";
+import { useEffect, useRef, useState } from "react";
+import { AdSlot } from "@/components/ad-slot";
 import type { DisplayAdConfig } from "@/lib/display-ads";
+
+type AdSlotStatus = "loading" | "filled" | "no_fill" | "error";
 
 declare global {
   interface Window { adsbygoogle?: unknown[] }
@@ -56,19 +58,11 @@ async function fill(config: DisplayAdConfig, mount: HTMLDivElement): Promise<AdS
   });
 }
 
-/** Default view until U4's AdSlotView is merged: label + mount, reserved height only while loading. */
-function FallbackAdSlotView({ placement, status, preview, mountRef }: AdSlotViewProps) {
-  return <aside aria-label="Quảng cáo" data-ad-placement={placement} data-ad-status={status} data-ad-preview={preview || undefined} style={status === "loading" ? { minHeight: 120 } : undefined}>
-    <small>Quảng cáo</small>
-    <div ref={mountRef} />
-  </aside>;
-}
-
 /**
  * Loads one display placement. Renders nothing when there is no config (disabled/unconfigured) or after
  * no-fill/error, so public pages never show empty frames. Impressions/clicks never grant chapter access.
  */
-export function AdSlotContainer({ config, View = FallbackAdSlotView }: { config: DisplayAdConfig | null; View?: ComponentType<AdSlotViewProps> }) {
+export function AdSlotContainer({ config }: { config: DisplayAdConfig | null }) {
   const mountRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<AdSlotStatus>("loading");
 
@@ -80,5 +74,7 @@ export function AdSlotContainer({ config, View = FallbackAdSlotView }: { config:
   }, [config]);
 
   if (!config || status === "no_fill" || status === "error") return null;
-  return <View placement={config.placement} status={status} preview={false} mountRef={mountRef} />;
+  // U4's AdSlot renders children only for "success", but the provider needs its mount node while loading,
+  // so the mount is passed as "success" from the start; no-fill/error unmounts the whole slot (hidden publicly).
+  return <AdSlot placement={config.placement} status="success"><div ref={mountRef} data-ad-placement={config.placement} data-ad-status={status} /></AdSlot>;
 }

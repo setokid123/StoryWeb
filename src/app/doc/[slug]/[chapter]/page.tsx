@@ -40,7 +40,9 @@ export default async function ChapterPage({ params }: Props) {
   });
   const readerEndAd = content !== null ? await getDisplayAd("reader_end") : null;
 
+  // key: fresh container state (drawer, rewarded flow) per chapter.
   return <ReaderPanel
+    key={`${story.slug}/${chapter}`}
     story={story}
     chapter={chapter}
     title={managed?.chapters[chapter - 1]?.title ?? chapterTitle(chapter)}
