@@ -13,6 +13,6 @@ Hai việc đã tách file và worktree. Bạn mở đúng thư mục bên dư�
 
 ## Câu nhắc gửi cho Antigravity
 
-> Hãy đọc `AGENTS.md`, `.agents/rules/project-context.md` và `docs/assignments/ANTIGRAVITY_U3.md` trong workspace đang mở, rồi thực hiện toàn bộ U3 theo file giao việc. Worktree và nhánh đã tạo sẵn; kiểm tra `git status` trước khi sửa. Cập nhật dòng U3 trên `docs/WORKBOARD.md` trong nhánh của bạn, kiểm tra giao diện, chạy typecheck/lint/build, commit và bàn giao ảnh trước/sau cùng phần còn thiếu. Không push `main` hoặc deploy.
+> Hãy mở đúng worktree `E:\Dev\StoryWeb\.worktrees\antigravity-u3`, đọc `AGENTS.md`, `docs/assignments/ANTIGRAVITY_U3_THEME_FONT.md` và **review mới nhất** `docs/reviews/U3_THEME_FONT_REVIEW_2026-09-23.md`. Sửa 3 lỗi lint, đồng bộ theme khi hệ thống đổi lúc trang đang mở, tăng tương phản chữ dialog tối và dọn trailing whitespace. Giữ kết quả font tiếng Việt và focus dialog đã đạt. Chạy lại typecheck/lint/build/diff check, cập nhật U3 trên workboard, commit nhánh U3 và bàn giao mã commit. Không push `main` hoặc deploy.
 
 Nếu một app đang mở `E:\Dev\StoryWeb` (nhánh `main`), hãy mở đúng worktree của agent trước khi gửi câu nhắc. Không để cả hai app sửa trực tiếp `main`. Sau khi hai bên bàn giao, gửi commit/nhánh cho Codex review và tích hợp.
