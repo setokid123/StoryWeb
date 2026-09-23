@@ -3,7 +3,9 @@ import { randomUUID } from "node:crypto";
 
 const base = process.env.STORYWEB_TEST_URL ?? "http://127.0.0.1:3000";
 const password = process.env.STORYWEB_TEST_ADMIN_PASSWORD;
+const gateMode = process.env.STORYWEB_TEST_GATE_MODE ?? "example";
 if (!password) throw new Error("Set STORYWEB_TEST_ADMIN_PASSWORD before running this smoke test.");
+if (!["example", "disabled"].includes(gateMode)) throw new Error("STORYWEB_TEST_GATE_MODE must be example or disabled.");
 
 const slug = `smoke-${randomUUID().slice(0, 8)}`;
 const firstText = `Nội dung chương một ${slug}`;
@@ -50,21 +52,27 @@ try {
   assert.ok(!lockedHtml.includes(secondText), "Locked chapter body leaked into HTML");
 
   const visit = await fetch(`${base}/unlock/visit`, { redirect: "manual" });
-  assert.equal(visit.status, 302);
-  assert.equal(visit.headers.get("location"), "https://example.com/storyweb-test");
-  const unlockHeader = visit.headers.get("set-cookie") ?? "";
-  assert.match(unlockHeader, /Max-Age=300/i);
-  const unlockCookie = unlockHeader.split(";")[0];
-  assert.ok(unlockCookie.startsWith("storyweb_click_unlock="));
+  if (gateMode === "disabled") {
+    assert.equal(visit.status, 503);
+    assert.equal(visit.headers.get("set-cookie"), null);
+    console.log("Smoke test passed: admin auth, PostgreSQL publication, free chapter, locked chapter, disabled gate.");
+  } else {
+    assert.equal(visit.status, 302);
+    assert.equal(visit.headers.get("location"), "https://example.com/storyweb-test");
+    const unlockHeader = visit.headers.get("set-cookie") ?? "";
+    assert.match(unlockHeader, /Max-Age=300/i);
+    const unlockCookie = unlockHeader.split(";")[0];
+    assert.ok(unlockCookie.startsWith("storyweb_click_unlock="));
 
-  const secondOpen = await fetch(`${base}/doc/${slug}/2`, { headers: { Cookie: unlockCookie } });
-  assert.match(await secondOpen.text(), new RegExp(secondText));
-  const thirdOpen = await fetch(`${base}/doc/${slug}/3`, { headers: { Cookie: unlockCookie } });
-  assert.match(await thirdOpen.text(), new RegExp(thirdText));
+    const secondOpen = await fetch(`${base}/doc/${slug}/2`, { headers: { Cookie: unlockCookie } });
+    assert.match(await secondOpen.text(), new RegExp(secondText));
+    const thirdOpen = await fetch(`${base}/doc/${slug}/3`, { headers: { Cookie: unlockCookie } });
+    assert.match(await thirdOpen.text(), new RegExp(thirdText));
 
-  const tampered = await fetch(`${base}/doc/${slug}/2`, { headers: { Cookie: `${unlockCookie}x` } });
-  assert.ok(!(await tampered.text()).includes(secondText));
-  console.log("Smoke test passed: admin auth, publication, locked chapter, 5-minute cookie, next chapter, tamper check.");
+    const tampered = await fetch(`${base}/doc/${slug}/2`, { headers: { Cookie: `${unlockCookie}x` } });
+    assert.ok(!(await tampered.text()).includes(secondText));
+    console.log("Smoke test passed: admin auth, publication, locked chapter, 5-minute cookie, next chapter, tamper check.");
+  }
 } finally {
   if (id && adminCookie) {
     const cleanup = await fetch(`${base}/api/admin/stories`, { method: "DELETE", headers: { "Content-Type": "application/json", Cookie: adminCookie }, body: JSON.stringify({ id }) });

@@ -57,5 +57,10 @@ export async function DELETE(request: Request) {
   const id = typeof body === "object" && body !== null && "id" in body ? body.id : undefined;
   if (typeof id !== "string") return NextResponse.json({ error: "Thiếu ID truyện." }, { status: 400 });
   try { await removeManagedStory(id); return NextResponse.json({ ok: true }); }
-  catch (error) { return storageError(error); }
+  catch (error) {
+    if (error instanceof ManagedStoryError && error.message === "ID truyện không hợp lệ.") {
+      console.error("Invalid story delete ID", { id: JSON.stringify(id), length: id.length });
+    }
+    return storageError(error);
+  }
 }
