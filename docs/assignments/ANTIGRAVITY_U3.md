@@ -1,11 +1,11 @@
 # U3 — Antigravity: rà soát và hoàn thiện Studio / trang đọc
 
-**Người thực hiện:** Antigravity trong extension của người dùng. **Phạm vi:** UI/UX hiện có; không deploy.
+**Người thực hiện:** Antigravity IDE/extension của người dùng. **Phạm vi:** UI/UX hiện có; không deploy.
 
 ## Bắt đầu
 
-1. Mở repository StoryWeb trong Antigravity. Đọc `AGENTS.md`, `.agents/rules/project-context.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md`, `docs/DESIGN_SYSTEM.md`.
-2. Nhận mục **U3** trong `docs/WORKBOARD.md`: ghi `Đang làm (Antigravity)` và các file dưới đây trước khi sửa. Nếu mục chưa có, thêm một dòng U3. Dùng nhánh hoặc worktree `antigravity/u3-studio-reader`; kiểm tra `git status` để không ghi đè việc chưa commit. Báo Codex nếu một file đã có chủ sở hữu đang sửa.
+1. Mở worktree `E:\Dev\StoryWeb\.worktrees\antigravity-u3` trong Antigravity. Đọc `AGENTS.md`, `.agents/rules/project-context.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md`, `docs/DESIGN_SYSTEM.md`.
+2. Nhánh `antigravity/u3-studio-reader` đã tạo sẵn; kiểm tra `git branch --show-current` và `git status`, không tạo nhánh khác hoặc sửa `main`. Nhận mục **U3** trong `docs/WORKBOARD.md`: ghi `Đang làm (Antigravity)` và các file dưới đây trước khi sửa. Báo Codex nếu một file đã có chủ sở hữu đang sửa.
 3. Trước khi viết mã Next.js, đọc hướng dẫn liên quan trong `node_modules/next/dist/docs/` theo `AGENTS.md`. Chạy ứng dụng local với PostgreSQL và `.env.local` riêng theo `README.md`; dùng truyện thử local, không sửa dữ liệu production.
 
 ## File được sở hữu trong U3

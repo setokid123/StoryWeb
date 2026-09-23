@@ -1,6 +1,6 @@
 # Claude Code — StoryWeb
 
-Đọc `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md` trước khi sửa. Vai trò mặc định của Claude Code là backend: chuyển kho JSON local sang PostgreSQL/Drizzle, xác thực nhiều tác giả, API, CMS và quyền đọc chương.
+Đọc `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md` trước khi sửa. PostgreSQL/Drizzle và CMS hiện đã hoạt động. Việc B1 hiện tại là xác thực tài khoản độc giả, nhiều tác giả và phân quyền CMS; xem `docs/assignments/CLAUDE_B1.md`.
 
 Các lệnh: `npm run dev`, `npm run typecheck`, `npm run lint`, `npm run build`, `npm run db:generate`, `npm run db:migrate`.
 

@@ -2,7 +2,7 @@
 
 ## Cách nhận việc
 
-Mở repository này trong **Claude Code extension** và giao nguyên nội dung file này cho Claude Code. Trước khi sửa, đọc `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md` và hướng dẫn Next.js liên quan trong `node_modules/next/dist/docs/`. Nhận mục **B1** trên workboard: đổi trạng thái thành `Đang làm (Claude Code)`, ghi nhánh và file dự kiến sửa. Tạo nhánh/worktree riêng `claude/b1-multi-user-auth` từ `origin/main`; không sửa trực tiếp `main`. Nếu worktree hiện có thay đổi chưa commit, không ghi đè; báo Codex để thống nhất điểm xuất phát.
+Mở worktree `E:\Dev\StoryWeb\.worktrees\claude-b1` trong **Claude Code**. Nhánh `claude/b1-multi-user-auth` đã tạo sẵn; kiểm tra `git branch --show-current` và `git status` trước khi sửa, không tạo nhánh khác hoặc sửa trực tiếp `main`. Đọc `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md` và hướng dẫn Next.js liên quan trong `node_modules/next/dist/docs/`. Nhận mục **B1** trên workboard trong nhánh này: đổi trạng thái thành `Đang làm (Claude Code)`, ghi file dự kiến sửa. Nếu worktree có thay đổi chưa commit của người khác, không ghi đè; báo Codex để thống nhất điểm xuất phát.
 
 ## Hiện trạng và kết quả cần đạt
 

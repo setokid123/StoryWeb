@@ -25,8 +25,8 @@ Phân vai là mặc định để tránh sửa đè. Người dùng có thể gi
 - `src/app`: routes và page server components.
 - `src/components`: thành phần giao diện dùng lại.
 - `src/data/stories.ts`: dữ liệu mẫu.
-- `src/lib/managed-stories.ts`: kho JSON local cho panel đăng truyện; thay bằng PostgreSQL trước khi deploy nhiều instance.
-- `src/db`: schema và kết nối PostgreSQL, chưa được nối vào UI.
+- `src/lib/managed-stories.ts`: truy cập truyện/chương CMS trong PostgreSQL.
+- `src/db`: schema, migration và kết nối PostgreSQL đang dùng bởi ứng dụng.
 - `docs`: quyết định kiến trúc, thiết kế và bảng việc.
 
 Ưu tiên thay đổi nhỏ, có mô tả rõ file và hành vi. Không tự tuyên bố tính năng production khi mới là bản demo.

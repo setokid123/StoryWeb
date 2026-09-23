@@ -44,4 +44,4 @@ Link Shopee trong luồng mở khóa cần chấp thuận riêng trước khi b�
 
 ## Phối hợp agent
 
-Quy tắc và phân công nằm tại [AGENTS.md](AGENTS.md), [CLAUDE.md](CLAUDE.md), [.agents/rules/project-context.md](.agents/rules/project-context.md) và [docs/WORKBOARD.md](docs/WORKBOARD.md). Các vai trò là Codex (tích hợp), Claude Code (backend) và Antigravity (UI/UX); mỗi agent tự cập nhật bảng công việc khi nhận phần việc.
+Quy tắc và phân công nằm tại [AGENTS.md](AGENTS.md), [CLAUDE.md](CLAUDE.md), [.agents/rules/project-context.md](.agents/rules/project-context.md) và [docs/WORKBOARD.md](docs/WORKBOARD.md). [File giao việc cho Claude Code và Antigravity](docs/assignments/README.md) có đường dẫn worktree và câu nhắc để đưa cho từng app. Codex tích hợp; mỗi agent tự cập nhật bảng công việc khi nhận phần việc.
