@@ -5,8 +5,9 @@ import { and, asc, desc, eq, gt, inArray, sql } from "drizzle-orm";
 import type { Story } from "@/data/stories";
 import { stories as sampleStories } from "@/data/stories";
 import { getDb } from "@/db/client";
-import { chapters, stories } from "@/db/schema";
+import { chapters, stories, users } from "@/db/schema";
 import { getClickUnlockExpiration } from "@/lib/click-unlock";
+import type { CmsActor } from "@/lib/cms-access";
 
 export type ManagedChapter = { title: string; body: string };
 export type ManagedStory = {
@@ -21,13 +22,30 @@ export type ManagedStory = {
   completed: boolean;
   freeChapters: number;
   chapters: ManagedChapter[];
+  /** Account that owns the story; null = legacy/admin-managed. Never taken from client input. */
+  ownerId: string | null;
   createdAt: string;
   updatedAt: string;
 };
 
 export type StoryInput = Pick<ManagedStory, "slug" | "title" | "author" | "genre" | "tags" | "description" | "visibility" | "completed" | "freeChapters" | "chapters"> & { id?: string };
 
-export class ManagedStoryError extends Error {}
+export class ManagedStoryError extends Error {
+  constructor(message: string, readonly status: 400 | 403 | 404 = 400) {
+    super(message);
+  }
+}
+
+/** Admins manage every story; editors only rows whose owner_id is their account. */
+function ownedBy(actor: CmsActor) {
+  return actor.isAdmin ? undefined : eq(stories.ownerId, actor.userId);
+}
+
+async function denyOrMissing(id: string, action: string): Promise<never> {
+  const [existing] = await getDb().select({ id: stories.id }).from(stories).where(eq(stories.id, id)).limit(1);
+  if (existing) throw new ManagedStoryError(`Bạn không có quyền ${action} truyện này.`, 403);
+  throw new ManagedStoryError(`Không tìm thấy truyện cần ${action}.`, 404);
+}
 
 const storyIdPattern = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
 
@@ -47,6 +65,7 @@ function mapStory(row: StoryRow, chapterRows: ChapterRow[]): ManagedStory {
     completed: row.completed || row.status === "completed",
     freeChapters: row.freeChapterCount,
     chapters: chapterRows.map(({ title, body }) => ({ title, body })),
+    ownerId: row.ownerId,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
   };
@@ -54,9 +73,10 @@ function mapStory(row: StoryRow, chapterRows: ChapterRow[]): ManagedStory {
 
 const publishedStatuses = ["published", "completed"] as const;
 
-export async function readManagedStories(): Promise<ManagedStory[]> {
+/** CMS listing including drafts and chapter bodies, limited to what the actor may manage. */
+export async function readManagedStories(actor: CmsActor): Promise<ManagedStory[]> {
   const db = getDb();
-  const rows = await db.select().from(stories).orderBy(desc(stories.updatedAt));
+  const rows = await db.select().from(stories).where(ownedBy(actor)).orderBy(desc(stories.updatedAt));
   if (rows.length === 0) return [];
   const chapterRows = await db.select({ storyId: chapters.storyId, number: chapters.number, title: chapters.title, body: chapters.body })
     .from(chapters).where(inArray(chapters.storyId, rows.map(({ id }) => id)))
@@ -76,7 +96,7 @@ function isUniqueViolation(error: unknown): boolean {
   return value.code === "23505" || isUniqueViolation(value.cause);
 }
 
-export async function saveManagedStory(input: StoryInput): Promise<ManagedStory> {
+export async function saveManagedStory(input: StoryInput, actor: CmsActor): Promise<ManagedStory> {
   if (sampleStories.some((story) => story.slug === input.slug)) throw new ManagedStoryError("Đường dẫn truyện đã được dùng.");
   if (input.id && !storyIdPattern.test(input.id)) throw new ManagedStoryError("ID truyện không hợp lệ.");
   const db = getDb();
@@ -99,11 +119,12 @@ export async function saveManagedStory(input: StoryInput): Promise<ManagedStory>
         updatedAt: now,
       };
       if (input.id) {
-        const [updated] = await tx.update(stories).set(values).where(eq(stories.id, input.id)).returning();
-        if (!updated) throw new ManagedStoryError("Không tìm thấy truyện cần sửa.");
+        // Owner check is part of the UPDATE, so chapters below are only touched for a permitted story.
+        const [updated] = await tx.update(stories).set(values).where(and(eq(stories.id, input.id), ownedBy(actor))).returning();
+        if (!updated) return await denyOrMissing(input.id, "sửa");
         row = updated;
       } else {
-        const [inserted] = await tx.insert(stories).values({ id, ...values, createdAt: now }).returning();
+        const [inserted] = await tx.insert(stories).values({ id, ...values, ownerId: actor.userId, createdAt: now }).returning();
         row = inserted;
       }
 
@@ -136,10 +157,24 @@ export async function saveManagedStory(input: StoryInput): Promise<ManagedStory>
   }
 }
 
-export async function removeManagedStory(id: string): Promise<void> {
+export async function removeManagedStory(id: string, actor: CmsActor): Promise<void> {
   if (!storyIdPattern.test(id)) throw new ManagedStoryError("ID truyện không hợp lệ.");
-  const [removed] = await getDb().delete(stories).where(eq(stories.id, id)).returning({ id: stories.id });
-  if (!removed) throw new ManagedStoryError("Không tìm thấy truyện cần xóa.");
+  const [removed] = await getDb().delete(stories).where(and(eq(stories.id, id), ownedBy(actor))).returning({ id: stories.id });
+  if (!removed) await denyOrMissing(id, "xóa");
+}
+
+/** Admin-only reassignment; `ownerId` null hands the story back to admin management. */
+export async function setManagedStoryOwner(id: string, ownerId: string | null): Promise<{ id: string; ownerId: string | null }> {
+  if (!storyIdPattern.test(id) || (ownerId !== null && !storyIdPattern.test(ownerId))) throw new ManagedStoryError("ID không hợp lệ.");
+  const db = getDb();
+  if (ownerId) {
+    const [owner] = await db.select({ role: users.role }).from(users).where(eq(users.id, ownerId)).limit(1);
+    if (!owner) throw new ManagedStoryError("Không tìm thấy tài khoản chủ sở hữu.", 404);
+    if (owner.role === "reader") throw new ManagedStoryError("Chủ sở hữu phải là tài khoản editor hoặc admin.");
+  }
+  const [updated] = await db.update(stories).set({ ownerId }).where(eq(stories.id, id)).returning({ id: stories.id, ownerId: stories.ownerId });
+  if (!updated) throw new ManagedStoryError("Không tìm thấy truyện.", 404);
+  return updated;
 }
 
 const palettes: Record<string, [string, string]> = {

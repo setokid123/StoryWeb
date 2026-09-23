@@ -1,13 +1,20 @@
 import { NextResponse } from "next/server";
-import { hasAdminSession } from "@/lib/admin-auth";
+import { getCmsAccess } from "@/lib/cms-access";
 import { ManagedStoryError, readManagedStories, removeManagedStory, saveManagedStory, type StoryInput } from "@/lib/managed-stories";
+import { crossOrigin, isSameOriginRequest } from "@/lib/request-guard";
 
 export const runtime = "nodejs";
 
 function storageError(error: unknown) {
-  if (error instanceof ManagedStoryError) return NextResponse.json({ error: error.message }, { status: 400 });
+  if (error instanceof ManagedStoryError) return NextResponse.json({ error: error.message, code: error.status === 403 ? "forbidden" : error.status === 404 ? "not_found" : "invalid_input" }, { status: error.status });
   console.error("Story storage request failed", error);
-  return NextResponse.json({ error: "Không thể truy cập dữ liệu truyện. Vui lòng thử lại sau." }, { status: 503 });
+  return NextResponse.json({ error: "Không thể truy cập dữ liệu truyện. Vui lòng thử lại sau.", code: "unavailable" }, { status: 503 });
+}
+
+function denied(status: 401 | 403) {
+  return status === 401
+    ? NextResponse.json({ error: "Chưa đăng nhập.", code: "unauthenticated" }, { status: 401 })
+    : NextResponse.json({ error: "Tài khoản không có quyền quản lý truyện.", code: "forbidden" }, { status: 403 });
 }
 
 function parseInput(value: unknown): StoryInput | null {
@@ -38,24 +45,30 @@ function parseInput(value: unknown): StoryInput | null {
 }
 
 export async function GET() {
-  if (!await hasAdminSession()) return NextResponse.json({ error: "Chưa đăng nhập." }, { status: 401 });
-  try { return NextResponse.json({ stories: await readManagedStories() }); }
+  const access = await getCmsAccess();
+  if (!access.ok) return denied(access.status);
+  try { return NextResponse.json({ stories: await readManagedStories(access.actor) }); }
   catch (error) { return storageError(error); }
 }
 
+// Owner, role and permissions come only from the session; `ownerId` or similar fields in the body are ignored.
 export async function POST(request: Request) {
-  if (!await hasAdminSession()) return NextResponse.json({ error: "Chưa đăng nhập." }, { status: 401 });
+  if (!isSameOriginRequest(request)) return crossOrigin();
+  const access = await getCmsAccess();
+  if (!access.ok) return denied(access.status);
   const input = parseInput(await request.json().catch(() => null));
-  if (!input) return NextResponse.json({ error: "Dữ liệu truyện không hợp lệ. Cần ít nhất một chương để xuất bản; mặc định chương 1 miễn phí." }, { status: 400 });
-  try { return NextResponse.json({ story: await saveManagedStory(input) }); }
+  if (!input) return NextResponse.json({ error: "Dữ liệu truyện không hợp lệ. Cần ít nhất một chương để xuất bản; mặc định chương 1 miễn phí.", code: "invalid_input" }, { status: 400 });
+  try { return NextResponse.json({ story: await saveManagedStory(input, access.actor) }); }
   catch (error) { return storageError(error); }
 }
 
 export async function DELETE(request: Request) {
-  if (!await hasAdminSession()) return NextResponse.json({ error: "Chưa đăng nhập." }, { status: 401 });
+  if (!isSameOriginRequest(request)) return crossOrigin();
+  const access = await getCmsAccess();
+  if (!access.ok) return denied(access.status);
   const body: unknown = await request.json().catch(() => null);
   const id = typeof body === "object" && body !== null && "id" in body ? body.id : undefined;
-  if (typeof id !== "string") return NextResponse.json({ error: "Thiếu ID truyện." }, { status: 400 });
-  try { await removeManagedStory(id); return NextResponse.json({ ok: true }); }
+  if (typeof id !== "string") return NextResponse.json({ error: "Thiếu ID truyện.", code: "invalid_input" }, { status: 400 });
+  try { await removeManagedStory(id, access.actor); return NextResponse.json({ ok: true }); }
   catch (error) { return storageError(error); }
 }

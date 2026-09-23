@@ -10,8 +10,26 @@ export const users = pgTable("users", {
   email: varchar("email", { length: 255 }).notNull().unique(),
   displayName: varchar("display_name", { length: 100 }).notNull(),
   role: userRole("role").notNull().default("reader"),
+  // Nullable so rows created before B1 stay valid; such users cannot sign in until a password is set.
+  passwordHash: text("password_hash"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+/** Server-side sessions; the cookie holds a random token and only its SHA-256 is stored. */
+export const userSessions = pgTable("user_sessions", {
+  tokenHash: varchar("token_hash", { length: 64 }).primaryKey(),
+  userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+}, (table) => [index("user_sessions_user_idx").on(table.userId), index("user_sessions_expires_idx").on(table.expiresAt)]);
+
+/** Fixed-window counters shared by every app instance (login, registration, password change). */
+export const authRateLimits = pgTable("auth_rate_limits", {
+  key: varchar("key", { length: 100 }).primaryKey(),
+  count: integer("count").notNull(),
+  windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+}, (table) => [index("auth_rate_limits_window_idx").on(table.windowStart)]);
 
 export const stories = pgTable("stories", {
   id: uuid("id").defaultRandom().primaryKey(),
@@ -25,9 +43,11 @@ export const stories = pgTable("stories", {
   status: storyStatus("status").notNull().default("draft"),
   completed: boolean("completed").notNull().default(false),
   freeChapterCount: integer("free_chapter_count").notNull().default(1),
+  // NULL = legacy/admin-managed story; only admins can see or change it.
+  ownerId: uuid("owner_id").references(() => users.id, { onDelete: "set null" }),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
-}, (table) => [index("stories_genre_idx").on(table.genre), index("stories_updated_idx").on(table.updatedAt)]);
+}, (table) => [index("stories_genre_idx").on(table.genre), index("stories_updated_idx").on(table.updatedAt), index("stories_owner_idx").on(table.ownerId)]);
 
 export const chapters = pgTable("chapters", {
   id: uuid("id").defaultRandom().primaryKey(),

@@ -15,6 +15,13 @@
       "when": 1790171874298,
       "tag": "0001_groovy_talos",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790175948074,
+      "tag": "0002_b1_accounts_sessions",
+      "breakpoints": true
     }
   ]
 }
