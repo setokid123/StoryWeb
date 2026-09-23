@@ -1,5 +1,7 @@
 node_modules/
 .npm-cache/
+.worktrees/
+debug.log
 .next/
 out/
 coverage/
