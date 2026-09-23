@@ -25,7 +25,6 @@ Luồng click mở khóa được cài sẵn ở `/unlock/visit`, nhưng mặc �
 
 ## Việc tiếp theo
 
-1. Kiểm tra migration và CRUD trên PostgreSQL Railway, sau đó kiểm tra nội dung chương khóa không lộ qua HTML/API.
-2. Thêm auth/session nhiều tác giả và quyền reader/editor/admin; rate limit đăng nhập.
-3. Phân trang chương và tìm kiếm có index khi kho truyện tăng.
-4. Tích hợp quảng cáo có thưởng/gói đọc sau khi có nhà cung cấp và quyền sử dụng; thêm audit và backup.
+1. Thêm auth/session nhiều tác giả và quyền reader/editor/admin; rate limit đăng nhập.
+2. Phân trang chương và tìm kiếm có index khi kho truyện tăng.
+3. Tích hợp quảng cáo có thưởng/gói đọc sau khi có nhà cung cấp và quyền sử dụng; thêm audit và backup.

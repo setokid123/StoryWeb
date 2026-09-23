@@ -20,6 +20,8 @@ Nếu có dữ liệu CMS cũ ở `content/published-stories.json`, chạy `node
 
 ## Triển khai Railway
 
+Production: [storyweb-production.up.railway.app](https://storyweb-production.up.railway.app). Panel quản trị ở `/panel`; health check ở `/api/health`.
+
 Project cần hai service: PostgreSQL và ứng dụng Next.js kết nối repository GitHub nhánh `main`. Đặt biến của service web:
 
 | Biến | Giá trị |
