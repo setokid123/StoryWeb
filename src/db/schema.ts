@@ -96,3 +96,49 @@ export const outboundClicks = pgTable("outbound_clicks", {
   linkId: uuid("link_id").notNull().references(() => affiliateLinks.id, { onDelete: "cascade" }),
   clickedAt: timestamp("clicked_at", { withTimezone: true }).notNull().defaultNow(),
 }, (table) => [index("outbound_clicks_link_time_idx").on(table.linkId, table.clickedAt)]);
+
+export const unlockMode = pgEnum("unlock_mode", ["link", "rewarded"]);
+
+/**
+ * Single-row site configuration (id = "default"). `unlock_revision` is part of every unlock cookie/grant, so bumping it
+ * (on any unlock enable/mode/link change) invalidates access minted under the previous configuration immediately.
+ */
+export const siteSettings = pgTable("site_settings", {
+  id: varchar("id", { length: 32 }).primaryKey(),
+  unlockEnabled: boolean("unlock_enabled").notNull().default(false),
+  unlockMode: unlockMode("unlock_mode").notNull().default("link"),
+  unlockLinkUrl: text("unlock_link_url"),
+  unlockRevision: integer("unlock_revision").notNull().default(1),
+  adSlots: jsonb("ad_slots").$type<Record<string, boolean>>().notNull().default({}),
+  version: integer("version").notNull().default(1),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedByUserId: uuid("updated_by_user_id").references(() => users.id, { onDelete: "set null" }),
+  updatedByLabel: varchar("updated_by_label", { length: 160 }),
+});
+
+/** Minimal audit trail: who changed settings, when, and the before/after values (never secrets). */
+export const siteSettingsAudit = pgTable("site_settings_audit", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  changedAt: timestamp("changed_at", { withTimezone: true }).notNull().defaultNow(),
+  actorUserId: uuid("actor_user_id").references(() => users.id, { onDelete: "set null" }),
+  actorLabel: varchar("actor_label", { length: 160 }).notNull(),
+  before: jsonb("before").notNull(),
+  after: jsonb("after").notNull(),
+}, (table) => [index("site_settings_audit_changed_idx").on(table.changedAt)]);
+
+/**
+ * Rewarded-ad challenges: one nonce per "watch ad" attempt, bound to the reader cookie and unlock revision.
+ * A provider's server-side callback marks it verified; the reader then claims it once (replay-safe).
+ */
+export const unlockChallenges = pgTable("unlock_challenges", {
+  nonce: varchar("nonce", { length: 64 }).primaryKey(),
+  provider: varchar("provider", { length: 32 }).notNull(),
+  readerHash: varchar("reader_hash", { length: 64 }).notNull(),
+  revision: integer("revision").notNull(),
+  status: varchar("status", { length: 16 }).notNull().default("pending"),
+  providerRef: varchar("provider_ref", { length: 255 }).unique(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  verifiedAt: timestamp("verified_at", { withTimezone: true }),
+  consumedAt: timestamp("consumed_at", { withTimezone: true }),
+}, (table) => [index("unlock_challenges_expires_idx").on(table.expiresAt)]);

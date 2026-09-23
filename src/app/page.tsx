@@ -3,12 +3,14 @@ import { ArrowRight, ArrowUpRight, BookOpen, Headphones, Sparkles, Star } from "
 import { Cover } from "@/components/cover";
 import { StoryCard } from "@/components/story-card";
 import { featuredStory, genres } from "@/data/stories";
+import { AdSlotContainer } from "@/components/ad-slot-container";
+import { getDisplayAd } from "@/lib/display-ads";
 import { getCatalogStories } from "@/lib/managed-stories";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const stories = await getCatalogStories();
+  const [stories, homeAd] = await Promise.all([getCatalogStories(), getDisplayAd("home_feed")]);
   return (
     <>
       <section className="hero-section">
@@ -32,6 +34,8 @@ export default async function HomePage() {
       <section className="genre-strip"><div className="container genre-strip__inner"><span>ĐỌC THEO CẢM HỨNG</span><div>{genres.slice(1).map((genre) => <Link key={genre} href={`/tim-kiem?the-loai=${encodeURIComponent(genre)}`}>{genre} <ArrowUpRight size={13} /></Link>)}</div></div></section>
 
       <section className="section section--cream"><div className="container"><div className="section-heading"><div><div className="eyebrow">TUYỂN CHỌN CHO BẠN</div><h2>Câu chuyện đáng đọc <em>hôm nay</em></h2><p>Những thế giới đang được độc giả yêu thích nhất.</p></div><Link className="section-link" href="/tim-kiem">Xem tất cả <ArrowRight size={18} /></Link></div><div className="story-grid">{stories.slice(0, 4).map((story) => <StoryCard key={story.slug} story={story} />)}</div></div></section>
+
+      <AdSlotContainer config={homeAd} />
 
       <section className="feature-section"><div className="container feature-grid"><div className="feature-art"><span className="feature-art__ring feature-art__ring--one" /><span className="feature-art__ring feature-art__ring--two" /><BookOpen size={96} strokeWidth={0.8} /><span className="feature-art__small">CHẬM LẠI · ĐỌC SÂU HƠN</span></div><div className="feature-copy"><div className="eyebrow">KHÔNG GIAN CỦA RIÊNG BẠN</div><h2>Đọc theo cách<br /><em>bạn muốn.</em></h2><p>Một góc đọc thật dễ chịu, từ chuyến xe sáng đến những đêm cần một chút bình yên.</p><div className="feature-list"><div><span><Sparkles size={20} /></span><div><strong>Khám phá dễ dàng</strong><p>Tìm truyện theo thể loại và tâm trạng yêu thích.</p></div></div><div><span><Headphones size={20} /></span><div><strong>Không gian đọc tập trung</strong><p>Điều chỉnh cỡ chữ, màu nền và tiếp tục nơi bạn dừng lại.</p></div></div></div><Link className="button button--outline" href="/tim-kiem">Tìm câu chuyện của bạn <ArrowRight size={18} /></Link></div></div></section>
 

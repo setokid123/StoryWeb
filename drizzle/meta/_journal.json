@@ -22,6 +22,13 @@
       "when": 1790175948074,
       "tag": "0002_b1_accounts_sessions",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790182784468,
+      "tag": "0003_m2_site_settings_unlock",
+      "breakpoints": true
     }
   ]
 }

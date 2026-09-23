@@ -6,7 +6,7 @@ import type { Story } from "@/data/stories";
 import { stories as sampleStories } from "@/data/stories";
 import { getDb } from "@/db/client";
 import { chapters, stories, users } from "@/db/schema";
-import { getClickUnlockExpiration } from "@/lib/click-unlock";
+import { canReadChapter } from "@/lib/unlock";
 import type { CmsActor } from "@/lib/cms-access";
 
 export type ManagedChapter = { title: string; body: string };
@@ -240,7 +240,8 @@ export async function getManagedChapterBody(slug: string, chapterNumber: number)
   const db = getDb();
   const [story] = await db.select({ id: stories.id, freeChapterCount: stories.freeChapterCount }).from(stories)
     .where(and(eq(stories.slug, slug), inArray(stories.status, publishedStatuses))).limit(1);
-  if (!story || (chapterNumber > story.freeChapterCount && await getClickUnlockExpiration() === null)) return undefined;
+  // Re-checked here (not only in the page) so no caller can fetch a locked body without a current grant.
+  if (!story || !await canReadChapter(chapterNumber, story.freeChapterCount)) return undefined;
   const [chapter] = await db.select({ body: chapters.body }).from(chapters)
     .where(and(eq(chapters.storyId, story.id), eq(chapters.number, chapterNumber), eq(chapters.status, "published"))).limit(1);
   return chapter?.body;
