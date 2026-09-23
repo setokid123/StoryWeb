@@ -20,17 +20,19 @@ Một thư viện số yên tĩnh, giàu chất biên tập. Ưu tiên đọc l�
 - `SiteHeader`: desktop nav, menu mobile, tìm kiếm.
 - `StoryCard` + `Cover`: thẻ truyện có bìa, tác giả, rating và số chương.
 - `ReaderPanel`: cỡ chữ, chế độ tối, chương trước/sau; trạng thái chương khóa riêng.
+- `ReaderNavigation`: 4 nút điều hướng (Về truyện, Chương trước, Danh sách chương, Chương sau), responsive lưới ở mobile.
+- `ChapterListDialog`: drawer hiển thị danh sách chương, hỗ trợ focus trap và bàn phím (Escape/Tab).
+- `UnlockGateView`: dialog mở khóa 2 chế độ (link/rewarded), trạng thái tải, lỗi.
+- `AdSlot`: khối hiển thị quảng cáo đa vị trí (home_feed, story_detail, reader_end, search_results).
 - `BookshelfButton/List`: lưu localStorage trong bản dựng, cần đồng bộ tài khoản ở giai đoạn backend.
-- `Thư Các Studio` (`/panel`): sidebar quản trị, thống kê, danh sách truyện, metadata, trình soạn chương và hành động lưu bản nháp/xuất bản.
-- Gate chương khóa: dialog hiện khi vào chương từ số 2; nút liên kết chỉ hiện khi cấu hình được bật. Quyền đọc kéo dài 5 phút và được kiểm tra lại khi sang chương.
+- `Thư Các Studio` (`/panel`): sidebar quản trị, thống kê, danh sách truyện, metadata, trình soạn chương và hành động lưu bản nháp/xuất bản. Cấu hình quảng cáo & mở khóa.
 - Nút phải có focus rõ, vùng chạm đủ rộng; link có mô tả ý nghĩa; trạng thái rỗng có lời dẫn và hành động tiếp.
 
 ## Màn hình Antigravity cần thiết kế tiếp
 
 1. Đăng nhập/đăng ký và tủ truyện có tài khoản.
 2. Rà soát panel hiện tại ở mobile; bổ sung ảnh bìa, preview, lịch xuất bản và trạng thái upload/import chương.
-3. Rà soát dialog chương khóa: điều kiện rõ ràng, trạng thái chưa cấu hình, link mở tab mới, thời gian còn lại và lỗi.
-4. Thẻ Shopee Affiliate dạng khối gợi ý tách khỏi luồng mở khóa, ghi nhãn liên kết tiếp thị.
+3. Thẻ Shopee Affiliate dạng khối gợi ý tách khỏi luồng mở khóa, ghi nhãn liên kết tiếp thị.
 
 Kiểm tra ở 360px, 768px, 1280px; cả bàn phím, độ tương phản và nội dung dài. Không tự bật luồng Shopee khi chưa có chấp thuận riêng.
 
