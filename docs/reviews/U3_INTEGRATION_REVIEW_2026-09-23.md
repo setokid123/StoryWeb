@@ -8,6 +8,7 @@ Nguồn: nhánh `antigravity/u3-studio-reader`, commit `9660905`; tích hợp tr
 - Antigravity đã sửa các lỗi lint và đồng bộ thay đổi `prefers-color-scheme` qua `useSyncExternalStore`. Màu đoạn mô tả trong dialog khóa khi đọc tối là `#9fb3ab` trên `#263635`, tương phản 5,72:1.
 - Codex chuyển thay đổi `html[data-theme]` sang `useLayoutEffect` để React render không tạo tác dụng phụ DOM; đồng bộ logic đọc preference cũ giữa script khởi tạo và external store; bỏ CSS `.locked-panel` lặp, khoảng trắng dư và dòng U3 trùng trong workboard.
 - Trên mã đã tích hợp: `npm run typecheck`, `npm run lint`, `npm run build` đều đạt. Bản build gồm đủ API tài khoản của B1 và các trang Studio/Reader của U3.
+- Merge commit `7e391e0` đã push lên `main`; Railway deployment `02114504-a7e6-4119-8fa1-54fd836614da` báo `SUCCESS`. Smoke production: `/api/health`, `/`, `/panel`, `/tim-kiem` đều trả HTTP 200; HTML các trang có script khởi tạo theme.
 
 ## Giới hạn kiểm tra
 
