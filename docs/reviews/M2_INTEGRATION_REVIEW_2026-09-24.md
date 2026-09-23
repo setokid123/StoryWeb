@@ -32,3 +32,10 @@ Fetch Metadata có thể bị HTTP client giả. Một body đã được gửi 
 Production đang có `CLICK_UNLOCK_ENABLED=false`, `SHOPEE_GATE_APPROVED=false`; chưa cấu hình provider rewarded/display. Admin không thể bật rewarded khi không có provider xác minh phía server. Link Shopee chỉ được bật sau chấp thuận riêng.
 
 Rollback ứng dụng: quay lại code trước M2; migration chỉ thêm schema nên giữ nguyên bảng mới và ledger. Không xóa bảng hoặc sửa ledger cho rollback thông thường.
+
+## Production
+
+- `main` commit `2dce45a`; Railway deployment `ee06371a-9157-4bde-9763-f33b41ec52e3` báo `SUCCESS`. Log pre-deploy ghi `migrations applied successfully`; health `/api/health` trả `200 {"status":"ok"}`.
+- SELECT sau deploy: ledger có bản ghi thứ tư `created_at=1790182784468` khớp journal `0003`; `site_settings`, `stories`, `users` tồn tại. Dòng mặc định có `unlock_enabled=false`, `unlock_mode=link`, revision 1 và bốn slot tắt.
+- Smoke HTTPS production qua API: đăng nhập admin, tạo/xuất bản truyện thử, chương 1 đọc được, body chương 2 không có trong HTML/RSC khi khóa, `/unlock/visit` GET không có Fetch Metadata bị từ chối, POST trả 405, cờ mở khóa vẫn tắt. Truyện thử được xóa; counts `stories/users/chapters` sau smoke đều bằng 0.
+- Chế độ link và rewarded chưa được bật vì chưa có chấp thuận Shopee hoặc provider rewarded web có chứng cứ server xác minh. Kiểm tra production không thấy provider rewarded/display được cấu hình.

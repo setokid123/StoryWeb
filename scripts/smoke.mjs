@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import http from "node:http";
+import https from "node:https";
 
 /** Browser-like link navigation; fetch() cannot send Sec-Fetch-Mode: navigate. Returns status/location/set-cookie. */
 function navigateGet(url) {
   return new Promise((resolve, reject) => {
-    const request = http.request(url, { method: "GET", headers: { "Sec-Fetch-Site": "same-origin", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-User": "?1", "Sec-Fetch-Dest": "document" } }, (res) => {
+    const transport = new URL(url).protocol === "https:" ? https : http;
+    const request = transport.request(url, { method: "GET", headers: { "Sec-Fetch-Site": "same-origin", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-User": "?1", "Sec-Fetch-Dest": "document" } }, (res) => {
       res.resume();
       res.on("end", () => resolve({ status: res.statusCode, location: res.headers.location ?? null, setCookie: [].concat(res.headers["set-cookie"] ?? []) }));
     });
