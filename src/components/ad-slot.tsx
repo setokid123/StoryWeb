@@ -18,17 +18,18 @@ export function AdSlot({ placement, status, isPreview = false, children }: AdSlo
   return (
     <div className={`ad-slot ad-slot--${placement} ${status === 'loading' ? 'is-loading' : ''}`}>
       <div className="ad-slot__label">Quảng cáo</div>
-      
-      <div className="ad-slot__content">
+
+      <div className="ad-slot__content" aria-busy={status === "loading"}>
+        {(status === "loading" || status === "success") && (
+          <div className="ad-slot__mount">{children}</div>
+        )}
         {status === "loading" && (
-          <div className="ad-slot__placeholder">
-            <span className="spinner" aria-hidden="true" />
-            <span className="sr-only">Đang tải quảng cáo...</span>
+          <div className="ad-slot__placeholder" role="status">
+            <span className="ad-slot__spinner" aria-hidden="true" />
+            <span>Đang tải quảng cáo...</span>
           </div>
         )}
-        
-        {status === "success" && children}
-        
+
         {isPreview && (status === "idle" || status === "empty" || status === "error") && (
           <div className="ad-slot__placeholder ad-slot__placeholder--preview">
             Khung hiển thị quảng cáo ({placement})

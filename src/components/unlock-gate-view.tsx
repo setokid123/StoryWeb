@@ -14,20 +14,20 @@ export type UnlockGateViewProps = {
   linkHref?: string; // The URL to visit for 'link' mode
 };
 
-export function UnlockGateView({ 
-  chapterNumber, 
-  storySlug, 
-  mode, 
-  rewardedStatus = "idle", 
+export function UnlockGateView({
+  chapterNumber,
+  storySlug,
+  mode,
+  rewardedStatus = "idle",
   onWatchAd,
   linkHref = "/unlock/visit"
 }: UnlockGateViewProps) {
   return (
     <div className="unlock-backdrop">
-      <div 
-        className="locked-panel locked-panel--dialog" 
-        role="dialog" 
-        aria-modal="true" 
+      <div
+        className="locked-panel locked-panel--dialog"
+        role="dialog"
+        aria-modal="true"
         aria-labelledby="unlock-title"
       >
         <span className="locked-panel__icon">
@@ -39,10 +39,10 @@ export function UnlockGateView({
         {mode === "link" && (
           <>
             <p>Mở liên kết giới thiệu một lần để đọc các chương khóa trong 5 phút. Khi hết thời gian, bạn cần nhấp lại liên kết trước khi sang chương mới.</p>
-            <a 
-              className="button button--primary" 
-              href={linkHref} 
-              target="_blank" 
+            <a
+              className="button button--primary"
+              href={linkHref}
+              target="_blank"
               rel="noopener noreferrer"
             >
               Mở liên kết giới thiệu <ArrowUpRight size={17} />
@@ -54,11 +54,11 @@ export function UnlockGateView({
         {mode === "rewarded" && (
           <>
             <p>Xem một quảng cáo ngắn để mở khóa quyền đọc tiếp trong 5 phút. Khi hết thời gian, bạn có thể xem lại quảng cáo để tiếp tục.</p>
-            
+
             <div className="rewarded-action">
-              <button 
-                type="button" 
-                className="button button--primary" 
+              <button
+                type="button"
+                className="button button--primary"
                 onClick={onWatchAd}
                 disabled={rewardedStatus === "pending" || rewardedStatus === "unavailable"}
               >
@@ -73,11 +73,11 @@ export function UnlockGateView({
             {rewardedStatus === "unavailable" && (
               <p className="form-error-inline" role="alert">Hiện tại không có quảng cáo nào khả dụng. Vui lòng thử lại sau.</p>
             )}
-            
+
             {rewardedStatus === "error" && (
               <p className="form-error-inline" role="alert">Có lỗi xảy ra khi tải quảng cáo. Vui lòng thử lại.</p>
             )}
-            
+
             <span className="locked-panel__hint">Bạn cần xem hết video để nhận quyền đọc.</span>
           </>
         )}

@@ -18,16 +18,16 @@ export type UnlockSettingsProps = {
   isUnlockEnabled: boolean;
   selectedMode: UnlockMode;
   slotFlags: AdSlotFlags;
-  
+
   // Readiness from server/Claude logic
   linkReadiness: ModeReadiness;
   rewardedReadiness: ModeReadiness;
-  
+
   // States
   isSaving: boolean;
   successMessage?: string;
   errorMessage?: string;
-  
+
   // Callbacks
   onToggleUnlock: (enabled: boolean) => void;
   onChangeMode: (mode: UnlockMode) => void;
@@ -49,7 +49,7 @@ export function UnlockSettingsView({
   onToggleSlot,
   onSave
 }: UnlockSettingsProps) {
-  
+
   // Cannot save if selected mode is not ready
   const isSelectedModeReady = selectedMode === "link" ? linkReadiness.isReady : rewardedReadiness.isReady;
   const canSave = isSelectedModeReady && !isSaving;
@@ -66,9 +66,11 @@ export function UnlockSettingsView({
           <h2>Bảo vệ chương khóa</h2>
           <div className="toggle-switch-wrapper">
             <label className="toggle-switch">
-              <input 
-                type="checkbox" 
-                checked={isUnlockEnabled} 
+              <input
+                type="checkbox"
+                role="switch"
+                aria-label="Bảo vệ chương khóa"
+                checked={isUnlockEnabled}
                 onChange={(e) => onToggleUnlock(e.target.checked)}
                 disabled={isSaving}
               />
@@ -89,11 +91,11 @@ export function UnlockSettingsView({
             {/* Link Mode */}
             <label className={`radio-card ${selectedMode === 'link' ? 'is-selected' : ''} ${!linkReadiness.isReady ? 'is-unavailable' : ''}`}>
               <div className="radio-card__input">
-                <input 
-                  type="radio" 
-                  name="unlock-mode" 
-                  value="link" 
-                  checked={selectedMode === 'link'} 
+                <input
+                  type="radio"
+                  name="unlock-mode"
+                  value="link"
+                  checked={selectedMode === 'link'}
                   onChange={() => onChangeMode('link')}
                   disabled={isSaving || !isUnlockEnabled}
                 />
@@ -118,11 +120,11 @@ export function UnlockSettingsView({
             {/* Rewarded Mode */}
             <label className={`radio-card ${selectedMode === 'rewarded' ? 'is-selected' : ''} ${!rewardedReadiness.isReady ? 'is-unavailable' : ''}`}>
               <div className="radio-card__input">
-                <input 
-                  type="radio" 
-                  name="unlock-mode" 
-                  value="rewarded" 
-                  checked={selectedMode === 'rewarded'} 
+                <input
+                  type="radio"
+                  name="unlock-mode"
+                  value="rewarded"
+                  checked={selectedMode === 'rewarded'}
                   onChange={() => onChangeMode('rewarded')}
                   disabled={isSaving || !isUnlockEnabled}
                 />
@@ -153,7 +155,7 @@ export function UnlockSettingsView({
         </div>
         <div className="settings-section__body">
           <p className="settings-hint">Các khối quảng cáo hiển thị thông thường, không liên quan đến việc mở khóa chương.</p>
-          
+
           <ul className="settings-list">
             <li className="settings-list__item">
               <div className="settings-list__info">
@@ -161,9 +163,11 @@ export function UnlockSettingsView({
                 <span>Sau cụm truyện nổi bật, trước cập nhật</span>
               </div>
               <label className="toggle-switch">
-                <input 
-                  type="checkbox" 
-                  checked={slotFlags.home_feed} 
+                <input
+                  type="checkbox"
+                  role="switch"
+                  aria-label="Hiển thị quảng cáo ở trang chủ"
+                  checked={slotFlags.home_feed}
                   onChange={(e) => onToggleSlot('home_feed', e.target.checked)}
                   disabled={isSaving}
                 />
@@ -176,9 +180,11 @@ export function UnlockSettingsView({
                 <span>Trước danh sách chương</span>
               </div>
               <label className="toggle-switch">
-                <input 
-                  type="checkbox" 
-                  checked={slotFlags.story_detail} 
+                <input
+                  type="checkbox"
+                  role="switch"
+                  aria-label="Hiển thị quảng cáo ở trang chi tiết truyện"
+                  checked={slotFlags.story_detail}
                   onChange={(e) => onToggleSlot('story_detail', e.target.checked)}
                   disabled={isSaving}
                 />
@@ -191,9 +197,11 @@ export function UnlockSettingsView({
                 <span>Sau nội dung chương, trước thanh điều hướng</span>
               </div>
               <label className="toggle-switch">
-                <input 
-                  type="checkbox" 
-                  checked={slotFlags.reader_end} 
+                <input
+                  type="checkbox"
+                  role="switch"
+                  aria-label="Hiển thị quảng cáo ở cuối chương truyện"
+                  checked={slotFlags.reader_end}
                   onChange={(e) => onToggleSlot('reader_end', e.target.checked)}
                   disabled={isSaving}
                 />
@@ -206,9 +214,11 @@ export function UnlockSettingsView({
                 <span>Sau bộ lọc, trước kết quả</span>
               </div>
               <label className="toggle-switch">
-                <input 
-                  type="checkbox" 
-                  checked={slotFlags.search_results} 
+                <input
+                  type="checkbox"
+                  role="switch"
+                  aria-label="Hiển thị quảng cáo ở kết quả tìm kiếm"
+                  checked={slotFlags.search_results}
                   onChange={(e) => onToggleSlot('search_results', e.target.checked)}
                   disabled={isSaving}
                 />
@@ -230,9 +240,9 @@ export function UnlockSettingsView({
             <CheckCircle2 size={18} /> {successMessage}
           </div>
         )}
-        <button 
-          type="button" 
-          className="button button--primary" 
+        <button
+          type="button"
+          className="button button--primary"
           onClick={onSave}
           disabled={!canSave}
         >

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { isSameOriginRequest } from "@/lib/request-guard";
 import { LEGACY_UNLOCK_COOKIE, mintUnlockGrant, resolveUnlock, UNLOCK_COOKIE, unlockCookieOptions } from "@/lib/unlock";
 
 export const runtime = "nodejs";
@@ -12,7 +11,7 @@ export const dynamic = "force-dynamic";
  *
  * GET (U4's `<a target="_blank">`) requires the browser's Fetch Metadata to say: same-origin, user-activated,
  * top-level document navigation. Prefetch, <img>, cross-site links, crawlers and clients without these headers are
- * refused. POST (form) is accepted from the same origin.
+ * refused. Fetch Metadata is a browser signal, not cryptographic proof of a visit to the destination.
  */
 function refuse(status: number, code: string, error: string) {
   return NextResponse.json({ error, code }, { status, headers: { "Cache-Control": "no-store" } });
@@ -29,27 +28,17 @@ async function grant() {
   return response;
 }
 
-function userActivatedNavigation(request: Request, requireHeaders: boolean) {
+function userActivatedNavigation(request: Request) {
   const user = request.headers.get("sec-fetch-user");
   const mode = request.headers.get("sec-fetch-mode");
   const dest = request.headers.get("sec-fetch-dest");
   const site = request.headers.get("sec-fetch-site");
-  if (requireHeaders && (!user || !mode || !site)) return false;
-  if (user !== null && user !== "?1") return false;
-  if (mode !== null && mode !== "navigate") return false;
-  if (dest !== null && dest !== "document") return false;
-  if (site !== null && site !== "same-origin") return false;
+  if (user !== "?1" || mode !== "navigate" || dest !== "document" || site !== "same-origin") return false;
   if (request.headers.get("purpose") === "prefetch" || request.headers.get("next-router-prefetch") || request.headers.get("sec-purpose")?.includes("prefetch")) return false;
   return true;
 }
 
 export async function GET(request: Request) {
-  if (!userActivatedNavigation(request, true)) return refuse(400, "not_user_initiated", "Hãy bấm nút mở liên kết trên trang đọc.");
-  return grant();
-}
-
-export async function POST(request: Request) {
-  if (!isSameOriginRequest(request)) return refuse(403, "cross_origin", "Yêu cầu không hợp lệ từ nguồn khác.");
-  if (!userActivatedNavigation(request, false)) return refuse(400, "not_user_initiated", "Chỉ mở khóa khi bạn chủ động bấm nút.");
+  if (!userActivatedNavigation(request)) return refuse(400, "not_user_initiated", "Hãy bấm nút mở liên kết trên trang đọc.");
   return grant();
 }

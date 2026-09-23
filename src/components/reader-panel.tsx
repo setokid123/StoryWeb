@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, Clock3, Minus, Plus, Sun, Moon, Type } from "lucide-react";
@@ -24,6 +24,7 @@ type ReaderPanelProps = {
   content: string | null;
   unlock: ReaderUnlockInfo;
   unlockExpiresAt: number | null;
+  grantRemainingMs: number | null;
   navigation: { prevHref: string | null; nextHref: string | null; chapters: ChapterListItem[] };
   readerEndAd: DisplayAdConfig | null;
 };
@@ -47,14 +48,16 @@ function toGateStatus(state: RewardedViewState): RewardedStatus {
   return "idle";
 }
 
-export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpiresAt, navigation, readerEndAd }: ReaderPanelProps) {
+export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpiresAt, grantRemainingMs, navigation, readerEndAd }: ReaderPanelProps) {
   const router = useRouter();
   const gateRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const [chapterListOpen, setChapterListOpen] = useState(false);
+  const [expiredGrant, setExpiredGrant] = useState(false);
   const fontSize = useSyncExternalStore(subscribePreferences, getFontSize, () => 19);
   const { resolved, setTheme } = useTheme();
-  const locked = content === null;
+  const grantProtected = chapter > story.freeChapters && unlockExpiresAt !== null;
+  const locked = content === null || (grantProtected && expiredGrant);
   const storyHref = `/truyen/${story.slug}`;
 
   const refresh = useCallback(() => router.refresh(), [router]);
@@ -71,14 +74,26 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
     return () => window.removeEventListener("focus", refresh);
   }, [locked, unlock.mode, refresh]);
 
-  // Grant expiry: re-check on the server when the 5 minutes run out so the page reflects the new state.
-  useEffect(() => {
-    if (!unlockExpiresAt) return;
-    const delay = unlockExpiresAt - Date.now();
-    if (delay <= 0) return;
-    const timer = setTimeout(refresh, Math.min(delay + 500, 2_147_483_647));
-    return () => clearTimeout(timer);
-  }, [unlockExpiresAt, refresh]);
+  // Remove granted content from the DOM at expiry even if refreshing the server is delayed or offline.
+  // Re-check on focus/visibility because background tabs can throttle timers.
+  useLayoutEffect(() => {
+    if (!grantProtected || !unlockExpiresAt || grantRemainingMs === null) return;
+    const deadline = performance.now() + Math.min(grantRemainingMs, 300_000);
+    const expireIfNeeded = () => {
+      if (performance.now() < deadline && Date.now() < unlockExpiresAt) return;
+      setExpiredGrant(true);
+      refresh();
+    };
+    const timer = setTimeout(expireIfNeeded, Math.max(0, Math.min(grantRemainingMs, 300_000)));
+    window.addEventListener("focus", expireIfNeeded);
+    document.addEventListener("visibilitychange", expireIfNeeded);
+    expireIfNeeded();
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("focus", expireIfNeeded);
+      document.removeEventListener("visibilitychange", expireIfNeeded);
+    };
+  }, [grantProtected, unlockExpiresAt, grantRemainingMs, refresh]);
 
   const closeChapterList = useCallback(() => {
     setChapterListOpen(false);
@@ -90,7 +105,7 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
 
   // Locked-chapter dialog: focus + Escape + Tab trap around U4's UnlockGateView (unchanged from U3).
   useEffect(() => {
-    if (!locked || !gateRef.current) return;
+    if (!locked || chapterListOpen || !gateRef.current) return;
     const selector = "a[href], button:not([disabled])";
     gateRef.current.querySelector<HTMLElement>(selector)?.focus();
     function onKeyDown(e: KeyboardEvent) {
@@ -105,7 +120,7 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
     }
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [locked, closeGate, rewarded.state]);
+  }, [locked, chapterListOpen, closeGate, rewarded.state]);
 
   function changeFont(next: number) {
     const value = Math.max(16, Math.min(26, next));

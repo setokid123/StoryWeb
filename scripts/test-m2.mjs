@@ -114,7 +114,10 @@ try {
     await put({ unlockEnabled: false, unlockMode: "link", unlockLinkUrl: null, adSlots: { home_feed: false, story_detail: false, reader_end: false, search_results: false } });
     const created = await call("/api/admin/stories", { method: "POST", cookie: adminCookie, body: { slug, title: `Truyện ${slug}`, author: "M2", genre: "Đô thị", description: "Kiểm thử M2", tags: [], visibility: "published", completed: false, freeChapters: 1, chapters: bodies.map((body, i) => ({ title: `Chương ${i + 1}`, body })) } });
     assert.equal(created.status, 200, created.text);
+    assert.equal(created.headers.get("cache-control"), "no-store", "CMS response with bodies must not be cached");
     storyId = created.json.story.id;
+    const allStories = await call("/api/admin/stories", { cookie: adminCookie });
+    assert.equal(allStories.headers.get("cache-control"), "no-store", "CMS list with bodies must not be cached");
   });
 
   let editorCookie, readerCookie;
@@ -160,12 +163,12 @@ try {
     const locked = await chapterVisible(2);
     assert.ok(!locked.visible);
     assert.ok(!locked.html.includes("Mở liên kết giới thiệu") && !locked.html.includes("Xem quảng cáo mở khóa"));
-    assert.equal((await call("/unlock/visit", { method: "POST", headers: NAV })).status, 503);
+    assert.equal((await call("/unlock/visit", { method: "POST", headers: NAV })).status, 405);
     assert.equal((await call("/api/unlock/rewarded/start", { method: "POST" })).status, 503);
   });
 
   let linkGrant, linkRevision;
-  await step("link mode: POST-only, same-origin, user-initiated, 303 + 5-minute grant", async () => {
+  await step("link mode: GET navigation only, Fetch Metadata, 303 + 5-minute grant", async () => {
     const before = (await settings()).settings.unlockRevision;
     const enable = await put({ unlockEnabled: true, unlockMode: "link" });
     assert.equal(enable.status, 200, enable.text);
@@ -182,13 +185,11 @@ try {
     const viaGet = await call("/unlock/visit", { headers: NAV });
     assert.equal(viaGet.status, 303);
     assert.ok(cookieFrom(viaGet, "storyweb_unlock"));
-    assert.equal((await call("/unlock/visit", { method: "POST", origin: false, headers: { Origin: "https://evil.example" } })).status, 403);
-    assert.equal((await call("/unlock/visit", { method: "POST", headers: { "Sec-Fetch-User": "?0", "Sec-Fetch-Mode": "navigate" } })).status, 400);
-    const visit = await call("/unlock/visit", { method: "POST", headers: { "Sec-Fetch-User": "?1", "Sec-Fetch-Mode": "navigate" } });
-    assert.equal(visit.status, 303);
-    assert.equal(visit.headers.get("location"), "https://example.com/storyweb-test");
-    assert.match(visit.headers.getSetCookie().find((value) => value.startsWith("storyweb_unlock=")), /Max-Age=300/i);
-    linkGrant = cookieFrom(visit, "storyweb_unlock");
+    assert.equal((await call("/unlock/visit", { method: "POST" })).status, 405, "bare POST cannot grant");
+    assert.equal((await call("/unlock/visit", { method: "POST", headers: NAV })).status, 405, "POST with spoofed headers cannot grant");
+    assert.equal(viaGet.headers.get("location"), "https://example.com/storyweb-test");
+    assert.match(viaGet.headers.getSetCookie().find((value) => value.startsWith("storyweb_unlock=")), /Max-Age=300/i);
+    linkGrant = cookieFrom(viaGet, "storyweb_unlock");
     assert.ok((await chapterVisible(2, linkGrant)).visible);
     assert.ok((await chapterVisible(3, linkGrant)).visible);
   });
@@ -210,7 +211,7 @@ try {
     rewardedRevision = result.json.settings.unlockRevision;
     assert.equal(rewardedRevision, linkRevision + 1);
     assert.ok(!(await chapterVisible(2, linkGrant)).visible);
-    assert.equal((await call("/unlock/visit", { method: "POST", headers: NAV })).status, 503);
+    assert.equal((await call("/unlock/visit", { headers: NAV })).status, 503);
     assert.ok((await chapterVisible(2)).html.includes("Xem quảng cáo mở khóa"));
   });
 
@@ -283,7 +284,7 @@ try {
 
   if (base3) await step("database outage: unlock, grants and settings fail closed", async () => {
     const forged = forgeGrant("link", 1, Date.now() + 60_000);
-    assert.equal((await call("/unlock/visit", { method: "POST", url: base3, headers: NAV })).status, 503);
+    assert.equal((await call("/unlock/visit", { method: "POST", url: base3, headers: NAV })).status, 405);
     assert.equal((await call("/unlock/visit", { url: base3, headers: NAV })).status, 503);
     assert.equal((await call("/api/unlock/rewarded/start", { method: "POST", url: base3 })).status, 503);
     assert.equal((await call("/api/admin/settings", { cookie: adminCookie, url: base3 })).status, 503);

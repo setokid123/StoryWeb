@@ -25,14 +25,14 @@ function emergencyOff() {
   return process.env.UNLOCK_EMERGENCY_OFF === "true";
 }
 
-const SHOPEE_HOST = /(^|\.)(shopee\.[a-z.]+|shp\.ee|shope\.ee)$/i;
-const TEST_HOST = /(^|\.)example\.com$/i;
+const SHOPEE_HOST = /^(?:[a-z0-9-]+\.)*shopee\.vn$|^(?:shp|shope)\.ee$/i;
+const TEST_HOST = "example.com";
 
 export type LinkCheck = { ok: true; url: URL } | { ok: false; reason: string; blocked?: boolean };
 
 /**
  * Validates an unlock destination. Only https, no credentials/fragments-as-payload, max 2048 chars.
- * `SHOPEE_GATE_APPROVED` is the server-side hard gate for any real affiliate destination (Shopee included);
+ * `SHOPEE_GATE_APPROVED` is the server-side hard gate for supported Shopee destinations;
  * example.com is allowed for local testing. No admin setting can bypass it.
  */
 export function checkUnlockLinkUrl(raw: string | null | undefined): LinkCheck {
@@ -44,11 +44,10 @@ export function checkUnlockLinkUrl(raw: string | null | undefined): LinkCheck {
   if (url.username || url.password) return { ok: false, reason: "URL không được chứa thông tin đăng nhập." };
   const host = url.hostname.toLowerCase();
   if (/^[\d.]+$/.test(host) || host.includes(":") || host === "localhost" || !host.includes(".")) return { ok: false, reason: "URL phải dùng tên miền công khai." };
-  if (TEST_HOST.test(host)) return { ok: true, url };
+  if (host === TEST_HOST) return { ok: true, url };
+  if (!SHOPEE_HOST.test(host)) return { ok: false, blocked: true, reason: "Hiện chỉ hỗ trợ liên kết Shopee Việt Nam (shopee.vn, shp.ee, shope.ee)." };
   if (process.env.SHOPEE_GATE_APPROVED !== "true") {
-    return SHOPEE_HOST.test(host)
-      ? { ok: false, blocked: true, reason: "Liên kết Shopee cần chấp thuận riêng (SHOPEE_GATE_APPROVED=true trên server) trước khi dùng." }
-      : { ok: false, blocked: true, reason: "Liên kết đối tác thật cần chấp thuận riêng (SHOPEE_GATE_APPROVED=true trên server) trước khi dùng." };
+    return { ok: false, blocked: true, reason: "Liên kết Shopee cần chấp thuận riêng (SHOPEE_GATE_APPROVED=true trên server) trước khi dùng." };
   }
   return { ok: true, url };
 }
@@ -126,8 +125,13 @@ export const getUnlockExpiration = cache(async (): Promise<number | null> => {
 });
 
 /** Whether chapter `number` of a story with `freeChapters` free chapters may be returned to this request. */
+export function remainingUnlockMs(expiresAt: number | null): number {
+  return expiresAt === null ? 0 : Math.max(0, expiresAt - Date.now());
+}
+
 export async function canReadChapter(number: number, freeChapters: number): Promise<boolean> {
-  return number <= freeChapters || await getUnlockExpiration() !== null;
+  if (number <= freeChapters) return true;
+  return remainingUnlockMs(await getUnlockExpiration()) > 0;
 }
 
 // ---------- anonymous reader binding (rewarded) ----------

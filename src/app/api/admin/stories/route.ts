@@ -4,6 +4,7 @@ import { ManagedStoryError, readManagedStories, removeManagedStory, saveManagedS
 import { crossOrigin, isSameOriginRequest } from "@/lib/request-guard";
 
 export const runtime = "nodejs";
+const noStore = { "Cache-Control": "no-store" };
 
 function storageError(error: unknown) {
   if (error instanceof ManagedStoryError) return NextResponse.json({ error: error.message, code: error.status === 403 ? "forbidden" : error.status === 404 ? "not_found" : "invalid_input" }, { status: error.status });
@@ -47,7 +48,7 @@ function parseInput(value: unknown): StoryInput | null {
 export async function GET() {
   const access = await getCmsAccess();
   if (!access.ok) return denied(access.status);
-  try { return NextResponse.json({ stories: await readManagedStories(access.actor) }); }
+  try { return NextResponse.json({ stories: await readManagedStories(access.actor) }, { headers: noStore }); }
   catch (error) { return storageError(error); }
 }
 
@@ -58,7 +59,7 @@ export async function POST(request: Request) {
   if (!access.ok) return denied(access.status);
   const input = parseInput(await request.json().catch(() => null));
   if (!input) return NextResponse.json({ error: "Dữ liệu truyện không hợp lệ. Cần ít nhất một chương để xuất bản; mặc định chương 1 miễn phí.", code: "invalid_input" }, { status: 400 });
-  try { return NextResponse.json({ story: await saveManagedStory(input, access.actor) }); }
+  try { return NextResponse.json({ story: await saveManagedStory(input, access.actor) }, { headers: noStore }); }
   catch (error) { return storageError(error); }
 }
 

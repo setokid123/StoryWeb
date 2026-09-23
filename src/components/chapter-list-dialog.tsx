@@ -24,7 +24,7 @@ export function ChapterListDialog({ isOpen, onClose, storyTitle, chapters }: Cha
 
   useEffect(() => {
     if (!isOpen || !dialogRef.current) return;
-    
+
     // Focus trap setup
     const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>('a[href], button, textarea, input, select');
     const firstElement = focusableElements[0];
@@ -65,7 +65,7 @@ export function ChapterListDialog({ isOpen, onClose, storyTitle, chapters }: Cha
     };
 
     document.addEventListener("keydown", handleKeyDown);
-    
+
     // Prevent background scrolling
     const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = "hidden";
@@ -80,7 +80,7 @@ export function ChapterListDialog({ isOpen, onClose, storyTitle, chapters }: Cha
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>
-      <div 
+      <div
         ref={dialogRef}
         className="drawer-panel"
         role="dialog"
@@ -93,9 +93,9 @@ export function ChapterListDialog({ isOpen, onClose, storyTitle, chapters }: Cha
             <div className="eyebrow">{storyTitle}</div>
             <h2 id="chapter-list-title">Danh sách chương</h2>
           </div>
-          <button 
+          <button
             type="button"
-            className="icon-button drawer-panel__close" 
+            className="icon-button drawer-panel__close"
             onClick={onClose}
             aria-label="Đóng danh sách chương"
           >
@@ -107,8 +107,9 @@ export function ChapterListDialog({ isOpen, onClose, storyTitle, chapters }: Cha
           <ul className="chapter-list">
             {chapters.map((chap) => (
               <li key={chap.chapterNumber} className="chapter-list__item">
-                <Link 
-                  href={chap.url} 
+                <Link
+                  href={chap.url}
+                  prefetch={false}
                   className={`chapter-list__link ${chap.isCurrent ? 'is-current' : ''} ${chap.isLocked ? 'is-locked' : ''}`}
                   aria-current={chap.isCurrent ? 'page' : undefined}
                 >

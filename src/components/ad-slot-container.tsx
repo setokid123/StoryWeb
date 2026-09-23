@@ -74,7 +74,5 @@ export function AdSlotContainer({ config }: { config: DisplayAdConfig | null }) 
   }, [config]);
 
   if (!config || status === "no_fill" || status === "error") return null;
-  // U4's AdSlot renders children only for "success", but the provider needs its mount node while loading,
-  // so the mount is passed as "success" from the start; no-fill/error unmounts the whole slot (hidden publicly).
-  return <AdSlot placement={config.placement} status="success"><div ref={mountRef} data-ad-placement={config.placement} data-ad-status={status} /></AdSlot>;
+  return <AdSlot placement={config.placement} status={status === "loading" ? "loading" : "success"}><div ref={mountRef} data-ad-placement={config.placement} data-ad-status={status} /></AdSlot>;
 }

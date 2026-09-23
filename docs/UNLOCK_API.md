@@ -1,6 +1,6 @@
 # Mở khóa chương, cài đặt quảng cáo (M2) — contract
 
-Logic do Claude Code sở hữu. View U4 (Antigravity, commit `dadb41e`) được ghép qua container, không sửa view/CSS/focus trap của U4.
+Logic M2 do Claude Code bàn giao; view U4 của Antigravity (commit `dadb41e`) được ghép qua container. Codex sửa các lỗi bảo mật và giao diện phát hiện trong review tích hợp I2.
 
 ## Dữ liệu (migration `0003_m2_site_settings_unlock`)
 
@@ -10,7 +10,7 @@ Logic do Claude Code sở hữu. View U4 (Antigravity, commit `dadb41e`) đượ
 | `site_settings_audit` | Ai đổi (`actor_label`, `actor_user_id`), lúc nào, `before/after` (không chứa secret). |
 | `unlock_challenges` | Mỗi lượt "xem quảng cáo": `nonce`, provider, hash cookie người đọc, `revision`, trạng thái `pending → verified → consumed` hoặc `failed`, `provider_ref` unique (chống phát lại). |
 
-Rollback: chỉ thêm bảng/enum, không đổi migration cũ. Deploy lại commit trước M2 là đủ (code cũ bỏ qua bảng mới). Xóa hẳn: `DROP TABLE unlock_challenges, site_settings_audit, site_settings; DROP TYPE unlock_mode;` rồi xóa dòng `0003` trong `drizzle.__drizzle_migrations`.
+Rollback ứng dụng: migration chỉ thêm bảng/enum và không đổi cấu trúc cũ, nên deploy lại code trước M2 và giữ nguyên schema. Không xóa bảng hoặc sửa ledger migration trên production khi rollback thông thường.
 
 ## Quyền đọc 5 phút (entitlement)
 
@@ -19,16 +19,16 @@ Rollback: chỉ thêm bảng/enum, không đổi migration cũ. Deploy lại com
 - `unlock_revision` tăng khi admin đổi bật/tắt, phương thức hoặc URL. Mọi grant cũ và nonce rewarded đang chờ mất hiệu lực ngay. Đổi slot quảng cáo không tăng revision.
 - Kiểm quyền ở cả trang `/doc/[slug]/[chapter]` và `getManagedChapterBody()`. Chương `≤ freeChapterCount` (mặc định chương 1) luôn đọc được. Body khóa không có trong HTML hay payload RSC; route là `force-dynamic`.
 - Cookie cũ `storyweb_click_unlock` không còn được chấp nhận.
-- Khi grant hết hạn, trang tự `router.refresh()` để server kiểm tra lại.
+- Khi grant hết hạn, trang gỡ body khỏi DOM ngay theo thời lượng còn lại do server cấp rồi gọi `router.refresh()`. Kiểm lại khi tab được focus/hiện lên sau khi timer nền bị trì hoãn. Server kiểm lại thời hạn khi lấy body và ngay trước khi truyền props.
+- Cookie là bearer grant 5 phút; nếu ai đó sao chép được giá trị cookie thì có thể dùng trong thời hạn đó. HttpOnly/Secure giảm khả năng đánh cắp từ trình duyệt, nhưng không chứng minh một danh tính người đọc riêng.
 
 ## Nhấp liên kết
 
-`GET|POST /unlock/visit` → `303` tới đích + cookie grant, hoặc `503 mode_unavailable`, `400 not_user_initiated`, `403 cross_origin`.
+`GET /unlock/visit` → `303` tới đích + cookie grant, hoặc `503 mode_unavailable`, `400 not_user_initiated`. `POST` trả `405` và không cấp grant.
 
 - GET (nút `<a target="_blank">` của U4) chỉ được chấp nhận khi trình duyệt gửi Fetch Metadata: `Sec-Fetch-Site: same-origin`, `Sec-Fetch-User: ?1`, `Sec-Fetch-Mode: navigate`, `Sec-Fetch-Dest: document`. Request prefetch, `<img>`, link cross-site, crawler hoặc client không có các header này bị từ chối.
-- POST phải cùng origin.
-- URL đích: https, không kèm thông tin đăng nhập, tên miền công khai, tối đa 2048 ký tự. `example.com` dùng để test. Mọi đích thật (Shopee hay đối tác khác) cần `SHOPEE_GATE_APPROVED=true`; cài đặt admin không vượt được chặn này. Phương thức này còn cần `CLICK_UNLOCK_ENABLED=true` và `CLICK_UNLOCK_SECRET`.
-- Hệ thống **chỉ xác nhận người đọc đã bấm nút trên StoryWeb**, không xác nhận đã xem trang đích hay mua hàng.
+- URL đích: https, không kèm thông tin đăng nhập, tên miền công khai, tối đa 2048 ký tự. Chỉ `example.com` dùng để test và các tên miền Shopee Việt Nam (`shopee.vn` cùng subdomain, `shp.ee`, `shope.ee`) được hỗ trợ. Shopee cần `SHOPEE_GATE_APPROVED=true`; cài đặt admin không vượt được chặn này. Phương thức này còn cần `CLICK_UNLOCK_ENABLED=true` và `CLICK_UNLOCK_SECRET`.
+- Fetch Metadata chỉ là tín hiệu do trình duyệt gửi cho một thao tác điều hướng, có thể bị giả bởi HTTP client. Hệ thống **không thể xác nhận** người đọc đã xem trang đích hay mua hàng; đây là giới hạn của chế độ link.
 
 ## Xem quảng cáo có thưởng
 
@@ -64,22 +64,21 @@ Luồng client nằm trong `src/lib/rewarded-flow.ts`, là module thuần có un
 - `getDisplayAd(placement)` trả `null` khi admin tắt vị trí, provider chưa cấu hình hoặc DB lỗi; khi đó không render gì.
 - Nhà cung cấp và mã đơn vị chỉ lấy từ env, có kiểm tra định dạng (`ca-pub-…`, mã chỉ gồm chữ số). Admin chỉ bật/tắt, không nhập được HTML hay script.
 - `reader_end` chỉ hiện ở chương đã được phép đọc.
-- Container client: loading → filled / no-fill (timeout 8 giây) / error. No-fill hoặc lỗi thì ẩn cả slot. Impression hay click không bao giờ cấp quyền đọc.
+- Container client: loading → filled / no-fill (timeout 8 giây) / error. Trong lúc tải, slot giữ khung và mount node quảng cáo; no-fill hoặc lỗi thì ẩn cả slot. Impression hay click không bao giờ cấp quyền đọc.
 
 ## Ghép view U4
 
 | Container (Claude) | View (U4) | Ghi chú |
 | --- | --- | --- |
 | `reader-panel.tsx` | `UnlockGateView`, `ReaderNavigation`, `ChapterListDialog` | Container giữ Escape/Tab trap của dialog khóa (bọc ngoài view), state mở/đóng drawer và trả focus về nút mở. `key` theo chương để reset state. Trạng thái rewarded được đổi sang `idle\|pending\|unavailable\|error`. |
-| `ad-slot-container.tsx` | `AdSlot` | Truyền `status="success"` ngay từ đầu vì provider cần phần tử chứa quảng cáo trong lúc tải (view chỉ render `children` khi `success`). |
+| `ad-slot-container.tsx` | `AdSlot` | Render mount node cả khi `loading`, giữ kích thước slot cho đến khi quảng cáo xác nhận filled/no-fill. |
 | `unlock-settings-container.tsx` | `UnlockSettingsView` | Container render thêm khối "Chi tiết mở khóa": ô URL, mode đang áp dụng, revision, người sửa, hoàn tác. |
 
 **Đề xuất đổi contract cho Antigravity:**
-1. `AdSlot` nên render `children` cả khi `loading` (spinner đè lên), để khỏi phải truyền `success` sớm.
-2. `UnlockSettingsView.canSave` nên là `!isUnlockEnabled || selectedModeReady`. Hiện view chặn lưu ngay cả khi đang tắt mở khóa. Container tạm báo `isReady: true` khi đang tắt, nên badge có thể hiện "Sẵn sàng" dù phương thức chưa cấu hình; mỗi khi bật lên, trạng thái thật hiện lại.
-3. Thêm ô URL liên kết, `effectiveMode`, revision/người sửa và nút hoàn tác vào view settings.
-4. `UnlockGateView` nên nhận `message` (thông báo từ server/flow) và `onClose`; hiện container phát thông báo qua vùng `role=status` ẩn.
-5. `ReaderNavigation` nên nhận ref cho nút "Danh sách chương" để trả focus.
+1. `UnlockSettingsView.canSave` nên là `!isUnlockEnabled || selectedModeReady`. Hiện view chặn lưu ngay cả khi đang tắt mở khóa. Container tạm báo `isReady: true` khi đang tắt, nên badge có thể hiện "Sẵn sàng" dù phương thức chưa cấu hình; mỗi khi bật lên, trạng thái thật hiện lại.
+2. Thêm ô URL liên kết, `effectiveMode`, revision/người sửa và nút hoàn tác vào view settings.
+3. `UnlockGateView` nên nhận `message` (thông báo từ server/flow) và `onClose`; hiện container phát thông báo qua vùng `role=status` ẩn.
+4. `ReaderNavigation` nên nhận ref cho nút "Danh sách chương" để trả focus.
 
 ## Kiểm thử
 
