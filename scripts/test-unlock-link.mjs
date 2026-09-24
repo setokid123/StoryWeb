@@ -68,7 +68,9 @@ async function put(changes) {
 async function chapter(number, cookie) {
   const headers = cookie ? { Cookie: cookie } : {};
   const html = await request(`/doc/${slug}/${number}`, { headers });
-  const rsc = await request(`/doc/${slug}/${number}?_rsc=m3${run}`, { headers: { ...headers, RSC: "1" } });
+  // Next 16 answers RSC requests on `?_rsc` (a mismatching value is redirected there).
+  const rsc = await request(`/doc/${slug}/${number}?_rsc`, { headers: { ...headers, RSC: "1" } });
+  assert.equal(rsc.status, 200, `RSC ${number} status`);
   const body = bodies[number - 1];
   return { status: html.status, html: html.text, inHtml: html.text.includes(body), inRsc: rsc.status === 200 && rsc.text.includes(body), rscStatus: rsc.status };
 }
