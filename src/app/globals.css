@@ -970,3 +970,107 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   .menu-toggle { display: grid; }
   .site-header__actions { gap: 5px; }
 }
+
+/* U7: Reader Floating Navigation & Sticky Toolbar */
+.reader-toolbar {
+  position: sticky;
+  top: 20px;
+  z-index: 40;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s;
+}
+.reader-toolbar.is-hidden {
+  transform: translateY(calc(-100% - 30px));
+  opacity: 0;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reader-toolbar { transition: opacity 0.2s ease, visibility 0.2s; }
+  .reader-toolbar.is-hidden { transform: none; }
+}
+
+.reader-floating-nav {
+  position: fixed;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s;
+}
+.reader-floating-nav.is-visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reader-floating-nav {
+    transition: opacity 0.2s ease, visibility 0.2s;
+    transform: translateX(-50%);
+  }
+  .reader-floating-nav.is-visible { transform: translateX(-50%); }
+}
+
+.reader-floating-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 253, 248, 0.85);
+  border: 1px solid var(--border-surface);
+  border-radius: 99px;
+  padding: 8px 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+@supports not (backdrop-filter: blur(12px)) {
+  .reader-floating-nav__inner { background: var(--bg-surface); }
+}
+@supports not (-webkit-backdrop-filter: blur(12px)) {
+  .reader-floating-nav__inner { background: var(--bg-surface); }
+}
+
+.reader-floating-nav__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 99px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.reader-floating-nav__btn:hover:not(:disabled) {
+  background: var(--bg-elevated);
+  color: var(--rust);
+}
+.reader-floating-nav__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .reader-floating-nav {
+    width: calc(100% - 32px);
+    bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+  .reader-floating-nav__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border-radius: 16px;
+    padding: 12px;
+  }
+  .reader-floating-nav__btn {
+    padding: 0 10px;
+    border-radius: 12px;
+  }
+}
