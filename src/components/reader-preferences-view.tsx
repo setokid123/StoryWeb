@@ -28,8 +28,7 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
   const p = preferences;
 
   return (
-    <div className="reader-prefs-backdrop" onClick={onClose}>
-    <div className="reader-prefs" role="dialog" aria-modal="true" aria-labelledby="prefs-title" onClick={e => e.stopPropagation()}>
+    <div className="reader-prefs" role="dialog" aria-modal="true" aria-labelledby="prefs-title">
       <header className="reader-prefs__header">
         <h2 id="prefs-title">Tùy chỉnh đọc</h2>
         <button type="button" className="icon-button" onClick={onClose} aria-label="Đóng tùy chỉnh">
@@ -126,7 +125,7 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
                 disabled={p.fontSize <= 16}
                 aria-label="Giảm cỡ chữ"
               >
-                A-
+                Nhỏ
               </button>
               <div className="pref-stepper__value" aria-live="polite">
                 <Type size={16} /> {p.fontSize}px
@@ -138,7 +137,7 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
                 disabled={p.fontSize >= 26}
                 aria-label="Tăng cỡ chữ"
               >
-                A+
+                Lớn
               </button>
             </div>
 
@@ -233,7 +232,6 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
           <RotateCcw size={14} /> Khôi phục mặc định
         </button>
       </footer>
-    </div>
     </div>
   );
 }
