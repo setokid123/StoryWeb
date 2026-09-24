@@ -166,13 +166,13 @@
 }
 [data-theme="dark"] .reader-prefs__header,
 [data-theme="dark"] .reader-prefs__footer {
-  background: var(--surface);
+  background: var(--cream);
   border-color: var(--line);
 }
 [data-theme="dark"] .pref-section__title { color: var(--text-muted); }
 [data-theme="dark"] .pref-segmented,
 [data-theme="dark"] .pref-stepper {
-  background: var(--surface);
+  background: var(--cream);
   border-color: var(--line);
 }
 [data-theme="dark"] .pref-btn {
