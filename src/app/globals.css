@@ -982,6 +982,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   transform: translateY(calc(-100% - 30px));
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
   .reader-toolbar { transition: opacity 0.2s ease, visibility 0.2s; }
@@ -1025,10 +1026,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-@supports not (backdrop-filter: blur(12px)) {
-  .reader-floating-nav__inner { background: var(--bg-surface); }
-}
-@supports not (-webkit-backdrop-filter: blur(12px)) {
+/* Solid background only when neither the standard nor the -webkit- blur is supported. */
+@supports not ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
   .reader-floating-nav__inner { background: var(--bg-surface); }
 }
 
