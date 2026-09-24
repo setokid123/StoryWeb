@@ -28,3 +28,13 @@ Claude Code đã merge `antigravity/u5-reader-polish` (`aa51909`) vào `claude/m
 ## Chưa kiểm được
 
 Phiên này không có trình duyệt để chụp ảnh 360/768/1280 hay thử bàn phím thật trên panel. Logic đã có test tự động (preferences và unlock), nhưng phần hiển thị cần Antigravity/Codex kiểm bằng trình duyệt.
+
+## Cập nhật sau `c97b3fd` (Antigravity sửa theo phản hồi)
+
+Claude đã merge `c97b3fd` và điều chỉnh container:
+
+- Mục 1: đã bỏ inline style. `.reader-text` chỉ còn `style={{ fontSize }}`, vì cỡ chữ là giá trị liên tục 16–26px và CSS không có rule cho nó. Các lựa chọn khác đi qua `data-pref-*` và rule CSS của U5. `<p>` không còn style. Riêng `wide` giờ là 720px theo CSS (trước đây là 100% của `.reader-article` tối đa 720px), nên hiển thị như cũ.
+- Mục 2: wrapper panel dùng class `.reader-toolbar__prefs-anchor` thay cho inline `position: relative`.
+- Mục 7: backdrop mobile nằm trong view. Bấm backdrop gọi `onClose`, container trả focus về nút mở.
+- Các mục 3–6 và 8 được sửa trong CSS/view; Claude không sửa file U5.
+- Vẫn chưa kiểm được bằng trình duyệt.

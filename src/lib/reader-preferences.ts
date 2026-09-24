@@ -97,31 +97,22 @@ export function sameReaderPreferences(a: StoredReaderPreferences, b: StoredReade
 
 // ---------- rendering (chapter body only) ----------
 
-const FONT_STACK: Record<FontFamily, string> = { lora: "var(--serif)", inter: "var(--sans)" };
-const WEIGHT: Record<FontWeight, number> = { normal: 400, bold: 600 };
-const LINE_HEIGHT: Record<LineHeight, number> = { tight: 1.65, normal: 1.9, loose: 2.2 };
-const MAX_WIDTH: Record<ColumnWidth, string> = { narrow: "560px", medium: "660px", wide: "100%" };
-
 export type ReaderBodyStyle = {
-  /** Styles for the chapter body container (`.reader-text`). */
-  body: { fontFamily: string; fontWeight: number; fontSize: string; lineHeight: number; maxWidth: string; marginInline: string };
-  /** Styles for each paragraph (the base CSS sets `text-align: justify` on `.reader-text p`). */
-  paragraph: { textAlign: TextAlignment };
-  /** Mirrors the choices as data attributes so CSS (U5) can target them without inline styles later. */
-  dataAttributes: Record<string, string>;
+  /** Inline style for `.reader-text`: only the font size, which is continuous (16–26px). */
+  body: { fontSize: string };
+  /** Every other choice is styled by U5 CSS rules `.reader-text[data-pref-*]` in globals.css. */
+  dataAttributes: {
+    "data-pref-font": FontFamily;
+    "data-pref-weight": FontWeight;
+    "data-pref-line-height": LineHeight;
+    "data-pref-width": ColumnWidth;
+    "data-pref-align": TextAlignment;
+  };
 };
 
 export function readerBodyStyle(prefs: StoredReaderPreferences): ReaderBodyStyle {
   return {
-    body: {
-      fontFamily: FONT_STACK[prefs.fontFamily],
-      fontWeight: WEIGHT[prefs.fontWeight],
-      fontSize: `${prefs.fontSize}px`,
-      lineHeight: LINE_HEIGHT[prefs.lineHeight],
-      maxWidth: MAX_WIDTH[prefs.columnWidth],
-      marginInline: "auto",
-    },
-    paragraph: { textAlign: prefs.textAlignment },
+    body: { fontSize: `${prefs.fontSize}px` },
     dataAttributes: {
       "data-pref-font": prefs.fontFamily,
       "data-pref-weight": prefs.fontWeight,
