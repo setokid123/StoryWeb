@@ -1,10 +1,12 @@
-# Giao việc hiện tại — U6
+# Bàn giao U6
 
 | Agent | Worktree | Nhánh | File giao việc |
 | --- | --- | --- | --- |
 | Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u6` | `antigravity/u6-visual-hierarchy` | [ANTIGRAVITY_U6.md](ANTIGRAVITY_U6.md) |
 
 Đưa cho Antigravity [câu nhắc U6](ANTIGRAVITY_U6.md#câu-nhắc-đưa-vào-antigravity). Đọc [kế hoạch phân tầng giao diện](../VISUAL_HIERARCHY_U6_PLAN.md). Claude **chưa có task U6** vì vòng này chỉ cần giao diện; nếu Antigravity cần đổi container React đang giữ logic, Codex sẽ mở task tích hợp riêng sau khi có view contract.
+
+U6 đã qua [review tích hợp I10](../reviews/I10_U6_INTEGRATION_2026-09-24.md) trên `main` nội bộ. Ảnh và số đo do Codex bổ sung; chưa push GitHub hoặc deploy Railway.
 
 Codex đã review commit U6 đầu tiên và phát hiện lỗi dark mode chặn tích hợp. Antigravity cần đọc [phản hồi I8](../reviews/U6_VISUAL_REVIEW_2026-09-24.md), sửa trên chính nhánh U6 và bàn giao lại kèm ảnh/đo tương phản.
 

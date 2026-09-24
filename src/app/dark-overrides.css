@@ -12,14 +12,10 @@
 [data-theme="dark"] .hero-art__quote { background: #233134; color: #a4b4b0; box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
 [data-theme="dark"] .button--outline { border-color: #556662; color: #e9e9e9; }
 [data-theme="dark"] .button--outline:hover { border-color: var(--rust); color: var(--rust); }
+[data-theme="dark"] .button--primary, [data-theme="dark"] .search-form button, [data-theme="dark"] .filter-chip.is-selected, [data-theme="dark"] .filter-chip:hover { color: #172426; }
 [data-theme="dark"] .text-link, [data-theme="dark"] .section-link { color: #cfd8d5; border-color: #5a6d68; }
 [data-theme="dark"] .genre-strip { background: #131a1c; }
-[data-theme="dark"] .section--cream { background: var(--paper); }
-[data-theme="dark"] .story-card { background: var(--cream); border-color: var(--line); }
 [data-theme="dark"] .story-card:hover { box-shadow: 0 12px 35px rgba(0,0,0,0.3); }
-[data-theme="dark"] .story-card h3 { color: #eef1ec; }
-[data-theme="dark"] .story-card__body > p { color: #97a19c; }
-[data-theme="dark"] .story-card__meta { border-color: var(--line); color: #7f8a85; }
 [data-theme="dark"] .feature-section { background: #1a2527; }
 [data-theme="dark"] .feature-art { background: #243537; }
 [data-theme="dark"] .feature-art:before { background: #202c2e; box-shadow: 15px 20px 25px rgba(0,0,0,0.2); }
@@ -37,11 +33,10 @@
 [data-theme="dark"] .site-footer { background: #0c1214; border-top: 1px solid #1a2527; }
 
 /* Discover/Search */
-[data-theme="dark"] .search-form { background: var(--cream); border-color: var(--line); color: var(--muted); }
 [data-theme="dark"] .search-form input { color: var(--ink); }
 [data-theme="dark"] .filter-row { border-color: var(--line); }
 [data-theme="dark"] .filter-chip { background: var(--paper); border-color: var(--line); color: #92a09b; }
-[data-theme="dark"] .filter-chip:hover, [data-theme="dark"] .filter-chip.is-selected { background: var(--rust); border-color: var(--rust); color: #fff; }
+[data-theme="dark"] .filter-chip:hover, [data-theme="dark"] .filter-chip.is-selected { background: var(--rust); border-color: var(--rust); }
 [data-theme="dark"] .empty-state h2, [data-theme="dark"] .empty-state h1 { color: #f2f2f0; }
 
 /* Detail */
@@ -70,24 +65,18 @@
 [data-theme="dark"] .aside-card strong { color: #d5ddd9; }
 
 /* Studio */
-[data-theme="dark"] .panel-access { background: var(--paper); }
-[data-theme="dark"] .panel-access__card { background: var(--cream); border-color: var(--line); box-shadow: 0 20px 55px rgba(0,0,0,0.3); }
 [data-theme="dark"] .panel-access__icon { background: #2c2522; }
 [data-theme="dark"] .panel-access h1 { color: #eef1ef; }
 [data-theme="dark"] .panel-access p { color: #9daaa4; }
 [data-theme="dark"] .panel-access code { background: var(--paper); color: #bac6c1; }
-[data-theme="dark"] .panel-access input, [data-theme="dark"] .studio-editor input, [data-theme="dark"] .studio-editor select, [data-theme="dark"] .studio-editor textarea { background: var(--paper); border-color: var(--line); color: #d8e2dd; }
 [data-theme="dark"] .panel-access input:focus, [data-theme="dark"] .studio-editor input:focus, [data-theme="dark"] .studio-editor select:focus, [data-theme="dark"] .studio-editor textarea:focus { border-color: var(--rust); box-shadow: 0 0 0 3px rgba(211, 141, 120, 0.15); }
 [data-theme="dark"] .studio { background: var(--paper); }
 [data-theme="dark"] .studio-sidebar { background: #131d1f; border-right: 1px solid var(--line); }
 [data-theme="dark"] .studio-sidebar__brand > span { border-color: #3b5053; }
 [data-theme="dark"] .studio-sidebar__link:hover, [data-theme="dark"] .studio-sidebar__link.is-active { background: #223438; }
-[data-theme="dark"] .studio-stats > div { background: var(--cream); border-color: var(--line); }
 [data-theme="dark"] .studio-stats strong { color: #dce4e0; }
-[data-theme="dark"] .studio-library, [data-theme="dark"] .studio-editor { background: var(--cream); border-color: var(--line); }
 [data-theme="dark"] .studio-section-title { border-color: var(--line); }
 [data-theme="dark"] .studio-section-title h2 { color: #e5ece8; }
-[data-theme="dark"] .studio-library__item { background: var(--cream); border-color: var(--line); }
 [data-theme="dark"] .studio-library__item:hover, [data-theme="dark"] .studio-library__item.is-selected { background: #253436; }
 [data-theme="dark"] .studio-library__item strong { color: #dde5e1; }
 [data-theme="dark"] .studio-status { background: #2a231f; color: #dfa87a; }
@@ -111,7 +100,6 @@
 }
 
 /* U4: Reader Navigation Dark */
-[data-theme="dark"] .reader-nav { border-color: var(--line); }
 [data-theme="dark"] .reader-nav__main .button--outline { background: transparent; }
 
 /* U4: Drawer Panel Dark */
@@ -153,27 +141,28 @@
 [data-theme="dark"] .alert--success { background: #1c2b22; color: #78a489; border-color: #2b4535; }
 
 /* U5: Reader Polish Dark */
+[data-theme="dark"] .reader-shell { background: #1d2b2b; color: #e9e4d8; }
+[data-theme="dark"] .reader-text { color: #e7e2d5; }
+[data-theme="dark"] .reader-toolbar__settings > button { background: #2a3a39; border-color: #4b5e59; color: #e7e2d5; }
 [data-theme="dark"] .reader-article .eyebrow { color: #8ba096; }
-[data-theme="dark"] .reader-article h1 { color: #e4e5e0; }
 [data-theme="dark"] .reader-end { color: #8ba096; }
-[data-theme="dark"] .reader-nav { border-color: var(--line); }
 
 [data-theme="dark"] .reader-prefs {
-  background: var(--paper);
-  border-color: var(--line);
+  background: var(--bg-surface);
+  border-color: var(--border-surface);
   color: var(--ink);
   box-shadow: 0 15px 30px rgba(0,0,0,0.5);
 }
 [data-theme="dark"] .reader-prefs__header,
 [data-theme="dark"] .reader-prefs__footer {
-  background: var(--cream);
-  border-color: var(--line);
+  background: var(--bg-elevated);
+  border-color: var(--border-surface);
 }
 [data-theme="dark"] .pref-section__title { color: var(--muted); }
 [data-theme="dark"] .pref-segmented,
 [data-theme="dark"] .pref-stepper {
-  background: var(--cream);
-  border-color: var(--line);
+  background: var(--bg-elevated);
+  border-color: var(--border-surface);
 }
 [data-theme="dark"] .pref-btn {
   color: var(--muted);
@@ -188,8 +177,8 @@
   color: #172426;
 }
 [data-theme="dark"] .pref-stepper__value {
-  background: var(--paper);
-  border-color: var(--line);
+  background: var(--bg-surface);
+  border-color: var(--border-surface);
 }
 [data-theme="dark"] .pref-reset-btn { color: var(--muted); }
 [data-theme="dark"] .pref-reset-btn:hover { color: var(--rust); }

@@ -44,3 +44,27 @@ Kiểm tra ở 360px, 768px, 1280px; cả bàn phím, độ tương phản và n
 - Lưu bản nháp chỉ cần tên và đường dẫn hợp lệ. Xuất bản yêu cầu thêm tác giả, mô tả, tiêu đề và nội dung cho từng chương. Lỗi hiển thị ngay trong panel, có `role="alert"`; trạng thái lưu/xóa có thông báo riêng.
 - Không hiện nút tải ảnh bìa khi chưa có lưu trữ ảnh/API tương ứng. Bìa hiện là hình tạo bằng CSS từ dữ liệu truyện; tác giả sẽ cần luồng tải ảnh và xem trước khi backend hỗ trợ.
 - Các nút thao tác cần trạng thái chờ, vùng nhấn tối thiểu khoảng 40px và focus rõ. Đăng nhập báo lỗi cạnh trường mật khẩu, không làm mất giá trị người dùng vừa nhập khi kết nối thất bại.
+
+## Bề mặt và Phân tầng (Visual Hierarchy)
+
+Hệ thống CSS Token phân tầng không gian đọc và card để không bị chìm vào nền chung:
+
+- **Sáng (Light Mode)**
+  - `--bg-site`: `#eee9e0` (Nền chung toàn site, hơi trầm)
+  - `--bg-surface`: `#fffdf8` (Mặt đọc, nền thẻ card, gần trắng)
+  - `--bg-elevated`: `#fbf9f5` (Toolbar, các khối nổi cao hơn)
+  - `--border-surface`: `#e5e2da` (Viền thẻ và mặt đọc)
+  - `--ink`: `#263433` (Màu chữ chính, xanh rêu rất đậm)
+  - `--muted`: `#5b6a6d` (Chữ phụ, đủ tương phản trên nền site và card)
+
+- **Tối (Dark Mode)**
+  - `--bg-site`: `#101b1d` (Nền chung, rất tối)
+  - `--bg-surface`: `#253538` (Mặt đọc, nền thẻ card, sáng hơn nền site)
+  - `--bg-elevated`: `#2f4347` (Khối nâng cao)
+  - `--border-surface`: `#3b5054`
+  - `--ink`: `#f1eee6` (Màu chữ chính)
+  - `--muted`: `#a0afa9` (Chữ phụ trên mặt đọc tối)
+
+- `reader-article`: Nằm trên `.reader-shell`, được tạo khung hình "trang sách" với lề, padding, và box-shadow nhẹ.
+- Toolbar và Navigation của trang đọc được làm thành các khối card riêng biệt, không chìm vào background.
+- `.story-card`, `.studio-editor`, `.studio-stats`: Các card sử dụng chung biến `--bg-surface` thay vì fix cứng màu `#fff`.
