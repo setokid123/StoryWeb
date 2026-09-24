@@ -19,8 +19,9 @@ Một thư viện số yên tĩnh, giàu chất biên tập. Ưu tiên đọc l�
 
 - `SiteHeader`: desktop nav, menu mobile, tìm kiếm.
 - `StoryCard` + `Cover`: thẻ truyện có bìa, tác giả, rating và số chương.
-- `ReaderPanel`: cỡ chữ, chế độ tối, chương trước/sau; trạng thái chương khóa riêng.
-- `ReaderNavigation`: 4 nút điều hướng (Về truyện, Chương trước, Danh sách chương, Chương sau), responsive lưới ở mobile.
+- `ReaderPanel`: container chính trang đọc truyện. H1 và phần kết chương lớn hơn.
+- `ReaderPreferencesView`: panel tùy chỉnh (font, cỡ chữ, giãn dòng, lề, sáng tối).
+- `ReaderNavigation`: 4 nút điều hướng gom chung thành một khối giữa, responsive lưới ở mobile.
 - `ChapterListDialog`: drawer hiển thị danh sách chương, hỗ trợ focus trap và bàn phím (Escape/Tab).
 - `UnlockGateView`: dialog mở khóa 2 chế độ (link/rewarded), trạng thái tải, lỗi.
 - `AdSlot`: khối hiển thị quảng cáo đa vị trí (home_feed, story_detail, reader_end, search_results).
