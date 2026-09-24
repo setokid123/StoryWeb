@@ -1,6 +1,14 @@
-# Bàn giao đã hoàn thành — U5 / M3
+# Giao việc hiện tại — U6
 
-Antigravity và Claude Code đã bàn giao U5/M3 trên hai worktree dưới đây; Codex tích hợp và ghi kết quả tại [review I3](../reviews/I3_READER_MCP_REVIEW_2026-09-24.md). Các câu nhắc bên dưới được giữ làm lịch sử. Việc tiếp theo cần nhánh/worktree mới từ `main` hiện hành, có `.mcp.json`, và kiểm tra Context7/Memory theo [quy ước MCP](../MCP_TOOLS.md).
+| Agent | Worktree | Nhánh | File giao việc |
+| --- | --- | --- | --- |
+| Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u6` | `antigravity/u6-visual-hierarchy` | [ANTIGRAVITY_U6.md](ANTIGRAVITY_U6.md) |
+
+Đưa cho Antigravity [câu nhắc U6](ANTIGRAVITY_U6.md#câu-nhắc-đưa-vào-antigravity). Đọc [kế hoạch phân tầng giao diện](../VISUAL_HIERARCHY_U6_PLAN.md). Claude **chưa có task U6** vì vòng này chỉ cần giao diện; nếu Antigravity cần đổi container React đang giữ logic, Codex sẽ mở task tích hợp riêng sau khi có view contract.
+
+## Lịch sử — U5 / M3
+
+Antigravity và Claude Code đã bàn giao U5/M3 trên hai worktree dưới đây; Codex tích hợp và ghi kết quả tại [review I3](../reviews/I3_READER_MCP_REVIEW_2026-09-24.md). Các câu nhắc bên dưới được giữ làm lịch sử. U6 dùng worktree mới từ `main` ở bảng trên và kiểm tra Context7/Memory theo [quy ước MCP](../MCP_TOOLS.md).
 
 | Agent | Thư mục mở trong VS Code | Nhánh | File giao việc |
 | --- | --- | --- | --- |
