@@ -54,14 +54,14 @@ Hệ thống CSS Token phân tầng không gian đọc và card để không b�
   - `--bg-surface`: `#fffdf8` (Mặt đọc, nền thẻ card, gần trắng)
   - `--bg-elevated`: `#fbf9f5` (Toolbar, các khối nổi cao hơn)
   - `--border-surface`: `#e5e2da` (Viền thẻ và mặt đọc)
-  - `--ink-main`: `#263433` (Màu chữ chính, xanh rêu rất đậm)
+  - `--ink`: `#263433` (Màu chữ chính, xanh rêu rất đậm)
 
 - **Tối (Dark Mode)**
   - `--bg-site`: `#101b1d` (Nền chung, rất tối)
   - `--bg-surface`: `#253538` (Mặt đọc, nền thẻ card, sáng hơn nền site)
   - `--bg-elevated`: `#2f4347` (Khối nâng cao)
   - `--border-surface`: `#3b5054`
-  - `--ink-main`: `#f1eee6` (Màu chữ chính)
+  - `--ink`: `#f1eee6` (Màu chữ chính)
 
 - `reader-article`: Nằm trên `.reader-shell`, được tạo khung hình "trang sách" với lề, padding, và box-shadow nhẹ.
 - Toolbar và Navigation của trang đọc được làm thành các khối card riêng biệt, không chìm vào background.
