@@ -15,7 +15,15 @@ const unlockSecret = process.env.CLICK_UNLOCK_SECRET;
 // Must equal the app instance CLICK_UNLOCK_URL.
 const destination = process.env.STORYWEB_TEST_LINK_URL ?? "https://example.com/";
 if (!adminPassword || !unlockSecret) throw new Error("Set STORYWEB_TEST_ADMIN_PASSWORD and CLICK_UNLOCK_SECRET (same as the app).");
-if (process.env.DATABASE_URL && new URL(process.env.DATABASE_URL).pathname.slice(1) === "railway") throw new Error("Refusing to run against the production database.");
+const target = new URL(base);
+if (target.protocol !== "http:" || !["127.0.0.1", "localhost", "[::1]"].includes(target.hostname)) {
+  throw new Error("This mutating test only runs against a local app URL.");
+}
+if (!process.env.DATABASE_URL) throw new Error("Set DATABASE_URL to an isolated storyweb_test database.");
+const databaseName = decodeURIComponent(new URL(process.env.DATABASE_URL).pathname.slice(1));
+if (!/^storyweb_(?:test(?:_[a-z0-9_]+)?|m3_[a-z0-9_]+)$/i.test(databaseName)) {
+  throw new Error("This mutating test requires a database named storyweb_test or storyweb_m3_*.");
+}
 
 const run = randomUUID().slice(0, 8);
 const slug = `m3-link-${run}`;

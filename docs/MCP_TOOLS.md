@@ -15,6 +15,7 @@ Repo (`docs/`, `WORKBOARD.md`, code, git log) vẫn là **nguồn sự thật**.
 2. **Next.js:** `node_modules/next/dist/docs/` được ưu tiên hơn Context7 (xem khối Next.js trong `AGENTS.md`). Chỉ dùng Context7 để bổ sung.
 3. Không gửi secret, `DATABASE_URL`, nội dung chương hay dữ liệu người dùng trong câu hỏi gửi Context7. Context7 là dịch vụ bên ngoài.
 4. Nếu Context7 lỗi hoặc hết quota, tiếp tục bằng docs trong `node_modules`, rồi ghi "Context7 không dùng được" trong bàn giao.
+5. Khi bàn giao, ghi thư viện/phiên bản và chủ đề đã tra. Với thay đổi chỉ ở CSS, văn bản hoặc logic thuần không dùng API thư viện, ghi rõ `Context7: không cần`.
 
 ### Memory: đọc khi nhận việc, ghi khi bàn giao
 
@@ -22,6 +23,7 @@ Repo (`docs/`, `WORKBOARD.md`, code, git log) vẫn là **nguồn sự thật**.
 2. **Bàn giao:** ghi những gì agent sau cần biết mà khó tìm lại trong repo: quyết định, bẫy kỹ thuật, contract, việc còn dở. Mỗi mục ghi xong thêm dòng `Memory: đã cập nhật <entity>` vào ô bàn giao trên `WORKBOARD.md`.
 3. **Không ghi:** secret, mật khẩu, token, `DATABASE_URL`, cookie, email hay dữ liệu người đọc, nội dung chương. Không chép nguyên tài liệu; chỉ ghi tóm tắt kèm đường dẫn file hoặc commit.
 4. Chỉ sửa hoặc xóa observation do chính agent mình ghi, trừ khi observation đó sai so với repo (ghi rõ lý do khi xóa).
+5. Trước khi ghi, tìm lại entity để tránh trùng; chỉ ghi quyết định hoặc bẫy mới. Nếu server không kết nối, ghi lý do trên workboard và tiếp tục dựa vào repo.
 
 ### Quy ước đặt tên trong Memory
 
@@ -49,7 +51,7 @@ Mọi worktree phải trỏ về **file này ở checkout chính**, không dùng
 
 ### Claude Code
 
-Đã có `.mcp.json` ở gốc repo, dùng `cmd /c npx` cho Windows. Lần đầu mở, Claude Code sẽ hỏi có bật server trong `.mcp.json` không; chọn đồng ý. Kiểm tra bằng `/mcp` hoặc `claude mcp list`.
+Đã có `.mcp.json` ở gốc repo, dùng `cmd /c npx` cho Windows. Mỗi **worktree** mở riêng trong VS Code phải chứa `.mcp.json`: tạo worktree mới từ `main` hiện hành hoặc cập nhật nhánh cũ trước khi bắt đầu. Claude Code yêu cầu tin cậy workspace và duyệt server cấp project; xem trạng thái bằng `/mcp` trong extension, hoặc `claude mcp list` nếu CLI có trong `PATH`. Cấu hình có `${STORYWEB_MEMORY_FILE:-...}`; Claude Code hỗ trợ cú pháp fallback này. [Tài liệu Claude Code](https://code.claude.com/docs/en/mcp).
 
 ### Codex (`~/.codex/config.toml`, cấp user)
 
@@ -70,7 +72,7 @@ MEMORY_FILE_PATH = 'E:\Dev\StoryWeb\.agents\memory\storyweb-memory.jsonl'
 
 Codex đọc `AGENTS.md`, nên quy tắc ở mục 1 áp dụng qua `AGENTS.md`.
 
-### Antigravity (`~/.gemini/antigravity/mcp_config.json` và `~/.gemini/config/mcp_config.json`)
+### Antigravity (`~/.gemini/config/mcp_config.json`)
 
 **Không dùng Docker.** Hai server chạy bằng `npx` giống Codex:
 
@@ -84,7 +86,14 @@ Codex đọc `AGENTS.md`, nên quy tắc ở mục 1 áp dụng qua `AGENTS.md`.
 }
 ```
 
-Antigravity đọc `.agents/rules/project-context.md`; quy tắc được nhắc lại ở đó.
+Antigravity đọc `.agents/rules/project-context.md`; quy tắc được nhắc lại ở đó. File `~/.gemini/config/mcp_config.json` là vị trí cấu hình hiện hành theo [hướng dẫn Google Antigravity](https://codelabs.developers.google.com/getting-started-google-antigravity). Trong Settings → Customizations → Installed MCP Servers, bấm Refresh, bật `context7` và `memory` cho project; kiểm tra tool xuất hiện trước khi nhận việc. Nếu máy còn file cũ `~/.gemini/antigravity/mcp_config.json`, không coi file đó là nguồn cấu hình chính.
+
+### Kiểm tra trước khi nhận việc và khi bàn giao
+
+1. Codex: kiểm tra `context7`/`memory` trong danh sách MCP của phiên; gọi thử một truy vấn tài liệu không nhạy cảm khi cần API, và `search_nodes` cho ID việc. CLI/IDE dùng cùng cấu hình MCP theo [tài liệu OpenAI](https://developers.openai.com/learn/docs-mcp).
+2. Claude Code: `/mcp` phải cho thấy hai server đã kết nối trong đúng worktree đang làm. Trạng thái `Pending approval` cần duyệt trong phiên Claude Code tương ứng. Thực hiện `search_nodes` khi nhận việc.
+3. Antigravity: xác nhận hai server đang bật trong project; thực hiện `search_nodes` khi nhận việc. Config đúng tên chưa đủ chứng minh tool đã kết nối.
+4. Bàn giao: workboard ghi `Memory: đã tra ...; đã cập nhật ...` và `Context7: ...` hoặc lý do không cần/không dùng được. Codex đối chiếu với thay đổi thực tế; không chép secret hoặc nội dung chương vào MCP.
 
 ### Context7 API key (tùy chọn)
 

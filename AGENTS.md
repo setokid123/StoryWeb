@@ -26,6 +26,7 @@ Cả ba agent dùng **Context7** và **Memory** theo `docs/MCP_TOOLS.md`:
 
 - **Context7:** tra tài liệu đúng phiên bản trong `package.json` trước khi code API thư viện. Với Next.js, `node_modules/next/dist/docs/` được ưu tiên hơn.
 - **Memory:** `search_nodes` theo ID task/khu vực khi nhận việc; khi bàn giao ghi quyết định, bẫy kỹ thuật, contract và việc dở theo quy ước tên, rồi thêm dòng `Memory: đã cập nhật <entity>` vào ô bàn giao trên workboard. Không ghi secret, `DATABASE_URL`, cookie, dữ liệu người đọc hay nội dung chương.
+- **Kiểm chứng bàn giao:** ghi `Context7: <thư viện/phiên bản, tài liệu đã tra>` nếu đã sửa API thư viện, hoặc `Context7: không cần (không sửa API thư viện)`; ghi `Memory: đã tra <task/khu vực>; đã cập nhật <entity>` hoặc lỗi kết nối cụ thể. Codex kiểm các dòng này khi tích hợp.
 - Repo là nguồn sự thật; nếu Memory mâu thuẫn với repo thì làm theo repo và sửa Memory. Nếu tool không chạy được, tiếp tục làm việc và ghi rõ trong bàn giao.
 
 ## Cấu trúc

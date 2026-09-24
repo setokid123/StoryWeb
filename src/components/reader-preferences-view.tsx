@@ -42,24 +42,24 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
         <section className="pref-section">
           <div className="pref-section__title">Nền và màu chữ</div>
           <div className="pref-segmented" role="group" aria-label="Chế độ nền">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className={`pref-btn ${p.theme === 'light' ? 'is-active' : ''}`}
               onClick={() => onUpdate({ theme: 'light' })}
               aria-pressed={p.theme === 'light'}
             >
               <Sun size={18} /> Sáng
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               className={`pref-btn ${p.theme === 'dark' ? 'is-active' : ''}`}
               onClick={() => onUpdate({ theme: 'dark' })}
               aria-pressed={p.theme === 'dark'}
             >
               <Moon size={18} /> Tối
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               className={`pref-btn ${p.theme === 'system' ? 'is-active' : ''}`}
               onClick={() => onUpdate({ theme: 'system' })}
               aria-pressed={p.theme === 'system'}
@@ -74,16 +74,16 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
           <div className="pref-section__title">Kiểu chữ</div>
           <div className="pref-grid-2">
             <div className="pref-segmented" role="group" aria-label="Phông chữ">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn pref-btn--font-serif ${p.fontFamily === 'lora' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ fontFamily: 'lora' })}
                 aria-pressed={p.fontFamily === 'lora'}
               >
                 Văn học
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn pref-btn--font-sans ${p.fontFamily === 'inter' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ fontFamily: 'inter' })}
                 aria-pressed={p.fontFamily === 'inter'}
@@ -92,8 +92,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               </button>
             </div>
             <div className="pref-segmented" role="group" aria-label="Độ đậm">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.fontWeight === 'normal' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ fontWeight: 'normal' })}
                 aria-pressed={p.fontWeight === 'normal'}
@@ -101,8 +101,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               >
                 Thường
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.fontWeight === 'bold' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ fontWeight: 'bold' })}
                 aria-pressed={p.fontWeight === 'bold'}
@@ -119,9 +119,9 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
           <div className="pref-section__title">Kích thước</div>
           <div className="pref-grid-2">
             <div className="pref-stepper">
-              <button 
-                type="button" 
-                className="pref-btn" 
+              <button
+                type="button"
+                className="pref-btn"
                 onClick={() => onUpdate({ fontSize: Math.max(16, p.fontSize - 1) })}
                 disabled={p.fontSize <= 16}
                 aria-label="Giảm cỡ chữ"
@@ -131,9 +131,9 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               <div className="pref-stepper__value" aria-live="polite">
                 <Type size={16} /> {p.fontSize}px
               </div>
-              <button 
-                type="button" 
-                className="pref-btn" 
+              <button
+                type="button"
+                className="pref-btn"
                 onClick={() => onUpdate({ fontSize: Math.min(26, p.fontSize + 1) })}
                 disabled={p.fontSize >= 26}
                 aria-label="Tăng cỡ chữ"
@@ -143,8 +143,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
             </div>
 
             <div className="pref-segmented" role="group" aria-label="Giãn dòng">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.lineHeight === 'tight' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ lineHeight: 'tight' })}
                 aria-pressed={p.lineHeight === 'tight'}
@@ -152,8 +152,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               >
                 <List size={18} style={{ transform: 'scaleY(0.7)' }} />
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.lineHeight === 'normal' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ lineHeight: 'normal' })}
                 aria-pressed={p.lineHeight === 'normal'}
@@ -161,8 +161,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               >
                 <List size={18} />
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.lineHeight === 'loose' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ lineHeight: 'loose' })}
                 aria-pressed={p.lineHeight === 'loose'}
@@ -179,24 +179,24 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
           <div className="pref-section__title">Bố cục</div>
           <div className="pref-grid-2">
             <div className="pref-segmented" role="group" aria-label="Độ rộng cột">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.columnWidth === 'narrow' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ columnWidth: 'narrow' })}
                 aria-pressed={p.columnWidth === 'narrow'}
               >
                 Hẹp
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.columnWidth === 'medium' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ columnWidth: 'medium' })}
                 aria-pressed={p.columnWidth === 'medium'}
               >
                 Vừa
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.columnWidth === 'wide' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ columnWidth: 'wide' })}
                 aria-pressed={p.columnWidth === 'wide'}
@@ -205,8 +205,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               </button>
             </div>
             <div className="pref-segmented" role="group" aria-label="Căn lề">
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.textAlignment === 'left' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ textAlignment: 'left' })}
                 aria-pressed={p.textAlignment === 'left'}
@@ -214,8 +214,8 @@ export function ReaderPreferencesView({ preferences, onUpdate, onReset, onClose 
               >
                 <AlignLeft size={18} />
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className={`pref-btn ${p.textAlignment === 'justify' ? 'is-active' : ''}`}
                 onClick={() => onUpdate({ textAlignment: 'justify' })}
                 aria-pressed={p.textAlignment === 'justify'}

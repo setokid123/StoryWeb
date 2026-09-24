@@ -43,6 +43,7 @@ function toGateStatus(state: RewardedViewState): RewardedStatus {
 export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpiresAt, grantRemainingMs, navigation, readerEndAd }: ReaderPanelProps) {
   const router = useRouter();
   const gateRef = useRef<HTMLDivElement>(null);
+  const gateFocusedRef = useRef(false);
   const listButtonRef = useRef<HTMLButtonElement>(null);
   const prefsButtonRef = useRef<HTMLButtonElement>(null);
   const prefsAnchorRef = useRef<HTMLDivElement>(null);
@@ -98,11 +99,17 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
 
   const closeGate = useCallback(() => router.push(storyHref), [router, storyHref]);
 
-  // Locked-chapter dialog: focus + Escape + Tab trap around U4's UnlockGateView (unchanged from U3).
+  // Locked-chapter dialog: focus on entry, Escape and Tab trap around U4's UnlockGateView.
   useEffect(() => {
-    if (!locked || chapterListOpen || prefsOpen || !gateRef.current) return;
+    if (!locked) { gateFocusedRef.current = false; return; }
+    if (chapterListOpen || prefsOpen || !gateRef.current) return;
     const selector = "a[href], button:not([disabled])";
-    gateRef.current.querySelector<HTMLElement>(selector)?.focus();
+    // Focus the gate when it first appears. Re-focusing after closing preferences or the chapter list
+    // would steal focus from the trigger that deliberately received it back.
+    if (!gateFocusedRef.current) {
+      gateRef.current.querySelector<HTMLElement>(selector)?.focus();
+      gateFocusedRef.current = true;
+    }
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") { closeGate(); return; }
       if (e.key !== "Tab" || !gateRef.current) return;

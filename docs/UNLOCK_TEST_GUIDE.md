@@ -56,11 +56,11 @@ Luồng này chỉ chứng minh người đọc **đã bấm liên kết trên S
 
 ## 4. Kiểm thử tự động
 
-Chạy trên cùng database test, với app đang chạy ở cổng 3100 và `CLICK_UNLOCK_URL=https://example.com/`:
+Chạy trên cùng database test, với app local đang chạy ở cổng 3100 và `CLICK_UNLOCK_URL=https://example.com/`. Script **chỉ** nhận URL localhost và `DATABASE_URL` có tên `storyweb_test` hoặc `storyweb_m3_*` vì nó thay đổi cài đặt admin và tạo/xóa truyện thử:
 
 ```bash
 node --experimental-strip-types --no-warnings scripts/test-reader-preferences.mjs
-STORYWEB_TEST_URL=http://127.0.0.1:3100 STORYWEB_TEST_ADMIN_PASSWORD=<ADMIN_PANEL_PASSWORD> CLICK_UNLOCK_SECRET=<như app> node scripts/test-unlock-link.mjs
+DATABASE_URL=<URL database test> STORYWEB_TEST_URL=http://127.0.0.1:3100 STORYWEB_TEST_ADMIN_PASSWORD=<ADMIN_PANEL_PASSWORD> CLICK_UNLOCK_SECRET=<như app> node scripts/test-unlock-link.mjs
 ```
 
 `test-unlock-link.mjs` kiểm tra:

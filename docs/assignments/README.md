@@ -1,6 +1,6 @@
-# Giao việc hiện tại — U5 / M3
+# Bàn giao đã hoàn thành — U5 / M3
 
-Codex đã lập [kế hoạch trang đọc](../READER_U5_M3_PLAN.md). Antigravity và Claude Code làm trên hai worktree riêng từ cùng một commit kế hoạch; người dùng mở đúng thư mục trong extension VS Code rồi gửi câu nhận việc dưới đây. Các file U4/M2 là lịch sử, không phải nhiệm vụ hiện tại.
+Antigravity và Claude Code đã bàn giao U5/M3 trên hai worktree dưới đây; Codex tích hợp và ghi kết quả tại [review I3](../reviews/I3_READER_MCP_REVIEW_2026-09-24.md). Các câu nhắc bên dưới được giữ làm lịch sử. Việc tiếp theo cần nhánh/worktree mới từ `main` hiện hành, có `.mcp.json`, và kiểm tra Context7/Memory theo [quy ước MCP](../MCP_TOOLS.md).
 
 | Agent | Thư mục mở trong VS Code | Nhánh | File giao việc |
 | --- | --- | --- | --- |
@@ -17,4 +17,4 @@ Codex đã lập [kế hoạch trang đọc](../READER_U5_M3_PLAN.md). Antigravi
 
 ## Thứ tự tích hợp
 
-Hai agent có thể làm độc lập ngay. Antigravity chốt props view trước khi Claude ghép; Claude chuẩn bị model/test song song. Codex review hai commit, tích hợp và chạy thử ở môi trường tách production (I3). Không sửa trực tiếp worktree của nhau hoặc push `main`.
+Antigravity chốt props view trước khi Claude ghép; Claude hoàn thiện model/test song song. I3 đã review mã tích hợp; xem báo cáo để biết các kiểm tra còn thiếu trên trình duyệt và môi trường test riêng. Không dùng lại hai worktree này cho vòng mới.
