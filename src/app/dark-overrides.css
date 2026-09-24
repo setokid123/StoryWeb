@@ -169,3 +169,9 @@
 }
 [data-theme="dark"] .pref-reset-btn { color: var(--muted); }
 [data-theme="dark"] .pref-reset-btn:hover { color: var(--rust); }
+
+/* U7: Reader Floating Navigation Dark */
+[data-theme="dark"] .reader-floating-nav__inner {
+  background: rgba(37, 53, 56, 0.85);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 4px 15px rgba(0, 0, 0, 0.3);
+}
