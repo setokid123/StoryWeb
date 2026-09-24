@@ -13,7 +13,8 @@ export default defineRailway(() => {
       ADMIN_PANEL_PASSWORD: preserve(),
       ADMIN_SESSION_SECRET: preserve(),
       CLICK_UNLOCK_SECRET: preserve(),
-      CLICK_UNLOCK_ENABLED: "false",
+      // Default-off in the app. Railway owns this flag so a test setting survives config apply.
+      CLICK_UNLOCK_ENABLED: preserve(),
       SHOPEE_GATE_APPROVED: "false",
       NEXT_PUBLIC_SITE_URL: "https://storyweb-production.up.railway.app",
     },

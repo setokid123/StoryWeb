@@ -45,6 +45,13 @@ Kiểm tra ở 360px, 768px, 1280px; cả bàn phím, độ tương phản và n
 - Không hiện nút tải ảnh bìa khi chưa có lưu trữ ảnh/API tương ứng. Bìa hiện là hình tạo bằng CSS từ dữ liệu truyện; tác giả sẽ cần luồng tải ảnh và xem trước khi backend hỗ trợ.
 - Các nút thao tác cần trạng thái chờ, vùng nhấn tối thiểu khoảng 40px và focus rõ. Đăng nhập báo lỗi cạnh trường mật khẩu, không làm mất giá trị người dùng vừa nhập khi kết nối thất bại.
 
+## Studio quảng cáo và mở khóa
+
+- Trang `/panel/cai-dat` tách trạng thái **đang áp dụng** khỏi bản nháp chưa lưu. Công tắc mở khóa, hai phương thức, URL và bốn vị trí quảng cáo nằm trong các khối riêng, còn hướng dẫn thử link ở cột bên trên desktop và dưới nội dung trên mobile.
+- URL `https://example.com/` có nút điền nhanh; có thể lưu link và vị trí quảng cáo khi công tắc mở khóa tắt. Nút Lưu chỉ phụ thuộc bản nháp thay đổi/trạng thái đang lưu. Server vẫn từ chối bật phương thức chưa sẵn sàng.
+- Badge thể hiện readiness thật từ server; cờ máy chủ tắt, thiếu provider rewarded và thiếu mã quảng cáo được nói rõ tại vị trí liên quan. Công tắc vị trí bật không ngụ ý quảng cáo đã có thể hiển thị.
+- Ở 360px, các khối xếp dọc, input và nút thử xuống hàng khi cần; trong Tối dùng chung token surface/ink/muted của site. Nút và switch có focus-visible, link mẫu mở tab mới khi người quản trị chủ động bấm.
+
 ## Bề mặt và Phân tầng (Visual Hierarchy)
 
 Hệ thống CSS Token phân tầng không gian đọc và card để không bị chìm vào nền chung:

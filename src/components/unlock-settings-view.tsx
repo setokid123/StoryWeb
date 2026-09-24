@@ -1,258 +1,166 @@
-import { Loader2, Save, Link as LinkIcon, PlaySquare, AlertCircle, CheckCircle2 } from "lucide-react";
+import { AlertCircle, ArrowLeft, CheckCircle2, ExternalLink, Link2, Loader2, RotateCcw, Save, ShieldCheck, Video } from "lucide-react";
+import Link from "next/link";
+import type { AdPlacement, AdSlotFlags } from "@/lib/ad-placements";
+import type { AdminSettingsPayload, Readiness } from "@/lib/settings-contract";
 
 export type UnlockMode = "link" | "rewarded";
-
-export type ModeReadiness = {
-  isReady: boolean;
-  reason?: string;
-};
-
-export type AdSlotFlags = {
-  home_feed: boolean;
-  story_detail: boolean;
-  reader_end: boolean;
-  search_results: boolean;
-};
 
 export type UnlockSettingsProps = {
   isUnlockEnabled: boolean;
   selectedMode: UnlockMode;
+  effectiveMode: AdminSettingsPayload["effectiveMode"];
+  emergencyOff: boolean;
+  accessMinutes: number;
+  linkUrl: string;
+  linkError?: string;
+  linkIsEdited: boolean;
+  envLinkUrlConfigured: boolean;
   slotFlags: AdSlotFlags;
-
-  // Readiness from server/Claude logic
-  linkReadiness: ModeReadiness;
-  rewardedReadiness: ModeReadiness;
-
-  // States
+  linkReadiness: Readiness;
+  rewardedReadiness: Readiness;
+  display: AdminSettingsPayload["display"];
+  hasChanges: boolean;
   isSaving: boolean;
   successMessage?: string;
   errorMessage?: string;
-
-  // Callbacks
+  updatedAt: string | null;
+  updatedBy: string | null;
   onToggleUnlock: (enabled: boolean) => void;
   onChangeMode: (mode: UnlockMode) => void;
-  onToggleSlot: (slot: keyof AdSlotFlags, enabled: boolean) => void;
+  onChangeLinkUrl: (url: string) => void;
+  onUseTestLink: () => void;
+  onToggleSlot: (slot: AdPlacement, enabled: boolean) => void;
+  onReset: () => void;
   onSave: () => void;
 };
 
-export function UnlockSettingsView({
-  isUnlockEnabled,
-  selectedMode,
-  slotFlags,
-  linkReadiness,
-  rewardedReadiness,
-  isSaving,
-  successMessage,
-  errorMessage,
-  onToggleUnlock,
-  onChangeMode,
-  onToggleSlot,
-  onSave
-}: UnlockSettingsProps) {
+const slots: { id: AdPlacement; name: string; position: string }[] = [
+  { id: "home_feed", name: "Trang chủ", position: "Giữa truyện nổi bật và cập nhật" },
+  { id: "story_detail", name: "Chi tiết truyện", position: "Trước danh sách chương" },
+  { id: "reader_end", name: "Cuối chương", position: "Sau nội dung, trước điều hướng" },
+  { id: "search_results", name: "Tìm kiếm", position: "Trước kết quả tìm kiếm" },
+];
 
-  // Cannot save if selected mode is not ready
-  const isSelectedModeReady = selectedMode === "link" ? linkReadiness.isReady : rewardedReadiness.isReady;
-  const canSave = isSelectedModeReady && !isSaving;
+function readinessLabel(readiness: Readiness, edited = false) {
+  if (readiness.state === "ready") return "Sẵn sàng";
+  if (readiness.state === "blocked") return "Máy chủ đang chặn";
+  if (edited && readiness.state === "unconfigured") return "Chờ kiểm tra link";
+  return readiness.state === "unavailable" ? "Chưa khả dụng" : "Chưa cấu hình";
+}
+
+/** View only: the container owns drafts and the server decides whether a mode can be enabled. */
+export function UnlockSettingsView(props: UnlockSettingsProps) {
+  const {
+    isUnlockEnabled, selectedMode, effectiveMode, emergencyOff, accessMinutes,
+    linkUrl, linkError, linkIsEdited, envLinkUrlConfigured, slotFlags,
+    linkReadiness, rewardedReadiness, display, hasChanges, isSaving,
+    successMessage, errorMessage, updatedAt, updatedBy,
+    onToggleUnlock, onChangeMode, onChangeLinkUrl, onUseTestLink,
+    onToggleSlot, onReset, onSave,
+  } = props;
+  const selectedReadiness = selectedMode === "link" ? linkReadiness : rewardedReadiness;
+  const selectedBlocked = isUnlockEnabled && selectedReadiness.state !== "ready"
+    && !(selectedMode === "link" && linkIsEdited && selectedReadiness.state === "unconfigured");
+  const activeLabel = effectiveMode === "link" ? "Nhấp liên kết" : effectiveMode === "rewarded" ? "Quảng cáo có thưởng" : "Đang tắt";
 
   return (
-    <div className="admin-settings">
-      <header className="admin-settings__header">
-        <h1>Quảng cáo & Mở khóa</h1>
-        <p>Quản lý quyền đọc chương khóa và các vị trí quảng cáo trên hệ thống.</p>
+    <main className="admin-settings">
+      <header className="admin-settings__hero">
+        <div>
+          <Link className="admin-settings__back" href="/panel"><ArrowLeft size={16} /> Về Studio</Link>
+          <p className="eyebrow">THƯ CÁC STUDIO · CÀI ĐẶT</p>
+          <h1>Quảng cáo <em>&amp;</em> mở khóa</h1>
+          <p>Chuẩn bị liên kết, chọn cách mở chương và bố trí quảng cáo. Chương 1 luôn miễn phí.</p>
+        </div>
+        <div className="admin-settings__live" aria-label="Trạng thái đang áp dụng">
+          <span>ĐANG ÁP DỤNG</span>
+          <strong>{activeLabel}</strong>
+          <small>{effectiveMode === "off" ? "Các chương khóa chưa thể mở" : "Mỗi lượt đọc " + accessMinutes + " phút"}</small>
+        </div>
       </header>
 
-      <section className="settings-section">
-        <div className="settings-section__header">
-          <h2>Bảo vệ chương khóa</h2>
-          <div className="toggle-switch-wrapper">
-            <label className="toggle-switch">
-              <input
-                type="checkbox"
-                role="switch"
-                aria-label="Bảo vệ chương khóa"
-                checked={isUnlockEnabled}
-                onChange={(e) => onToggleUnlock(e.target.checked)}
-                disabled={isSaving}
-              />
-              <span className="toggle-switch__slider"></span>
-            </label>
-            <span className="toggle-switch__label">
-              {isUnlockEnabled ? "Đang bật" : "Đang tắt"}
-            </span>
-          </div>
-        </div>
-
-        <div className={`settings-section__body ${!isUnlockEnabled ? 'is-disabled' : ''}`}>
-          <p className="settings-hint">
-            Chương 1 luôn miễn phí. Các chương sau sẽ yêu cầu độc giả thực hiện một trong hai hành động dưới đây để nhận 5 phút đọc.
-          </p>
-
-          <div className="radio-cards">
-            {/* Link Mode */}
-            <label className={`radio-card ${selectedMode === 'link' ? 'is-selected' : ''} ${!linkReadiness.isReady ? 'is-unavailable' : ''}`}>
-              <div className="radio-card__input">
-                <input
-                  type="radio"
-                  name="unlock-mode"
-                  value="link"
-                  checked={selectedMode === 'link'}
-                  onChange={() => onChangeMode('link')}
-                  disabled={isSaving || !isUnlockEnabled}
-                />
-              </div>
-              <div className="radio-card__content">
-                <div className="radio-card__header">
-                  <LinkIcon size={20} />
-                  <h3>Nhấp liên kết</h3>
-                  {linkReadiness.isReady ? (
-                    <span className="badge badge--success">Sẵn sàng</span>
-                  ) : (
-                    <span className="badge badge--warning">Chưa cấu hình</span>
-                  )}
+      <div className="admin-settings__layout">
+        <div className="admin-settings__main">
+          <section className="settings-section" aria-labelledby="unlock-heading">
+            <div className="settings-section__header">
+              <div className="settings-section__heading"><span className="settings-section__number">01</span><div><h2 id="unlock-heading">Bảo vệ chương khóa</h2><p>Chọn phương thức độc giả sẽ thấy ở chương khóa.</p></div></div>
+              <label className="settings-master">
+                <span>{isUnlockEnabled ? "Đang bật" : "Đang tắt"}</span>
+                <span className="toggle-switch"><input type="checkbox" role="switch" aria-label="Bật mở khóa chương" checked={isUnlockEnabled} onChange={(event) => onToggleUnlock(event.target.checked)} disabled={isSaving} /><span className="toggle-switch__slider" /></span>
+              </label>
+            </div>
+            <div className="settings-section__body">
+              <p className="settings-hint">Bạn có thể lưu link và vị trí quảng cáo khi công tắc đang tắt. Bật mở khóa chỉ có hiệu lực khi máy chủ đã sẵn sàng.</p>
+              <fieldset className="settings-modes">
+                <legend>Phương thức mở khóa</legend>
+                <div className="radio-cards">
+                  <div className={"radio-card" + (selectedMode === "link" ? " is-selected" : "")}>
+                    <label className="radio-card__choice" htmlFor="unlock-mode-link">
+                      <input id="unlock-mode-link" type="radio" name="unlock-mode" value="link" checked={selectedMode === "link"} onChange={() => onChangeMode("link")} disabled={isSaving} />
+                      <span className="radio-card__icon"><Link2 size={20} /></span>
+                      <span className="radio-card__text"><strong>Nhấp liên kết</strong><small>Người đọc chủ động mở một liên kết để nhận quyền đọc.</small></span>
+                    </label>
+                    <span className={"settings-badge settings-badge--" + linkReadiness.state}>{readinessLabel(linkReadiness, linkIsEdited)}</span>
+                    <div className="radio-card__details">
+                      <label htmlFor="unlock-link-url">URL liên kết</label>
+                      <div className="settings-link-entry">
+                        <input id="unlock-link-url" className="settings-input" type="url" inputMode="url" maxLength={2048} value={linkUrl} onChange={(event) => onChangeLinkUrl(event.target.value)} disabled={isSaving} placeholder={envLinkUrlConfigured ? "Để trống để dùng URL trên máy chủ" : "https://example.com/"} aria-invalid={Boolean(linkError)} aria-describedby={linkError ? "unlock-link-help unlock-link-error" : "unlock-link-help"} />
+                        <button type="button" className="settings-example" onClick={onUseTestLink} disabled={isSaving}>Điền link thử</button>
+                      </div>
+                      <p id="unlock-link-help" className="settings-field-help">Dùng <code>https://example.com/</code> để thử cấu hình. Link Shopee chỉ dùng được sau khi máy chủ có chấp thuận riêng.</p>
+                      {linkError && <p id="unlock-link-error" className="form-error-inline" role="alert">{linkError}</p>}
+                      {linkIsEdited && linkReadiness.state === "unconfigured"
+                        ? <p className="settings-readiness"><AlertCircle size={15} /> URL mới sẽ được máy chủ kiểm tra khi lưu.</p>
+                        : linkReadiness.reason && <p className="settings-readiness"><AlertCircle size={15} /> {linkReadiness.reason}</p>}
+                    </div>
+                  </div>
+                  <div className={"radio-card" + (selectedMode === "rewarded" ? " is-selected" : "")}>
+                    <label className="radio-card__choice" htmlFor="unlock-mode-rewarded">
+                      <input id="unlock-mode-rewarded" type="radio" name="unlock-mode" value="rewarded" checked={selectedMode === "rewarded"} onChange={() => onChangeMode("rewarded")} disabled={isSaving} />
+                      <span className="radio-card__icon"><Video size={20} /></span>
+                      <span className="radio-card__text"><strong>Xem quảng cáo có thưởng</strong><small>Chỉ cấp quyền khi máy chủ xác minh hoàn thành.</small></span>
+                    </label>
+                    <span className={"settings-badge settings-badge--" + rewardedReadiness.state}>{readinessLabel(rewardedReadiness)}</span>
+                    {rewardedReadiness.reason && <p className="settings-readiness"><AlertCircle size={15} /> {rewardedReadiness.reason}</p>}
+                  </div>
                 </div>
-                <p>Độc giả nhấp vào một liên kết tiếp thị (ví dụ: Shopee) để nhận quyền đọc.</p>
-                {!linkReadiness.isReady && linkReadiness.reason && (
-                  <p className="radio-card__error"><AlertCircle size={14}/> {linkReadiness.reason}</p>
-                )}
-              </div>
-            </label>
+              </fieldset>
+              {selectedBlocked && <div className="settings-callout" role="status"><ShieldCheck size={20} /><p><strong>Chưa thể bật phương thức này.</strong> {selectedReadiness.reason} Bạn vẫn có thể tắt công tắc để lưu link và quảng cáo trước.</p></div>}
+              {emergencyOff && <div className="settings-callout" role="status"><ShieldCheck size={20} /><p>Máy chủ đang tạm dừng toàn bộ mở khóa bằng <code>UNLOCK_EMERGENCY_OFF</code>.</p></div>}
+            </div>
+          </section>
 
-            {/* Rewarded Mode */}
-            <label className={`radio-card ${selectedMode === 'rewarded' ? 'is-selected' : ''} ${!rewardedReadiness.isReady ? 'is-unavailable' : ''}`}>
-              <div className="radio-card__input">
-                <input
-                  type="radio"
-                  name="unlock-mode"
-                  value="rewarded"
-                  checked={selectedMode === 'rewarded'}
-                  onChange={() => onChangeMode('rewarded')}
-                  disabled={isSaving || !isUnlockEnabled}
-                />
-              </div>
-              <div className="radio-card__content">
-                <div className="radio-card__header">
-                  <PlaySquare size={20} />
-                  <h3>Xem quảng cáo (Rewarded)</h3>
-                  {rewardedReadiness.isReady ? (
-                    <span className="badge badge--success">Sẵn sàng</span>
-                  ) : (
-                    <span className="badge badge--warning">Chưa cấu hình</span>
-                  )}
-                </div>
-                <p>Độc giả xem một đoạn video quảng cáo ngắn để nhận quyền đọc.</p>
-                {!rewardedReadiness.isReady && rewardedReadiness.reason && (
-                  <p className="radio-card__error"><AlertCircle size={14}/> {rewardedReadiness.reason}</p>
-                )}
-              </div>
-            </label>
-          </div>
+          <section className="settings-section" aria-labelledby="ads-heading">
+            <div className="settings-section__header"><div className="settings-section__heading"><span className="settings-section__number">02</span><div><h2 id="ads-heading">Vị trí quảng cáo</h2><p>Bật chỗ hiển thị độc lập với quyền mở chương.</p></div></div></div>
+            <div className="settings-section__body">
+              <div className={"settings-provider" + (display.state === "ready" ? " is-ready" : "")}><span className="settings-provider__dot" /><div><strong>{display.state === "ready" ? "Nhà cung cấp đã kết nối" : "Chưa có quảng cáo thực"}</strong><p>{display.reason ?? "Đang dùng " + display.provider + "; " + display.configuredSlots.length + " vị trí có mã quảng cáo."}</p></div></div>
+              <ul className="settings-list">
+                {slots.map((slot) => <li className="settings-list__item" key={slot.id}>
+                  <div className="settings-list__info"><strong>{slot.name}</strong><span>{slot.position}</span>{slotFlags[slot.id] && !display.configuredSlots.includes(slot.id) && <small>Chưa có mã quảng cáo cho vị trí này</small>}</div>
+                  <label className="toggle-switch"><input type="checkbox" role="switch" aria-label={"Hiển thị quảng cáo ở " + slot.name.toLowerCase()} checked={slotFlags[slot.id]} onChange={(event) => onToggleSlot(slot.id, event.target.checked)} disabled={isSaving} /><span className="toggle-switch__slider" /></label>
+                </li>)}
+              </ul>
+            </div>
+          </section>
         </div>
-      </section>
 
-      <section className="settings-section">
-        <div className="settings-section__header">
-          <h2>Quảng cáo hiển thị (Display Ads)</h2>
-        </div>
-        <div className="settings-section__body">
-          <p className="settings-hint">Các khối quảng cáo hiển thị thông thường, không liên quan đến việc mở khóa chương.</p>
-
-          <ul className="settings-list">
-            <li className="settings-list__item">
-              <div className="settings-list__info">
-                <strong>Trang chủ</strong>
-                <span>Sau cụm truyện nổi bật, trước cập nhật</span>
-              </div>
-              <label className="toggle-switch">
-                <input
-                  type="checkbox"
-                  role="switch"
-                  aria-label="Hiển thị quảng cáo ở trang chủ"
-                  checked={slotFlags.home_feed}
-                  onChange={(e) => onToggleSlot('home_feed', e.target.checked)}
-                  disabled={isSaving}
-                />
-                <span className="toggle-switch__slider"></span>
-              </label>
-            </li>
-            <li className="settings-list__item">
-              <div className="settings-list__info">
-                <strong>Chi tiết truyện</strong>
-                <span>Trước danh sách chương</span>
-              </div>
-              <label className="toggle-switch">
-                <input
-                  type="checkbox"
-                  role="switch"
-                  aria-label="Hiển thị quảng cáo ở trang chi tiết truyện"
-                  checked={slotFlags.story_detail}
-                  onChange={(e) => onToggleSlot('story_detail', e.target.checked)}
-                  disabled={isSaving}
-                />
-                <span className="toggle-switch__slider"></span>
-              </label>
-            </li>
-            <li className="settings-list__item">
-              <div className="settings-list__info">
-                <strong>Cuối chương truyện</strong>
-                <span>Sau nội dung chương, trước thanh điều hướng</span>
-              </div>
-              <label className="toggle-switch">
-                <input
-                  type="checkbox"
-                  role="switch"
-                  aria-label="Hiển thị quảng cáo ở cuối chương truyện"
-                  checked={slotFlags.reader_end}
-                  onChange={(e) => onToggleSlot('reader_end', e.target.checked)}
-                  disabled={isSaving}
-                />
-                <span className="toggle-switch__slider"></span>
-              </label>
-            </li>
-            <li className="settings-list__item">
-              <div className="settings-list__info">
-                <strong>Kết quả tìm kiếm</strong>
-                <span>Sau bộ lọc, trước kết quả</span>
-              </div>
-              <label className="toggle-switch">
-                <input
-                  type="checkbox"
-                  role="switch"
-                  aria-label="Hiển thị quảng cáo ở kết quả tìm kiếm"
-                  checked={slotFlags.search_results}
-                  onChange={(e) => onToggleSlot('search_results', e.target.checked)}
-                  disabled={isSaving}
-                />
-                <span className="toggle-switch__slider"></span>
-              </label>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <aside className="admin-settings__aside" aria-label="Hướng dẫn và trạng thái">
+          <div className="settings-aside-card"><span className="eyebrow">KIỂM TRA NHANH</span><h2>Thử link như thế nào?</h2><ol><li>Chọn <strong>Điền link thử</strong> rồi lưu khi công tắc đang tắt.</li><li>Máy chủ cần bật <code>CLICK_UNLOCK_ENABLED</code> và có secret hợp lệ.</li><li>Quay lại bật công tắc, lưu và thử ở chương khóa.</li></ol><p>Link thử chỉ xác nhận lượt nhấp; không xác nhận người đọc đã mua hàng.</p><a href="https://example.com/" target="_blank" rel="noopener noreferrer">Mở trang link mẫu <ExternalLink size={14} /></a></div>
+          <div className="settings-aside-card settings-aside-card--quiet"><span className="eyebrow">LẦN CẬP NHẬT GẦN NHẤT</span><p>{updatedAt ? new Date(updatedAt).toLocaleString("vi-VN") : "Chưa từng lưu cấu hình."}</p>{updatedAt && <small>{updatedBy ?? "Không rõ người sửa"}</small>}</div>
+        </aside>
+      </div>
 
       <div className="admin-settings__footer">
-        {errorMessage && (
-          <div className="alert alert--error" role="alert">
-            <AlertCircle size={18} /> {errorMessage}
-          </div>
-        )}
-        {successMessage && (
-          <div className="alert alert--success" role="status">
-            <CheckCircle2 size={18} /> {successMessage}
-          </div>
-        )}
-        <button
-          type="button"
-          className="button button--primary"
-          onClick={onSave}
-          disabled={!canSave}
-        >
-          {isSaving ? (
-            <><Loader2 size={18} className="spinner-icon" /> Đang lưu...</>
-          ) : (
-            <><Save size={18} /> Lưu thay đổi</>
-          )}
-        </button>
+        <div className="admin-settings__feedback">
+          {errorMessage && <div className="alert alert--error" role="alert"><AlertCircle size={18} /> {errorMessage}</div>}
+          {successMessage && <div className="alert alert--success" role="status"><CheckCircle2 size={18} /> {successMessage}</div>}
+          {!errorMessage && !successMessage && <span>{hasChanges ? "Bạn có thay đổi chưa lưu." : "Mọi thay đổi đã được lưu."}</span>}
+        </div>
+        <div className="admin-settings__actions">
+          {hasChanges && <button type="button" className="button button--outline" onClick={onReset} disabled={isSaving}><RotateCcw size={16} /> Hoàn tác</button>}
+          <button type="button" className="button button--primary" onClick={onSave} disabled={!hasChanges || isSaving}>{isSaving ? <><Loader2 size={17} className="spinner-icon" /> Đang lưu...</> : <><Save size={17} /> Lưu thay đổi</>}</button>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
