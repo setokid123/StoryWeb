@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { AdSlotFlags } from "@/lib/ad-placements";
+import type { AdPlacement, AdSlotFlags } from "@/lib/ad-placements";
 import type { AdminSettingsPayload, AdminSettingsUpdate } from "@/lib/settings-contract";
 import { normalizeUnlockLinkUrl } from "@/lib/unlock-link";
 import { UnlockSettingsView } from "@/components/unlock-settings-view";
@@ -32,13 +32,24 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
     setLinkError(undefined);
   }
 
-  async function reloadLatest() {
+  async function reloadLatestKeepingDraft() {
     const latest = await fetch("/api/admin/settings", { cache: "no-store" }).catch(() => null);
-    if (latest?.ok) {
-      const next = await latest.json() as AdminSettingsPayload;
-      setPayload(next);
-      setDraft(draftFrom(next));
+    if (!latest?.ok) return false;
+    const next = await latest.json().catch(() => null) as AdminSettingsPayload | null;
+    if (!next?.settings) return false;
+    const latestDraft = draftFrom(next);
+    const slots = { ...latestDraft.slots };
+    for (const slot of Object.keys(draft.slots) as AdPlacement[]) {
+      if (draft.slots[slot] !== saved.slots[slot]) slots[slot] = draft.slots[slot];
     }
+    setPayload(next);
+    setDraft({
+      enabled: draft.enabled !== saved.enabled ? draft.enabled : latestDraft.enabled,
+      mode: draft.mode !== saved.mode ? draft.mode : latestDraft.mode,
+      linkUrl: draft.linkUrl !== saved.linkUrl ? draft.linkUrl : latestDraft.linkUrl,
+      slots,
+    });
+    return true;
   }
 
   async function save() {
@@ -79,8 +90,10 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
       if (response.status === 401) { setError("Phiên đăng nhập đã hết. Hãy đăng nhập lại."); return; }
       if (response.status === 403) { setError("Tài khoản không có quyền quản trị."); return; }
       if (response.status === 409 && json.code === "conflict") {
-        setError(typeof json.error === "string" ? json.error : "Cấu hình đã thay đổi ở nơi khác.");
-        await reloadLatest();
+        const reloaded = await reloadLatestKeepingDraft();
+        setError(reloaded
+          ? "Cấu hình đã đổi ở nơi khác. Đã tải phiên bản mới và giữ những ô bạn vừa sửa; kiểm tra rồi lưu lại."
+          : "Cấu hình đã đổi ở nơi khác. Chưa tải được phiên bản mới; bản nháp vẫn được giữ.");
         return;
       }
       if (response.status === 409 && json.code === "mode_not_ready") {

@@ -107,7 +107,7 @@ export function UnlockSettingsView(props: UnlockSettingsProps) {
                         <input id="unlock-link-url" className="settings-input" type="url" inputMode="url" maxLength={2048} value={linkUrl} onChange={(event) => onChangeLinkUrl(event.target.value)} disabled={isSaving} placeholder={envLinkUrlConfigured ? "Để trống để dùng URL trên máy chủ" : "https://example.com/"} aria-invalid={Boolean(linkError)} aria-describedby={linkError ? "unlock-link-help unlock-link-error" : "unlock-link-help"} />
                         <button type="button" className="settings-example" onClick={onUseTestLink} disabled={isSaving}>Điền link thử</button>
                       </div>
-                      <p id="unlock-link-help" className="settings-field-help">Dùng <code>https://example.com/</code> để thử cấu hình. Link Shopee chỉ dùng được sau khi máy chủ có chấp thuận riêng.</p>
+                      <p id="unlock-link-help" className="settings-field-help">Nhập URL HTTPS của trang công khai bất kỳ; <code>https://example.com/</code> là link mẫu. Link Shopee trực tiếp cần chấp thuận riêng. Link rút gọn có thể dẫn tới trang khác.</p>
                       {linkError && <p id="unlock-link-error" className="form-error-inline" role="alert">{linkError}</p>}
                       {linkIsEdited && linkReadiness.state === "unconfigured"
                         ? <p className="settings-readiness"><AlertCircle size={15} /> URL mới sẽ được máy chủ kiểm tra khi lưu.</p>
