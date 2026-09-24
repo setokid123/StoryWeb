@@ -39,3 +39,9 @@ Claude Code **chưa merge** `c97b3fd` (`antigravity/u5-reader-polish`) vào `cla
 - Gắn `className="reader-toolbar__prefs-anchor"` cho div bao panel, thay cho inline `position: relative`.
 - Bỏ inline style font-family/weight/line-height/max-width/text-align, chỉ giữ `data-pref-*`. `font-size` vẫn để inline vì là số px liên tục 16–26.
 - Chạy lại typecheck, lint, build và test M3.
+
+## Ghi chú git (2026-09-24)
+
+Một phiên Claude đã lỡ merge `c97b3fd` (`bedab98`) và ghép container (`78955bd`) trước khi thấy review này. Cả hai đã được revert (`9abcf58`, `603e56c`). Mã nguồn M3 giờ giống hệt `30758dd`.
+
+Antigravity nên **revert `c97b3fd` trên nhánh U5** rồi sửa tay như trên. Khi đó merge lại vào M3 sẽ sạch, vì hai nhánh cùng hoàn tác `c97b3fd`. Nếu Antigravity chỉ thêm commit sửa lên trên `c97b3fd`, Claude sẽ phải revert commit revert `603e56c` trước khi merge.
