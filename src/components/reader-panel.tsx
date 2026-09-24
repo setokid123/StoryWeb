@@ -176,7 +176,7 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
         <Link href={storyHref}><ChevronLeft size={17} /> Mục lục</Link>
         {/* The panel sits outside .reader-toolbar__settings so its buttons do not get the 44×44 toolbar button style;
             this wrapper is the positioned anchor for U5's absolutely positioned .reader-prefs. */}
-        <div ref={prefsAnchorRef} style={{ position: "relative" }}>
+        <div ref={prefsAnchorRef} className="reader-toolbar__prefs-anchor">
           <div className="reader-toolbar__settings">
             <button type="button" aria-label={isDarkUI ? "Chế độ sáng" : "Chế độ tối"} onClick={() => setTheme(isDarkUI ? "light" : "dark")}>{isDarkUI ? <Sun size={18} /> : <Moon size={18} />}</button>
             <button type="button" ref={prefsButtonRef} aria-label="Tùy chỉnh đọc" aria-haspopup="dialog" aria-expanded={prefsOpen} aria-controls="reader-preferences" onClick={togglePreferences}><SlidersHorizontal size={18} /></button>
@@ -190,7 +190,7 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
               <UnlockGateView chapterNumber={chapter} storySlug={story.slug} mode={unlock.mode} rewardedStatus={toGateStatus(rewarded.state)} onWatchAd={() => void rewarded.onWatch()} linkHref="/unlock/visit" />
               {unlock.mode === "rewarded" && rewarded.message && <p className="sr-only" role="status">{rewarded.message}</p>}
             </div>
-          : <>{unlockedByGrant && <div className="reader-access-note"><Clock3 size={15} /> Đã mở quyền đọc các chương tiếp theo đến {new Date(unlockExpiresAt).toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })}.</div>}<div className="reader-text" style={bodyStyle.body} {...bodyStyle.dataAttributes}>{content.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p key={index} style={bodyStyle.paragraph}>{paragraph}</p>)}</div><div className="reader-end">Hết chương {chapter}</div></>}
+          : <>{unlockedByGrant && <div className="reader-access-note"><Clock3 size={15} /> Đã mở quyền đọc các chương tiếp theo đến {new Date(unlockExpiresAt).toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })}.</div>}<div className="reader-text" style={bodyStyle.body} {...bodyStyle.dataAttributes}>{content.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div><div className="reader-end">Hết chương {chapter}</div></>}
       </article>
       {!locked && <AdSlotContainer config={readerEndAd} />}
       <ReaderNavigation storyUrl={storyHref} prevUrl={navigation.prevHref ?? undefined} nextUrl={navigation.nextHref ?? undefined} onOpenChapterList={() => { setPrefsOpen(false); setChapterListOpen(true); }} listButtonRef={listButtonRef} />
