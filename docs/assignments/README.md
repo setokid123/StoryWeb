@@ -1,4 +1,14 @@
-# Bàn giao U6
+# Bàn giao hiện tại — M4
+
+| Agent | Worktree | Nhánh | File giao việc |
+| --- | --- | --- | --- |
+| Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-m4` | `claude/m4-any-link-test` | [CLAUDE_M4.md](CLAUDE_M4.md) |
+
+Claude Code nhận M4 trên [workboard](../WORKBOARD.md), sửa logic cho URL HTTPS công khai tùy chọn và bật phương thức Nhấp liên kết để test khi server sẵn sàng. Shopee vẫn có cờ chấp thuận riêng; rewarded vẫn cần provider xác minh phía server. Codex review và tích hợp sau bàn giao.
+
+> Mở worktree `E:\Dev\StoryWeb\.worktrees\claude-m4` trong VS Code, đọc [CLAUDE_M4.md](CLAUDE_M4.md), nhận M4 và làm theo câu nhắc ở cuối file. Không dùng worktree M3 cũ hoặc deploy.
+
+## Lịch sử — U6
 
 | Agent | Worktree | Nhánh | File giao việc |
 | --- | --- | --- | --- |
@@ -6,7 +16,7 @@
 
 Đưa cho Antigravity [câu nhắc U6](ANTIGRAVITY_U6.md#câu-nhắc-đưa-vào-antigravity). Đọc [kế hoạch phân tầng giao diện](../VISUAL_HIERARCHY_U6_PLAN.md). Claude **chưa có task U6** vì vòng này chỉ cần giao diện; nếu Antigravity cần đổi container React đang giữ logic, Codex sẽ mở task tích hợp riêng sau khi có view contract.
 
-U6 đã qua [review tích hợp I10](../reviews/I10_U6_INTEGRATION_2026-09-24.md) trên `main` nội bộ. Ảnh và số đo do Codex bổ sung; chưa push GitHub hoặc deploy Railway.
+U6 đã qua [review tích hợp I10](../reviews/I10_U6_INTEGRATION_2026-09-24.md) và được [deploy production trong I11](../reviews/I11_U6_PRODUCTION_RELEASE_2026-09-24.md).
 
 Codex đã review commit U6 đầu tiên và phát hiện lỗi dark mode chặn tích hợp. Antigravity cần đọc [phản hồi I8](../reviews/U6_VISUAL_REVIEW_2026-09-24.md), sửa trên chính nhánh U6 và bàn giao lại kèm ảnh/đo tương phản.
 
