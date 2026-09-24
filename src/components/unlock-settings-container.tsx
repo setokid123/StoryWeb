@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { AdSlotFlags } from "@/lib/ad-placements";
+import type { AdPlacement, AdSlotFlags } from "@/lib/ad-placements";
 import type { AdminSettingsPayload, AdminSettingsUpdate } from "@/lib/settings-contract";
+import { normalizeUnlockLinkUrl } from "@/lib/unlock-link";
 import { UnlockSettingsView } from "@/components/unlock-settings-view";
 
 type Draft = { enabled: boolean; mode: "link" | "rewarded"; linkUrl: string; slots: AdSlotFlags };
@@ -31,13 +32,24 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
     setLinkError(undefined);
   }
 
-  async function reloadLatest() {
+  async function reloadLatestKeepingDraft() {
     const latest = await fetch("/api/admin/settings", { cache: "no-store" }).catch(() => null);
-    if (latest?.ok) {
-      const next = await latest.json() as AdminSettingsPayload;
-      setPayload(next);
-      setDraft(draftFrom(next));
+    if (!latest?.ok) return false;
+    const next = await latest.json().catch(() => null) as AdminSettingsPayload | null;
+    if (!next?.settings) return false;
+    const latestDraft = draftFrom(next);
+    const slots = { ...latestDraft.slots };
+    for (const slot of Object.keys(draft.slots) as AdPlacement[]) {
+      if (draft.slots[slot] !== saved.slots[slot]) slots[slot] = draft.slots[slot];
     }
+    setPayload(next);
+    setDraft({
+      enabled: draft.enabled !== saved.enabled ? draft.enabled : latestDraft.enabled,
+      mode: draft.mode !== saved.mode ? draft.mode : latestDraft.mode,
+      linkUrl: draft.linkUrl !== saved.linkUrl ? draft.linkUrl : latestDraft.linkUrl,
+      slots,
+    });
+    return true;
   }
 
   async function save() {
@@ -46,6 +58,17 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
     setError(undefined);
     setSuccess(undefined);
     setLinkError(undefined);
+    const typedUrl = draft.linkUrl.trim();
+    if (typedUrl) {
+      // Same normalizer as the server. Shopee approval is a server-only flag, so the server decides that case.
+      const check = normalizeUnlockLinkUrl(typedUrl, { shopeeApproved: true });
+      if (!check.ok) {
+        setLinkError(check.reason);
+        setError("URL liên kết chưa hợp lệ. Cài đặt chưa được lưu.");
+        setPending(false);
+        return;
+      }
+    }
     const body: AdminSettingsUpdate = {
       version: payload.settings.version,
       unlockEnabled: draft.enabled,
@@ -67,12 +90,22 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
       if (response.status === 401) { setError("Phiên đăng nhập đã hết. Hãy đăng nhập lại."); return; }
       if (response.status === 403) { setError("Tài khoản không có quyền quản trị."); return; }
       if (response.status === 409 && json.code === "conflict") {
-        setError(typeof json.error === "string" ? json.error : "Cấu hình đã thay đổi ở nơi khác.");
-        await reloadLatest();
+        const reloaded = await reloadLatestKeepingDraft();
+        setError(reloaded
+          ? "Cấu hình đã đổi ở nơi khác. Đã tải phiên bản mới và giữ những ô bạn vừa sửa; kiểm tra rồi lưu lại."
+          : "Cấu hình đã đổi ở nơi khác. Chưa tải được phiên bản mới; bản nháp vẫn được giữ.");
         return;
       }
       if (response.status === 409 && json.code === "mode_not_ready") {
-        setError((typeof json.error === "string" ? json.error : "Phương thức chưa sẵn sàng.") + " Tắt công tắc để lưu link và vị trí quảng cáo trước.");
+        // The draft is kept. A URL problem is shown on the field; a server-side condition (flag, secret, provider)
+        // cannot be fixed here, so saving with the switch off is the way to keep the URL and ad slots.
+        const reason = typeof json.error === "string" ? json.error : "Phương thức chưa sẵn sàng.";
+        if (json.fields?.linkUrl) {
+          setLinkError(json.fields.linkUrl);
+          setError(`Chưa bật được Nhấp liên kết: ${json.fields.linkUrl}`);
+        } else {
+          setError(reason + " Tắt công tắc để lưu link và vị trí quảng cáo trước.");
+        }
         return;
       }
       setError(typeof json.error === "string" ? json.error : "Không lưu được cài đặt. Vui lòng thử lại.");

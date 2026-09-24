@@ -32,7 +32,7 @@ Project cần hai service: PostgreSQL và ứng dụng Next.js kết nối repos
 | `ADMIN_PANEL_PASSWORD` | Mật khẩu quản trị mạnh, chỉ lưu trong Railway |
 | `ADMIN_SESSION_SECRET` | Chuỗi ngẫu nhiên ít nhất 32 ký tự |
 | `CLICK_UNLOCK_SECRET` | Chuỗi ngẫu nhiên ít nhất 32 ký tự |
-| `CLICK_UNLOCK_ENABLED` | Mặc định tắt; có thể đặt `true` để thử link `https://example.com/` sau khi cấu hình admin. Link Shopee vẫn cần chấp thuận riêng. |
+| `CLICK_UNLOCK_ENABLED` | Mặc định tắt; đặt `true` để cho phép admin bật phương thức Nhấp liên kết với URL HTTPS công khai bất kỳ. Link Shopee trực tiếp vẫn cần chấp thuận riêng. |
 | `SHOPEE_GATE_APPROVED` | `false` cho tới khi có chấp thuận riêng |
 | `NEXT_PUBLIC_SITE_URL` | Domain HTTPS của web sau khi tạo domain |
 
@@ -40,7 +40,7 @@ Project cần hai service: PostgreSQL và ứng dụng Next.js kết nối repos
 
 ## Quyền đọc chương
 
-Chương 1 miễn phí theo mặc định. Thân chương khóa chỉ được truy vấn sau khi server kiểm tra cookie mở khóa ký HMAC, thời hạn 5 phút; khi hết hạn, trình đọc ẩn body và request mới phải mở khóa lại. Luồng click cần `CLICK_UNLOCK_ENABLED`, `CLICK_UNLOCK_SECRET` và URL trong admin hoặc `CLICK_UNLOCK_URL`; mặc định tắt. Có thể lưu URL `https://example.com/` khi công tắc admin đang tắt, rồi bật cờ máy chủ và công tắc để thử. Nó dùng tín hiệu điều hướng của trình duyệt, không xác nhận người đọc đã xem trang đích hoặc mua hàng. Chi tiết API, giới hạn và rollback nằm trong [tài liệu M2](docs/UNLOCK_API.md).
+Chương 1 miễn phí theo mặc định. Thân chương khóa chỉ được truy vấn sau khi server kiểm tra cookie mở khóa ký HMAC, thời hạn 5 phút; khi hết hạn, trình đọc ẩn body và request mới phải mở khóa lại. Luồng click cần `CLICK_UNLOCK_ENABLED`, `CLICK_UNLOCK_SECRET` và URL HTTPS công khai trong admin hoặc `CLICK_UNLOCK_URL`; mặc định tắt. Có thể lưu URL khi công tắc admin đang tắt, rồi bật cờ máy chủ và công tắc để thử. Link Shopee trực tiếp có cờ chấp thuận riêng. Luồng này dùng tín hiệu điều hướng của trình duyệt, không xác nhận người đọc đã xem trang đích hoặc mua hàng. Chi tiết API, giới hạn và rollback nằm trong [tài liệu mở khóa](docs/UNLOCK_API.md).
 
 Link Shopee trong luồng mở khóa cần chấp thuận riêng trước khi bật `SHOPEE_GATE_APPROVED=true`. Không dùng popup tự động hoặc tự chuyển hướng. Chế độ quảng cáo có thưởng vẫn tắt trên production vì chưa có nhà cung cấp web với callback xác minh phía server; các khối quảng cáo hiển thị cũng cần cấu hình provider. Xem [kiến trúc](docs/ARCHITECTURE.md).
 
