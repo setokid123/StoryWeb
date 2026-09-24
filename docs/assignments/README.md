@@ -1,4 +1,13 @@
-# Bàn giao M4 — đã hoàn tất
+# Bàn giao hiện tại — U7 / M5
+
+| Agent | Worktree | Nhánh | File giao việc |
+| --- | --- | --- | --- |
+| Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u7` | `antigravity/u7-reader-glass-nav` | [ANTIGRAVITY_U7.md](ANTIGRAVITY_U7.md) |
+| Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-m5` | `claude/m5-reader-scroll-nav` | [CLAUDE_M5.md](CLAUDE_M5.md) |
+
+Đọc [kế hoạch U7/M5](../READER_FLOATING_NAV_U7_M5_PLAN.md). Antigravity làm view/CSS dock kính mờ bốn nút và toolbar reader; Claude làm logic scroll/focus trong ReaderPanel rồi ghép view khi U7 bàn giao. Hai agent nhận task trên [workboard](../WORKBOARD.md), làm nhánh riêng và không sửa file của nhau. Codex review/tích hợp sau khi cả hai bàn giao; chưa deploy U7/M5.
+
+## Lịch sử — M4 đã hoàn tất
 
 | Agent | Worktree | Nhánh | File giao việc |
 | --- | --- | --- | --- |
@@ -14,11 +23,7 @@ Worktree M4 là lịch sử bàn giao; không dùng lại cho task mới. [CLAUD
 | --- | --- | --- | --- |
 | Antigravity | `E:\Dev\StoryWeb\.worktrees\antigravity-u6` | `antigravity/u6-visual-hierarchy` | [ANTIGRAVITY_U6.md](ANTIGRAVITY_U6.md) |
 
-Đưa cho Antigravity [câu nhắc U6](ANTIGRAVITY_U6.md#câu-nhắc-đưa-vào-antigravity). Đọc [kế hoạch phân tầng giao diện](../VISUAL_HIERARCHY_U6_PLAN.md). Claude **chưa có task U6** vì vòng này chỉ cần giao diện; nếu Antigravity cần đổi container React đang giữ logic, Codex sẽ mở task tích hợp riêng sau khi có view contract.
-
-U6 đã qua [review tích hợp I10](../reviews/I10_U6_INTEGRATION_2026-09-24.md) và được [deploy production trong I11](../reviews/I11_U6_PRODUCTION_RELEASE_2026-09-24.md).
-
-Codex đã review commit U6 đầu tiên và phát hiện lỗi dark mode chặn tích hợp. Antigravity cần đọc [phản hồi I8](../reviews/U6_VISUAL_REVIEW_2026-09-24.md), sửa trên chính nhánh U6 và bàn giao lại kèm ảnh/đo tương phản.
+U6 đã qua [review tích hợp I10](../reviews/I10_U6_INTEGRATION_2026-09-24.md) và được [deploy production trong I11](../reviews/I11_U6_PRODUCTION_RELEASE_2026-09-24.md). [Kế hoạch U6](../VISUAL_HIERARCHY_U6_PLAN.md) và [phản hồi các vòng review](../reviews/U6_VISUAL_REVIEW_2026-09-24.md) được giữ để tra cứu, không còn là yêu cầu đang chờ Antigravity.
 
 ## Lịch sử — U5 / M3
 
