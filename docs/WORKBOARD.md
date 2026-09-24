@@ -21,9 +21,9 @@ Codex điều phối tích hợp. Claude Code và Antigravity nhận việc qua 
 
 ## Giao thức bàn giao
 
-1. Nhận việc: đổi `Chưa nhận` thành `Đang làm (tên agent)`, ghi file sẽ sửa.
+1. Nhận việc: đổi `Chưa nhận` thành `Đang làm (tên agent)`, ghi file sẽ sửa. Tra Memory (`search_nodes` theo ID task/khu vực) trước khi đọc code; xem `docs/MCP_TOOLS.md`.
 2. Nếu cùng file với agent khác: dừng phần file đó, thỏa thuận thứ tự hoặc dùng nhánh/worktree riêng.
-3. Kết thúc: ghi commit/PR (nếu có), file thay đổi, `typecheck/lint/build`, việc còn thiếu.
+3. Kết thúc: ghi commit/PR (nếu có), file thay đổi, `typecheck/lint/build`, việc còn thiếu, và dòng `Memory: đã cập nhật <entity>` (hoặc lý do không cập nhật). Codex không tích hợp bàn giao thiếu dòng này.
 4. Codex tích hợp sau khi từng phần hoàn tất; không để hai agent cùng chạy migration trên một DB.
 
 ## Quyết định cần người dùng cung cấp trước khi làm production
