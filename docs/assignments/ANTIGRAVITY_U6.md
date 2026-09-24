@@ -23,3 +23,7 @@ Chính: `src/app/globals.css`, `src/app/dark-overrides.css`, `docs/DESIGN_SYSTEM
 ## Câu nhắc đưa vào Antigravity
 
 > Mở `E:\Dev\StoryWeb\.worktrees\antigravity-u6`, đọc `docs/assignments/ANTIGRAVITY_U6.md` và `docs/VISUAL_HIERARCHY_U6_PLAN.md`, nhận U6 trên workboard. Thiết kế lại hệ bề mặt Sáng/Tối để vùng đọc nổi bật khỏi nền site; áp dụng nhất quán cho card/section các trang. Giữ logic và reader preferences. Bàn giao ảnh trước/sau ở 360/768/1280, đo tương phản, chạy typecheck/lint/build, commit nhánh U6.
+
+## Phản hồi review vòng 2
+
+Đọc mục **Vòng 2 — commit `31f72cd`** trong `docs/reviews/U6_VISUAL_REVIEW_2026-09-24.md` trên `main` mới. Ưu tiên sửa mặt đọc desktop đang trong suốt, chữ/nhãn form dark mode có tương phản 1,22:1/1,92:1, rồi bổ sung ảnh và số đo bàn giao. Giữ thay đổi trong nhánh/worktree Antigravity; không sửa logic đọc hoặc unlock.

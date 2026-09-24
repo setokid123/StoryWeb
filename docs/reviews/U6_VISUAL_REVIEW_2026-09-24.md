@@ -26,3 +26,17 @@ Diff U6 chỉ đổi trực tiếp `body`, `hero-section`, `story-card`, một s
 Antigravity sửa trên chính nhánh U6, chạy lại ba gate, kèm ảnh và số đo; cập nhật Memory `U6` và workboard với commit mới. Codex sẽ review lại trình duyệt và chỉ tích hợp khi dark mode đọc được. Claude chưa cần tham gia vì thay đổi hiện vẫn thuần CSS/view.
 
 `Context7`: không cần (review CSS, không sửa API thư viện). `Memory`: đã tra U6/gotcha:css-tokens; đã cập nhật I8.
+
+## Vòng 2 — commit `31f72cd` (I9, 2026-09-24)
+
+Antigravity đã chuyển token Sáng/Tối lên đầu `globals.css` theo đúng thứ tự. Edge headless với stylesheet thật xác nhận `<html data-theme="dark">` nhận `--bg-site: #101b1d`, `--bg-surface: #253538`; lỗi cascade ở I8 đã hết. `git diff --check`, `npm run typecheck`, `npm run lint`, `npm run build` đều đạt. Diff chỉ gồm `globals.css`, `dark-overrides.css`, `DESIGN_SYSTEM.md`, `WORKBOARD.md`; không sửa quyền đọc, API, DB hay migration.
+
+### Vẫn chặn tích hợp
+
+1. **Desktop vẫn không có mặt đọc.** Rule gốc `.reader-article` trong `globals.css` dòng 160 không đặt `background`, `border` hoặc `box-shadow`. Các thuộc tính này chỉ xuất hiện trong `@media(max-width:760px)` dòng 164. Edge headless ở viewport 1256px cho `background: rgba(0,0,0,0)` trên article; ở 576px mới cho `rgb(37,53,56)`. Đây là tiêu chí chính của U6. Đặt surface/viền/padding cho rule cơ sở, rồi điều chỉnh mobile bằng media query; kiểm cột chữ tối đa 720px và preference rộng/hẹp.
+2. **Ô nhập và nhãn dark mode gần như không đọc được.** `globals.css` dòng 176–177 giữ màu nhãn `#50605a` và màu chữ input `#263630` trên card `#253538`/input `#2f4347`. Rule dark cũ đặt màu chữ sáng đã bị gỡ khỏi `dark-overrides.css`. Edge xác nhận input `rgb(38,54,48)` trên `rgb(47,67,71)`, tương phản **1,22:1**; nhãn chỉ khoảng **1,92:1**. Sửa cả login và Studio editor (`input`, `select`, `textarea`, `label`) theo token Sáng/Tối, rồi đo lại trên nền thực tế.
+3. **Bàn giao chưa đủ bằng chứng.** Workboard của nhánh ghi “Hoàn thành” nhưng không có ảnh trước/sau 360/768/1280 Sáng/Tối cho free/locked, trang chủ/chi tiết, panel preferences/focus; không có bảng contrast, walkthrough, hay dòng `Context7`/`Memory`. `DESIGN_SYSTEM.md` ghi token `--ink-main` nhưng CSS dùng `--ink`. Đồng bộ tài liệu và kiểm trạng thái thực tế, đặc biệt dark mode của các form/Studio.
+
+Không merge `31f72cd` vào `main` và không deploy. Antigravity tiếp tục sửa trong nhánh U6, cập nhật bằng chứng và rebase/cherry-pick lên `main` mới nếu cần để giữ review docs. Claude chưa cần tham gia vì lỗi thuần giao diện. Preview HTML tạm dùng cho phép đo đã xóa sau review.
+
+`Context7`: không cần (review CSS, không sửa API thư viện). `Memory`: đã tra U6/gotcha:css-tokens; đã cập nhật I9/U6.
