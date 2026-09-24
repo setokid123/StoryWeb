@@ -681,3 +681,220 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     width: 100%;
   }
 }
+
+/* U5: Reader Polish */
+.reader-article .eyebrow {
+  font-size: clamp(16px, 3vw, 22px);
+  margin-bottom: 20px;
+  color: #6f8078;
+  font-weight: 600;
+  text-transform: none;
+  justify-content: center;
+  text-align: center;
+}
+.reader-article h1 {
+  text-align: center;
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.3;
+  margin-bottom: 30px;
+  word-break: break-word;
+}
+.reader-end {
+  text-align: center;
+  font-size: clamp(17px, 3vw, 20px);
+  margin: 60px 0 40px;
+  color: #6f8078;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-style: italic;
+}
+.reader-end::before, .reader-end::after {
+  content: "❧";
+  color: var(--rust);
+  opacity: 0.5;
+  font-style: normal;
+}
+
+/* U5: Reader Navigation */
+.reader-nav {
+  margin: 50px auto 40px;
+  max-width: 800px;
+  border-top: 1px solid #e9ebe4;
+  padding-top: 30px;
+}
+.reader-nav__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.reader-nav__btn {
+  min-height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+@media (max-width: 600px) {
+  .reader-nav__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .reader-nav__btn {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+}
+
+/* U5: Reader Preferences Panel */
+.reader-prefs {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #fff;
+  border: 1px solid #e5e8df;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 340px;
+  z-index: 100;
+  color: #27313a;
+  overflow: hidden;
+}
+.reader-prefs__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e8df;
+  background: #fbf9f5;
+}
+.reader-prefs__header h2 {
+  font-size: 15px;
+  margin: 0;
+}
+.reader-prefs__body {
+  padding: 20px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.pref-section {
+  margin-bottom: 25px;
+}
+.pref-section:last-child {
+  margin-bottom: 0;
+}
+.pref-section__title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6f8078;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pref-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.pref-segmented {
+  display: flex;
+  background: #fbf9f5;
+  border: 1px solid #e5e8df;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.pref-btn {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  color: #6f8078;
+  font-size: 13px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  border-right: 1px solid #e5e8df;
+  transition: all 0.2s;
+}
+.pref-btn:last-child {
+  border-right: 0;
+}
+.pref-btn:hover:not(:disabled) {
+  background: #f1ede3;
+  color: #27313a;
+}
+.pref-btn.is-active {
+  background: var(--rust);
+  color: #fff;
+  font-weight: 600;
+}
+.pref-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pref-btn--font-serif {
+  font-family: var(--serif);
+  font-size: 14px;
+}
+.pref-btn--font-sans {
+  font-family: var(--sans);
+}
+.pref-stepper {
+  display: flex;
+  background: #fbf9f5;
+  border: 1px solid #e5e8df;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.pref-stepper__value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  border-left: 1px solid #e5e8df;
+  border-right: 1px solid #e5e8df;
+  background: #fff;
+  gap: 5px;
+}
+.reader-prefs__footer {
+  padding: 15px 20px;
+  border-top: 1px solid #e5e8df;
+  background: #fbf9f5;
+  text-align: center;
+}
+.pref-reset-btn {
+  border: 0;
+  background: transparent;
+  color: #6f8078;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.pref-reset-btn:hover {
+  color: var(--rust);
+}
+
+@media (max-width: 600px) {
+  .reader-prefs {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+}
