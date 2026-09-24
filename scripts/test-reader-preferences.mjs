@@ -59,9 +59,11 @@ test("updates are validated; font size is clamped to 16–26", () => {
 
 test("body style maps every choice and only targets the chapter body", () => {
   const s = readerBodyStyle({ fontFamily: "inter", fontWeight: "bold", fontSize: 24, lineHeight: "loose", columnWidth: "narrow", textAlignment: "left" });
-  assert.deepEqual(s.body, { fontSize: "24px" }, "only font size is inline; the rest is CSS [data-pref-*]");
-  assert.deepEqual(s.dataAttributes, { "data-pref-font": "inter", "data-pref-weight": "bold", "data-pref-line-height": "loose", "data-pref-width": "narrow", "data-pref-align": "left" });
+  assert.deepEqual(s.body, { fontFamily: "var(--sans)", fontWeight: 600, fontSize: "24px", lineHeight: 2.2, maxWidth: "560px", marginInline: "auto" });
+  assert.deepEqual(s.paragraph, { textAlign: "left" });
+  assert.equal(s.dataAttributes["data-pref-width"], "narrow");
   const d = readerBodyStyle(D);
-  assert.equal(d.body.fontSize, "19px");
-  assert.deepEqual(d.dataAttributes, { "data-pref-font": "lora", "data-pref-weight": "normal", "data-pref-line-height": "normal", "data-pref-width": "medium", "data-pref-align": "justify" });
+  assert.equal(d.body.fontFamily, "var(--serif)");
+  assert.equal(d.body.lineHeight, 1.9, "default matches the previous reader line-height");
+  assert.equal(d.paragraph.textAlign, "justify", "default matches the previous justified text");
 });
