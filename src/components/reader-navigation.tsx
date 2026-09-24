@@ -14,7 +14,7 @@ export function ReaderNavigation({ storyUrl, prevUrl, nextUrl, onOpenChapterList
   return (
     <nav className="reader-nav" aria-label="Điều hướng chương">
       <div className="reader-nav__grid">
-        <Link href={storyUrl} className="button button--outline reader-nav__btn reader-nav__back">
+        <Link href={storyUrl} className="button button--outline reader-nav__btn reader-nav__back" aria-label="Về truyện">
           <ArrowLeft size={18} /> <span className="reader-nav__label">Về truyện</span>
         </Link>
 

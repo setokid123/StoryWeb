@@ -720,8 +720,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 /* U5: Reader Navigation */
 .reader-nav {
+  display: block;
   margin: 50px auto 40px;
-  max-width: 800px;
+  max-width: 960px;
   border-top: 1px solid var(--line);
   padding-top: 30px;
 }
@@ -740,6 +741,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   justify-content: center;
   gap: 8px;
   flex: 1;
+  white-space: nowrap;
 }
 .reader-nav__btn:disabled {
   opacity: .45;
@@ -751,10 +753,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
-  .reader-nav__btn {
-    padding: 0 10px;
-    font-size: 13px;
+  .reader-nav .reader-nav__btn {
+    padding: 0 6px;
+    font-size: 11px;
+    gap: 4px;
   }
+  .reader-nav__label { display: inline; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .reader-nav .reader-nav__btn { padding-inline: 10px; font-size: 12px; gap: 5px; }
 }
 
 /* U5: Reader Preferences Panel */
@@ -943,4 +951,25 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   .reader-prefs-backdrop {
     position: fixed; inset: 0; background: rgba(20, 39, 37, 0.7); z-index: 99; display: block;
   }
+}
+
+/* Keep the header compact on tablet widths where desktop links would wrap. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .site-header { height: 68px; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 20px;
+    box-shadow: 0 15px 20px #0001;
+  }
+  .main-nav--open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .main-nav a { padding: 11px; }
+  .header-cta { display: none; }
+  .menu-toggle { display: grid; }
+  .site-header__actions { gap: 5px; }
 }
