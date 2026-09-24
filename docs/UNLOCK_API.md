@@ -27,7 +27,11 @@ Rollback ứng dụng: migration chỉ thêm bảng/enum và không đổi cấu
 `GET /unlock/visit` → `303` tới đích + cookie grant, hoặc `503 mode_unavailable`, `400 not_user_initiated`. `POST` trả `405` và không cấp grant.
 
 - GET (nút `<a target="_blank">` của U4) chỉ được chấp nhận khi trình duyệt gửi Fetch Metadata: `Sec-Fetch-Site: same-origin`, `Sec-Fetch-User: ?1`, `Sec-Fetch-Mode: navigate`, `Sec-Fetch-Dest: document`. Request prefetch, `<img>`, link cross-site, crawler hoặc client không có các header này bị từ chối.
-- URL đích: https, không kèm thông tin đăng nhập, tên miền công khai, tối đa 2048 ký tự. Chỉ `example.com` dùng để test và các tên miền Shopee Việt Nam (`shopee.vn` cùng subdomain, `shp.ee`, `shope.ee`) được hỗ trợ. Shopee cần `SHOPEE_GATE_APPROVED=true`; cài đặt admin không vượt được chặn này. Phương thức này còn cần `CLICK_UNLOCK_ENABLED=true` và `CLICK_UNLOCK_SECRET`.
+- URL đích (M4): **mọi tên miền công khai** dùng `https:`, tối đa 2048 ký tự (tính cả sau chuẩn hóa), không kèm user/password. Bị từ chối: scheme khác (`http:`, `javascript:`, `data:`, `file:`…), IP literal (kể cả dạng `0x7f.1`, `2130706433`, IPv6), `localhost`/`*.localhost`, tên miền một nhãn và TLD nội bộ/đặc biệt (`.local`, `.internal`, `.lan`, `.home`, `.corp`, `.test`, `.example`, `.invalid`, `.onion`, `.arpa`…), ký tự khoảng trắng/điều khiển và URL sai cú pháp.
+- Một hàm dùng chung `normalizeUnlockLinkUrl` (`src/lib/unlock-link.ts`, không phụ thuộc server) được dùng ở PUT admin, readiness, `/unlock/visit` và form trong `/panel/cai-dat`. Server lưu dạng chuẩn: host chữ thường/punycode, bỏ dấu chấm cuối. Ví dụ `https://WWW.Wikipedia.org./` được lưu thành `https://www.wikipedia.org/`.
+- **Shopee vẫn là trường hợp riêng:** `shopee.vn` (cả subdomain), `shp.ee`, `shope.ee` chỉ dùng được khi `SHOPEE_GATE_APPROVED=true`; cài đặt admin không vượt được chặn này. So khớp theo host đã chuẩn hóa, nên `shopee.vn.evil.com` không bị coi là Shopee (và không cần cờ). Link khác không cần cờ Shopee.
+- Phương thức còn cần `CLICK_UNLOCK_ENABLED=true` và `CLICK_UNLOCK_SECRET` (≥ 32 ký tự). Admin **lưu URL được khi công tắc tắt** (không cần cờ); chỉ khi bật công tắc thì server kiểm readiness.
+- Server **không truy cập** URL. Link rút gọn hoặc redirect có thể dẫn tới đích khác với tên miền đã lưu; hệ thống không xác minh đích cuối.
 - Fetch Metadata chỉ là tín hiệu do trình duyệt gửi cho một thao tác điều hướng, có thể bị giả bởi HTTP client. Hệ thống **không thể xác nhận** người đọc đã xem trang đích hay mua hàng; đây là giới hạn của chế độ link.
 
 ## Xem quảng cáo có thưởng
@@ -54,7 +58,7 @@ Luồng client nằm trong `src/lib/rewarded-flow.ts`, là module thuần có un
 - `PUT {version, unlockEnabled, unlockMode, unlockLinkUrl|null, adSlots}` → payload mới. Lỗi:
   - `400 invalid_input` + `fields.linkUrl/unlockMode/adSlots`;
   - `409 conflict` khi `version` cũ;
-  - `409 mode_not_ready` khi bật một phương thức chưa sẵn sàng;
+  - `409 mode_not_ready` khi bật một phương thức chưa sẵn sàng. `error` nêu đúng điều kiện còn thiếu. Nếu do URL (thiếu hoặc không hợp lệ) thì lỗi nằm ở `fields.linkUrl`. Nếu do máy chủ (`CLICK_UNLOCK_ENABLED` khác `true`, thiếu `CLICK_UNLOCK_SECRET`, chưa có provider rewarded) thì lỗi nằm ở `fields.unlockMode`. Không có gì được lưu; client giữ nguyên bản nháp. Gửi lại với `unlockEnabled: false` để lưu URL và vị trí quảng cáo.
   - `503` khi DB lỗi.
 - Trang `/panel/cai-dat`: admin thấy cài đặt, editor/reader thấy thông báo 403, chưa đăng nhập bị chuyển về `/panel`. Studio chỉ hiện liên kết "Quảng cáo & mở khóa" cho admin.
 
@@ -99,5 +103,5 @@ Xem `.env.example`: `UNLOCK_EMERGENCY_OFF`, `REWARDED_MOCK_SECRET` và `STORYWEB
 ## Còn bị chặn
 
 - **Rewarded:** chưa có nhà cung cấp quảng cáo có thưởng cho web có callback xác minh phía server. Người dùng cần chọn provider, cấp tài khoản/credential, rồi Claude viết adapter và test end-to-end. Chưa được coi là hoàn tất production.
-- **Link Shopee:** cần chấp thuận riêng và `SHOPEE_GATE_APPROVED=true`. Production hiện có `CLICK_UNLOCK_ENABLED=false`.
+- **Link Shopee:** cần chấp thuận riêng và `SHOPEE_GATE_APPROVED=true`. Link HTTPS công khai khác dùng được ngay khi server có `CLICK_UNLOCK_ENABLED=true` và secret. Production hiện có `CLICK_UNLOCK_ENABLED=false`; Codex quyết định bật sau review M4.
 - **AdSense:** adapter đã viết nhưng chưa test với tài khoản thật (chưa có `ca-pub`/mã đơn vị). Trang cũng chưa có `ads.txt` và chưa có thông báo đồng ý (consent) cho người dùng EU.

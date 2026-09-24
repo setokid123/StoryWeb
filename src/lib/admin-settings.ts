@@ -75,7 +75,11 @@ export function parseSettingsUpdate(body: Record<string, unknown>, current: Site
   if (value.unlockEnabled) {
     const readiness = modeReadiness(value.unlockMode, current, value.unlockLinkUrl);
     if (readiness.state !== "ready") {
-      return { ok: false, status: 409, code: "mode_not_ready", error: readiness.reason ?? "Phương thức này chưa sẵn sàng.", fields: { unlockMode: readiness.reason ?? "Chưa sẵn sàng." } };
+      const reason = readiness.reason ?? "Phương thức này chưa sẵn sàng.";
+      // Point at the unmet condition: `fields.linkUrl` (fixable in the form) or `fields.unlockMode` (server env: flag,
+      // secret or provider). The client keeps its draft either way.
+      const fields: Record<string, string> = readiness.cause === "link_url" ? { linkUrl: reason } : { unlockMode: reason };
+      return { ok: false, status: 409, code: "mode_not_ready", error: reason, fields };
     }
   }
   return { ok: true, value };

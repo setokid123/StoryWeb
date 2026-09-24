@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { AdSlotFlags } from "@/lib/ad-placements";
 import type { AdminSettingsPayload, AdminSettingsUpdate } from "@/lib/settings-contract";
+import { normalizeUnlockLinkUrl } from "@/lib/unlock-link";
 import { UnlockSettingsView } from "@/components/unlock-settings-view";
 
 type Draft = { enabled: boolean; mode: "link" | "rewarded"; linkUrl: string; slots: AdSlotFlags };
@@ -46,6 +47,17 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
     setError(undefined);
     setSuccess(undefined);
     setLinkError(undefined);
+    const typedUrl = draft.linkUrl.trim();
+    if (typedUrl) {
+      // Same normalizer as the server. Shopee approval is a server-only flag, so the server decides that case.
+      const check = normalizeUnlockLinkUrl(typedUrl, { shopeeApproved: true });
+      if (!check.ok) {
+        setLinkError(check.reason);
+        setError("URL liên kết chưa hợp lệ. Cài đặt chưa được lưu.");
+        setPending(false);
+        return;
+      }
+    }
     const body: AdminSettingsUpdate = {
       version: payload.settings.version,
       unlockEnabled: draft.enabled,
@@ -72,7 +84,15 @@ export function UnlockSettingsContainer({ initial }: { initial: AdminSettingsPay
         return;
       }
       if (response.status === 409 && json.code === "mode_not_ready") {
-        setError((typeof json.error === "string" ? json.error : "Phương thức chưa sẵn sàng.") + " Tắt công tắc để lưu link và vị trí quảng cáo trước.");
+        // The draft is kept. A URL problem is shown on the field; a server-side condition (flag, secret, provider)
+        // cannot be fixed here, so saving with the switch off is the way to keep the URL and ad slots.
+        const reason = typeof json.error === "string" ? json.error : "Phương thức chưa sẵn sàng.";
+        if (json.fields?.linkUrl) {
+          setLinkError(json.fields.linkUrl);
+          setError(`Chưa bật được Nhấp liên kết: ${json.fields.linkUrl}`);
+        } else {
+          setError(reason + " Tắt công tắc để lưu link và vị trí quảng cáo trước.");
+        }
         return;
       }
       setError(typeof json.error === "string" ? json.error : "Không lưu được cài đặt. Vui lòng thử lại.");
