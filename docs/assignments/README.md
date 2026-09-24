@@ -6,6 +6,8 @@
 
 Đưa cho Antigravity [câu nhắc U6](ANTIGRAVITY_U6.md#câu-nhắc-đưa-vào-antigravity). Đọc [kế hoạch phân tầng giao diện](../VISUAL_HIERARCHY_U6_PLAN.md). Claude **chưa có task U6** vì vòng này chỉ cần giao diện; nếu Antigravity cần đổi container React đang giữ logic, Codex sẽ mở task tích hợp riêng sau khi có view contract.
 
+Codex đã review commit U6 đầu tiên và phát hiện lỗi dark mode chặn tích hợp. Antigravity cần đọc [phản hồi I8](../reviews/U6_VISUAL_REVIEW_2026-09-24.md), sửa trên chính nhánh U6 và bàn giao lại kèm ảnh/đo tương phản.
+
 ## Lịch sử — U5 / M3
 
 Antigravity và Claude Code đã bàn giao U5/M3 trên hai worktree dưới đây; Codex tích hợp và ghi kết quả tại [review I3](../reviews/I3_READER_MCP_REVIEW_2026-09-24.md). Các câu nhắc bên dưới được giữ làm lịch sử. U6 dùng worktree mới từ `main` ở bảng trên và kiểm tra Context7/Memory theo [quy ước MCP](../MCP_TOOLS.md).
