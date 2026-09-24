@@ -1,12 +1,12 @@
-# Bàn giao hiện tại — M4
+# Bàn giao M4 — đã hoàn tất
 
 | Agent | Worktree | Nhánh | File giao việc |
 | --- | --- | --- | --- |
 | Claude Code | `E:\Dev\StoryWeb\.worktrees\claude-m4` | `claude/m4-any-link-test` | [CLAUDE_M4.md](CLAUDE_M4.md) |
 
-Claude Code nhận M4 trên [workboard](../WORKBOARD.md), sửa logic cho URL HTTPS công khai tùy chọn và bật phương thức Nhấp liên kết để test khi server sẵn sàng. Shopee vẫn có cờ chấp thuận riêng; rewarded vẫn cần provider xác minh phía server. Codex review và tích hợp sau bàn giao.
+Claude Code đã bàn giao M4; Codex đã [review/tích hợp](../reviews/I13_M4_INTEGRATION_2026-09-24.md) và [phát hành production](../reviews/I14_M4_PRODUCTION_RELEASE_2026-09-24.md). URL HTTPS công khai tùy chọn và phương thức Nhấp liên kết có thể bật để test khi admin lưu cấu hình. Shopee vẫn có cờ chấp thuận riêng; rewarded vẫn cần provider xác minh phía server.
 
-> Mở worktree `E:\Dev\StoryWeb\.worktrees\claude-m4` trong VS Code, đọc [CLAUDE_M4.md](CLAUDE_M4.md), nhận M4 và làm theo câu nhắc ở cuối file. Không dùng worktree M3 cũ hoặc deploy.
+Worktree M4 là lịch sử bàn giao; không dùng lại cho task mới. [CLAUDE_M4.md](CLAUDE_M4.md) giữ phạm vi và tiêu chí nghiệm thu của M4.
 
 ## Lịch sử — U6
 
