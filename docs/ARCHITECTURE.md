@@ -29,4 +29,4 @@ M2/U4 đã thêm cấu hình admin bật/tắt và chọn một trong hai phươ
 
 1. Thêm UI đăng nhập/đăng ký, quản lý tài khoản và chuyển tủ truyện/tiến độ đọc từ LocalStorage sang tài khoản.
 2. Phân trang chương và tìm kiếm có index khi kho truyện tăng.
-3. Kiểm tra trực quan U5/M3 trên trình duyệt thật ở mobile/desktop và chạy lại luồng mở khóa trên môi trường riêng trước khi phát hành giao diện. Chỉ bật quảng cáo có thưởng sau khi có provider xác minh web và kiểm thử end-to-end.
+3. U5/M3 đã được kiểm tra trực quan trên Chrome ở nhiều kích thước (I4) và kiểm thử mở khóa với PostgreSQL Railway trên DB riêng (I5). Trước khi phát hành giao diện, kiểm tra deployment mới trên production. Chỉ bật quảng cáo có thưởng sau khi có provider xác minh web và kiểm thử end-to-end.

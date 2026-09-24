@@ -19,6 +19,7 @@ function navigateGet(url) {
 const base = process.env.STORYWEB_TEST_URL ?? "http://127.0.0.1:3000";
 const password = process.env.STORYWEB_TEST_ADMIN_PASSWORD;
 const gateMode = process.env.STORYWEB_TEST_GATE_MODE ?? "example";
+const expectedLinkUrl = process.env.STORYWEB_TEST_LINK_URL ?? "https://example.com/storyweb-test";
 if (!password) throw new Error("Set STORYWEB_TEST_ADMIN_PASSWORD before running this smoke test.");
 if (!["example", "disabled"].includes(gateMode)) throw new Error("STORYWEB_TEST_GATE_MODE must be example or disabled.");
 
@@ -89,7 +90,7 @@ try {
     console.log("Smoke test passed: admin auth, PostgreSQL publication, free chapter, locked chapter, disabled gate.");
   } else {
     assert.equal(visit.status, 303);
-    assert.equal(visit.location, "https://example.com/storyweb-test");
+    assert.equal(visit.location, expectedLinkUrl);
     const unlockHeader = visit.setCookie.find((value) => value.startsWith("storyweb_unlock=")) ?? "";
     assert.match(unlockHeader, /Max-Age=300/i);
     const unlockCookie = unlockHeader.split(";")[0];
