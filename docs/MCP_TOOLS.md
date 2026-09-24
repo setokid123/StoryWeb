@@ -70,24 +70,18 @@ MEMORY_FILE_PATH = 'E:\Dev\StoryWeb\.agents\memory\storyweb-memory.jsonl'
 
 Codex đọc `AGENTS.md`, nên quy tắc ở mục 1 áp dụng qua `AGENTS.md`.
 
-### Antigravity (`~/.gemini/config/mcp_config.json`)
+### Antigravity (`~/.gemini/antigravity/mcp_config.json` và `~/.gemini/config/mcp_config.json`)
 
-Nếu dùng Docker như cấu hình hiện tại, **server memory phải mount thư mục chung**. Placeholder `/local-directory` làm mỗi lần chạy `--rm` mất dữ liệu và không chia sẻ với agent khác:
+**Không dùng Docker.** Hai server chạy bằng `npx` giống Codex:
 
 ```json
-"memory": {
-  "command": "docker",
-  "args": ["run", "-i", "--rm",
-           "-v", "E:/Dev/StoryWeb/.agents/memory:/data",
-           "-e", "MEMORY_FILE_PATH=/data/storyweb-memory.jsonl",
-           "mcp/memory"]
+{
+  "mcpServers": {
+    "context7": { "command": "cmd", "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"] },
+    "memory": { "command": "cmd", "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-memory"],
+                "env": { "MEMORY_FILE_PATH": "E:/Dev/StoryWeb/.agents/memory/storyweb-memory.jsonl" } }
+  }
 }
-```
-
-Nếu không có Docker, dùng dạng `npx` giống Codex:
-
-```json
-"memory": { "command": "cmd", "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-memory"], "env": { "MEMORY_FILE_PATH": "E:\\Dev\\StoryWeb\\.agents\\memory\\storyweb-memory.jsonl" } }
 ```
 
 Antigravity đọc `.agents/rules/project-context.md`; quy tắc được nhắc lại ở đó.
@@ -97,6 +91,8 @@ Antigravity đọc `.agents/rules/project-context.md`; quy tắc được nhắc
 Không có key vẫn chạy được, nhưng bị giới hạn lượt gọi. Nếu có key, đặt biến môi trường user `CONTEXT7_API_KEY` (không ghi vào file trong repo). Server Context7 tự đọc biến này.
 
 ## 3. Giới hạn cần biết
+
+- Không dùng Docker cho MCP của dự án; chỉ cần Node.js (npx).
 
 - Memory server ghi lại cả file sau mỗi lần sửa. Hai agent ghi **cùng lúc** có thể làm mất một lần ghi. Hãy ghi ngắn, và chỉ ghi lúc bàn giao.
 - Không có cơ chế nào ép agent gọi tool. Việc tuân thủ được kiểm bằng dòng `Memory: …` trong bàn giao; Codex kiểm dòng này khi tích hợp.
