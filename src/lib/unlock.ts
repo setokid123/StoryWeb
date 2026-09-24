@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { cache } from "react";
 import { getRewardedProvider, type RewardedProvider } from "@/lib/rewarded-providers";
 import { getSiteSettings, type SiteSettings, type UnlockMethod } from "@/lib/site-settings";
+import { normalizeUnlockLinkUrl, type UnlockLinkProblem } from "@/lib/unlock-link";
 
 export const UNLOCK_COOKIE = "storyweb_unlock";
 /** Pre-M2 cookie; no longer accepted, cleared when a new grant is issued. */
@@ -15,6 +16,8 @@ export const READER_COOKIE = "storyweb_reader";
 // ---------- readiness ----------
 
 export type ModeReadiness = { state: "ready" | "unconfigured" | "unavailable" | "blocked"; reason: string | null };
+/** Which condition is unmet, so the admin API can point at the right field (server env vs. URL). */
+export type ReadinessCause = "server_flag" | "server_secret" | "link_url";
 
 function unlockSecret(): string | null {
   const secret = process.env.CLICK_UNLOCK_SECRET;
@@ -25,38 +28,28 @@ function emergencyOff() {
   return process.env.UNLOCK_EMERGENCY_OFF === "true";
 }
 
-const SHOPEE_HOST = /^(?:[a-z0-9-]+\.)*shopee\.vn$|^(?:shp|shope)\.ee$/i;
-const TEST_HOST = "example.com";
-
-export type LinkCheck = { ok: true; url: URL } | { ok: false; reason: string; blocked?: boolean };
+export type LinkCheck = { ok: true; url: URL } | { ok: false; reason: string; problem: UnlockLinkProblem; blocked?: boolean };
 
 /**
- * Validates an unlock destination. Only https, no credentials/fragments-as-payload, max 2048 chars.
- * `SHOPEE_GATE_APPROVED` is the server-side hard gate for supported Shopee destinations;
- * example.com is allowed for local testing. No admin setting can bypass it.
+ * Validates an unlock destination on the server: any public https domain (see src/lib/unlock-link.ts, shared with
+ * the settings UI). Direct Shopee links stay behind the hard server gate `SHOPEE_GATE_APPROVED`; no admin setting
+ * can bypass it. The URL is never fetched, so redirects/shorteners are not verified.
  */
 export function checkUnlockLinkUrl(raw: string | null | undefined): LinkCheck {
-  if (!raw) return { ok: false, reason: "Chưa có URL liên kết mở khóa." };
-  if (raw.length > 2048) return { ok: false, reason: "URL quá dài (tối đa 2048 ký tự)." };
-  let url: URL;
-  try { url = new URL(raw); } catch { return { ok: false, reason: "URL không hợp lệ." }; }
-  if (url.protocol !== "https:") return { ok: false, reason: "URL phải dùng https." };
-  if (url.username || url.password) return { ok: false, reason: "URL không được chứa thông tin đăng nhập." };
-  const host = url.hostname.toLowerCase();
-  if (/^[\d.]+$/.test(host) || host.includes(":") || host === "localhost" || !host.includes(".")) return { ok: false, reason: "URL phải dùng tên miền công khai." };
-  if (host === TEST_HOST) return { ok: true, url };
-  if (!SHOPEE_HOST.test(host)) return { ok: false, blocked: true, reason: "Hiện chỉ hỗ trợ liên kết Shopee Việt Nam (shopee.vn, shp.ee, shope.ee)." };
-  if (process.env.SHOPEE_GATE_APPROVED !== "true") {
-    return { ok: false, blocked: true, reason: "Liên kết Shopee cần chấp thuận riêng (SHOPEE_GATE_APPROVED=true trên server) trước khi dùng." };
-  }
-  return { ok: true, url };
+  const check = normalizeUnlockLinkUrl(raw, { shopeeApproved: process.env.SHOPEE_GATE_APPROVED === "true" });
+  if (!check.ok) return { ok: false, reason: check.reason, problem: check.problem, blocked: check.problem === "shopee_unapproved" || undefined };
+  return { ok: true, url: new URL(check.url) };
 }
 
-export function linkReadiness(settings: Pick<SiteSettings, "unlockLinkUrl">, candidateUrl?: string | null): ModeReadiness & { url?: URL } {
-  if (process.env.CLICK_UNLOCK_ENABLED !== "true") return { state: "blocked", reason: "Máy chủ đang chặn chế độ liên kết (CLICK_UNLOCK_ENABLED khác true)." };
-  if (!unlockSecret()) return { state: "unconfigured", reason: "Thiếu CLICK_UNLOCK_SECRET (ít nhất 32 ký tự) trên máy chủ." };
-  const check = checkUnlockLinkUrl(candidateUrl !== undefined ? candidateUrl ?? process.env.CLICK_UNLOCK_URL : settings.unlockLinkUrl ?? process.env.CLICK_UNLOCK_URL);
-  if (!check.ok) return { state: check.blocked ? "blocked" : "unconfigured", reason: check.reason };
+export function linkReadiness(settings: Pick<SiteSettings, "unlockLinkUrl">, candidateUrl?: string | null): ModeReadiness & { url?: URL; cause?: ReadinessCause } {
+  if (process.env.CLICK_UNLOCK_ENABLED !== "true") return { state: "blocked", cause: "server_flag", reason: "Máy chủ đang chặn chế độ liên kết (CLICK_UNLOCK_ENABLED khác true)." };
+  if (!unlockSecret()) return { state: "unconfigured", cause: "server_secret", reason: "Thiếu CLICK_UNLOCK_SECRET (ít nhất 32 ký tự) trên máy chủ." };
+  const raw = candidateUrl !== undefined ? candidateUrl ?? process.env.CLICK_UNLOCK_URL : settings.unlockLinkUrl ?? process.env.CLICK_UNLOCK_URL;
+  const check = checkUnlockLinkUrl(raw);
+  if (!check.ok) {
+    const reason = check.problem === "missing" ? "Chưa có URL liên kết: nhập URL hoặc đặt CLICK_UNLOCK_URL trên máy chủ." : check.reason;
+    return { state: check.blocked ? "blocked" : "unconfigured", cause: "link_url", reason };
+  }
   return { state: "ready", reason: null, url: check.url };
 }
 
@@ -66,9 +59,13 @@ export function rewardedReadiness(): ModeReadiness & { provider: RewardedProvide
   return { ...provider.readiness, provider };
 }
 
-export function modeReadiness(mode: UnlockMethod, settings: SiteSettings, candidateUrl?: string | null): ModeReadiness {
-  const readiness = mode === "link" ? linkReadiness(settings, candidateUrl) : rewardedReadiness();
-  return { state: readiness.state, reason: readiness.reason };
+export function modeReadiness(mode: UnlockMethod, settings: SiteSettings, candidateUrl?: string | null): ModeReadiness & { cause?: ReadinessCause } {
+  if (mode === "link") {
+    const link = linkReadiness(settings, candidateUrl);
+    return { state: link.state, reason: link.reason, cause: link.cause };
+  }
+  const rewarded = rewardedReadiness();
+  return { state: rewarded.state, reason: rewarded.reason };
 }
 
 // ---------- resolved mode ----------
