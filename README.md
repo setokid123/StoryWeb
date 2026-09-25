@@ -14,11 +14,9 @@ npm run dev
 
 Trên máy Windows này, nếu PowerShell chưa tìm thấy Node/npm, thêm `C:\Program Files\nodejs` vào `PATH` của phiên shell.
 
-Kiểm tra mã: `npm run typecheck`, `npm run lint`, `npm run build`. Route `/api/health` trả 200 khi kết nối PostgreSQL hoạt động.
+Kiểm tra mã: `npm run typecheck`, `npm run lint`, `npm run build`, `npm run test:unit` (logic thuần, không cần DB). Test tích hợp cần app và database test riêng: xem `docs/UNLOCK_TEST_GUIDE.md` và đầu mỗi file `scripts/test-*.mjs`. Route `/api/health` trả 200 khi kết nối PostgreSQL hoạt động.
 
 API tài khoản, phân quyền Studio, giới hạn đăng nhập và cách tạo editor/admin nằm trong [tài liệu B1](docs/AUTH_API.md). Mật khẩu panel cũ vẫn dùng được trong thời gian chuyển tiếp.
-
-Nếu có dữ liệu CMS cũ ở `content/published-stories.json`, chạy `node scripts/import-stories.mjs [đường-dẫn-file]` một lần sau migration. Script bỏ qua truyện đã tồn tại.
 
 ## Triển khai Railway
 

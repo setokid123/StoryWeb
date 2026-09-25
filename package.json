@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "test:unit": "node --experimental-strip-types --no-warnings --test scripts/test-reader-preferences.mjs scripts/test-reader-scroll.mjs scripts/test-unlock-link-url.mjs scripts/test-rewarded-flow.mjs",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate"
   },
