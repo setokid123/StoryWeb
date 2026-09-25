@@ -24,8 +24,8 @@ for (const url of [base, flagOffBase].filter(Boolean)) {
 }
 if (!process.env.DATABASE_URL) throw new Error("Set DATABASE_URL to an isolated storyweb_test database.");
 const databaseName = decodeURIComponent(new URL(process.env.DATABASE_URL).pathname.slice(1));
-if (!/^storyweb_(?:test(?:_[a-z0-9_]+)?|m[34]_[a-z0-9_]+)$/i.test(databaseName)) {
-  throw new Error("This mutating test requires a database named storyweb_test, storyweb_m3_* or storyweb_m4_*.");
+if (!/^storyweb_(?:test(?:_[a-z0-9_]+)?|[mc]\d+_[a-z0-9_]+)$/i.test(databaseName)) {
+  throw new Error("This mutating test requires a database named storyweb_test or storyweb_<task>_* (for example storyweb_m4_test).");
 }
 
 const run = randomUUID().slice(0, 8);
