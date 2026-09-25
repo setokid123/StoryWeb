@@ -14,6 +14,12 @@
 - Memory chung đã có observation U7 của Antigravity về `white-space`, opacity và padding. `Context7: không cần` phù hợp vì U7 chỉ thay CSS.
 - Codex thử route preview cục bộ, nhưng Chrome headless không khởi tạo được GPU/CDP trong phiên này. Route, script, profile trình duyệt và log thử đã gỡ; không tính đây là QA visual đạt.
 
-Mã đã đủ điều kiện tích hợp local vào `main` theo kiểm tra tĩnh, unit và bằng chứng visual ở mức component. Trước khi push/deploy production, cần walkthrough/ảnh ReaderPanel đã ghép ở 320/360/768/1280px Sáng/Tối, kiểm cuối chương và safe area thực tế. Không có thay đổi DB/migration hoặc quyền đọc server trong I18.
+Mã đã tích hợp vào `main` theo kiểm tra tĩnh, unit và bằng chứng visual ở mức component. QA ReaderPanel đã ghép ở 320/360/768/1280px Sáng/Tối, cuối chương và safe area thực tế vẫn còn thiếu. Không có thay đổi DB/migration hoặc quyền đọc server trong I18.
+
+## Phát hành sau yêu cầu push
+
+- Push `main` lên GitHub ở commit ứng dụng `c2da8f5`. GitHub commit status của Railway `StoryWeb - StoryWeb` báo `success` cho deployment `85873685-48e3-4fbc-b35c-cfafebbf04a7` ngày 2026-09-25. Không có migration mới trong commit này; chưa đọc trực tiếp log pre-deploy do Railway CLI không có trong phiên.
+- Smoke production sau khi status thành công: `/api/health`, `/`, `/tim-kiem`, `/panel` trả 200; `/panel/cai-dat` trả 307 về `/panel` khi chưa đăng nhập, đúng guard. Chưa thử thao tác đăng nhập hoặc chỉnh settings production.
+- Đây là phát hành có giới hạn QA visual đã nêu trên. Nếu dock che chữ trên thiết bị thật, cần sửa UI và phát hành hotfix; ảnh U7 trên trang thử không được coi là bằng chứng ReaderPanel hoàn chỉnh.
 
 Context7: Next.js 16.3.6 local docs `01-app/01-getting-started/03-layouts-and-pages.md` và `05-server-and-client-components.md` chỉ dùng cho preview tạm; không đổi API ứng dụng. Memory: đã tra U7/M5/I18; đã cập nhật I18.
