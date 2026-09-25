@@ -8,8 +8,6 @@ import { getSiteSettings, type SiteSettings, type UnlockMethod } from "@/lib/sit
 import { normalizeUnlockLinkUrl, type UnlockLinkProblem } from "@/lib/unlock-link";
 
 export const UNLOCK_COOKIE = "storyweb_unlock";
-/** Pre-M2 cookie; no longer accepted, cleared when a new grant is issued. */
-export const LEGACY_UNLOCK_COOKIE = "storyweb_click_unlock";
 export const UNLOCK_SECONDS = 5 * 60;
 export const READER_COOKIE = "storyweb_reader";
 

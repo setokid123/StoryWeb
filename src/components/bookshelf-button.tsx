@@ -14,7 +14,7 @@ export function subscribeBookshelf(callback: () => void) {
   };
 }
 
-export function readBookshelf(): string[] {
+function readBookshelf(): string[] {
   try {
     const value = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]");
     return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];

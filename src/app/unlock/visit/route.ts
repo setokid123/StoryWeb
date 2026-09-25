@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { LEGACY_UNLOCK_COOKIE, mintUnlockGrant, resolveUnlock, UNLOCK_COOKIE, unlockCookieOptions } from "@/lib/unlock";
+import { mintUnlockGrant, resolveUnlock, UNLOCK_COOKIE, unlockCookieOptions } from "@/lib/unlock";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -23,7 +23,6 @@ async function grant() {
   const issued = mintUnlockGrant("link", resolved.revision);
   const response = NextResponse.redirect(resolved.destination, { status: 303 });
   response.cookies.set(UNLOCK_COOKIE, issued.value, unlockCookieOptions);
-  response.cookies.delete(LEGACY_UNLOCK_COOKIE);
   response.headers.set("Cache-Control", "no-store");
   return response;
 }

@@ -185,7 +185,7 @@ const palettes: Record<string, [string, string]> = {
   "Đô thị": ["#304e5c", "#152633"],
 };
 
-export function toPublicStory(story: ManagedStory): Story {
+function toPublicStory(story: ManagedStory): Story {
   return {
     slug: story.slug,
     title: story.title,

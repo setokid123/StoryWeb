@@ -20,8 +20,8 @@ export type StoredReaderPreferences = {
 export const READER_PREFS_KEY = "storyweb:reader-prefs:v1";
 export const LEGACY_FONT_SIZE_KEY = "storyweb:font-size";
 export const READER_PREFS_EVENT = "storyweb:reader-prefs-change";
-export const FONT_SIZE_MIN = 16;
-export const FONT_SIZE_MAX = 26;
+const FONT_SIZE_MIN = 16;
+const FONT_SIZE_MAX = 26;
 const VERSION = 1;
 
 export const DEFAULT_READER_PREFERENCES: StoredReaderPreferences = Object.freeze({
@@ -47,7 +47,7 @@ function isEnumValue<K extends EnumKey>(key: K, value: unknown): value is Stored
   return typeof value === "string" && (ALLOWED[key] as readonly string[]).includes(value);
 }
 
-export function isValidFontSize(value: unknown): value is number {
+function isValidFontSize(value: unknown): value is number {
   return typeof value === "number" && Number.isInteger(value) && value >= FONT_SIZE_MIN && value <= FONT_SIZE_MAX;
 }
 
@@ -89,10 +89,6 @@ export function applyReaderPreferenceUpdate(current: StoredReaderPreferences, up
     if (typeof size === "number" && Number.isFinite(size)) next.fontSize = Math.min(FONT_SIZE_MAX, Math.max(FONT_SIZE_MIN, Math.round(size)));
   }
   return next;
-}
-
-export function sameReaderPreferences(a: StoredReaderPreferences, b: StoredReaderPreferences) {
-  return a.fontFamily === b.fontFamily && a.fontWeight === b.fontWeight && a.fontSize === b.fontSize && a.lineHeight === b.lineHeight && a.columnWidth === b.columnWidth && a.textAlignment === b.textAlignment;
 }
 
 // ---------- rendering (chapter body only) ----------

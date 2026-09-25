@@ -151,10 +151,6 @@ export const stories: Story[] = [
 export const featuredStory = stories.find((story) => story.featured)!;
 export const genres = ["Tất cả", "Đô thị", "Tình cảm", "Cổ đại", "Kỳ ảo", "Đời thường"];
 
-export function getStory(slug: string) {
-  return stories.find((story) => story.slug === slug);
-}
-
 export function chapterTitle(number: number) {
   const titles = [
     "Tiệm sách trong mưa",

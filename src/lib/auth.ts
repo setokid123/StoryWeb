@@ -8,11 +8,11 @@ import { getDb } from "@/db/client";
 import { userSessions, users } from "@/db/schema";
 import { burnPasswordCheck, hashPassword, PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, verifyPassword } from "@/lib/password";
 
-export const SESSION_COOKIE = "storyweb_session";
+const SESSION_COOKIE = "storyweb_session";
 const SESSION_MS = 30 * 24 * 60 * 60 * 1000;
 
 export type UserRole = (typeof users.$inferSelect)["role"];
-export const USER_ROLES: readonly UserRole[] = ["reader", "editor", "admin"];
+const USER_ROLES: readonly UserRole[] = ["reader", "editor", "admin"];
 
 /** Safe to return to clients: never includes the password hash or session token. */
 export type PublicUser = { id: string; email: string; displayName: string; role: UserRole; createdAt: string };
@@ -81,12 +81,6 @@ export async function authenticate(email: string, password: string): Promise<Pub
     return undefined;
   }
   return await verifyPassword(password, row.passwordHash) ? toPublicUser(row) : undefined;
-}
-
-export async function getUserById(id: string): Promise<PublicUser | undefined> {
-  if (!uuidPattern.test(id)) return undefined;
-  const [row] = await getDb().select(publicColumns).from(users).where(eq(users.id, id)).limit(1);
-  return row ? toPublicUser(row) : undefined;
 }
 
 export async function listUsers(filter: { role?: UserRole; query?: string; limit: number; offset: number }): Promise<PublicUser[]> {

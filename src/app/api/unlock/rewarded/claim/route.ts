@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { apiError, crossOrigin, isSameOriginRequest, readJsonObject, unavailable } from "@/lib/request-guard";
 import { claimChallenge } from "@/lib/unlock-challenges";
-import { currentReaderId, LEGACY_UNLOCK_COOKIE, mintUnlockGrant, readerHash, resolveUnlock, UNLOCK_COOKIE, unlockCookieOptions } from "@/lib/unlock";
+import { currentReaderId, mintUnlockGrant, readerHash, resolveUnlock, UNLOCK_COOKIE, unlockCookieOptions } from "@/lib/unlock";
 
 export const runtime = "nodejs";
 
@@ -24,7 +24,6 @@ export async function POST(request: Request) {
     const grant = mintUnlockGrant("rewarded", resolved.revision);
     const response = NextResponse.json({ status: "granted", expiresAt: new Date(grant.expiresAt).toISOString() }, { headers: { "Cache-Control": "no-store" } });
     response.cookies.set(UNLOCK_COOKIE, grant.value, unlockCookieOptions);
-    response.cookies.delete(LEGACY_UNLOCK_COOKIE);
     return response;
   } catch (error) {
     return unavailable(error);

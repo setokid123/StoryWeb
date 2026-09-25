@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-
-export type AdPlacement = "home_feed" | "story_detail" | "reader_end" | "search_results";
+import type { AdPlacement } from "@/lib/ad-placements";
 
 export type AdSlotProps = {
   placement: AdPlacement;

@@ -25,7 +25,7 @@ export type SiteSettings = {
   unavailable: boolean;
 };
 
-export const DEFAULT_SETTINGS: SiteSettings = {
+const DEFAULT_SETTINGS: SiteSettings = {
   unlockEnabled: false,
   unlockMode: "link",
   unlockLinkUrl: null,
