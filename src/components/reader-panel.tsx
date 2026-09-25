@@ -8,14 +8,17 @@ import type { Story } from "@/data/stories";
 import type { DisplayAdConfig } from "@/lib/display-ads";
 import { AdSlotContainer } from "@/components/ad-slot-container";
 import { ChapterListDialog } from "@/components/chapter-list-dialog";
+import { ReaderFloatingNavigation } from "@/components/reader-floating-navigation";
 import { ReaderNavigation } from "@/components/reader-navigation";
 import { type ReaderPreferences, ReaderPreferencesView } from "@/components/reader-preferences-view";
 import { useTheme } from "@/components/theme-provider";
 import { type RewardedStatus, UnlockGateView } from "@/components/unlock-gate-view";
 import { useReaderPreferences } from "@/components/use-reader-preferences";
+import { useReaderScroll } from "@/components/use-reader-scroll";
 import { useRewardedUnlock } from "@/components/use-rewarded-unlock";
 import type { ChapterListItem, RewardedViewState, UnlockViewMode } from "@/components/view-contracts";
 import { readerBodyStyle } from "@/lib/reader-preferences";
+import { resolveReaderChrome } from "@/lib/reader-scroll";
 
 export type ReaderUnlockInfo = { mode: UnlockViewMode; destinationHost: string | null; accessMinutes: number };
 
@@ -40,16 +43,39 @@ function toGateStatus(state: RewardedViewState): RewardedStatus {
   return "idle";
 }
 
+/**
+ * Focuses `ref` as soon as the browser accepts it (not inert, not visibility:hidden), retrying for a few frames,
+ * then calls `done` whether or not it succeeded so a temporary "pinned" state never sticks.
+ */
+function focusWhenReady(ref: React.RefObject<HTMLElement | null>, done?: () => void, frames = 20) {
+  const attempt = (left: number) => requestAnimationFrame(() => {
+    const el = ref.current;
+    el?.focus({ preventScroll: true });
+    if (!el || document.activeElement === el || left <= 0) { done?.(); return; }
+    attempt(left - 1);
+  });
+  attempt(frames);
+}
+
 export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpiresAt, grantRemainingMs, navigation, readerEndAd }: ReaderPanelProps) {
   const router = useRouter();
   const gateRef = useRef<HTMLDivElement>(null);
   const gateFocusedRef = useRef(false);
   const listButtonRef = useRef<HTMLButtonElement>(null);
+  const dockListButtonRef = useRef<HTMLButtonElement>(null);
+  /** Which chapter-list button opened the dialog, so closing it returns focus to that exact button. */
+  const listTriggerRef = useRef<"dock" | "end">("end");
+  const endNavRef = useRef<HTMLDivElement>(null);
   const prefsButtonRef = useRef<HTMLButtonElement>(null);
   const prefsAnchorRef = useRef<HTMLDivElement>(null);
   const [prefsOpen, setPrefsOpen] = useState(false);
   const [chapterListOpen, setChapterListOpen] = useState(false);
   const [expiredGrant, setExpiredGrant] = useState(false);
+  const [toolbarFocused, setToolbarFocused] = useState(false);
+  const [dockFocused, setDockFocused] = useState(false);
+  const [dockPinned, setDockPinned] = useState(false);
+  const [toolbarPinned, setToolbarPinned] = useState(false);
+  const scroll = useReaderScroll(endNavRef);
   const { preferences, update: updatePreferences, reset: resetPreferences } = useReaderPreferences();
   const { theme, resolved, setTheme } = useTheme();
   const grantProtected = chapter > story.freeChapters && unlockExpiresAt !== null;
@@ -91,10 +117,22 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
     };
   }, [grantProtected, unlockExpiresAt, grantRemainingMs, refresh]);
 
+  const openChapterList = useCallback((trigger: "dock" | "end") => {
+    listTriggerRef.current = trigger;
+    setPrefsOpen(false);
+    setChapterListOpen(true);
+  }, []);
+
   const closeChapterList = useCallback(() => {
     setChapterListOpen(false);
-    // Return focus to the button that opened the list.
-    requestAnimationFrame(() => listButtonRef.current?.focus());
+    // Return focus to the exact button that opened the list. The dock is pinned visible until that focus lands:
+    // otherwise it could still be inert/visibility:hidden (first frame of the CSS transition) and focus would be lost.
+    if (listTriggerRef.current === "dock") {
+      setDockPinned(true);
+      focusWhenReady(dockListButtonRef, () => setDockPinned(false));
+    } else {
+      focusWhenReady(listButtonRef);
+    }
   }, []);
 
   const closeGate = useCallback(() => router.push(storyHref), [router, storyHref]);
@@ -126,7 +164,10 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
 
   const closePreferences = useCallback((restoreFocus = true) => {
     setPrefsOpen(false);
-    if (restoreFocus) requestAnimationFrame(() => prefsButtonRef.current?.focus());
+    if (!restoreFocus) return;
+    // The toolbar may be scrolled away (hidden) once preferences close; keep it until the toggle has focus again.
+    setToolbarPinned(true);
+    focusWhenReady(prefsButtonRef, () => setToolbarPinned(false));
   }, []);
 
   // Preferences popover: focus inside on open, Escape closes and returns focus, Tab stays inside (the view is
@@ -174,12 +215,28 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
   // Preferences apply to the chapter body only (not UI text, the lock dialog or ads).
   const bodyStyle = readerBodyStyle(preferences);
 
+  const chrome = resolveReaderChrome({ scroll, endNavInView: scroll.endNavInView, locked, chapterListOpen, preferencesOpen: prefsOpen, toolbarFocused, dockFocused, toolbarPinned, dockPinned });
+  const toolbarHidden = chrome.toolbar === "hidden";
+  // focus/blur bubble in React; relatedTarget tells whether focus stayed inside the element. Only keyboard focus
+  // (:focus-visible) keeps the chrome shown, so a mouse click on the dock does not pin it while the reader scrolls.
+  const trackFocus = (set: (focused: boolean) => void, onEnter?: () => void) => ({
+    onFocus: (event: React.FocusEvent<HTMLElement>) => {
+      let keyboard = true;
+      try { keyboard = (event.target as HTMLElement).matches(":focus-visible"); } catch { /* old browsers: assume keyboard */ }
+      set(keyboard);
+      onEnter?.();
+    },
+    onBlur: (event: React.FocusEvent<HTMLElement>) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) set(false); },
+  });
+
   const isDarkUI = resolved === "dark";
   const unlockedByGrant = unlockExpiresAt !== null && chapter > story.freeChapters;
 
   return <div className={`reader-shell ${isDarkUI ? "reader-shell--night" : ""}`}>
     <div className="container reader-shell__inner">
-      <div className="reader-toolbar">
+      {/* data-scroll-state: top (in place) | pinned (sticky, shown after scrolling up) | hidden. Hidden controls are
+          inert so they leave the Tab order; the toolbar stays shown while preferences are open or it holds focus. */}
+      <div className={`reader-toolbar${toolbarHidden ? " is-hidden" : ""}`} data-scroll-state={chrome.toolbar} inert={toolbarHidden} {...trackFocus(setToolbarFocused)}>
         <Link href={storyHref}><ChevronLeft size={17} /> Mục lục</Link>
         {/* The panel sits outside .reader-toolbar__settings so its buttons do not get the 44×44 toolbar button style;
             this wrapper is the positioned anchor for U5's absolutely positioned .reader-prefs. */}
@@ -200,7 +257,14 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
           : <>{unlockedByGrant && <div className="reader-access-note"><Clock3 size={15} /> Đã mở quyền đọc các chương tiếp theo đến {new Date(unlockExpiresAt).toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })}.</div>}<div className="reader-text" style={bodyStyle.body} {...bodyStyle.dataAttributes}>{content.split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div><div className="reader-end">Hết chương {chapter}</div></>}
       </article>
       {!locked && <AdSlotContainer config={readerEndAd} />}
-      <ReaderNavigation storyUrl={storyHref} prevUrl={navigation.prevHref ?? undefined} nextUrl={navigation.nextHref ?? undefined} onOpenChapterList={() => { setPrefsOpen(false); setChapterListOpen(true); }} listButtonRef={listButtonRef} />
+      <div ref={endNavRef}>
+        <ReaderNavigation storyUrl={storyHref} prevUrl={navigation.prevHref ?? undefined} nextUrl={navigation.nextHref ?? undefined} onOpenChapterList={() => openChapterList("end")} listButtonRef={listButtonRef} />
+      </div>
+    </div>
+    {/* U7 dock: same four actions/targets as the end navigation. Inert when hidden, on a locked chapter or while a
+        dialog/preferences is open, so it never takes Tab focus; visible while it holds focus. */}
+    <div inert={!chrome.dockVisible} {...trackFocus(setDockFocused)}>
+      <ReaderFloatingNavigation visible={chrome.dockVisible} storyUrl={storyHref} prevUrl={navigation.prevHref ?? undefined} nextUrl={navigation.nextHref ?? undefined} onOpenChapterList={() => openChapterList("dock")} listButtonRef={dockListButtonRef} />
     </div>
     <ChapterListDialog
       isOpen={chapterListOpen}
