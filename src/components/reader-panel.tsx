@@ -232,7 +232,7 @@ export function ReaderPanel({ story, chapter, title, content, unlock, unlockExpi
   const isDarkUI = resolved === "dark";
   const unlockedByGrant = unlockExpiresAt !== null && chapter > story.freeChapters;
 
-  return <div className={`reader-shell ${isDarkUI ? "reader-shell--night" : ""}`}>
+  return <div className="reader-shell">
     <div className="container reader-shell__inner">
       {/* data-scroll-state: top (in place) | pinned (sticky, shown after scrolling up) | hidden. Hidden controls are
           inert so they leave the Tab order; the toolbar stays shown while preferences are open or it holds focus. */}

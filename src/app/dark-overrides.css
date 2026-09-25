@@ -100,7 +100,6 @@
 }
 
 /* U4: Reader Navigation Dark */
-[data-theme="dark"] .reader-nav__main .button--outline { background: transparent; }
 
 /* U4: Drawer Panel Dark */
 [data-theme="dark"] .drawer-panel { background: var(--paper); box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
@@ -113,10 +112,10 @@
 [data-theme="dark"] .chapter-list__lock-icon { color: #5a6b61; }
 
 /* U4: Ad Slot Dark */
-[data-theme="dark"] .ad-slot__label, .reader-shell--night .ad-slot__label { color: #afc3b9; }
-[data-theme="dark"] .ad-slot__placeholder, .reader-shell--night .ad-slot__placeholder { background: #1c2627; border-color: #405455; color: #b8c8be; }
-[data-theme="dark"] .ad-slot__placeholder--preview, .reader-shell--night .ad-slot__placeholder--preview { background: #2a2217; border-color: #4a3c2a; color: #b89b65; }
-[data-theme="dark"] .ad-slot__spinner, .reader-shell--night .ad-slot__spinner { border-color: #5e746e; border-top-color: #b8d4c0; }
+[data-theme="dark"] .ad-slot__label { color: #afc3b9; }
+[data-theme="dark"] .ad-slot__placeholder { background: #1c2627; border-color: #405455; color: #b8c8be; }
+[data-theme="dark"] .ad-slot__placeholder--preview { background: #2a2217; border-color: #4a3c2a; color: #b89b65; }
+[data-theme="dark"] .ad-slot__spinner { border-color: #5e746e; border-top-color: #b8d4c0; }
 
 /* Studio settings: theme tokens supply surfaces and text; only controls need dark adjustments. */
 [data-theme="dark"] .settings-badge--ready { color: #a4dec0; border-color: #679679; }
@@ -128,9 +127,6 @@
 [data-theme="dark"] .alert--success { background: #1c2b22; color: #78a489; border-color: #2b4535; }
 
 /* U5: Reader Polish Dark */
-[data-theme="dark"] .reader-shell { background: #1d2b2b; color: #e9e4d8; }
-[data-theme="dark"] .reader-text { color: #e7e2d5; }
-[data-theme="dark"] .reader-toolbar__settings > button { background: #2a3a39; border-color: #4b5e59; color: #e7e2d5; }
 [data-theme="dark"] .reader-article .eyebrow { color: #8ba096; }
 [data-theme="dark"] .reader-end { color: #8ba096; }
 
