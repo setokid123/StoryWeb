@@ -1,0 +1,259 @@
+# Lịch sử bảng việc
+
+Các mục đã hoàn tất, chuyển nguyên văn từ `docs/WORKBOARD.md` ngày 2026-09-25 (C1). Đường dẫn tương đối trong bảng được viết lại cho vị trí mới.
+
+## I18
+
+- **Chủ trì:** Codex
+- **Việc:** Tích hợp U7/M5, kiểm tra và phát hành
+- **Trạng thái:** `main` đã push app `c2da8f5`; Railway `85873685` SUCCESS
+- **File:** [Review I18](../reviews/I18_U7_M5_DRAFT_INTEGRATION_2026-09-25.md), nhánh `codex/i18-u7-m5-integration`
+- **Bàn giao:** Build/typecheck/lint/diff check, scroll 12/12, preferences 8/8 đạt. GitHub Railway status success; health, trang chủ, tìm kiếm, panel 200; settings 307 về panel khi chưa đăng nhập. Ảnh U7 là trang thử component, ảnh M5 là ReaderPanel với CSS cũ; QA visual bản ghép cuối vẫn còn thiếu. Không đổi DB/migration. Context7: Next 16 docs local cho preview tạm; Memory: đã tra U7/M5/I18; đã cập nhật I18.
+
+## I17
+
+- **Chủ trì:** Codex
+- **Việc:** Review M5 hoàn tất và U7 commit mới
+- **Trạng thái:** Logic đạt; chờ visual U7 trước tích hợp
+- **File:** [Review I17](../reviews/I17_U7_M5_REVIEW_2026-09-25.md); không sửa code agent
+- **Bàn giao:** M5 `a688614`: typecheck/lint/build/diff check, scroll 12/12, preferences 8/8 đạt; walkthrough Chrome 19/19 theo bàn giao. U7 `1808728` tăng opacity/padding nhưng chưa ghép/chụp lại. Ảnh 768px nhãn dock xuống dòng; cần chỉnh tablet, ảnh Sáng/Tối bản cuối và Context7/Memory U7. Context7: không cần (review); Memory: đã tra U7/M5/I16; đã cập nhật I17.
+
+## I16
+
+- **Chủ trì:** Codex
+- **Việc:** Kiểm tra bàn giao U7 và tiến độ M5
+- **Trạng thái:** Review hoàn tất; chưa tích hợp
+- **File:** [Review I16](../reviews/I16_U7_M5_CHECK_2026-09-25.md); không sửa code agent
+- **Bàn giao:** U7 commit `19b58c7`, typecheck/lint/build/diff check đạt nhưng còn fallback nền Tối và bàn giao visual/MCP; toolbar ẩn vẫn nhận Tab nếu M5 chưa đặt `inert`. M5 còn ở `f38af76`, chưa có code. Chờ U7 sửa và M5 ghép rồi kiểm tra trình duyệt. Context7: không cần (review code/CSS); Memory: đã tra U7/M5/reader-navigation; đã cập nhật I16.
+
+## I15
+
+- **Chủ trì:** Codex
+- **Việc:** Chốt contract dock kính mờ và giao U7/M5
+- **Trạng thái:** Hoàn tất phần giao việc; chờ hai agent nhận task
+- **File:** `docs/READER_FLOATING_NAV_U7_M5_PLAN.md`, `docs/assignments/ANTIGRAVITY_U7.md`, `docs/assignments/CLAUDE_M5.md`, `docs/assignments/README.md`, `CLAUDE.md`, workboard
+- **Bàn giao:** Bốn nhãn đủ chữ, desktop một hàng/mobile 2×2, reader toolbar sticky, ẩn/hiện theo hướng cuộn, drawer focus return, không che body/ads. Không sửa code app; typecheck/lint/build và diff check đạt. Context7: không cần (chỉ tài liệu); Memory: đã tra U7/M5/reader-navigation; đã cập nhật I15/U7/M5.
+
+## U7
+
+- **Chủ trì:** Antigravity
+- **Việc:** Thiết kế/code dock kính mờ 4 nút và toolbar reader
+- **Trạng thái:** Hoàn tất code `b9c30db`, ảnh/walkthrough `2c2f8e5`; tích hợp local qua I18
+- **File:** `reader-floating-navigation.tsx`, `globals.css`, `dark-overrides.css`, `DESIGN_SYSTEM.md`, ảnh U7; không sửa ReaderPanel/logic
+- **Bàn giao:** Dock Sáng/Tối 320/360/768/1280px chụp trên trang thử, đo nút cao 44px, nhãn tablet một dòng. Memory chung đã có observation U7; Context7: không cần (CSS). Ảnh không xác nhận ReaderPanel bản ghép cuối.
+
+## M5
+
+- **Chủ trì:** Claude Code
+- **Việc:** Logic hiện/ẩn toolbar/dock khi cuộn và ghép view U7
+- **Trạng thái:** Hoàn tất `a688614`; Codex tích hợp local qua I18
+- **File:** `reader-panel.tsx`, `use-reader-scroll.ts`, `reader-scroll.ts`, test, bàn giao M5 trên nhánh Claude
+- **Bàn giao:** Cuộn xuống ẩn, cuộn lên/gần cuối hiện, nav cuối vào viewport thì dock ẩn; `inert` và focus return đúng nút. Typecheck/lint/build/diff check, unit 12/12 + preferences 8/8 đạt; walkthrough Chrome 19/19 theo bàn giao. Context7/Memory đã ghi trên nhánh M5.
+
+## I14
+
+- **Chủ trì:** Codex
+- **Việc:** Push M4, deploy Railway và bật cờ server để admin thử Nhấp liên kết
+- **Trạng thái:** Hoàn tất: app commit `e49dab8`, deployment sau bật cờ `812bad29` SUCCESS
+- **File:** `docs/reviews/I14_M4_PRODUCTION_RELEASE_2026-09-24.md`, `docs/WORKBOARD.md`, `docs/assignments/README.md`; không đổi logic ứng dụng
+- **Bàn giao:** Railway migration thành công, 5 route GET HTTP 200. `CLICK_UNLOCK_ENABLED=true`, secret đủ dài, Shopee flag=false. API admin read-only: master=false, effectiveMode=off, chưa lưu URL. Codex không ghi test data vào production; M4 E2E trên DB Railway riêng từ bàn giao Claude, I13 chạy unit/typecheck/lint/build. Xem [I14](../reviews/I14_M4_PRODUCTION_RELEASE_2026-09-24.md). Context7: không cần (phát hành); Memory: đã tra M4/I13; đã cập nhật I14.
+
+## I13
+
+- **Chủ trì:** Codex
+- **Việc:** Review bảo mật và tích hợp M4
+- **Trạng thái:** Đã review `6a5748d`, tích hợp `main` (`e49dab8`); phát hành trong I14
+- **File:** `src/components/unlock-settings-container.tsx`, `src/components/unlock-settings-view.tsx`, `README.md`, `docs/reviews/I13_M4_INTEGRATION_2026-09-24.md`, workboard; logic M4 do Claude sở hữu
+- **Bàn giao:** URL public HTTPS, Shopee gate, body chương khóa, cookie/revision và fail-closed đã kiểm. Sửa giữ bản nháp khi 409 conflict và copy admin. Typecheck/lint/build/diff check, unit URL 7/7, rewarded 9/9 đạt; DB E2E 11/11 từ bàn giao Claude trên DB Railway riêng đã xóa. Chưa thử form M4 trên trình duyệt; cần smoke sau deploy. Context7: không cần (không đổi API thư viện); Memory: đã tra M4/unlock-grant; đã cập nhật I13. Xem [review I13](../reviews/I13_M4_INTEGRATION_2026-09-24.md).
+
+## M4
+
+- **Chủ trì:** Claude Code
+- **Việc:** Cho admin lưu URL HTTPS công khai tùy chọn và bật phương thức Nhấp liên kết để test
+- **Trạng thái:** Đã qua Codex review I13, tích hợp `main` và phát hành production trong I14; Claude không tự deploy
+- **File:** `src/lib/unlock-link.ts` (mới, hàm chuẩn hóa dùng chung client/server), `src/lib/unlock.ts`, `src/lib/admin-settings.ts`, `src/components/unlock-settings-container.tsx`, `scripts/test-unlock-link-url.mjs` (mới), `scripts/test-unlock-link.mjs`, `docs/UNLOCK_API.md`, `docs/UNLOCK_TEST_GUIDE.md`, `.env.example`. Không sửa view/CSS, schema, migration, package, route `/unlock/visit`
+- **Bàn giao:** **Thay đổi:** bỏ allowlist `example.com`/Shopee; `normalizeUnlockLinkUrl` nhận mọi tên miền công khai `https:` ≤ 2048 ký tự, từ chối scheme khác, credentials, IP literal (kể cả `0x7f.1`, `2130706433`, IPv6), localhost, tên một nhãn, TLD nội bộ (`.local/.internal/.lan/.home/.corp/.test/.example/.invalid/.onion/.arpa`…), khoảng trắng/ký tự điều khiển; lưu dạng chuẩn (host thường/punycode, bỏ dấu chấm cuối). Cùng hàm dùng ở PUT admin, readiness, `/unlock/visit` (qua `resolveUnlock`) và form. Shopee trực tiếp (`shopee.vn`+subdomain, `shp.ee`, `shope.ee`) vẫn cần `SHOPEE_GATE_APPROVED=true`; `shopee.vn.<khác>.com` không bị coi là Shopee. Lưu URL khi công tắc tắt không cần cờ server; bật công tắc chưa sẵn sàng trả `409 mode_not_ready` với `fields.linkUrl` (URL thiếu/sai) hoặc `fields.unlockMode` (thiếu `CLICK_UNLOCK_ENABLED`/secret/provider), không lưu gì, container giữ bản nháp và báo đúng điều kiện; form kiểm URL bằng cùng hàm trước khi gửi. Không đổi TTL 300 s, HMAC, `unlock_revision`, Fetch Metadata, `UNLOCK_EMERGENCY_OFF`, `no-store`, guard body; rewarded vẫn fail-closed. **Kiểm tra:** `typecheck`/`lint`/`build`/`git diff --check` đạt. Unit: URL 7/7, preferences 8/8, rewarded flow 9/9. PostgreSQL Railway DB riêng `storyweb_m4_test`/`storyweb_m4_migration_test` (đã xóa; không đụng DB `railway`): migration 0000→0003 giữ dữ liệu; `test-unlock-link.mjs` 11/11 (gồm 3 nhóm M4: Wikipedia lưu khi tắt → tải lại → bật → 303 đúng URL + cookie 300 s → chương 2/3 đọc được; đổi URL tăng revision và thu hồi grant; `example.com` vẫn chạy; Shopee bị chặn; instance `CLICK_UNLOCK_ENABLED=false` lưu URL được và bật trả 409 `fields.unlockMode`); B1 15/15, M2 14/14, smoke đạt, log server không lỗi. **Rủi ro:** redirect ra site ngoài là lựa chọn của admin; server không truy cập URL nên link rút gọn/redirect có thể dẫn tới đích khác và không chứng minh lượt xem/mua. **Đề xuất copy cho Antigravity** (`unlock-settings-view.tsx`, chưa sửa): help URL đổi thành "Nhập URL https của trang công khai bất kỳ; server không kiểm tra đích cuối của link rút gọn. Link Shopee trực tiếp chỉ dùng được sau khi máy chủ có chấp thuận riêng." README dòng `CLICK_UNLOCK_ENABLED` còn nói chỉ link example.com, Codex cập nhật khi tích hợp. **Còn thiếu:** chưa thử form bằng trình duyệt thật. Context7: không cần, chỉ dùng WHATWG `URL` của Node/trình duyệt và không đổi API Next/Drizzle; hành vi chuẩn hóa host đã thử trực tiếp bằng Node 22. Memory: đã tra M4/unlock-grant; đã cập nhật M4, unlock-grant, decision:unlock-link-any-public-domain, gotcha:tool-backslash-escapes.
+
+## I7
+
+- **Chủ trì:** Codex
+- **Việc:** Lập kế hoạch phân tầng giao diện và giao U6
+- **Trạng thái:** Hoàn tất trên `codex/u6-design-brief`; bàn giao Antigravity qua file
+- **File:** `docs/VISUAL_HIERARCHY_U6_PLAN.md`, `docs/assignments/ANTIGRAVITY_U6.md`, `docs/assignments/README.md`, `docs/WORKBOARD.md`
+- **Bàn giao:** Chốt vấn đề nền reader/website cùng lớp, phạm vi view-only, tiêu chí visual/accessibility. Build/typecheck/lint đạt. Context7: không cần (chỉ tài liệu); Memory: đã tra U6/gotcha:css-tokens, đã cập nhật I7/U6.
+
+## I8
+
+- **Chủ trì:** Codex
+- **Việc:** Review U6 của Antigravity trước tích hợp
+- **Trạng thái:** Hoàn tất review `c6be7f2`: cần sửa, chưa merge
+- **File:** `docs/reviews/U6_VISUAL_REVIEW_2026-09-24.md`, `docs/WORKBOARD.md`; không sửa file UI của Antigravity
+- **Bàn giao:** Build/typecheck/lint/diff check đạt; Chrome preview xác nhận dark mode lấy token nền Sáng, tiêu đề chỉ ~1,25:1; chưa có ảnh để xác minh phạm vi toàn site. Xem review I8. Context7: không cần (review CSS); Memory: đã tra U6/gotcha:css-tokens, đã cập nhật I8.
+
+## I9
+
+- **Chủ trì:** Codex
+- **Việc:** Review vòng 2 U6
+- **Trạng thái:** Hoàn tất review `31f72cd`: còn lỗi chặn, chưa merge
+- **File:** `docs/reviews/U6_VISUAL_REVIEW_2026-09-24.md`, `docs/WORKBOARD.md`, `docs/assignments/ANTIGRAVITY_U6.md`; không sửa UI của Antigravity
+- **Bàn giao:** Token Tối đã đúng; Edge headless: article desktop trong suốt, input dark 1,22:1, nhãn dark ~1,92:1. Typecheck/lint/build/diff check đạt. Context7: không cần (review CSS); Memory: đã tra U6/gotcha:css-tokens, đã cập nhật I9/U6.
+
+## I10
+
+- **Chủ trì:** Codex
+- **Việc:** Review và tích hợp vòng 3 U6
+- **Trạng thái:** Hoàn tất trên `main`; phát hành production trong I11
+- **File:** `src/app/globals.css`, `src/app/dark-overrides.css`, `docs/DESIGN_SYSTEM.md`, `docs/WORKBOARD.md`, `docs/reviews`
+- **Bàn giao:** Edge CDP 360/768/1280 Sáng/Tối, free/locked preview, no overflow, 4 nút ≥44px, prefs focus/Escape, contrast đạt trên các cặp kiểm, build/typecheck/lint/diff check đạt. Xem `docs/reviews/I10_U6_INTEGRATION_2026-09-24.md`. Context7: không cần (CSS, Next local docs cho preview tạm); Memory: đã tra U6/I9/gotcha:css-tokens, đã cập nhật I10/U6.
+
+## I11
+
+- **Chủ trì:** Codex
+- **Việc:** Test, push GitHub và deploy U6 lên Railway production
+- **Trạng thái:** Hoàn tất: app commit `479a471`, deployment `a04bd3ac` SUCCESS
+- **File:** `docs/WORKBOARD.md`, `docs/reviews/I11_U6_PRODUCTION_RELEASE_2026-09-24.md`; không đổi logic ứng dụng
+- **Bàn giao:** Typecheck/lint/build/diff check đạt; Railway pre-deploy `db:migrate` thành công; 6 route production HTTP 200; CSS U6 được phục vụ. Xem review I11. Context7: không cần (không sửa API thư viện); Memory: đã tra U6/I11, đã cập nhật I11.
+
+## I12
+
+- **Chủ trì:** Codex
+- **Việc:** Sửa trang Quảng cáo & mở khóa: lưu URL thử nghiệm, trạng thái rõ và giao diện
+- **Trạng thái:** Đã deploy app `02869ae` lên Railway `d84c9354` SUCCESS; cờ link production vẫn tắt, chờ xác nhận riêng
+- **File:** Tạm sở hữu view/container settings, CSS settings, `.railway/railway.ts`, README, design system; đã tích hợp `main`, bàn giao lại file logic cho Claude và UI cho Antigravity
+- **Bàn giao:** View trước đây khóa nút Lưu theo readiness mode; đã cho lưu link/slot khi master tắt, vẫn chặn bật mode chưa sẵn sàng. Chrome 360/1280 Sáng/Tối; database test Railway xác nhận lưu bền và 409 khi bật sai, đã xóa; build/typecheck/lint/diff check đạt. Production `/panel/cai-dat` và API admin 200, migration log thành công. Railway config plan không có diff. Bộ xét duyệt tự động từ chối bật `CLICK_UNLOCK_ENABLED=true` toàn production khi chưa có xác nhận cụ thể; đã hỏi người dùng, giữ nguyên false. Xem I12 review. Context7: Railway IaC `preserve()`; Next.js 16 local docs; Memory: đã tra unlock-settings/M2, đã cập nhật I12.
+
+## U6
+
+- **Chủ trì:** Antigravity
+- **Việc:** Thiết kế lại lớp nền/mặt đọc Sáng-Tối và hệ card/section toàn site
+- **Trạng thái:** Code `31f72cd` + `f1e534e` đã tích hợp `main` qua I10 và lên production qua I11
+- **File:** `src/app/globals.css`, `src/app/dark-overrides.css`, `docs/DESIGN_SYSTEM.md`
+- **Bàn giao:** Article desktop/mobile có surface; form dark dùng token; Codex bổ sung contrast, ảnh preview và QA. Agent chưa cung cấp Context7/Memory trên workboard; reviewer ghi rõ giới hạn và bằng chứng I10.
+
+## U5
+
+- **Chủ trì:** Antigravity
+- **Việc:** Trang đọc: tên truyện và kết chương rõ hơn, 4 nút đồng kiểu căn giữa, view tùy chỉnh đọc, Sáng/Tối + mobile
+- **Trạng thái:** Hoàn tất code `d2300d3`, đã ghép M3/I3; chưa có ảnh walkthrough
+- **File:** `reader-navigation.tsx`, `reader-preferences-view.tsx`, `globals.css`, `dark-overrides.css`, `DESIGN_SYSTEM.md`
+- **Bàn giao:** I3 sửa font heading, tương phản, vùng nhấn, disabled và focus; typecheck/lint/build đạt. Còn kiểm tra trực quan 360/768/1280px và bàn phím trên browser. Xem `docs/reviews/I3_READER_MCP_REVIEW_2026-09-24.md`. Memory: đã tra U5
+
+## M3
+
+- **Chủ trì:** Claude Code
+- **Việc:** Logic tùy chỉnh đọc và test mở khóa 5 phút trên môi trường riêng; ghép view U5
+- **Trạng thái:** Đã ghép bản sửa U5 `d2300d3`: body chỉ còn inline `font-size`, còn lại dùng CSS `data-pref-*`; anchor dùng `.reader-toolbar__prefs-anchor`. Hoàn tất logic + đã ghép view U5 (`aa51909`); đã qua Codex review I3 và tích hợp local. Chưa kiểm bằng trình duyệt thật (ảnh/bàn phím)
+- **File:** `src/lib/reader-preferences.ts`, `src/components/use-reader-preferences.ts` (mới), `src/components/reader-panel.tsx`, `scripts/test-reader-preferences.mjs`, `scripts/test-unlock-link.mjs` (mới), `docs/UNLOCK_TEST_GUIDE.md`, `docs/reviews/U5_FEEDBACK_FROM_M3_2026-09-24.md`. Không sửa CSS/view U5, `reader-navigation.tsx`, schema, package hay server unlock
+- **Bàn giao:** Preferences: localStorage `storyweb:reader-prefs:v1` (validate từng trường, JSON lỗi/ngoài giới hạn → mặc định, migrate `storyweb:font-size` rồi xóa, đồng bộ tab, reset), theme qua provider cũ, `useSyncExternalStore` + snapshot server mặc định (không hydration mismatch), chỉ áp lên body chương (inline style + `data-pref-*` vì U5 chưa có class body). Panel: nút toolbar, focus/Escape/Tab trap/bấm ngoài. Hướng dẫn thử mở khóa link `example.com`: `docs/UNLOCK_TEST_GUIDE.md` (không thêm bypass, không mock, Shopee chặn). `typecheck`/`lint`/`build` đạt. Test 2026-09-24 trên DB riêng `storyweb_m3_*` (đã xóa): preferences 8/8, rewarded flow 9/9, migration đạt, `test-unlock-link.mjs` 8/8 (instance giống production, `https://example.com/`), B1 15/15, M2 14/14, smoke đạt. Phản hồi CSS U5 (class body `pref-*` chưa có, anchor `.reader-prefs`, ❧ lặp, `--text-muted` chưa định nghĩa) trong file review. Còn thiếu: ảnh 360/768/1280 và thử bàn phím trên trình duyệt; gỡ DOM khi hết hạn chỉ test được ở server (client do I2) Vòng 2: chưa merge U5 `c97b3fd` vì thay chuỗi hàng loạt làm hỏng token toàn site (`--ink:var(--ink)`, hex bị cắt), xem `docs/reviews/U5_FEEDBACK_ROUND2_2026-09-24.md`. Memory: đã cập nhật U5, gotcha:css-tokens
+
+## I3
+
+- **Chủ trì:** Codex
+- **Việc:** Review và tích hợp U5/M3, nghiệm thu giao diện và test unlock
+- **Trạng thái:** Đã review/tích hợp `main` (`19cb82f`); phát hành production trong I6 (`1815498e`)
+- **File:** Worktree `codex/i3-reader-review`: review/integration, CSS, test guard, tài liệu MCP và workboard
+- **Bàn giao:** Typecheck/lint/build, preferences 8/8, rewarded 9/9 đạt; server/migration không đổi. Visual browser và e2e DB chưa chạy lại trong I3; xem `docs/reviews/I3_READER_MCP_REVIEW_2026-09-24.md`. Context7: React useEffect/focus, Next.js 16 local docs; Memory: đã tra I3/U5/M3, cập nhật I3
+
+## I4
+
+- **Chủ trì:** Codex
+- **Việc:** Nghiệm thu browser U5/M3, sửa header tablet và nhãn nút cuối chương
+- **Trạng thái:** Hoàn tất `87efd2b`, đã phát hành production trong I6 (`1815498e`); Codex sở hữu hotfix CSS/view
+- **File:** `src/app/globals.css` (header 761–1100px, nav chương), `src/components/reader-navigation.tsx` (aria-label), `docs/reviews/I4_BROWSER_QA_2026-09-24.md`, `docs/WORKBOARD.md`
+- **Bàn giao:** Chrome headless/CDP 360/768/901/1101/1280px: không tràn ngang 360, header 768/901 gọn, nav cuối chương 4 nút cùng cỡ/nhãn rõ, panel focus trap/Escape, dark mode, font Đậm 700 và A+ đạt. Preview tạm đã gỡ; lint/build/typecheck đạt. DB e2e và kết nối MCP bên trong Claude/Antigravity extension chưa xác nhận; xem review. Context7: không cần (CSS/HTML, route preview theo Next.js docs local); Memory: đã tra I4, cập nhật I4
+
+## I5
+
+- **Chủ trì:** Codex
+- **Việc:** Chạy e2e mở khóa/migration trên PostgreSQL Railway bằng DB test riêng
+- **Trạng thái:** Hoàn tất trên `codex/i5-railway-db-test`; DB production `railway` không bị test ghi dữ liệu
+- **File:** `scripts/smoke.mjs` (URL kỳ vọng theo cấu hình), `docs/reviews/I5_RAILWAY_DB_TEST_2026-09-24.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md`
+- **Bàn giao:** Migration đạt, unlock 8/8, auth 15/15, smoke đạt, health production 200; đã xóa DB test (catalog còn 0). Runner tạm đã gỡ; typecheck/lint/build đạt. Xem review I5. Context7: node-postgres 8.x Client/connectionString/query; Memory: đã tra I5, đã cập nhật I5.
+
+## I6
+
+- **Chủ trì:** Codex
+- **Việc:** Kiểm thử bản tích hợp, push GitHub và deploy Railway production
+- **Trạng thái:** Hoàn tất: code `49ad7d9` đã lên Railway, deployment `1815498e` SUCCESS
+- **File:** `docs/WORKBOARD.md`, `docs/reviews/I6_PRODUCTION_RELEASE_2026-09-24.md`; không đổi logic ứng dụng
+- **Bàn giao:** Build/typecheck/lint, reader preferences 8/8, rewarded flow 9/9 đạt; migration production 4/4, unlock link vẫn tắt; `/api/health`, `/`, `/tim-kiem`, `/panel` HTTP 200. Không có chương khóa đã xuất bản để kiểm tra leak trực tiếp production; I5 đã kiểm trên DB Railway riêng. Context7: không cần (không sửa API thư viện); Memory: đã tra I6, đã cập nhật I6.
+
+## S0
+
+- **Chủ trì:** Codex
+- **Việc:** Scaffold, khóa chương 5 phút, tích hợp và deploy
+- **Trạng thái:** Hoàn tất
+- **File:** `src/app`, `src/components`, `src/data`, `src/lib`, `docs`
+- **Bàn giao:** GitHub main và Railway production hoạt động; lint, typecheck, build, smoke production đạt
+
+## U1
+
+- **Chủ trì:** Agent UI nội bộ (trước đây)
+- **Việc:** Rà soát UI/UX panel đăng truyện mobile + desktop
+- **Trạng thái:** Hoàn tất
+- **File:** `src/components/publishing-panel.tsx`, `src/components/admin-login.tsx`, `src/app/globals.css`, `docs/DESIGN_SYSTEM.md`
+- **Bàn giao:** Thư viện truyện dùng được ở mobile, cảnh báo bản sửa chưa lưu, kiểm tra trước khi xuất bản, trạng thái loading/error/success; không đổi hợp đồng API. Typecheck và lint đạt; build tích hợp do Codex chạy. Chưa kiểm tra ảnh chụp trình duyệt.
+
+## B1
+
+- **Chủ trì:** Claude Code + Codex review
+- **Việc:** Xác thực nhiều tác giả và tài khoản độc giả
+- **Trạng thái:** Đã tích hợp `main`, Railway production chạy migration `0002`
+- **File:** `src/db`, `src/lib`, `src/app/api/auth`, `src/app/api/admin`, `src/app/panel/page.tsx`, `drizzle/0002_b1_accounts_sessions.sql`; xem `docs/AUTH_API.md`
+- **Bàn giao:** Claude: migration/test trên DB riêng đạt, 14 nhóm auth đạt. Codex: typecheck/lint/build đạt; sửa rate limit lấy IP **đầu** trong `X-Forwarded-For` theo xác nhận Railway, thêm test chuỗi nhiều hop (chưa chạy lại vì không có DB test local). Deployment `3c9f3dc0` SUCCESS; log migration thành công, schema/bản ghi `0002` kiểm tra trực tiếp trên DB, smoke GET production đạt. Xem `docs/B1_INTEGRATION_REVIEW_2026-09-23.md`. UI tài khoản mới còn thiếu; U3 được tích hợp sau B1.
+
+## B2
+
+- **Chủ trì:** Agent backend nội bộ (trước đây)
+- **Việc:** Chuyển panel JSON local sang PostgreSQL
+- **Trạng thái:** Hoàn tất, kiểm thử Railway đạt
+- **File:** `src/db`, `src/lib/managed-stories.ts`, `src/app/api/admin/stories/route.ts`, `drizzle`
+- **Bàn giao:** Migration, tạo/xuất bản/xóa truyện trên PostgreSQL đạt; typecheck/lint/build đạt
+
+## I1
+
+- **Chủ trì:** Codex
+- **Việc:** Tích hợp quyền đọc với DB
+- **Trạng thái:** Hoàn tất, kiểm thử Railway đạt
+- **File:** Routes đọc/truyện, integration code
+- **Bàn giao:** Chương 1 đọc được, chương khóa không lộ body trong HTML; smoke production đạt
+
+## M2
+
+- **Chủ trì:** Claude Code
+- **Việc:** Code toàn bộ logic: admin switch hai mode, quyền đọc 5 phút, registry quảng cáo và tích hợp view U4
+- **Trạng thái:** Hoàn tất logic + đã ghép view U4 (`dadb41e`); đã qua Codex review và tích hợp main (I2). Rewarded **chưa production** (thiếu provider web xác minh được)
+- **File:** `src/db/schema.ts`, `drizzle/0003_m2_site_settings_unlock.sql` + meta, `src/lib/{unlock,site-settings,admin-settings,settings-contract,rewarded-providers,rewarded-flow,unlock-challenges,display-ads,ad-placements}.ts` (mới; xóa `click-unlock.ts`), `src/lib/{managed-stories,request-guard}.ts`, `src/app/unlock/visit`, `src/app/api/unlock/rewarded/*`, `src/app/api/admin/settings`, `src/app/panel/{page,cai-dat/page}.tsx`, `src/app/doc/[slug]/[chapter]/page.tsx`, `src/app/{page,tim-kiem/page,truyen/[slug]/page}.tsx` (chèn slot), container `src/components/{reader-panel,ad-slot-container,unlock-settings-container,use-rewarded-unlock,view-contracts}.tsx/ts`, `publishing-panel.tsx` (link admin), `.env.example`, `scripts/{test-m2,test-rewarded-flow}.mjs` (mới), `scripts/{smoke,test-migration}.mjs`, `docs/UNLOCK_API.md`. Không sửa CSS/view/focus trap U4
+- **Bàn giao:** Contract API/props, env, rollback, đề xuất đổi props cho Antigravity: `docs/UNLOCK_API.md`. Grant cookie 5 phút gắn mode+`unlock_revision`, kiểm ở trang và hàm lấy body; link cần Fetch Metadata/same-origin; rewarded chỉ cấp sau callback ký của provider + claim một lần. `typecheck`/`lint`/`build` đạt. Test 2026-09-24 trên DB riêng `storyweb_m2_*` (server Postgres Railway, không đụng DB `railway`; đã xóa): migration 0000→0003 giữ dữ liệu, B1 hồi quy 15/15, unit rewarded flow 9/9 (mất mạng/lỗi provider), `test-m2.mjs` 14/14 (3 instance, gồm DB lỗi fail-closed), smoke đạt. Còn thiếu: provider rewarded web, chấp thuận Shopee, tài khoản AdSense thật + `ads.txt`/consent; production đã migrate `0003`, deployment `ee06371a` SUCCESS
+
+## U4
+
+- **Chủ trì:** Antigravity + Codex review
+- **Việc:** Thiết kế/code giao diện nút chương, ad slots, dialog hai mode, switch admin
+- **Trạng thái:** View commit `dadb41e` đã ghép M2; Codex sửa lỗi UI trên I2. Ảnh walkthrough U4 chưa bàn giao
+- **File:** Component view mới, `src/app/globals.css`, `src/app/dark-overrides.css`, `docs/DESIGN_SYSTEM.md`
+- **Bàn giao:** Codex bổ sung tên truy cập switch, CSS switch, màu tương phản, ad slot giữ kích thước và nav mobile. Worktree Antigravity còn thay đổi riêng chưa commit, không bị ghi đè. Xem `docs/assignments/ANTIGRAVITY_U4.md`.
+
+## I2
+
+- **Chủ trì:** Codex
+- **Việc:** Review/tích hợp M2 + U4, kiểm tra bảo mật và deploy
+- **Trạng thái:** Đã tích hợp `main`, Railway production SUCCESS
+- **File:** Review, integration code, docs deploy
+- **Bàn giao:** Bỏ POST link, ngăn body còn trên DOM sau hạn, giới hạn URL Shopee, khóa prefetch, no-store CMS. Migration/test trên DB riêng đạt; production backup, migration `0003`, smoke HTML/RSC và health đạt ở deployment `ee06371a`. Xem `docs/reviews/M2_INTEGRATION_REVIEW_2026-09-24.md`.
+
+## U2
+
+- **Chủ trì:** Agent UI nội bộ (trước đây)
+- **Việc:** Hoàn thiện trạng thái panel/CMS hiện có
+- **Trạng thái:** Hoàn tất phần panel hiện có
+- **File:** Cùng phạm vi U1
+- **Bàn giao:** Bản nháp cần tên/đường dẫn; xuất bản cần tác giả, mô tả và từng chương đầy đủ. Chưa có API lưu ảnh bìa nên chưa thêm upload; ghi trong design system.
+
+## U3
+
+- **Chủ trì:** Antigravity + Codex review
+- **Việc:** Hoàn thiện Studio/trang đọc, font tiếng Việt và theme Sáng/Tối toàn site
+- **Trạng thái:** Đã tích hợp `main`, Railway production SUCCESS
+- **File:** `src/app/globals.css`, `src/app/layout.tsx`, `src/app/dark-overrides.css`, `src/components/theme-provider.tsx`, `src/components/site-header.tsx`, `src/components/reader-panel.tsx`, `src/components/admin-login.tsx`, `docs/DESIGN_SYSTEM.md`
+- **Bàn giao:** Antigravity bàn giao commit `9660905`. Codex sửa tác dụng phụ DOM trong render, đồng bộ preference cũ, bỏ CSS lặp và whitespace; typecheck/lint/build trên mã tích hợp đạt. Deployment `02114504` SUCCESS, smoke production 4 route trả 200. Xem `docs/reviews/U3_INTEGRATION_REVIEW_2026-09-23.md`.

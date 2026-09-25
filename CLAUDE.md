@@ -1,6 +1,6 @@
 # Claude Code — StoryWeb
 
-Đọc `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/WORKBOARD.md` trước khi sửa. PostgreSQL/Drizzle và CMS hiện đã hoạt động. Việc hiện tại là M5 trong `docs/assignments/CLAUDE_M5.md`; các M2–M4 đã hoàn tất và được tích hợp.
+Đọc `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/WORKBOARD.md` trước khi sửa. PostgreSQL/Drizzle và CMS hiện đã hoạt động. Việc đang mở nằm trên workboard; assignment mới (nếu có) ở `docs/assignments/`, việc cũ (B1, M2–M5) ở `docs/archive/`.
 
 Các lệnh: `npm run dev`, `npm run typecheck`, `npm run lint`, `npm run build`, `npm run db:generate`, `npm run db:migrate`.
 
