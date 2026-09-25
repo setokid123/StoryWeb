@@ -75,3 +75,14 @@ Hệ thống CSS Token phân tầng không gian đọc và card để không b�
 - `reader-article`: Nằm trên `.reader-shell`, được tạo khung hình "trang sách" với lề, padding, và box-shadow nhẹ.
 - Toolbar và Navigation của trang đọc được làm thành các khối card riêng biệt, không chìm vào background.
 - `.story-card`, `.studio-editor`, `.studio-stats`: Các card sử dụng chung biến `--bg-surface` thay vì fix cứng màu `#fff`.
+
+## Thanh điều hướng và Dock (Floating Navigation)
+
+- **Toolbar (`.reader-toolbar`)**: Bám sát (sticky) ở đỉnh trang đọc (cách 20px). Có thể ẩn đi thông qua lớp `.is-hidden` kết hợp transition mượt mà để chừa không gian đọc.
+- **Dock Kính mờ (`.reader-floating-nav`)**: Nằm lơ lửng ở cuối trang đọc, sử dụng hiệu ứng `backdrop-filter: blur(12px)`. Tự động fallback sang màu nền đặc `var(--bg-surface)` nếu trình duyệt không hỗ trợ.
+  - **Màu nền Kính mờ**: Dựa trên `var(--bg-surface)` (Sáng: `rgba(255, 253, 248, 0.85)` / Tối: `rgba(37, 53, 56, 0.85)`).
+  - Tôn trọng `prefers-reduced-motion` bằng cách tắt animation trượt dọc, chỉ giữ lại hiệu ứng mờ nhạt (fade/opacity).
+  - Tránh khu vực an toàn của trình duyệt (`env(safe-area-inset-bottom)`).
+  - **Responsive**:
+    - Desktop/Tablet: Dàn nút theo 1 hàng ngang với góc bo tròn lớn (`99px`).
+    - Mobile (Dưới 600px): Dàn theo lưới 2x2 (`grid`), tự động điều chỉnh padding và border-radius nhỏ hơn (`16px` cho khung ngoài, `12px` cho nút) để tiết kiệm diện tích bề ngang.
