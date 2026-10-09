@@ -2,7 +2,7 @@
 //   node --experimental-strip-types --no-warnings scripts/test-reader-scroll.mjs
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { DEFAULT_SCROLL_CONFIG as C, initialScrollState, nextScrollState, resolveReaderChrome } from "../src/lib/reader-scroll.ts";
+import { DEFAULT_SCROLL_CONFIG as C, initialScrollState, nextScrollState, resolveReaderChrome } from "../wp-content/themes/thu-cac/assets/js/reader-core.js";
 
 const VIEW = 800;
 const DOC = 10_000;

@@ -1,5 +1,5 @@
 // Unit tests for the reader preferences model (validation, legacy migration, persistence format, body styles).
-//   node --experimental-strip-types --no-warnings scripts/test-reader-preferences.mjs
+//   node --test scripts/test-reader-preferences.mjs  (logic: wp-content/themes/thu-cac/assets/js/reader-core.js)
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
@@ -8,7 +8,7 @@ import {
   parseReaderPreferences as parse,
   readerBodyStyle,
   serializeReaderPreferences as serialize,
-} from "../src/lib/reader-preferences.ts";
+} from "../wp-content/themes/thu-cac/assets/js/reader-core.js";
 
 test("nothing stored → defaults", () => {
   assert.deepEqual(parse(null, null), D);
