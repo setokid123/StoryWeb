@@ -51,12 +51,15 @@ function thu_cac_story( $post ) {
 		'completed'     => false,
 		'featured'      => false,
 		'chapter_count' => 0,
+		'symbol'        => '',
+		'quote'         => '',
 	);
 	$terms  = get_the_terms( $post, 'the_loai' );
 	$genre  = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0] : null;
 	$tags   = get_the_terms( $post, 'post_tag' );
 	$rating = (string) get_post_meta( $post->ID, '_sw_rating', true );
 	$reads  = (string) get_post_meta( $post->ID, '_sw_reads', true );
+	$blurb  = has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( wp_strip_all_tags( $post->post_content ), 60, '…' );
 	return array(
 		'id'            => $post->ID,
 		'slug'          => $post->post_name,
@@ -67,14 +70,16 @@ function thu_cac_story( $post ) {
 		'genre_slug'    => $genre ? $genre->slug : '',
 		'tags'          => ( $tags && ! is_wp_error( $tags ) ) ? wp_list_pluck( $tags, 'name' ) : array(),
 		'status'        => $meta['completed'] ? 'Hoàn thành' : 'Đang ra',
-		'blurb'         => has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( wp_strip_all_tags( $post->post_content ), 60, '…' ),
+		'blurb'         => $blurb,
+		// Home hero quote: the editor's own line, else the start of the description.
+		'quote'         => $meta['quote'] ? $meta['quote'] : wp_trim_words( $blurb, 12, '…' ),
 		'rating'        => '' !== $rating ? $rating : 'Mới',
 		'reads'         => '' !== $reads ? $reads : 'Mới',
 		'chapters'      => (int) $meta['chapter_count'],
 		'free_chapters' => (int) $meta['free_chapters'],
 		'updated'       => thu_cac_updated_label( $post ),
 		'palette'       => thu_cac_palette( $genre ? $genre->name : '' ),
-		'symbol'        => '✦',
+		'symbol'        => $meta['symbol'] ? $meta['symbol'] : '✦',
 		'thumbnail_id'  => get_post_thumbnail_id( $post ),
 	);
 }
@@ -156,7 +161,7 @@ function thu_cac_featured_story() {
 	return $latest ? $latest[0] : null;
 }
 
-/** Genre terms (the_loai), including empty ones, ordered by name. */
+/** Genre terms (the_loai), including empty ones, in the order they were created (admins control the order). */
 function thu_cac_genres() {
 	if ( ! taxonomy_exists( 'the_loai' ) ) {
 		return array();
@@ -165,7 +170,7 @@ function thu_cac_genres() {
 		array(
 			'taxonomy'   => 'the_loai',
 			'hide_empty' => false,
-			'orderby'    => 'name',
+			'orderby'    => 'term_id',
 		)
 	);
 	return is_wp_error( $terms ) ? array() : $terms;

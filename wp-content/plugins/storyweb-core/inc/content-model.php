@@ -16,6 +16,9 @@ const STORYWEB_META_FREE_CHAPTERS = '_sw_free_chapters';
 const STORYWEB_META_COMPLETED     = '_sw_completed';
 const STORYWEB_META_FEATURED      = '_sw_featured';
 const STORYWEB_META_CHAPTER_COUNT = '_sw_chapter_count';
+/** Optional display fields: cover symbol (1–2 characters) and the home hero quote. */
+const STORYWEB_META_SYMBOL = '_sw_symbol';
+const STORYWEB_META_QUOTE  = '_sw_quote';
 
 add_action( 'init', 'storyweb_register_content_model' );
 
@@ -122,6 +125,28 @@ function storyweb_register_content_model() {
 			'show_in_rest'      => true,
 		)
 	);
+	register_post_meta(
+		'story',
+		STORYWEB_META_SYMBOL,
+		array(
+			'type'              => 'string',
+			'single'            => true,
+			'sanitize_callback' => 'storyweb_sanitize_symbol',
+			'auth_callback'     => $auth,
+			'show_in_rest'      => true,
+		)
+	);
+	register_post_meta(
+		'story',
+		STORYWEB_META_QUOTE,
+		array(
+			'type'              => 'string',
+			'single'            => true,
+			'sanitize_callback' => 'storyweb_sanitize_quote',
+			'auth_callback'     => $auth,
+			'show_in_rest'      => true,
+		)
+	);
 	foreach ( array( STORYWEB_META_COMPLETED, STORYWEB_META_FEATURED ) as $flag ) {
 		register_post_meta(
 			'story',
@@ -142,11 +167,19 @@ function storyweb_sanitize_free_chapters( $value ) {
 	return max( 1, min( 100000, (int) $value ) );
 }
 
+function storyweb_sanitize_symbol( $value ) {
+	return mb_substr( trim( sanitize_text_field( (string) $value ) ), 0, 2 );
+}
+
+function storyweb_sanitize_quote( $value ) {
+	return mb_substr( trim( sanitize_text_field( (string) $value ) ), 0, 160 );
+}
+
 /**
  * Story fields the theme displays. Never includes chapter bodies.
  *
  * @param int|WP_Post $story Story post.
- * @return array{author:string,free_chapters:int,completed:bool,featured:bool,chapter_count:int}
+ * @return array{author:string,free_chapters:int,completed:bool,featured:bool,chapter_count:int,symbol:string,quote:string}
  */
 function storyweb_story_meta( $story ) {
 	$id = $story instanceof WP_Post ? $story->ID : (int) $story;
@@ -156,6 +189,8 @@ function storyweb_story_meta( $story ) {
 		'completed'     => (bool) get_post_meta( $id, STORYWEB_META_COMPLETED, true ),
 		'featured'      => (bool) get_post_meta( $id, STORYWEB_META_FEATURED, true ),
 		'chapter_count' => (int) get_post_meta( $id, STORYWEB_META_CHAPTER_COUNT, true ),
+		'symbol'        => (string) get_post_meta( $id, STORYWEB_META_SYMBOL, true ),
+		'quote'         => (string) get_post_meta( $id, STORYWEB_META_QUOTE, true ),
 	);
 }
 

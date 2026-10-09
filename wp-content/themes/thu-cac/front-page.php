@@ -14,7 +14,7 @@ $thu_cac_feat_data = $thu_cac_featured ? thu_cac_story( $thu_cac_featured ) : nu
 $thu_cac_latest    = thu_cac_stories( array( 'posts_per_page' => 8 ) );
 $thu_cac_genres    = thu_cac_genres();
 $thu_cac_count     = post_type_exists( 'story' ) ? (int) wp_count_posts( 'story' )->publish : 0;
-$thu_cac_quote     = $thu_cac_feat_data ? wp_trim_words( $thu_cac_feat_data['blurb'], 16, '…' ) : '';
+$thu_cac_quote     = $thu_cac_feat_data ? $thu_cac_feat_data['quote'] : '';
 ?>
 <section class="hero-section">
 	<div class="container hero-grid">

@@ -65,6 +65,9 @@
   display: block;
 }
 
+/* The Next.js hero quote was a short hard-coded line; editor quotes can be longer, so keep the card narrow. */
+.hero-art__quote { max-width: min(300px, 90%); }
+
 /* Story description from the editor can have several paragraphs. */
 .detail-blurb p { margin: 0 0 0.8em; }
 .detail-blurb p:last-child { margin-bottom: 0; }

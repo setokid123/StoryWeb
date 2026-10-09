@@ -11,7 +11,20 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/** Bump when the rules below change (re-flushed once per revision, like StoryWeb Core). */
+const THU_CAC_REWRITE_REV = '1';
+
 add_action( 'init', 'thu_cac_register_view_rewrites' );
+add_action(
+	'init',
+	static function () {
+		if ( get_option( 'thu_cac_rewrite_rev' ) !== THU_CAC_REWRITE_REV ) {
+			flush_rewrite_rules( false );
+			update_option( 'thu_cac_rewrite_rev', THU_CAC_REWRITE_REV, true );
+		}
+	},
+	99
+);
 
 function thu_cac_register_view_rewrites() {
 	add_rewrite_rule( '^tim-kiem/?$', 'index.php?thu_cac_view=search', 'top' );

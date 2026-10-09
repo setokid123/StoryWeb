@@ -24,6 +24,12 @@ function storyweb_story_box( $post ) {
 	<p><label for="sw-free"><strong>Số chương miễn phí</strong></label><br>
 		<input type="number" id="sw-free" name="sw_free_chapters" min="1" step="1" value="<?php echo esc_attr( $meta['free_chapters'] ); ?>">
 		<br><small>Chương 1 đến số này đọc tự do; các chương sau cần mở khóa.</small></p>
+	<p><label for="sw-symbol"><strong>Biểu tượng bìa</strong></label><br>
+		<input type="text" id="sw-symbol" name="sw_symbol" maxlength="2" size="3" placeholder="✦" value="<?php echo esc_attr( $meta['symbol'] ); ?>">
+		<br><small>Dùng khi truyện chưa có ảnh bìa (ảnh đại diện).</small></p>
+	<p><label for="sw-quote"><strong>Câu trích dẫn (trang chủ)</strong></label><br>
+		<textarea id="sw-quote" name="sw_quote" class="widefat" rows="2" maxlength="160"><?php echo esc_textarea( $meta['quote'] ); ?></textarea>
+		<br><small>Hiện cạnh bìa khi là truyện nổi bật. Để trống thì lấy từ phần giới thiệu.</small></p>
 	<p><label><input type="checkbox" name="sw_completed" value="1" <?php checked( $meta['completed'] ); ?>> Đã hoàn thành</label></p>
 	<p><label><input type="checkbox" name="sw_featured" value="1" <?php checked( $meta['featured'] ); ?>> Truyện nổi bật (trang chủ)</label></p>
 	<p><small>Số chương đã xuất bản: <?php echo (int) $meta['chapter_count']; ?></small></p>
@@ -41,6 +47,8 @@ add_action(
 		}
 		update_post_meta( $post_id, STORYWEB_META_AUTHOR, sanitize_text_field( wp_unslash( $_POST['sw_author'] ?? '' ) ) );
 		update_post_meta( $post_id, STORYWEB_META_FREE_CHAPTERS, storyweb_sanitize_free_chapters( wp_unslash( $_POST['sw_free_chapters'] ?? 1 ) ) );
+		update_post_meta( $post_id, STORYWEB_META_SYMBOL, storyweb_sanitize_symbol( wp_unslash( $_POST['sw_symbol'] ?? '' ) ) );
+		update_post_meta( $post_id, STORYWEB_META_QUOTE, storyweb_sanitize_quote( wp_unslash( $_POST['sw_quote'] ?? '' ) ) );
 		update_post_meta( $post_id, STORYWEB_META_COMPLETED, ! empty( $_POST['sw_completed'] ) );
 		update_post_meta( $post_id, STORYWEB_META_FEATURED, ! empty( $_POST['sw_featured'] ) );
 	}
