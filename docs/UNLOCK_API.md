@@ -105,3 +105,14 @@ Xem `.env.example`: `UNLOCK_EMERGENCY_OFF`, `REWARDED_MOCK_SECRET` và `STORYWEB
 - **Rewarded:** chưa có nhà cung cấp quảng cáo có thưởng cho web có callback xác minh phía server. Người dùng cần chọn provider, cấp tài khoản/credential, rồi Claude viết adapter và test end-to-end. Chưa được coi là hoàn tất production.
 - **Link Shopee:** cần chấp thuận riêng và `SHOPEE_GATE_APPROVED=true`. Link HTTPS công khai khác dùng được ngay khi server có `CLICK_UNLOCK_ENABLED=true` và secret. Production hiện có `CLICK_UNLOCK_ENABLED=false`; Codex quyết định bật sau review M4.
 - **AdSense:** adapter đã viết nhưng chưa test với tài khoản thật (chưa có `ca-pub`/mã đơn vị). Trang cũng chưa có `ads.txt` và chưa có thông báo đồng ý (consent) cho người dùng EU.
+
+## Bản WordPress (plugin StoryWeb Core)
+
+Port phần mở khóa bằng link, kèm sửa lỗi SEC1 (giới hạn tần suất). Rewarded chưa port.
+
+- Cài đặt: wp-admin → **Truyện → Mở khóa chương** (chỉ quản trị viên). Lưu ở option `storyweb_unlock`: bật/tắt (mặc định tắt), số phút đọc (1–1440, mặc định 60), tối đa 10 link `https://` công khai (không IP, localhost hay tên nội bộ), nội dung cửa sổ (tiêu đề, đoạn trên/dưới lọc bằng `wp_kses_post`, bỏ cả khối `<script>`/`<style>`, ảnh, chữ nút, có hiện link hay không).
+- Cửa sổ khóa chọn ngẫu nhiên một link mỗi lượt xem. Link, ảnh và nút đều trỏ tới `GET /mo-khoa/?i=<số thứ tự link>&n=<nonce>`: chỉ nhận số thứ tự nên không có open redirect.
+- `/mo-khoa/` cấp quyền khi nonce đúng và request là cú bấm của người đọc trên trang này (Fetch Metadata `same-origin` + `navigate` + `?1` + `document`; trình duyệt không gửi Fetch Metadata thì cần Referer cùng host). Sai → `400`, tính năng tắt → `404`, không phải GET → `405`, quá 15 lượt/giờ/IP → `429` (bộ lọc `storyweb_unlock_rate_limit`; chỉ lưu hash có khóa của IP).
+- Grant: cookie `storyweb_unlock` HttpOnly, SameSite=Lax, Secure khi HTTPS: `v3.<revision>.<expires>.<HMAC-SHA256>` với khóa từ `wp_salt('secure_auth')`. Kiểm ở mọi request; hết hạn, dài hơn số phút đang đặt, sai revision hoặc chữ ký thì coi như không có.
+- Revision tăng khi bật/tắt, đổi danh sách link hoặc đánh dấu "Thu hồi": mọi grant cũ mất hiệu lực ngay.
+- Kiểm tra: `scripts/wp/check-unlock.mjs` (25 kiểm tra, cần site Playground mới) và `scripts/wp/check-content.mjs`.

@@ -10,12 +10,12 @@ Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs
 - **Chương khóa không bao giờ được gửi body xuống client** khi chưa có quyền — kể cả qua HTML, REST, RSS, embed, sitemap. Khi sửa, chạy lại `scripts/wp/check-content.mjs` để chắc không lộ.
 - Giá trị hiển thị do admin nhập phải được `esc_*` khi in ra; dữ liệu vào phải `sanitize_*`. Truy vấn DB dùng `$wpdb->prepare`.
 - Logic trang đọc (tùy chỉnh đọc, ẩn/hiện toolbar) là JS thuần trong `assets/js/reader-core.js`, có unit test (`npm test`). Sửa logic thì cập nhật test.
-- Mở khóa bằng link chưa được port; khi làm, giữ kiểm tra phía server và thêm **giới hạn tần suất** theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`.
+- Mở khóa bằng link nằm ở plugin: `inc/unlock.php` (cookie ký HMAC, `/mo-khoa/`, **giới hạn tần suất** theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`) và trang cài đặt `inc/unlock-admin.php` (Truyện → Mở khóa chương). Quyền đọc luôn kiểm phía server; sửa thì chạy `scripts/wp/check-unlock.mjs` trên site Playground mới.
 
 ## Kiểm tra
 
 - `npm test` — logic trang đọc.
-- WordPress Playground + 3 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin): xem `scripts/wp/README.md`.
+- WordPress Playground + 4 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin, mở khóa bằng link): xem `scripts/wp/README.md`.
 - Đóng gói tải lên wp-admin: `node scripts/wp/package.mjs`.
 
 ## MCP Context7 và Memory

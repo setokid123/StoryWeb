@@ -1,7 +1,9 @@
 <?php
 /**
- * Locked-chapter dialog (port of components/unlock-gate-view.tsx). The chapter body is NOT in the page: the
- * server only renders this gate. Expects $args: chapter (int), story_url, state (storyweb_unlock_state()).
+ * Locked-chapter popup. The chapter body is NOT in the page: the server only renders this gate.
+ * Expects $args: chapter (int), story_url, state (storyweb_unlock_state()). In "link" mode the state carries the
+ * admin's invitation (Truyện → Mở khóa chương): title, text before/after, image, link text, button; the link,
+ * image and button all open the same randomly picked link through the plugin's /mo-khoa/ URL.
  *
  * @package ThuCac
  */
@@ -11,17 +13,33 @@ defined( 'ABSPATH' ) || exit;
 $thu_cac_state   = $args['state'];
 $thu_cac_mode    = $thu_cac_state['mode'];
 $thu_cac_minutes = (int) ( $thu_cac_state['access_minutes'] ?? 5 );
+$thu_cac_gate    = ( 'link' === $thu_cac_mode && ! empty( $thu_cac_state['visit_url'] ) ) ? (array) ( $thu_cac_state['gate'] ?? array() ) : null;
+$thu_cac_visit   = $thu_cac_gate ? $thu_cac_state['visit_url'] : '';
+$thu_cac_title   = $thu_cac_gate && ! empty( $thu_cac_gate['title'] ) ? $thu_cac_gate['title'] : 'Mở trang truyện tiếp theo';
 ?>
 <div class="unlock-backdrop" data-unlock-gate data-mode="<?php echo esc_attr( $thu_cac_mode ); ?>">
-	<div class="locked-panel locked-panel--dialog lg" role="dialog" aria-modal="true" aria-labelledby="unlock-title">
-		<span class="locked-panel__icon"><?php thu_cac_the_icon( 'lock-keyhole', 28 ); ?></span>
+	<div class="locked-panel locked-panel--dialog lg<?php echo $thu_cac_gate ? ' locked-panel--link' : ''; ?>" role="dialog" aria-modal="true" aria-labelledby="unlock-title" tabindex="-1">
+		<?php if ( ! $thu_cac_gate || empty( $thu_cac_gate['image'] ) ) : ?>
+			<span class="locked-panel__icon"><?php thu_cac_the_icon( 'lock-keyhole', 28 ); ?></span>
+		<?php endif; ?>
 		<div class="eyebrow">CHƯƠNG <?php echo (int) $args['chapter']; ?> · NỘI DUNG KHÓA</div>
-		<h2 id="unlock-title">Mở trang truyện tiếp theo</h2>
+		<h2 id="unlock-title"><?php echo esc_html( $thu_cac_title ); ?></h2>
 
-		<?php if ( 'link' === $thu_cac_mode && $thu_cac_state['visit_url'] ) : ?>
-			<p>Mở liên kết giới thiệu một lần để đọc các chương khóa trong <?php echo (int) $thu_cac_minutes; ?> phút. Khi hết thời gian, bạn cần nhấp lại liên kết trước khi sang chương mới.</p>
-			<a class="button button--primary" href="<?php echo esc_url( $thu_cac_state['visit_url'] ); ?>" target="_blank" rel="noopener noreferrer">Mở liên kết giới thiệu <?php thu_cac_the_icon( 'arrow-up-right', 17 ); ?></a>
-			<span class="locked-panel__hint">Trang sẽ mở trong tab mới. Quay lại đây để tiếp tục đọc.</span>
+		<?php if ( $thu_cac_gate ) : ?>
+			<?php if ( ! empty( $thu_cac_gate['before'] ) ) : ?>
+				<div class="locked-panel__content"><?php echo wp_kses_post( $thu_cac_gate['before'] ); ?></div>
+			<?php endif; ?>
+			<?php if ( ! empty( $thu_cac_gate['show_link'] ) && ! empty( $thu_cac_state['link'] ) ) : ?>
+				<a class="locked-panel__url" href="<?php echo esc_url( $thu_cac_visit ); ?>" target="_blank" rel="noopener nofollow"><?php echo esc_html( $thu_cac_state['link'] ); ?></a>
+			<?php endif; ?>
+			<?php if ( ! empty( $thu_cac_gate['image'] ) ) : ?>
+				<a class="locked-panel__image" href="<?php echo esc_url( $thu_cac_visit ); ?>" target="_blank" rel="noopener nofollow" tabindex="-1" aria-hidden="true"><img src="<?php echo esc_url( $thu_cac_gate['image'] ); ?>" alt="" decoding="async"></a>
+			<?php endif; ?>
+			<a class="button button--primary locked-panel__go" href="<?php echo esc_url( $thu_cac_visit ); ?>" target="_blank" rel="noopener nofollow"><?php echo esc_html( ! empty( $thu_cac_gate['button'] ) ? $thu_cac_gate['button'] : 'Mở liên kết và đọc tiếp' ); ?> <?php thu_cac_the_icon( 'arrow-up-right', 17 ); ?></a>
+			<?php if ( ! empty( $thu_cac_gate['after'] ) ) : ?>
+				<div class="locked-panel__content locked-panel__content--after"><?php echo wp_kses_post( $thu_cac_gate['after'] ); ?></div>
+			<?php endif; ?>
+			<span class="locked-panel__hint">Liên kết mở trong tab mới. Quay lại trang này là chương tự mở, đọc mọi chương trong <?php echo (int) $thu_cac_minutes; ?> phút.</span>
 		<?php elseif ( 'rewarded' === $thu_cac_mode ) : ?>
 			<p>Xem một quảng cáo ngắn để mở khóa quyền đọc tiếp trong <?php echo (int) $thu_cac_minutes; ?> phút. Khi hết thời gian, bạn có thể xem lại quảng cáo để tiếp tục.</p>
 			<div class="rewarded-action">

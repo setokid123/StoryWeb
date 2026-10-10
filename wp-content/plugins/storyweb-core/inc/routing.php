@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /** Bump when the rules below change: rules are cached in the database and are re-flushed once per revision. */
-const STORYWEB_REWRITE_REV = '2';
+const STORYWEB_REWRITE_REV = '3';
 
 add_action( 'init', 'storyweb_register_rewrites' );
 add_action(
@@ -27,6 +27,8 @@ function storyweb_register_rewrites() {
 	add_rewrite_rule( '^doc/([a-z0-9-]+)/([0-9]{1,6})/?$', 'index.php?sw_story=$matches[1]&sw_chapter=$matches[2]', 'top' );
 	// Anything else under /doc/ (e.g. /doc/x/2/embed/, /doc/x/) is a real 404, not a fallback to the home page.
 	add_rewrite_rule( '^doc(/.*)?$', 'index.php?sw_doc_404=1', 'top' );
+	// Link unlock: the gate's links go through here (inc/unlock.php).
+	add_rewrite_rule( '^mo-khoa/?$', 'index.php?sw_unlock_visit=1', 'top' );
 }
 
 add_filter(
@@ -35,6 +37,7 @@ add_filter(
 		$vars[] = 'sw_story';
 		$vars[] = 'sw_chapter';
 		$vars[] = 'sw_doc_404';
+		$vars[] = 'sw_unlock_visit';
 		return $vars;
 	}
 );

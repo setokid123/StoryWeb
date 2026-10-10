@@ -44,7 +44,7 @@ Nên nhập **trước khi cài Yoast SEO**: Yoast lập chỉ mục từng bài
 
 ## Tự code (không có plugin phù hợp)
 
-1. **Mở khóa bằng link** (port từ bản cũ) kèm giới hạn tần suất theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`. Các plugin "content locker" chỉ ẩn nội dung bằng JavaScript, nội dung vẫn nằm trong HTML.
+1. **Mở khóa bằng link** — đã làm (`storyweb-core/inc/unlock.php`, trang **Truyện → Mở khóa chương**: tối đa 10 link chọn ngẫu nhiên, nội dung cửa sổ, ảnh, thời gian đọc), kèm giới hạn tần suất theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`. Các plugin "content locker" chỉ ẩn nội dung bằng JavaScript, nội dung vẫn nằm trong HTML.
 2. **Nhập chương hàng loạt**: dán hoặc tải file `.txt`, tự tách theo "Chương N", tạo chương đúng truyện và đúng số. Dùng tiếp cho việc **chuyển truyện từ database cũ**.
 3. **Quảng cáo có thưởng**: giữ tắt cho tới khi có nhà cung cấp web xác minh được phía máy chủ.
 4. Sau này, nếu cần tài khoản độc giả và tủ truyện đồng bộ: đăng nhập Google/Facebook bằng **Nextend Social Login**, phần tủ truyện tự code.

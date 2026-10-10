@@ -33,11 +33,14 @@ Chờ vài giây sau khi trang chủ trả 200 (dữ liệu mẫu nạp sau khi 
 
 ```bash
 node scripts/wp/check-content.mjs     # số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
-OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 46 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
-WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 11 kiểm tra wp-admin
+OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
+WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 25 kiểm tra mở khóa bằng link
 ```
 
-Ba script chỉ chạy với `127.0.0.1`. `check-browser.mjs` nhận thêm `PROD=<URL web Next.js>` để chụp ảnh đối chiếu (chỉ đọc).
+`check-unlock.mjs` cần site **mới khởi động**: nó đổi cài đặt Mở khóa chương (tắt lại ở cuối) và dùng hết giới hạn 15 lượt mở khóa/giờ của IP máy. Chạy nó trước `check-content.mjs`.
+
+Các script chỉ chạy với `127.0.0.1`. `check-browser.mjs` nhận thêm `PROD=<URL web Next.js>` để chụp ảnh đối chiếu (chỉ đọc).
 
 ## Thử plugin ngoài
 

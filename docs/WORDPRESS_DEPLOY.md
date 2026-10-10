@@ -6,10 +6,10 @@ Bản WordPress (bước WP1) đã có:
 - giao diện;
 - truyện/chương, thể loại;
 - khóa chương phía máy chủ;
-- trang quản trị để đăng truyện.
+- trang quản trị để đăng truyện;
+- mở khóa chương bằng link: **Truyện → Mở khóa chương** (mặc định tắt, khi tắt chương khóa hiện "tạm tắt").
 
 **Chưa có:**
-- mở khóa bằng link (chương khóa hiện thông báo "tạm tắt");
 - chuyển dữ liệu truyện từ bản cũ;
 - quảng cáo, cache, chống bot.
 
@@ -56,5 +56,5 @@ Sao lưu trước. Chạy lại `node scripts/wp/package.mjs`, rồi tải zip l
 ## Chưa làm (bước sau)
 
 - **Plugin**: danh sách đã chọn và cách cài ở [PLUGINS.md](PLUGINS.md).
-- **Port phần còn lại**: mở khóa bằng link (thêm rate limit theo SEC1), rewarded (giữ fail-closed), cài đặt Quảng cáo & mở khóa, chuyển dữ liệu từ PostgreSQL.
+- **Port phần còn lại**: rewarded (giữ fail-closed), cài đặt Quảng cáo, chuyển dữ liệu từ PostgreSQL.
 - **Gắn domain chính**: chỉ làm sau khi bước trên xong và đã kiểm tra.

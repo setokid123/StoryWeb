@@ -63,7 +63,8 @@ function trapTab(root, event) {
   if (els.length === 0) { event.preventDefault(); return; }
   const first = els[0];
   const last = els[els.length - 1];
-  if (!root.contains(document.activeElement)) { event.preventDefault(); first.focus(); return; }
+  // Focus elsewhere, or on the dialog itself → into the list, at the end the reader is heading to.
+  if (!els.includes(document.activeElement)) { event.preventDefault(); (event.shiftKey ? last : first).focus(); return; }
   if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
 }
@@ -269,7 +270,8 @@ document.addEventListener("keydown", (event) => {
 });
 
 if (locked && gate && !gateFocused) {
-  gate.querySelector(FOCUSABLE)?.focus();
+  // The dialog itself, so no link of the invitation starts out highlighted; Tab then walks its links.
+  (gate.querySelector("[role=dialog]") ?? gate.querySelector(FOCUSABLE))?.focus({ preventScroll: true });
   gateFocused = true;
 }
 
