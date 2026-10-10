@@ -13,4 +13,17 @@
 
 Màu: gradient `#4f7bff → #8b4dff → #ff4f9a`, nút/nhãn `#4f46e5 → #7c3aed → #db2777`, chữ `#1d1842`. Phông chữ: Unbounded (chữ "Trạm Truyện" và "2D").
 
+## Ảnh khi gửi link (Zalo, Facebook, Messenger)
+
+`og-render.mjs` vẽ bằng Chrome headless (đúng phông thật) hai ảnh 1200×630 trong theme:
+
+- `assets/img/og-image.jpg`: ảnh chung của site (trang chủ, tìm kiếm, thể loại).
+- `assets/img/og-story-frame.png`: khung cho từng truyện, có lỗ trong suốt chỗ đặt bìa. Máy chủ (`inc/share.php`, GD + phông Be Vietnam Pro trong `assets/fonts/`) dán bìa vào lỗ, viết tên truyện, tác giả, số chương rồi lưu một lần vào `uploads/thu-cac-share/`. Chương dùng ảnh và mô tả của truyện, không bao giờ dùng chữ trong chương.
+
+Sửa khung thì giữ đúng vị trí lỗ (`HOLE`, khớp với ô bìa trong `thu_cac_share_draw()`), rồi tăng `THU_CAC_SHARE_REV` để vẽ lại mọi ảnh truyện. Facebook giữ ảnh cũ của link đã chia sẻ: dán link vào công cụ Sharing Debugger của Facebook để làm mới.
+
+```bash
+node brand/og-render.mjs brand/logo-dd.svg <thư mục ra> [ảnh bìa mẫu]
+```
+
 Logo trên website được vẽ bằng code (`thu_cac_logo_mark()` trong `wp-content/themes/thu-cac/inc/template-tags.php`) và favicon ở `wp-content/themes/thu-cac/assets/img/`; các file ở đây xuất từ cùng hình đó.

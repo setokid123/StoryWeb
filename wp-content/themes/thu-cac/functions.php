@@ -8,12 +8,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.2.8' );
+define( 'THU_CAC_VERSION', '0.2.9' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
 require_once get_template_directory() . '/inc/views.php';
 require_once get_template_directory() . '/inc/rest.php';
+require_once get_template_directory() . '/inc/share.php';
 
 add_action(
 	'after_setup_theme',
