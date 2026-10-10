@@ -193,5 +193,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   console.log(`total: ${stories.length} stories, ${chapters.length} chapters; free chapters per story: ${free}`);
   console.log(`no real title (slug used): ${stories.filter((s) => !s.hasRealTitle).length} stories`);
   console.log(`cut short by the source's unlock popup: ${chapters.filter((c) => c.truncated).length} chapters`);
+  // The bot follows only the chapter links on a story's page: missing numbers mean it skipped part of the list.
+  const gaps = stories.filter((s) => s.chapters.length !== s.chapters[s.chapters.length - 1].number);
+  console.log(`missing chapters (numbers skip, e.g. 1-10 then 25): ${gaps.length} stories${gaps.length ? `, e.g. ${gaps.slice(0, 3).map((s) => `${s.slug} [${s.chapters.map((c) => c.number).join(",")}]`).join("; ")}` : ""}`);
+  const sizes = new Map();
+  for (const s of stories) sizes.set(s.chapters.length, (sizes.get(s.chapters.length) ?? 0) + 1);
+  const [common, many] = [...sizes].sort((a, b) => b[1] - a[1])[0];
+  if (many > stories.length / 2) console.log(`warning: ${many} of ${stories.length} stories have exactly ${common} chapters, looks like a limit in the bot or on the source page`);
   console.log(`no genre: ${stories.filter((s) => !s.categories.length).length} stories`);
 }
