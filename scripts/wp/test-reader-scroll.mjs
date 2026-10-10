@@ -1,73 +1,110 @@
-// Unit tests for the reader toolbar/dock logic (reader-core.js). Since 2026-10-10 both stay within reach: the
-// toolbar never hides, the dock shows from the start until the end-of-chapter navigation is on screen.
+// Unit tests for the reader toolbar/dock logic (reader-core.js), in both toolbar modes the reader can choose:
+// "pinned" (default: everything stays within reach) and "auto" ("Không ghim": hide on the way down, show on the way up).
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { DEFAULT_SCROLL_CONFIG as C, initialScrollState, nextScrollState, resolveReaderChrome } from "../../wp-content/themes/thu-cac/assets/js/reader-core.js";
 
-const at = (y) => ({ y });
+const VIEW = 800;
+const DOC = 10_000;
+const at = (y, documentHeight = DOC) => ({ y, viewportHeight: VIEW, documentHeight });
 /** Feeds a list of scroll positions, one per frame. */
-function run(positions) {
-  let state = initialScrollState(at(positions[0]));
-  for (const y of positions.slice(1)) state = nextScrollState(state, at(y));
+function run(positions, documentHeight = DOC) {
+  let state = initialScrollState(at(positions[0], documentHeight));
+  for (const y of positions.slice(1)) state = nextScrollState(state, at(y, documentHeight));
   return state;
 }
-const base = { endNavInView: false, locked: false, chapterListOpen: false, preferencesOpen: false, dockFocused: false, dockPinned: false };
+const base = { endNavInView: false, locked: false, chapterListOpen: false, preferencesOpen: false, toolbarFocused: false, dockFocused: false, toolbarPinned: false, dockPinned: false };
+const pinned = { ...base, mode: "pinned" };
+const auto = { ...base, mode: "auto" };
 
-test("page just opened: toolbar at the top, dock already visible", () => {
-  const s = initialScrollState(at(0));
-  assert.equal(s.atTop, true);
-  assert.deepEqual(resolveReaderChrome({ ...base, scroll: s }), { toolbar: "top", dockVisible: true });
+// ---------- "pinned" (default) ----------
+
+test("pinned: page just opened → toolbar at the top, dock already visible", () => {
+  assert.deepEqual(resolveReaderChrome({ ...pinned, scroll: initialScrollState(at(0)) }), { toolbar: "top", dockVisible: true });
+  assert.deepEqual(resolveReaderChrome({ ...base, scroll: initialScrollState(at(0)) }), { toolbar: "top", dockVisible: true }, "no mode = pinned");
 });
 
-test("scrolling down keeps both: toolbar pinned, dock visible", () => {
-  const s = run([0, 100, 300, 600, 900, 2000]);
-  assert.equal(s.atTop, false);
-  assert.deepEqual(resolveReaderChrome({ ...base, scroll: s }), { toolbar: "pinned", dockVisible: true });
+test("pinned: as soon as the page moves the toolbar is 'pinned' (veil on); scrolling never hides anything", () => {
+  assert.equal(run([0, C.movedAfter]).moved, false);
+  assert.equal(resolveReaderChrome({ ...pinned, scroll: run([0, C.movedAfter + 1]) }).toolbar, "pinned");
+  for (const s of [run([0, 300, 900, 2000]), run([0, 2000, 1950, 1000])]) {
+    assert.deepEqual(resolveReaderChrome({ ...pinned, scroll: s }), { toolbar: "pinned", dockVisible: true });
+  }
+  assert.equal(resolveReaderChrome({ ...pinned, scroll: run([0, 2000, 0]) }).toolbar, "top");
 });
 
-test("scrolling back up changes nothing until the top zone", () => {
-  const up = run([0, 2000, 1950, 1000, C.topZone + 1]);
-  assert.deepEqual(resolveReaderChrome({ ...base, scroll: up }), { toolbar: "pinned", dockVisible: true });
-  const top = run([0, 2000, 1000, 400, C.topZone]);
-  assert.equal(top.atTop, true);
-  assert.equal(resolveReaderChrome({ ...base, scroll: top }).toolbar, "top");
+test("pinned: end navigation on screen hides the dock, also on a short chapter at the top", () => {
+  assert.equal(resolveReaderChrome({ ...pinned, scroll: run([0, 3000]), endNavInView: true }).dockVisible, false);
+  assert.equal(resolveReaderChrome({ ...pinned, scroll: initialScrollState(at(0, 900)), endNavInView: true }).dockVisible, false);
 });
 
-test("the toolbar is never hidden, whatever the state", () => {
-  for (const scroll of [run([0]), run([0, 5000])]) {
-    for (const key of ["locked", "chapterListOpen", "preferencesOpen", "endNavInView"]) {
-      assert.notEqual(resolveReaderChrome({ ...base, scroll, [key]: true }).toolbar, "hidden", key);
+// ---------- "auto" ("Không ghim") ----------
+
+test("auto: at the top the toolbar is in place and the dock hidden", () => {
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: initialScrollState(at(0)) }), { toolbar: "top", dockVisible: false });
+});
+
+test("auto: scrolling down hides toolbar and dock", () => {
+  const s = run([0, 100, 300, 600, 900]);
+  assert.equal(s.toolbarHidden, true);
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: s }), { toolbar: "hidden", dockVisible: false });
+});
+
+test("auto: scrolling up far enough shows both; small jitter does not flicker", () => {
+  const jitter = run([0, 600, 1200, 2000, 1990, 1995, 1985, 1992, 2000 - C.showAfter + 1]);
+  assert.equal(jitter.toolbarHidden, true, "less than showAfter upward travel keeps it hidden");
+  const up = run([0, 600, 1200, 2000, 1980, 1950, 2000 - C.showAfter]);
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: up }), { toolbar: "pinned", dockVisible: true });
+  assert.equal(run([0, 600, 1200, 2000, 1900, 1900 + C.hideAfter - 1]).toolbarHidden, false, "a few pixels back down do not hide again");
+  assert.equal(run([0, 600, 1200, 2000, 1900, 1900 + C.hideAfter]).toolbarHidden, true);
+});
+
+test("auto: travel is measured from where the direction changed, not per frame", () => {
+  const steps = [0, 3000];
+  for (let y = 2998; y >= 3000 - C.showAfter; y -= 2) steps.push(y);
+  assert.equal(run(steps).toolbarHidden, false);
+});
+
+test("auto: back at the top → toolbar in place, dock hidden; near the end the dock comes back", () => {
+  const top = run([0, 2000, 1000, 400, 50]);
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: top }), { toolbar: "top", dockVisible: false });
+  const end = DOC - VIEW;
+  const s = run([0, 2000, 5000, end - 300, end - 100]);
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: s }), { toolbar: "hidden", dockVisible: true });
+  assert.equal(resolveReaderChrome({ ...auto, scroll: s, endNavInView: true }).dockVisible, false);
+});
+
+test("auto: keyboard focus and the preferences panel keep the toolbar; focus return keeps the dock", () => {
+  const hidden = run([0, 600, 1200, 2000]);
+  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, toolbarFocused: true }).toolbar, "pinned");
+  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, preferencesOpen: true }).toolbar, "pinned");
+  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, toolbarPinned: true }).toolbar, "pinned");
+  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, dockFocused: true }).dockVisible, true);
+  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, dockPinned: true, endNavInView: true }).dockVisible, true);
+});
+
+// ---------- both ----------
+
+test("locked chapter, chapter list or preferences open: dock hidden (inert) in both modes, even if pinned/focused", () => {
+  const s = run([0, 2000, 1900, 1800]);
+  for (const mode of [pinned, auto]) {
+    for (const key of ["locked", "chapterListOpen", "preferencesOpen"]) {
+      assert.equal(resolveReaderChrome({ ...mode, scroll: s, [key]: true, dockFocused: true, dockPinned: true }).dockVisible, false, `${mode.mode} ${key}`);
     }
   }
-});
-
-test("end navigation on screen hides the dock (no duplicate navigation), also on a short chapter at the top", () => {
-  assert.equal(resolveReaderChrome({ ...base, scroll: run([0, 3000]), endNavInView: true }).dockVisible, false);
-  assert.equal(resolveReaderChrome({ ...base, scroll: initialScrollState(at(0)), endNavInView: true }).dockVisible, false);
-});
-
-test("locked chapter, chapter list or preferences open: dock hidden (inert) even if pinned/focused", () => {
-  const s = run([0, 2000]);
-  for (const key of ["locked", "chapterListOpen", "preferencesOpen"]) {
-    assert.equal(resolveReaderChrome({ ...base, scroll: s, [key]: true, dockFocused: true, dockPinned: true }).dockVisible, false, key);
-  }
-});
-
-test("focus returning to a dock button wins over the end-nav rule", () => {
-  const s = run([0, 2000]);
-  assert.equal(resolveReaderChrome({ ...base, scroll: s, endNavInView: true, dockPinned: true }).dockVisible, true);
-  assert.equal(resolveReaderChrome({ ...base, scroll: s, endNavInView: true, dockFocused: true }).dockVisible, true);
 });
 
 test("no state object churn when nothing visible changes", () => {
   const s = run([0, 2000]);
   assert.equal(nextScrollState(s, at(2000)), s, "identical sample returns the same object");
   const moved = nextScrollState(s, at(2010));
-  assert.equal(moved.atTop, false);
+  assert.equal(moved.toolbarHidden, s.toolbarHidden);
   assert.equal(moved.lastY, 2010);
 });
 
 test("negative scroll (iOS rubber band) is treated as the top", () => {
   const s = run([0, 2000, -40]);
   assert.equal(s.atTop, true);
+  assert.equal(s.moved, false);
+  assert.equal(s.toolbarHidden, false);
 });

@@ -58,6 +58,7 @@ $thu_cac_data       = array(
 ?>
 <?php thu_cac_ambient( $thu_cac_story ? thu_cac_story( $thu_cac_story ) : null ); ?>
 <div class="reader-progress" aria-hidden="true"></div>
+<div class="reader-veil" aria-hidden="true"></div>
 <div class="reader-shell">
 	<div class="container reader-shell__inner">
 		<div class="reader-toolbar" data-reader-toolbar data-scroll-state="top">

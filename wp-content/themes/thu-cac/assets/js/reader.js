@@ -31,10 +31,13 @@ const locked = Boolean(data.locked);
 const state = {
   prefsOpen: false,
   chapterListOpen: false,
+  toolbarFocused: false,
   dockFocused: false,
+  toolbarPinned: false,
   dockPinned: false,
   endNavInView: false,
-  scroll: { atTop: true },
+  mode: "pinned", // toolbarMode preference: "pinned" | "auto"
+  scroll: { atTop: true, moved: false, toolbarHidden: false, dockShown: false },
 };
 
 // ---------- storage-safe helpers ----------
@@ -81,6 +84,11 @@ function persistPrefs(prefs) {
 
 function renderPrefs() {
   const prefs = currentPrefs();
+  // "Ghim" / "Không ghim": CSS reads html[data-reader-chrome] (also set before paint in functions.php).
+  state.mode = prefs.toolbarMode;
+  if (prefs.toolbarMode === "auto") document.documentElement.dataset.readerChrome = "auto";
+  else delete document.documentElement.dataset.readerChrome;
+  update();
   if (text) {
     const style = readerBodyStyle(prefs);
     text.style.fontSize = style.body.fontSize;
@@ -149,7 +157,11 @@ function closePrefs(restoreFocus = true) {
   state.prefsOpen = false;
   prefsRoot.hidden = true;
   prefsToggle?.setAttribute("aria-expanded", "false");
-  if (restoreFocus && prefsToggle) focusWhenReady(prefsToggle);
+  if (restoreFocus && prefsToggle) {
+    // In "Không ghim" mode the toolbar may be scrolled away once preferences close; keep it until the toggle has focus.
+    state.toolbarPinned = true;
+    focusWhenReady(prefsToggle, () => { state.toolbarPinned = false; update(); });
+  }
   update();
 }
 
@@ -302,6 +314,7 @@ function trackFocus(el, key) {
     if (!el.contains(event.relatedTarget)) { state[key] = false; update(); }
   });
 }
+trackFocus(toolbar, "toolbarFocused");
 trackFocus(dockWrap, "dockFocused");
 
 function update() {
@@ -311,10 +324,18 @@ function update() {
     locked,
     chapterListOpen: state.chapterListOpen,
     preferencesOpen: state.prefsOpen,
+    mode: state.mode,
+    toolbarFocused: state.toolbarFocused,
     dockFocused: state.dockFocused,
+    toolbarPinned: state.toolbarPinned,
     dockPinned: state.dockPinned,
   });
-  if (toolbar) toolbar.dataset.scrollState = chrome.toolbar;
+  if (toolbar) {
+    const hidden = chrome.toolbar === "hidden";
+    toolbar.dataset.scrollState = chrome.toolbar;
+    toolbar.classList.toggle("is-hidden", hidden);
+    toolbar.inert = hidden;
+  }
   if (dockWrap && dock) {
     dockWrap.inert = !chrome.dockVisible;
     dock.classList.toggle("is-visible", chrome.dockVisible);
@@ -323,12 +344,13 @@ function update() {
   }
 }
 
-const sample = () => ({ y: window.scrollY });
+const sample = () => ({ y: window.scrollY, viewportHeight: window.innerHeight, documentHeight: document.documentElement.scrollHeight });
 let scrollState = initialScrollState(sample(), DEFAULT_SCROLL_CONFIG);
 let frame = 0;
 const publish = () => {
-  if (scrollState.atTop !== state.scroll.atTop) {
-    state.scroll = { atTop: scrollState.atTop };
+  const next = { atTop: scrollState.atTop, moved: scrollState.moved, toolbarHidden: scrollState.toolbarHidden, dockShown: scrollState.dockShown };
+  if (Object.keys(next).some((key) => next[key] !== state.scroll[key])) {
+    state.scroll = next;
     update();
   }
 };

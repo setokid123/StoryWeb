@@ -25,7 +25,7 @@ test("new key wins over legacy value", () => {
 });
 
 test("round trip keeps every field", () => {
-  const prefs = { fontFamily: "inter", fontWeight: "bold", fontSize: 24, lineHeight: "loose", columnWidth: "narrow", textAlignment: "left" };
+  const prefs = { fontFamily: "inter", fontWeight: "bold", fontSize: 24, lineHeight: "loose", columnWidth: "narrow", textAlignment: "left", toolbarMode: "auto" };
   assert.deepEqual(parse(serialize(prefs)), prefs);
   assert.equal(JSON.parse(serialize(prefs)).v, 1);
 });
@@ -64,4 +64,14 @@ test("body style maps every choice and only targets the chapter body", () => {
   const d = readerBodyStyle(D);
   assert.equal(d.body.fontSize, "19px");
   assert.deepEqual(d.dataAttributes, { "data-pref-font": "lora", "data-pref-weight": "normal", "data-pref-line-height": "normal", "data-pref-width": "medium", "data-pref-align": "justify" });
+});
+
+test("toolbar mode: pinned by default, also for prefs saved before the option existed; invalid values ignored", () => {
+  assert.equal(D.toolbarMode, "pinned");
+  assert.equal(parse(JSON.stringify({ v: 1, fontSize: 20 })).toolbarMode, "pinned");
+  assert.equal(parse(JSON.stringify({ v: 1, toolbarMode: "auto" })).toolbarMode, "auto");
+  assert.equal(parse(JSON.stringify({ v: 1, toolbarMode: "hidden" })).toolbarMode, "pinned");
+  assert.equal(applyReaderPreferenceUpdate(D, { toolbarMode: "auto" }).toolbarMode, "auto");
+  assert.equal(applyReaderPreferenceUpdate(D, { toolbarMode: "sideways" }).toolbarMode, "pinned");
+  assert.equal("data-pref-toolbar" in readerBodyStyle(D).dataAttributes, false, "not a text style");
 });

@@ -124,6 +124,7 @@ add_filter(
 /**
  * Applies the stored theme before first paint (no light flash in dark mode). Same keys as the Next.js app, so
  * readers keep their choice: storyweb-theme = light|dark (absent = system), legacy storyweb:night = true|false.
+ * On chapter pages also the "Không ghim" toolbar preference (storyweb:reader-prefs:v1), so the header does not jump.
  * Also the browser bar colour and, when no Site Icon is set, the theme's logo as favicon.
  */
 add_action(
@@ -131,6 +132,9 @@ add_action(
 	static function () {
 		?>
 <script>try{var t=localStorage.getItem('storyweb-theme');if(t!=='dark'&&t!=='light'){var l=t==='system'?null:localStorage.getItem('storyweb:night');if(l==='true')t='dark';else if(l==='false')t='light';else t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<?php if ( is_singular( 'chapter' ) ) : ?>
+<script>try{var p=JSON.parse(localStorage.getItem('storyweb:reader-prefs:v1')||'null');if(p&&p.toolbarMode==='auto')document.documentElement.setAttribute('data-reader-chrome','auto')}catch(e){}</script>
+<?php endif; ?>
 <meta name="theme-color" content="#f1ecff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0d0b22" media="(prefers-color-scheme: dark)">
 		<?php

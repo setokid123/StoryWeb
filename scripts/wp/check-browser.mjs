@@ -89,11 +89,16 @@ try {
   await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); const p = t.querySelector('p'); for (let i = 0; i < 40; i++) t.appendChild(p.cloneNode(true)); })()"); await sleep(200);
   await scrollTo(0);
   st = await chrome_state();
-  check("page just opened: toolbar at the top, dock already visible at the bottom", st.toolbar === "top" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
+  const veil = () => evaluate("getComputedStyle(document.querySelector('.reader-veil')).opacity");
+  await sleep(400);
+  const veilTop = await veil();
+  check("page just opened: toolbar at the top, dock already visible at the bottom, no veil", st.toolbar === "top" && !st.toolbarInert && st.dockVisible && !st.dockInert && veilTop === "0", JSON.stringify({ ...st, veilTop }));
   for (const y of [300, 700, 1200]) await scrollTo(y);
   st = await chrome_state();
   const pins = await evaluate("(() => { const h = document.querySelector('.site-header__bar').getBoundingClientRect(); const t = document.querySelector('[data-reader-toolbar]').getBoundingClientRect(); return { headerTop: Math.round(h.top), gap: Math.round(t.top - h.bottom) }; })()");
-  check("scroll down: header and toolbar stay pinned (14px apart), dock stays visible", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert && pins.headerTop >= 0 && pins.headerTop <= 12 && pins.gap === 14, JSON.stringify({ ...st, ...pins }));
+  await sleep(400);
+  pins.veil = await veil();
+  check("scroll down: header and toolbar stay pinned (14px apart) over the frosted veil, dock stays visible", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert && pins.headerTop >= 0 && pins.headerTop <= 12 && pins.gap === 14 && pins.veil === "1", JSON.stringify({ ...st, ...pins }));
   await scrollTo(1170); await scrollTo(1100);
   st = await chrome_state();
   check("scroll back up: toolbar pinned, dock visible", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
@@ -114,9 +119,26 @@ try {
   st = await chrome_state();
   check("end navigation on screen: dock hidden", !st.dockVisible && st.dockInert, JSON.stringify(st));
 
+  // "Không ghim": chosen in the preferences, remembered across reloads (set before paint), bars hide on the way down.
+  await scrollTo(0);
+  await evaluate("document.querySelector('[data-prefs-toggle]').click()"); await sleep(250);
+  await evaluate("document.querySelector('[data-pref=toolbarMode][data-value=auto]').click()"); await sleep(150);
+  await key("Escape", "Escape", 27); await sleep(300);
+  await go(`${B}/doc/${S}/1/`);
+  let g = await evaluate("({ attr: document.documentElement.dataset.readerChrome, header: getComputedStyle(document.querySelector('.site-header')).position, pressed: document.querySelector('[data-pref=toolbarMode][data-value=auto]').getAttribute('aria-pressed') })");
+  check("'Không ghim' is remembered after reload: header not sticky, option pressed", g.attr === "auto" && g.header === "relative" && g.pressed === "true", JSON.stringify(g));
+  await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); const p = t.querySelector('p'); for (let i = 0; i < 40; i++) t.appendChild(p.cloneNode(true)); })()"); await sleep(200);
+  for (const y of [300, 700, 1200]) await scrollTo(y);
+  st = await chrome_state();
+  check("'Không ghim': scrolling down hides toolbar and dock", st.toolbar === "hidden" && st.toolbarInert && !st.dockVisible && st.dockInert, JSON.stringify(st));
+  await scrollTo(1170); await scrollTo(1100);
+  st = await chrome_state();
+  check("'Không ghim': scrolling up brings both back", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
+  await evaluate("localStorage.removeItem('storyweb:reader-prefs:v1')");
+
   // Locked chapter: gate focused, Tab trapped, Escape goes back to the story.
   await go(`${B}/doc/${S}/2/`);
-  let g = await evaluate("({ body: !!document.querySelector('[data-reader-text]'), focusInGate: document.querySelector('[data-unlock-gate]').contains(document.activeElement), dockInert: document.querySelector('[data-reader-dock]').inert })");
+  g = await evaluate("({ body: !!document.querySelector('[data-reader-text]'), focusInGate: document.querySelector('[data-unlock-gate]').contains(document.activeElement), dockInert: document.querySelector('[data-reader-dock]').inert })");
   check("locked chapter: no body element, focus inside gate, dock inert", !g.body && g.focusInGate && g.dockInert, JSON.stringify(g));
   await key("Escape", "Escape", 27); await sleep(2000);
   check("Escape on the gate goes back to the story page", (await evaluate("location.pathname")) === `/truyen/${S}/`);
