@@ -154,6 +154,15 @@ try {
   check("bookshelf page shows the saved story", g.cards === 1 && g.empty, JSON.stringify(g));
   await shot("bookshelf-1280-light");
 
+  // The header is pinned only on the reader: elsewhere it scrolls away with the page.
+  await viewport(1280, 900);
+  for (const path of ["/", `/truyen/${S}/`]) {
+    await go(B + path);
+    await scrollTo(1500);
+    const bottom = await evaluate("Math.round(document.querySelector('.site-header__bar').getBoundingClientRect().bottom)");
+    check(`header scrolls away (not pinned) on ${path}`, bottom <= 0, `bottom=${bottom}`);
+  }
+
   // Phones: the main nav is the glass tab bar at the bottom of the screen; the reader page has its dock instead.
   await viewport(360, 780); await go(B + "/");
   g = await evaluate("(() => { const n = document.getElementById('main-nav'); const r = n.getBoundingClientRect(); return { position: getComputedStyle(n).position, links: n.querySelectorAll('a').length, bottomGap: Math.round(innerHeight - r.bottom), active: n.querySelector('[aria-current=page]')?.textContent.trim(), clear: document.body.scrollHeight >= document.querySelector('.site-footer').getBoundingClientRect().bottom + scrollY + r.height } })()");

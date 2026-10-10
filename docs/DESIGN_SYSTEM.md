@@ -45,7 +45,7 @@ Bẫy cần nhớ:
 
 | Thành phần | File | Ghi chú |
 | --- | --- | --- |
-| Header kính + tab bar | `header.php` | Cùng một `<nav id="main-nav">`: thanh giữa header trên máy tính, tab bar kính 4 mục ở đáy dưới 900px (ẩn ở trang đọc). |
+| Header kính + tab bar | `header.php` | Header nổi trên đầu mọi trang nhưng **chỉ ghim ở trang đọc** (trang khác cuộn là trôi đi). Cùng một `<nav id="main-nav">`: thanh giữa header trên máy tính, tab bar kính ở đáy dưới 900px (3 mục với khách, thêm "Đăng truyện" cho người viết; ẩn ở trang đọc). |
 | Logo | `thu_cac_logo_mark()`, `thu_cac_brand()` | Bong bóng thoại (câu chuyện) hình trạm dừng, monogram hai chữ D lồng nhau + tia sáng; chữ "2D" cuối tên thành nhãn kính. Tên đổi ở Giao diện → Tùy biến → Trạm Truyện 2D. Favicon `assets/img/favicon.svg` (khi chưa đặt Site Icon). |
 | Cảnh sân ga | `template-parts/scene.php` | SVG vẽ tay, màu theo `--sc-*` nên đổi theo Sáng/Tối. |
 | Vé nổi bật | `front-page.php` `.ticket` | Kính khúc xạ, nghiêng 3D theo chuột, cuống vé có lỗ bấm và mã vạch. |
