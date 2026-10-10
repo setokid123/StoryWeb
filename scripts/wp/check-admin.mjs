@@ -31,8 +31,13 @@ try {
   // Log in to the throwaway local site with its test admin account (credentials from env, not printed).
   await go(B + "/wp-login.php", 4000);
   await evaluate(`(() => { document.querySelector('#user_login').value = ${JSON.stringify(process.env.WP_TEST_USER)}; document.querySelector('#user_pass').value = ${JSON.stringify(process.env.WP_TEST_PASS)}; document.querySelector('#loginform').submit(); })()`);
-  await sleep(6000);
-  check("logged in to wp-admin", await evaluate("!!document.querySelector('#wpadminbar') && !location.pathname.includes('wp-login')"));
+  // A cold Playground can take well over 6 s to redirect after login: wait for the admin bar (max 30 s).
+  let loggedIn = false;
+  for (let i = 0; i < 30 && !loggedIn; i++) {
+    await sleep(1000);
+    loggedIn = await evaluate("!!document.querySelector('#wpadminbar') && !location.pathname.includes('wp-login')").catch(() => false);
+  }
+  check("logged in to wp-admin", loggedIn);
   await go(B + "/wp-admin/edit.php?post_type=story", 5000);
   const list = await evaluate(`({ title: document.title, rows: document.querySelectorAll('#the-list tr').length, addChapter: !!document.querySelector('.sw_add_chapter a'), genreCol: !!document.querySelector('th#taxonomy-the_loai') })`);
   check("Truyện list: 8 rows, 'Thêm chương' action, Thể loại column", list.rows === 8 && list.addChapter && list.genreCol, JSON.stringify(list));
@@ -67,6 +72,25 @@ try {
   // Logged-in admin may preview a locked chapter (editor preview).
   await go(`${B}/doc/${SLUG}/7/`, 3000);
   check("admin (editor) can read the locked chapter body", await evaluate("document.body.innerText.includes('SW-ADMIN-7-BODY')"));
+
+  // Reader layout under the admin bar, in both toolbar modes ("Ghim" / "Không ghim"): the header sits 8px under the
+  // admin bar and the toolbar 14px under the header, at the top and after scrolling (pinned mode).
+  const bars = () => evaluate("(() => { const a = document.getElementById('wpadminbar').getBoundingClientRect(); const h = document.querySelector('.site-header__bar').getBoundingClientRect(); const t = document.querySelector('[data-reader-toolbar]').getBoundingClientRect(); return { headerGap: Math.round(h.top - a.bottom), toolbarGap: Math.round(t.top - h.bottom) }; })()");
+  for (const mode of ["pinned", "auto"]) {
+    await go(`${B}/doc/${SLUG}/1/`, 1000);
+    await evaluate(`localStorage.setItem('storyweb:reader-prefs:v1', JSON.stringify({ v: 1, toolbarMode: '${mode}' }))`);
+    await go(`${B}/doc/${SLUG}/1/`, 3000);
+    const top = await bars();
+    let scrolled = null;
+    if (mode === "pinned") {
+      await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); const p = t.querySelector('p'); for (let i = 0; i < 30; i++) t.appendChild(p.cloneNode(true)); window.scrollTo(0, 1200); })()");
+      await sleep(500);
+      scrolled = await bars();
+    }
+    check(`logged in, '${mode === "auto" ? "Không ghim" : "Ghim"}': header 8px under the admin bar, toolbar 14px under the header`, top.headerGap === 8 && top.toolbarGap === 14 && (!scrolled || (scrolled.headerGap === 8 && scrolled.toolbarGap === 14)), JSON.stringify({ top, scrolled }));
+    if (mode === "auto") await shot("admin-reader-auto");
+  }
+  await evaluate("localStorage.removeItem('storyweb:reader-prefs:v1')");
 
   // Story edit screen (block editor) shows the StoryWeb meta box.
   await go(`${B}/wp-admin/post.php?post=${storyId}&action=edit`, 12000);

@@ -940,7 +940,8 @@ body:has([data-reader-toolbar][data-scroll-state="pinned"]) .reader-veil { opaci
 .reader-toolbar > .reader-toolbar__glass { position: absolute; inset: 0; border-radius: inherit; --lg-blur: 10px; }
 /* "Không ghim" (reader preference): the site header scrolls away, the toolbar hides on the way down and comes back on
    the way up, alone at the top; no veil. */
-html[data-reader-chrome="auto"] body.single-chapter .site-header { position: relative; }
+/* top: auto — the sticky offset under the admin bar would otherwise push the scrolling header down onto the toolbar. */
+html[data-reader-chrome="auto"] body.single-chapter .site-header { position: relative; top: auto; }
 html[data-reader-chrome="auto"] .reader-toolbar { top: calc(var(--admin-h) + var(--header-top)); transition: transform .5s var(--ease-out), visibility .5s; }
 html[data-reader-chrome="auto"] .reader-veil { display: none; }
 .reader-toolbar.is-hidden { transform: translateY(calc(-100% - 40px)); visibility: hidden; pointer-events: none; }
