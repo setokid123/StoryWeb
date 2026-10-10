@@ -499,7 +499,7 @@ function storyweb_fb_admin_queue_start() {
 	$from = storyweb_fb_code_number( storyweb_fb_field( 'from' ) );
 	$to   = storyweb_fb_code_number( storyweb_fb_field( 'to' ) );
 	if ( ! $from || ! $to || $from > $to ) {
-		storyweb_fb_notice( 'error', 'Nhập mã bắt đầu và mã kết thúc, ví dụ TT2D00001 và TT2D00050 (mã đầu không lớn hơn mã cuối).' );
+		storyweb_fb_notice( 'error', 'Nhập mã bắt đầu và mã kết thúc, ví dụ TT2D1 và TT2D50 (mã đầu không lớn hơn mã cuối).' );
 		storyweb_fb_back();
 	}
 	$items = storyweb_fb_stories_in_range( $from, $to );
@@ -645,7 +645,7 @@ function storyweb_fb_admin_queue( $s ) {
 		<input type="hidden" name="action" value="storyweb_fb_queue_start">
 		<?php wp_nonce_field( 'storyweb_fb_queue_start' ); ?>
 		<table class="form-table" role="presentation">
-			<tr><th scope="row">Mã truyện</th><td>từ <input name="from" class="regular-text code" style="width:9em" placeholder="TT2D00001" required> đến <input name="to" class="regular-text code" style="width:9em" placeholder="TT2D00050" required><?php if ( $last > 0 ) : ?><p class="description">Site đang có mã từ <?php echo esc_html( storyweb_code_format( 1 ) ); ?> đến <?php echo esc_html( storyweb_code_format( $last ) ); ?>. Đăng lần lượt theo mã tăng dần.</p><?php endif; ?></td></tr>
+			<tr><th scope="row">Mã truyện</th><td>từ <input name="from" class="regular-text code" style="width:9em" placeholder="TT2D1" required> đến <input name="to" class="regular-text code" style="width:9em" placeholder="TT2D50" required><?php if ( $last > 0 ) : ?><p class="description">Site đang có mã từ <?php echo esc_html( storyweb_code_format( 1 ) ); ?> đến <?php echo esc_html( storyweb_code_format( $last ) ); ?>. Đăng lần lượt theo mã tăng dần.</p><?php endif; ?></td></tr>
 			<tr><th scope="row">Bắt đầu</th><td><input type="datetime-local" name="start"> <span class="description">bỏ trống để đăng bài đầu ngay.</span></td></tr>
 			<tr><th scope="row">Mỗi bài cách</th><td><input type="number" name="every" min="1" value="60" class="small-text"> <select name="unit"><option value="minute">phút</option><option value="hour">giờ</option></select> <span class="description">ít nhất 5 phút. Đăng quá dày dễ bị Facebook coi là spam.</span></td></tr>
 			<tr><th scope="row">Nội dung</th><td>

@@ -24,7 +24,7 @@ add_action(
 );
 
 function storyweb_register_rewrites() {
-	// Upper case too: readers type story codes as printed (/doc/TT2D00001/3/); slugs are matched lower-cased.
+	// Upper case too: readers type story codes as printed (/doc/TT2D1/3/); slugs are matched lower-cased.
 	add_rewrite_rule( '^doc/([A-Za-z0-9-]+)/([0-9]{1,6})/?$', 'index.php?sw_story=$matches[1]&sw_chapter=$matches[2]', 'top' );
 	// Anything else under /doc/ (e.g. /doc/x/2/embed/, /doc/x/) is a real 404, not a fallback to the home page.
 	add_rewrite_rule( '^doc(/.*)?$', 'index.php?sw_doc_404=1', 'top' );

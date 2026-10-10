@@ -1,7 +1,7 @@
 <?php
 /**
- * Mã truyện: published stories are numbered TT2D00001, TT2D00002… The title starts with the code
- * ("TT2D00001 - Tên truyện") and the links use it (/truyen/tt2d00001/, /doc/tt2d00001/3/); old links redirect.
+ * Mã truyện: published stories are numbered TT2D1, TT2D2… The title starts with the code ("TT2D1 - Tên truyện")
+ * and the links use it (/truyen/tt2d1/, /doc/tt2d1/3/); old links, and codes typed in capitals, redirect.
  * The code lives in post meta _sw_code. A story gets the next code when it is first published (wp-admin, block
  * editor, WXR import) and keeps it for good, even if a later story is deleted; saving a title without the prefix, or
  * another slug, puts them back. Titles and slugs are written straight to the database so the story's "updated"
@@ -14,19 +14,18 @@
 defined( 'ABSPATH' ) || exit;
 
 const STORYWEB_CODE_PREFIX = 'TT2D';
-const STORYWEB_CODE_DIGITS = 5;
 const STORYWEB_CODE_SEP    = ' - ';
 const STORYWEB_META_CODE   = '_sw_code';
 /** Next number to hand out (never goes back, so a deleted story's code is not reused). */
 const STORYWEB_CODE_NEXT_OPTION = 'storyweb_code_next';
 
 function storyweb_code_format( $number ) {
-	return STORYWEB_CODE_PREFIX . str_pad( (string) (int) $number, STORYWEB_CODE_DIGITS, '0', STR_PAD_LEFT );
+	return STORYWEB_CODE_PREFIX . (int) $number;
 }
 
-/** The title without a leading code ("TT2D00012 - ", also with –, :, | or nothing between). */
+/** The title without a leading code ("TT2D12 - ", also zero-padded or with –, :, | or nothing between). */
 function storyweb_title_without_code( $title ) {
-	return (string) preg_replace( '/^\s*' . STORYWEB_CODE_PREFIX . '\d{' . STORYWEB_CODE_DIGITS . ',}\s*[-–—:|.]?\s*/u', '', (string) $title );
+	return (string) preg_replace( '/^\s*' . STORYWEB_CODE_PREFIX . '\d+\s*[-–—:|.]?\s*/u', '', (string) $title );
 }
 
 function storyweb_title_with_code( $title, $code ) {
@@ -55,7 +54,7 @@ function storyweb_code_next_number() {
 
 /**
  * Gives `$code` to the story without touching its "updated" time: meta, title prefix, and the slug, so its links
- * become /truyen/tt2d00001/ and /doc/tt2d00001/<n>/. The previous slug is kept as _wp_old_slug: WordPress sends
+ * become /truyen/tt2d1/ and /doc/tt2d1/<n>/. The previous slug is kept as _wp_old_slug: WordPress sends
  * /truyen/<old>/ to the new address and inc/routing.php does the same for /doc/<old>/<n>/.
  */
 function storyweb_set_story_code( $story, $code ) {

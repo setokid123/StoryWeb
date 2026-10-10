@@ -46,8 +46,8 @@ ok("no token or secret printed back in wp-admin", !/PAGE-TOKEN|LONG-USER-TOKEN|S
 ok("story picker lists stories", /Chọn truyện/.test(page.text) && /&amp;story=\d+|&#038;story=\d+/.test(page.text));
 const storyPage = (await get(`/truyen/${S}/`, false)).text;
 const storyId = Number((storyPage.match(/postid-(\d+)/) ?? [])[1]);
-const code = (storyPage.match(/TT2D\d{5}/) ?? [])[0];
-ok("sample story has a code, and its link is the code", /^TT2D\d{5}$/.test(code ?? "") && S === code.toLowerCase(), `${code} ${S}`);
+const code = (storyPage.match(/TT2D\d+/) ?? [])[0];
+ok("sample story has a code, and its link is the code", /^TT2D\d+$/.test(code ?? "") && S === code.toLowerCase(), `${code} ${S}`);
 const list = await get("/wp-admin/edit.php?post_type=story");
 ok("'Đăng Facebook' link under each story in Tất cả truyện", list.text.includes("page=storyweb-facebook&#038;story=") || list.text.includes("page=storyweb-facebook&amp;story="));
 page = await get(`${PAGE}&story=${storyId}`);
@@ -150,13 +150,13 @@ ok("automatic posting form under the story picker", /Tự động đăng theo m�
 const auto = (fields) => post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_start", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_start"), every: "5", unit: "minute", start: local(24 * 60), auto_source: "start", with_cover: "1", hashtags_default: "#TrạmTruyện2D", comment_on: "1", comment_template: "Đọc tiếp {ma_truyen}: {link_doc_tiep}", comment2_on: "1", comment2_template: "Mã {ma_truyen}", ...fields });
 r = await auto({ from: "abc", to: "TT2D00003" });
 ok("range that is not a code → refused", /Nhập mã bắt đầu và mã kết thúc/.test((await get(PAGE)).text) && !(await queueState()).queue);
-r = await auto({ from: "TT2D00001", to: "TT2D00003", every: "2" });
+r = await auto({ from: "TT2D1", to: "TT2D3", every: "2" });
 ok("gap under 5 minutes → refused", /ít nhất 5 phút/.test((await get(PAGE)).text) && !(await queueState()).queue);
 await mock(true);
 r = await auto({ from: "tt2d1", to: "TT2D00003" });
 page = await get(PAGE);
 let state = await queueState();
-ok("run started: 3 stories TT2D00001 → TT2D00003, first post tomorrow (WP-Cron)", /Đã lên lịch tự động đăng 3 truyện \(TT2D00001 → TT2D00003\)/.test(page.text) && state.queue?.status === "running" && state.queue.items.length === 3 && Math.abs(state.scheduled - (Date.now() / 1000 + 86400)) < 120 && /Đang tự động đăng/.test(page.text), JSON.stringify(state.queue?.items));
+ok("run started: 3 stories TT2D1 → TT2D3, first post tomorrow (WP-Cron)", /Đã lên lịch tự động đăng 3 truyện \(TT2D1 → TT2D3\)/.test(page.text) && state.queue?.status === "running" && state.queue.items.length === 3 && Math.abs(state.scheduled - (Date.now() / 1000 + 86400)) < 120 && /Đang tự động đăng/.test(page.text), JSON.stringify(state.queue?.items));
 const posted = [];
 for (let i = 0; i < 3; i++) {
   state = await queueState("&run=1");
@@ -165,13 +165,13 @@ for (let i = 0; i < 3; i++) {
   posted.push({ head: (p?.params.caption ?? "").split("\n")[0], comments: calls.filter((c) => /\/comments$/.test(c.path)).map((c) => c.params.message) });
   if (i === 0) ok("after a post the next one waits the full gap", state.queue.pos === 1 && Math.abs(state.queue.next - (Date.now() / 1000 + 300)) < 60 && state.scheduled >= state.queue.next - 1);
 }
-ok("posted in code order, each with its 2 comments from the templates", posted.every((p, i) => p.head.startsWith(`📖 TT2D0000${i + 1} – `) && p.comments.length === 2 && p.comments[0].startsWith(`Đọc tiếp TT2D0000${i + 1}: ${B}/doc/tt2d0000${i + 1}/1/`) && p.comments[1] === `Mã TT2D0000${i + 1}`), JSON.stringify(posted));
+ok("posted in code order, each with its 2 comments from the templates", posted.every((p, i) => p.head.startsWith(`📖 TT2D${i + 1} – `) && p.comments.length === 2 && p.comments[0].startsWith(`Đọc tiếp TT2D${i + 1}: ${B}/doc/tt2d${i + 1}/1/`) && p.comments[1] === `Mã TT2D${i + 1}`), JSON.stringify(posted));
 ok("run done, no tick left", state.queue.status === "done" && state.scheduled === 0 && /đã xong: đăng 3\/3 truyện/.test((await get(PAGE)).text));
 page = await get(PAGE);
-r = await auto({ from: "TT2D00001", to: "TT2D00003", skip_posted: "1" });
+r = await auto({ from: "TT2D1", to: "TT2D3", skip_posted: "1" });
 ok("'skip stories already posted' → nothing left in that range", /đều đã được đăng/.test((await get(PAGE)).text));
 page = await get(PAGE);
-r = await auto({ from: "TT2D00004", to: "TT2D00005", skip_posted: "1" });
+r = await auto({ from: "TT2D4", to: "TT2D5", skip_posted: "1" });
 await queueState("&break=1");
 state = await queueState("&run=1");
 page = await get(PAGE);
@@ -181,7 +181,7 @@ await mock(true);
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "resume" });
 state = await queueState("&run=1");
 calls = await mock(true);
-ok("resume → posts TT2D00004", state.queue.status === "running" && state.queue.done === 1 && (calls.find((c) => c.path === "111/photos")?.params.caption ?? "").startsWith("📖 TT2D00004"));
+ok("resume → posts TT2D4", state.queue.status === "running" && state.queue.done === 1 && (calls.find((c) => c.path === "111/photos")?.params.caption ?? "").startsWith("📖 TT2D4 "));
 page = await get(PAGE);
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "cancel" });
 state = await queueState();

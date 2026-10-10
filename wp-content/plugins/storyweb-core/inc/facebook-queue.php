@@ -1,6 +1,6 @@
 <?php
 /**
- * Tự động đăng: posts a range of stories to the Page in code order (TT2D00001 → TT2D00050), one every N minutes,
+ * Tự động đăng: posts a range of stories to the Page in code order (TT2D1 → TT2D50), one every N minutes,
  * with the choices of a manual post (content, cover, comments, hashtags). One run at a time, kept in the option
  * storyweb_fb_queue. WP-Cron posts the next story when it is due: WP-Cron runs on site visits, so a post can come a
  * little late, and the gap after each post is always the full interval.
@@ -28,7 +28,7 @@ function storyweb_fb_queue_save( $queue ) {
 	update_option( STORYWEB_FB_QUEUE, $queue, false );
 }
 
-/** The number in a code as typed: "TT2D00012", "tt2d12" or "12". 0 if it is not one. */
+/** The number in a code as typed: "TT2D12", "tt2d12", "TT2D00012" or "12". 0 if it is not one. */
 function storyweb_fb_code_number( $text ) {
 	$prefix = defined( 'STORYWEB_CODE_PREFIX' ) ? STORYWEB_CODE_PREFIX : 'TT2D';
 	return preg_match( '/^\s*(?:' . preg_quote( $prefix, '/' ) . ')?0*(\d{1,5})\s*$/i', (string) $text, $m ) ? (int) $m[1] : 0;

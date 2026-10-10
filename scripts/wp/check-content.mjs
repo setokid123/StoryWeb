@@ -41,7 +41,7 @@ ok("discover: old Next.js genre link (by name) still filters", oldGenre.text.inc
 
 // ---- story codes: links by code, old links and capitals redirect, search by code ----
 const code = S.toUpperCase();
-ok("story link is its code (/truyen/tt2d…/)", /^tt2d\d{5}$/.test(S), S);
+ok("story link is its code (/truyen/tt2d…/)", /^tt2d\d+$/.test(S), S);
 let moved = await get(`/truyen/${ORIG}/`);
 ok("old story link → 301 to the code link", moved.status === 301 && moved.headers.get("location") === `${B}/truyen/${S}/`, `${moved.status} ${moved.headers.get("location")}`);
 moved = await get(`/doc/${ORIG}/2/`);
@@ -49,8 +49,12 @@ ok("old chapter link → 301 to the code link, same chapter", moved.status === 3
 moved = await get(`/doc/${code}/2/`);
 ok("chapter link with the code in capitals → 301 to lower case", moved.status === 301 && moved.headers.get("location") === `${B}/doc/${S}/2/`, `${moved.status} ${moved.headers.get("location")}`);
 ok("redirects never carry the locked body", !moved.text.includes(marker(2)));
-const byCode = await get(`/tim-kiem/?q=${code}`);
-ok("search by code finds the story", byCode.text.includes(`${code} &#8211; Thành Phố Sau Cơn Mưa`) && count(byCode.text, /class="story-card"/g) === 1, `${count(byCode.text, /class="story-card"/g)} result(s)`);
+for (const typed of [code, code.toLowerCase(), code.replace(/\d+$/, (n) => n.padStart(5, "0"))]) {
+  const byCode = await get(`/tim-kiem/?q=${encodeURIComponent(typed)}`);
+  ok(`search "${typed}" opens that story`, byCode.status === 302 && byCode.headers.get("location") === `${B}/truyen/${S}/`, `${byCode.status} ${byCode.headers.get("location")}`);
+}
+const story1 = await get(`/truyen/${S}/`);
+ok("story title starts with its code", story1.text.includes(`${code} &#8211; Thành Phố Sau Cơn Mưa`));
 
 // ---- story detail ----
 const story = await get(`/truyen/${S}/`);

@@ -89,13 +89,13 @@ su -s /bin/sh -c 'php attach-covers.php /tmp/covers' www-data
 
 Để thử trên máy, mount thư mục file WXR vào `/import` và dùng bước `importWxr` của blueprint. Sau đó chạy `FREE=<số chương free> [COMPLETED=1] node scripts/wp/check-import.mjs <thư mục bot>...` (cùng các thư mục đã đưa cho `bot-to-wxr.mjs`): với khoảng 12 truyện, các chương free đọc được, chương kế tiếp khóa và không lộ chữ nào (trang, `<head>`, REST của Yoast, tìm kiếm, feed, sitemap).
 
-## Mã truyện (TT2D00001…)
+## Mã truyện (TT2D1, TT2D2…)
 
-StoryWeb Core 0.4.0 tự đánh mã cho truyện mới khi đăng: tên thành `TT2D00001 - Tên truyện`, link thành `/truyen/tt2d00001/` và `/doc/tt2d00001/3/`. Link cũ chuyển 301 sang link mới. Truyện đã có trên site thì đánh mã một lần trên máy chủ, theo thứ tự cũ nhất trước (theo ID):
+StoryWeb Core 0.4.0 tự đánh mã cho truyện mới khi đăng: tên thành `TT2D1 - Tên truyện`, link thành `/truyen/tt2d1/` và `/doc/tt2d1/3/`. Link cũ chuyển 301 sang link mới. Truyện đã có trên site thì đánh mã một lần trên máy chủ, theo thứ tự cũ nhất trước (theo ID):
 
 ```bash
 su -s /bin/sh -c 'php assign-story-codes.php' www-data              # chạy thử, không ghi gì
-su -s /bin/sh -c 'php assign-story-codes.php --renumber' www-data   # lần đầu: đánh lại từ TT2D00001
+su -s /bin/sh -c 'php assign-story-codes.php --renumber' www-data   # lần đầu: đánh lại từ TT2D1
 su -s /bin/sh -c 'php assign-story-codes.php --remove' www-data     # hoàn tác: bỏ mã, trả lại tên và link cũ
 ```
 

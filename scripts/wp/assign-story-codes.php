@@ -6,10 +6,10 @@
  *
  *   (none)      dry run: what would change, nothing written
  *   --apply     published stories without a code get the next codes, oldest first (by ID)
- *   --renumber  every published story is numbered again from TT2D00001, oldest first (first run on a site)
+ *   --renumber  every published story is numbered again from TT2D1, oldest first (first run on a site)
  *   --remove    codes, title prefixes and code slugs removed, old slugs back, counter reset (undo)
  *
- * Titles and slugs (links become /truyen/tt2d00001/) are written straight to the database: the stories' "updated"
+ * Titles and slugs (links become /truyen/tt2d1/) are written straight to the database: the stories' "updated"
  * time and the home page order do not change. Old links redirect (the previous slug is kept as _wp_old_slug).
  * WP_PATH (default /var/www/html) is the WordPress root.
  *

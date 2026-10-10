@@ -52,6 +52,25 @@ function thu_cac_search_text() {
 	return isset( $_GET['q'] ) ? mb_substr( sanitize_text_field( wp_unslash( $_GET['q'] ) ), 0, 100 ) : '';
 }
 
+// A story code typed in the search box ("TT2D12", "tt2d12", "TT2D00012") opens that story: a plain text search would
+// also list TT2D120, TT2D1200…
+add_action(
+	'template_redirect',
+	static function () {
+		if ( 'search' !== thu_cac_view() || ! defined( 'STORYWEB_CODE_PREFIX' ) ) {
+			return;
+		}
+		if ( ! preg_match( '/^\s*' . preg_quote( STORYWEB_CODE_PREFIX, '/' ) . '\s*0*(\d{1,6})\s*$/i', thu_cac_search_text(), $m ) ) {
+			return;
+		}
+		$story = get_page_by_path( strtolower( STORYWEB_CODE_PREFIX ) . (int) $m[1], OBJECT, 'story' );
+		if ( $story && 'publish' === $story->post_status ) {
+			wp_safe_redirect( get_permalink( $story ), 302 );
+			exit;
+		}
+	}
+);
+
 /** Genre filter from ?the-loai= (term slug, or name for old Next.js links), or null. */
 function thu_cac_search_genre() {
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- public read-only filter.
