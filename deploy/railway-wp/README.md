@@ -62,7 +62,7 @@ Nếu mở domain mà thấy site **đã cài** dù bạn chưa cài: xóa servi
 - `wp-config-railway.php`: nhận HTTPS sau proxy của Railway (tránh lặp chuyển hướng); đặt địa chỉ site theo `SITE_DOMAIN`, nếu không có thì theo domain Railway (khi có `SITE_DOMAIN`, mọi địa chỉ `*.up.railway.app` khác của service chuyển hẳn sang đó bằng 301); cho WordPress cài plugin không cần FTP; tắt trình sửa code PHP trong wp-admin. File được nạp qua biến `WORDPRESS_CONFIG_EXTRA` (xem `entrypoint.sh`). Nếu tự đặt biến này trong Railway, nó thay toàn bộ file.
 - `apache-railway.conf`: tin proxy của Railway (dải `100.64.0.0/10`) để WordPress thấy IP thật của khách. Thiếu file này, mọi người đều mang IP của proxy: plugin chặn đăng nhập sai sẽ khóa tất cả cùng lúc.
 - `php.ini`: tải lên tối đa 32 MB, bộ nhớ 256 MB.
-- `entrypoint.sh`: chỉ bật MPM prefork của Apache (trên Railway, image php-apache có thể khởi động với hai MPM và báo lỗi `AH00534: More than one MPM loaded`), cho Apache nghe cổng `$PORT`, thay theme/plugin trên volume bằng bản trong image.
+- `entrypoint.sh`: chỉ bật MPM prefork của Apache (trên Railway, image php-apache có thể khởi động với hai MPM và báo lỗi `AH00534: More than one MPM loaded`), cho Apache nghe cổng `$PORT`, thay theme/plugin trên volume bằng bản trong image, và chạy ngầm một vòng gọi `wp-cron.php` mỗi phút để việc hẹn giờ của WordPress (bình luận Facebook, tự động đăng) chạy đúng giờ cả khi không có ai vào site.
 
 ## Domain riêng
 

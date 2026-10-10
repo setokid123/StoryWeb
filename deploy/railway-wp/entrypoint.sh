@@ -25,6 +25,21 @@ if [ -e /var/www/html/wp-includes/version.php ]; then
 	done
 fi
 
+# WP-Cron without visitors: WordPress only runs its scheduled jobs when someone loads a page, so Facebook comments
+# and automatic posting could wait for a visit. Call wp-cron.php through Apache once a minute, for as long as the
+# container runs. Visits still trigger it as well; WordPress's own lock keeps two runs from overlapping.
+if [ "${1:-}" = "apache2-foreground" ]; then
+	(
+		sleep 60
+		while true; do
+			curl -fsS -o /dev/null --max-time 300 \
+				-H "Host: ${SITE_DOMAIN:-${RAILWAY_PUBLIC_DOMAIN:-localhost}}" -H "X-Forwarded-Proto: https" \
+				"http://127.0.0.1:${port}/wp-cron.php" || true
+			sleep 60
+		done
+	) &
+fi
+
 # docker-entrypoint.sh copies WordPress into an empty volume and writes wp-config.php from the
 # WORDPRESS_* variables (first boot only, both persist on the volume), then runs apache2-foreground.
 exec docker-entrypoint.sh "$@"
