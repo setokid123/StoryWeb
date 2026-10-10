@@ -108,11 +108,12 @@ const expected = Math.floor((Date.now() + 24 * 3600000) / 60000) * 60;
 ok("schedule tomorrow → unpublished photo with scheduled_publish_time", scheduled?.params.published === "false" && Math.abs(Number(scheduled.params.scheduled_publish_time) - expected) <= 120, `${scheduled?.params.scheduled_publish_time} vs ${expected}`);
 ok("…and no comment yet (the post is not live)", !calls.some((c) => /\/comments$/.test(c.path)));
 const cron = JSON.parse((await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron")).text);
-ok("first comment queued in WP-Cron for 2 minutes after the post goes live", cron.length === 1 && cron[0].args[0] === "111_9001" && cron[0].args[1] === "Bình luận hẹn giờ" && Math.abs(cron[0].time - (expected + 120)) <= 120, JSON.stringify(cron));
+const scheduledPost = cron[0]?.args[0] ?? "";
+ok("first comment queued in WP-Cron for 2 minutes after the post goes live", cron.length === 1 && /^111_\d+$/.test(scheduledPost) && cron[0].args[1] === "Bình luận hẹn giờ" && Math.abs(cron[0].time - (expected + 120)) <= 120, JSON.stringify(cron));
 await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron&run=1");
 calls = await mock(true);
 page = await get(`${PAGE}&story=${storyId}`);
-ok("when WP-Cron runs: comment sent, history updated", calls.some((c) => c.path === "111_9001/comments" && c.params.message === "Bình luận hẹn giờ") && /hẹn [^<]*<\/span><\/td>\s*<td>[^<]*<\/td>\s*<td>[^<]*<\/td>\s*<td>Đã bình luận<\/td>/.test(page.text));
+ok("when WP-Cron runs: comment sent, history updated", calls.some((c) => c.path === `${scheduledPost}/comments` && c.params.message === "Bình luận hẹn giờ") && /hẹn [^<]*<\/span><\/td>\s*<td>[^<]*<\/td>\s*<td>[^<]*<\/td>\s*<td>Đã bình luận<\/td>/.test(page.text));
 
 // ---- comment off, and a new template ----
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about.with, with_cover: "1", when: "", comment: "không gửi", comment_template: "Mẫu mới: {ten_truyen} → {link_truyen}" });
@@ -143,50 +144,97 @@ if (bare) {
   ok("story without a cover → text post with the story link, then its first comment", feed?.params.message === t[key].without && /\/truyen\/[a-z0-9-]+\/$/.test(feed?.params.link ?? "") && !calls.some((c) => c.path === "111/photos") && calls.some((c) => c.path === "111_9002/comments" && c.params.message === "Bình luận bài không ảnh"));
 } else ok("story without a cover found in the sample", false);
 
-// ---- automatic posting by code ----
-const queueState = async (q = "") => JSON.parse((await get(`/wp-admin/admin-ajax.php?action=sw_fb_mock_queue${q}`)).text);
+// ---- story picker: codes smallest first, exact code on top, pages ----
+const pickerCodes = (html) => [...html.matchAll(/<strong>(TT2D\d+) &#8211; /g)].map((m) => m[1]);
 page = await get(PAGE);
-ok("automatic posting form under the story picker", /Tự động đăng theo mã truyện/.test(page.text) && /name="from"/.test(page.text) && /name="every"/.test(page.text) && /id="sw-fb-auto-comment2-template"/.test(page.text));
-const auto = (fields) => post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_start", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_start"), every: "5", unit: "minute", start: local(24 * 60), auto_source: "start", with_cover: "1", hashtags_default: "#TrạmTruyện2D", comment_on: "1", comment_template: "Đọc tiếp {ma_truyen}: {link_doc_tiep}", comment2_on: "1", comment2_template: "Mã {ma_truyen}", ...fields });
+ok("picker lists every story by code, smallest first", pickerCodes(page.text).join(",") === "TT2D1,TT2D2,TT2D3,TT2D4,TT2D5,TT2D6,TT2D7,TT2D8" && /8 truyện/.test(page.text), pickerCodes(page.text).join(","));
+for (const typed of ["TT2D1", "tt2d01", "1"]) {
+  const found = pickerCodes((await get(`${PAGE}&q=${typed}`)).text);
+  ok(`picker search "${typed}" → TT2D1 first (then codes starting with 1)`, found[0] === "TT2D1" && found.length === 1, found.join(","));
+}
+const byTitle = pickerCodes((await get(`${PAGE}&q=${encodeURIComponent("Trăng")}`)).text);
+ok("picker search by title words", byTitle.includes("TT2D2"), byTitle.join(","));
+
+// ---- automatic posting by code: every post scheduled on Facebook when the run is confirmed ----
+const queueState = async (q = "") => JSON.parse((await get(`/wp-admin/admin-ajax.php?action=sw_fb_mock_queue${q}`)).text);
+const cronEvents = async (run = false) => JSON.parse((await get(`/wp-admin/admin-ajax.php?action=sw_fb_mock_cron${run ? "&run=1" : ""}`)).text);
+await cronEvents(true); // nothing left over from the manual posts above
+page = await get(PAGE);
+ok("automatic posting form under the story picker", /Tự động đăng theo mã truyện/.test(page.text) && /name="from"/.test(page.text) && /name="every"/.test(page.text) && /id="sw-fb-auto-comment2-template"/.test(page.text) && /Lên lịch trên Facebook/.test(page.text));
+const auto = (fields) => post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_start", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_start"), every: "2", unit: "hour", start: "", auto_source: "start", with_cover: "1", hashtags_default: "#TrạmTruyện2D", comment_on: "1", comment_template: "Đọc tiếp {ma_truyen}: {link_doc_tiep}", comment2_on: "1", comment2_template: "Mã {ma_truyen}", ...fields });
 r = await auto({ from: "abc", to: "TT2D00003" });
 ok("range that is not a code → refused", /Nhập mã bắt đầu và mã kết thúc/.test((await get(PAGE)).text) && !(await queueState()).queue);
-r = await auto({ from: "TT2D1", to: "TT2D3", every: "2" });
+r = await auto({ from: "TT2D1", to: "TT2D3", every: "2", unit: "minute" });
 ok("gap under 5 minutes → refused", /ít nhất 5 phút/.test((await get(PAGE)).text) && !(await queueState()).queue);
 await mock(true);
+const confirmedAt = Date.now() / 1000;
 r = await auto({ from: "tt2d1", to: "TT2D00003" });
 page = await get(PAGE);
+calls = await mock(true);
 let state = await queueState();
-ok("run started: 3 stories TT2D1 → TT2D3, first post tomorrow (WP-Cron)", /Đã lên lịch tự động đăng 3 truyện \(TT2D1 → TT2D3\)/.test(page.text) && state.queue?.status === "running" && state.queue.items.length === 3 && Math.abs(state.scheduled - (Date.now() / 1000 + 86400)) < 120 && /Đang tự động đăng/.test(page.text), JSON.stringify(state.queue?.items));
-const posted = [];
-for (let i = 0; i < 3; i++) {
-  state = await queueState("&run=1");
-  calls = await mock(true);
-  const p = calls.find((c) => c.path === "111/photos");
-  posted.push({ head: (p?.params.caption ?? "").split("\n")[0], comments: calls.filter((c) => /\/comments$/.test(c.path)).map((c) => c.params.message) });
-  if (i === 0) ok("after a post the next one waits the full gap", state.queue.pos === 1 && Math.abs(state.queue.next - (Date.now() / 1000 + 300)) < 60 && state.scheduled >= state.queue.next - 1);
-}
-ok("posted in code order, each with its 2 comments from the templates", posted.every((p, i) => p.head.startsWith(`📖 TT2D${i + 1} – `) && p.comments.length === 2 && p.comments[0].startsWith(`Đọc tiếp TT2D${i + 1}: ${B}/doc/tt2d${i + 1}/1/`) && p.comments[1] === `Mã TT2D${i + 1}`), JSON.stringify(posted));
-ok("run done, no tick left", state.queue.status === "done" && state.scheduled === 0 && /đã xong: đăng 3\/3 truyện/.test((await get(PAGE)).text));
+const photos = calls.filter((c) => c.path === "111/photos");
+const t0 = state.queue?.start ?? 0;
+ok("confirming sends all 3 posts to Facebook as scheduled posts, 2 hours apart", photos.length === 3 && photos.every((c, i) => c.params.published === "false" && Number(c.params.scheduled_publish_time) === t0 + i * 7200) && state.queue.status === "scheduled", JSON.stringify(photos.map((c) => c.params.scheduled_publish_time)));
+ok("no start time → first post 15 minutes after confirming (Facebook needs 10)", t0 >= confirmedAt + 14 * 60 && t0 <= confirmedAt + 16 * 60, `${t0 - confirmedAt}s`);
+ok("in code order, read-on link moved to the comment", photos.every((c, i) => c.params.caption.startsWith(`📖 TT2D${i + 1} – `) && !c.params.caption.includes("👉")), photos.map((c) => c.params.caption.split("\n")[0]).join(" | "));
+ok("no comment yet: Facebook cannot schedule comments", !calls.some((c) => /\/comments$/.test(c.path)));
+let events = await cronEvents();
+ok("each post's 2 comments wait in WP-Cron, 2 and 3 minutes after it goes live", events.length === 6 && [0, 1, 2].every((i) => events.some((e) => e.time === t0 + i * 7200 + 120 && e.args[1] === `Đọc tiếp TT2D${i + 1}: ${B}/doc/tt2d${i + 1}/1/`) && events.some((e) => e.time === t0 + i * 7200 + 180 && e.args[1] === `Mã TT2D${i + 1}`)), JSON.stringify(events.map((e) => [e.time - t0, e.args[1]])));
+ok("page: all scheduled, with cancel", /Đã lên lịch hết trên Facebook/.test(page.text) && /Hủy và xóa các bài chưa đăng/.test(page.text) && state.scheduled === 0);
+const stepped = JSON.parse((await post("/wp-admin/admin-ajax.php", { action: "storyweb_fb_queue_step", _ajax_nonce: "bad" })).text || "null");
+ok("batch endpoint refuses a bad nonce", stepped === -1 || stepped === null);
+await cronEvents(true);
+calls = await mock(true);
+ok("when WP-Cron runs, the comments go on their posts", calls.filter((c) => /^111_\d+\/comments$/.test(c.path)).length === 6);
+page = await get(PAGE);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "cancel" });
+calls = await mock(true);
+ok("cancel → the 3 posts not yet live deleted on Facebook, run gone", calls.filter((c) => c.method === "DELETE").length === 3 && !(await queueState()).queue && /Đã xóa 3 bài chưa đăng/.test((await get(PAGE)).text));
+
+// ---- longer than Facebook's 75 days: the rest waits ----
+page = await get(PAGE);
+r = await auto({ from: "TT2D4", to: "TT2D8", every: "720", unit: "hour", comment2_on: "" });
+state = await queueState();
+calls = await mock(true);
+page = await get(PAGE);
+ok("a post every 30 days: 3 scheduled (0, 30, 60 days), the rest waits for Facebook's 75-day window", calls.filter((c) => c.path === "111/photos").length === 3 && state.queue.status === "running" && state.queue.waiting === true && /chỉ nhận lịch trong 75 ngày/.test(page.text) && Math.abs(state.scheduled - (state.queue.start + 90 * 86400 - (75 * 86400 - 3600) + 60)) < 5);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "cancel" });
+await mock(true);
+await cronEvents(true);
+await mock(true);
+
+// ---- skip posted, Facebook error, resume ----
 page = await get(PAGE);
 r = await auto({ from: "TT2D1", to: "TT2D3", skip_posted: "1" });
 ok("'skip stories already posted' → nothing left in that range", /đều đã được đăng/.test((await get(PAGE)).text));
-page = await get(PAGE);
-r = await auto({ from: "TT2D4", to: "TT2D5", skip_posted: "1" });
 await queueState("&break=1");
-state = await queueState("&run=1");
 page = await get(PAGE);
-ok("Facebook error → run paused with the error, nothing skipped", state.queue.status === "paused" && state.queue.pos === 0 && /Tạm dừng vì lỗi/.test(page.text) && state.scheduled === 0);
+r = await auto({ from: "TT2D7", to: "TT2D8", skip_posted: "" });
+state = await queueState();
+page = await get(PAGE);
+ok("Facebook error → run paused with the error, nothing skipped", state.queue.status === "paused" && state.queue.pos === 0 && /Tạm dừng vì lỗi/.test(page.text));
 await queueState("&fix=1");
 await mock(true);
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "resume" });
-state = await queueState("&run=1");
+state = await queueState();
 calls = await mock(true);
-ok("resume → posts TT2D4", state.queue.status === "running" && state.queue.done === 1 && (calls.find((c) => c.path === "111/photos")?.params.caption ?? "").startsWith("📖 TT2D4 "));
+const scheduledCalls = (list) => list.filter((c) => (c.path === "111/photos" || c.path === "111/feed") && c.params.published === "false");
+ok("resume → both scheduled on Facebook (no covers: text posts with the link)", state.queue.status === "scheduled" && scheduledCalls(calls).length === 2);
+
+// ---- a run made before Facebook scheduling: switch it ----
+await queueState("&legacy=1");
+page = await get(PAGE);
+ok("old WP-Cron run shows 'Chuyển sang lịch Facebook'", /Đang tự động đăng/.test(page.text) && /value="to_facebook"/.test(page.text));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "to_facebook" });
+state = await queueState();
+calls = await mock(true);
+const switched = scheduledCalls(calls);
+ok("switched: its posts scheduled on Facebook from its next time (tomorrow)", state.queue.status === "scheduled" && switched.length === 2 && Math.abs(Number(switched[0].params.scheduled_publish_time) - (Date.now() / 1000 + 86400)) < 120, JSON.stringify(switched.map((c) => c.params.scheduled_publish_time)));
 page = await get(PAGE);
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "cancel" });
-state = await queueState();
-ok("cancel → run gone, no tick left", !state.queue && state.scheduled === 0);
+await cronEvents(true);
 await mock(true);
+ok("cancel → nothing left", !(await queueState()).queue);
 
 // ---- disconnect, then a pasted Page token ----
 page = await get(PAGE);

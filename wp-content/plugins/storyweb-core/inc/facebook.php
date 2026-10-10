@@ -22,6 +22,9 @@ const STORYWEB_FB_LOG    = 'storyweb_fb_log';
 const STORYWEB_FB_MAX_TEXT = 60000;
 /** Free chapters offered as a source (a story marked "all free" would otherwise list hundreds). */
 const STORYWEB_FB_MAX_CHAPTERS = 10;
+/** Facebook schedules posts 10 minutes to 75 days ahead; keep a margin on both ends. */
+const STORYWEB_FB_SCHEDULE_MIN   = 11 * MINUTE_IN_SECONDS;
+const STORYWEB_FB_SCHEDULE_AHEAD = 75 * DAY_IN_SECONDS - HOUR_IN_SECONDS;
 /** Facebook takes up to 8,000 characters in a comment. */
 const STORYWEB_FB_MAX_COMMENT = 8000;
 /** First comment template; {placeholders} from storyweb_fb_comment_vars(). */
@@ -74,6 +77,8 @@ function storyweb_fb_request( $method, $path, $params ) {
 	);
 	if ( 'GET' === $method ) {
 		$response = wp_remote_get( $url . '?' . http_build_query( $params, '', '&', PHP_QUERY_RFC3986 ), $args );
+	} elseif ( 'DELETE' === $method ) {
+		$response = wp_remote_request( $url . '?' . http_build_query( $params, '', '&', PHP_QUERY_RFC3986 ), $args + array( 'method' => 'DELETE' ) );
 	} else {
 		$args['body'] = $params;
 		$response     = wp_remote_post( $url, $args );
@@ -337,15 +342,18 @@ function storyweb_fb_publish( $story, $message, $with_cover, $when = 0 ) {
 	if ( $cover ) {
 		$result = storyweb_fb_request( 'POST', rawurlencode( $s['page_id'] ) . '/photos', $params + array( 'url' => $cover, 'caption' => $message ) );
 		$id     = is_wp_error( $result ) ? '' : (string) ( $result['post_id'] ?? $result['id'] ?? '' );
+		$object = is_wp_error( $result ) ? '' : (string) ( $result['id'] ?? $id );
 	} else {
 		$result = storyweb_fb_request( 'POST', rawurlencode( $s['page_id'] ) . '/feed', $params + array( 'message' => $message, 'link' => get_permalink( $story ) ) );
 		$id     = is_wp_error( $result ) ? '' : (string) ( $result['id'] ?? '' );
+		$object = $id;
 	}
 	if ( is_wp_error( $result ) ) {
 		return $result;
 	}
 	return array(
 		'post_id'   => $id,
+		'object_id' => $object, // the photo for a photo post: what DELETE takes to remove a scheduled one
 		'scheduled' => (int) $when,
 	);
 }

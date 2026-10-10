@@ -159,8 +159,8 @@ function storyweb_fb_admin_publish() {
 		} catch ( Exception $e ) {
 			$at = -1;
 		}
-		if ( $at < time() + 10 * MINUTE_IN_SECONDS || $at > time() + 30 * DAY_IN_SECONDS ) {
-			storyweb_fb_notice( 'error', 'Giờ hẹn phải cách bây giờ từ 10 phút đến 30 ngày.' );
+		if ( $at < time() + 10 * MINUTE_IN_SECONDS || $at > time() + STORYWEB_FB_SCHEDULE_AHEAD ) {
+			storyweb_fb_notice( 'error', 'Giờ hẹn phải cách bây giờ từ 10 phút đến 75 ngày.' );
 			storyweb_fb_back( array( 'story' => $story->ID ) );
 		}
 	}
@@ -296,38 +296,98 @@ function storyweb_fb_admin_connect_form() {
 	<?php
 }
 
+/**
+ * Stories for the picker, best first. A code ("TT2D1", "tt2d01", "1") lists that story, then every code that starts
+ * with those digits, smallest first (TT2D1, TT2D10…TT2D19, TT2D100…); words search the titles, best match first;
+ * nothing typed lists every story by code, smallest first.
+ *
+ * @return int[]
+ */
+function storyweb_fb_find_stories( $search ) {
+	global $wpdb;
+	$prefix  = defined( 'STORYWEB_CODE_PREFIX' ) ? STORYWEB_CODE_PREFIX : 'TT2D';
+	$search  = trim( (string) $search );
+	$by_code = static function ( $digits ) use ( $wpdb, $prefix ) {
+		return array_map(
+			'intval',
+			$wpdb->get_col(
+				$wpdb->prepare(
+					"SELECT p.ID FROM {$wpdb->postmeta} m JOIN {$wpdb->posts} p ON p.ID = m.post_id WHERE m.meta_key = %s AND m.meta_value LIKE %s AND p.post_type = 'story' AND p.post_status = 'publish' ORDER BY CAST(SUBSTRING(m.meta_value, %d) AS UNSIGNED) ASC, p.ID ASC",
+					defined( 'STORYWEB_META_CODE' ) ? STORYWEB_META_CODE : '_sw_code',
+					$wpdb->esc_like( $prefix . $digits ) . '%',
+					strlen( $prefix ) + 1
+				)
+			)
+		);
+	};
+	if ( '' === $search || 0 === strcasecmp( $search, $prefix ) ) {
+		return $by_code( '' );
+	}
+	if ( preg_match( '/^(?:' . preg_quote( $prefix, '/' ) . ')?\s*0*(\d{1,6})$/i', $search, $m ) ) {
+		return $by_code( $m[1] );
+	}
+	return array_map(
+		'intval',
+		get_posts(
+			array(
+				'post_type'      => 'story',
+				'post_status'    => 'publish',
+				's'              => $search,
+				'orderby'        => 'relevance',
+				'posts_per_page' => 500,
+				'fields'         => 'ids',
+				'no_found_rows'  => true,
+			)
+		)
+	);
+}
+
 function storyweb_fb_admin_picker( $search ) {
-	$query = new WP_Query(
+	$ids      = storyweb_fb_find_stories( $search );
+	$per_page = 20;
+	$pages    = max( 1, (int) ceil( count( $ids ) / $per_page ) );
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only page number.
+	$current = min( $pages, max( 1, isset( $_GET['trang'] ) ? absint( $_GET['trang'] ) : 1 ) );
+	$shown   = array_slice( $ids, ( $current - 1 ) * $per_page, $per_page );
+	if ( $shown ) {
+		_prime_post_caches( $shown );
+	}
+	$links = paginate_links(
 		array(
-			'post_type'      => 'story',
-			'post_status'    => 'publish',
-			'posts_per_page' => 15,
-			's'              => $search,
-			'orderby'        => '' === $search ? 'modified' : 'relevance',
-			'no_found_rows'  => true,
+			'base'      => add_query_arg( 'trang', '%#%', storyweb_fb_admin_url( '' !== $search ? array( 'q' => $search ) : array() ) ),
+			'format'    => '',
+			'current'   => $current,
+			'total'     => $pages,
+			'prev_text' => '‹ Trước',
+			'next_text' => 'Sau ›',
 		)
 	);
 	?>
 	<h2>Chọn truyện</h2>
 	<form method="get" action="<?php echo esc_url( admin_url( 'edit.php' ) ); ?>">
 		<input type="hidden" name="post_type" value="story"><input type="hidden" name="page" value="storyweb-facebook">
-		<input type="search" name="q" value="<?php echo esc_attr( $search ); ?>" class="regular-text" placeholder="Tên truyện…"> <button class="button">Tìm</button>
+		<input type="search" name="q" value="<?php echo esc_attr( $search ); ?>" class="regular-text" placeholder="Mã (TT2D12) hoặc tên truyện…"> <button class="button">Tìm</button>
 	</form>
-	<p class="description">Hoặc ở <strong>Truyện → Tất cả truyện</strong>, rê chuột lên một truyện và bấm <strong>Đăng Facebook</strong>.</p>
-	<table class="widefat striped" style="max-width:900px;margin-top:12px">
+	<p class="description">Gõ mã thì truyện đúng mã lên đầu, sau đó các mã bắt đầu bằng số đó, nhỏ trước. Hoặc ở <strong>Truyện → Tất cả truyện</strong>, rê chuột lên một truyện và bấm <strong>Đăng Facebook</strong>.</p>
+	<p data-picker-count><?php echo esc_html( sprintf( '%s truyện', number_format_i18n( count( $ids ) ) ) ); ?><?php echo $pages > 1 ? esc_html( sprintf( ', trang %d/%d', $current, $pages ) ) : ''; ?></p>
+	<table class="widefat striped" style="max-width:900px">
 		<tbody>
-		<?php foreach ( $query->posts as $post ) : ?>
+		<?php foreach ( $shown as $id ) : ?>
+			<?php $post = get_post( $id ); ?>
 			<tr>
 				<td style="width:56px"><?php echo get_the_post_thumbnail( $post, array( 48, 69 ), array( 'style' => 'width:48px;height:auto;border-radius:6px' ) ); ?></td>
 				<td><strong><?php echo esc_html( get_the_title( $post ) ); ?></strong><br><span class="description"><?php echo (int) storyweb_story_meta( $post )['chapter_count']; ?> chương</span></td>
 				<td style="text-align:right"><a class="button" href="<?php echo esc_url( storyweb_fb_admin_url( array( 'story' => $post->ID ) ) ); ?>">Chọn</a></td>
 			</tr>
 		<?php endforeach; ?>
-		<?php if ( ! $query->posts ) : ?>
+		<?php if ( ! $shown ) : ?>
 			<tr><td>Không thấy truyện nào.</td></tr>
 		<?php endif; ?>
 		</tbody>
 	</table>
+	<?php if ( $links ) : ?>
+		<div class="tablenav" style="max-width:900px"><div class="tablenav-pages" style="float:none;margin:10px 0"><span class="pagination-links"><?php echo wp_kses_post( $links ); ?></span></div></div>
+	<?php endif; ?>
 	<?php
 }
 
@@ -377,7 +437,7 @@ function storyweb_fb_admin_composer( $story, $s ) {
 			<p class="description"><span id="sw-fb-count">0</span> / <?php echo (int) STORYWEB_FB_MAX_TEXT; ?> ký tự. Đổi lựa chọn ở trên sẽ thay nội dung trong ô này.</p>
 			<?php storyweb_fb_admin_comment_boxes( $s, $texts[ $first ]['vars'] ?? array() ); ?>
 			<p><label for="sw-fb-tags">Hashtag mặc định</label><br><input id="sw-fb-tags" name="hashtags_default" value="<?php echo esc_attr( $s['hashtags'] ); ?>" class="regular-text"> <span class="description">dùng cho các bài sau; thể loại của truyện được thêm tự động.</span></p>
-			<p><label for="sw-fb-when">Hẹn giờ đăng (bỏ trống để đăng ngay)</label><br><input id="sw-fb-when" type="datetime-local" name="when"> <span class="description">giờ Việt Nam, từ 10 phút đến 30 ngày tới.</span></p>
+			<p><label for="sw-fb-when">Hẹn giờ đăng (bỏ trống để đăng ngay)</label><br><input id="sw-fb-when" type="datetime-local" name="when"> <span class="description">giờ Việt Nam, từ 10 phút đến 75 ngày tới (Facebook giữ bài và tự đăng đúng giờ).</span></p>
 			<?php submit_button( 'Đăng lên Facebook', 'primary', 'submit', false ); ?>
 		</div>
 	</form>
@@ -520,7 +580,8 @@ function storyweb_fb_admin_queue_start() {
 		storyweb_fb_notice( 'error', 'Khoảng cách giữa hai bài ít nhất 5 phút.' );
 		storyweb_fb_back();
 	}
-	$start = time();
+	// Facebook takes scheduled posts from 10 minutes ahead: the first post is at least 15 minutes after confirming.
+	$start = time() + STORYWEB_FB_QUEUE_LEAD;
 	$when  = storyweb_fb_field( 'start' );
 	if ( '' !== $when ) {
 		try {
@@ -528,25 +589,30 @@ function storyweb_fb_admin_queue_start() {
 		} catch ( Exception $e ) {
 			$start = 0;
 		}
-		if ( $start < time() - MINUTE_IN_SECONDS || $start > time() + 60 * DAY_IN_SECONDS ) {
-			storyweb_fb_notice( 'error', 'Giờ bắt đầu phải từ bây giờ đến 60 ngày tới (bỏ trống để bắt đầu ngay).' );
+		if ( $start < time() - MINUTE_IN_SECONDS || $start > time() + STORYWEB_FB_SCHEDULE_AHEAD ) {
+			storyweb_fb_notice( 'error', 'Giờ bắt đầu phải từ bây giờ đến 75 ngày tới (bỏ trống để bắt đầu sau 15 phút).' );
 			storyweb_fb_back();
 		}
+		$start = max( $start, time() + STORYWEB_FB_QUEUE_LEAD );
 	}
 	$source = storyweb_fb_field( 'auto_source' );
 	storyweb_fb_remember_post_settings( storyweb_fb_field( 'hashtags_default' ) );
 	$s     = storyweb_fb_settings();
 	$queue = array(
+		'mode'              => 'facebook',
 		'items'             => $items,
 		'pos'               => 0,
 		'done'              => 0,
 		'skipped'           => 0,
 		'status'            => 'running',
+		'waiting'           => false,
 		'error'             => '',
 		'from'              => $from,
 		'to'                => $to,
 		'interval'          => $interval,
-		'next'              => $start,
+		'start'             => $start,
+		'next'              => time(),
+		'posts'             => array(),
 		'last'              => 0,
 		'created'           => time(),
 		'source'            => in_array( $source, array( 'about', 'start', 'chapter' ), true ) ? $source : 'about',
@@ -559,11 +625,12 @@ function storyweb_fb_admin_queue_start() {
 	);
 	// phpcs:enable
 	storyweb_fb_queue_save( $queue );
-	storyweb_fb_queue_schedule( $queue );
+	// First batch now; the page sends the rest (admin-ajax), WP-Cron finishes if it is closed.
+	storyweb_fb_queue_step( 5 );
 	storyweb_fb_notice(
 		'success',
 		sprintf(
-			'Đã lên lịch tự động đăng %d truyện (%s → %s). Bài đầu lúc %s, mỗi bài cách %s.',
+			'Đang lên lịch %d truyện (%s → %s) trên Facebook. Bài đầu lúc %s, mỗi bài cách %s.',
 			count( $items ),
 			storyweb_code_format( $from ),
 			storyweb_code_format( $to ),
@@ -586,10 +653,15 @@ function storyweb_fb_admin_queue_control() {
 	$queue = storyweb_fb_queue();
 	$do    = storyweb_fb_field( 'do' );
 	if ( 'cancel' === $do ) {
-		delete_option( STORYWEB_FB_QUEUE );
-		wp_clear_scheduled_hook( STORYWEB_FB_QUEUE_HOOK );
-		storyweb_fb_notice( 'success', 'Đã hủy lượt tự động đăng. Các bài đã đăng vẫn giữ trên Page.' );
-	} elseif ( $queue && 'pause' === $do && 'running' === $queue['status'] ) {
+		$counts = storyweb_fb_queue_cancel();
+		$text   = 'Đã hủy lượt tự động đăng.';
+		$text  .= $counts['deleted'] ? sprintf( ' Đã xóa %d bài chưa đăng khỏi lịch Facebook.', $counts['deleted'] ) : '';
+		$text  .= $counts['failed'] ? sprintf( ' %d bài chưa xóa được: vào Meta Business Suite → Nội dung → Đã lên lịch để xóa.', $counts['failed'] ) : '';
+		storyweb_fb_notice( $counts['failed'] ? 'warning' : 'success', $text . ' Các bài đã lên vẫn giữ trên Page.' );
+	} elseif ( $queue && 'to_facebook' === $do ) {
+		storyweb_fb_queue_to_facebook();
+		storyweb_fb_notice( 'success', 'Đã chuyển sang lịch Facebook: các bài còn lại được gửi lên Facebook kèm giờ đăng.' );
+	} elseif ( $queue && 'pause' === $do && 'running' === $queue['status'] && 'cron' === storyweb_fb_queue_mode( $queue ) ) {
 		$queue['status'] = 'paused';
 		storyweb_fb_queue_save( $queue );
 		storyweb_fb_queue_schedule( $queue );
@@ -597,56 +669,101 @@ function storyweb_fb_admin_queue_control() {
 	} elseif ( $queue && 'resume' === $do && 'paused' === $queue['status'] ) {
 		$queue['status'] = 'running';
 		$queue['error']  = '';
-		$queue['next']   = max( time(), (int) $queue['next'] );
-		storyweb_fb_queue_save( $queue );
-		storyweb_fb_queue_schedule( $queue );
+		if ( 'facebook' === storyweb_fb_queue_mode( $queue ) ) {
+			storyweb_fb_queue_save( $queue );
+			storyweb_fb_queue_step( 5 );
+		} else {
+			$queue['next'] = max( time(), (int) $queue['next'] );
+			storyweb_fb_queue_save( $queue );
+			storyweb_fb_queue_schedule( $queue );
+		}
 		storyweb_fb_notice( 'success', 'Đã tiếp tục tự động đăng.' );
 	}
 	storyweb_fb_back();
 }
 
-/** Status of the current run with its buttons, or the form to start one. */
+// The admin page sends a Facebook-scheduled run to Facebook in small batches while it is open.
+add_action(
+	'wp_ajax_storyweb_fb_queue_step',
+	static function () {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( null, 403 );
+		}
+		check_ajax_referer( 'storyweb_fb_queue_step' );
+		$queue = storyweb_fb_queue_step( 5 );
+		wp_send_json(
+			array(
+				'status'  => (string) ( $queue['status'] ?? '' ),
+				'done'    => (int) ( $queue['done'] ?? 0 ),
+				'total'   => count( (array) ( $queue['items'] ?? array() ) ),
+				'waiting' => ! empty( $queue['waiting'] ),
+				'error'   => (string) ( $queue['error'] ?? '' ),
+			)
+		);
+	}
+);
+
+/** Status of the current run with its buttons, and the form to start one when none is in progress. */
 function storyweb_fb_admin_queue( $s ) {
 	$queue = storyweb_fb_queue();
 	$last  = function_exists( 'storyweb_code_next_number' ) ? storyweb_code_next_number() - 1 : 0;
+	$range = $queue ? storyweb_code_format( $queue['from'] ) . ' → ' . storyweb_code_format( $queue['to'] ) : '';
+	$total = $queue ? count( $queue['items'] ) : 0;
 	?>
 	<h2>Tự động đăng theo mã truyện</h2>
-	<?php if ( $queue && in_array( $queue['status'], array( 'running', 'paused' ), true ) ) : ?>
-		<?php
-		$total = count( $queue['items'] );
-		$next  = get_post( (int) ( $queue['items'][ $queue['pos'] ] ?? 0 ) );
-		?>
+	<?php if ( $queue && in_array( $queue['status'], array( 'running', 'paused' ), true ) && 'facebook' === storyweb_fb_queue_mode( $queue ) ) : ?>
 		<div class="notice inline notice-<?php echo 'running' === $queue['status'] ? 'info' : 'warning'; ?>" style="padding:12px 16px;max-width:860px" data-queue="<?php echo esc_attr( $queue['status'] ); ?>">
-			<p><strong><?php echo 'running' === $queue['status'] ? 'Đang tự động đăng' : 'Đã tạm dừng'; ?></strong> <?php echo esc_html( storyweb_code_format( $queue['from'] ) . ' → ' . storyweb_code_format( $queue['to'] ) ); ?>: đã đăng <strong><?php echo (int) $queue['done']; ?>/<?php echo (int) $total; ?></strong> truyện<?php echo $queue['skipped'] ? esc_html( sprintf( ', bỏ qua %d (không có nội dung để đăng)', $queue['skipped'] ) ) : ''; ?>, mỗi bài cách <?php echo esc_html( storyweb_fb_duration( $queue['interval'] ) ); ?>.</p>
+			<p><strong><?php echo 'running' === $queue['status'] ? 'Đang lên lịch trên Facebook' : 'Đã tạm dừng'; ?></strong> <?php echo esc_html( $range ); ?>: đã lên lịch <strong data-queue-done><?php echo (int) $queue['done']; ?></strong>/<?php echo (int) $total; ?> bài<?php echo $queue['skipped'] ? esc_html( sprintf( ', bỏ qua %d (không có nội dung để đăng)', $queue['skipped'] ) ) : ''; ?>, mỗi bài cách <?php echo esc_html( storyweb_fb_duration( $queue['interval'] ) ); ?>, bài đầu lúc <?php echo esc_html( wp_date( 'H:i d/m/Y', (int) $queue['start'] ) ); ?>.</p>
+			<?php if ( ! empty( $queue['waiting'] ) ) : ?>
+				<p>Facebook chỉ nhận lịch trong 75 ngày tới: các bài còn lại tự được gửi lên lịch từ <?php echo esc_html( wp_date( 'd/m/Y', (int) $queue['next'] ) ); ?>.</p>
+			<?php elseif ( 'running' === $queue['status'] ) : ?>
+				<p data-queue-step data-nonce="<?php echo esc_attr( wp_create_nonce( 'storyweb_fb_queue_step' ) ); ?>">Đang gửi lịch lên Facebook… Cứ để trang này mở; đóng trang thì site tự gửi nốt trong vài phút.</p>
+			<?php endif; ?>
+			<?php if ( ! empty( $queue['error'] ) ) : ?>
+				<p style="color:#b32d2e">Tạm dừng vì lỗi: <?php echo esc_html( $queue['error'] ); ?></p>
+			<?php endif; ?>
+			<?php storyweb_fb_admin_queue_buttons( $queue ); ?>
+			<p class="description">Facebook giữ lịch và tự đăng đúng giờ (xem trong Meta Business Suite → Nội dung → Đã lên lịch). Bình luận thì Facebook không cho hẹn giờ: site gửi vài phút sau khi mỗi bài lên.</p>
+		</div>
+		<?php storyweb_fb_admin_queue_script(); ?>
+		<?php return; ?>
+	<?php endif; ?>
+	<?php if ( $queue && in_array( $queue['status'], array( 'running', 'paused' ), true ) ) : ?>
+		<?php $next = get_post( (int) ( $queue['items'][ $queue['pos'] ] ?? 0 ) ); ?>
+		<div class="notice inline notice-<?php echo 'running' === $queue['status'] ? 'info' : 'warning'; ?>" style="padding:12px 16px;max-width:860px" data-queue="<?php echo esc_attr( $queue['status'] ); ?>">
+			<p><strong><?php echo 'running' === $queue['status'] ? 'Đang tự động đăng' : 'Đã tạm dừng'; ?></strong> <?php echo esc_html( $range ); ?>: đã đăng <strong><?php echo (int) $queue['done']; ?>/<?php echo (int) $total; ?></strong> truyện<?php echo $queue['skipped'] ? esc_html( sprintf( ', bỏ qua %d (không có nội dung để đăng)', $queue['skipped'] ) ) : ''; ?>, mỗi bài cách <?php echo esc_html( storyweb_fb_duration( $queue['interval'] ) ); ?>.</p>
 			<?php if ( $next ) : ?>
 				<p>Bài tiếp theo: <strong><?php echo esc_html( get_the_title( $next ) ); ?></strong><?php echo 'running' === $queue['status'] ? esc_html( ' lúc ' . wp_date( 'H:i d/m/Y', max( time(), (int) $queue['next'] ) ) ) : ''; ?>.</p>
 			<?php endif; ?>
 			<?php if ( ! empty( $queue['error'] ) ) : ?>
 				<p style="color:#b32d2e">Tạm dừng vì lỗi: <?php echo esc_html( $queue['error'] ); ?></p>
 			<?php endif; ?>
-			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:flex;gap:8px">
-				<input type="hidden" name="action" value="storyweb_fb_queue_control">
-				<?php wp_nonce_field( 'storyweb_fb_queue_control' ); ?>
-				<?php if ( 'running' === $queue['status'] ) : ?>
-					<button class="button" name="do" value="pause">Tạm dừng</button>
-				<?php else : ?>
-					<button class="button button-primary" name="do" value="resume">Tiếp tục</button>
-				<?php endif; ?>
-				<button class="button button-link-delete" name="do" value="cancel" onclick="return confirm('Hủy lượt tự động đăng?')">Hủy</button>
-			</form>
-			<p class="description">Cron của WordPress chạy khi có người vào site, nên bài có thể lên trễ vài phút; sau mỗi bài luôn cách đủ khoảng đã chọn.</p>
+			<p>Lượt này đang được site tự đăng khi tới giờ (cần có người vào site). Chuyển sang <strong>lịch Facebook</strong> để Facebook giữ các bài còn lại và đăng đúng giờ.</p>
+			<?php storyweb_fb_admin_queue_buttons( $queue ); ?>
 		</div>
 		<?php return; ?>
 	<?php endif; ?>
+	<?php if ( $queue && 'scheduled' === $queue['status'] ) : ?>
+		<?php
+		$end  = storyweb_fb_queue_last_time( $queue );
+		$live = count( array_filter( (array) $queue['posts'], static fn( $post ) => (int) $post['at'] <= time() ) );
+		?>
+		<div class="notice inline notice-success" style="padding:12px 16px;max-width:860px" data-queue="scheduled">
+			<p><strong>Đã lên lịch hết trên Facebook</strong> <?php echo esc_html( $range ); ?>: <?php echo (int) $queue['done']; ?> bài<?php echo $queue['skipped'] ? esc_html( sprintf( ' (bỏ qua %d)', $queue['skipped'] ) ) : ''; ?>, bài cuối lúc <?php echo esc_html( wp_date( 'H:i d/m/Y', $end ) ); ?>. Đã lên Page: <?php echo (int) $live; ?>/<?php echo (int) $queue['done']; ?>.</p>
+			<?php if ( $end > time() ) : ?>
+				<?php storyweb_fb_admin_queue_buttons( $queue ); ?>
+			<?php endif; ?>
+		</div>
+	<?php endif; ?>
 	<?php if ( $queue && 'done' === $queue['status'] ) : ?>
-		<p>Lượt trước (<?php echo esc_html( storyweb_code_format( $queue['from'] ) . ' → ' . storyweb_code_format( $queue['to'] ) ); ?>) đã xong: đăng <?php echo (int) $queue['done']; ?>/<?php echo (int) count( $queue['items'] ); ?> truyện.</p>
+		<p>Lượt trước (<?php echo esc_html( $range ); ?>) đã xong: đăng <?php echo (int) $queue['done']; ?>/<?php echo (int) $total; ?> truyện.</p>
 	<?php endif; ?>
 	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="storyweb-fb-auto" style="max-width:860px">
 		<input type="hidden" name="action" value="storyweb_fb_queue_start">
 		<?php wp_nonce_field( 'storyweb_fb_queue_start' ); ?>
 		<table class="form-table" role="presentation">
 			<tr><th scope="row">Mã truyện</th><td>từ <input name="from" class="regular-text code" style="width:9em" placeholder="TT2D1" required> đến <input name="to" class="regular-text code" style="width:9em" placeholder="TT2D50" required><?php if ( $last > 0 ) : ?><p class="description">Site đang có mã từ <?php echo esc_html( storyweb_code_format( 1 ) ); ?> đến <?php echo esc_html( storyweb_code_format( $last ) ); ?>. Đăng lần lượt theo mã tăng dần.</p><?php endif; ?></td></tr>
-			<tr><th scope="row">Bắt đầu</th><td><input type="datetime-local" name="start"> <span class="description">bỏ trống để đăng bài đầu ngay.</span></td></tr>
+			<tr><th scope="row">Bắt đầu</th><td><input type="datetime-local" name="start"> <span class="description">bỏ trống thì bài đầu sau 15 phút (Facebook nhận lịch từ 10 phút tới 75 ngày tới).</span></td></tr>
 			<tr><th scope="row">Mỗi bài cách</th><td><input type="number" name="every" min="1" value="60" class="small-text"> <select name="unit"><option value="minute">phút</option><option value="hour">giờ</option></select> <span class="description">ít nhất 5 phút. Đăng quá dày dễ bị Facebook coi là spam.</span></td></tr>
 			<tr><th scope="row">Nội dung</th><td>
 				<label><input type="radio" name="auto_source" value="about" checked> Giới thiệu truyện</label><br>
@@ -659,7 +776,52 @@ function storyweb_fb_admin_queue( $s ) {
 			<tr><th scope="row"><label for="sw-fb-auto-tags">Hashtag</label></th><td><input id="sw-fb-auto-tags" name="hashtags_default" value="<?php echo esc_attr( $s['hashtags'] ); ?>" class="regular-text"> <span class="description">thể loại của từng truyện được thêm tự động.</span></td></tr>
 		</table>
 		<?php storyweb_fb_admin_comment_boxes( $s, null, 'sw-fb-auto' ); ?>
-		<?php submit_button( 'Bắt đầu tự động đăng' ); ?>
+		<?php submit_button( 'Lên lịch trên Facebook' ); ?>
 	</form>
+	<?php
+}
+
+/** The run's buttons: resume (paused), pause (WP-Cron run), switch to Facebook scheduling (WP-Cron run), cancel. */
+function storyweb_fb_admin_queue_buttons( $queue ) {
+	$facebook = 'facebook' === storyweb_fb_queue_mode( $queue );
+	?>
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:flex;gap:8px;flex-wrap:wrap">
+		<input type="hidden" name="action" value="storyweb_fb_queue_control">
+		<?php wp_nonce_field( 'storyweb_fb_queue_control' ); ?>
+		<?php if ( 'paused' === $queue['status'] ) : ?>
+			<button class="button button-primary" name="do" value="resume">Tiếp tục</button>
+		<?php endif; ?>
+		<?php if ( ! $facebook && in_array( $queue['status'], array( 'running', 'paused' ), true ) ) : ?>
+			<button class="button button-primary" name="do" value="to_facebook">Chuyển sang lịch Facebook</button>
+			<?php if ( 'running' === $queue['status'] ) : ?>
+				<button class="button" name="do" value="pause">Tạm dừng</button>
+			<?php endif; ?>
+		<?php endif; ?>
+		<button class="button button-link-delete" name="do" value="cancel" onclick="return confirm('<?php echo esc_js( $facebook ? 'Hủy lượt này và xóa các bài chưa đăng khỏi lịch Facebook?' : 'Hủy lượt tự động đăng?' ); ?>')"><?php echo $facebook ? 'Hủy và xóa các bài chưa đăng' : 'Hủy'; ?></button>
+	</form>
+	<?php
+}
+
+/** While a Facebook-scheduled run is being sent, the page sends the next batch, then the next, and reloads at the end. */
+function storyweb_fb_admin_queue_script() {
+	?>
+	<script>
+	( function () {
+		var box = document.querySelector( '[data-queue-step]' );
+		if ( ! box || ! window.fetch ) { return; }
+		var done = document.querySelector( '[data-queue-done]' );
+		var step = function () {
+			var body = new URLSearchParams( { action: 'storyweb_fb_queue_step', _ajax_nonce: box.dataset.nonce } );
+			fetch( window.ajaxurl, { method: 'POST', credentials: 'same-origin', body: body } )
+				.then( function ( response ) { return response.json(); } )
+				.then( function ( data ) {
+					if ( done ) { done.textContent = data.done; }
+					if ( 'running' === data.status && ! data.waiting && ! data.error ) { setTimeout( step, 300 ); } else { window.location.reload(); }
+				} )
+				.catch( function () { setTimeout( step, 5000 ); } );
+		};
+		setTimeout( step, 500 );
+	} )();
+	</script>
 	<?php
 }

@@ -20,7 +20,7 @@ add_filter(
 		parse_str( $parts['query'] ?? '', $query );
 		$path   = preg_replace( '#^/v[0-9.]+/#', '', $parts['path'] ?? '' );
 		$method = strtoupper( $args['method'] ?? 'GET' );
-		$params = 'GET' === $method ? $query : (array) $args['body'];
+		$params = in_array( $method, array( 'GET', 'DELETE' ), true ) ? $query : (array) $args['body'];
 		$log    = get_option( 'sw_fb_mock_log', array() );
 		$log[]  = array(
 			'method' => $method,
@@ -66,7 +66,19 @@ add_filter(
 			return $page_ok ? $reply( array( 'id' => '111', 'name' => 'Trạm Truyện 2D' ) ) : $error( 190, 'Invalid OAuth access token.' );
 		}
 		if ( '111/photos' === $path ) {
-			return $page_ok ? $reply( array( 'id' => '9001', 'post_id' => '111_9001' ) ) : $error( 190, 'Invalid OAuth access token.' );
+			if ( ! $page_ok ) {
+				return $error( 190, 'Invalid OAuth access token.' );
+			}
+			// Each scheduled (unpublished) photo gets its own id, so cancelling can delete them one by one.
+			if ( 'false' === (string) ( $params['published'] ?? '' ) ) {
+				$n = (int) get_option( 'sw_fb_mock_n', 0 ) + 1;
+				update_option( 'sw_fb_mock_n', $n, false );
+				return $reply( array( 'id' => (string) ( 9100 + $n ), 'post_id' => '111_' . ( 9100 + $n ) ) );
+			}
+			return $reply( array( 'id' => '9001', 'post_id' => '111_9001' ) );
+		}
+		if ( 'DELETE' === $method && preg_match( '#^(111_)?\d+$#', $path ) ) {
+			return $page_ok ? $reply( array( 'success' => true ) ) : $error( 190, 'Invalid OAuth access token.' );
 		}
 		if ( '111/feed' === $path ) {
 			return $page_ok ? $reply( array( 'id' => '111_9002' ) ) : $error( 190, 'Invalid OAuth access token.' );
@@ -122,6 +134,19 @@ add_action(
 			$s               = storyweb_fb_settings();
 			$s['page_token'] = ! empty( $_GET['break'] ) ? 'BROKEN' : 'PAGE-TOKEN-111';
 			storyweb_fb_save_settings( $s );
+		}
+		// legacy=1: the current run becomes one made before Facebook scheduling (WP-Cron posts it, first post tomorrow).
+		if ( ! empty( $_GET['legacy'] ) && storyweb_fb_queue() ) {
+			$queue           = storyweb_fb_queue();
+			$queue['mode']   = 'cron';
+			$queue['status'] = 'running';
+			$queue['pos']    = 0;
+			$queue['done']   = 0;
+			$queue['posts']  = array();
+			$queue['next']   = time() + DAY_IN_SECONDS;
+			unset( $queue['start'] );
+			storyweb_fb_queue_save( $queue );
+			storyweb_fb_queue_schedule( $queue );
 		}
 		if ( ! empty( $_GET['run'] ) && storyweb_fb_queue() ) {
 			$queue         = storyweb_fb_queue();
