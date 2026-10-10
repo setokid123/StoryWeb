@@ -37,7 +37,7 @@ const state = {
   dockPinned: false,
   endNavInView: false,
   mode: "pinned", // toolbarMode preference: "pinned" | "auto"
-  scroll: { atTop: true, moved: false, toolbarHidden: false, dockShown: false },
+  scroll: { atTop: true, moved: false, toolbarHidden: false },
 };
 
 // ---------- storage-safe helpers ----------
@@ -344,11 +344,11 @@ function update() {
   }
 }
 
-const sample = () => ({ y: window.scrollY, viewportHeight: window.innerHeight, documentHeight: document.documentElement.scrollHeight });
+const sample = () => ({ y: window.scrollY });
 let scrollState = initialScrollState(sample(), DEFAULT_SCROLL_CONFIG);
 let frame = 0;
 const publish = () => {
-  const next = { atTop: scrollState.atTop, moved: scrollState.moved, toolbarHidden: scrollState.toolbarHidden, dockShown: scrollState.dockShown };
+  const next = { atTop: scrollState.atTop, moved: scrollState.moved, toolbarHidden: scrollState.toolbarHidden };
   if (Object.keys(next).some((key) => next[key] !== state.scroll[key])) {
     state.scroll = next;
     update();

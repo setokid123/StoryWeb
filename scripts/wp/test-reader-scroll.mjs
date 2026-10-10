@@ -1,5 +1,6 @@
 // Unit tests for the reader toolbar/dock logic (reader-core.js), in both toolbar modes the reader can choose:
-// "pinned" (default: everything stays within reach) and "auto" ("Không ghim": hide on the way down, show on the way up).
+// "pinned" (default: everything stays within reach) and "auto" ("Không ghim": the top bars hide on the way down and
+// come back on the way up; the dock stays pinned in both).
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { DEFAULT_SCROLL_CONFIG as C, initialScrollState, nextScrollState, resolveReaderChrome } from "../../wp-content/themes/thu-cac/assets/js/reader-core.js";
@@ -38,19 +39,19 @@ test("pinned: end navigation on screen hides the dock, also on a short chapter a
   assert.equal(resolveReaderChrome({ ...pinned, scroll: initialScrollState(at(0, 900)), endNavInView: true }).dockVisible, false);
 });
 
-// ---------- "auto" ("Không ghim") ----------
+// ---------- "auto" ("Không ghim"): only the top bars hide, the dock stays pinned ----------
 
-test("auto: at the top the toolbar is in place and the dock hidden", () => {
-  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: initialScrollState(at(0)) }), { toolbar: "top", dockVisible: false });
+test("auto: at the top the toolbar is in place and the dock already visible", () => {
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: initialScrollState(at(0)) }), { toolbar: "top", dockVisible: true });
 });
 
-test("auto: scrolling down hides toolbar and dock", () => {
+test("auto: scrolling down hides the toolbar but never the dock", () => {
   const s = run([0, 100, 300, 600, 900]);
   assert.equal(s.toolbarHidden, true);
-  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: s }), { toolbar: "hidden", dockVisible: false });
+  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: s }), { toolbar: "hidden", dockVisible: true });
 });
 
-test("auto: scrolling up far enough shows both; small jitter does not flicker", () => {
+test("auto: scrolling up far enough shows the toolbar; small jitter does not flicker", () => {
   const jitter = run([0, 600, 1200, 2000, 1990, 1995, 1985, 1992, 2000 - C.showAfter + 1]);
   assert.equal(jitter.toolbarHidden, true, "less than showAfter upward travel keeps it hidden");
   const up = run([0, 600, 1200, 2000, 1980, 1950, 2000 - C.showAfter]);
@@ -65,22 +66,17 @@ test("auto: travel is measured from where the direction changed, not per frame",
   assert.equal(run(steps).toolbarHidden, false);
 });
 
-test("auto: back at the top → toolbar in place, dock hidden; near the end the dock comes back", () => {
-  const top = run([0, 2000, 1000, 400, 50]);
-  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: top }), { toolbar: "top", dockVisible: false });
-  const end = DOC - VIEW;
-  const s = run([0, 2000, 5000, end - 300, end - 100]);
-  assert.deepEqual(resolveReaderChrome({ ...auto, scroll: s }), { toolbar: "hidden", dockVisible: true });
-  assert.equal(resolveReaderChrome({ ...auto, scroll: s, endNavInView: true }).dockVisible, false);
+test("auto: back at the top the toolbar is in place; the end navigation still hides the dock", () => {
+  assert.equal(resolveReaderChrome({ ...auto, scroll: run([0, 2000, 1000, 400, 50]) }).toolbar, "top");
+  assert.equal(resolveReaderChrome({ ...auto, scroll: run([0, 2000, 5000]), endNavInView: true }).dockVisible, false);
 });
 
-test("auto: keyboard focus and the preferences panel keep the toolbar; focus return keeps the dock", () => {
+test("auto: keyboard focus and the preferences panel keep the toolbar", () => {
   const hidden = run([0, 600, 1200, 2000]);
   assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, toolbarFocused: true }).toolbar, "pinned");
   assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, preferencesOpen: true }).toolbar, "pinned");
   assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, toolbarPinned: true }).toolbar, "pinned");
-  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, dockFocused: true }).dockVisible, true);
-  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, dockPinned: true, endNavInView: true }).dockVisible, true);
+  assert.equal(resolveReaderChrome({ ...auto, scroll: hidden, dockPinned: true, endNavInView: true }).dockVisible, true, "focus return wins over the end-nav rule");
 });
 
 // ---------- both ----------

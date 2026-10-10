@@ -130,10 +130,10 @@ try {
   await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); const p = t.querySelector('p'); for (let i = 0; i < 40; i++) t.appendChild(p.cloneNode(true)); })()"); await sleep(200);
   for (const y of [300, 700, 1200]) await scrollTo(y);
   st = await chrome_state();
-  check("'Không ghim': scrolling down hides toolbar and dock", st.toolbar === "hidden" && st.toolbarInert && !st.dockVisible && st.dockInert, JSON.stringify(st));
+  check("'Không ghim': scrolling down hides the toolbar, the dock stays pinned", st.toolbar === "hidden" && st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
   await scrollTo(1170); await scrollTo(1100);
   st = await chrome_state();
-  check("'Không ghim': scrolling up brings both back", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
+  check("'Không ghim': scrolling up brings the toolbar back, dock still there", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
   await evaluate("localStorage.removeItem('storyweb:reader-prefs:v1')");
 
   // Locked chapter: gate focused, Tab trapped, Escape goes back to the story.

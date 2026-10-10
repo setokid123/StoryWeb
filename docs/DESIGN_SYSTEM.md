@@ -57,7 +57,7 @@ Bẫy cần nhớ:
 | Tác giả / đánh giá trống | `thu_cac_story()` | Không có tác giả: "Chưa rõ tác giả" (không viết "Đang cập nhật", dễ nhầm với trạng thái truyện). Không có đánh giá: ẩn ngôi sao. |
 | Đăng truyện | `header.php` | Chỉ hiện với tài khoản được viết bài; khách không thấy link vào wp-admin. |
 | Đọc tiếp | `site.js` | Nút "Đọc tiếp chương N" từ `storyweb:progress:<slug>` trên máy người đọc. |
-| Trang đọc | `single-chapter.php` | Ánh bìa mờ phía sau, toolbar kính, giấy kính, thanh tiến độ cuộn (CSS scroll-timeline), dock kính. Mặc định **Ghim**: header và toolbar luôn ghim trên cùng, phía sau có dải kính mờ trải ngang (`.reader-veil`, hiện khi đã cuộn); dock luôn ở đáy từ lúc mở trang, chỉ nhường chỗ khi thanh điều hướng cuối chương hiện ra hoặc khi mở danh sách chương/tùy chỉnh/cổng khóa. Người đọc chọn **Không ghim** trong Tùy chỉnh đọc (`toolbarMode`): các thanh tự ẩn khi cuộn xuống, hiện lại khi cuộn lên. Logic: `resolveReaderChrome()` trong `reader-core.js`, có test. |
+| Trang đọc | `single-chapter.php` | Ánh bìa mờ phía sau, toolbar kính, giấy kính, thanh tiến độ cuộn (CSS scroll-timeline), dock kính. Mặc định **Ghim**: header và toolbar luôn ghim trên cùng, phía sau có dải kính mờ trải ngang (`.reader-veil`, hiện khi đã cuộn); dock luôn ở đáy từ lúc mở trang, chỉ nhường chỗ khi thanh điều hướng cuối chương hiện ra hoặc khi mở danh sách chương/tùy chỉnh/cổng khóa. Người đọc chọn **Không ghim** trong Tùy chỉnh đọc (`toolbarMode`, mục "Header khi cuộn"): chỉ header và toolbar tự ẩn khi cuộn xuống, hiện lại khi cuộn lên; dock luôn ghim ở cả hai chế độ. Logic: `resolveReaderChrome()` trong `reader-core.js`, có test. |
 
 ## Kiểm tra khi sửa giao diện
 

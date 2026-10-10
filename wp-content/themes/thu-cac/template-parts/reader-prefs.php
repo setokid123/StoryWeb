@@ -93,14 +93,14 @@ $thu_cac_pref_btn = static function ( $pref, $value, $label, $attrs = '', $class
 			</div>
 		</section>
 		<section class="pref-section">
-			<div class="pref-section__title" id="pref-toolbar-title">Thanh công cụ khi cuộn</div>
+			<div class="pref-section__title" id="pref-toolbar-title">Header khi cuộn</div>
 			<div class="pref-segmented" role="group" aria-labelledby="pref-toolbar-title" aria-describedby="pref-toolbar-hint">
 				<?php
 				$thu_cac_pref_btn( 'toolbarMode', 'pinned', thu_cac_icon( 'pin', 17 ) . ' Ghim' );
 				$thu_cac_pref_btn( 'toolbarMode', 'auto', thu_cac_icon( 'pin-off', 17 ) . ' Không ghim' );
 				?>
 			</div>
-			<p class="pref-hint" id="pref-toolbar-hint">Không ghim: các thanh tự ẩn khi cuộn xuống, cuộn lên là hiện lại.</p>
+			<p class="pref-hint" id="pref-toolbar-hint">Không ghim: header và thanh Mục lục tự ẩn khi cuộn xuống, cuộn lên là hiện lại. Thanh chuyển chương ở dưới luôn được ghim.</p>
 		</section>
 	</div>
 	<footer class="reader-prefs__footer">
