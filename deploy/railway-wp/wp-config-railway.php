@@ -33,6 +33,11 @@ if ( ! defined( 'DISABLE_WP_CRON' ) && 'cli' !== PHP_SAPI ) {
 	define( 'DISABLE_WP_CRON', true );
 }
 
+// Pages get 128 MB (WordPress's default for the front end is 40 MB; php.ini allows 256 MB, which wp-admin uses).
+if ( ! defined( 'WP_MEMORY_LIMIT' ) ) {
+	define( 'WP_MEMORY_LIMIT', '128M' );
+}
+
 // The web server owns the files, so plugins and updates install without FTP.
 if ( ! defined( 'FS_METHOD' ) ) {
 	define( 'FS_METHOD', 'direct' );
