@@ -33,7 +33,9 @@ railway add --service wordpress --repo setokid123/StoryWeb --branch main \
   --variables 'WORDPRESS_DB_PASSWORD=${{MySQL.MYSQLPASSWORD}}' \
   --variables 'WORDPRESS_DB_NAME=${{MySQL.MYSQLDATABASE}}' \
   --variables 'PORT=8080'
-railway volume add --service wordpress --mount-path /var/www/html
+railway service link wordpress
+railway volume add --mount-path /var/www/html
+railway volume list        # kiểm tra: wordpress-volume, Attached to: wordpress, Mount path: /var/www/html
 railway domain --service wordpress --port 8080
 ```
 
@@ -59,7 +61,7 @@ Nếu mở domain mà thấy site **đã cài** dù bạn chưa cài: xóa servi
 
 - `wp-config-railway.php`: nhận HTTPS sau proxy của Railway (tránh lặp chuyển hướng); đặt địa chỉ site theo `SITE_DOMAIN`, nếu không có thì theo domain Railway; cho WordPress cài plugin không cần FTP; tắt trình sửa code PHP trong wp-admin. File được nạp qua biến `WORDPRESS_CONFIG_EXTRA` (xem `entrypoint.sh`). Nếu tự đặt biến này trong Railway, nó thay toàn bộ file.
 - `php.ini`: tải lên tối đa 32 MB, bộ nhớ 256 MB.
-- `entrypoint.sh`: cho Apache nghe cổng `$PORT`, thay theme/plugin trên volume bằng bản trong image.
+- `entrypoint.sh`: chỉ bật MPM prefork của Apache (trên Railway, image php-apache có thể khởi động với hai MPM và báo lỗi `AH00534: More than one MPM loaded`), cho Apache nghe cổng `$PORT`, thay theme/plugin trên volume bằng bản trong image.
 
 ## Domain riêng
 
