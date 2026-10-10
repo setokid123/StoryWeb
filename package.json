@@ -1,38 +1,13 @@
 {
-  "name": "storyweb",
+  "name": "thu-cac-wordpress",
   "version": "0.1.0",
   "private": true,
+  "description": "Website đọc truyện Thư Các trên WordPress: theme thu-cac + plugin storyweb-core.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "test:unit": "node --experimental-strip-types --no-warnings --test scripts/test-reader-preferences.mjs scripts/test-reader-scroll.mjs scripts/test-unlock-link-url.mjs scripts/test-rewarded-flow.mjs",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
-  },
-  "dependencies": {
-    "dotenv": "18.0.3",
-    "drizzle-kit": "0.31.11",
-    "drizzle-orm": "0.45.3",
-    "lucide-react": "1.47.0",
-    "next": "16.3.6",
-    "pg": "8.23.0",
-    "railway": "^3.11.0",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
-  },
-  "devDependencies": {
-    "@types/node": "26.6.2",
-    "@types/pg": "8.23.1",
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0",
-    "eslint": "9.39.5",
-    "eslint-config-next": "16.3.6",
-    "typescript": "6.0.3"
+    "test": "node --test scripts/wp/test-reader-preferences.mjs scripts/wp/test-reader-scroll.mjs",
+    "package": "node scripts/wp/package.mjs"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=20"
   }
 }

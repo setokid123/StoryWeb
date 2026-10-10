@@ -1,12 +1,23 @@
-# Claude Code — StoryWeb
+# Claude Code — Thư Các (WordPress)
 
-Đọc `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/ADS_UNLOCK_PLAN.md`, `docs/WORKBOARD.md` trước khi sửa. PostgreSQL/Drizzle và CMS hiện đã hoạt động. Việc đang mở nằm trên workboard; assignment mới (nếu có) ở `docs/assignments/`, việc cũ (B1, M2–M5) ở `docs/archive/`.
+Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs/WORDPRESS_DEPLOY.md` và `docs/reviews/WP1_THEME_PORT_2026-10-10.md` trước khi sửa.
 
-Các lệnh: `npm run dev`, `npm run typecheck`, `npm run lint`, `npm run build`, `npm run db:generate`, `npm run db:migrate`.
+- `wp-content/themes/thu-cac` — **giao diện** (PHP template + CSS + JS thuần). Chỉ trình bày.
+- `wp-content/plugins/storyweb-core` — **logic**: truyện/chương, đường dẫn, và **khóa chương phía máy chủ**. Luật truy cập nằm ở plugin, không ở theme: đổi theme không được làm lộ chương khóa.
 
-Claude Code chịu trách nhiệm code **toàn bộ logic dự án**, cả client state và server: dữ liệu, xác thực, API, validation, CMS, quyền đọc, cài đặt admin và tích hợp quảng cáo. Antigravity thiết kế/code view và CSS; Claude nhận view qua typed props rồi ghép vào container/routes. Nhận task trên workboard, ghi file sẽ sở hữu và trạng thái. Không sửa CSS/design tokens hoặc package lock khi Antigravity/Codex đang làm cùng khu vực. Nội dung chương khóa phải được kiểm tra quyền trên server trước khi trả body. Luồng click vẫn tắt mặc định và link Shopee chỉ được bật sau chấp thuận riêng. Quảng cáo có thưởng chưa có provider xác minh web thì không được cấp quyền production.
+## Quy tắc
 
-Dùng MCP Context7 và Memory theo `docs/MCP_TOOLS.md` (server khai báo trong `.mcp.json`): tra Memory khi nhận việc, tra Context7 trước khi code API thư viện, ghi Memory khi bàn giao.
-Trong mỗi worktree, kiểm tra `/mcp` để xác nhận `context7` và `memory` đã kết nối. Ghi trên workboard query Context7 (hoặc lý do không cần), Memory đã tra/cập nhật, và lỗi kết nối nếu có.
+- **Chương khóa không bao giờ được gửi body xuống client** khi chưa có quyền — kể cả qua HTML, REST, RSS, embed, sitemap. Khi sửa, chạy lại `scripts/wp/check-content.mjs` để chắc không lộ.
+- Giá trị hiển thị do admin nhập phải được `esc_*` khi in ra; dữ liệu vào phải `sanitize_*`. Truy vấn DB dùng `$wpdb->prepare`.
+- Logic trang đọc (tùy chỉnh đọc, ẩn/hiện toolbar) là JS thuần trong `assets/js/reader-core.js`, có unit test (`npm test`). Sửa logic thì cập nhật test.
+- Mở khóa bằng link chưa được port; khi làm, giữ kiểm tra phía server và thêm **giới hạn tần suất** theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`.
 
-Khi bàn giao, cập nhật workboard với: thay đổi, lệnh kiểm tra, lỗi còn lại, contract API/props và env để Codex/Antigravity tích hợp.
+## Kiểm tra
+
+- `npm test` — logic trang đọc.
+- WordPress Playground + 3 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin): xem `scripts/wp/README.md`.
+- Đóng gói tải lên wp-admin: `node scripts/wp/package.mjs`.
+
+## MCP Context7 và Memory
+
+Theo `docs/MCP_TOOLS.md` (khai báo trong `.mcp.json`): tra Memory khi nhận việc, tra Context7 trước khi dùng API thư viện, ghi Memory khi bàn giao.

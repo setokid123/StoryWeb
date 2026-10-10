@@ -8,7 +8,7 @@ import {
   parseReaderPreferences as parse,
   readerBodyStyle,
   serializeReaderPreferences as serialize,
-} from "../wp-content/themes/thu-cac/assets/js/reader-core.js";
+} from "../../wp-content/themes/thu-cac/assets/js/reader-core.js";
 
 test("nothing stored → defaults", () => {
   assert.deepEqual(parse(null, null), D);
