@@ -1,7 +1,8 @@
 <?php
 /**
  * Đăng Facebook: posts a story to the admin's Facebook Page through the Graph API. The story cover is the photo; the
- * text is the story description, the start of chapter 1 or a whole free chapter, with a link back to the site.
+ * text is the story description, the start of chapter 1 or a whole free chapter, with a link back to the site, or
+ * that link in a first comment the Page posts right after (from a template; for a scheduled post, by WP-Cron).
  * Only FREE chapters can be a source: a locked chapter must never reach the public, Facebook included.
  *
  * Connection (Truyện → Đăng Facebook, inc/facebook-admin.php): the admin pastes a short-lived User token from the
@@ -21,21 +22,27 @@ const STORYWEB_FB_LOG    = 'storyweb_fb_log';
 const STORYWEB_FB_MAX_TEXT = 60000;
 /** Free chapters offered as a source (a story marked "all free" would otherwise list hundreds). */
 const STORYWEB_FB_MAX_CHAPTERS = 10;
+/** Facebook takes up to 8,000 characters in a comment. */
+const STORYWEB_FB_MAX_COMMENT = 8000;
+/** First comment template; {placeholders} from storyweb_fb_comment_vars(). */
+const STORYWEB_FB_COMMENT_TEMPLATE = "👉 {doc_tiep}: {link_doc_tiep}\n📚 Theo dõi Trạm Truyện 2D để đọc truyện hay mỗi ngày!";
 
 function storyweb_fb_graph_base() {
 	return (string) apply_filters( 'storyweb_fb_graph_base', 'https://graph.facebook.com/v26.0' );
 }
 
-/** @return array{page_id:string,page_name:string,page_token:string,connected_at:int,hashtags:string} */
+/** @return array{page_id:string,page_name:string,page_token:string,connected_at:int,hashtags:string,comment_on:bool,comment_template:string} */
 function storyweb_fb_settings() {
 	$saved = get_option( STORYWEB_FB_OPTION, array() );
 	return array_merge(
 		array(
-			'page_id'      => '',
-			'page_name'    => '',
-			'page_token'   => '',
-			'connected_at' => 0,
-			'hashtags'     => '#TrạmTruyện2D',
+			'page_id'          => '',
+			'page_name'        => '',
+			'page_token'       => '',
+			'connected_at'     => 0,
+			'hashtags'         => '#TrạmTruyện2D',
+			'comment_on'       => true,
+			'comment_template' => STORYWEB_FB_COMMENT_TEMPLATE,
 		),
 		is_array( $saved ) ? $saved : array()
 	);
@@ -251,13 +258,16 @@ function storyweb_fb_hashtags( $story ) {
 	return $tags;
 }
 
-/** The post text for `$source`: title, (chapter), text, "read on" link, hashtags; cut to Facebook's limit. */
-function storyweb_fb_message( $story, $source ) {
+/**
+ * The post text for `$source`: title, (chapter), text, "read on" link (left out when the first comment carries it),
+ * hashtags; cut to Facebook's limit.
+ */
+function storyweb_fb_message( $story, $source, $with_link = true ) {
 	$title = html_entity_decode( get_the_title( $story ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
 	$head  = '📖 ' . $title . ( $source['chapter'] ? ' · Chương ' . $source['chapter'] : '' );
-	$foot  = "\n\n👉 " . $source['more'] . ': ' . $source['link'];
 	$tags  = storyweb_fb_hashtags( $story );
-	$foot .= '' !== $tags ? "\n" . $tags : '';
+	$foot  = $with_link ? "\n\n👉 " . $source['more'] . ': ' . $source['link'] : '';
+	$foot .= '' !== $tags ? ( $with_link ? "\n" : "\n\n" ) . $tags : '';
 	$room  = STORYWEB_FB_MAX_TEXT - mb_strlen( $head ) - mb_strlen( $foot ) - 2;
 	$text  = $source['text'];
 	if ( mb_strlen( $text ) > $room ) {
@@ -336,8 +346,80 @@ function storyweb_fb_publish( $story, $message, $with_cover, $when = 0 ) {
 	);
 }
 
+/** Values for the first comment template's {placeholders}. @return array<string,string> */
+function storyweb_fb_comment_vars( $story, $source ) {
+	return array(
+		'ten_truyen'    => html_entity_decode( get_the_title( $story ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ),
+		'doc_tiep'      => $source['more'],
+		'link_doc_tiep' => $source['link'],
+		'link_truyen'   => get_permalink( $story ),
+	);
+}
+
+/** `$template` with {placeholders} filled in. */
+function storyweb_fb_render_comment( $template, $vars ) {
+	$pairs = array();
+	foreach ( $vars as $key => $value ) {
+		$pairs[ '{' . $key . '}' ] = $value;
+	}
+	return trim( strtr( (string) $template, $pairs ) );
+}
+
+/**
+ * Comments on a post (or photo) as the Page. Needs the pages_manage_engagement permission.
+ *
+ * @return string|WP_Error The comment ID.
+ */
+function storyweb_fb_comment( $object_id, $message ) {
+	$s       = storyweb_fb_settings();
+	$message = trim( (string) $message );
+	if ( ! storyweb_fb_connected() || '' === $message || '' === (string) $object_id ) {
+		return new WP_Error( 'storyweb_fb_comment', 'Thiếu bài hoặc nội dung bình luận.' );
+	}
+	$result = storyweb_fb_request(
+		'POST',
+		rawurlencode( (string) $object_id ) . '/comments',
+		array(
+			'access_token' => $s['page_token'],
+			'message'      => mb_substr( $message, 0, STORYWEB_FB_MAX_COMMENT ),
+		)
+	);
+	if ( is_wp_error( $result ) ) {
+		return new WP_Error( $result->get_error_code(), $result->get_error_message() . ' (Page cần quyền pages_manage_engagement: thêm quyền cho app, lấy mã mới rồi kết nối lại.)' );
+	}
+	return (string) ( $result['id'] ?? '' );
+}
+
+// A scheduled post can only be commented on once Facebook has published it: WP-Cron comments a little later.
+add_action(
+	'storyweb_fb_scheduled_comment',
+	static function ( $object_id, $message ) {
+		$result = storyweb_fb_comment( $object_id, $message );
+		storyweb_fb_log_update( $object_id, array( 'comment' => is_wp_error( $result ) ? 'Lỗi: ' . $result->get_error_message() : 'Đã bình luận' ) );
+	},
+	10,
+	2
+);
+
+/** Schedules the first comment of a post that Facebook publishes at `$when`. */
+function storyweb_fb_schedule_comment( $object_id, $message, $when ) {
+	wp_schedule_single_event( (int) $when + 2 * MINUTE_IN_SECONDS, 'storyweb_fb_scheduled_comment', array( (string) $object_id, (string) $message ) );
+}
+
+/** Updates the "Đã đăng" row of `$post_id`. */
+function storyweb_fb_log_update( $post_id, $fields ) {
+	$log = get_option( STORYWEB_FB_LOG, array() );
+	foreach ( is_array( $log ) ? $log : array() as $i => $row ) {
+		if ( (string) $row['post_id'] === (string) $post_id ) {
+			$log[ $i ] = array_merge( $row, $fields );
+			update_option( STORYWEB_FB_LOG, $log, false );
+			return;
+		}
+	}
+}
+
 /** Remembers a post for the "Đã đăng" list (newest first, last 30). */
-function storyweb_fb_log( $story, $label, $post_id, $scheduled ) {
+function storyweb_fb_log( $story, $label, $post_id, $scheduled, $comment = '' ) {
 	$log = get_option( STORYWEB_FB_LOG, array() );
 	$log = is_array( $log ) ? $log : array();
 	array_unshift(
@@ -348,6 +430,7 @@ function storyweb_fb_log( $story, $label, $post_id, $scheduled ) {
 			'source'    => (string) $label,
 			'post_id'   => (string) $post_id,
 			'scheduled' => (int) $scheduled,
+			'comment'   => (string) $comment,
 		)
 	);
 	update_option( STORYWEB_FB_LOG, array_slice( $log, 0, 30 ), false );

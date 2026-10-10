@@ -36,7 +36,7 @@ node scripts/wp/check-content.mjs     # số truyện, tìm kiếm, phân trang;
 OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
 WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
 WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 28 kiểm tra mở khóa bằng link
-WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 28 kiểm tra Truyện → Đăng Facebook
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 38 kiểm tra Truyện → Đăng Facebook (cả bình luận đầu tiên)
 ```
 
 `check-facebook.mjs` cần `mock-facebook.php` làm must-use plugin của site thử (nó trả lời thay Facebook và ghi lại các lệnh gọi). Thêm bước sau vào cuối blueprint, **không bao giờ** cài file này lên site thật:

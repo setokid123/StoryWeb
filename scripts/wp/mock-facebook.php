@@ -71,10 +71,42 @@ add_filter(
 		if ( '111/feed' === $path ) {
 			return $page_ok ? $reply( array( 'id' => '111_9002' ) ) : $error( 190, 'Invalid OAuth access token.' );
 		}
+		if ( preg_match( '#^(111_\d+)/comments$#', $path, $m ) ) {
+			if ( ! $page_ok ) {
+				return $error( 190, 'Invalid OAuth access token.' );
+			}
+			// A comment containing FAIL-COMMENT plays a token without pages_manage_engagement.
+			return false !== strpos( (string) ( $params['message'] ?? '' ), 'FAIL-COMMENT' )
+				? $error( 200, '(#200) Permissions error' )
+				: $reply( array( 'id' => $m[1] . '_c1' ) );
+		}
 		return $error( 100, 'Unknown path ' . $path );
 	},
 	10,
 	3
+);
+
+// The test script lists, and runs now, the first comments waiting in WP-Cron for scheduled posts.
+add_action(
+	'wp_ajax_sw_fb_mock_cron',
+	static function () {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( '', '', array( 'response' => 403 ) );
+		}
+		$events = array();
+		foreach ( (array) _get_cron_array() as $time => $hooks ) {
+			foreach ( (array) ( $hooks['storyweb_fb_scheduled_comment'] ?? array() ) as $event ) {
+				$events[] = array( 'time' => (int) $time, 'args' => $event['args'] );
+			}
+		}
+		if ( ! empty( $_GET['run'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- local test helper.
+			foreach ( $events as $event ) {
+				do_action_ref_array( 'storyweb_fb_scheduled_comment', $event['args'] );
+				wp_unschedule_event( $event['time'], 'storyweb_fb_scheduled_comment', $event['args'] );
+			}
+		}
+		wp_send_json( $events );
+	}
 );
 
 // The test script reads (and resets) the record through admin-ajax, as an administrator.
