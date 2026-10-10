@@ -1,8 +1,9 @@
 // Content + leak checks against the local Playground site (127.0.0.1 only).
 const B = process.env.BASE ?? "http://127.0.0.1:9400";
 if (!/^http:\/\/127\.0\.0\.1(:\d+)?$/.test(B)) throw new Error("local only");
-const S = "thanh-pho-sau-con-mua";
-const marker = (n, slug = S) => `SW-${slug}-${n}-BODY`;
+const ORIG = "thanh-pho-sau-con-mua"; // seeded slug: chapter markers use it; links use the story code since StoryWeb Core 0.4.0
+const S = await (async () => { const r = await fetch(`${B}/truyen/${ORIG}/`, { redirect: "manual" }); return ((r.headers.get("location") ?? "").match(/\/truyen\/([a-z0-9-]+)\/?$/) ?? [])[1] ?? ORIG; })();
+const marker = (n, slug = ORIG) => `SW-${slug}-${n}-BODY`;
 let pass = 0, fail = 0;
 const ok = (name, cond, detail = "") => { cond ? pass++ : fail++; console.log(`${cond ? "  PASS" : "! FAIL"}  ${name}${detail ? ` — ${detail}` : ""}`); };
 const get = async (p, init = {}) => { const r = await fetch(B + p, { redirect: "manual", ...init }); return { status: r.status, text: await r.text(), headers: r.headers }; };
@@ -14,7 +15,8 @@ const sampleData = JSON.parse(await import("node:fs").then((fs) => fs.readFileSy
 const sample = sampleData.stories;
 const lastSlug = sample[sample.length - 1].slug;
 for (let i = 0; ; i++) {
-  const seeded = await get(`/truyen/${lastSlug}/`).then((r) => r.text.includes("6 chương ·")).catch(() => false);
+  // The seeded slug redirects to the story's code link (StoryWeb Core 0.4.0): follow it.
+  const seeded = await get(`/truyen/${lastSlug}/`, { redirect: "follow" }).then((r) => r.text.includes("6 chương ·")).catch(() => false);
   if (seeded) break;
   if (i >= 90) throw new Error(`sample data not seeded (expected /truyen/${lastSlug}/ with 6 chapters)`);
   await new Promise((r) => setTimeout(r, 2000));
@@ -36,6 +38,19 @@ const genre = await get("/tim-kiem/?the-loai=do-thi");
 ok("discover: genre filter Đô thị selected", /filter-chip[^"]*is-selected/.test(genre.text) && genre.text.includes("Truyện Đô thị"));
 const oldGenre = await get("/tim-kiem/?the-loai=" + encodeURIComponent("Đô thị"));
 ok("discover: old Next.js genre link (by name) still filters", oldGenre.text.includes("Truyện Đô thị"));
+
+// ---- story codes: links by code, old links and capitals redirect, search by code ----
+const code = S.toUpperCase();
+ok("story link is its code (/truyen/tt2d…/)", /^tt2d\d{5}$/.test(S), S);
+let moved = await get(`/truyen/${ORIG}/`);
+ok("old story link → 301 to the code link", moved.status === 301 && moved.headers.get("location") === `${B}/truyen/${S}/`, `${moved.status} ${moved.headers.get("location")}`);
+moved = await get(`/doc/${ORIG}/2/`);
+ok("old chapter link → 301 to the code link, same chapter", moved.status === 301 && moved.headers.get("location") === `${B}/doc/${S}/2/`, `${moved.status} ${moved.headers.get("location")}`);
+moved = await get(`/doc/${code}/2/`);
+ok("chapter link with the code in capitals → 301 to lower case", moved.status === 301 && moved.headers.get("location") === `${B}/doc/${S}/2/`, `${moved.status} ${moved.headers.get("location")}`);
+ok("redirects never carry the locked body", !moved.text.includes(marker(2)));
+const byCode = await get(`/tim-kiem/?q=${code}`);
+ok("search by code finds the story", byCode.text.includes(`${code} &#8211; Thành Phố Sau Cơn Mưa`) && count(byCode.text, /class="story-card"/g) === 1, `${count(byCode.text, /class="story-card"/g)} result(s)`);
 
 // ---- story detail ----
 const story = await get(`/truyen/${S}/`);
@@ -116,9 +131,12 @@ const storyId = Number((story.text.match(/postid-(\d+)/) ?? [])[1]);
 const list = await get(`/wp-json/thu-cac/v1/chapters?story=${storyId}`);
 const lj = JSON.parse(list.text);
 ok("chapters API: 120 items, titles only, ch1 free / ch2 locked", lj.chapters?.length === 120 && lj.chapters[0].locked === false && lj.chapters[1].locked === true && !list.text.includes("BODY"));
-const cards = await get(`/wp-json/thu-cac/v1/cards?slugs=${S},duoi-tan-trang-cu,<script>`);
+const S2 = ((await get("/truyen/duoi-tan-trang-cu/")).headers.get("location")?.match(/\/truyen\/([a-z0-9-]+)\/?$/) ?? [])[1];
+const cards = await get(`/wp-json/thu-cac/v1/cards?slugs=${S},${S2},<script>`);
 const cj = JSON.parse(cards.text);
 ok("cards API: 2 cards, bad slug ignored", cj.count === 2 && !cards.text.includes("<script>"));
+const old = JSON.parse((await get(`/wp-json/thu-cac/v1/cards?slugs=${S},duoi-tan-trang-cu`)).text);
+ok("cards API: a slug from before story codes → its current slug, for the bookshelf", old.count === 0 && old.renamed?.["duoi-tan-trang-cu"] === S2, JSON.stringify(old.renamed));
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exitCode = fail ? 1 : 0;

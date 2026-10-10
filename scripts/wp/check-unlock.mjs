@@ -6,8 +6,9 @@ import http from "node:http";
 
 const B = process.env.BASE ?? "http://127.0.0.1:9400";
 if (!/^http:\/\/127\.0\.0\.1(:\d+)?$/.test(B)) throw new Error("local only");
-const S = "thanh-pho-sau-con-mua";
-const marker = (n) => `SW-${S}-${n}-BODY`;
+const ORIG = "thanh-pho-sau-con-mua"; // seeded slug: chapter markers use it; links use the story code since StoryWeb Core 0.4.0
+const S = await (async () => { const r = await fetch(`${B}/truyen/${ORIG}/`, { redirect: "manual" }); return ((r.headers.get("location") ?? "").match(/\/truyen\/([a-z0-9-]+)\/?$/) ?? [])[1] ?? ORIG; })();
+const marker = (n) => `SW-${ORIG}-${n}-BODY`;
 let pass = 0, fail = 0;
 const ok = (name, cond, detail = "") => { cond ? pass++ : fail++; console.log(`${cond ? "  PASS" : "! FAIL"}  ${name}${detail ? ` — ${detail}` : ""}`); };
 

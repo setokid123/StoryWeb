@@ -137,10 +137,11 @@ function storyweb_fb_admin_publish() {
 	$cover   = ! empty( $_POST['with_cover'] );
 	$when    = storyweb_fb_field( 'when' );
 	$tags    = storyweb_fb_field( 'hashtags_default' );
-	// First comment: the text to post now, and the template the composer fills in for the next posts.
-	$comment_on       = ! empty( $_POST['comment_on'] );
-	$comment          = isset( $_POST['comment'] ) ? trim( wp_check_invalid_utf8( wp_strip_all_tags( wp_unslash( $_POST['comment'] ) ) ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- plain text, as for the message.
-	$comment_template = isset( $_POST['comment_template'] ) ? trim( wp_check_invalid_utf8( wp_strip_all_tags( wp_unslash( $_POST['comment_template'] ) ) ) ) : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- plain text template.
+	// Comments: the texts to post now, and the templates the composer fills in for the next posts.
+	$comment_on  = ! empty( $_POST['comment_on'] );
+	$comment     = storyweb_fb_text_field( 'comment' );
+	$comment2_on = ! empty( $_POST['comment2_on'] );
+	$comment2    = storyweb_fb_text_field( 'comment2' );
 	// phpcs:enable
 	if ( ! $story || 'story' !== $story->post_type || 'publish' !== $story->post_status ) {
 		storyweb_fb_notice( 'error', 'Không tìm thấy truyện.' );
@@ -166,43 +167,47 @@ function storyweb_fb_admin_publish() {
 	if ( mb_strlen( $message ) > STORYWEB_FB_MAX_TEXT ) {
 		$message = mb_substr( $message, 0, STORYWEB_FB_MAX_TEXT - 1 ) . '…';
 	}
-	$s               = storyweb_fb_settings();
-	$s['hashtags']   = '' !== $tags ? $tags : $s['hashtags'];
-	$s['comment_on'] = $comment_on;
-	if ( null !== $comment_template ) {
-		$s['comment_template'] = '' !== $comment_template ? $comment_template : STORYWEB_FB_COMMENT_TEMPLATE;
-	}
-	storyweb_fb_save_settings( $s );
+	storyweb_fb_remember_post_settings( $tags );
 
 	$result = storyweb_fb_publish( $story, $message, $cover, $at );
 	if ( is_wp_error( $result ) ) {
 		storyweb_fb_notice( 'error', $result->get_error_message() );
 		storyweb_fb_back( array( 'story' => $story->ID ) );
 	}
-	$title = get_the_title( $story );
-	$text  = $at ? sprintf( 'Đã hẹn đăng "%s" lúc %s.', $title, wp_date( 'H:i d/m/Y', $at ) ) : sprintf( 'Đã đăng "%s" lên Page.', $title );
-	$note  = '';
-	$type  = 'success';
-	if ( $comment_on && '' !== $comment && '' !== $result['post_id'] ) {
-		if ( $at ) {
-			storyweb_fb_schedule_comment( $result['post_id'], $comment, $at );
-			$note  = 'Bình luận đầu tiên sẽ được gửi vài phút sau khi bài lên.';
-			$text .= ' ' . $note;
-		} else {
-			$commented = storyweb_fb_comment( $result['post_id'], $comment );
-			if ( is_wp_error( $commented ) ) {
-				$note  = 'Lỗi: ' . $commented->get_error_message();
-				$text .= ' Nhưng chưa bình luận được. ' . $commented->get_error_message();
-				$type  = 'warning';
-			} else {
-				$note  = 'Đã bình luận';
-				$text .= ' Đã bình luận đầu tiên.';
-			}
-		}
+	$title    = get_the_title( $story );
+	$text     = $at ? sprintf( 'Đã hẹn đăng "%s" lúc %s.', $title, wp_date( 'H:i d/m/Y', $at ) ) : sprintf( 'Đã đăng "%s" lên Page.', $title );
+	$comments = storyweb_fb_post_comments( $result['post_id'], array( $comment_on ? $comment : '', $comment2_on ? $comment2 : '' ), $at );
+	if ( '' !== $comments['status'] ) {
+		$text .= $comments['ok'] ? ' ' . $comments['status'] . '.' : ' Nhưng chưa bình luận xong. ' . $comments['status'];
 	}
-	storyweb_fb_log( $story, $sources[ $source ]['label'], $result['post_id'], $at, $note );
-	storyweb_fb_notice( $type, $text, $result['post_id'] ? 'https://www.facebook.com/' . rawurlencode( $result['post_id'] ) : '' );
+	storyweb_fb_log( $story, $sources[ $source ]['label'], $result['post_id'], $at, $comments['status'] );
+	storyweb_fb_notice( $comments['ok'] ? 'success' : 'warning', $text, $result['post_id'] ? 'https://www.facebook.com/' . rawurlencode( $result['post_id'] ) : '' );
 	storyweb_fb_back( array( 'story' => $story->ID ) );
+}
+
+/** POSTed plain text (message, comment, template): tags stripped, invalid UTF-8 dropped, kept otherwise as typed. */
+function storyweb_fb_text_field( $key ) {
+	// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- callers checked the nonce; plain text, links with % and line breaks kept.
+	return isset( $_POST[ $key ] ) ? trim( wp_check_invalid_utf8( wp_strip_all_tags( wp_unslash( $_POST[ $key ] ) ) ) ) : '';
+}
+
+/** Remembers the choices of the post form (hashtags, comments on/off and their templates) for the next posts. */
+function storyweb_fb_remember_post_settings( $tags ) {
+	// phpcs:disable WordPress.Security.NonceVerification.Missing -- callers checked the nonce.
+	$s                = storyweb_fb_settings();
+	$s['hashtags']    = '' !== $tags ? $tags : $s['hashtags'];
+	$s['comment_on']  = ! empty( $_POST['comment_on'] );
+	$s['comment2_on'] = ! empty( $_POST['comment2_on'] );
+	if ( isset( $_POST['comment_template'] ) ) {
+		$template              = storyweb_fb_text_field( 'comment_template' );
+		$s['comment_template'] = '' !== $template ? $template : STORYWEB_FB_COMMENT_TEMPLATE;
+	}
+	if ( isset( $_POST['comment2_template'] ) ) {
+		$template               = storyweb_fb_text_field( 'comment2_template' );
+		$s['comment2_template'] = '' !== $template ? $template : STORYWEB_FB_COMMENT2_TEMPLATE;
+	}
+	// phpcs:enable
+	storyweb_fb_save_settings( $s );
 }
 
 function storyweb_fb_admin_page() {
@@ -253,6 +258,7 @@ function storyweb_fb_admin_page() {
 				storyweb_fb_admin_composer( $story, $s );
 			} else {
 				storyweb_fb_admin_picker( $search );
+				storyweb_fb_admin_queue( $s );
 			}
 			storyweb_fb_admin_history();
 			?>
@@ -369,16 +375,7 @@ function storyweb_fb_admin_composer( $story, $s ) {
 			<p><label for="sw-fb-message"><strong>Nội dung bài đăng</strong> (sửa thoải mái trước khi đăng)</label></p>
 			<textarea id="sw-fb-message" name="message" rows="16" class="large-text"><?php echo esc_textarea( $texts[ $first ][ $comment_on ? 'without' : 'with' ] ?? '' ); ?></textarea>
 			<p class="description"><span id="sw-fb-count">0</span> / <?php echo (int) STORYWEB_FB_MAX_TEXT; ?> ký tự. Đổi lựa chọn ở trên sẽ thay nội dung trong ô này.</p>
-			<div style="margin:18px 0;padding:14px 16px;background:#fff;border:1px solid #dcdcde;border-radius:8px">
-				<label><input type="checkbox" name="comment_on" value="1" id="sw-fb-comment-on" <?php checked( $comment_on ); ?>> <strong>Bình luận ngay sau khi đăng</strong></label>
-				<p class="description">Page tự bình luận dưới bài vừa đăng. Khi bật, dòng link đọc tiếp chuyển từ bài xuống bình luận (Facebook thường hạn chế bài có link ra ngoài). Bài hẹn giờ thì bình luận vài phút sau khi bài lên.</p>
-				<textarea id="sw-fb-comment" name="comment" rows="4" class="large-text" <?php disabled( ! $comment_on ); ?>><?php echo esc_textarea( storyweb_fb_render_comment( $s['comment_template'], $texts[ $first ]['vars'] ?? array() ) ); ?></textarea>
-				<details>
-					<summary>Sửa mẫu bình luận</summary>
-					<textarea id="sw-fb-comment-template" name="comment_template" rows="3" class="large-text code"><?php echo esc_textarea( $s['comment_template'] ); ?></textarea>
-					<p class="description">Mẫu dùng cho mọi bài sau. Chỗ trống tự điền: <code>{ten_truyen}</code> tên truyện, <code>{doc_tiep}</code> chữ "Đọc tiếp chương 2" (hoặc "Đọc truyện"), <code>{link_doc_tiep}</code> link đọc tiếp, <code>{link_truyen}</code> link trang truyện.</p>
-				</details>
-			</div>
+			<?php storyweb_fb_admin_comment_boxes( $s, $texts[ $first ]['vars'] ?? array() ); ?>
 			<p><label for="sw-fb-tags">Hashtag mặc định</label><br><input id="sw-fb-tags" name="hashtags_default" value="<?php echo esc_attr( $s['hashtags'] ); ?>" class="regular-text"> <span class="description">dùng cho các bài sau; thể loại của truyện được thêm tự động.</span></p>
 			<p><label for="sw-fb-when">Hẹn giờ đăng (bỏ trống để đăng ngay)</label><br><input id="sw-fb-when" type="datetime-local" name="when"> <span class="description">giờ Việt Nam, từ 10 phút đến 30 ngày tới.</span></p>
 			<?php submit_button( 'Đăng lên Facebook', 'primary', 'submit', false ); ?>
@@ -392,26 +389,30 @@ function storyweb_fb_admin_composer( $story, $s ) {
 		var count = document.getElementById( 'sw-fb-count' );
 		var when = document.getElementById( 'sw-fb-when' );
 		var on = document.getElementById( 'sw-fb-comment-on' );
-		var comment = document.getElementById( 'sw-fb-comment' );
-		var template = document.getElementById( 'sw-fb-comment-template' );
 		var button = document.querySelector( '.storyweb-fb-compose [type=submit]' );
 		var update = function () { count.textContent = Array.from( box.value ).length.toLocaleString( 'vi-VN' ); };
 		var current = function () {
 			var radio = document.querySelector( '.storyweb-fb-compose [name=source]:checked' );
 			return texts[ radio ? radio.value : Object.keys( texts )[ 0 ] ];
 		};
+		// The read-on link goes into the first comment when there is one.
 		var fillMessage = function () { var c = current(); box.value = c ? ( on.checked ? c.without : c.with ) : ''; update(); };
-		var fillComment = function () {
+		var fillComments = function () {
 			var c = current();
-			var text = template.value;
-			Object.keys( c ? c.vars : {} ).forEach( function ( key ) { text = text.split( '{' + key + '}' ).join( c.vars[ key ] ); } );
-			comment.value = text.trim();
+			document.querySelectorAll( '.storyweb-fb-compose [data-comment]' ).forEach( function ( wrap ) {
+				var text = wrap.querySelector( '[data-comment-template]' ).value;
+				Object.keys( c ? c.vars : {} ).forEach( function ( key ) { text = text.split( '{' + key + '}' ).join( c.vars[ key ] ); } );
+				wrap.querySelector( '[data-comment-text]' ).value = text.trim();
+			} );
 		};
 		document.querySelectorAll( '.storyweb-fb-compose [name=source]' ).forEach( function ( radio ) {
-			radio.addEventListener( 'change', function () { fillMessage(); fillComment(); } );
+			radio.addEventListener( 'change', function () { fillMessage(); fillComments(); } );
 		} );
-		on.addEventListener( 'change', function () { comment.disabled = ! on.checked; fillMessage(); } );
-		template.addEventListener( 'input', fillComment );
+		document.querySelectorAll( '.storyweb-fb-compose [data-comment]' ).forEach( function ( wrap ) {
+			var tick = wrap.querySelector( '[data-comment-on]' );
+			tick.addEventListener( 'change', function () { wrap.querySelector( '[data-comment-text]' ).disabled = ! tick.checked; if ( tick === on ) { fillMessage(); } } );
+			wrap.querySelector( '[data-comment-template]' ).addEventListener( 'input', fillComments );
+		} );
 		box.addEventListener( 'input', update );
 		when.addEventListener( 'input', function () { button.value = when.value ? 'Hẹn giờ đăng' : 'Đăng lên Facebook'; } );
 		update();
@@ -428,7 +429,7 @@ function storyweb_fb_admin_history() {
 	?>
 	<h2 style="margin-top:32px">Đã đăng gần đây</h2>
 	<table class="widefat striped" style="max-width:900px">
-		<thead><tr><th>Lúc</th><th>Truyện</th><th>Nội dung</th><th>Bình luận đầu tiên</th><th>Bài trên Facebook</th></tr></thead>
+		<thead><tr><th>Lúc</th><th>Truyện</th><th>Nội dung</th><th>Bình luận</th><th>Bài trên Facebook</th></tr></thead>
 		<tbody>
 		<?php foreach ( $log as $row ) : ?>
 			<tr>
@@ -441,5 +442,224 @@ function storyweb_fb_admin_history() {
 		<?php endforeach; ?>
 		</tbody>
 	</table>
+	<?php
+}
+
+/**
+ * The two comment boxes (on/off, the text for this post, the template behind it). Without `$vars` (automatic
+ * posting) only the switches and templates show: each post's comments are filled in when it is posted.
+ *
+ * @param array<string,mixed>       $s      storyweb_fb_settings().
+ * @param array<string,string>|null $vars   Placeholder values of the story being composed, or null.
+ * @param string                    $prefix Element id prefix.
+ */
+function storyweb_fb_admin_comment_boxes( $s, $vars = null, $prefix = 'sw-fb' ) {
+	$boxes = array(
+		array( '', 'Bình luận ngay sau khi đăng', 'Page tự bình luận dưới bài vừa đăng. Khi bật, dòng link đọc tiếp chuyển từ bài xuống bình luận này (Facebook thường hạn chế bài có link ra ngoài). Bài hẹn giờ thì bình luận vài phút sau khi bài lên.' ),
+		array( '2', 'Thêm bình luận thứ hai', 'Gửi ngay sau bình luận đầu tiên, ví dụ mã truyện, lời mời theo dõi Page.' ),
+	);
+	foreach ( $boxes as list( $n, $label, $help ) ) {
+		$on       = (bool) $s[ 'comment' . $n . '_on' ];
+		$template = (string) $s[ 'comment' . $n . '_template' ];
+		$id       = $prefix . '-comment' . $n;
+		?>
+		<div data-comment style="margin:18px 0;padding:14px 16px;background:#fff;border:1px solid #dcdcde;border-radius:8px">
+			<label><input type="checkbox" name="comment<?php echo esc_attr( $n ); ?>_on" value="1" id="<?php echo esc_attr( $id ); ?>-on" data-comment-on <?php checked( $on ); ?>> <strong><?php echo esc_html( $label ); ?></strong></label>
+			<p class="description"><?php echo esc_html( $help ); ?></p>
+			<?php if ( null !== $vars ) : ?>
+				<textarea id="<?php echo esc_attr( $id ); ?>" name="comment<?php echo esc_attr( $n ); ?>" rows="3" class="large-text" data-comment-text <?php disabled( ! $on ); ?>><?php echo esc_textarea( storyweb_fb_render_comment( $template, $vars ) ); ?></textarea>
+			<?php endif; ?>
+			<details <?php echo null === $vars ? 'open' : ''; ?>>
+				<summary>Sửa mẫu bình luận</summary>
+				<textarea id="<?php echo esc_attr( $id ); ?>-template" name="comment<?php echo esc_attr( $n ); ?>_template" rows="3" class="large-text code" data-comment-template><?php echo esc_textarea( $template ); ?></textarea>
+				<p class="description">Mẫu dùng cho các bài sau. Chỗ trống tự điền: <code>{ma_truyen}</code> mã truyện, <code>{ten_truyen}</code> tên truyện, <code>{the_loai}</code> thể loại, <code>{doc_tiep}</code> chữ "Đọc tiếp chương 2" (hoặc "Đọc truyện"), <code>{link_doc_tiep}</code> link đọc tiếp, <code>{link_truyen}</code> link trang truyện, <code>{link_trang_chu}</code> link trang chủ.</p>
+			</details>
+		</div>
+		<?php
+	}
+}
+
+// ---------- Tự động đăng theo mã (logic in inc/facebook-queue.php) ----------
+
+add_action( 'admin_post_storyweb_fb_queue_start', 'storyweb_fb_admin_queue_start' );
+add_action( 'admin_post_storyweb_fb_queue_control', 'storyweb_fb_admin_queue_control' );
+
+function storyweb_fb_admin_queue_start() {
+	storyweb_fb_admin_guard( 'storyweb_fb_queue_start' );
+	// phpcs:disable WordPress.Security.NonceVerification.Missing -- checked in storyweb_fb_admin_guard().
+	$current = storyweb_fb_queue();
+	if ( ! storyweb_fb_connected() ) {
+		storyweb_fb_notice( 'error', 'Chưa kết nối Page Facebook.' );
+		storyweb_fb_back();
+	}
+	if ( $current && in_array( $current['status'], array( 'running', 'paused' ), true ) ) {
+		storyweb_fb_notice( 'error', 'Đang có một lượt tự động đăng. Hủy lượt đó trước khi tạo lượt mới.' );
+		storyweb_fb_back();
+	}
+	$from = storyweb_fb_code_number( storyweb_fb_field( 'from' ) );
+	$to   = storyweb_fb_code_number( storyweb_fb_field( 'to' ) );
+	if ( ! $from || ! $to || $from > $to ) {
+		storyweb_fb_notice( 'error', 'Nhập mã bắt đầu và mã kết thúc, ví dụ TT2D00001 và TT2D00050 (mã đầu không lớn hơn mã cuối).' );
+		storyweb_fb_back();
+	}
+	$items = storyweb_fb_stories_in_range( $from, $to );
+	$skip  = ! empty( $_POST['skip_posted'] );
+	if ( $skip ) {
+		$items = array_values( array_filter( $items, static fn( $id ) => ! storyweb_fb_was_posted( $id ) ) );
+	}
+	if ( ! $items ) {
+		storyweb_fb_notice( 'error', $skip ? 'Mọi truyện trong khoảng mã này đều đã được đăng.' : 'Không có truyện nào trong khoảng mã này.' );
+		storyweb_fb_back();
+	}
+	if ( count( $items ) > STORYWEB_FB_QUEUE_MAX ) {
+		storyweb_fb_notice( 'error', sprintf( 'Mỗi lượt đăng tối đa %d truyện.', STORYWEB_FB_QUEUE_MAX ) );
+		storyweb_fb_back();
+	}
+	$interval = max( 1, absint( $_POST['every'] ?? 60 ) ) * ( 'hour' === storyweb_fb_field( 'unit' ) ? HOUR_IN_SECONDS : MINUTE_IN_SECONDS );
+	if ( $interval < 5 * MINUTE_IN_SECONDS ) {
+		storyweb_fb_notice( 'error', 'Khoảng cách giữa hai bài ít nhất 5 phút.' );
+		storyweb_fb_back();
+	}
+	$start = time();
+	$when  = storyweb_fb_field( 'start' );
+	if ( '' !== $when ) {
+		try {
+			$start = ( new DateTimeImmutable( $when, wp_timezone() ) )->getTimestamp();
+		} catch ( Exception $e ) {
+			$start = 0;
+		}
+		if ( $start < time() - MINUTE_IN_SECONDS || $start > time() + 60 * DAY_IN_SECONDS ) {
+			storyweb_fb_notice( 'error', 'Giờ bắt đầu phải từ bây giờ đến 60 ngày tới (bỏ trống để bắt đầu ngay).' );
+			storyweb_fb_back();
+		}
+	}
+	$source = storyweb_fb_field( 'auto_source' );
+	storyweb_fb_remember_post_settings( storyweb_fb_field( 'hashtags_default' ) );
+	$s     = storyweb_fb_settings();
+	$queue = array(
+		'items'             => $items,
+		'pos'               => 0,
+		'done'              => 0,
+		'skipped'           => 0,
+		'status'            => 'running',
+		'error'             => '',
+		'from'              => $from,
+		'to'                => $to,
+		'interval'          => $interval,
+		'next'              => $start,
+		'last'              => 0,
+		'created'           => time(),
+		'source'            => in_array( $source, array( 'about', 'start', 'chapter' ), true ) ? $source : 'about',
+		'chapter'           => max( 1, absint( $_POST['auto_chapter'] ?? 1 ) ),
+		'with_cover'        => ! empty( $_POST['with_cover'] ),
+		'comment_on'        => (bool) $s['comment_on'],
+		'comment_template'  => $s['comment_template'],
+		'comment2_on'       => (bool) $s['comment2_on'],
+		'comment2_template' => $s['comment2_template'],
+	);
+	// phpcs:enable
+	storyweb_fb_queue_save( $queue );
+	storyweb_fb_queue_schedule( $queue );
+	storyweb_fb_notice(
+		'success',
+		sprintf(
+			'Đã lên lịch tự động đăng %d truyện (%s → %s). Bài đầu lúc %s, mỗi bài cách %s.',
+			count( $items ),
+			storyweb_code_format( $from ),
+			storyweb_code_format( $to ),
+			wp_date( 'H:i d/m/Y', $start ),
+			storyweb_fb_duration( $interval )
+		)
+	);
+	storyweb_fb_back();
+}
+
+/** "45 phút", "2 giờ", "1 giờ 30 phút". */
+function storyweb_fb_duration( $seconds ) {
+	$hours   = intdiv( (int) $seconds, HOUR_IN_SECONDS );
+	$minutes = intdiv( (int) $seconds % HOUR_IN_SECONDS, MINUTE_IN_SECONDS );
+	return trim( ( $hours ? $hours . ' giờ ' : '' ) . ( $minutes ? $minutes . ' phút' : '' ) );
+}
+
+function storyweb_fb_admin_queue_control() {
+	storyweb_fb_admin_guard( 'storyweb_fb_queue_control' );
+	$queue = storyweb_fb_queue();
+	$do    = storyweb_fb_field( 'do' );
+	if ( 'cancel' === $do ) {
+		delete_option( STORYWEB_FB_QUEUE );
+		wp_clear_scheduled_hook( STORYWEB_FB_QUEUE_HOOK );
+		storyweb_fb_notice( 'success', 'Đã hủy lượt tự động đăng. Các bài đã đăng vẫn giữ trên Page.' );
+	} elseif ( $queue && 'pause' === $do && 'running' === $queue['status'] ) {
+		$queue['status'] = 'paused';
+		storyweb_fb_queue_save( $queue );
+		storyweb_fb_queue_schedule( $queue );
+		storyweb_fb_notice( 'success', 'Đã tạm dừng tự động đăng.' );
+	} elseif ( $queue && 'resume' === $do && 'paused' === $queue['status'] ) {
+		$queue['status'] = 'running';
+		$queue['error']  = '';
+		$queue['next']   = max( time(), (int) $queue['next'] );
+		storyweb_fb_queue_save( $queue );
+		storyweb_fb_queue_schedule( $queue );
+		storyweb_fb_notice( 'success', 'Đã tiếp tục tự động đăng.' );
+	}
+	storyweb_fb_back();
+}
+
+/** Status of the current run with its buttons, or the form to start one. */
+function storyweb_fb_admin_queue( $s ) {
+	$queue = storyweb_fb_queue();
+	$last  = function_exists( 'storyweb_code_next_number' ) ? storyweb_code_next_number() - 1 : 0;
+	?>
+	<h2>Tự động đăng theo mã truyện</h2>
+	<?php if ( $queue && in_array( $queue['status'], array( 'running', 'paused' ), true ) ) : ?>
+		<?php
+		$total = count( $queue['items'] );
+		$next  = get_post( (int) ( $queue['items'][ $queue['pos'] ] ?? 0 ) );
+		?>
+		<div class="notice inline notice-<?php echo 'running' === $queue['status'] ? 'info' : 'warning'; ?>" style="padding:12px 16px;max-width:860px" data-queue="<?php echo esc_attr( $queue['status'] ); ?>">
+			<p><strong><?php echo 'running' === $queue['status'] ? 'Đang tự động đăng' : 'Đã tạm dừng'; ?></strong> <?php echo esc_html( storyweb_code_format( $queue['from'] ) . ' → ' . storyweb_code_format( $queue['to'] ) ); ?>: đã đăng <strong><?php echo (int) $queue['done']; ?>/<?php echo (int) $total; ?></strong> truyện<?php echo $queue['skipped'] ? esc_html( sprintf( ', bỏ qua %d (không có nội dung để đăng)', $queue['skipped'] ) ) : ''; ?>, mỗi bài cách <?php echo esc_html( storyweb_fb_duration( $queue['interval'] ) ); ?>.</p>
+			<?php if ( $next ) : ?>
+				<p>Bài tiếp theo: <strong><?php echo esc_html( get_the_title( $next ) ); ?></strong><?php echo 'running' === $queue['status'] ? esc_html( ' lúc ' . wp_date( 'H:i d/m/Y', max( time(), (int) $queue['next'] ) ) ) : ''; ?>.</p>
+			<?php endif; ?>
+			<?php if ( ! empty( $queue['error'] ) ) : ?>
+				<p style="color:#b32d2e">Tạm dừng vì lỗi: <?php echo esc_html( $queue['error'] ); ?></p>
+			<?php endif; ?>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:flex;gap:8px">
+				<input type="hidden" name="action" value="storyweb_fb_queue_control">
+				<?php wp_nonce_field( 'storyweb_fb_queue_control' ); ?>
+				<?php if ( 'running' === $queue['status'] ) : ?>
+					<button class="button" name="do" value="pause">Tạm dừng</button>
+				<?php else : ?>
+					<button class="button button-primary" name="do" value="resume">Tiếp tục</button>
+				<?php endif; ?>
+				<button class="button button-link-delete" name="do" value="cancel" onclick="return confirm('Hủy lượt tự động đăng?')">Hủy</button>
+			</form>
+			<p class="description">Cron của WordPress chạy khi có người vào site, nên bài có thể lên trễ vài phút; sau mỗi bài luôn cách đủ khoảng đã chọn.</p>
+		</div>
+		<?php return; ?>
+	<?php endif; ?>
+	<?php if ( $queue && 'done' === $queue['status'] ) : ?>
+		<p>Lượt trước (<?php echo esc_html( storyweb_code_format( $queue['from'] ) . ' → ' . storyweb_code_format( $queue['to'] ) ); ?>) đã xong: đăng <?php echo (int) $queue['done']; ?>/<?php echo (int) count( $queue['items'] ); ?> truyện.</p>
+	<?php endif; ?>
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="storyweb-fb-auto" style="max-width:860px">
+		<input type="hidden" name="action" value="storyweb_fb_queue_start">
+		<?php wp_nonce_field( 'storyweb_fb_queue_start' ); ?>
+		<table class="form-table" role="presentation">
+			<tr><th scope="row">Mã truyện</th><td>từ <input name="from" class="regular-text code" style="width:9em" placeholder="TT2D00001" required> đến <input name="to" class="regular-text code" style="width:9em" placeholder="TT2D00050" required><?php if ( $last > 0 ) : ?><p class="description">Site đang có mã từ <?php echo esc_html( storyweb_code_format( 1 ) ); ?> đến <?php echo esc_html( storyweb_code_format( $last ) ); ?>. Đăng lần lượt theo mã tăng dần.</p><?php endif; ?></td></tr>
+			<tr><th scope="row">Bắt đầu</th><td><input type="datetime-local" name="start"> <span class="description">bỏ trống để đăng bài đầu ngay.</span></td></tr>
+			<tr><th scope="row">Mỗi bài cách</th><td><input type="number" name="every" min="1" value="60" class="small-text"> <select name="unit"><option value="minute">phút</option><option value="hour">giờ</option></select> <span class="description">ít nhất 5 phút. Đăng quá dày dễ bị Facebook coi là spam.</span></td></tr>
+			<tr><th scope="row">Nội dung</th><td>
+				<label><input type="radio" name="auto_source" value="about" checked> Giới thiệu truyện</label><br>
+				<label><input type="radio" name="auto_source" value="start"> Đoạn mở đầu chương 1</label><br>
+				<label><input type="radio" name="auto_source" value="chapter"> Cả chương <input type="number" name="auto_chapter" min="1" value="1" class="small-text"></label>
+				<p class="description">Truyện nào không có phần đã chọn thì lấy phần gần nhất (chương → đoạn mở đầu → giới thiệu). Chỉ chương miễn phí.</p>
+			</td></tr>
+			<tr><th scope="row">Ảnh</th><td><label><input type="checkbox" name="with_cover" value="1" checked> Đăng kèm ảnh bìa</label></td></tr>
+			<tr><th scope="row">Bỏ qua</th><td><label><input type="checkbox" name="skip_posted" value="1" checked> Truyện đã từng đăng lên Page</label></td></tr>
+			<tr><th scope="row"><label for="sw-fb-auto-tags">Hashtag</label></th><td><input id="sw-fb-auto-tags" name="hashtags_default" value="<?php echo esc_attr( $s['hashtags'] ); ?>" class="regular-text"> <span class="description">thể loại của từng truyện được thêm tự động.</span></td></tr>
+		</table>
+		<?php storyweb_fb_admin_comment_boxes( $s, null, 'sw-fb-auto' ); ?>
+		<?php submit_button( 'Bắt đầu tự động đăng' ); ?>
+	</form>
 	<?php
 }

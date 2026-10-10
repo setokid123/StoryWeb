@@ -32,11 +32,11 @@ Tài khoản quản trị của site tạm là tài khoản mặc định của 
 Chờ vài giây sau khi trang chủ trả 200 (dữ liệu mẫu nạp sau khi server mở cổng), rồi:
 
 ```bash
-node scripts/wp/check-content.mjs     # số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
+node scripts/wp/check-content.mjs     # 59 kiểm tra: số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
 OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
 WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
 WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 28 kiểm tra mở khóa bằng link
-WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 38 kiểm tra Truyện → Đăng Facebook (cả bình luận đầu tiên)
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 52 kiểm tra Truyện → Đăng Facebook (bình luận, tự động đăng theo mã)
 ```
 
 `check-facebook.mjs` cần `mock-facebook.php` làm must-use plugin của site thử (nó trả lời thay Facebook và ghi lại các lệnh gọi). Thêm bước sau vào cuối blueprint, **không bao giờ** cài file này lên site thật:
@@ -88,3 +88,15 @@ su -s /bin/sh -c 'php attach-covers.php /tmp/covers' www-data
 - `attach-covers.php` bỏ qua truyện đã có ảnh, chạy lại được; tham số thứ hai giới hạn số file mỗi lần. Chạy dưới user `www-data` để wp-admin còn sửa/xóa được file. Cần `sharp` (đang có trong `node_modules` của repo; nếu không, cài ngoài repo và đặt `SHARP_DIR`).
 
 Để thử trên máy, mount thư mục file WXR vào `/import` và dùng bước `importWxr` của blueprint. Sau đó chạy `FREE=<số chương free> [COMPLETED=1] node scripts/wp/check-import.mjs <thư mục bot>...` (cùng các thư mục đã đưa cho `bot-to-wxr.mjs`): với khoảng 12 truyện, các chương free đọc được, chương kế tiếp khóa và không lộ chữ nào (trang, `<head>`, REST của Yoast, tìm kiếm, feed, sitemap).
+
+## Mã truyện (TT2D00001…)
+
+StoryWeb Core 0.4.0 tự đánh mã cho truyện mới khi đăng: tên thành `TT2D00001 - Tên truyện`, link thành `/truyen/tt2d00001/` và `/doc/tt2d00001/3/`. Link cũ chuyển 301 sang link mới. Truyện đã có trên site thì đánh mã một lần trên máy chủ, theo thứ tự cũ nhất trước (theo ID):
+
+```bash
+su -s /bin/sh -c 'php assign-story-codes.php' www-data              # chạy thử, không ghi gì
+su -s /bin/sh -c 'php assign-story-codes.php --renumber' www-data   # lần đầu: đánh lại từ TT2D00001
+su -s /bin/sh -c 'php assign-story-codes.php --remove' www-data     # hoàn tác: bỏ mã, trả lại tên và link cũ
+```
+
+`--apply` chỉ đánh mã cho truyện chưa có mã. Tên và link được ghi thẳng vào database nên thời gian "cập nhật" của truyện và thứ tự trên trang chủ không đổi.

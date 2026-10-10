@@ -26,6 +26,8 @@ const STORYWEB_FB_MAX_CHAPTERS = 10;
 const STORYWEB_FB_MAX_COMMENT = 8000;
 /** First comment template; {placeholders} from storyweb_fb_comment_vars(). */
 const STORYWEB_FB_COMMENT_TEMPLATE = "👉 {doc_tiep}: {link_doc_tiep}\n📚 Theo dõi Trạm Truyện 2D để đọc truyện hay mỗi ngày!";
+/** Second comment template (off by default). */
+const STORYWEB_FB_COMMENT2_TEMPLATE = "🔎 Mã truyện: {ma_truyen}. Gõ mã vào ô tìm kiếm trên web để đọc lại bất cứ lúc nào: {link_trang_chu}\n❤️ Thả tim nếu bạn thích truyện {the_loai} này nhé!";
 
 function storyweb_fb_graph_base() {
 	return (string) apply_filters( 'storyweb_fb_graph_base', 'https://graph.facebook.com/v26.0' );
@@ -41,8 +43,10 @@ function storyweb_fb_settings() {
 			'page_token'       => '',
 			'connected_at'     => 0,
 			'hashtags'         => '#TrạmTruyện2D',
-			'comment_on'       => true,
-			'comment_template' => STORYWEB_FB_COMMENT_TEMPLATE,
+			'comment_on'        => true,
+			'comment_template'  => STORYWEB_FB_COMMENT_TEMPLATE,
+			'comment2_on'       => false,
+			'comment2_template' => STORYWEB_FB_COMMENT2_TEMPLATE,
 		),
 		is_array( $saved ) ? $saved : array()
 	);
@@ -348,12 +352,45 @@ function storyweb_fb_publish( $story, $message, $with_cover, $when = 0 ) {
 
 /** Values for the first comment template's {placeholders}. @return array<string,string> */
 function storyweb_fb_comment_vars( $story, $source ) {
+	$terms = get_the_terms( $story, 'the_loai' );
 	return array(
-		'ten_truyen'    => html_entity_decode( get_the_title( $story ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ),
-		'doc_tiep'      => $source['more'],
-		'link_doc_tiep' => $source['link'],
-		'link_truyen'   => get_permalink( $story ),
+		'ten_truyen'     => html_entity_decode( get_the_title( $story ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ),
+		'ma_truyen'      => function_exists( 'storyweb_story_code' ) ? storyweb_story_code( $story ) : '',
+		'the_loai'       => $terms && ! is_wp_error( $terms ) ? mb_strtolower( $terms[0]->name ) : '',
+		'doc_tiep'       => $source['more'],
+		'link_doc_tiep'  => $source['link'],
+		'link_truyen'    => get_permalink( $story ),
+		'link_trang_chu' => home_url( '/' ),
 	);
+}
+
+/**
+ * The comments of a new post, in order: now, or for a post Facebook publishes at `$when`, by WP-Cron 2, 3…
+ * minutes after it goes live. Stops at the first refused comment.
+ *
+ * @param string[] $comments Texts; empty ones are skipped.
+ * @return array{status:string,ok:bool} Status for the history and the notice.
+ */
+function storyweb_fb_post_comments( $post_id, $comments, $when = 0 ) {
+	$comments = array_values( array_filter( array_map( 'trim', (array) $comments ), 'strlen' ) );
+	if ( ! $comments || '' === (string) $post_id ) {
+		return array( 'status' => '', 'ok' => true );
+	}
+	if ( $when ) {
+		foreach ( $comments as $i => $comment ) {
+			storyweb_fb_schedule_comment( $post_id, $comment, $when + $i * MINUTE_IN_SECONDS );
+		}
+		return array( 'status' => sprintf( '%d bình luận sẽ được gửi vài phút sau khi bài lên', count( $comments ) ), 'ok' => true );
+	}
+	$done = 0;
+	foreach ( $comments as $comment ) {
+		$result = storyweb_fb_comment( $post_id, $comment );
+		if ( is_wp_error( $result ) ) {
+			return array( 'status' => ( $done ? sprintf( 'Đã bình luận %d, ', $done ) : '' ) . 'Lỗi: ' . $result->get_error_message(), 'ok' => false );
+		}
+		++$done;
+	}
+	return array( 'status' => 1 === $done ? 'Đã bình luận' : sprintf( 'Đã bình luận %d lần', $done ), 'ok' => true );
 }
 
 /** `$template` with {placeholders} filled in. */
@@ -434,4 +471,7 @@ function storyweb_fb_log( $story, $label, $post_id, $scheduled, $comment = '' ) 
 		)
 	);
 	update_option( STORYWEB_FB_LOG, array_slice( $log, 0, 30 ), false );
+	if ( function_exists( 'storyweb_fb_mark_posted' ) ) {
+		storyweb_fb_mark_posted( get_post( $story )->ID );
+	}
 }

@@ -109,6 +109,37 @@ add_action(
 	}
 );
 
+// The test script drives "Tự động đăng": run=1 makes the next post due and runs the WP-Cron tick now; break=1 / fix=1
+// swap the saved Page token for one Facebook rejects and back. Answers with the run's state.
+add_action(
+	'wp_ajax_sw_fb_mock_queue',
+	static function () {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( '', '', array( 'response' => 403 ) );
+		}
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- local test helper.
+		if ( ! empty( $_GET['break'] ) || ! empty( $_GET['fix'] ) ) {
+			$s               = storyweb_fb_settings();
+			$s['page_token'] = ! empty( $_GET['break'] ) ? 'BROKEN' : 'PAGE-TOKEN-111';
+			storyweb_fb_save_settings( $s );
+		}
+		if ( ! empty( $_GET['run'] ) && storyweb_fb_queue() ) {
+			$queue         = storyweb_fb_queue();
+			$queue['next'] = 0;
+			storyweb_fb_queue_save( $queue );
+			do_action( STORYWEB_FB_QUEUE_HOOK );
+		}
+		// phpcs:enable
+		$queue = storyweb_fb_queue();
+		wp_send_json(
+			array(
+				'queue'     => $queue,
+				'scheduled' => (int) wp_next_scheduled( STORYWEB_FB_QUEUE_HOOK ),
+			)
+		);
+	}
+);
+
 // The test script reads (and resets) the record through admin-ajax, as an administrator.
 add_action(
 	'wp_ajax_sw_fb_mock_log',

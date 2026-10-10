@@ -76,6 +76,18 @@ function thu_cac_rest_cards( WP_REST_Request $request ) {
 			'no_found_rows'  => true,
 		)
 	);
+	// Slugs saved before the story's links used its code: tell the browser the current slug (site.js updates the shelf).
+	$found   = wp_list_pluck( $posts, 'post_name' );
+	$renamed = array();
+	foreach ( array_diff( $slugs, $found ) as $old ) {
+		$moved = function_exists( 'storyweb_story_by_old_slug' ) ? storyweb_story_by_old_slug( $old ) : null;
+		if ( $moved ) {
+			$renamed[ $old ] = $moved->post_name;
+		}
+	}
+	if ( $renamed ) {
+		return rest_ensure_response( array( 'html' => '', 'count' => 0, 'renamed' => $renamed ) );
+	}
 	// Keep the visitor's saved order.
 	usort(
 		$posts,

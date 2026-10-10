@@ -37,6 +37,24 @@ if (blurb && blurbToggle) {
   }
 }
 
+// ---------- links by story code: this browser's progress and bookshelf entries move from a story's old slugs ----------
+for (const el of document.querySelectorAll("[data-old-slugs]")) {
+  const slug = el.dataset.slug;
+  const olds = (el.dataset.oldSlugs ?? "").split(",").filter((old) => old && old !== slug);
+  if (!slug || olds.length === 0) continue;
+  try {
+    for (const old of olds) {
+      const progress = localStorage.getItem(`storyweb:progress:${old}`);
+      if (progress !== null && localStorage.getItem(`storyweb:progress:${slug}`) === null) localStorage.setItem(`storyweb:progress:${slug}`, progress);
+      localStorage.removeItem(`storyweb:progress:${old}`);
+    }
+    const shelf = JSON.parse(localStorage.getItem("storyweb:bookshelf") ?? "[]");
+    if (Array.isArray(shelf) && shelf.some((item) => olds.includes(item))) {
+      localStorage.setItem("storyweb:bookshelf", JSON.stringify([...new Set(shelf.map((item) => (olds.includes(item) ? slug : item)))]));
+    }
+  } catch { /* storage blocked */ }
+}
+
 // ---------- "Đọc tiếp": last chapter read on this device (stored by reader.js) ----------
 for (const link of document.querySelectorAll("[data-continue]")) {
   let number = 0;
@@ -98,6 +116,12 @@ async function renderShelfPage() {
     url.searchParams.set("slugs", slugs.join(","));
     const response = await fetch(url, { credentials: "same-origin" });
     const data = response.ok ? await response.json() : { html: "", count: 0 };
+    // Stories saved under a slug they no longer have: keep them under the current one (renders again once).
+    const renamed = data.renamed && typeof data.renamed === "object" ? data.renamed : {};
+    if (Object.keys(renamed).length > 0) {
+      writeShelf([...new Set(readShelf().map((item) => renamed[item] ?? item))]);
+      return;
+    }
     // Server-rendered card markup from our own endpoint (escaped by the theme template).
     grid.innerHTML = data.html;
     grid.hidden = data.count === 0;

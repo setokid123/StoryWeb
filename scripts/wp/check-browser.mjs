@@ -5,7 +5,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 const B = "http://127.0.0.1:9400";
 const OUT = process.env.OUT;
 const PROD = process.env.PROD; // optional: current Next.js site for a side-by-side reference (read-only GETs)
-const S = "thanh-pho-sau-con-mua";
+const ORIG = "thanh-pho-sau-con-mua"; // seeded slug: chapter markers use it; links use the story code since StoryWeb Core 0.4.0
+const S = await (async () => { const r = await fetch(`${B}/truyen/${ORIG}/`, { redirect: "manual" }); return ((r.headers.get("location") ?? "").match(/\/truyen\/([a-z0-9-]+)\/?$/) ?? [])[1] ?? ORIG; })();
 mkdirSync(OUT, { recursive: true });
 const port = 9335;
 const chrome = spawn("C:/Program Files/Google/Chrome/Application/chrome.exe", ["--headless=new", `--remote-debugging-port=${port}`, "--no-first-run", `--user-data-dir=${OUT}/profile`, "about:blank"], { stdio: "ignore" });

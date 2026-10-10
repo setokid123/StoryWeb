@@ -16,7 +16,8 @@ Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs
 
 - `npm test` — logic trang đọc.
 - WordPress Playground + 5 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin, mở khóa bằng link, đăng Facebook với `mock-facebook.php` thay Facebook): xem `scripts/wp/README.md`.
-- Đăng Facebook (`storyweb-core/inc/facebook*.php`) chỉ lấy giới thiệu truyện hoặc chương **miễn phí**; mã Page không bao giờ in ra trang.
+- Đăng Facebook (`storyweb-core/inc/facebook*.php`, cả tự động theo mã) chỉ lấy giới thiệu truyện hoặc chương **miễn phí**; mã Page không bao giờ in ra trang.
+- Mã truyện `TT2D00001…` (`storyweb-core/inc/story-code.php`): tên truyện bắt đầu bằng mã, link là mã (`/truyen/tt2d00001/`, `/doc/tt2d00001/3/`), link cũ chuyển 301. Truyện cũ đánh mã bằng `scripts/wp/assign-story-codes.php`.
 - Đóng gói tải lên wp-admin: `node scripts/wp/package.mjs`.
 
 ## MCP Context7 và Memory

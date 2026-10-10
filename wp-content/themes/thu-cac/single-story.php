@@ -34,6 +34,8 @@ $thu_cac_related = $thu_cac_story['genre_slug'] ? thu_cac_stories(
 ) : array();
 // "Đọc tiếp" link template for site.js (reading progress lives in the visitor's browser).
 $thu_cac_continue = function_exists( 'storyweb_chapter_url' ) ? str_replace( '999999999', '%d', storyweb_chapter_url( $thu_cac_post, 999999999 ) ) : '';
+// Slugs the story had before its links used its code: site.js moves this browser's progress and bookshelf over.
+$thu_cac_old_slugs = function_exists( 'storyweb_story_old_slugs' ) ? implode( ',', storyweb_story_old_slugs( $thu_cac_post ) ) : '';
 ?>
 <?php thu_cac_ambient( $thu_cac_story ); ?>
 <section class="detail">
@@ -73,7 +75,7 @@ $thu_cac_continue = function_exists( 'storyweb_chapter_url' ) ? str_replace( '99
 						<a class="button button--primary" href="<?php echo esc_url( storyweb_chapter_url( $thu_cac_post, $thu_cac_first[0]['number'] ) ); ?>"><?php thu_cac_the_icon( 'tram-front', 18 ); ?> Lên tàu · Đọc từ đầu</a>
 					<?php endif; ?>
 					<?php if ( $thu_cac_continue ) : ?>
-						<a class="button button--glass lg lg-glow" href="<?php echo esc_url( $thu_cac_story['url'] ); ?>" data-continue="<?php echo esc_attr( $thu_cac_continue ); ?>" data-slug="<?php echo esc_attr( $thu_cac_story['slug'] ); ?>" data-max="<?php echo (int) $thu_cac_story['chapters']; ?>" hidden><?php thu_cac_the_icon( 'play-circle', 18 ); ?> Đọc tiếp chương <span data-continue-number></span></a>
+						<a class="button button--glass lg lg-glow" href="<?php echo esc_url( $thu_cac_story['url'] ); ?>" data-continue="<?php echo esc_attr( $thu_cac_continue ); ?>" data-slug="<?php echo esc_attr( $thu_cac_story['slug'] ); ?>" data-old-slugs="<?php echo esc_attr( $thu_cac_old_slugs ); ?>" data-max="<?php echo (int) $thu_cac_story['chapters']; ?>" hidden><?php thu_cac_the_icon( 'play-circle', 18 ); ?> Đọc tiếp chương <span data-continue-number></span></a>
 					<?php endif; ?>
 					<button type="button" class="button button--glass lg lg-glow" data-bookshelf-toggle data-slug="<?php echo esc_attr( $thu_cac_story['slug'] ); ?>" aria-pressed="false">
 						<span class="bookshelf-icon bookshelf-icon--add"><?php thu_cac_the_icon( 'bookmark', 18 ); ?></span>

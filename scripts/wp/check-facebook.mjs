@@ -3,8 +3,9 @@
 //   WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs
 const B = process.env.BASE ?? "http://127.0.0.1:9400";
 if (!/^http:\/\/127\.0\.0\.1(:\d+)?$/.test(B)) throw new Error("local only");
-const S = "thanh-pho-sau-con-mua";
-const marker = (n) => `SW-${S}-${n}-BODY`;
+const ORIG = "thanh-pho-sau-con-mua"; // seeded slug: chapter markers use it; links use the story code since StoryWeb Core 0.4.0
+const S = await (async () => { const r = await fetch(`${B}/truyen/${ORIG}/`, { redirect: "manual" }); return ((r.headers.get("location") ?? "").match(/\/truyen\/([a-z0-9-]+)\/?$/) ?? [])[1] ?? ORIG; })();
+const marker = (n) => `SW-${ORIG}-${n}-BODY`;
 let pass = 0, fail = 0;
 const ok = (name, cond, detail = "") => { cond ? pass++ : fail++; console.log(`${cond ? "  PASS" : "! FAIL"}  ${name}${detail ? ` — ${detail}` : ""}`); };
 
@@ -43,7 +44,10 @@ ok("no token or secret printed back in wp-admin", !/PAGE-TOKEN|LONG-USER-TOKEN|S
 
 // ---- pick a story ----
 ok("story picker lists stories", /Chọn truyện/.test(page.text) && /&amp;story=\d+|&#038;story=\d+/.test(page.text));
-const storyId = Number(((await get(`/truyen/${S}/`, false)).text.match(/postid-(\d+)/) ?? [])[1]);
+const storyPage = (await get(`/truyen/${S}/`, false)).text;
+const storyId = Number((storyPage.match(/postid-(\d+)/) ?? [])[1]);
+const code = (storyPage.match(/TT2D\d{5}/) ?? [])[0];
+ok("sample story has a code, and its link is the code", /^TT2D\d{5}$/.test(code ?? "") && S === code.toLowerCase(), `${code} ${S}`);
 const list = await get("/wp-admin/edit.php?post_type=story");
 ok("'Đăng Facebook' link under each story in Tất cả truyện", list.text.includes("page=storyweb-facebook&#038;story=") || list.text.includes("page=storyweb-facebook&amp;story="));
 page = await get(`${PAGE}&story=${storyId}`);
@@ -54,7 +58,7 @@ ok("default text: title, chapter, text, read-on link to chapter 2, hashtags", /^
 ok("with a first comment the post has no read-on line (the comment has it)", !texts["chapter-1"]?.without.includes("👉") && texts["chapter-1"]?.without.includes(marker(1)) && /\n#TrạmTruyện2D[^\n]*$/.test(texts["chapter-1"]?.without ?? ""));
 ok("opening of chapter 1 is a short excerpt", (texts.start?.with ?? "").length < (texts["chapter-1"]?.with ?? "").length && texts.start.with.includes("…"));
 const textarea = (html, id) => decode((html.match(new RegExp(`<textarea id="${id}"[^>]*>([\\s\\S]*?)</textarea>`)) ?? [])[1] ?? "");
-ok("first comment on by default, filled from the template with the read-on link", /id="sw-fb-comment-on"\s+checked/.test(page.text) && textarea(page.text, "sw-fb-comment").startsWith("👉 Đọc truyện: ") && /\{link_doc_tiep\}/.test(textarea(page.text, "sw-fb-comment-template")));
+ok("first comment on by default, filled from the template with the read-on link", /id="sw-fb-comment-on"[^>]*checked/.test(page.text) && textarea(page.text, "sw-fb-comment").startsWith("👉 Đọc truyện: ") && /\{link_doc_tiep\}/.test(textarea(page.text, "sw-fb-comment-template")));
 const comment1 = `👉 Đọc tiếp chương 2: ${B}/doc/${S}/2/\n📚 Theo dõi Trạm Truyện 2D để đọc truyện hay mỗi ngày!`;
 const nonce = nonceFor(page.text, "storyweb_fb_publish");
 
@@ -67,7 +71,7 @@ calls = await mock(true);
 const photo = calls.find((c) => c.path === "111/photos");
 const first = calls.find((c) => c.path === "111_9001/comments");
 ok("right after the post: first comment on it, as the Page, with the read-on link", first?.method === "POST" && first.params.access_token === "PAGE-TOKEN-111" && first.params.message === comment1 && calls.indexOf(first) > calls.indexOf(photo));
-ok("notice and history say the comment is there", page.text.includes("Đã bình luận đầu tiên") && /111_9001[\s\S]{0,40}|Đã bình luận/.test(page.text) && /<td>Đã bình luận<\/td>/.test(page.text));
+ok("notice and history say the comment is there", page.text.includes("lên Page. Đã bình luận.") && /111_9001[\s\S]{0,40}|Đã bình luận/.test(page.text) && /<td>Đã bình luận<\/td>/.test(page.text));
 ok("posted as a photo on Page 111 with the Page token", photo?.method === "POST" && photo.params.access_token === "PAGE-TOKEN-111" && !("published" in photo.params));
 ok("caption = the edited text (tags stripped, % kept)", photo?.params.caption?.includes(marker(1)) && photo.params.caption.includes("Thêm một dòng tự gõ đậm 50%"));
 ok("photo = the cover as a JPEG on this site", /\/wp-content\/uploads\/storyweb-fb\/cover-\d+-\d+-\d+\.jpg$/.test(photo?.params.url ?? ""), photo?.params.url);
@@ -94,7 +98,7 @@ ok("schedule 2 minutes ahead → refused (10 min to 30 days)", page.text.include
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about.without, with_cover: "1", when: "", comment_on: "1", comment: "FAIL-COMMENT test" });
 page = await get(`${PAGE}&story=${storyId}`);
 calls = await mock(true);
-ok("comment refused: the post stays, a warning says how to fix it", calls.some((c) => c.path === "111/photos") && calls.some((c) => c.path === "111_9001/comments") && /notice-warning[\s\S]*Nhưng chưa bình luận được[\s\S]*pages_manage_engagement/.test(page.text) && /<td>Lỗi: /.test(page.text));
+ok("comment refused: the post stays, a warning says how to fix it", calls.some((c) => c.path === "111/photos") && calls.some((c) => c.path === "111_9001/comments") && /notice-warning[\s\S]*Nhưng chưa bình luận xong[\s\S]*pages_manage_engagement/.test(page.text) && /<td>Lỗi: /.test(page.text));
 
 // ---- schedule (the first comment waits in WP-Cron) ----
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about.without, with_cover: "1", when: local(24 * 60), comment_on: "1", comment: "Bình luận hẹn giờ" });
@@ -115,7 +119,15 @@ r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpn
 calls = await mock(true);
 page = await get(`${PAGE}&story=${storyId}`);
 ok("comment unticked → no comment sent", calls.some((c) => c.path === "111/photos") && !calls.some((c) => /\/comments$/.test(c.path)));
-ok("choice and template remembered: box unticked, post text keeps its link, new template filled in", !/id="sw-fb-comment-on"\s+checked/.test(page.text) && textarea(page.text, "sw-fb-message").includes("👉 Đọc truyện: ") && textarea(page.text, "sw-fb-comment-template") === "Mẫu mới: {ten_truyen} → {link_truyen}" && textarea(page.text, "sw-fb-comment") === `Mẫu mới: Thành Phố Sau Cơn Mưa → ${B}/truyen/${S}/`);
+ok("choice and template remembered: box unticked, post text keeps its link, new template filled in", !/id="sw-fb-comment-on"[^>]*checked/.test(page.text) && textarea(page.text, "sw-fb-message").includes("👉 Đọc truyện: ") && textarea(page.text, "sw-fb-comment-template") === "Mẫu mới: {ten_truyen} → {link_truyen}" && textarea(page.text, "sw-fb-comment") === `Mẫu mới: ${code} – Thành Phố Sau Cơn Mưa → ${B}/truyen/${S}/`);
+
+// ---- two comments ----
+ok("second comment off by default, its template filled with the story code", !/id="sw-fb-comment2-on"[^>]*checked/.test(page.text) && textarea(page.text, "sw-fb-comment2").startsWith(`🔎 Mã truyện: ${code}.`));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about.without, with_cover: "1", when: "", comment_on: "1", comment: "Bình luận một", comment2_on: "1", comment2: "Bình luận hai" });
+calls = await mock(true);
+page = await get(`${PAGE}&story=${storyId}`);
+const both = calls.filter((c) => c.path === "111_9001/comments").map((c) => c.params.message);
+ok("both boxes ticked → two comments, in order, after the post", both.length === 2 && both[0] === "Bình luận một" && both[1] === "Bình luận hai" && /<td>Đã bình luận 2 lần<\/td>/.test(page.text) && /id="sw-fb-comment2-on"[^>]*checked/.test(page.text), JSON.stringify(both));
 
 // ---- story without a cover ----
 const picker = await get(PAGE);
@@ -130,6 +142,51 @@ if (bare) {
   const feed = calls.find((c) => c.path === "111/feed");
   ok("story without a cover → text post with the story link, then its first comment", feed?.params.message === t[key].without && /\/truyen\/[a-z0-9-]+\/$/.test(feed?.params.link ?? "") && !calls.some((c) => c.path === "111/photos") && calls.some((c) => c.path === "111_9002/comments" && c.params.message === "Bình luận bài không ảnh"));
 } else ok("story without a cover found in the sample", false);
+
+// ---- automatic posting by code ----
+const queueState = async (q = "") => JSON.parse((await get(`/wp-admin/admin-ajax.php?action=sw_fb_mock_queue${q}`)).text);
+page = await get(PAGE);
+ok("automatic posting form under the story picker", /Tự động đăng theo mã truyện/.test(page.text) && /name="from"/.test(page.text) && /name="every"/.test(page.text) && /id="sw-fb-auto-comment2-template"/.test(page.text));
+const auto = (fields) => post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_start", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_start"), every: "5", unit: "minute", start: local(24 * 60), auto_source: "start", with_cover: "1", hashtags_default: "#TrạmTruyện2D", comment_on: "1", comment_template: "Đọc tiếp {ma_truyen}: {link_doc_tiep}", comment2_on: "1", comment2_template: "Mã {ma_truyen}", ...fields });
+r = await auto({ from: "abc", to: "TT2D00003" });
+ok("range that is not a code → refused", /Nhập mã bắt đầu và mã kết thúc/.test((await get(PAGE)).text) && !(await queueState()).queue);
+r = await auto({ from: "TT2D00001", to: "TT2D00003", every: "2" });
+ok("gap under 5 minutes → refused", /ít nhất 5 phút/.test((await get(PAGE)).text) && !(await queueState()).queue);
+await mock(true);
+r = await auto({ from: "tt2d1", to: "TT2D00003" });
+page = await get(PAGE);
+let state = await queueState();
+ok("run started: 3 stories TT2D00001 → TT2D00003, first post tomorrow (WP-Cron)", /Đã lên lịch tự động đăng 3 truyện \(TT2D00001 → TT2D00003\)/.test(page.text) && state.queue?.status === "running" && state.queue.items.length === 3 && Math.abs(state.scheduled - (Date.now() / 1000 + 86400)) < 120 && /Đang tự động đăng/.test(page.text), JSON.stringify(state.queue?.items));
+const posted = [];
+for (let i = 0; i < 3; i++) {
+  state = await queueState("&run=1");
+  calls = await mock(true);
+  const p = calls.find((c) => c.path === "111/photos");
+  posted.push({ head: (p?.params.caption ?? "").split("\n")[0], comments: calls.filter((c) => /\/comments$/.test(c.path)).map((c) => c.params.message) });
+  if (i === 0) ok("after a post the next one waits the full gap", state.queue.pos === 1 && Math.abs(state.queue.next - (Date.now() / 1000 + 300)) < 60 && state.scheduled >= state.queue.next - 1);
+}
+ok("posted in code order, each with its 2 comments from the templates", posted.every((p, i) => p.head.startsWith(`📖 TT2D0000${i + 1} – `) && p.comments.length === 2 && p.comments[0].startsWith(`Đọc tiếp TT2D0000${i + 1}: ${B}/doc/tt2d0000${i + 1}/1/`) && p.comments[1] === `Mã TT2D0000${i + 1}`), JSON.stringify(posted));
+ok("run done, no tick left", state.queue.status === "done" && state.scheduled === 0 && /đã xong: đăng 3\/3 truyện/.test((await get(PAGE)).text));
+page = await get(PAGE);
+r = await auto({ from: "TT2D00001", to: "TT2D00003", skip_posted: "1" });
+ok("'skip stories already posted' → nothing left in that range", /đều đã được đăng/.test((await get(PAGE)).text));
+page = await get(PAGE);
+r = await auto({ from: "TT2D00004", to: "TT2D00005", skip_posted: "1" });
+await queueState("&break=1");
+state = await queueState("&run=1");
+page = await get(PAGE);
+ok("Facebook error → run paused with the error, nothing skipped", state.queue.status === "paused" && state.queue.pos === 0 && /Tạm dừng vì lỗi/.test(page.text) && state.scheduled === 0);
+await queueState("&fix=1");
+await mock(true);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "resume" });
+state = await queueState("&run=1");
+calls = await mock(true);
+ok("resume → posts TT2D00004", state.queue.status === "running" && state.queue.done === 1 && (calls.find((c) => c.path === "111/photos")?.params.caption ?? "").startsWith("📖 TT2D00004"));
+page = await get(PAGE);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_queue_control", _wpnonce: nonceFor(page.text, "storyweb_fb_queue_control"), do: "cancel" });
+state = await queueState();
+ok("cancel → run gone, no tick left", !state.queue && state.scheduled === 0);
+await mock(true);
 
 // ---- disconnect, then a pasted Page token ----
 page = await get(PAGE);
