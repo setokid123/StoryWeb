@@ -229,10 +229,12 @@ function thu_cac_story( $post ) {
  *
  * @param array  $story From thu_cac_story().
  * @param string $class Extra class (story-card__cover, detail-cover…).
- * @param array  $args  sizes: the `sizes` attribute for the layout; eager: load first (above the fold).
+ * @param array  $args  sizes: the `sizes` attribute for the layout; eager: load first (above the fold);
+ *                      decorative: inside a link that already shows the title (hidden from screen readers).
  */
 function thu_cac_cover( $story, $class = '', $args = array() ) {
 	$label = sprintf( 'Bìa truyện %s', $story['title'] );
+	$a11y  = empty( $args['decorative'] ) ? 'role="img" aria-label="' . esc_attr( $label ) . '"' : 'aria-hidden="true"';
 	if ( $story['thumbnail_id'] ) {
 		$attrs = array(
 			'alt'      => '',
@@ -246,19 +248,19 @@ function thu_cac_cover( $story, $class = '', $args = array() ) {
 			$attrs['sizes'] = $args['sizes'];
 		}
 		printf(
-			'<div class="book-cover book-cover--image %1$s" role="img" aria-label="%2$s">%3$s</div>',
+			'<div class="book-cover book-cover--image %1$s" %2$s>%3$s</div>',
 			esc_attr( $class ),
-			esc_attr( $label ),
+			$a11y, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built above with esc_attr().
 			wp_get_attachment_image( $story['thumbnail_id'], 'medium_large', false, $attrs )
 		);
 		return;
 	}
 	printf(
-		'<div class="book-cover %1$s" style="--cover-start:%2$s;--cover-end:%3$s" role="img" aria-label="%4$s"><span class="book-cover__ornament book-cover__ornament--top">TRẠM TRUYỆN 2D</span><span class="book-cover__symbol">%5$s</span><span class="book-cover__title">%6$s</span><span class="book-cover__author">%7$s</span><span class="book-cover__ornament book-cover__ornament--bottom">✦</span></div>',
+		'<div class="book-cover %1$s" style="--cover-start:%2$s;--cover-end:%3$s" %4$s><span class="book-cover__ornament book-cover__ornament--top">TRẠM TRUYỆN 2D</span><span class="book-cover__symbol">%5$s</span><span class="book-cover__title">%6$s</span><span class="book-cover__author">%7$s</span><span class="book-cover__ornament book-cover__ornament--bottom">✦</span></div>',
 		esc_attr( $class ),
 		esc_attr( sanitize_hex_color( $story['palette'][0] ) ),
 		esc_attr( sanitize_hex_color( $story['palette'][1] ) ),
-		esc_attr( $label ),
+		$a11y, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built above with esc_attr().
 		esc_html( $story['symbol'] ),
 		esc_html( $story['title'] ),
 		esc_html( $story['author'] )

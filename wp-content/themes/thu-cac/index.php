@@ -25,7 +25,9 @@ get_header();
 				<?php endif; ?>
 			</article>
 		<?php endwhile; ?>
-		<nav class="pager" aria-label="Trang"><?php echo wp_kses_post( paginate_links() ); ?></nav>
+		<?php if ( $GLOBALS['wp_query']->max_num_pages > 1 ) : ?>
+			<nav class="pager" aria-label="Trang"><?php echo wp_kses_post( paginate_links() ); ?></nav>
+		<?php endif; ?>
 	<?php else : ?>
 		<div class="empty-state lg"><h2>Chưa có nội dung</h2><a class="button button--primary" href="<?php echo esc_url( home_url( '/' ) ); ?>">Về trang chủ</a></div>
 	<?php endif; ?>

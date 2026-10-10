@@ -13,7 +13,7 @@ $thu_cac_views = thu_cac_views( $thu_cac_story['id'] );
 ?>
 <a class="story-card" href="<?php echo esc_url( $thu_cac_story['url'] ); ?>" data-slug="<?php echo esc_attr( $thu_cac_story['slug'] ); ?>">
 	<div class="story-card__media">
-		<?php thu_cac_cover( $thu_cac_story, 'story-card__cover', array( 'sizes' => '(max-width: 600px) 46vw, (max-width: 1000px) 30vw, 280px' ) ); ?>
+		<?php thu_cac_cover( $thu_cac_story, 'story-card__cover', array( 'decorative' => true, 'sizes' => '(max-width: 600px) 46vw, (max-width: 1000px) 30vw, 280px' ) ); ?>
 		<div class="story-card__chips"><?php thu_cac_line_pill( $thu_cac_story['genre'], 'line-pill--sm' ); ?></div>
 		<?php if ( $thu_cac_story['completed'] ) : ?><span class="story-card__done">Hoàn thành</span><?php endif; ?>
 	</div>

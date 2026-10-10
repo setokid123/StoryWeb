@@ -35,7 +35,7 @@ if ( $thu_cac_text ) {
 	<div class="page-head"><span class="eyebrow"><i></i> Bản đồ tuyến</span><h1 class="page-title">Khám phá <em>truyện hay</em></h1><p>Một câu chuyện hợp với tâm trạng của bạn luôn đang chờ ở sân ga nào đó.</p></div>
 	<form class="search-pill search-pill--page lg" data-refract action="<?php echo esc_url( thu_cac_search_url() ); ?>" method="get" role="search">
 		<?php thu_cac_the_icon( 'search', 20 ); ?>
-		<input type="search" name="q" placeholder="Tìm tên truyện, tác giả, thể loại..." value="<?php echo esc_attr( $thu_cac_text ); ?>" aria-label="Tìm truyện" maxlength="100">
+		<input type="search" name="q" placeholder="Tìm tên truyện, tác giả, thể loại…" autocomplete="off" spellcheck="false" enterkeyhint="search" value="<?php echo esc_attr( $thu_cac_text ); ?>" aria-label="Tìm truyện" maxlength="100">
 		<?php if ( $thu_cac_genre ) : ?><input type="hidden" name="the-loai" value="<?php echo esc_attr( $thu_cac_genre->slug ); ?>"><?php endif; ?>
 		<button class="button button--primary" type="submit">Tìm kiếm</button>
 	</form>

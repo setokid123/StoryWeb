@@ -19,9 +19,10 @@ $thu_cac_picks     = thu_cac_stories(
 		'post__not_in'   => $thu_cac_featured ? array( $thu_cac_featured->ID ) : array(),
 	)
 );
-$thu_cac_board     = thu_cac_latest_chapters( 6 );
+$thu_cac_board     = thu_cac_latest_chapters( 8 );
 $thu_cac_genres    = thu_cac_genres();
 $thu_cac_count     = post_type_exists( 'story' ) ? (int) wp_count_posts( 'story' )->publish : 0;
+$thu_cac_chapters  = post_type_exists( 'chapter' ) ? (int) wp_count_posts( 'chapter' )->publish : 0;
 $thu_cac_grid      = array();
 $thu_cac_stack     = array();
 foreach ( $thu_cac_picks as $thu_cac_post ) {
@@ -34,20 +35,27 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 ?>
 <section class="hero">
 	<?php get_template_part( 'template-parts/scene' ); ?>
+	<?php if ( 'halloween' === thu_cac_season() ) : ?>
+		<div class="hw-lantern" aria-hidden="true"></div>
+	<?php endif; ?>
 	<div class="container hero__grid">
 		<div class="hero__copy">
-			<span class="chip lg"><span class="chip__dot"></span> Ga Trạm Truyện 2D · chuyến mới mỗi ngày</span>
+			<?php if ( 'halloween' === thu_cac_season() ) : ?>
+				<a class="chip lg chip--season" href="<?php echo esc_url( thu_cac_season_link() ); ?>"><span aria-hidden="true">🎃</span> Đêm Halloween: chuyến tàu kinh dị đã vào ga</a>
+			<?php else : ?>
+				<span class="chip lg"><span class="chip__dot"></span> Ga Trạm Truyện 2D · chuyến mới mỗi ngày</span>
+			<?php endif; ?>
 			<h1 class="hero__title">Chuyến tàu truyện <em>sắp khởi hành</em></h1>
 			<p class="hero__lead">Chọn một tấm vé, lên tàu và đọc tới trạm cuối. <?php echo $thu_cac_count > 0 ? esc_html( number_format_i18n( $thu_cac_count ) . ' câu chuyện đang chờ ở sân ga.' ) : 'Những câu chuyện đầu tiên sắp cập bến.'; ?></p>
 			<form class="search-pill lg" data-refract action="<?php echo esc_url( thu_cac_search_url() ); ?>" method="get" role="search">
 				<?php thu_cac_the_icon( 'search', 20 ); ?>
-				<input type="search" name="q" placeholder="Tìm tên truyện, tác giả…" aria-label="Tìm truyện" maxlength="100">
+				<input type="search" name="q" placeholder="Tìm tên truyện, tác giả…" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-label="Tìm truyện" maxlength="100">
 				<button class="button button--primary" type="submit">Tìm vé</button>
 			</form>
 			<div class="hero__stats">
 				<span class="stat lg"><strong><?php echo esc_html( number_format_i18n( $thu_cac_count ) ); ?></strong> câu chuyện</span>
 				<span class="stat lg"><strong><?php echo esc_html( number_format_i18n( count( $thu_cac_genres ) ) ); ?></strong> tuyến thể loại</span>
-				<span class="stat lg"><strong>2</strong> chế độ Sáng · Tối</span>
+				<span class="stat lg"><strong><?php echo esc_html( number_format_i18n( $thu_cac_chapters ) ); ?></strong> chương</span>
 			</div>
 		</div>
 
@@ -133,17 +141,15 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 
 <?php thu_cac_ad_slot( 'home_feed' ); ?>
 
-<?php if ( thu_cac_ranking_available() && ( thu_cac_most_viewed( 'tuan', 1 ) || thu_cac_most_viewed( 'tat-ca', 1 ) ) ) : ?>
-<section class="section">
-	<div class="container">
-		<?php get_template_part( 'template-parts/ranking', null, array( 'limit' => 10, 'period' => thu_cac_most_viewed( 'tuan', 1 ) ? 'tuan' : 'tat-ca' ) ); ?>
-	</div>
-</section>
-<?php endif; ?>
-
-<?php if ( $thu_cac_board ) : ?>
-<section class="section">
-	<div class="container">
+<?php $thu_cac_ranked = thu_cac_ranking_available() && ( thu_cac_most_viewed( 'tuan', 1 ) || thu_cac_most_viewed( 'tat-ca', 1 ) ); ?>
+<?php if ( $thu_cac_ranked || $thu_cac_board ) : ?>
+<?php /* The station hall: two boards side by side, the busiest cars and the newest arrivals. */ ?>
+<section class="section hall<?php echo $thu_cac_ranked && $thu_cac_board ? ' hall--two' : ''; ?>">
+	<div class="container hall__grid">
+		<?php if ( $thu_cac_ranked ) : ?>
+			<?php get_template_part( 'template-parts/ranking', null, array( 'limit' => 7, 'period' => thu_cac_most_viewed( 'tuan', 1 ) ? 'tuan' : 'tat-ca' ) ); ?>
+		<?php endif; ?>
+		<?php if ( $thu_cac_board ) : ?>
 		<div class="board lg">
 			<header class="board__head">
 				<div><span class="eyebrow"><i></i> Bảng giờ tàu</span><h2 class="section-title">Chương mới <em>vừa đến ga</em></h2></div>
@@ -156,8 +162,8 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 						<a class="board-row" href="<?php echo esc_url( $thu_cac_row['url'] ); ?>">
 							<span class="board-row__time"><?php echo esc_html( thu_cac_board_time( $thu_cac_row['time'] ) ); ?></span>
 							<span class="board-row__main">
-								<?php thu_cac_cover( $thu_cac_row['story'], 'board-row__cover', array( 'sizes' => '48px' ) ); ?>
-								<span class="board-row__text"><strong><?php echo esc_html( $thu_cac_row['story']['title'] ); ?></strong><small>Chương <?php echo (int) $thu_cac_row['number']; ?> · <?php echo esc_html( $thu_cac_row['title'] ); ?></small></span>
+								<?php thu_cac_cover( $thu_cac_row['story'], 'board-row__cover', array( 'decorative' => true, 'sizes' => '48px' ) ); ?>
+								<span class="board-row__text"><strong><?php echo esc_html( $thu_cac_row['story']['title'] ); ?></strong><small><?php echo esc_html( preg_match( '/^\s*chương\s+0*' . (int) $thu_cac_row['number'] . '(?!\d)/iu', (string) $thu_cac_row['title'] ) ? $thu_cac_row['title'] : 'Chương ' . (int) $thu_cac_row['number'] . ' · ' . $thu_cac_row['title'] ); ?></small></span>
 							</span>
 							<span class="board-row__line"><?php thu_cac_line_pill( $thu_cac_row['story']['genre'], 'line-pill--sm' ); ?></span>
 							<span class="board-row__ticket<?php echo $thu_cac_row['locked'] ? ' is-locked' : ''; ?>"><?php echo $thu_cac_row['locked'] ? thu_cac_icon( 'lock-keyhole', 14 ) . ' Cần mở khóa' : thu_cac_icon( 'ticket', 14 ) . ' Miễn phí'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed icons and text. ?></span>
@@ -166,6 +172,7 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 				<?php endforeach; ?>
 			</ol>
 		</div>
+		<?php endif; ?>
 	</div>
 </section>
 <?php endif; ?>

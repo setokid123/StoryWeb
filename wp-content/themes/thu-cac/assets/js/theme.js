@@ -41,6 +41,12 @@ export function applyTheme() {
   const { resolved } = getTheme();
   if (resolved === "dark") document.documentElement.setAttribute("data-theme", "dark");
   else document.documentElement.removeAttribute("data-theme");
+  const meta = document.querySelector("meta[data-theme-color]");
+  if (meta) {
+    const halloween = document.documentElement.getAttribute("data-season") === "halloween";
+    if (resolved === "dark") meta.content = halloween ? "#120a16" : "#0d0b22";
+    else meta.content = halloween ? "#fff0e2" : "#f1ecff";
+  }
   for (const button of document.querySelectorAll("[data-theme-toggle]")) {
     button.setAttribute("aria-label", resolved === "dark" ? "Chế độ sáng" : "Chế độ tối");
   }

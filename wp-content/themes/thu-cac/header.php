@@ -32,7 +32,7 @@ if ( current_user_can( 'edit_posts' ) ) {
 <header class="site-header">
 	<div class="site-header__bar">
 		<span class="site-header__glass lg" data-refract aria-hidden="true"></span>
-		<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( thu_cac_brand_name() . ' - Trang chủ' ); ?>"><?php thu_cac_brand( 38 ); ?></a>
+		<a class="brand" translate="no" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( thu_cac_brand_name() . ' - Trang chủ' ); ?>"><?php thu_cac_brand( 38 ); ?></a>
 		<nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
 			<span class="main-nav__glass lg" data-refract aria-hidden="true"></span>
 			<?php foreach ( $thu_cac_links as $thu_cac_link ) : ?>

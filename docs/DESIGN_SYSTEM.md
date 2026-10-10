@@ -39,6 +39,8 @@ Bẫy cần nhớ:
 - `backdrop-filter`, `filter`, `transform` tạo containing block cho con `position: fixed`. Vì vậy kính của header, toolbar đọc là **một lớp con riêng** (`.site-header__glass`, `.reader-toolbar__glass`) chứ không đặt lên phần tử cha: tab bar điện thoại (`.main-nav`, fixed) và bảng tùy chỉnh dạng sheet nằm bên trong chúng.
 - Tấm giấy đọc dùng `.reader-article::before` cho kính, vì cổng khóa (fixed, phủ toàn màn hình) nằm trong `<article>`.
 - Cha có `opacity < 1` làm kính con mất nền trong lúc chuyển cảnh: dock và toolbar làm mờ **con** chứ không làm mờ chính nó.
+- Cảnh trang chủ (`template-parts/scene.php`) có **một khoảnh khắc chuyển động duy nhất** khi tải trang: tàu lướt vào và phanh (tóe lửa bánh xe), cần lấy điện tóe tia trên dây, cửa sổ sáng lần lượt (`--i`), đèn pha bật. Sau đó chỉ còn chuyển động nền rất nhẹ (tàu nhún, sao băng ban đêm, máy bay giấy ban ngày). Mọi thứ đi theo tàu (đèn pha, tia lửa) phải nằm **trong** nhóm `.sc-tram`, nếu không khi rê chuột (chiều sâu `--px/--py` × `--d` của từng lớp) chúng sẽ tách khỏi tàu.
+- Mùa Halloween (`inc/season.php`, `assets/css/season-halloween.css`) thêm dơi bay ra từ mặt trăng, bí ngô sáng lần lượt (`--j`), sương, chớp; ban đêm có đèn lồng theo chuột (`.hw-lantern`). Trang đọc không có gì chuyển động.
 - Khúc xạ chỉ đặt cho vài phần tử lớn (header, tab bar, ô tìm kiếm, vé nổi bật, toolbar, dock, thẻ 404). Thẻ truyện, chip chỉ dùng kính thường; trên điện thoại chip bỏ blur.
 
 ## Thành phần

@@ -22,7 +22,7 @@ $thu_cac_title   = $thu_cac_gate && ! empty( $thu_cac_gate['title'] ) ? $thu_cac
 		<?php if ( ! $thu_cac_gate || empty( $thu_cac_gate['image'] ) ) : ?>
 			<span class="locked-panel__icon"><?php thu_cac_the_icon( 'lock-keyhole', 28 ); ?></span>
 		<?php endif; ?>
-		<div class="eyebrow">CHƯƠNG <?php echo (int) $args['chapter']; ?> · NỘI DUNG KHÓA</div>
+		<div class="eyebrow">Chương <?php echo (int) $args['chapter']; ?> · Nội dung khóa</div>
 		<h2 id="unlock-title"><?php echo esc_html( $thu_cac_title ); ?></h2>
 
 		<?php if ( $thu_cac_gate ) : ?>

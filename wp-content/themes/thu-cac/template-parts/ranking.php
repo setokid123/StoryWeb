@@ -33,7 +33,7 @@ $thu_cac_active = $thu_cac_args['period'];
 		<?php if ( $thu_cac_args['heading'] ) : ?>
 			<div><span class="eyebrow"><i></i> Xem nhiều</span><h2 class="section-title">Toa <em>đông khách nhất</em></h2></div>
 		<?php endif; ?>
-		<div class="ranking__tabs" role="tablist" aria-label="Khoảng thời gian">
+		<div class="ranking__tabs" <?php echo 'page' === $thu_cac_args['mode'] ? 'role="navigation"' : 'role="tablist"'; ?> aria-label="Khoảng thời gian">
 			<?php foreach ( $thu_cac_periods as $thu_cac_key => $thu_cac_label ) : ?>
 				<?php $thu_cac_on = $thu_cac_key === $thu_cac_active; ?>
 				<?php if ( 'page' === $thu_cac_args['mode'] ) : ?>
@@ -53,12 +53,12 @@ $thu_cac_active = $thu_cac_args['period'];
 						<li>
 							<a class="rank-row" href="<?php echo esc_url( $thu_cac_story['url'] ); ?>">
 								<span class="rank-row__no<?php echo $thu_cac_i < 3 ? ' is-top is-top-' . ( (int) $thu_cac_i + 1 ) : ''; ?>"><?php echo (int) $thu_cac_i + 1; ?></span>
-								<?php thu_cac_cover( $thu_cac_story, 'rank-row__cover', array( 'sizes' => '48px' ) ); ?>
+								<?php thu_cac_cover( $thu_cac_story, 'rank-row__cover', array( 'decorative' => true, 'sizes' => '48px' ) ); ?>
 								<span class="rank-row__text">
 									<strong><?php echo esc_html( $thu_cac_story['title'] ); ?></strong>
 									<small><?php echo esc_html( $thu_cac_story['genre'] ); ?> · <?php echo (int) $thu_cac_story['chapters']; ?> chương · <?php echo esc_html( $thu_cac_story['status'] ); ?></small>
 								</span>
-								<span class="rank-row__views" title="<?php echo esc_attr( number_format_i18n( $thu_cac_row['views'] ) . ' lượt xem' ); ?>"><?php thu_cac_the_icon( 'eye', 15 ); ?><b><?php echo esc_html( thu_cac_compact_number( $thu_cac_row['views'] ) ); ?></b></span>
+								<span class="rank-row__views" title="<?php echo esc_attr( number_format_i18n( $thu_cac_row['views'] ) . ' lượt xem' ); ?>"><?php thu_cac_the_icon( 'eye', 15 ); ?><b><?php echo esc_html( thu_cac_compact_number( $thu_cac_row['views'] ) ); ?></b><span class="screen-reader-text"> lượt xem</span></span>
 							</a>
 						</li>
 					<?php endforeach; ?>

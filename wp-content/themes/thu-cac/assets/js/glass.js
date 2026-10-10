@@ -48,6 +48,36 @@ if (finePointer.matches && !reduceMotion.matches) {
   }
 }
 
+// ---------- home hero: scene depth + Halloween lantern ----------
+// --px/--py (-1…1) move the scene's layers against the pointer (CSS skips it with reduced motion); --lx/--ly and
+// .is-lit place the lantern (Halloween at night). Mouse only.
+const hero = document.querySelector(".hero");
+if (hero && finePointer.matches) {
+  let move = null;
+  let heroFrame = 0;
+  hero.addEventListener("pointermove", (event) => {
+    if (event.pointerType !== "mouse") return;
+    move = event;
+    if (heroFrame) return;
+    heroFrame = requestAnimationFrame(() => {
+      heroFrame = 0;
+      const box = hero.getBoundingClientRect();
+      const x = move.clientX - box.left;
+      const y = move.clientY - box.top;
+      hero.style.setProperty("--px", ((x / box.width) * 2 - 1).toFixed(3));
+      hero.style.setProperty("--py", ((y / box.height) * 2 - 1).toFixed(3));
+      hero.style.setProperty("--lx", `${Math.round(x)}px`);
+      hero.style.setProperty("--ly", `${Math.round(y)}px`);
+      hero.classList.add("is-lit");
+    });
+  });
+  hero.addEventListener("pointerleave", () => {
+    hero.style.removeProperty("--px");
+    hero.style.removeProperty("--py");
+    hero.classList.remove("is-lit");
+  });
+}
+
 // ---------- refraction (Chromium) ----------
 const chromium = Boolean(navigator.userAgentData?.brands?.some((brand) => brand.brand === "Chromium"));
 if (chromium && !reduceTransparency.matches && "ResizeObserver" in window) setUpRefraction();

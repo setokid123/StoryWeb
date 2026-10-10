@@ -14,7 +14,7 @@ $thu_cac_contact = sanitize_email( (string) get_theme_mod( 'thu_cac_contact_emai
 	<div class="container">
 		<div class="site-footer__panel lg">
 			<div class="site-footer__brand">
-				<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( thu_cac_brand_name() . ' - Trang chủ' ); ?>"><?php thu_cac_brand( 44 ); ?></a>
+				<a class="brand" translate="no" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( thu_cac_brand_name() . ' - Trang chủ' ); ?>"><?php thu_cac_brand( 44 ); ?></a>
 				<p>Mỗi chương là một chặng, mỗi truyện là một chuyến đi. Lên tàu và đọc tới trạm cuối.</p>
 			</div>
 			<nav class="site-footer__links" aria-label="Liên kết chân trang">

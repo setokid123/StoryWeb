@@ -142,7 +142,7 @@ $thu_cac_old_slugs = function_exists( 'storyweb_story_old_slugs' ) ? implode( ',
 				<h2 id="cung-tuyen" class="aside-card__title">Chuyến tàu cùng cảm hứng</h2>
 				<?php foreach ( $thu_cac_related as $thu_cac_rel ) : ?>
 					<?php $thu_cac_rel = thu_cac_story( $thu_cac_rel ); ?>
-					<a class="aside-card__item" href="<?php echo esc_url( $thu_cac_rel['url'] ); ?>"><?php thu_cac_cover( $thu_cac_rel, 'aside-cover', array( 'sizes' => '52px' ) ); ?><span><strong><?php echo esc_html( $thu_cac_rel['title'] ); ?></strong><small><?php echo esc_html( $thu_cac_rel['author'] ? $thu_cac_rel['author'] : $thu_cac_rel['status'] ); ?> ·<?php echo (int) $thu_cac_rel['chapters']; ?> chương</small></span><?php thu_cac_the_icon( 'arrow-right', 16 ); ?></a>
+					<a class="aside-card__item" href="<?php echo esc_url( $thu_cac_rel['url'] ); ?>"><?php thu_cac_cover( $thu_cac_rel, 'aside-cover', array( 'decorative' => true, 'sizes' => '52px' ) ); ?><span><strong><?php echo esc_html( $thu_cac_rel['title'] ); ?></strong><small><?php echo esc_html( $thu_cac_rel['author'] ? $thu_cac_rel['author'] : $thu_cac_rel['status'] ); ?> · <?php echo (int) $thu_cac_rel['chapters']; ?> chương</small></span><?php thu_cac_the_icon( 'arrow-right', 16 ); ?></a>
 				<?php endforeach; ?>
 			</aside>
 		<?php endif; ?>

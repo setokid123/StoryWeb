@@ -1,0 +1,200 @@
+/*
+ * Mùa Halloween (inc/season.php): loaded after tram.css when the season is on, everything under
+ * html[data-season="halloween"]. Colours through the same tokens as Sáng/Tối, so every component follows:
+ * pumpkin orange and witch purple. Then the home scene's bats, pumpkins, ghost and spider, and the page cobwebs.
+ * The home hero becomes a ghost train pulling in: bats burst out of the moon, the pumpkins light one by one, the
+ * tram's headlight cuts through drifting fog, a storm flashes now and then, and at night a lantern follows the mouse.
+ */
+
+/* ---------- Sáng: warm candle-lit paper ---------- */
+html[data-season="halloween"]:not([data-theme="dark"]) {
+  --bg: #fff0e2;
+  --ink: #2b1430;
+  --ink-2: #5d3a52;
+  --ink-3: #80596f;
+  --line-color: rgba(43, 20, 48, .1);
+  --accent: #d9480f;
+  --focus: #e8590c;
+  --btn-grad: linear-gradient(120deg, #ff8a1f 0%, #e8590c 45%, #7b2cbf 100%);
+  --grad: linear-gradient(120deg, #ffa94d 0%, #ff6b1a 46%, #9d4edd 100%);
+  --grad-text: linear-gradient(100deg, #f76707 0%, #d9480f 46%, #7b2cbf 94%);
+
+  --orb-a: rgba(255, 160, 70, .62);
+  --orb-b: rgba(170, 100, 255, .42);
+  --orb-c: rgba(255, 210, 120, .5);
+  --tone: rgba(120, 50, 20, .14);
+
+  --glass-fill-solid: #fff8f1;
+  --glass-shadow: 0 18px 40px -18px rgba(120, 45, 20, .36), 0 2px 8px rgba(120, 45, 20, .08);
+  --seg-track: rgba(110, 40, 20, .08);
+  --paper-ink: #2b1430;
+  --veil-tint: rgba(255, 240, 226, .5);
+
+  --sc-glow: #ffb36b;
+  --sc-sun-a: #fff6dc;
+  --sc-sun-b: #ffb347;
+  --sc-ring: rgba(255, 255, 255, .7);
+  --sc-wire: rgba(74, 35, 64, .5);
+  --sc-pole: #4a2340;
+  --sc-cloud-hi: #ffffff;
+  --sc-cloud: #ffeedd;
+  --sc-cloud-lo: #ffc9a3;
+  --sc-page-ink: #ff922b;
+  --sc-window: #ffd43b;
+  --sc-rail: rgba(74, 35, 64, .42);
+
+  --hw-fog: #ffffff;
+  --hw-flash: #2b1430;
+  --hw-bolt: #7b2cbf;
+}
+
+/* ---------- Tối: a moonlit night ---------- */
+html[data-season="halloween"][data-theme="dark"] {
+  --bg: #120a16;
+  --ink: #fff3e6;
+  --ink-2: #dcc4d6;
+  --ink-3: #a98fa6;
+  --line-color: rgba(255, 230, 210, .1);
+  --accent: #ff922b;
+  --focus: #ffa94d;
+  --star: #ffd43b;
+  --btn-grad: linear-gradient(120deg, #ff8a1f 0%, #f76707 45%, #8f45e8 100%);
+  --grad: linear-gradient(120deg, #ffa94d 0%, #ff6b1a 46%, #a66bff 100%);
+  --grad-text: linear-gradient(100deg, #ffb562 0%, #ff8133 46%, #c79bff 94%);
+
+  --orb-a: rgba(255, 110, 20, .34);
+  --orb-b: rgba(126, 46, 210, .42);
+  --orb-c: rgba(70, 200, 110, .14);
+  --tone: rgba(255, 200, 160, .08);
+
+  --glass-fill: rgba(48, 24, 44, .44);
+  --glass-fill-strong: rgba(30, 15, 30, .78);
+  --glass-fill-solid: #22121f;
+  --glass-glow: rgba(255, 160, 80, .26);
+  --paper: rgba(26, 13, 26, .88);
+  --paper-ink: #fbeee4;
+  --veil-tint: rgba(18, 10, 22, .5);
+
+  --sc-glow: #ff6a00;
+  --sc-sun-a: #fff0c2;
+  --sc-sun-b: #ff9f1c;
+  --sc-ring: rgba(255, 190, 120, .3);
+  --sc-wire: rgba(255, 210, 170, .34);
+  --sc-pole: #2a1426;
+  --sc-cloud-hi: #4a2a4f;
+  --sc-cloud: #2c1630;
+  --sc-cloud-lo: #170a19;
+  --sc-page: #fbe7d6;
+  --sc-page-ink: #ff922b;
+  --sc-spark: #ffd8a8;
+  --sc-star: #ffe8cc;
+  --sc-window: #ffb347;
+
+  --hw-fog: #b9a3dc;
+  --hw-flash: #efe2ff;
+  --hw-bolt: #fff3c4;
+}
+
+/* The tram goes pumpkin to purple. */
+html[data-season="halloween"] #sc-tram stop:nth-child(1) { stop-color: #ff9a3c; }
+html[data-season="halloween"] #sc-tram stop:nth-child(2) { stop-color: #f76707; }
+html[data-season="halloween"] #sc-tram stop:nth-child(3) { stop-color: #7b2cbf; }
+
+/* Hero chip: links to horror stories. */
+.chip--season { color: var(--ink); text-decoration: none; transition: transform .4s var(--ease-spring); }
+.chip--season:hover { transform: translateY(-2px); }
+
+/* ---------- Home scene: bats, spider, ghost, pumpkins ---------- */
+.sc-halloween .sc-bat { fill: #2b1430; transform-box: fill-box; transform-origin: center; animation: hw-flap .32s ease-in-out infinite alternate, hw-drift 7s ease-in-out infinite; }
+html[data-theme="dark"] .sc-halloween .sc-bat { fill: #0b0510; }
+.sc-halloween .sc-bat--b { animation-duration: .27s, 9s; animation-delay: 0s, -3s; }
+.sc-halloween .sc-bat--c { animation-duration: .36s, 8s; animation-delay: 0s, -5s; }
+.sc-halloween .sc-bat--d { animation-duration: .3s, 6s; animation-delay: 0s, -2s; }
+
+.sc-spider__thread { stroke: var(--sc-wire); stroke-width: 1.5; }
+.sc-spider__body { fill: #2b1430; stroke: #2b1430; stroke-width: 2.4; stroke-linecap: round; }
+html[data-theme="dark"] .sc-spider__body { fill: #0b0510; stroke: #0b0510; }
+.sc-spider { animation: hw-dangle 5s ease-in-out infinite; }
+
+.sc-ghost { fill: rgba(255, 255, 255, .92); filter: drop-shadow(0 10px 18px rgba(80, 30, 120, .35)); animation: hw-float 4.5s ease-in-out infinite; }
+html[data-theme="dark"] .sc-ghost { fill: rgba(245, 235, 255, .88); filter: drop-shadow(0 0 22px rgba(200, 160, 255, .45)); }
+.sc-ghost__eye, .sc-ghost__mouth { fill: #2b1430; }
+
+.sc-jacks { filter: drop-shadow(0 12px 14px rgba(120, 40, 10, .35)); }
+.sc-jack__stem { fill: #3f6b2a; }
+.sc-jack__face { fill: #ffe066; animation: hw-flicker 2.6s steps(1) infinite; }
+html[data-theme="dark"] .sc-jack__face { filter: drop-shadow(0 0 6px #ffb347); }
+
+/* ---------- The ghost train pulls in ---------- */
+#sc-fog stop { stop-color: var(--hw-fog); }
+.sc-flash { fill: var(--hw-flash); opacity: 0; }
+.sc-bolt { fill: var(--hw-bolt); opacity: 0; }
+html[data-theme="dark"] .sc-bolt { filter: drop-shadow(0 0 10px #c79bff); }
+html[data-season="halloween"] { --beam-o: .5; }
+html[data-season="halloween"][data-theme="dark"] { --beam-o: .75; }
+html[data-season="halloween"] .sc-visitors { display: none; } /* bats own the sky */
+.sc-bat-burst { transform-box: fill-box; transform-origin: center; }
+.sc-fog__a, .sc-fog__b { transform-box: fill-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sc-bat-burst { animation: hw-burst 1.5s cubic-bezier(.2, .8, .25, 1) both; animation-delay: .5s; }
+  .sc-bat-burst:nth-child(2) { animation-delay: .62s; }
+  .sc-bat-burst:nth-child(3) { animation-delay: .74s; }
+  .sc-bat-burst:nth-child(4) { animation-delay: .86s; }
+  .sc-jack__face { animation: hw-ignite 1s linear calc(1.2s + var(--j, 0) * .45s) both, hw-flicker 2.6s steps(1) calc(2.2s + var(--j, 0) * .45s) infinite; }
+  .sc-fog__a { animation: hw-fog 19s ease-in-out infinite alternate; }
+  .sc-fog__b { animation: hw-fog 24s ease-in-out -8s infinite alternate-reverse; }
+  .sc-flash { animation: hw-flash 13s linear 5s 4; }
+  .sc-bolt { animation: hw-bolt 13s linear 5s 4; }
+}
+
+/* At night a lantern follows the mouse over the hero: the scene sinks into the dark around it (glass.js sets
+   --lx/--ly and .is-lit on .hero). The words stay above it, never dimmed. */
+.hw-lantern { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-theme="dark"] .hw-lantern {
+    display: block; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .8s var(--ease-out);
+    background: radial-gradient(circle 240px at var(--lx, 70%) var(--ly, 50%), rgba(255, 170, 80, .1) 0, rgba(255, 170, 80, 0) 45%, rgba(8, 3, 12, .5) 100%);
+  }
+  html[data-theme="dark"] .hero.is-lit .hw-lantern { opacity: 1; }
+}
+
+/* ---------- Page corners: cobwebs; now and then a bat crosses ---------- */
+.halloween-deco { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.halloween-web { position: absolute; width: 150px; height: 150px; color: var(--ink); opacity: .16; }
+.halloween-web svg, .halloween-bat svg { display: block; width: 100%; height: 100%; }
+.halloween-web--tl { top: calc(var(--admin-h) + 0px); left: 0; }
+.halloween-web--br { right: 0; bottom: 0; transform: rotate(180deg); }
+.halloween-bat { position: absolute; top: 22%; left: -80px; width: 54px; height: 24px; color: var(--ink); opacity: 0; animation: hw-cross 26s linear 3; }
+.halloween-bat svg { animation: hw-flap .3s ease-in-out infinite alternate; transform-origin: center; }
+.halloween-bat--b { top: 38%; width: 40px; animation-delay: -9s; animation-duration: 31s; }
+.halloween-bat--c { top: 14%; width: 34px; animation-delay: -18s; animation-duration: 37s; }
+@media (max-width: 600px) {
+  .halloween-web { width: 96px; height: 96px; }
+  .halloween-web--br { display: none; } /* the tab bar sits there */
+}
+
+@keyframes hw-flap { from { transform: scaleY(1); } to { transform: scaleY(.45); } }
+@keyframes hw-drift { 0%, 100% { translate: 0 0; } 50% { translate: -18px 10px; } }
+@keyframes hw-dangle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(26px); } }
+@keyframes hw-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+@keyframes hw-flicker { 0%, 100% { opacity: 1; } 42% { opacity: .78; } 44% { opacity: 1; } 71% { opacity: .86; } }
+@keyframes hw-burst { from { transform: translate(var(--fx), var(--fy)) scale(.15) rotate(-25deg); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
+@keyframes hw-ignite { 0% { fill: #5a2408; } 22% { fill: #ffe066; } 30% { fill: #5a2408; } 46% { fill: #ffd43b; } 54% { fill: #7a3510; } 70%, 100% { fill: #ffe066; } }
+@keyframes hw-fog { from { transform: translateX(-60px); } to { transform: translateX(80px); } }
+@keyframes hw-flash { 0%, 100% { opacity: 0; } .6% { opacity: .2; } 1.4% { opacity: 0; } 2.4% { opacity: .12; } 3.6% { opacity: 0; } }
+@keyframes hw-bolt { 0%, 100% { opacity: 0; } .6% { opacity: 1; } 1.4% { opacity: 0; } 2.4% { opacity: .7; } 3.6% { opacity: 0; } }
+html:not([data-theme="dark"]) .sc-flash { animation-name: hw-flash-day; }
+@keyframes hw-flash-day { 0%, 100% { opacity: 0; } .6% { opacity: .12; } 1.4% { opacity: 0; } 2.4% { opacity: .08; } 3.6% { opacity: 0; } }
+@keyframes hw-cross {
+  0% { transform: translate(0, 0); opacity: 0; }
+  2% { opacity: .55; }
+  18% { transform: translate(calc(100vw + 160px), -60px); opacity: .55; }
+  19%, 100% { transform: translate(calc(100vw + 160px), -60px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-halloween *, .sc-halloween, .halloween-bat, .halloween-bat svg { animation: none !important; }
+  .halloween-bat { display: none; }
+  .hw-lantern { transition: none; }
+}

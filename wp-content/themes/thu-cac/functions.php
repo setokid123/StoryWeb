@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.3.2' );
+define( 'THU_CAC_VERSION', '0.3.3' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
@@ -16,6 +16,7 @@ require_once get_template_directory() . '/inc/views.php';
 require_once get_template_directory() . '/inc/rest.php';
 require_once get_template_directory() . '/inc/share.php';
 require_once get_template_directory() . '/inc/ranking.php';
+require_once get_template_directory() . '/inc/season.php';
 
 add_action(
 	'after_setup_theme',
@@ -134,11 +135,11 @@ add_action(
 	static function () {
 		?>
 <script>try{var t=localStorage.getItem('storyweb-theme');if(t!=='dark'&&t!=='light'){var l=t==='system'?null:localStorage.getItem('storyweb:night');if(l==='true')t='dark';else if(l==='false')t='light';else t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<meta name="theme-color" content="#f1ecff" data-theme-color>
+<script>(function(){var m=document.querySelector('meta[data-theme-color]'),h=document.documentElement,d=h.getAttribute('data-theme')==='dark',s=h.getAttribute('data-season')==='halloween';m.content=s?(d?'#120a16':'#fff0e2'):(d?'#0d0b22':'#f1ecff')})()</script>
 <?php if ( is_singular( 'chapter' ) ) : ?>
 <script>try{var p=JSON.parse(localStorage.getItem('storyweb:reader-prefs:v1')||'null');if(p&&p.toolbarMode==='auto')document.documentElement.setAttribute('data-reader-chrome','auto')}catch(e){}</script>
 <?php endif; ?>
-<meta name="theme-color" content="#f1ecff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0b22" media="(prefers-color-scheme: dark)">
 		<?php
 		if ( ! has_site_icon() ) {
 			$img = get_template_directory_uri() . '/assets/img/';

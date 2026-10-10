@@ -44,6 +44,8 @@ if ( ! $storyweb_s3 || ! $storyweb_s1 || ! $storyweb_s5 ) {
 	echo "seed-views: stories TT2D1/3/5 not found\n";
 	return;
 }
+// Start from an empty table, so the script can run again after browsing the site (which adds views).
+$wpdb->query( "DELETE FROM {$storyweb_table}" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- table name only.
 $storyweb_add( $storyweb_s3->ID, 5, array( 0, 1, 2, 3, 4 ) );
 $storyweb_add( storyweb_find_chapter( $storyweb_s3->ID, 1 )->ID, 10, array( 0, 1, 2, 3, 4 ) );
 $storyweb_add( storyweb_find_chapter( $storyweb_s3->ID, 2 )->ID, 8, array( 0, 1, 2, 3, 4 ) );
