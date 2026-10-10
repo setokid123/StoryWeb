@@ -552,6 +552,44 @@ body.single-chapter .site-header { position: sticky; top: var(--admin-h); }
 .board-row__ticket { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ok); }
 .board-row__ticket.is-locked { color: var(--ink-3); }
 
+/* "Xem nhiều": period tabs and ranked rows (template-parts/ranking.php) */
+.ranking { padding: 30px; border-radius: 34px; --lg-blur: 20px; }
+.ranking__head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px 20px; margin-bottom: 20px; }
+.ranking__head .section-title { margin-bottom: 0; }
+.ranking__tabs { display: inline-flex; gap: 4px; max-width: 100%; padding: 4px; overflow-x: auto; border-radius: 999px; background: var(--row-fill); box-shadow: var(--glass-rim); scrollbar-width: none; }
+.ranking__tab { flex: none; padding: 9px 16px; border: 0; border-radius: 999px; background: transparent; font: 600 14px/1 var(--font-ui); color: var(--ink-2); white-space: nowrap; cursor: pointer; transition: background-color .25s, color .25s, box-shadow .25s; }
+.ranking__tab:hover { color: var(--ink); }
+.ranking__tab.is-active { color: var(--ink); background: var(--lens-fill); box-shadow: var(--glass-rim), 0 6px 16px -8px rgba(60, 30, 160, .45); }
+.ranking__list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ranking__list > li { min-width: 0; } /* long titles shorten with "…" instead of widening the row */
+.ranking__list.is-two-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(var(--rows), auto); grid-auto-flow: column; column-gap: 16px; }
+.rank-row { display: flex; align-items: center; gap: 14px; padding: 10px 16px 10px 10px; border-radius: 20px; background: var(--row-fill); transition: background-color .25s, transform .4s var(--ease-spring); }
+.rank-row:hover { background: var(--row-fill-hover); transform: translateX(4px); }
+.rank-row__no { flex: none; width: 36px; font: 800 20px/1 var(--font-display); font-variant-numeric: tabular-nums; text-align: center; color: var(--ink-3); }
+.rank-row__no.is-top { font-size: 27px; color: transparent; background: var(--btn-grad); -webkit-background-clip: text; background-clip: text; }
+.rank-row__cover { width: 44px; height: 58px; flex: none; padding: 0; border-radius: 11px; box-shadow: 0 8px 16px -10px rgba(30, 10, 90, .6); }
+.rank-row__cover > :not(.book-cover__symbol):not(img) { display: none; }
+.rank-row__cover .book-cover__symbol { margin: 0; font-size: 22px; }
+.rank-row__text { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.rank-row__text strong { font: 700 15px/1.3 var(--font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank-row__text small { font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank-row__views { display: inline-flex; flex: none; align-items: center; gap: 5px; font-size: 13px; color: var(--ink-2); }
+.rank-row__views b { font-weight: 700; font-variant-numeric: tabular-nums; }
+.ranking__empty { margin: 6px 4px; color: var(--ink-3); }
+.ranking__foot { display: flex; justify-content: flex-end; margin-top: 18px; }
+@media (max-width: 900px) {
+  .ranking__list.is-two-cols { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-flow: row; }
+}
+@media (max-width: 600px) {
+  .ranking { padding: 20px 12px; border-radius: 28px; }
+  .ranking__tabs { width: 100%; }
+  .ranking__tab { padding: 9px 12px; font-size: 13px; }
+  .rank-row { gap: 10px; padding: 8px 12px 8px 6px; }
+  .rank-row__no { width: 26px; font-size: 17px; }
+  .rank-row__no.is-top { font-size: 21px; }
+  .rank-row__cover { width: 38px; height: 50px; }
+}
+
 /* ---------- 9. Reading cabin ---------- */
 .cabin__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 72px; align-items: center; }
 .cabin__art { position: relative; display: grid; place-items: center; height: 540px; }

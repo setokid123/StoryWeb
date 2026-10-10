@@ -186,6 +186,7 @@ function storyweb_fb_queue_step( $max = 5 ) {
 		$queue['posts'][] = array(
 			'object'   => $result['object_id'],
 			'post'     => $result['post_id'],
+			'story'    => (int) $next['story']->ID,
 			'at'       => $at,
 			'comments' => $next['comments'],
 		);
@@ -238,6 +239,7 @@ function storyweb_fb_queue_cancel() {
 			} else {
 				++$counts['deleted'];
 				storyweb_fb_log_update( $post['post'], array( 'comment' => 'Đã hủy lịch' ) );
+				storyweb_fb_remember_post( $post['post'], array( 'cancelled' => true ) );
 			}
 		}
 	}
@@ -303,4 +305,43 @@ function storyweb_fb_queue_tick() {
 	storyweb_fb_queue_save( $queue );
 	storyweb_fb_queue_schedule( $queue );
 	delete_transient( 'storyweb_fb_queue_lock' );
+}
+
+/**
+ * Posts made before the edit list existed (StoryWeb Core 0.4.3): fill it once from the "Đã đăng" history and from
+ * the current run, whose scheduled posts follow its stories in order (exactly, when no story was skipped).
+ */
+function storyweb_fb_backfill_posts() {
+	if ( false !== get_option( STORYWEB_FB_POSTS, false ) ) {
+		return;
+	}
+	$posts = array();
+	foreach ( array_reverse( (array) get_option( STORYWEB_FB_LOG, array() ) ) as $row ) {
+		if ( ! empty( $row['post_id'] ) ) {
+			$posts[ $row['post_id'] ] = array(
+				'story'           => (int) $row['story'],
+				'label'           => (string) $row['source'],
+				'time'            => (int) $row['time'],
+				'scheduled'       => (int) $row['scheduled'],
+				'link_in_comment' => '' !== (string) ( $row['comment'] ?? '' ) && 0 !== strpos( (string) $row['comment'], 'Lỗi' ),
+			);
+		}
+	}
+	$queue = storyweb_fb_queue();
+	if ( $queue && ! empty( $queue['posts'] ) ) {
+		foreach ( array_values( (array) $queue['posts'] ) as $k => $post ) {
+			$story = (int) ( $post['story'] ?? ( empty( $queue['skipped'] ) ? ( $queue['items'][ $k ] ?? 0 ) : 0 ) );
+			if ( ! $story || isset( $posts[ $post['post'] ] ) ) {
+				continue;
+			}
+			$posts[ $post['post'] ] = array(
+				'story'           => $story,
+				'label'           => 'Tự động',
+				'time'            => (int) ( $queue['created'] ?? time() ),
+				'scheduled'       => (int) $post['at'],
+				'link_in_comment' => ! empty( $post['comments'] ),
+			);
+		}
+	}
+	update_option( STORYWEB_FB_POSTS, $posts, false );
 }

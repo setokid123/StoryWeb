@@ -136,3 +136,17 @@ renderShelfButtons();
 renderShelfPage();
 window.addEventListener(SHELF_EVENT, () => { renderShelfButtons(); renderShelfPage(); });
 window.addEventListener("storage", (event) => { if (event.key === null || event.key === SHELF_KEY) { renderShelfButtons(); renderShelfPage(); } });
+
+// ---------- "Xem nhiều": period tabs (every period is in the page; this only shows one) ----------
+for (const board of document.querySelectorAll("[data-ranking]")) {
+  const tabs = [...board.querySelectorAll("[data-ranking-tab]")];
+  const show = (key) => {
+    for (const tab of tabs) {
+      const on = tab.dataset.rankingTab === key;
+      tab.classList.toggle("is-active", on);
+      tab.setAttribute("aria-selected", String(on));
+    }
+    for (const panel of board.querySelectorAll("[data-ranking-panel]")) panel.hidden = panel.dataset.rankingPanel !== key;
+  };
+  for (const tab of tabs) tab.addEventListener("click", () => show(tab.dataset.rankingTab));
+}

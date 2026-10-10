@@ -463,6 +463,70 @@ function storyweb_fb_log_update( $post_id, $fields ) {
 	}
 }
 
+/** The text a post has on Facebook now, or '' (deleted, or not readable). */
+function storyweb_fb_post_message( $post_id ) {
+	$s      = storyweb_fb_settings();
+	$result = storyweb_fb_request(
+		'GET',
+		rawurlencode( (string) $post_id ),
+		array(
+			'fields'       => 'message',
+			'access_token' => $s['page_token'],
+		)
+	);
+	return is_wp_error( $result ) ? '' : (string) ( $result['message'] ?? '' );
+}
+
+/**
+ * Replaces a post's text on Facebook, published or still scheduled. The photo and the comments stay as they are.
+ *
+ * @return true|WP_Error
+ */
+function storyweb_fb_update_post( $post_id, $message ) {
+	$s       = storyweb_fb_settings();
+	$message = trim( (string) $message );
+	if ( ! storyweb_fb_connected() ) {
+		return new WP_Error( 'storyweb_fb_not_connected', 'Chưa kết nối Page Facebook.' );
+	}
+	if ( '' === $message || '' === (string) $post_id ) {
+		return new WP_Error( 'storyweb_fb_empty', 'Nội dung bài đăng đang trống.' );
+	}
+	$result = storyweb_fb_request(
+		'POST',
+		rawurlencode( (string) $post_id ),
+		array(
+			'access_token' => $s['page_token'],
+			'message'      => mb_substr( $message, 0, STORYWEB_FB_MAX_TEXT ),
+		)
+	);
+	return is_wp_error( $result ) ? $result : true;
+}
+
+/** Every post made from the site (up to 2,000, newest first), for editing: post_id => story, label, time, scheduled. */
+const STORYWEB_FB_POSTS = 'storyweb_fb_posts';
+
+/** @return array<string,array{story:int,label:string,time:int,scheduled:int,link_in_comment:bool,edited?:int}> */
+function storyweb_fb_posts() {
+	$posts = get_option( STORYWEB_FB_POSTS, array() );
+	return is_array( $posts ) ? $posts : array();
+}
+
+function storyweb_fb_remember_post( $post_id, $fields ) {
+	if ( '' === (string) $post_id ) {
+		return;
+	}
+	if ( false === get_option( STORYWEB_FB_POSTS, false ) && function_exists( 'storyweb_fb_backfill_posts' ) ) {
+		storyweb_fb_backfill_posts(); // posts made before this list existed come first
+	}
+	$posts             = storyweb_fb_posts();
+	$posts[ $post_id ] = array_merge( $posts[ $post_id ] ?? array(), $fields );
+	if ( count( $posts ) > 2000 ) {
+		uasort( $posts, static fn( $a, $b ) => ( $b['time'] ?? 0 ) <=> ( $a['time'] ?? 0 ) );
+		$posts = array_slice( $posts, 0, 2000, true );
+	}
+	update_option( STORYWEB_FB_POSTS, $posts, false );
+}
+
 /** Remembers a post for the "Đã đăng" list (newest first, last 30). */
 function storyweb_fb_log( $story, $label, $post_id, $scheduled, $comment = '' ) {
 	$log = get_option( STORYWEB_FB_LOG, array() );
@@ -479,6 +543,16 @@ function storyweb_fb_log( $story, $label, $post_id, $scheduled, $comment = '' ) 
 		)
 	);
 	update_option( STORYWEB_FB_LOG, array_slice( $log, 0, 30 ), false );
+	storyweb_fb_remember_post(
+		$post_id,
+		array(
+			'story'           => (int) get_post( $story )->ID,
+			'label'           => (string) $label,
+			'time'            => time(),
+			'scheduled'       => (int) $scheduled,
+			'link_in_comment' => '' !== (string) $comment && 0 !== strpos( (string) $comment, 'Lỗi' ),
+		)
+	);
 	if ( function_exists( 'storyweb_fb_mark_posted' ) ) {
 		storyweb_fb_mark_posted( get_post( $story )->ID );
 	}

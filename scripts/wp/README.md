@@ -32,11 +32,11 @@ Tài khoản quản trị của site tạm là tài khoản mặc định của 
 Chờ vài giây sau khi trang chủ trả 200 (dữ liệu mẫu nạp sau khi server mở cổng), rồi:
 
 ```bash
-node scripts/wp/check-content.mjs     # 59 kiểm tra: số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
+node scripts/wp/check-content.mjs     # 69 kiểm tra: số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
 OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
 WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
 WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 28 kiểm tra mở khóa bằng link
-WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 52 kiểm tra Truyện → Đăng Facebook (bình luận, tự động đăng theo mã)
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 74 kiểm tra Truyện → Đăng Facebook (bình luận, tự động đăng lên lịch Facebook, sửa bài, ô chọn truyện)
 ```
 
 `check-facebook.mjs` cần `mock-facebook.php` làm must-use plugin của site thử (nó trả lời thay Facebook và ghi lại các lệnh gọi). Thêm bước sau vào cuối blueprint, **không bao giờ** cài file này lên site thật:
@@ -100,3 +100,13 @@ su -s /bin/sh -c 'php assign-story-codes.php --remove' www-data     # hoàn tác
 ```
 
 `--apply` chỉ đánh mã cho truyện chưa có mã. Tên và link được ghi thẳng vào database nên thời gian "cập nhật" của truyện và thứ tự trên trang chủ không đổi.
+
+## Lượt xem mẫu (khối "Xem nhiều")
+
+`seed-views.php` ghi vài lượt xem giả vào bảng của Post Views Counter để thử bảng xếp hạng: TT2D3 dẫn đầu tuần này (trang truyện + 2 chương = 23), TT2D1 thứ hai (15), TT2D5 nhiều nhất mọi thời (40) nhưng tháng này không có. Thêm bước sau vào cuối blueprint có Post Views Counter, **chỉ** cho site thử:
+
+```json
+{ "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/seed-views.php';" }
+```
+
+`check-content.mjs` kiểm thứ tự xếp hạng khi có lượt xem mẫu; không có thì chỉ kiểm trang `/xem-nhieu/` và việc trang chủ ẩn khối này.

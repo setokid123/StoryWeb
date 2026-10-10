@@ -1,6 +1,7 @@
 <?php
 /**
- * Theme pages that need no WordPress "Page": /tim-kiem/ (discover/search) and /tu-truyen/ (bookshelf),
+ * Theme pages that need no WordPress "Page": /tim-kiem/ (discover/search), /tu-truyen/ (bookshelf) and /xem-nhieu/
+ * (most viewed),
  * same URLs as the Next.js app.
  *
  * The discover page's main query IS the story search, so WordPress pagination works and nothing loads the whole
@@ -12,7 +13,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /** Bump when the rules below change (re-flushed once per revision, like StoryWeb Core). */
-const THU_CAC_REWRITE_REV = '1';
+const THU_CAC_REWRITE_REV = '2';
 
 add_action( 'init', 'thu_cac_register_view_rewrites' );
 add_action(
@@ -30,6 +31,7 @@ function thu_cac_register_view_rewrites() {
 	add_rewrite_rule( '^tim-kiem/?$', 'index.php?thu_cac_view=search', 'top' );
 	add_rewrite_rule( '^tim-kiem/page/([0-9]{1,6})/?$', 'index.php?thu_cac_view=search&paged=$matches[1]', 'top' );
 	add_rewrite_rule( '^tu-truyen/?$', 'index.php?thu_cac_view=bookshelf', 'top' );
+	add_rewrite_rule( '^xem-nhieu/?$', 'index.php?thu_cac_view=ranking', 'top' );
 }
 
 add_filter(
@@ -40,10 +42,10 @@ add_filter(
 	}
 );
 
-/** Current theme view ('search' | 'bookshelf' | ''). */
+/** Current theme view ('search' | 'bookshelf' | 'ranking' | ''). */
 function thu_cac_view() {
 	$view = get_query_var( 'thu_cac_view' );
-	return in_array( $view, array( 'search', 'bookshelf' ), true ) ? $view : '';
+	return in_array( $view, array( 'search', 'bookshelf', 'ranking' ), true ) ? $view : '';
 }
 
 /** Search text from ?q= (max 100 chars). */
@@ -122,8 +124,9 @@ add_action(
 					)
 				);
 			}
-		} elseif ( 'bookshelf' === $view ) {
-			// Saved stories live in the visitor's browser; the page loads them via REST. No main query needed.
+		} elseif ( 'bookshelf' === $view || 'ranking' === $view ) {
+			// Bookshelf: saved stories live in the visitor's browser, loaded via REST. Ranking: its own query
+			// (inc/ranking.php). No main query needed.
 			$query->set( 'post_type', 'story' );
 			$query->set( 'post__in', array( 0 ) );
 			$query->set( 'no_found_rows', true );
@@ -197,6 +200,9 @@ add_filter(
 		}
 		if ( 'bookshelf' === $view ) {
 			return 'Tủ truyện của bạn | ' . get_bloginfo( 'name' );
+		}
+		if ( 'ranking' === $view ) {
+			return 'Truyện xem nhiều | ' . get_bloginfo( 'name' );
 		}
 		return $title;
 	}

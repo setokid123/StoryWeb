@@ -142,5 +142,23 @@ ok("cards API: 2 cards, bad slug ignored", cj.count === 2 && !cards.text.include
 const old = JSON.parse((await get(`/wp-json/thu-cac/v1/cards?slugs=${S},duoi-tan-trang-cu`)).text);
 ok("cards API: a slug from before story codes → its current slug, for the bookshelf", old.count === 0 && old.renamed?.["duoi-tan-trang-cu"] === S2, JSON.stringify(old.renamed));
 
+// ---- "Xem nhiều" (rankings from Post Views Counter; ordering checked when seed-views.php seeded the sample) ----
+const rankPage = await get("/xem-nhieu/");
+ok("/xem-nhieu/ answers with the period tabs", rankPage.status === 200 && /Truyện <em>xem nhiều<\/em>/.test(rankPage.text) && ["Hôm nay", "Tuần này", "Tháng này", "Tất cả"].every((t) => rankPage.text.includes(t)));
+ok("main nav links to Xem nhiều", /class="main-nav__link[^"]*" href="[^"]*\/xem-nhieu\/"/.test(home.text));
+const rankCodes = (html) => [...html.matchAll(/class="rank-row".*?<strong>(TT2D\d+) &#8211; /gs)].map((m) => m[1]);
+if (rankCodes(rankPage.text).length) {
+  const week = rankCodes(rankPage.text);
+  ok("this week: TT2D3 (story page + chapters = 23) before TT2D1 (15); TT2D5 (all-time only) absent", week.join(",") === "TT2D3,TT2D1", week.join(","));
+  ok("views shown are story page + all its chapters", /<b>23<\/b>/.test(rankPage.text));
+  const all = rankCodes((await get("/xem-nhieu/?ky=tat-ca")).text);
+  ok("all time: TT2D5 (40) first", all.join(",") === "TT2D5,TT2D3,TT2D1", all.join(","));
+  const homeRank = rankCodes(home.text);
+  ok("home: 'Xem nhiều' board, this week by default, link to the full page", home.text.includes("data-ranking") && homeRank[0] === "TT2D3" && home.text.includes('href="' + B + '/xem-nhieu/"'), homeRank.join(","));
+  ok("rankings carry no chapter text", !rankPage.text.includes("-BODY") && !home.text.includes("-BODY"));
+} else {
+  ok("no views yet → home shows no ranking board", !home.text.includes("data-ranking"));
+}
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exitCode = fail ? 1 : 0;

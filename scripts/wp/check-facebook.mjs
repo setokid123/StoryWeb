@@ -81,6 +81,29 @@ ok("success notice links to the Facebook post", page.text.includes("Đã đăng"
 ok("history lists the post", /Đã đăng gần đây[\s\S]*Cả chương 1[\s\S]*111_9001/.test(page.text));
 ok("hashtags remembered for the next posts", page.text.includes('value="#TrạmTruyện2D #ĐọcTruyện"'));
 
+// ---- edit a post: new text from another source (the photo, comments and time stay) ----
+ok("history and the story's post list link to 'Sửa'", page.text.includes("sua=111_9001") && /data-story-posts[\s\S]*Cả chương 1[\s\S]*sua=111_9001/.test(page.text));
+await mock(true);
+let editor = await get(`${PAGE}&sua=111_9001`);
+calls = await mock(true);
+const editTexts = JSON.parse(decode((editor.text.match(/id="sw-fb-edit-texts">([\s\S]*?)<\/script>/) ?? [])[1] ?? "{}"));
+ok("editor shows the text Facebook has now (read from the post)", calls.some((c) => c.method === "GET" && c.path === "111_9001" && c.params.fields === "message") && textarea(editor.text, "sw-fb-edit-message").includes("Thêm một dòng tự gõ đậm 50%"));
+ok("editor offers the free sources only", ["current", "about", "start", "chapter-1"].every((k) => editor.text.includes(`value="${k}"`)) && !editor.text.includes('value="chapter-2"') && !editor.text.includes(marker(2)));
+ok("the link was in the first comment → link line off by default", !/id="sw-fb-edit-inline"[^>]*checked/.test(editor.text) && !editTexts.start?.without.includes("👉"));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_edit", _wpnonce: nonceFor(editor.text, "storyweb_fb_edit"), post_id: "111_9001", source: "start", message: editTexts.start.without });
+calls = await mock(true);
+editor = await get(`${PAGE}&sua=111_9001`);
+const edited = calls.find((c) => c.method === "POST" && c.path === "111_9001");
+ok("save → the post's text replaced on Facebook (same post, no new one)", edited?.params.message === editTexts.start.without && edited.params.access_token === "PAGE-TOKEN-111" && !calls.some((c) => /\/(photos|feed)$/.test(c.path)));
+ok("notice, and the post now reads 'Đoạn mở đầu chương 1', edited", /Đã sửa nội dung bài/.test(editor.text) && /đang dùng: <strong>Đoạn mở đầu chương 1<\/strong>/.test(editor.text) && textarea(editor.text, "sw-fb-edit-message") === editTexts.start.without);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_edit", _wpnonce: nonceFor(editor.text, "storyweb_fb_edit"), post_id: "111_9001", source: "chapter-2", message: "x" });
+ok("locked chapter as the new source → refused, nothing sent", /Nguồn nội dung không hợp lệ/.test((await get(`${PAGE}&sua=111_9001`)).text) && !(await mock(true)).some((c) => c.method === "POST"));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_edit", _wpnonce: nonceFor(editor.text, "storyweb_fb_edit"), post_id: "999_1", source: "current", message: "x" });
+ok("a post not made from the site → refused", /Không tìm thấy bài này/.test((await get(PAGE)).text) && !(await mock(true)).some((c) => c.method === "POST"));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_edit", post_id: "111_9001", source: "current", message: "x" });
+ok("edit without nonce → refused", r.status === 403 && !(await mock(true)).some((c) => c.method === "POST"));
+page = await get(`${PAGE}&story=${storyId}`);
+
 // ---- refused ----
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "chapter-2", message: "x", with_cover: "1" });
 page = await get(`${PAGE}&story=${storyId}`);

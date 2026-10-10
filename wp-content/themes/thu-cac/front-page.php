@@ -133,6 +133,14 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 
 <?php thu_cac_ad_slot( 'home_feed' ); ?>
 
+<?php if ( thu_cac_ranking_available() && ( thu_cac_most_viewed( 'tuan', 1 ) || thu_cac_most_viewed( 'tat-ca', 1 ) ) ) : ?>
+<section class="section">
+	<div class="container">
+		<?php get_template_part( 'template-parts/ranking', null, array( 'limit' => 10, 'period' => thu_cac_most_viewed( 'tuan', 1 ) ? 'tuan' : 'tat-ca' ) ); ?>
+	</div>
+</section>
+<?php endif; ?>
+
 <?php if ( $thu_cac_board ) : ?>
 <section class="section">
 	<div class="container">

@@ -221,7 +221,9 @@ function storyweb_fb_admin_page() {
 	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only navigation (which story, search words).
 	$story_id = isset( $_GET['story'] ) ? absint( $_GET['story'] ) : 0;
 	$search   = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
+	$edit     = isset( $_GET['sua'] ) ? preg_replace( '/[^0-9_]/', '', (string) wp_unslash( $_GET['sua'] ) ) : '';
 	// phpcs:enable
+	storyweb_fb_backfill_posts();
 	?>
 	<div class="wrap storyweb-fb">
 		<h1>Đăng truyện lên Facebook</h1>
@@ -254,8 +256,11 @@ function storyweb_fb_admin_page() {
 			</form>
 			<?php
 			$story = $story_id ? get_post( $story_id ) : null;
-			if ( $story && 'story' === $story->post_type && 'publish' === $story->post_status ) {
+			if ( '' !== $edit ) {
+				storyweb_fb_admin_editor( $edit );
+			} elseif ( $story && 'story' === $story->post_type && 'publish' === $story->post_status ) {
 				storyweb_fb_admin_composer( $story, $s );
+				storyweb_fb_admin_story_posts( $story );
 			} else {
 				storyweb_fb_admin_picker( $search );
 				storyweb_fb_admin_queue( $s );
@@ -497,7 +502,14 @@ function storyweb_fb_admin_history() {
 				<td><?php echo esc_html( get_the_title( (int) $row['story'] ) ); ?></td>
 				<td><?php echo esc_html( $row['source'] ); ?></td>
 				<td><?php echo esc_html( $row['comment'] ?? '' ); ?></td>
-				<td><?php if ( $row['post_id'] ) : ?><a href="<?php echo esc_url( 'https://www.facebook.com/' . rawurlencode( $row['post_id'] ) ); ?>" target="_blank" rel="noopener">Mở</a><?php endif; ?></td>
+				<td>
+					<?php if ( $row['post_id'] ) : ?>
+						<?php if ( 'Đã hủy lịch' !== ( $row['comment'] ?? '' ) ) : ?>
+							<a href="<?php echo esc_url( storyweb_fb_admin_url( array( 'sua' => $row['post_id'] ) ) ); ?>">Sửa</a> ·
+						<?php endif; ?>
+						<a href="<?php echo esc_url( 'https://www.facebook.com/' . rawurlencode( $row['post_id'] ) ); ?>" target="_blank" rel="noopener">Mở</a>
+					<?php endif; ?>
+				</td>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>

@@ -65,6 +65,12 @@ add_filter(
 		if ( '111' === $path ) {
 			return $page_ok ? $reply( array( 'id' => '111', 'name' => 'Trạm Truyện 2D' ) ) : $error( 190, 'Invalid OAuth access token.' );
 		}
+		// The text of each post, so reading and editing a post can be checked.
+		$keep = static function ( $post_id, $text ) {
+			$texts             = (array) get_option( 'sw_fb_mock_messages', array() );
+			$texts[ $post_id ] = (string) $text;
+			update_option( 'sw_fb_mock_messages', $texts, false );
+		};
 		if ( '111/photos' === $path ) {
 			if ( ! $page_ok ) {
 				return $error( 190, 'Invalid OAuth access token.' );
@@ -73,14 +79,30 @@ add_filter(
 			if ( 'false' === (string) ( $params['published'] ?? '' ) ) {
 				$n = (int) get_option( 'sw_fb_mock_n', 0 ) + 1;
 				update_option( 'sw_fb_mock_n', $n, false );
+				$keep( '111_' . ( 9100 + $n ), $params['caption'] ?? '' );
 				return $reply( array( 'id' => (string) ( 9100 + $n ), 'post_id' => '111_' . ( 9100 + $n ) ) );
 			}
+			$keep( '111_9001', $params['caption'] ?? '' );
 			return $reply( array( 'id' => '9001', 'post_id' => '111_9001' ) );
 		}
 		if ( 'DELETE' === $method && preg_match( '#^(111_)?\d+$#', $path ) ) {
 			return $page_ok ? $reply( array( 'success' => true ) ) : $error( 190, 'Invalid OAuth access token.' );
 		}
+		// Read (GET ?fields=message) or edit (POST message) a post.
+		if ( preg_match( '#^111_\d+$#', $path ) ) {
+			if ( ! $page_ok ) {
+				return $error( 190, 'Invalid OAuth access token.' );
+			}
+			if ( 'POST' === $method ) {
+				$keep( $path, $params['message'] ?? '' );
+				return $reply( array( 'success' => true ) );
+			}
+			return $reply( array( 'id' => $path, 'message' => ( (array) get_option( 'sw_fb_mock_messages', array() ) )[ $path ] ?? '' ) );
+		}
 		if ( '111/feed' === $path ) {
+			if ( $page_ok ) {
+				$keep( '111_9002', $params['message'] ?? '' );
+			}
 			return $page_ok ? $reply( array( 'id' => '111_9002' ) ) : $error( 190, 'Invalid OAuth access token.' );
 		}
 		if ( preg_match( '#^(111_\d+)/comments$#', $path, $m ) ) {
