@@ -22,29 +22,30 @@ for (let i = 0; ; i++) {
 
 // ---- catalogue ----
 const home = await get("/");
-ok("home: hero + 4 story cards + updates list", count(home.text, /class="story-card"/g) === 4 && home.text.includes("hero-art__cover") && count(home.text, /class="update-row"/g) === 4, `cards=${count(home.text, /class="story-card"/g)} updates=${count(home.text, /class="update-row"/g)}`);
-ok("home: stats show 8 stories", /<strong>08<\/strong><span>Câu chuyện/.test(home.text));
+ok("home: featured ticket + 7 picks (all but the featured) + 6-row departure board", count(home.text, /class="story-card"/g) === 7 && home.text.includes("ticket__cover") && count(home.text, /class="board-row"/g) === 6, `cards=${count(home.text, /class="story-card"/g)} board=${count(home.text, /class="board-row"/g)}`);
+ok("home: stats show 8 stories", /<strong>8<\/strong> câu chuyện/.test(home.text));
 ok("home: genre strip lists genres", count(home.text, /the-loai=/g) >= 5, `${count(home.text, /the-loai=/g)} links`);
 const all = await get("/tim-kiem/");
-ok("discover: 8 stories, '8 truyện'", count(all.text, /class="story-card"/g) === 8 && all.text.includes("<span>8 truyện</span>"));
+ok("discover: 8 stories, '8 truyện'", count(all.text, /class="story-card"/g) === 8 && all.text.includes(">8 truyện</span>"));
 const rain = await get("/tim-kiem/?q=" + encodeURIComponent("mưa"));
 ok("discover: search 'mưa' finds Thành Phố Sau Cơn Mưa", rain.text.includes("Thành Phố Sau Cơn Mưa") && rain.text.includes("Kết quả cho"), `${count(rain.text, /class="story-card"/g)} result(s)`);
 const author = await get("/tim-kiem/?q=" + encodeURIComponent("Lâm Hạ"));
 ok("discover: search by author 'Lâm Hạ'", author.text.includes("Thành Phố Sau Cơn Mưa"), `${count(author.text, /class="story-card"/g)} result(s)`);
 const genre = await get("/tim-kiem/?the-loai=do-thi");
-ok("discover: genre filter Đô thị selected", genre.text.includes('filter-chip is-selected') && genre.text.includes("Truyện Đô thị"));
+ok("discover: genre filter Đô thị selected", /filter-chip[^"]*is-selected/.test(genre.text) && genre.text.includes("Truyện Đô thị"));
 const oldGenre = await get("/tim-kiem/?the-loai=" + encodeURIComponent("Đô thị"));
 ok("discover: old Next.js genre link (by name) still filters", oldGenre.text.includes("Truyện Đô thị"));
 
 // ---- story detail ----
 const story = await get(`/truyen/${S}/`);
-ok("story: 100 chapter rows on page 1", count(story.text, /class="chapter-row"/g) === 100, `${count(story.text, /class="chapter-row"/g)}`);
+const stops = (t) => count(t, /class="stop( is-locked)?"/g);
+ok("story: 100 chapter stops on page 1", stops(story.text) === 100, `${stops(story.text)}`);
 ok("story: '120 chương · 1 chương miễn phí'", story.text.includes("120 chương · 1 chương miễn phí"));
 const compact = story.text.replace(/>\s+</g, "><"); // whitespace/line endings between tags do not matter
-ok("story: chapter 1 free, chapters 2–100 locked", /chapter-row__index">01<\/span><span class="chapter-row__name">[^<]*<\/span><span class="chapter-row__status">Miễn phí/.test(compact) && count(compact, /chapter-row__status--locked/g) === 99, `${count(compact, /chapter-row__status--locked/g)} locked`);
+ok("story: chapter 1 free, chapters 2–100 locked", /stop__index">01<\/span><span class="stop__name">[^<]*<\/span><span class="stop__status">Miễn phí/.test(compact) && count(compact, /class="stop is-locked"/g) === 99, `${count(compact, /class="stop is-locked"/g)} locked`);
 ok("story: pager to page 2", story.text.includes("trang-chuong=2"));
 const story2 = await get(`/truyen/${S}/?trang-chuong=2`);
-ok("story: page 2 has 20 rows", count(story2.text, /class="chapter-row"/g) === 20, `${count(story2.text, /class="chapter-row"/g)}`);
+ok("story: page 2 has 20 stops", stops(story2.text) === 20, `${stops(story2.text)}`);
 ok("story: no chapter body on story page", !story.text.includes("-BODY"));
 
 // ---- reader ----

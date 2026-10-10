@@ -1,6 +1,7 @@
 <?php
 /**
- * Home page (port of app/page.tsx).
+ * Home: the station. Hero with the featured story as a glass ticket, genre "lines", today's picks (a daily
+ * random shelf, the same for everyone all day) and the departure board of the newest chapters.
  *
  * @package ThuCac
  */
@@ -10,94 +11,176 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 $thu_cac_featured  = thu_cac_featured_story();
-$thu_cac_feat_data = $thu_cac_featured ? thu_cac_story( $thu_cac_featured ) : null;
-$thu_cac_latest    = thu_cac_stories( array( 'posts_per_page' => 8 ) );
+$thu_cac_feat      = $thu_cac_featured ? thu_cac_story( $thu_cac_featured ) : null;
+$thu_cac_picks     = thu_cac_stories(
+	array(
+		'posts_per_page' => 8,
+		'orderby'        => 'RAND(' . (int) wp_date( 'Ymd' ) . ')',
+		'post__not_in'   => $thu_cac_featured ? array( $thu_cac_featured->ID ) : array(),
+	)
+);
+$thu_cac_board     = thu_cac_latest_chapters( 6 );
 $thu_cac_genres    = thu_cac_genres();
 $thu_cac_count     = post_type_exists( 'story' ) ? (int) wp_count_posts( 'story' )->publish : 0;
-$thu_cac_quote     = $thu_cac_feat_data ? $thu_cac_feat_data['quote'] : '';
+$thu_cac_grid      = array();
+$thu_cac_stack     = array();
+foreach ( $thu_cac_picks as $thu_cac_post ) {
+	$thu_cac_item   = thu_cac_story( $thu_cac_post );
+	$thu_cac_grid[] = $thu_cac_item;
+	if ( ! $thu_cac_stack && $thu_cac_item['thumbnail_id'] ) {
+		$thu_cac_stack[] = $thu_cac_item;
+	}
+}
 ?>
-<section class="hero-section">
-	<div class="container hero-grid">
-		<div class="hero-copy">
-			<div class="eyebrow"><span class="eyebrow__line"></span> MỘT THẾ GIỚI ĐỂ LẠC VÀO</div>
-			<h1>Mỗi trang truyện,<br><em>một chân trời mới.</em></h1>
-			<p>Gác lại nhịp sống vội vàng. Tìm một câu chuyện vừa vặn với tâm trạng của bạn, rồi đọc thêm một chương nữa.</p>
-			<div class="hero-actions">
-				<a class="button button--primary" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Khám phá truyện <?php thu_cac_the_icon( 'arrow-right', 18 ); ?></a>
-				<?php if ( $thu_cac_feat_data ) : ?>
-					<a class="text-link" href="<?php echo esc_url( $thu_cac_feat_data['url'] ); ?>">Truyện nổi bật <?php thu_cac_the_icon( 'arrow-up-right', 18 ); ?></a>
-				<?php endif; ?>
-			</div>
-			<div class="hero-stats">
-				<div><strong><?php echo esc_html( str_pad( (string) $thu_cac_count, 2, '0', STR_PAD_LEFT ) ); ?></strong><span>Câu chuyện</span></div>
-				<div><strong><?php echo esc_html( str_pad( (string) count( $thu_cac_genres ), 2, '0', STR_PAD_LEFT ) ); ?></strong><span>Thể loại</span></div>
-				<div><strong>02</strong><span>Chế độ đọc</span></div>
+<section class="hero">
+	<?php get_template_part( 'template-parts/scene' ); ?>
+	<div class="container hero__grid">
+		<div class="hero__copy">
+			<span class="chip lg"><span class="chip__dot"></span> Ga Trạm Truyện 2D · chuyến mới mỗi ngày</span>
+			<h1 class="hero__title">Chuyến tàu truyện <em>sắp khởi hành</em></h1>
+			<p class="hero__lead">Chọn một tấm vé, lên tàu và đọc tới trạm cuối. <?php echo $thu_cac_count > 0 ? esc_html( number_format_i18n( $thu_cac_count ) . ' câu chuyện đang chờ ở sân ga.' ) : 'Những câu chuyện đầu tiên sắp cập bến.'; ?></p>
+			<form class="search-pill lg" data-refract action="<?php echo esc_url( thu_cac_search_url() ); ?>" method="get" role="search">
+				<?php thu_cac_the_icon( 'search', 20 ); ?>
+				<input type="search" name="q" placeholder="Tìm tên truyện, tác giả…" aria-label="Tìm truyện" maxlength="100">
+				<button class="button button--primary" type="submit">Tìm vé</button>
+			</form>
+			<div class="hero__stats">
+				<span class="stat lg"><strong><?php echo esc_html( number_format_i18n( $thu_cac_count ) ); ?></strong> câu chuyện</span>
+				<span class="stat lg"><strong><?php echo esc_html( number_format_i18n( count( $thu_cac_genres ) ) ); ?></strong> tuyến thể loại</span>
+				<span class="stat lg"><strong>2</strong> chế độ Sáng · Tối</span>
 			</div>
 		</div>
-		<div class="hero-art">
-			<div class="hero-art__halo"></div>
-			<?php if ( $thu_cac_feat_data ) : ?>
-				<div class="hero-art__frame"><?php thu_cac_cover( $thu_cac_feat_data, 'hero-art__cover' ); ?></div>
-				<?php if ( $thu_cac_quote ) : ?>
-					<div class="hero-art__quote">“<?php echo esc_html( $thu_cac_quote ); ?>”<span>— <?php echo esc_html( $thu_cac_feat_data['title'] ); ?></span></div>
-				<?php endif; ?>
-			<?php endif; ?>
-			<span class="hero-art__spark hero-art__spark--one">✦</span><span class="hero-art__spark hero-art__spark--two">✧</span>
-		</div>
+
+		<?php if ( $thu_cac_feat ) : ?>
+			<div class="hero__stage">
+				<?php foreach ( $thu_cac_stack as $thu_cac_i => $thu_cac_s ) : ?>
+					<div class="hero__stack hero__stack--<?php echo (int) $thu_cac_i + 1; ?>" aria-hidden="true"><?php thu_cac_cover( $thu_cac_s, 'hero__stack-cover', array( 'sizes' => '200px' ) ); ?></div>
+				<?php endforeach; ?>
+				<article class="ticket lg" data-refract data-tilt>
+					<header class="ticket__head">
+						<span class="live"><i></i> Chuyến nổi bật</span>
+						<span class="ticket__no">Vé số <?php echo esc_html( str_pad( (string) $thu_cac_feat['id'], 5, '0', STR_PAD_LEFT ) ); ?></span>
+					</header>
+					<div class="ticket__body">
+						<a class="ticket__cover" href="<?php echo esc_url( $thu_cac_feat['url'] ); ?>" tabindex="-1" aria-hidden="true"><?php thu_cac_cover( $thu_cac_feat, 'ticket__cover-img', array( 'eager' => true, 'sizes' => '(max-width: 600px) 40vw, 200px' ) ); ?></a>
+						<div class="ticket__info">
+							<?php thu_cac_line_pill( $thu_cac_feat['genre'], '', $thu_cac_feat['genre_url'] ); ?>
+							<h2 class="ticket__title"><a href="<?php echo esc_url( $thu_cac_feat['url'] ); ?>"><?php echo esc_html( $thu_cac_feat['title'] ); ?></a></h2>
+							<p class="ticket__author"><?php echo esc_html( $thu_cac_feat['author'] ); ?></p>
+							<?php if ( $thu_cac_feat['quote'] ) : ?>
+								<blockquote class="ticket__quote">“<?php echo esc_html( $thu_cac_feat['quote'] ); ?>”</blockquote>
+							<?php endif; ?>
+							<div class="ticket__meta">
+								<span><?php thu_cac_the_icon( 'star', 14, array( 'fill' => 'currentColor' ) ); ?> <?php echo esc_html( $thu_cac_feat['rating'] ); ?></span>
+								<span><?php thu_cac_the_icon( 'book-open', 14 ); ?> <?php echo (int) $thu_cac_feat['chapters']; ?> chương</span>
+								<span><?php echo esc_html( $thu_cac_feat['status'] ); ?></span>
+							</div>
+						</div>
+					</div>
+					<footer class="ticket__stub">
+						<a class="button button--primary" href="<?php echo esc_url( $thu_cac_feat['url'] ); ?>">Lên tàu đọc ngay <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
+						<span class="ticket__barcode" aria-hidden="true"></span>
+					</footer>
+				</article>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
 
 <?php if ( $thu_cac_genres ) : ?>
-<section class="genre-strip"><div class="container genre-strip__inner"><span>ĐỌC THEO CẢM HỨNG</span><div>
-	<?php foreach ( $thu_cac_genres as $thu_cac_genre ) : ?>
-		<a href="<?php echo esc_url( thu_cac_search_url( array( 'the-loai' => $thu_cac_genre->slug ) ) ); ?>"><?php echo esc_html( $thu_cac_genre->name ); ?> <?php thu_cac_the_icon( 'arrow-up-right', 13 ); ?></a>
-	<?php endforeach; ?>
-</div></div></section>
-<?php endif; ?>
-
-<section class="section section--cream"><div class="container">
-	<div class="section-heading"><div><div class="eyebrow">TUYỂN CHỌN CHO BẠN</div><h2>Câu chuyện đáng đọc <em>hôm nay</em></h2><p>Những thế giới đang được độc giả yêu thích nhất.</p></div><a class="section-link" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Xem tất cả <?php thu_cac_the_icon( 'arrow-right', 18 ); ?></a></div>
-	<?php if ( $thu_cac_latest ) : ?>
-		<div class="story-grid">
-			<?php foreach ( array_slice( $thu_cac_latest, 0, 4 ) as $thu_cac_post ) : ?>
-				<?php thu_cac_story_card( thu_cac_story( $thu_cac_post ) ); ?>
+<section class="section lines">
+	<div class="container">
+		<div class="section-head">
+			<div><span class="eyebrow"><i></i> Chọn tuyến</span><h2 class="section-title">Đi theo <em>cảm hứng</em></h2></div>
+			<a class="link-arrow" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Bản đồ tuyến <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
+		</div>
+		<div class="lines__track">
+			<?php foreach ( array_slice( $thu_cac_genres, 0, 14 ) as $thu_cac_genre ) : ?>
+				<?php $thu_cac_line = thu_cac_line( $thu_cac_genre->name ); ?>
+				<a class="line-chip lg lg-glow" style="--line:<?php echo esc_attr( $thu_cac_line['color'] ); ?>" href="<?php echo esc_url( thu_cac_search_url( array( 'the-loai' => $thu_cac_genre->slug ) ) ); ?>">
+					<span class="line-chip__code"><?php echo esc_html( $thu_cac_line['code'] ); ?></span>
+					<span class="line-chip__text"><strong><?php echo esc_html( $thu_cac_genre->name ); ?></strong><small><?php echo esc_html( number_format_i18n( (int) $thu_cac_genre->count ) ); ?> truyện</small></span>
+				</a>
 			<?php endforeach; ?>
 		</div>
-	<?php else : ?>
-		<div class="empty-state"><?php thu_cac_the_icon( 'book-open', 40, array( 'stroke-width' => '1.2' ) ); ?><h2>Kệ sách đang chờ câu chuyện đầu tiên</h2><p>Truyện sẽ hiện ở đây khi được xuất bản.</p></div>
-	<?php endif; ?>
-</div></section>
+	</div>
+</section>
+<?php endif; ?>
+
+<section class="section">
+	<div class="container">
+		<div class="section-head">
+			<div><span class="eyebrow"><i></i> Đề cử hôm nay</span><h2 class="section-title">Kệ vé <em>của ngày hôm nay</em></h2><p>Mỗi ngày một kệ mới, chọn từ khắp các tuyến. Lên sớm, chọn ghế đẹp.</p></div>
+			<a class="link-arrow" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Xem tất cả <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
+		</div>
+		<?php if ( $thu_cac_grid ) : ?>
+			<div class="story-grid">
+				<?php foreach ( $thu_cac_grid as $thu_cac_item ) : ?>
+					<?php thu_cac_story_card( $thu_cac_item ); ?>
+				<?php endforeach; ?>
+			</div>
+		<?php elseif ( ! $thu_cac_feat ) : ?>
+			<div class="empty-state lg"><?php thu_cac_the_icon( 'tram-front', 40, array( 'stroke-width' => '1.4' ) ); ?><h2>Sân ga đang chờ chuyến tàu đầu tiên</h2><p>Truyện sẽ hiện ở đây khi được xuất bản.</p></div>
+		<?php endif; ?>
+	</div>
+</section>
 
 <?php thu_cac_ad_slot( 'home_feed' ); ?>
 
-<section class="feature-section"><div class="container feature-grid">
-	<div class="feature-art"><span class="feature-art__ring feature-art__ring--one"></span><span class="feature-art__ring feature-art__ring--two"></span><?php thu_cac_the_icon( 'book-open', 96, array( 'stroke-width' => '0.8' ) ); ?><span class="feature-art__small">CHẬM LẠI · ĐỌC SÂU HƠN</span></div>
-	<div class="feature-copy"><div class="eyebrow">KHÔNG GIAN CỦA RIÊNG BẠN</div><h2>Đọc theo cách<br><em>bạn muốn.</em></h2><p>Một góc đọc thật dễ chịu, từ chuyến xe sáng đến những đêm cần một chút bình yên.</p>
-		<div class="feature-list">
-			<div><span><?php thu_cac_the_icon( 'sparkles', 20 ); ?></span><div><strong>Khám phá dễ dàng</strong><p>Tìm truyện theo thể loại và tâm trạng yêu thích.</p></div></div>
-			<div><span><?php thu_cac_the_icon( 'headphones', 20 ); ?></span><div><strong>Không gian đọc tập trung</strong><p>Điều chỉnh cỡ chữ, màu nền và tiếp tục nơi bạn dừng lại.</p></div></div>
+<?php if ( $thu_cac_board ) : ?>
+<section class="section">
+	<div class="container">
+		<div class="board lg">
+			<header class="board__head">
+				<div><span class="eyebrow"><i></i> Bảng giờ tàu</span><h2 class="section-title">Chương mới <em>vừa đến ga</em></h2></div>
+				<div class="board__clock"><span class="live"><i></i> Đang cập nhật</span><time data-board-clock><?php echo esc_html( wp_date( 'H:i' ) ); ?></time></div>
+			</header>
+			<div class="board__cols" aria-hidden="true"><span>Giờ</span><span>Chuyến</span><span>Tuyến</span><span>Vé</span></div>
+			<ol class="board__rows">
+				<?php foreach ( $thu_cac_board as $thu_cac_row ) : ?>
+					<li>
+						<a class="board-row" href="<?php echo esc_url( $thu_cac_row['url'] ); ?>">
+							<span class="board-row__time"><?php echo esc_html( thu_cac_board_time( $thu_cac_row['time'] ) ); ?></span>
+							<span class="board-row__main">
+								<?php thu_cac_cover( $thu_cac_row['story'], 'board-row__cover', array( 'sizes' => '48px' ) ); ?>
+								<span class="board-row__text"><strong><?php echo esc_html( $thu_cac_row['story']['title'] ); ?></strong><small>Chương <?php echo (int) $thu_cac_row['number']; ?> · <?php echo esc_html( $thu_cac_row['title'] ); ?></small></span>
+							</span>
+							<span class="board-row__line"><?php thu_cac_line_pill( $thu_cac_row['story']['genre'], 'line-pill--sm' ); ?></span>
+							<span class="board-row__ticket<?php echo $thu_cac_row['locked'] ? ' is-locked' : ''; ?>"><?php echo $thu_cac_row['locked'] ? thu_cac_icon( 'lock-keyhole', 14 ) . ' Cần mở khóa' : thu_cac_icon( 'ticket', 14 ) . ' Miễn phí'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed icons and text. ?></span>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ol>
 		</div>
-		<a class="button button--outline" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Tìm câu chuyện của bạn <?php thu_cac_the_icon( 'arrow-right', 18 ); ?></a>
 	</div>
-</div></section>
-
-<?php if ( count( $thu_cac_latest ) > 4 ) : ?>
-<section class="section section--cream"><div class="container">
-	<div class="section-heading"><div><div class="eyebrow">LUÔN CÓ ĐIỀU MỚI</div><h2>Vừa lên kệ <em>Thư Các</em></h2><p>Mở một chương mới, biết đâu bạn sẽ tìm thấy điều mình cần.</p></div><a class="section-link" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Khám phá thêm <?php thu_cac_the_icon( 'arrow-right', 18 ); ?></a></div>
-	<div class="updates-list">
-		<?php foreach ( array_slice( $thu_cac_latest, 4, 4 ) as $thu_cac_index => $thu_cac_post ) : ?>
-			<?php $thu_cac_item = thu_cac_story( $thu_cac_post ); ?>
-			<a class="update-row" href="<?php echo esc_url( $thu_cac_item['url'] ); ?>">
-				<span class="update-row__number">0<?php echo (int) $thu_cac_index + 1; ?></span>
-				<?php thu_cac_cover( $thu_cac_item, 'update-row__cover' ); ?>
-				<span class="update-row__title"><strong><?php echo esc_html( $thu_cac_item['title'] ); ?></strong><small><?php echo esc_html( $thu_cac_item['author'] . ' · ' . $thu_cac_item['genre'] ); ?></small></span>
-				<span class="update-row__meta"><?php thu_cac_the_icon( 'star', 15, array( 'fill' => 'currentColor' ) ); ?> <?php echo esc_html( $thu_cac_item['rating'] ); ?></span>
-				<span class="update-row__time"><?php echo esc_html( $thu_cac_item['updated'] ); ?></span>
-				<?php thu_cac_the_icon( 'arrow-up-right', 21, array( 'class' => 'update-row__arrow' ) ); ?>
-			</a>
-		<?php endforeach; ?>
-	</div>
-</div></section>
+</section>
 <?php endif; ?>
+
+<section class="section cabin">
+	<div class="container cabin__grid">
+		<div class="cabin__art" aria-hidden="true">
+			<div class="phone lg">
+				<div class="phone__bar lg"><span></span><b>Chương 12</b><span></span></div>
+				<div class="phone__page">
+					<i class="phone__h"></i><i></i><i></i><i class="is-short"></i><i></i><i></i><i></i><i class="is-short"></i><i></i><i></i>
+				</div>
+				<div class="phone__dock lg"><span></span><span></span><span class="is-on"></span><span></span></div>
+			</div>
+			<div class="cabin__bubble lg">Aa <small>19px · Văn học</small></div>
+			<div class="cabin__bubble cabin__bubble--b lg"><?php thu_cac_the_icon( 'moon', 16 ); ?> Tối dịu mắt</div>
+		</div>
+		<div class="cabin__copy">
+			<span class="eyebrow"><i></i> Khoang đọc</span>
+			<h2 class="section-title">Đọc theo cách <em>của riêng bạn</em></h2>
+			<p>Một khoang tàu yên tĩnh cho mỗi chương: chữ rõ, nền dịu, thanh điều khiển bằng kính tự lùi lại khi bạn cuộn đọc.</p>
+			<ul class="cabin__list">
+				<li><span class="cabin__icon lg"><?php thu_cac_the_icon( 'sun', 18 ); ?></span><div><strong>Sáng – Tối theo giờ đọc</strong><p>Đổi một chạm, ghi nhớ cho lần sau.</p></div></li>
+				<li><span class="cabin__icon lg"><?php thu_cac_the_icon( 'type', 18 ); ?></span><div><strong>Chữ của bạn, cỡ của bạn</strong><p>Phông Văn học hay Hiện đại, cỡ 16–26px, giãn dòng, độ rộng cột.</p></div></li>
+				<li><span class="cabin__icon lg"><?php thu_cac_the_icon( 'library-big', 18 ); ?></span><div><strong>Tủ truyện ngay trên máy</strong><p>Lưu truyện yêu thích, quay lại đúng chỗ bất cứ lúc nào.</p></div></li>
+			</ul>
+			<a class="button button--glass lg lg-glow" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Tìm chuyến tàu của bạn <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
+		</div>
+	</div>
+</section>
 <?php
 get_footer();

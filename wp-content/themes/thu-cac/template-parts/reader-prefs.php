@@ -24,10 +24,10 @@ $thu_cac_pref_btn = static function ( $pref, $value, $label, $attrs = '', $class
 ?>
 <div id="reader-preferences" hidden>
 <div class="reader-prefs-backdrop" data-prefs-close>
-<div class="reader-prefs" role="dialog" aria-modal="true" aria-labelledby="prefs-title">
+<div class="reader-prefs lg" role="dialog" aria-modal="true" aria-labelledby="prefs-title">
 	<header class="reader-prefs__header">
 		<h2 id="prefs-title">Tùy chỉnh đọc</h2>
-		<button type="button" class="icon-button" data-prefs-close aria-label="Đóng tùy chỉnh"><?php thu_cac_the_icon( 'x', 20 ); ?></button>
+		<button type="button" class="icon-btn" data-prefs-close aria-label="Đóng tùy chỉnh"><?php thu_cac_the_icon( 'x', 20 ); ?></button>
 	</header>
 	<div class="reader-prefs__body">
 		<section class="pref-section">

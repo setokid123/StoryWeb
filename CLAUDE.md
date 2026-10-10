@@ -2,7 +2,7 @@
 
 Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs/WORDPRESS_DEPLOY.md` và `docs/reviews/WP1_THEME_PORT_2026-10-10.md` trước khi sửa.
 
-- `wp-content/themes/thu-cac` — **giao diện** (PHP template + CSS + JS thuần). Chỉ trình bày.
+- `wp-content/themes/thu-cac` — **giao diện** Trạm Truyện 2D (PHP template + CSS + JS thuần). Chỉ trình bày. Hệ thiết kế kính lỏng và các bẫy CSS: `docs/DESIGN_SYSTEM.md`.
 - `wp-content/plugins/storyweb-core` — **logic**: truyện/chương, đường dẫn, và **khóa chương phía máy chủ**. Luật truy cập nằm ở plugin, không ở theme: đổi theme không được làm lộ chương khóa.
 
 ## Quy tắc

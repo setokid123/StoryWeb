@@ -1,13 +1,14 @@
 <?php
 /**
- * Thư Các theme bootstrap. Presentation only: access rules live in the StoryWeb Core plugin.
+ * Trạm Truyện 2D theme bootstrap (folder thu-cac, kept so existing sites stay on it). Presentation only: access
+ * rules live in the StoryWeb Core plugin.
  *
  * @package ThuCac
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.1.0' );
+define( 'THU_CAC_VERSION', '0.2.0' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
@@ -25,11 +26,27 @@ add_action(
 	}
 );
 
-// Giao diện → Tùy biến: contact email for the footer "Liên hệ" link (hidden when empty).
+// Giao diện → Tùy biến → Trạm Truyện 2D: logo name and the footer "Liên hệ" email (hidden when empty).
 add_action(
 	'customize_register',
 	static function ( $wp_customize ) {
-		$wp_customize->add_section( 'thu_cac', array( 'title' => 'Thư Các' ) );
+		$wp_customize->add_section( 'thu_cac', array( 'title' => 'Trạm Truyện 2D' ) );
+		$wp_customize->add_setting(
+			'thu_cac_brand',
+			array(
+				'default'           => 'Trạm Truyện 2D',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			'thu_cac_brand',
+			array(
+				'label'       => 'Tên trên logo',
+				'description' => 'Chữ "2D" ở cuối tên được vẽ thành nhãn kính.',
+				'section'     => 'thu_cac',
+				'type'        => 'text',
+			)
+		);
 		$wp_customize->add_setting(
 			'thu_cac_contact_email',
 			array(
@@ -55,23 +72,29 @@ add_filter(
 	}
 );
 
-/** Fonts and styles. dark-overrides.css is loaded first to keep the cascade of the Next.js @import. */
+/**
+ * Google Fonts with Vietnamese subsets: Unbounded (display), Be Vietnam Pro (interface and "Hiện đại" reading),
+ * and Lora (the "Văn học" reading font) only on chapter pages.
+ */
+function thu_cac_fonts_url() {
+	$families = array(
+		'family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400',
+		'family=Unbounded:wght@500;700;800',
+	);
+	if ( is_singular( 'chapter' ) ) {
+		$families[] = 'family=Lora:ital,wght@0,400;0,700;1,400';
+	}
+	return 'https://fonts.googleapis.com/css2?' . implode( '&', $families ) . '&display=swap';
+}
+
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
 		$uri = get_template_directory_uri() . '/assets';
-		wp_enqueue_style(
-			'thu-cac-fonts',
-			'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap',
-			array(),
-			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- Google Fonts URL is versioned by its query.
-		);
-		wp_enqueue_style( 'thu-cac-dark', $uri . '/css/dark-overrides.css', array( 'thu-cac-fonts' ), THU_CAC_VERSION );
-		wp_enqueue_style( 'thu-cac', $uri . '/css/globals.css', array( 'thu-cac-dark' ), THU_CAC_VERSION );
-		wp_enqueue_style( 'thu-cac-wp', $uri . '/css/wp.css', array( 'thu-cac' ), THU_CAC_VERSION );
-		// next/font exposed the families as CSS variables; keep the same names so globals.css is unchanged.
-		wp_add_inline_style( 'thu-cac-fonts', ':root{--font-lora:"Lora";--font-inter:"Inter"}' );
+		wp_enqueue_style( 'thu-cac-fonts', thu_cac_fonts_url(), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- Google Fonts URL is versioned by its query.
+		wp_enqueue_style( 'thu-cac', $uri . '/css/tram.css', array( 'thu-cac-fonts' ), THU_CAC_VERSION );
 
+		wp_enqueue_script_module( 'thu-cac-glass', $uri . '/js/glass.js', array(), THU_CAC_VERSION );
 		wp_enqueue_script_module( 'thu-cac-site', $uri . '/js/site.js', array(), THU_CAC_VERSION );
 		if ( is_singular( 'chapter' ) ) {
 			wp_enqueue_script_module( 'thu-cac-reader', $uri . '/js/reader.js', array(), THU_CAC_VERSION );
@@ -79,16 +102,37 @@ add_action(
 	}
 );
 
+add_filter(
+	'wp_resource_hints',
+	static function ( $urls, $relation ) {
+		if ( 'preconnect' === $relation ) {
+			$urls[] = array(
+				'href'        => 'https://fonts.gstatic.com',
+				'crossorigin' => 'anonymous',
+			);
+		}
+		return $urls;
+	},
+	10,
+	2
+);
+
 /**
  * Applies the stored theme before first paint (no light flash in dark mode). Same keys as the Next.js app, so
  * readers keep their choice: storyweb-theme = light|dark (absent = system), legacy storyweb:night = true|false.
+ * Also the browser bar colour and, when no Site Icon is set, the theme's logo as favicon.
  */
 add_action(
 	'wp_head',
 	static function () {
 		?>
 <script>try{var t=localStorage.getItem('storyweb-theme');if(t!=='dark'&&t!=='light'){var l=t==='system'?null:localStorage.getItem('storyweb:night');if(l==='true')t='dark';else if(l==='false')t='light';else t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+<meta name="theme-color" content="#f1ecff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0b22" media="(prefers-color-scheme: dark)">
 		<?php
+		if ( ! has_site_icon() ) {
+			printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( get_template_directory_uri() . '/assets/img/favicon.svg' ) );
+		}
 	},
 	1
 );

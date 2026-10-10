@@ -1,8 +1,8 @@
 /*
-Theme Name: Thư Các
+Theme Name: Trạm Truyện 2D
 Theme URI: https://github.com/setokid123/StoryWeb
-Description: Giao diện đọc truyện Thư Các (port từ StoryWeb Next.js). Cần plugin StoryWeb Core cho truyện, chương và khóa chương.
-Version: 0.1.0
+Description: Giao diện đọc truyện Trạm Truyện 2D: kính lỏng (liquid glass) kiểu iOS, bầu trời 2D, sân ga và tàu truyện. Sáng/Tối, tùy chỉnh đọc, tủ truyện. Cần plugin StoryWeb Core cho truyện, chương và khóa chương.
+Version: 0.2.0
 Requires at least: 6.5
 Requires PHP: 8.1
 Author: StoryWeb
@@ -10,4 +10,4 @@ License: GPL-2.0-or-later
 Text Domain: thu-cac
 */
 
-/* Styles live in assets/css (globals.css, dark-overrides.css, wp.css), enqueued from functions.php. */
+/* Styles live in assets/css/tram.css, enqueued from functions.php. Folder name stays thu-cac so sites keep it active. */

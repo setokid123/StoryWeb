@@ -1,4 +1,5 @@
-// Every page: theme toggle, mobile menu, bookshelf button and bookshelf page.
+// Every page: theme toggle, bookshelf button and page, "Đọc tiếp" on story pages, the departure board clock.
+// (Phones need no menu script: the main nav is the bottom tab bar.)
 import { applyTheme, getTheme, onThemeChange, setTheme } from "./theme.js";
 
 // ---------- theme ----------
@@ -10,21 +11,24 @@ document.addEventListener("click", (event) => {
   setTheme(getTheme().resolved === "dark" ? "light" : "dark");
 });
 
-// ---------- mobile menu ----------
-const menuButton = document.querySelector("[data-menu-toggle]");
-const nav = document.getElementById("main-nav");
-if (menuButton && nav) {
-  const setMenu = (open) => {
-    nav.classList.toggle("main-nav--open", open);
-    menuButton.setAttribute("aria-expanded", String(open));
-    menuButton.setAttribute("aria-label", open ? "Đóng menu" : "Mở menu");
-    menuButton.classList.toggle("is-open", open);
-  };
-  menuButton.addEventListener("click", () => setMenu(menuButton.getAttribute("aria-expanded") !== "true"));
-  nav.addEventListener("click", (event) => { if (event.target.closest("a")) setMenu(false); });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") { setMenu(false); menuButton.focus(); }
-  });
+// ---------- departure board clock ----------
+const clock = document.querySelector("[data-board-clock]");
+if (clock) {
+  const tick = () => { clock.textContent = new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", hour12: false }); };
+  tick();
+  setInterval(tick, 20_000);
+}
+
+// ---------- "Đọc tiếp": last chapter read on this device (stored by reader.js) ----------
+for (const link of document.querySelectorAll("[data-continue]")) {
+  let number = 0;
+  try { number = Number.parseInt(localStorage.getItem(`storyweb:progress:${link.dataset.slug}`) ?? "", 10); } catch { /* storage blocked */ }
+  const max = Number(link.dataset.max) || Infinity;
+  if (Number.isInteger(number) && number >= 1 && number <= max) {
+    link.href = link.dataset.continue.replace("%d", String(number));
+    link.querySelector("[data-continue-number]").textContent = String(number);
+    link.hidden = false;
+  }
 }
 
 // ---------- bookshelf (localStorage "storyweb:bookshelf", same as the Next.js app) ----------

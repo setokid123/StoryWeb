@@ -14,7 +14,7 @@ $thu_cac_dock  = 'dock' === ( $args['variant'] ?? 'end' );
 $thu_cac_story = $args['story_url'];
 $thu_cac_prev  = $args['prev_url'];
 $thu_cac_next  = $args['next_url'];
-$thu_cac_btn   = $thu_cac_dock ? 'reader-floating-nav__btn' : 'button button--outline reader-nav__btn';
+$thu_cac_btn   = $thu_cac_dock ? 'reader-floating-nav__btn' : 'button button--glass reader-nav__btn';
 $thu_cac_lbl   = $thu_cac_dock ? 'reader-floating-nav__label' : 'reader-nav__label';
 $thu_cac_tab   = $thu_cac_dock ? ' tabindex="-1"' : '';
 
@@ -31,9 +31,9 @@ $thu_cac_span = static function ( $text ) use ( $thu_cac_lbl ) {
 };
 
 if ( $thu_cac_dock ) {
-	echo '<div class="reader-dock-wrap" data-reader-dock inert><nav class="reader-floating-nav" aria-label="Điều hướng nhanh" aria-hidden="true"><div class="reader-floating-nav__inner">';
+	echo '<div class="reader-dock-wrap" data-reader-dock inert><nav class="reader-floating-nav" aria-label="Điều hướng nhanh" aria-hidden="true"><div class="reader-floating-nav__inner lg" data-refract>';
 } else {
-	echo '<div data-reader-endnav><nav class="reader-nav" aria-label="Điều hướng chương"><div class="reader-nav__grid">';
+	echo '<div data-reader-endnav><nav class="reader-nav lg" aria-label="Điều hướng chương"><div class="reader-nav__grid">';
 }
 
 $thu_cac_item( $thu_cac_story, $thu_cac_btn . ( $thu_cac_dock ? '' : ' reader-nav__back' ), 'Về truyện', thu_cac_icon( 'arrow-left', 18 ) . ' ' . $thu_cac_span( 'Về truyện' ) );

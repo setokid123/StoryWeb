@@ -48,7 +48,10 @@ try {
       for (const [name, path] of pages) {
         await go(B + path);
         const overflow = await evaluate("document.documentElement.scrollWidth - innerWidth");
-        const fonts = await evaluate("document.fonts.check('16px Lora') && document.fonts.check('16px Inter')");
+        // Lora is the "Văn học" reading font: only a page with a chapter body needs it.
+        const fonts = await evaluate(name === "reader-free"
+          ? "document.fonts.check('16px Lora') && document.fonts.check('16px \"Be Vietnam Pro\"')"
+          : "document.fonts.check('16px \"Be Vietnam Pro\"') && document.fonts.check('700 16px Unbounded')");
         const dataTheme = await evaluate("document.documentElement.getAttribute('data-theme')");
         if (name === "home") check(`${theme} ${w}px: theme applied before paint`, (theme === "dark") === (dataTheme === "dark"), String(dataTheme));
         check(`${theme} ${w}px ${name}: no horizontal overflow${w === 1280 && theme === "light" ? ", fonts loaded" : ""}`, overflow <= 0 && (w !== 1280 || theme !== "light" || fonts), `overflow=${overflow}${w === 1280 && theme === "light" ? ` fonts=${fonts}` : ""}`);
@@ -69,8 +72,8 @@ try {
   st = await evaluate("({ open: !document.getElementById('reader-preferences').hidden, expanded: document.querySelector('[data-prefs-toggle]').getAttribute('aria-expanded'), focusInPanel: document.querySelector('.reader-prefs').contains(document.activeElement), lineLoose: document.querySelector('[data-pref=lineHeight][data-value=normal]').getAttribute('aria-pressed') })");
   check("preferences panel opens, focus inside, current option pressed", st.open && st.expanded === "true" && st.focusInPanel && st.lineLoose === "true", JSON.stringify(st));
   await evaluate("document.querySelector('[data-pref=fontFamily][data-value=inter]').click(); document.querySelector('[data-pref=columnWidth][data-value=narrow]').click(); document.querySelector('[data-font-step=\"1\"]').click()"); await sleep(200);
-  st = await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); return { font: t.dataset.prefFont, width: t.dataset.prefWidth, size: t.style.fontSize, family: getComputedStyle(t).fontFamily.slice(0, 12), maxw: getComputedStyle(t).maxWidth } })()");
-  check("Hiện đại + Hẹp + A+ apply to the chapter body", st.font === "inter" && st.width === "narrow" && st.size === "23px" && st.family.includes("Inter") && st.maxw === "560px", JSON.stringify(st));
+  st = await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); return { font: t.dataset.prefFont, width: t.dataset.prefWidth, size: t.style.fontSize, family: getComputedStyle(t).fontFamily.slice(0, 20), maxw: getComputedStyle(t).maxWidth } })()");
+  check("Hiện đại + Hẹp + A+ apply to the chapter body", st.font === "inter" && st.width === "narrow" && st.size === "23px" && st.family.includes("Be Vietnam Pro") && st.maxw === "560px", JSON.stringify(st));
   await shot("reader-prefs-open-1280-light");
   await evaluate("document.querySelector('[data-pref=theme][data-value=dark]').click()"); await sleep(200);
   check("theme 'Tối' from the panel switches the page", await evaluate("document.documentElement.getAttribute('data-theme') === 'dark' && localStorage.getItem('storyweb-theme') === 'dark'"));
@@ -125,14 +128,13 @@ try {
   check("bookshelf page shows the saved story", g.cards === 1 && g.empty, JSON.stringify(g));
   await shot("bookshelf-1280-light");
 
-  // Mobile menu.
+  // Phones: the main nav is the glass tab bar at the bottom of the screen; the reader page has its dock instead.
   await viewport(360, 780); await go(B + "/");
-  await evaluate("document.querySelector('[data-menu-toggle]').click()"); await sleep(300);
-  g = await evaluate("({ open: document.getElementById('main-nav').classList.contains('main-nav--open'), expanded: document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded') })");
-  check("mobile menu opens", g.open && g.expanded === "true", JSON.stringify(g));
-  await shot("menu-360-light");
-  await key("Escape", "Escape", 27); await sleep(200);
-  check("Escape closes the mobile menu", (await evaluate("document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')")) === "false");
+  g = await evaluate("(() => { const n = document.getElementById('main-nav'); const r = n.getBoundingClientRect(); return { position: getComputedStyle(n).position, links: n.querySelectorAll('a').length, bottomGap: Math.round(innerHeight - r.bottom), active: n.querySelector('[aria-current=page]')?.textContent.trim(), clear: document.body.scrollHeight >= document.querySelector('.site-footer').getBoundingClientRect().bottom + scrollY + r.height } })()");
+  check("phone: main nav is a 4-link tab bar fixed at the bottom, current page marked, footer not hidden", g.position === "fixed" && g.links === 4 && g.bottomGap >= 0 && g.bottomGap < 40 && g.active === "Trang chủ" && g.clear, JSON.stringify(g));
+  await shot("tabbar-360-light");
+  await go(`${B}/doc/${S}/1/`);
+  check("phone reader: tab bar hidden (the reader dock takes its place)", (await evaluate("getComputedStyle(document.getElementById('main-nav')).display")) === "none");
 
   // Reference screenshots of the current Next.js site (read-only).
   if (PROD) {

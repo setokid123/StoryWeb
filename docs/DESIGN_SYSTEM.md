@@ -1,88 +1,62 @@
-# Định hướng UI/UX — Thư Các
+# Thiết kế — Trạm Truyện 2D (liquid glass)
 
-## Tinh thần
+Theme WordPress `wp-content/themes/thu-cac` (giữ tên thư mục để site đang chạy không mất theme; tên hiển thị trong wp-admin là **Trạm Truyện 2D**). Thay cho giao diện "Thư Các" cũ từ 2026-10-10.
 
-Một thư viện số yên tĩnh, giàu chất biên tập. Ưu tiên đọc lâu trên điện thoại. Bản dựng dùng bìa tạo bằng CSS để tránh phụ thuộc ảnh bên ngoài; có thể thay bằng bìa có bản quyền về sau.
+## Ý tưởng
+
+- **Trạm** = sân ga: thể loại là **tuyến** (vòng tròn số + màu như bản đồ metro), truyện nổi bật là **tấm vé**, chương mới là **bảng giờ tàu**, danh sách chương là **lộ trình** các trạm dừng, chân trang là **ga cuối**.
+- **2D** = **hai chữ D**: tên hai người làm trang (hai vợ chồng) đều bắt đầu bằng D. Không phải "2D" kiểu hoạt hình. Logo vẽ hai chữ D lồng nhau (một chữ trong như kính, một chữ đặc), chữ "2D" cuối tên thành nhãn kính.
+- **Bầu trời mơ mộng** chỉ là phong cách minh họa: mây hồng–tím–xanh, chấm tram nét (`.sky__tone`), dây điện và tàu điện chạy trên mây (`template-parts/scene.php`).
+- **Kính lỏng** kiểu iOS 26: mọi lớp nổi (header, tab bar, vé, bảng, dock đọc) là kính trong, mờ và bắt sáng ở mép.
 
 ## Màu và chữ
 
-- Hai chế độ (Sáng/Tối) áp dụng trên toàn site, thiết kế có chiều sâu thay vì chỉ đảo ngược màu.
-- Sáng: Nền giấy `#fbf9f5`, nền ấm `#f5f1e9`, chữ `#27313a`. Điểm nhấn đất nung `#ad624b`; xanh đậm `#182e35`.
-- Tối: Nền giấy tối `#192426`, nền bề mặt `#1f2d2f`, chữ `#e4e5e0`. Điểm nhấn `#d38d78`.
-- Phông chữ tiếng Việt:
-  - **Lora (Serif)**: Dùng cho tiêu đề và nội dung chương. Lora mang lại cảm giác văn học cổ điển, bộ dấu tiếng Việt mượt mà, hỗ trợ tốt cho việc đọc đoạn văn dài mà không gây mỏi mắt. Cỡ chữ 400, 500, 600, 700. Fallback: Georgia, 'Times New Roman'.
-  - **Inter (Sans-serif)**: Dùng cho điều hướng, nhãn, nút, giao diện UI. Tối ưu hóa độ rõ nét màn hình nhỏ. Cỡ chữ 400, 600, 700, 800. Fallback: Arial, Helvetica.
-  - Sử dụng `next/font/google` subset `vietnamese` để tối ưu tải phông.
-- Cỡ chữ đọc mặc định 19px, cho chỉnh 16–26px. Dòng chữ rộng tối đa 720px, line-height xấp xỉ 2.
+Token nằm đầu `assets/css/tram.css`, hai bộ `:root` (Sáng "bình minh") và `[data-theme="dark"]` (Tối "nửa đêm"). Không viết màu cứng trong component, dùng token.
 
-## Component và trạng thái
+| Token | Sáng | Tối | Dùng cho |
+| --- | --- | --- | --- |
+| `--bg` | `#f1ecff` | `#0d0b22` | nền trang |
+| `--ink` / `--ink-2` / `--ink-3` | `#1d1842` / `#4b4573` / `#696390` | `#f1eeff` / `#bdb6e6` / `#9a93c7` | chữ chính / phụ / chú thích (đều ≥ 4.5:1 trên kính) |
+| `--accent` | `#6a3df5` | `#a58bff` | link, số giờ, icon |
+| `--btn-grad` | `#4f46e5 → #7c3aed → #db2777` | như Sáng | nút chính (chữ trắng ≥ 4.5:1 ở cả ba điểm màu) |
+| `--glass-fill` / `--glass-fill-strong` | trắng .48 / .72 | tím đêm .42 / .74 | kính mỏng / kính dày (chữ dài, vùng đọc) |
+| `--paper` | trắng .86 | `#15113a` .86 | tấm giấy kính của trang đọc |
 
-- `SiteHeader`: desktop nav, menu mobile, tìm kiếm.
-- `StoryCard` + `Cover`: thẻ truyện có bìa, tác giả, rating và số chương.
-- `ReaderPanel`: container chính trang đọc truyện. H1 và phần kết chương lớn hơn.
-- `ReaderPreferencesView`: panel tùy chỉnh (font, cỡ chữ, giãn dòng, lề, sáng tối).
-- `ReaderNavigation`: 4 nút điều hướng gom chung thành một khối giữa, responsive lưới ở mobile.
-- `ChapterListDialog`: drawer hiển thị danh sách chương, hỗ trợ focus trap và bàn phím (Escape/Tab).
-- `UnlockGateView`: dialog mở khóa 2 chế độ (link/rewarded), trạng thái tải, lỗi.
-- `AdSlot`: khối hiển thị quảng cáo đa vị trí (home_feed, story_detail, reader_end, search_results).
-- `BookshelfButton/List`: lưu localStorage trong bản dựng, cần đồng bộ tài khoản ở giai đoạn backend.
-- `Thư Các Studio` (`/panel`): sidebar quản trị, thống kê, danh sách truyện, metadata, trình soạn chương và hành động lưu bản nháp/xuất bản. Cấu hình quảng cáo & mở khóa.
-- Nút phải có focus rõ, vùng chạm đủ rộng; link có mô tả ý nghĩa; trạng thái rỗng có lời dẫn và hành động tiếp.
+- **Unbounded** (500/700/800): logo, tiêu đề lớn, số. Không dùng cho tên truyện dài.
+- **Be Vietnam Pro** (400–800): giao diện, tên truyện, và kiểu chữ đọc "Hiện đại".
+- **Lora**: kiểu chữ đọc "Văn học"; chỉ tải ở trang chương (`thu_cac_fonts_url()`).
+- Màu tuyến: 10 màu trong `thu_cac_line()`, số tuyến theo thứ tự tạo thể loại; chữ trắng trên mọi màu ≥ 4.5:1.
 
-## Màn hình Antigravity cần thiết kế tiếp
+## Vật liệu kính (`.lg`)
 
-1. Đăng nhập/đăng ký và tủ truyện có tài khoản.
-2. Rà soát panel hiện tại ở mobile; bổ sung ảnh bìa, preview, lịch xuất bản và trạng thái upload/import chương.
-3. Thẻ Shopee Affiliate dạng khối gợi ý tách khỏi luồng mở khóa, ghi nhãn liên kết tiếp thị.
+1. Nền `--glass-fill` + `backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-sat))` + `--glass-rim` (viền sáng trên, viền tối dưới) + bóng.
+2. `.lg::before`: viền phản quang chỉ sáng ở hai góc chéo (gradient + mask `exclude`). Phần tử có `.lg` không được dùng `::before` cho việc khác.
+3. `.lg-glow::after`: vệt sáng chạy theo chuột (`glass.js` đặt `--mx/--my`).
+4. **Khúc xạ thật** cho phần tử `[data-refract]`, chỉ Chromium (Chrome, Edge, Cốc Cốc, Chrome Android): `glass.js` vẽ bản đồ dịch chuyển (canvas → `feImage` + `feDisplacementMap`) đúng kích thước và bo góc của phần tử, đặt `--lg-refract: url(#…)`. Safari/Firefox giữ kính mờ thường. Tính lại khi đổi kích thước (`ResizeObserver`).
+5. Fallback: không hỗ trợ `backdrop-filter` hoặc người dùng bật *giảm trong suốt* → nền đặc `--glass-fill-solid`. *Giảm chuyển động* → tắt tàu chạy, giấy bay, nghiêng vé. *Forced colors* → viền `CanvasText`.
 
-Kiểm tra ở 360px, 768px, 1280px; cả bàn phím, độ tương phản và nội dung dài. Không tự bật luồng Shopee khi chưa có chấp thuận riêng.
+Bẫy cần nhớ:
+- `backdrop-filter`, `filter`, `transform` tạo containing block cho con `position: fixed`. Vì vậy kính của header, toolbar đọc là **một lớp con riêng** (`.site-header__glass`, `.reader-toolbar__glass`) chứ không đặt lên phần tử cha: tab bar điện thoại (`.main-nav`, fixed) và bảng tùy chỉnh dạng sheet nằm bên trong chúng.
+- Tấm giấy đọc dùng `.reader-article::before` cho kính, vì cổng khóa (fixed, phủ toàn màn hình) nằm trong `<article>`.
+- Cha có `opacity < 1` làm kính con mất nền trong lúc chuyển cảnh: dock và toolbar làm mờ **con** chứ không làm mờ chính nó.
+- Khúc xạ chỉ đặt cho vài phần tử lớn (header, tab bar, ô tìm kiếm, vé nổi bật, toolbar, dock, thẻ 404). Thẻ truyện, chip chỉ dùng kính thường; trên điện thoại chip bỏ blur.
 
-## Studio đăng truyện
+## Thành phần
 
-- Ở màn hình nhỏ, thư viện truyện vẫn hiển thị và cuộn ngang để có thể đổi tác phẩm. Chương cũng cuộn ngang; mục đang chọn có viền nhấn và trạng thái `aria-current`.
-- Trình soạn thảo cho thấy bản nháp/đã đăng và nhãn **Chưa lưu**. Khi đổi truyện, tạo truyện mới, đăng xuất hoặc đóng tab với nội dung chưa lưu, cần cảnh báo mất dữ liệu.
-- Lưu bản nháp chỉ cần tên và đường dẫn hợp lệ. Xuất bản yêu cầu thêm tác giả, mô tả, tiêu đề và nội dung cho từng chương. Lỗi hiển thị ngay trong panel, có `role="alert"`; trạng thái lưu/xóa có thông báo riêng.
-- Không hiện nút tải ảnh bìa khi chưa có lưu trữ ảnh/API tương ứng. Bìa hiện là hình tạo bằng CSS từ dữ liệu truyện; tác giả sẽ cần luồng tải ảnh và xem trước khi backend hỗ trợ.
-- Các nút thao tác cần trạng thái chờ, vùng nhấn tối thiểu khoảng 40px và focus rõ. Đăng nhập báo lỗi cạnh trường mật khẩu, không làm mất giá trị người dùng vừa nhập khi kết nối thất bại.
+| Thành phần | File | Ghi chú |
+| --- | --- | --- |
+| Header kính + tab bar | `header.php` | Cùng một `<nav id="main-nav">`: thanh giữa header trên máy tính, tab bar kính 4 mục ở đáy dưới 900px (ẩn ở trang đọc). |
+| Logo | `thu_cac_logo_mark()`, `thu_cac_brand()` | Bong bóng thoại (câu chuyện) hình trạm dừng, monogram hai chữ D lồng nhau + tia sáng; chữ "2D" cuối tên thành nhãn kính. Tên đổi ở Giao diện → Tùy biến → Trạm Truyện 2D. Favicon `assets/img/favicon.svg` (khi chưa đặt Site Icon). |
+| Cảnh sân ga | `template-parts/scene.php` | SVG vẽ tay, màu theo `--sc-*` nên đổi theo Sáng/Tối. |
+| Vé nổi bật | `front-page.php` `.ticket` | Kính khúc xạ, nghiêng 3D theo chuột, cuống vé có lỗ bấm và mã vạch. |
+| Thẻ truyện | `template-parts/story-card.php` | Bìa 3:4 + tấm kính chú thích dán ở mép dưới; bìa tạo bằng CSS khi không có ảnh. |
+| Bảng giờ tàu | `thu_cac_latest_chapters()` | Chương mới nhất của 6 truyện vừa cập nhật. Chỉ tiêu đề và số chương. |
+| Kệ đề cử | `front-page.php` | 8 truyện ngẫu nhiên theo ngày (`RAND(Ymd)`), giống nhau cả ngày nên hợp với cache. |
+| Lộ trình chương | `single-story.php` `.route` | Đường tuyến màu thể loại, mỗi chương một trạm; 2 cột trên máy tính. |
+| Đọc tiếp | `site.js` | Nút "Đọc tiếp chương N" từ `storyweb:progress:<slug>` trên máy người đọc. |
+| Trang đọc | `single-chapter.php` | Ánh bìa mờ phía sau, toolbar kính, giấy kính, thanh tiến độ cuộn (CSS scroll-timeline), dock kính. Logic ẩn/hiện giữ nguyên trong `reader-core.js`. |
 
-## Studio quảng cáo và mở khóa
+## Kiểm tra khi sửa giao diện
 
-- Trang `/panel/cai-dat` tách trạng thái **đang áp dụng** khỏi bản nháp chưa lưu. Công tắc mở khóa, hai phương thức, URL và bốn vị trí quảng cáo nằm trong các khối riêng, còn hướng dẫn thử link ở cột bên trên desktop và dưới nội dung trên mobile.
-- URL `https://example.com/` có nút điền nhanh; có thể lưu link và vị trí quảng cáo khi công tắc mở khóa tắt. Nút Lưu chỉ phụ thuộc bản nháp thay đổi/trạng thái đang lưu. Server vẫn từ chối bật phương thức chưa sẵn sàng.
-- Badge thể hiện readiness thật từ server; cờ máy chủ tắt, thiếu provider rewarded và thiếu mã quảng cáo được nói rõ tại vị trí liên quan. Công tắc vị trí bật không ngụ ý quảng cáo đã có thể hiển thị.
-- Ở 360px, các khối xếp dọc, input và nút thử xuống hàng khi cần; trong Tối dùng chung token surface/ink/muted của site. Nút và switch có focus-visible, link mẫu mở tab mới khi người quản trị chủ động bấm.
-
-## Bề mặt và Phân tầng (Visual Hierarchy)
-
-Hệ thống CSS Token phân tầng không gian đọc và card để không bị chìm vào nền chung:
-
-- **Sáng (Light Mode)**
-  - `--bg-site`: `#eee9e0` (Nền chung toàn site, hơi trầm)
-  - `--bg-surface`: `#fffdf8` (Mặt đọc, nền thẻ card, gần trắng)
-  - `--bg-elevated`: `#fbf9f5` (Toolbar, các khối nổi cao hơn)
-  - `--border-surface`: `#e5e2da` (Viền thẻ và mặt đọc)
-  - `--ink`: `#263433` (Màu chữ chính, xanh rêu rất đậm)
-  - `--muted`: `#5b6a6d` (Chữ phụ, đủ tương phản trên nền site và card)
-
-- **Tối (Dark Mode)**
-  - `--bg-site`: `#101b1d` (Nền chung, rất tối)
-  - `--bg-surface`: `#253538` (Mặt đọc, nền thẻ card, sáng hơn nền site)
-  - `--bg-elevated`: `#2f4347` (Khối nâng cao)
-  - `--border-surface`: `#3b5054`
-  - `--ink`: `#f1eee6` (Màu chữ chính)
-  - `--muted`: `#a0afa9` (Chữ phụ trên mặt đọc tối)
-
-- `reader-article`: Nằm trên `.reader-shell`, được tạo khung hình "trang sách" với lề, padding, và box-shadow nhẹ.
-- Toolbar và Navigation của trang đọc được làm thành các khối card riêng biệt, không chìm vào background.
-- `.story-card`, `.studio-editor`, `.studio-stats`: Các card sử dụng chung biến `--bg-surface` thay vì fix cứng màu `#fff`.
-
-## Thanh điều hướng và Dock (Floating Navigation)
-
-- **Toolbar (`.reader-toolbar`)**: Bám sát (sticky) ở đỉnh trang đọc (cách 20px). Có thể ẩn đi thông qua lớp `.is-hidden` kết hợp transition mượt mà để chừa không gian đọc.
-- **Dock Kính mờ (`.reader-floating-nav`)**: Nằm lơ lửng ở cuối trang đọc, sử dụng hiệu ứng `backdrop-filter: blur(12px)`. Tự động fallback sang màu nền đặc `var(--bg-surface)` nếu trình duyệt không hỗ trợ.
-  - **Màu nền Kính mờ**: Dựa trên `var(--bg-surface)` (Sáng: `rgba(255, 253, 248, 0.85)` / Tối: `rgba(37, 53, 56, 0.85)`).
-  - Tôn trọng `prefers-reduced-motion` bằng cách tắt animation trượt dọc, chỉ giữ lại hiệu ứng mờ nhạt (fade/opacity).
-  - Tránh khu vực an toàn của trình duyệt (`env(safe-area-inset-bottom)`).
-  - **Responsive**:
-    - Desktop/Tablet: Dàn nút theo 1 hàng ngang với góc bo tròn lớn (`99px`).
-    - Mobile (Dưới 600px): Dàn theo lưới 2x2 (`grid`), tự động điều chỉnh padding và border-radius nhỏ hơn (`16px` cho khung ngoài, `12px` cho nút) để tiết kiệm diện tích bề ngang.
+- 1440/1280, 768, 390/360px; Sáng và Tối; bàn phím (focus 3px `--focus`), độ tương phản.
+- `scripts/wp/check-content.mjs` (cấu trúc + không lộ chương khóa), `check-browser.mjs` (tràn ngang, phông, tùy chỉnh đọc, dock, tab bar), `check-admin.mjs`, `npm test`.

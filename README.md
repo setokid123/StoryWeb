@@ -2,7 +2,7 @@
 
 Website đọc truyện gồm **một theme** và **một plugin** cho WordPress tự host (WordPress.org). Không phải WordPress.com.
 
-- `wp-content/themes/thu-cac` — giao diện (trang chủ, khám phá, chi tiết truyện, trang đọc với tùy chỉnh đọc/Sáng-Tối/dock, tủ truyện).
+- `wp-content/themes/thu-cac` — giao diện **Trạm Truyện 2D** (kính lỏng kiểu iOS; trang chủ, khám phá, chi tiết truyện, trang đọc với tùy chỉnh đọc/Sáng-Tối/dock, tủ truyện). Thiết kế: [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md).
 - `wp-content/plugins/storyweb-core` — truyện/chương, thể loại, đường dẫn `/truyen/` và `/doc/`, và **khóa chương phía máy chủ** (chương khóa không lộ qua HTML, REST, RSS, embed, sitemap).
 
 > Dự án này được chuyển từ một bản Next.js trước đó. Lịch sử bản cũ vẫn nằm trong git.

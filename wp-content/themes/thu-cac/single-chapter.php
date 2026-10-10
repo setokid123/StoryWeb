@@ -1,6 +1,6 @@
 <?php
 /**
- * Reader page (port of app/doc/[slug]/[chapter]/page.tsx + components/reader-panel.tsx).
+ * Reader page: glass toolbar and dock over the story's ambient light, the chapter on a paper-glass sheet.
  *
  * Access is decided by StoryWeb Core on the server for this request. A locked chapter's body is never printed:
  * the page then contains the gate only. Without the plugin the theme fails closed (nothing beyond the title).
@@ -56,26 +56,30 @@ $thu_cac_data       = array(
 	'chaptersApi'    => rest_url( 'thu-cac/v1/chapters' ),
 );
 ?>
+<?php thu_cac_ambient( $thu_cac_story ? thu_cac_story( $thu_cac_story ) : null ); ?>
+<div class="reader-progress" aria-hidden="true"></div>
 <div class="reader-shell">
 	<div class="container reader-shell__inner">
 		<div class="reader-toolbar" data-reader-toolbar data-scroll-state="top">
-			<a href="<?php echo esc_url( $thu_cac_s_url ); ?>"><?php thu_cac_the_icon( 'chevron-left', 17 ); ?> Mục lục</a>
+			<span class="reader-toolbar__glass lg" data-refract aria-hidden="true"></span>
+			<a class="reader-toolbar__back" href="<?php echo esc_url( $thu_cac_s_url ); ?>"><?php thu_cac_the_icon( 'chevron-left', 18 ); ?> Mục lục</a>
+			<span class="reader-toolbar__title" aria-hidden="true"><b><?php echo esc_html( $thu_cac_s_title ); ?></b> · Chương <?php echo (int) $thu_cac_number; ?></span>
 			<div class="reader-toolbar__prefs-anchor" data-prefs-anchor>
 				<div class="reader-toolbar__settings">
-					<button type="button" data-theme-toggle aria-label="Chế độ tối">
+					<button type="button" class="icon-btn lg lg-glow" data-theme-toggle aria-label="Chế độ tối">
 						<span class="theme-icon theme-icon--moon"><?php thu_cac_the_icon( 'moon', 18 ); ?></span>
 						<span class="theme-icon theme-icon--sun"><?php thu_cac_the_icon( 'sun', 18 ); ?></span>
 					</button>
-					<button type="button" data-prefs-toggle aria-label="Tùy chỉnh đọc" aria-haspopup="dialog" aria-expanded="false" aria-controls="reader-preferences"><?php thu_cac_the_icon( 'sliders-horizontal', 18 ); ?></button>
+					<button type="button" class="icon-btn lg lg-glow" data-prefs-toggle aria-label="Tùy chỉnh đọc" aria-haspopup="dialog" aria-expanded="false" aria-controls="reader-preferences"><?php thu_cac_the_icon( 'sliders-horizontal', 18 ); ?></button>
 				</div>
 				<?php get_template_part( 'template-parts/reader-prefs' ); ?>
 			</div>
 		</div>
 
 		<article class="reader-article">
-			<div class="eyebrow"><?php echo esc_html( $thu_cac_s_title ); ?> · CHƯƠNG <?php echo (int) $thu_cac_number; ?></div>
+			<div class="reader-article__kicker"><span class="reader-article__story"><?php echo esc_html( $thu_cac_s_title ); ?></span><span class="reader-article__no">Chương <?php echo (int) $thu_cac_number; ?></span></div>
 			<h1><?php echo esc_html( get_the_title( $thu_cac_chapter ) ); ?></h1>
-			<div class="reader-rule">✦</div>
+			<div class="reader-rule" aria-hidden="true"><i></i>✦<i></i></div>
 			<?php if ( $thu_cac_locked ) : ?>
 				<?php
 				get_template_part(

@@ -13,7 +13,7 @@ $thu_cac_mode    = $thu_cac_state['mode'];
 $thu_cac_minutes = (int) ( $thu_cac_state['access_minutes'] ?? 5 );
 ?>
 <div class="unlock-backdrop" data-unlock-gate data-mode="<?php echo esc_attr( $thu_cac_mode ); ?>">
-	<div class="locked-panel locked-panel--dialog" role="dialog" aria-modal="true" aria-labelledby="unlock-title">
+	<div class="locked-panel locked-panel--dialog lg" role="dialog" aria-modal="true" aria-labelledby="unlock-title">
 		<span class="locked-panel__icon"><?php thu_cac_the_icon( 'lock-keyhole', 28 ); ?></span>
 		<div class="eyebrow">CHƯƠNG <?php echo (int) $args['chapter']; ?> · NỘI DUNG KHÓA</div>
 		<h2 id="unlock-title">Mở trang truyện tiếp theo</h2>
@@ -31,7 +31,7 @@ $thu_cac_minutes = (int) ( $thu_cac_state['access_minutes'] ?? 5 );
 			<span class="locked-panel__hint">Bạn cần xem hết video để nhận quyền đọc.</span>
 		<?php else : ?>
 			<p>Tính năng mở khóa chương hiện đang tạm tắt. Bạn có thể quay lại mục lục để chọn chương khác.</p>
-			<a href="<?php echo esc_url( $args['story_url'] ); ?>" class="button button--outline">Quay lại mục lục</a>
+			<a href="<?php echo esc_url( $args['story_url'] ); ?>" class="button button--glass">Quay lại mục lục</a>
 		<?php endif; ?>
 
 		<?php if ( 'off' !== $thu_cac_mode ) : ?>
