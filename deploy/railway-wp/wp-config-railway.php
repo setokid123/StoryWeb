@@ -26,6 +26,13 @@ if ( getenv( 'SITE_DOMAIN' ) && 'cli' !== PHP_SAPI && str_ends_with( $storyweb_h
 }
 unset( $storyweb_site_domain, $storyweb_host );
 
+// WP-Cron runs from entrypoint.sh, which calls wp-cron.php through Apache once a minute. Page views no longer spawn
+// it: WordPress's spawn is a 0.01-second non-blocking request that often never arrives, and the lock it leaves for a
+// minute made the minute calls skip their turn.
+if ( ! defined( 'DISABLE_WP_CRON' ) && 'cli' !== PHP_SAPI ) {
+	define( 'DISABLE_WP_CRON', true );
+}
+
 // The web server owns the files, so plugins and updates install without FTP.
 if ( ! defined( 'FS_METHOD' ) ) {
 	define( 'FS_METHOD', 'direct' );
