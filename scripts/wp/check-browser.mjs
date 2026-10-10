@@ -87,12 +87,16 @@ try {
 
   // Scroll behaviour (pad the page so there is room to scroll).
   await evaluate("(() => { const t = document.querySelector('[data-reader-text]'); const p = t.querySelector('p'); for (let i = 0; i < 40; i++) t.appendChild(p.cloneNode(true)); })()"); await sleep(200);
+  await scrollTo(0);
+  st = await chrome_state();
+  check("page just opened: toolbar at the top, dock already visible at the bottom", st.toolbar === "top" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
   for (const y of [300, 700, 1200]) await scrollTo(y);
   st = await chrome_state();
-  check("scroll down: toolbar hidden + inert, dock hidden + inert", st.toolbar === "hidden" && st.toolbarInert && !st.dockVisible && st.dockInert, JSON.stringify(st));
+  const pins = await evaluate("(() => { const h = document.querySelector('.site-header__bar').getBoundingClientRect(); const t = document.querySelector('[data-reader-toolbar]').getBoundingClientRect(); return { headerTop: Math.round(h.top), gap: Math.round(t.top - h.bottom) }; })()");
+  check("scroll down: header and toolbar stay pinned (14px apart), dock stays visible", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert && pins.headerTop >= 0 && pins.headerTop <= 12 && pins.gap === 14, JSON.stringify({ ...st, ...pins }));
   await scrollTo(1170); await scrollTo(1100);
   st = await chrome_state();
-  check("scroll up ≥64px: toolbar pinned, dock visible", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
+  check("scroll back up: toolbar pinned, dock visible", st.toolbar === "pinned" && !st.toolbarInert && st.dockVisible && !st.dockInert, JSON.stringify(st));
   await shot("reader-dock-1280-light");
   // Chapter list from the dock: loads 120 chapters, current marked, focus returns to the dock button.
   await evaluate("document.querySelector('[data-chapter-list-open=dock]').focus()");

@@ -12,8 +12,8 @@ import {
   readerBodyStyle,
   resolveReaderChrome,
   serializeReaderPreferences,
-} from "./reader-core.js";
-import { getTheme, onThemeChange, setTheme } from "./theme.js";
+} from "thu-cac-reader-core";
+import { getTheme, onThemeChange, setTheme } from "thu-cac-theme";
 
 const data = JSON.parse(document.getElementById("thu-cac-reader-data")?.textContent || "{}");
 const toolbar = document.querySelector("[data-reader-toolbar]");
@@ -31,12 +31,10 @@ const locked = Boolean(data.locked);
 const state = {
   prefsOpen: false,
   chapterListOpen: false,
-  toolbarFocused: false,
   dockFocused: false,
-  toolbarPinned: false,
   dockPinned: false,
   endNavInView: false,
-  scroll: { atTop: true, toolbarHidden: false, dockShown: false },
+  scroll: { atTop: true },
 };
 
 // ---------- storage-safe helpers ----------
@@ -151,11 +149,7 @@ function closePrefs(restoreFocus = true) {
   state.prefsOpen = false;
   prefsRoot.hidden = true;
   prefsToggle?.setAttribute("aria-expanded", "false");
-  if (restoreFocus && prefsToggle) {
-    // The toolbar may be scrolled away once preferences close; keep it until the toggle has focus again.
-    state.toolbarPinned = true;
-    focusWhenReady(prefsToggle, () => { state.toolbarPinned = false; update(); });
-  }
+  if (restoreFocus && prefsToggle) focusWhenReady(prefsToggle);
   update();
 }
 
@@ -308,7 +302,6 @@ function trackFocus(el, key) {
     if (!el.contains(event.relatedTarget)) { state[key] = false; update(); }
   });
 }
-trackFocus(toolbar, "toolbarFocused");
 trackFocus(dockWrap, "dockFocused");
 
 function update() {
@@ -318,17 +311,10 @@ function update() {
     locked,
     chapterListOpen: state.chapterListOpen,
     preferencesOpen: state.prefsOpen,
-    toolbarFocused: state.toolbarFocused,
     dockFocused: state.dockFocused,
-    toolbarPinned: state.toolbarPinned,
     dockPinned: state.dockPinned,
   });
-  if (toolbar) {
-    const hidden = chrome.toolbar === "hidden";
-    toolbar.dataset.scrollState = chrome.toolbar;
-    toolbar.classList.toggle("is-hidden", hidden);
-    toolbar.inert = hidden;
-  }
+  if (toolbar) toolbar.dataset.scrollState = chrome.toolbar;
   if (dockWrap && dock) {
     dockWrap.inert = !chrome.dockVisible;
     dock.classList.toggle("is-visible", chrome.dockVisible);
@@ -337,13 +323,12 @@ function update() {
   }
 }
 
-const sample = () => ({ y: window.scrollY, viewportHeight: window.innerHeight, documentHeight: document.documentElement.scrollHeight });
+const sample = () => ({ y: window.scrollY });
 let scrollState = initialScrollState(sample(), DEFAULT_SCROLL_CONFIG);
 let frame = 0;
 const publish = () => {
-  const next = { atTop: scrollState.atTop, toolbarHidden: scrollState.toolbarHidden, dockShown: scrollState.dockShown };
-  if (next.atTop !== state.scroll.atTop || next.toolbarHidden !== state.scroll.toolbarHidden || next.dockShown !== state.scroll.dockShown) {
-    state.scroll = next;
+  if (scrollState.atTop !== state.scroll.atTop) {
+    state.scroll = { atTop: scrollState.atTop };
     update();
   }
 };

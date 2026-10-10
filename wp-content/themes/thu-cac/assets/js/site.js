@@ -1,6 +1,6 @@
 // Every page: theme toggle, bookshelf button and page, "Đọc tiếp" on story pages, the departure board clock.
 // (Phones need no menu script: the main nav is the bottom tab bar.)
-import { applyTheme, getTheme, onThemeChange, setTheme } from "./theme.js";
+import { applyTheme, getTheme, onThemeChange, setTheme } from "thu-cac-theme";
 
 // ---------- theme ----------
 applyTheme();

@@ -84,48 +84,33 @@ export function readerBodyStyle(prefs) {
   };
 }
 
-// ---------- toolbar / dock visibility while scrolling ----------
+// ---------- toolbar / dock while scrolling ----------
+// Both stay within reach (2026-10-10, at the reader's request): the toolbar is pinned under the site header the whole
+// time, and the dock sits at the bottom from the moment the page opens until the end-of-chapter navigation scrolls
+// into view. Scrolling only tells "at the very top" (data-scroll-state="top") from "reading" ("pinned").
 
-export const DEFAULT_SCROLL_CONFIG = Object.freeze({ topZone: 160, hideAfter: 24, showAfter: 64, nearEnd: 480 });
-
-function nearEnd(sample, config) {
-  return sample.y + sample.viewportHeight >= sample.documentHeight - Math.max(config.nearEnd, sample.viewportHeight);
-}
+export const DEFAULT_SCROLL_CONFIG = Object.freeze({ topZone: 160 });
 
 export function initialScrollState(sample, config = DEFAULT_SCROLL_CONFIG) {
-  const atTop = sample.y <= config.topZone;
-  return { lastY: sample.y, anchorY: sample.y, direction: null, atTop, toolbarHidden: false, dockShown: !atTop && nearEnd(sample, config) };
+  return { lastY: sample.y, atTop: sample.y <= config.topZone };
 }
 
 /** Next state for a new scroll sample. Returns `prev` itself when nothing observable changed. */
 export function nextScrollState(prev, sample, config = DEFAULT_SCROLL_CONFIG) {
   const y = Math.max(0, sample.y);
-  const delta = y - prev.lastY;
-  let { anchorY, direction, toolbarHidden, dockShown } = prev;
-
-  if (Math.abs(delta) >= 1) {
-    const now = delta > 0 ? "down" : "up";
-    if (now !== direction) { direction = now; anchorY = prev.lastY; }
-  }
-  const travel = Math.abs(y - anchorY);
-  if (direction === "down" && travel >= config.hideAfter) { toolbarHidden = true; dockShown = false; }
-  if (direction === "up" && travel >= config.showAfter) { toolbarHidden = false; dockShown = true; }
-
   const atTop = y <= config.topZone;
-  if (atTop) { toolbarHidden = false; dockShown = false; }
-  else if (nearEnd({ ...sample, y }, config)) dockShown = true;
-
-  if (atTop === prev.atTop && toolbarHidden === prev.toolbarHidden && dockShown === prev.dockShown && direction === prev.direction && anchorY === prev.anchorY) {
-    return prev.lastY === y ? prev : { ...prev, lastY: y };
-  }
-  return { lastY: y, anchorY, direction, atTop, toolbarHidden, dockShown };
+  if (atTop === prev.atTop) return prev.lastY === y ? prev : { ...prev, lastY: y };
+  return { lastY: y, atTop };
 }
 
-/** Final visibility of the toolbar (`data-scroll-state`) and the dock after modal/focus/end-nav rules. */
+/**
+ * Final state of the toolbar (`data-scroll-state`: "top" | "pinned", never hidden) and the dock. The dock hides only
+ * while a modal is open (locked-chapter gate, chapter list, preferences) or when the end navigation is on screen, so
+ * the same four buttons are never shown twice; focus returning to a dock button wins over that last rule.
+ */
 export function resolveReaderChrome(input) {
-  const keepToolbar = input.preferencesOpen || input.toolbarFocused || input.toolbarPinned;
-  const toolbar = input.scroll.atTop ? "top" : input.scroll.toolbarHidden && !keepToolbar ? "hidden" : "pinned";
+  const toolbar = input.scroll.atTop ? "top" : "pinned";
   const modal = input.locked || input.chapterListOpen || input.preferencesOpen;
-  const wanted = input.dockPinned || input.dockFocused || (input.scroll.dockShown && !input.endNavInView);
+  const wanted = input.dockPinned || input.dockFocused || !input.endNavInView;
   return { toolbar, dockVisible: !modal && wanted };
 }

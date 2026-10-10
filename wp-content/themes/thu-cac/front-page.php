@@ -178,7 +178,7 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 		<div class="cabin__copy">
 			<span class="eyebrow"><i></i> Khoang đọc</span>
 			<h2 class="section-title">Đọc theo cách <em>của riêng bạn</em></h2>
-			<p>Một khoang tàu yên tĩnh cho mỗi chương: chữ rõ, nền dịu, thanh điều khiển bằng kính tự lùi lại khi bạn cuộn đọc.</p>
+			<p>Một khoang tàu yên tĩnh cho mỗi chương: chữ rõ, nền dịu, thanh điều khiển bằng kính luôn ở trong tầm tay.</p>
 			<ul class="cabin__list">
 				<li><span class="cabin__icon lg"><?php thu_cac_the_icon( 'sun', 18 ); ?></span><div><strong>Sáng – Tối theo giờ đọc</strong><p>Đổi một chạm, ghi nhớ cho lần sau.</p></div></li>
 				<li><span class="cabin__icon lg"><?php thu_cac_the_icon( 'type', 18 ); ?></span><div><strong>Chữ của bạn, cỡ của bạn</strong><p>Phông Văn học hay Hiện đại, cỡ 16–26px, giãn dòng, độ rộng cột.</p></div></li>

@@ -57,7 +57,7 @@ Bẫy cần nhớ:
 | Tác giả / đánh giá trống | `thu_cac_story()` | Không có tác giả: "Chưa rõ tác giả" (không viết "Đang cập nhật", dễ nhầm với trạng thái truyện). Không có đánh giá: ẩn ngôi sao. |
 | Đăng truyện | `header.php` | Chỉ hiện với tài khoản được viết bài; khách không thấy link vào wp-admin. |
 | Đọc tiếp | `site.js` | Nút "Đọc tiếp chương N" từ `storyweb:progress:<slug>` trên máy người đọc. |
-| Trang đọc | `single-chapter.php` | Ánh bìa mờ phía sau, toolbar kính, giấy kính, thanh tiến độ cuộn (CSS scroll-timeline), dock kính. Logic ẩn/hiện giữ nguyên trong `reader-core.js`. |
+| Trang đọc | `single-chapter.php` | Ánh bìa mờ phía sau, toolbar kính, giấy kính, thanh tiến độ cuộn (CSS scroll-timeline), dock kính. Header và toolbar luôn ghim trên cùng; dock luôn ở đáy từ lúc mở trang, chỉ nhường chỗ khi thanh điều hướng cuối chương hiện ra hoặc khi mở danh sách chương/tùy chỉnh/cổng khóa (`resolveReaderChrome()` trong `reader-core.js`, có test). |
 
 ## Kiểm tra khi sửa giao diện
 

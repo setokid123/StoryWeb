@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.2.0' );
+define( 'THU_CAC_VERSION', '0.2.1' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
@@ -94,10 +94,14 @@ add_action(
 		wp_enqueue_style( 'thu-cac-fonts', thu_cac_fonts_url(), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- Google Fonts URL is versioned by its query.
 		wp_enqueue_style( 'thu-cac', $uri . '/css/tram.css', array( 'thu-cac-fonts' ), THU_CAC_VERSION );
 
+		// Shared modules are imported by id ("thu-cac-theme"), so the import map gives them the versioned URL and a
+		// browser never mixes a new reader.js with a cached old reader-core.js.
+		wp_register_script_module( 'thu-cac-theme', $uri . '/js/theme.js', array(), THU_CAC_VERSION );
+		wp_register_script_module( 'thu-cac-reader-core', $uri . '/js/reader-core.js', array(), THU_CAC_VERSION );
 		wp_enqueue_script_module( 'thu-cac-glass', $uri . '/js/glass.js', array(), THU_CAC_VERSION );
-		wp_enqueue_script_module( 'thu-cac-site', $uri . '/js/site.js', array(), THU_CAC_VERSION );
+		wp_enqueue_script_module( 'thu-cac-site', $uri . '/js/site.js', array( 'thu-cac-theme' ), THU_CAC_VERSION );
 		if ( is_singular( 'chapter' ) ) {
-			wp_enqueue_script_module( 'thu-cac-reader', $uri . '/js/reader.js', array(), THU_CAC_VERSION );
+			wp_enqueue_script_module( 'thu-cac-reader', $uri . '/js/reader.js', array( 'thu-cac-theme', 'thu-cac-reader-core' ), THU_CAC_VERSION );
 		}
 	}
 );
