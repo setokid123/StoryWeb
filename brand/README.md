@@ -13,6 +13,10 @@
 
 Màu: gradient `#4f7bff → #8b4dff → #ff4f9a`, nút/nhãn `#4f46e5 → #7c3aed → #db2777`, chữ `#1d1842`. Phông chữ: Unbounded (chữ "Trạm Truyện" và "2D").
 
+## Page Facebook
+
+`facebook-anh-dai-dien.png` (ảnh đại diện) và `facebook-anh-bia.png` (ảnh bìa), vẽ bằng `facebook-render.mjs`. Chữ giới thiệu, tiểu sử và bài ghim: [facebook-page.md](facebook-page.md).
+
 ## Ảnh khi gửi link (Zalo, Facebook, Messenger)
 
 `og-render.mjs` vẽ bằng Chrome headless (đúng phông thật) hai ảnh 1200×630 trong theme:
