@@ -9,6 +9,8 @@
     { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/seed-sample.php';" },
     { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "wordpress-seo" } },
     { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "wp-super-cache" } },
-    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "ad-inserter" } }
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "ad-inserter" } },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "post-views-counter" } },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/setup-post-views.php';" }
   ]
 }

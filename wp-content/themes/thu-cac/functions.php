@@ -131,7 +131,10 @@ add_action(
 <meta name="theme-color" content="#0d0b22" media="(prefers-color-scheme: dark)">
 		<?php
 		if ( ! has_site_icon() ) {
-			printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( get_template_directory_uri() . '/assets/img/favicon.svg' ) );
+			$img = get_template_directory_uri() . '/assets/img/';
+			printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( $img . 'favicon.svg' ) );
+			printf( '<link rel="icon" href="%s" type="image/png" sizes="32x32">' . "\n", esc_url( $img . 'favicon-32.png' ) );
+			printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( $img . 'apple-touch-icon.png' ) );
 		}
 	},
 	1

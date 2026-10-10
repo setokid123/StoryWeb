@@ -50,10 +50,17 @@ $thu_cac_continue = function_exists( 'storyweb_chapter_url' ) ? str_replace( '99
 					<span class="status-chip<?php echo $thu_cac_story['completed'] ? ' is-done' : ''; ?>"><i></i><?php echo esc_html( $thu_cac_story['status'] ); ?></span>
 				</div>
 				<h1 class="detail__title"><?php echo esc_html( $thu_cac_story['title'] ); ?></h1>
-				<p class="detail__author">Tác giả <strong><?php echo esc_html( $thu_cac_story['author'] ); ?></strong></p>
+				<p class="detail__author"><?php if ( $thu_cac_story['author'] ) : ?>Tác giả <strong><?php echo esc_html( $thu_cac_story['author'] ); ?></strong><?php else : ?>Chưa rõ tác giả<?php endif; ?></p>
 				<div class="detail__metrics">
-					<span class="metric lg"><?php thu_cac_the_icon( 'star', 16, array( 'fill' => 'currentColor' ) ); ?><strong><?php echo esc_html( $thu_cac_story['rating'] ); ?></strong><small>đánh giá</small></span>
-					<span class="metric lg"><?php thu_cac_the_icon( 'eye', 16 ); ?><strong><?php echo esc_html( $thu_cac_story['reads'] ); ?></strong><small>lượt đọc</small></span>
+					<?php if ( '' !== $thu_cac_story['rating'] ) : ?>
+						<span class="metric lg"><?php thu_cac_the_icon( 'star', 16, array( 'fill' => 'currentColor' ) ); ?><strong><?php echo esc_html( $thu_cac_story['rating'] ); ?></strong><small>đánh giá</small></span>
+					<?php endif; ?>
+					<?php $thu_cac_views = thu_cac_views( $thu_cac_post->ID ); ?>
+					<?php if ( null !== $thu_cac_views ) : ?>
+						<span class="metric lg" title="<?php echo esc_attr( number_format_i18n( $thu_cac_views ) . ' lượt xem' ); ?>"><?php thu_cac_the_icon( 'eye', 16 ); ?><strong><?php echo esc_html( thu_cac_compact_number( $thu_cac_views ) ); ?></strong><small>lượt xem</small></span>
+					<?php elseif ( '' !== $thu_cac_story['reads'] ) : ?>
+						<span class="metric lg"><?php thu_cac_the_icon( 'eye', 16 ); ?><strong><?php echo esc_html( $thu_cac_story['reads'] ); ?></strong><small>lượt đọc</small></span>
+					<?php endif; ?>
 					<span class="metric lg"><?php thu_cac_the_icon( 'route', 16 ); ?><strong><?php echo (int) $thu_cac_story['chapters']; ?></strong><small>chương</small></span>
 				</div>
 				<div class="detail__blurb"><?php echo wp_kses_post( wpautop( $thu_cac_post->post_content ? $thu_cac_post->post_content : $thu_cac_story['blurb'] ) ); ?></div>
@@ -132,7 +139,7 @@ $thu_cac_continue = function_exists( 'storyweb_chapter_url' ) ? str_replace( '99
 				<h2 id="cung-tuyen" class="aside-card__title">Chuyến tàu cùng cảm hứng</h2>
 				<?php foreach ( $thu_cac_related as $thu_cac_rel ) : ?>
 					<?php $thu_cac_rel = thu_cac_story( $thu_cac_rel ); ?>
-					<a class="aside-card__item" href="<?php echo esc_url( $thu_cac_rel['url'] ); ?>"><?php thu_cac_cover( $thu_cac_rel, 'aside-cover', array( 'sizes' => '52px' ) ); ?><span><strong><?php echo esc_html( $thu_cac_rel['title'] ); ?></strong><small><?php echo esc_html( $thu_cac_rel['author'] ); ?> · <?php echo (int) $thu_cac_rel['chapters']; ?> chương</small></span><?php thu_cac_the_icon( 'arrow-right', 16 ); ?></a>
+					<a class="aside-card__item" href="<?php echo esc_url( $thu_cac_rel['url'] ); ?>"><?php thu_cac_cover( $thu_cac_rel, 'aside-cover', array( 'sizes' => '52px' ) ); ?><span><strong><?php echo esc_html( $thu_cac_rel['title'] ); ?></strong><small><?php echo esc_html( $thu_cac_rel['author'] ? $thu_cac_rel['author'] : $thu_cac_rel['status'] ); ?> ·<?php echo (int) $thu_cac_rel['chapters']; ?> chương</small></span><?php thu_cac_the_icon( 'arrow-right', 16 ); ?></a>
 				<?php endforeach; ?>
 			</aside>
 		<?php endif; ?>

@@ -53,6 +53,9 @@ Bẫy cần nhớ:
 | Bảng giờ tàu | `thu_cac_latest_chapters()` | Chương mới nhất của 6 truyện vừa cập nhật. Chỉ tiêu đề và số chương. |
 | Kệ đề cử | `front-page.php` | 8 truyện ngẫu nhiên theo ngày (`RAND(Ymd)`), giống nhau cả ngày nên hợp với cache. |
 | Lộ trình chương | `single-story.php` `.route` | Đường tuyến màu thể loại, mỗi chương một trạm; 2 cột trên máy tính. |
+| Lượt xem | `thu_cac_views()` | Từ plugin Post Views Counter: trang truyện + mọi chương, rút gọn "12,3K". Không có plugin thì không hiện (hoặc số `_sw_reads` nhập tay). |
+| Tác giả / đánh giá trống | `thu_cac_story()` | Không có tác giả: "Chưa rõ tác giả" (không viết "Đang cập nhật", dễ nhầm với trạng thái truyện). Không có đánh giá: ẩn ngôi sao. |
+| Đăng truyện | `header.php` | Chỉ hiện với tài khoản được viết bài; khách không thấy link vào wp-admin. |
 | Đọc tiếp | `site.js` | Nút "Đọc tiếp chương N" từ `storyweb:progress:<slug>` trên máy người đọc. |
 | Trang đọc | `single-chapter.php` | Ánh bìa mờ phía sau, toolbar kính, giấy kính, thanh tiến độ cuộn (CSS scroll-timeline), dock kính. Logic ẩn/hiện giữ nguyên trong `reader-core.js`. |
 

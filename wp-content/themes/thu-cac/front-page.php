@@ -66,12 +66,18 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 						<div class="ticket__info">
 							<?php thu_cac_line_pill( $thu_cac_feat['genre'], '', $thu_cac_feat['genre_url'] ); ?>
 							<h2 class="ticket__title"><a href="<?php echo esc_url( $thu_cac_feat['url'] ); ?>"><?php echo esc_html( $thu_cac_feat['title'] ); ?></a></h2>
-							<p class="ticket__author"><?php echo esc_html( $thu_cac_feat['author'] ); ?></p>
+							<p class="ticket__author"><?php echo esc_html( $thu_cac_feat['author_label'] ); ?></p>
 							<?php if ( $thu_cac_feat['quote'] ) : ?>
 								<blockquote class="ticket__quote">“<?php echo esc_html( $thu_cac_feat['quote'] ); ?>”</blockquote>
 							<?php endif; ?>
 							<div class="ticket__meta">
-								<span><?php thu_cac_the_icon( 'star', 14, array( 'fill' => 'currentColor' ) ); ?> <?php echo esc_html( $thu_cac_feat['rating'] ); ?></span>
+								<?php if ( '' !== $thu_cac_feat['rating'] ) : ?>
+									<span class="ticket__rating"><?php thu_cac_the_icon( 'star', 14, array( 'fill' => 'currentColor' ) ); ?> <?php echo esc_html( $thu_cac_feat['rating'] ); ?></span>
+								<?php endif; ?>
+								<?php $thu_cac_feat_views = thu_cac_views( $thu_cac_feat['id'] ); ?>
+								<?php if ( null !== $thu_cac_feat_views ) : ?>
+									<span><?php thu_cac_the_icon( 'eye', 14 ); ?> <?php echo esc_html( thu_cac_compact_number( $thu_cac_feat_views ) ); ?> lượt xem</span>
+								<?php endif; ?>
 								<span><?php thu_cac_the_icon( 'book-open', 14 ); ?> <?php echo (int) $thu_cac_feat['chapters']; ?> chương</span>
 								<span><?php echo esc_html( $thu_cac_feat['status'] ); ?></span>
 							</div>
@@ -133,7 +139,7 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 		<div class="board lg">
 			<header class="board__head">
 				<div><span class="eyebrow"><i></i> Bảng giờ tàu</span><h2 class="section-title">Chương mới <em>vừa đến ga</em></h2></div>
-				<div class="board__clock"><span class="live"><i></i> Đang cập nhật</span><time data-board-clock><?php echo esc_html( wp_date( 'H:i' ) ); ?></time></div>
+				<div class="board__clock"><span class="live"><i></i> Mới nhất</span><time data-board-clock><?php echo esc_html( wp_date( 'H:i' ) ); ?></time></div>
 			</header>
 			<div class="board__cols" aria-hidden="true"><span>Giờ</span><span>Chuyến</span><span>Tuyến</span><span>Vé</span></div>
 			<ol class="board__rows">

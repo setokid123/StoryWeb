@@ -24,6 +24,7 @@ for (let i = 0; ; i++) {
 const home = await get("/");
 ok("home: featured ticket + 7 picks (all but the featured) + 6-row departure board", count(home.text, /class="story-card"/g) === 7 && home.text.includes("ticket__cover") && count(home.text, /class="board-row"/g) === 6, `cards=${count(home.text, /class="story-card"/g)} board=${count(home.text, /class="board-row"/g)}`);
 ok("home: stats show 8 stories", /<strong>8<\/strong> câu chuyện/.test(home.text));
+ok("home: visitors see no Đăng truyện / wp-admin link", !home.text.includes("Đăng truyện") && !home.text.includes("edit.php?post_type=story"));
 ok("home: genre strip lists genres", count(home.text, /the-loai=/g) >= 5, `${count(home.text, /the-loai=/g)} links`);
 const all = await get("/tim-kiem/");
 ok("discover: 8 stories, '8 truyện'", count(all.text, /class="story-card"/g) === 8 && all.text.includes(">8 truyện</span>"));

@@ -20,7 +20,9 @@ $thu_cac_contact = sanitize_email( (string) get_theme_mod( 'thu_cac_contact_emai
 			<nav class="site-footer__links" aria-label="Liên kết chân trang">
 				<a href="<?php echo esc_url( thu_cac_search_url() ); ?>"><?php thu_cac_the_icon( 'compass', 17 ); ?> Khám phá truyện</a>
 				<a href="<?php echo esc_url( home_url( user_trailingslashit( 'tu-truyen' ) ) ); ?>"><?php thu_cac_the_icon( 'library-big', 17 ); ?> Tủ truyện</a>
-				<a href="<?php echo esc_url( thu_cac_publish_url() ); ?>"><?php thu_cac_the_icon( 'pen-line', 17 ); ?> Đăng truyện</a>
+				<?php if ( current_user_can( 'edit_posts' ) ) : ?>
+					<a href="<?php echo esc_url( thu_cac_publish_url() ); ?>"><?php thu_cac_the_icon( 'pen-line', 17 ); ?> Đăng truyện</a>
+				<?php endif; ?>
 				<?php if ( $thu_cac_contact ) : ?>
 					<a href="<?php echo esc_url( 'mailto:' . $thu_cac_contact ); ?>"><?php thu_cac_the_icon( 'map-pin', 17 ); ?> Liên hệ</a>
 				<?php endif; ?>

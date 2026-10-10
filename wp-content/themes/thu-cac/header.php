@@ -12,8 +12,11 @@ $thu_cac_links = array(
 	array( home_url( '/' ), 'Trang chủ', 'house' ),
 	array( thu_cac_search_url(), 'Khám phá', 'compass' ),
 	array( home_url( user_trailingslashit( 'tu-truyen' ) ), 'Tủ truyện', 'library-big' ),
-	array( thu_cac_publish_url(), 'Đăng truyện', 'pen-line' ),
 );
+// "Đăng truyện" opens wp-admin, so only people who can write stories see it; readers never do.
+if ( current_user_can( 'edit_posts' ) ) {
+	$thu_cac_links[] = array( thu_cac_publish_url(), 'Đăng truyện', 'pen-line' );
+}
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>

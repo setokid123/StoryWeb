@@ -461,6 +461,8 @@ a.line-pill:hover { box-shadow: 0 0 0 2px var(--line), 0 6px 14px -6px rgba(20, 
 .story-card__author { margin: 0; font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .story-card__meta { display: flex; justify-content: space-between; gap: 8px; margin-top: 7px; padding-top: 8px; border-top: 1px solid var(--line-color); font-size: 12px; color: var(--ink-3); }
 .story-card__rating { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--star); }
+.story-card__updated, .story-card__views { display: inline-flex; align-items: center; gap: 4px; }
+.story-card__views { font-weight: 700; color: var(--ink-2); }
 @media (hover: hover) {
   .story-card:hover .story-card__cover { transform: scale(1.06); }
   .story-card:hover .story-card__info { transform: translateY(-5px); }
@@ -650,7 +652,7 @@ a.line-pill:hover { box-shadow: 0 0 0 2px var(--line), 0 6px 14px -6px rgba(20, 
 }
 .ticket__meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: auto; font-size: 13px; color: var(--ink-2); }
 .ticket__meta span { display: inline-flex; align-items: center; gap: 5px; }
-.ticket__meta span:first-child { color: var(--star); font-weight: 700; }
+.ticket__meta .ticket__rating { color: var(--star); font-weight: 700; }
 .ticket__stub { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; padding-top: 18px; border-top: 2px dashed color-mix(in srgb, var(--ink) 20%, transparent); }
 .ticket__stub::before, .ticket__stub::after { content: ""; position: absolute; top: -9px; width: 16px; height: 16px; border-radius: 50%; background: var(--seg-track); box-shadow: inset 0 2px 4px rgba(20, 10, 60, .25); }
 .ticket__stub::before { left: -6px; }
@@ -1169,13 +1171,15 @@ a.line-pill:hover { box-shadow: 0 0 0 2px var(--line), 0 6px 14px -6px rgba(20, 
     bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 60;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
     gap: 2px;
     max-width: 460px;
     height: 70px;
     margin: 0 auto;
     padding: 6px;
   }
+  .main-nav:not(:has(> a:nth-of-type(4))) { max-width: 360px; }
   .main-nav__glass { --lg-blur: 9px; --lg-sat: 210%; background: var(--glass-fill-strong); box-shadow: var(--glass-rim), var(--glass-shadow); }
   .main-nav__glass::before { display: block; }
   .main-nav__link { flex-direction: column; justify-content: center; gap: 4px; height: 58px; padding: 0 2px; font-size: 11px; font-weight: 600; }

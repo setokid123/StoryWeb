@@ -131,7 +131,7 @@ try {
   // Phones: the main nav is the glass tab bar at the bottom of the screen; the reader page has its dock instead.
   await viewport(360, 780); await go(B + "/");
   g = await evaluate("(() => { const n = document.getElementById('main-nav'); const r = n.getBoundingClientRect(); return { position: getComputedStyle(n).position, links: n.querySelectorAll('a').length, bottomGap: Math.round(innerHeight - r.bottom), active: n.querySelector('[aria-current=page]')?.textContent.trim(), clear: document.body.scrollHeight >= document.querySelector('.site-footer').getBoundingClientRect().bottom + scrollY + r.height } })()");
-  check("phone: main nav is a 4-link tab bar fixed at the bottom, current page marked, footer not hidden", g.position === "fixed" && g.links === 4 && g.bottomGap >= 0 && g.bottomGap < 40 && g.active === "Trang chủ" && g.clear, JSON.stringify(g));
+  check("phone: main nav is a tab bar fixed at the bottom (3 links for visitors, no Đăng truyện), current page marked, footer not hidden", g.position === "fixed" && g.links === 3 && g.bottomGap >= 0 && g.bottomGap < 40 && g.active === "Trang chủ" && g.clear, JSON.stringify(g));
   await shot("tabbar-360-light");
   await go(`${B}/doc/${S}/1/`);
   check("phone reader: tab bar hidden (the reader dock takes its place)", (await evaluate("getComputedStyle(document.getElementById('main-nav')).display")) === "none");

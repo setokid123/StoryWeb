@@ -122,6 +122,43 @@ function thu_cac_line_pill( $name, $class = '', $url = '' ) {
 	echo '<span ' . $attrs . '>' . $inner . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
 }
 
+/**
+ * Views of a story from the Post Views Counter plugin: the story page plus all its chapters. Null when the plugin
+ * is not active (the theme then shows nothing, or the editor's "_sw_reads" number). Counts only — never content.
+ *
+ * @param int $story_id Story ID.
+ * @return int|null
+ */
+function thu_cac_views( $story_id ) {
+	static $cache = array();
+	if ( ! function_exists( 'pvc_get_post_views' ) ) {
+		return null;
+	}
+	$story_id = (int) $story_id;
+	if ( ! isset( $cache[ $story_id ] ) ) {
+		global $wpdb;
+		$ids   = array_map(
+			'intval',
+			$wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'chapter' AND post_status = 'publish' AND post_parent = %d", $story_id ) )
+		);
+		$ids[] = $story_id;
+		$cache[ $story_id ] = (int) pvc_get_post_views( $ids );
+	}
+	return $cache[ $story_id ];
+}
+
+/** Short view count: 950, 12,3K, 1,2Tr. */
+function thu_cac_compact_number( $number ) {
+	$number = (int) $number;
+	if ( $number < 10000 ) {
+		return number_format_i18n( $number );
+	}
+	if ( $number < 1000000 ) {
+		return number_format_i18n( $number / 1000, $number < 100000 ? 1 : 0 ) . 'K';
+	}
+	return number_format_i18n( $number / 1000000, 1 ) . 'Tr';
+}
+
 /** "2 giờ trước" within a week, otherwise dd/mm/yyyy. */
 function thu_cac_updated_label( $post ) {
 	$time = (int) get_post_modified_time( 'U', true, $post );
@@ -163,7 +200,9 @@ function thu_cac_story( $post ) {
 		'slug'          => $post->post_name,
 		'url'           => get_permalink( $post ),
 		'title'         => get_the_title( $post ),
-		'author'        => $meta['author'] ? $meta['author'] : 'Đang cập nhật',
+		'author'        => $meta['author'],
+		// Imported stories often have no author: say so plainly ("Đang cập nhật" read like a story status).
+		'author_label'  => $meta['author'] ? $meta['author'] : 'Chưa rõ tác giả',
 		'genre'         => $genre ? $genre->name : 'Truyện',
 		'genre_slug'    => $genre ? $genre->slug : '',
 		'genre_url'     => $genre ? thu_cac_search_url( array( 'the-loai' => $genre->slug ) ) : thu_cac_search_url(),
@@ -173,8 +212,8 @@ function thu_cac_story( $post ) {
 		'blurb'         => $blurb,
 		// Home hero quote: the editor's own line, else the start of the description.
 		'quote'         => $meta['quote'] ? $meta['quote'] : wp_trim_words( $blurb, 18, '…' ),
-		'rating'        => '' !== $rating ? $rating : 'Mới',
-		'reads'         => '' !== $reads ? $reads : 'Mới',
+		'rating'        => $rating,
+		'reads'         => $reads,
 		'chapters'      => (int) $meta['chapter_count'],
 		'free_chapters' => (int) $meta['free_chapters'],
 		'updated'       => thu_cac_updated_label( $post ),
@@ -377,10 +416,9 @@ function thu_cac_search_url( $args = array() ) {
 	return add_query_arg( array_filter( $args ), home_url( user_trailingslashit( 'tim-kiem' ) ) );
 }
 
-/** "Đăng truyện" → wp-admin for editors, login for everyone else. */
+/** "Đăng truyện" target: the story list in wp-admin. The link is only shown to users who can edit posts. */
 function thu_cac_publish_url() {
-	$target = admin_url( 'edit.php?post_type=story' );
-	return current_user_can( 'edit_posts' ) ? $target : wp_login_url( $target );
+	return admin_url( 'edit.php?post_type=story' );
 }
 
 /** Whether a header link points at the current page (for .is-active). */
