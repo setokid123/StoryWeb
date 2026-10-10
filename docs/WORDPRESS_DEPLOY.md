@@ -55,6 +55,6 @@ Sao lưu trước. Chạy lại `node scripts/wp/package.mjs`, rồi tải zip l
 
 ## Chưa làm (bước sau)
 
-- **Chọn plugin**: quảng cáo, cache, sao lưu, bảo mật/chống bot, SEO, nhập truyện hàng loạt.
+- **Plugin**: danh sách đã chọn và cách cài ở [PLUGINS.md](PLUGINS.md).
 - **Port phần còn lại**: mở khóa bằng link (thêm rate limit theo SEC1), rewarded (giữ fail-closed), cài đặt Quảng cáo & mở khóa, chuyển dữ liệu từ PostgreSQL.
 - **Gắn domain chính**: chỉ làm sau khi bước trên xong và đã kiểm tra.

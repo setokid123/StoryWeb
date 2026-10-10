@@ -90,7 +90,22 @@ function storyweb_chapter_body( $chapter ) {
 	return $chapter->post_content;
 }
 
-// Defence in depth: any template or plugin that prints a locked chapter through the standard filters gets nothing.
+// Defence in depth for templates and plugins that go through the WordPress template API. content_pagination
+// receives the post being split, so get_the_content(), the_content() and generated excerpts of a locked chapter
+// come out empty even when the global post is another one (widgets, SEO plugins, related-posts boxes).
+add_filter(
+	'content_pagination',
+	static function ( $pages, $post ) {
+		if ( $post instanceof WP_Post && 'chapter' === $post->post_type && ! storyweb_can_read_chapter( $post ) ) {
+			return array( '' );
+		}
+		return $pages;
+	},
+	1,
+	2
+);
+
+// the_content gets no post argument, so this second layer checks the global post.
 add_filter(
 	'the_content',
 	static function ( $content ) {
@@ -103,14 +118,17 @@ add_filter(
 	1
 );
 
+// Chapters never have an excerpt (feeds, embeds, SEO descriptions). Run last: at priority 10 core's
+// wp_trim_excerpt() rebuilds an empty excerpt from the content, and that text must be dropped too.
 foreach ( array( 'get_the_excerpt', 'the_excerpt_rss', 'the_content_feed', 'the_excerpt_embed' ) as $storyweb_hook ) {
 	add_filter(
 		$storyweb_hook,
 		static function ( $text, $post = null ) {
-			$post = get_post( $post );
+			// Only get_the_excerpt passes a post; the_content_feed passes the feed type.
+			$post = get_post( $post instanceof WP_Post ? $post : null );
 			return ( $post && 'chapter' === $post->post_type ) ? '' : $text;
 		},
-		1,
+		PHP_INT_MAX,
 		2
 	);
 }

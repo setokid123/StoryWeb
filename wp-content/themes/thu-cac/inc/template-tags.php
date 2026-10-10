@@ -194,7 +194,23 @@ function thu_cac_is_current( $url ) {
 	return untrailingslashit( (string) $current ) === untrailingslashit( (string) $target );
 }
 
-/** Ad placement hook (home_feed, story_detail, reader_end, search_results). Renders nothing until an ad plugin hooks in. */
+/**
+ * Ad placement: home_feed, story_detail, reader_end, search_results. An ad plugin hooks either the generic
+ * `thu_cac_ad_slot` action (gets the placement) or the per-placement one, e.g. `thu_cac_ad_slot_reader_end`
+ * (Ad Inserter → Hooks). Its output is framed with the "Quảng cáo" label; when it prints nothing, nothing shows.
+ */
 function thu_cac_ad_slot( $placement ) {
+	ob_start();
 	do_action( 'thu_cac_ad_slot', $placement );
+	do_action( "thu_cac_ad_slot_{$placement}" );
+	$ad = trim( (string) ob_get_clean() );
+	if ( '' === $ad ) {
+		return;
+	}
+	?>
+	<aside class="ad-slot" data-placement="<?php echo esc_attr( $placement ); ?>" aria-label="Quảng cáo">
+		<span class="ad-slot__label">Quảng cáo</span>
+		<div class="ad-slot__content"><?php echo $ad; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ad markup an admin configured in the ad plugin. ?></div>
+	</aside>
+	<?php
 }

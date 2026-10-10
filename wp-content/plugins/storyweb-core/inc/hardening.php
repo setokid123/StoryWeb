@@ -78,12 +78,16 @@ add_filter(
 	}
 );
 
-// Reader pages depend on the visitor's grant: never cache them in shared caches.
+// Reader pages depend on the visitor's grant: never cache them in shared caches. Page-cache plugins
+// (WP Super Cache, W3 Total Cache, Cache Enabler...) also need DONOTCACHEPAGE, the flag they check before storing a page.
 add_action(
 	'template_redirect',
 	static function () {
 		if ( is_singular( 'chapter' ) ) {
 			nocache_headers();
+			if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+				define( 'DONOTCACHEPAGE', true );
+			}
 		}
 	}
 );

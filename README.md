@@ -36,5 +36,5 @@ npm test   # test logic trang đọc (tùy chỉnh đọc, ẩn/hiện toolbar k
 ## Chưa làm (bước sau)
 
 - Mở khóa chương bằng link (kèm giới hạn tần suất chống cào), quảng cáo có thưởng, trang cài đặt — xem `docs/`.
-- Chọn plugin cho quảng cáo, cache, nhập hàng loạt, SEO, chống bot.
+- Plugin: đã chọn trong [docs/PLUGINS.md](docs/PLUGINS.md). Nhóm SEO/cache/quảng cáo phải thử với chương khóa trước khi cài lên site thật.
 - Chuyển dữ liệu truyện từ bản cũ.
