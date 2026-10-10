@@ -8,6 +8,7 @@
  * Author:            StoryWeb
  * License:           GPL-2.0-or-later
  * Text Domain:       storyweb-core
+ * Update URI:        false
  *
  * Business rules live here, not in the theme: switching themes must never expose a locked chapter.
  *

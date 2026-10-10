@@ -2,7 +2,7 @@
 
 ## Trạng thái hiện tại — đọc trước
 
-Bản WordPress (nhánh `claude/wp-port`, bước WP1) đã có:
+Bản WordPress (bước WP1) đã có:
 - giao diện;
 - truyện/chương, thể loại;
 - khóa chương phía máy chủ;
@@ -10,14 +10,14 @@ Bản WordPress (nhánh `claude/wp-port`, bước WP1) đã có:
 
 **Chưa có:**
 - mở khóa bằng link (chương khóa hiện thông báo "tạm tắt");
-- chuyển dữ liệu từ web Next.js;
+- chuyển dữ liệu truyện từ bản cũ;
 - quảng cáo, cache, chống bot.
 
-Vì vậy, bây giờ chỉ deploy để **chạy thử song song**. Web Next.js trên Railway vẫn chạy production cho tới khi port xong. **Không merge `claude/wp-port` vào `main`**: Railway deploy `main` như service Next.js, và nhánh này đã xóa giao diện Next.js.
+Hướng dẫn này dành cho **hosting cPanel** (tải zip lên wp-admin). Deploy lên **Railway** thì xem [deploy/railway-wp/README.md](../deploy/railway-wp/README.md): theme và plugin có sẵn trong image, chỉ cần kích hoạt rồi làm tiếp từ mục 7 dưới đây.
 
 ## Yêu cầu hosting
 
-- Hosting **PHP + MySQL/MariaDB** chạy WordPress. Service Railway hiện tại chạy Node, không dùng được.
+- Hosting **PHP + MySQL/MariaDB** chạy WordPress.
 - PHP **≥ 8.1** (đã thử 8.1 và 8.3), WordPress **≥ 6.5** (đã thử 7.1.3).
 - HTTPS.
 
@@ -57,4 +57,4 @@ Sao lưu trước. Chạy lại `node scripts/wp/package.mjs`, rồi tải zip l
 
 - **Chọn plugin**: quảng cáo, cache, sao lưu, bảo mật/chống bot, SEO, nhập truyện hàng loạt.
 - **Port phần còn lại**: mở khóa bằng link (thêm rate limit theo SEC1), rewarded (giữ fail-closed), cài đặt Quảng cáo & mở khóa, chuyển dữ liệu từ PostgreSQL.
-- **Chuyển domain chính và tắt Railway**: chỉ làm sau khi bước trên xong và đã kiểm tra.
+- **Gắn domain chính**: chỉ làm sau khi bước trên xong và đã kiểm tra.
