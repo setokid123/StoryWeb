@@ -1,0 +1,14 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "steps": [
+    { "step": "setSiteLanguage", "language": "vi" },
+    { "step": "setSiteOptions", "options": { "blogname": "Thư Các", "blogdescription": "Đọc một câu chuyện hay", "permalink_structure": "/%postname%/", "timezone_string": "Asia/Ho_Chi_Minh" } },
+    { "step": "activatePlugin", "pluginPath": "/wordpress/wp-content/plugins/storyweb-core/storyweb-core.php" },
+    { "step": "activateTheme", "themeFolderName": "thu-cac" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/seed-sample.php';" },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "wordpress-seo" } },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "wp-super-cache" } },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "ad-inserter" } }
+  ]
+}

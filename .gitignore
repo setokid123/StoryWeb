@@ -13,3 +13,5 @@ next-env.d.ts
 content/published-stories.json
 .agents/memory/
 dist/
+# Story bot output (stories to import), kept out of git.
+chapter/

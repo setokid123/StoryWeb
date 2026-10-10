@@ -67,6 +67,15 @@ add_filter(
 		return $types;
 	}
 );
+// Yoast SEO serves its own sitemaps (sitemap_index.xml) and listed every chapter there.
+add_filter(
+	'wpseo_sitemap_exclude_post_type',
+	static function ( $excluded, $post_type ) {
+		return 'chapter' === $post_type ? true : $excluded;
+	},
+	10,
+	2
+);
 add_filter(
 	'wp_robots',
 	static function ( $robots ) {

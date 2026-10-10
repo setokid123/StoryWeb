@@ -10,7 +10,8 @@ const count = (t, re) => (t.match(re) ?? []).length;
 
 // The blueprint seeds after the server starts answering: wait until the last sample story has its 6 chapters,
 // i.e. seeding finished (max 3 minutes).
-const { stories: sample } = JSON.parse(await import("node:fs").then((fs) => fs.readFileSync(new URL("./sample-stories.json", import.meta.url), "utf8")));
+const sampleData = JSON.parse(await import("node:fs").then((fs) => fs.readFileSync(new URL("./sample-stories.json", import.meta.url), "utf8")));
+const sample = sampleData.stories;
 const lastSlug = sample[sample.length - 1].slug;
 for (let i = 0; ; i++) {
   const seeded = await get(`/truyen/${lastSlug}/`).then((r) => r.text.includes("6 chương ·")).catch(() => false);
@@ -53,6 +54,17 @@ ok("reader ch1: prev disabled, next = /doc/.../2/", /reader-nav__prev" aria-labe
 ok("reader ch1: noindex + no-store", /noindex/.test(ch1.text) && /no-store|no-cache/.test(ch1.headers.get("cache-control") ?? ""), ch1.headers.get("cache-control") ?? "");
 const ch2 = await get(`/doc/${S}/2/`);
 ok("reader ch2 (locked): NO body in HTML", !ch2.text.includes(marker(2)) && !ch2.text.includes("data-reader-text"));
+// The marker sits at the end of the body; SEO plugins quote the opening words (meta description, og:description).
+// Compare letters only, so entities and curly quotes in <head> can't hide a match.
+const words = (t) => t
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
+  .normalize("NFC").replace(/&[a-z]+;|[^\p{L}\p{N}]+/gu, " ").trim().toLowerCase();
+const opening = words(sampleData.paragraphs[0]).split(" ").slice(0, 8).join(" ");
+const hasChapterText = (t) => words(t).includes(opening);
+ok("leak detector finds the text of free ch1 (control)", hasChapterText(ch1.text));
+ok("reader ch2: no chapter text anywhere, <head> included", opening.split(" ").length === 8 && !hasChapterText(ch2.text), `"${opening}"`);
+ok("reader ch2: noindex", /<meta name=['"]robots['"][^>]*noindex/.test(ch2.text));
 ok("reader ch2: gate shown (mode off)", ch2.text.includes("data-unlock-gate") && ch2.text.includes("tạm tắt"));
 ok("reader ch2: title still shown", ch2.text.includes("Một lá thư chưa gửi"));
 
@@ -78,16 +90,24 @@ const doors = [
   ["sitemap index", "/wp-sitemap.xml"],
   ["theme chapters API", "/wp-json/thu-cac/v1/chapters?story=" + ((home.text.match(/postid-(\d+)/) ?? [])[1] ?? "0")],
   ["comments feed", "/comments/feed/"],
+  // Plugin side doors (404 when the plugin is not installed).
+  ["Yoast REST head of ch2", `/wp-json/yoast/v1/get_head?url=${encodeURIComponent(B + `/doc/${S}/2/`)}`],
+  ["SEO sitemap index", "/sitemap_index.xml"],
+  ["SEO chapter sitemap", "/chapter-sitemap.xml"],
 ];
 for (const [name, path] of doors) {
   const r = await get(path);
-  const leaked = r.text.includes(marker(2)) || /SW-[a-z0-9-]+-([2-9]|\d{2,})-BODY/.test(r.text);
+  const leaked = r.text.includes(marker(2)) || /SW-[a-z0-9-]+-([2-9]|\d{2,})-BODY/.test(r.text) || hasChapterText(r.text);
   ok(`no locked text via ${name}`, !leaked, `status ${r.status}`);
 }
 const types = await get("/wp-json/wp/v2/types");
 ok("REST types do not list chapter", !/"chapter"\s*:/.test(types.text));
 const sm = await get("/wp-sitemap.xml");
 ok("sitemap has no chapter sitemap", !sm.text.includes("chapter"));
+const seoIndex = await get("/sitemap_index.xml");
+ok("SEO sitemap index (if any) lists no chapters", seoIndex.status !== 200 || !/chapter/i.test(seoIndex.text), `status ${seoIndex.status}`);
+const seoChapters = await get("/chapter-sitemap.xml");
+ok("SEO chapter sitemap (if any) lists no reader URLs", seoChapters.status !== 200 || !seoChapters.text.includes("/doc/"), `status ${seoChapters.status}`);
 
 // ---- theme REST ----
 const storyId = Number((story.text.match(/postid-(\d+)/) ?? [])[1]);

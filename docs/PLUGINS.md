@@ -8,21 +8,33 @@ Nguyên tắc: việc gì có plugin tốt thì dùng plugin; chỉ tự code kh
 
 | Plugin | Để làm gì | Cài đặt |
 | --- | --- | --- |
-| **Limit Login Attempts Reloaded** | Chặn dò mật khẩu ở trang đăng nhập và XML-RPC | Mặc định là đủ |
+| **Limit Login Attempts Reloaded** | Chặn dò mật khẩu ở trang đăng nhập và XML-RPC | Mặc định là đủ. Trên Railway cần bản deploy có `apache-railway.conf`, nếu không plugin thấy mọi người cùng một IP (của proxy) và khóa tất cả |
 | **Two Factor** | Đăng nhập 2 lớp cho tài khoản admin | Hồ sơ → bật "Authenticator App" (Google Authenticator...), lưu mã dự phòng |
 | **FluentSMTP** | Cho site gửi được email (quên mật khẩu, thông báo) | Kết nối **Brevo** (miễn phí 300 mail/ngày) bằng API key, rồi gửi mail thử |
 | **UpdraftPlus** | Sao lưu tự động ra Google Drive | Database hằng ngày, file hằng tuần, giữ khoảng 14 bản |
+| **WordPress Importer** | Nhập truyện từ file WXR (Công cụ → Nhập → WordPress) | Xem mục "Nhập truyện" bên dưới |
 
-## Nhóm 2: cài sau khi đã deploy bản vá và thử với chương khóa
+## Nhóm 2: đụng tới nội dung, đã thử với chương khóa
+
+Đã thử ngày 2026-10-10 trên WordPress chạy thử (PHP 8.3, WordPress 7.1.3) với Yoast SEO 28.6, WP Super Cache 3.1.4 (chưa bật cache) và Ad Inserter 2.8.19 cùng bật, trên 241 truyện thật nhập qua WXR. `check-import.mjs` đạt 68/68: chương khóa không lộ qua trang, `<head>`, REST, tìm kiếm, feed hay sitemap. `check-content.mjs` (dữ liệu mẫu) mới chạy khi chưa có các plugin này. Lần thử này phát hiện Yoast đưa mọi chương vào sitemap riêng của nó. StoryWeb Core giờ chặn việc đó (`wpseo_sitemap_exclude_post_type`).
 
 | Plugin | Để làm gì | Cài đặt |
 | --- | --- | --- |
-| **Yoast SEO** | SEO trang chủ, truyện, thể loại; ảnh bìa khi chia sẻ Facebook; sitemap; xác minh Search Console | Loại nội dung **Chương**: tắt "Hiển thị trong kết quả tìm kiếm" (chương vốn đã `noindex`), để trống mẫu mô tả |
-| **WP Super Cache** | Cache trang chủ, trang truyện, thể loại để chịu tải | Bật cache, chế độ Simple; giữ "Không cache cho người đã đăng nhập". Trang đọc chương không bao giờ bị cache (StoryWeb Core đặt `DONOTCACHEPAGE`) |
+| **Yoast SEO** | SEO trang chủ, truyện, thể loại; ảnh bìa khi chia sẻ Facebook; sitemap; xác minh Search Console | Không cần chỉnh cho chương: StoryWeb Core giữ chương `noindex` và ngoài sitemap của Yoast |
 | **Ad Inserter** | Dán mã quảng cáo (AdSense hoặc mạng khác) vào 4 vị trí theme có sẵn; quản lý `ads.txt` | Tab **Hooks**: thêm 4 action `thu_cac_ad_slot_home_feed`, `thu_cac_ad_slot_story_detail`, `thu_cac_ad_slot_reader_end`, `thu_cac_ad_slot_search_results`. Mỗi block chọn chèn tự động vào hook tương ứng. Theme tự thêm nhãn "Quảng cáo" và ẩn chỗ trống |
+| **WP Super Cache** (để sau) | Cache trang chủ, trang truyện, thể loại khi lượng đọc lớn | Trang đọc chương không bao giờ bị cache (StoryWeb Core đặt `DONOTCACHEPAGE`). Chưa thử khi bật cache: đăng chương mới có thể chưa hiện ngay trên trang truyện. Bật khi cần, sau khi thêm phần tự làm mới trang truyện |
 | **Site Kit by Google** (tùy chọn) | Google Analytics, Search Console | Không bật AdSense "Auto ads": Google sẽ tự chèn quảng cáo vào trang đọc và sát nút điều hướng |
 
 Vị trí quảng cáo theo kế hoạch cũ (`docs/ADS_UNLOCK_PLAN.md`): không chen giữa đoạn văn của chương, không đặt sát nhóm nút điều hướng. `reader_end` chỉ hiện khi chương đã được phép đọc.
+
+## Nhập truyện
+
+1. Trên máy: `node scripts/wp/bot-to-wxr.mjs --out dist/wp/import <thư mục bot>...` tạo các file `thu-cac-import-NN.xml`, mỗi file khoảng 300 chương (xem `scripts/wp/README.md`).
+2. wp-admin → **Công cụ → Nhập → WordPress** (lần đầu bấm "Cài đặt ngay" rồi "Chạy trình nhập"). Chọn file 01 → **Tải tập tin lên và nhập**.
+3. Ở bước tác giả, chọn tài khoản admin của bạn cho "thu-cac-import". Không cần tick tải file đính kèm. Bấm **Gửi**.
+4. Làm lần lượt với các file còn lại. Nếu một file dừng giữa chừng, tải lại đúng file đó: phần đã nhập sẽ được bỏ qua.
+
+Nên nhập **trước khi cài Yoast SEO**: Yoast lập chỉ mục từng bài lúc lưu nên làm việc nhập chậm hẳn.
 
 ## Không phải plugin
 
