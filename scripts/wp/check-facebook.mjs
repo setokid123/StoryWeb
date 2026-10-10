@@ -1,0 +1,121 @@
+// "Truyện → Đăng Facebook" (StoryWeb Core inc/facebook*.php) against the LOCAL Playground (127.0.0.1 only), with
+// scripts/wp/mock-facebook.php installed as a must-use plugin in place of Facebook (see scripts/wp/README.md).
+//   WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs
+const B = process.env.BASE ?? "http://127.0.0.1:9400";
+if (!/^http:\/\/127\.0\.0\.1(:\d+)?$/.test(B)) throw new Error("local only");
+const S = "thanh-pho-sau-con-mua";
+const marker = (n) => `SW-${S}-${n}-BODY`;
+let pass = 0, fail = 0;
+const ok = (name, cond, detail = "") => { cond ? pass++ : fail++; console.log(`${cond ? "  PASS" : "! FAIL"}  ${name}${detail ? ` — ${detail}` : ""}`); };
+
+const jar = new Map();
+const take = (res) => { for (const line of res.headers.getSetCookie?.() ?? []) { const [pair] = line.split(";"); const i = pair.indexOf("="); jar.set(pair.slice(0, i).trim(), pair.slice(i + 1)); } };
+const cookie = () => [...jar].map(([k, v]) => `${k}=${v}`).join("; ");
+const get = async (path, withCookies = true) => { const r = await fetch(B + path, { headers: withCookies ? { cookie: cookie() } : {}, redirect: "follow" }); take(r); return { status: r.status, text: await r.text() }; };
+const post = async (path, form, withCookies = true) => {
+  const r = await fetch(B + path, { method: "POST", redirect: "manual", body: new URLSearchParams(form), headers: { ...(withCookies ? { cookie: cookie() } : {}), "content-type": "application/x-www-form-urlencoded" } });
+  take(r);
+  return { status: r.status, location: r.headers.get("location") ?? "", text: await r.text() };
+};
+const PAGE = "/wp-admin/edit.php?post_type=story&page=storyweb-facebook";
+const nonceFor = (html, action) => (html.match(new RegExp(`name="action" value="${action}"[\\s\\S]*?name="_wpnonce" value="([^"]+)"`)) ?? [])[1];
+const mock = async (reset = false) => JSON.parse((await get(`/wp-admin/admin-ajax.php?action=sw_fb_mock_log${reset ? "&reset=1" : ""}`)).text);
+const decode = (s) => s.replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+
+// ---- log in ----
+await get("/wp-login.php");
+const login = await post("/wp-login.php", { log: process.env.WP_TEST_USER, pwd: process.env.WP_TEST_PASS, "wp-submit": "Log In", testcookie: "1", redirect_to: B + "/wp-admin/" });
+ok("admin logged in", login.status === 302 && [...jar.keys()].some((k) => k.startsWith("wordpress_logged_in")));
+await mock(true);
+
+// ---- connect ----
+let page = await get(PAGE);
+ok("Truyện → Đăng Facebook: connect form (App ID, App Secret, user token)", page.status === 200 && /name="app_id"/.test(page.text) && /name="app_secret"/.test(page.text) && /name="user_token"/.test(page.text));
+let r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_connect", _wpnonce: nonceFor(page.text, "storyweb_fb_connect"), app_id: "123", app_secret: "bad-secret", user_token: "SHORT-USER-TOKEN" });
+page = await get(PAGE);
+ok("wrong App Secret: Facebook's error shown, not connected", /Facebook báo lỗi 190/.test(page.text) && /name="app_id"/.test(page.text));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_connect", _wpnonce: nonceFor(page.text, "storyweb_fb_connect"), app_id: "123", app_secret: "good-secret", user_token: "SHORT-USER-TOKEN" });
+page = await get(PAGE);
+ok("connected to the one Page that can post (222 has no CREATE_CONTENT)", /Đã kết nối Page &quot;Trạm Truyện 2D&quot;|Đã kết nối Page "Trạm Truyện 2D"/.test(page.text) && /Đang đăng lên Page <strong>Trạm Truyện 2D<\/strong>/.test(page.text));
+let calls = await mock();
+ok("short token swapped for a long-lived one, Pages listed with it", calls.some((c) => c.path === "oauth/access_token" && c.params.fb_exchange_token === "SHORT-USER-TOKEN" && c.params.grant_type === "fb_exchange_token") && calls.some((c) => c.path === "me/accounts" && c.params.access_token === "LONG-USER-TOKEN"));
+ok("no token or secret printed back in wp-admin", !/PAGE-TOKEN|LONG-USER-TOKEN|SHORT-USER-TOKEN|good-secret/.test(page.text));
+
+// ---- pick a story ----
+ok("story picker lists stories", /Chọn truyện/.test(page.text) && /&amp;story=\d+|&#038;story=\d+/.test(page.text));
+const storyId = Number(((await get(`/truyen/${S}/`, false)).text.match(/postid-(\d+)/) ?? [])[1]);
+const list = await get("/wp-admin/edit.php?post_type=story");
+ok("'Đăng Facebook' link under each story in Tất cả truyện", list.text.includes("page=storyweb-facebook&#038;story=") || list.text.includes("page=storyweb-facebook&amp;story="));
+page = await get(`${PAGE}&story=${storyId}`);
+const texts = JSON.parse(decode((page.text.match(/<script type="application\/json" id="sw-fb-texts">([\s\S]*?)<\/script>/) ?? [])[1] ?? "{}"));
+ok("sources: description, opening of chapter 1, whole chapter 1 — not locked chapter 2", ["about", "start", "chapter-1"].every((k) => page.text.includes(`value="${k}"`)) && !page.text.includes('value="chapter-2"'));
+ok("locked chapter 2 text is nowhere in the composer", !page.text.includes(marker(2)) && texts["chapter-1"]?.includes(marker(1)));
+ok("default text: title, chapter, text, read-on link to chapter 2, hashtags", /^📖 .+ · Chương 1\n\n/.test(texts["chapter-1"] ?? "") && texts["chapter-1"].includes(`👉 Đọc tiếp chương 2: ${B}/doc/${S}/2/`) && /#TrạmTruyện2D/.test(texts["chapter-1"]));
+ok("opening of chapter 1 is a short excerpt", (texts.start ?? "").length < (texts["chapter-1"] ?? "").length && texts.start.includes("…"));
+const nonce = nonceFor(page.text, "storyweb_fb_publish");
+
+// ---- publish ----
+await mock(true);
+const message = texts["chapter-1"] + "\nThêm một dòng tự gõ <b>đậm</b> 50%";
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "chapter-1", message, with_cover: "1", hashtags_default: "#TrạmTruyện2D #ĐọcTruyện", when: "" });
+page = await get(`${PAGE}&story=${storyId}`);
+calls = await mock(true);
+const photo = calls.find((c) => c.path === "111/photos");
+ok("posted as a photo on Page 111 with the Page token", photo?.method === "POST" && photo.params.access_token === "PAGE-TOKEN-111" && !("published" in photo.params));
+ok("caption = the edited text (tags stripped, % kept)", photo?.params.caption?.includes(marker(1)) && photo.params.caption.includes("Thêm một dòng tự gõ đậm 50%"));
+ok("photo = the cover as a JPEG on this site", /\/wp-content\/uploads\/storyweb-fb\/cover-\d+-\d+-\d+\.jpg$/.test(photo?.params.url ?? ""), photo?.params.url);
+const jpeg = photo?.params.url ? await fetch(photo.params.url) : null;
+ok("that JPEG is served", jpeg?.status === 200 && /image\/jpeg/.test(jpeg.headers.get("content-type") ?? ""));
+ok("success notice links to the Facebook post", page.text.includes("Đã đăng") && page.text.includes("https://www.facebook.com/111_9001"));
+ok("history lists the post", /Đã đăng gần đây[\s\S]*Cả chương 1[\s\S]*111_9001/.test(page.text));
+ok("hashtags remembered for the next posts", page.text.includes('value="#TrạmTruyện2D #ĐọcTruyện"'));
+
+// ---- refused ----
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "chapter-2", message: "x", with_cover: "1" });
+page = await get(`${PAGE}&story=${storyId}`);
+ok("locked chapter 2 as source → refused, nothing sent", page.text.includes("Nguồn nội dung không hợp lệ") && (await mock(true)).length === 0);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", story: String(storyId), source: "chapter-1", message: "x" });
+ok("no nonce → refused, nothing sent", r.status === 403 && (await mock(true)).length === 0, `status ${r.status}`);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "chapter-1", message: "x" }, false);
+ok("logged out → nothing sent", r.status !== 200 && (await mock(true)).length === 0, `status ${r.status}`);
+const local = (offsetMin) => new Date(Date.now() + offsetMin * 60000 + 7 * 3600000).toISOString().slice(0, 16); // Asia/Ho_Chi_Minh, no DST
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about, with_cover: "1", when: local(2) });
+page = await get(`${PAGE}&story=${storyId}`);
+ok("schedule 2 minutes ahead → refused (10 min to 30 days)", page.text.includes("Giờ hẹn phải") && (await mock(true)).length === 0);
+
+// ---- schedule ----
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about, with_cover: "1", when: local(24 * 60) });
+calls = await mock(true);
+const scheduled = calls.find((c) => c.path === "111/photos");
+const expected = Math.floor((Date.now() + 24 * 3600000) / 60000) * 60;
+ok("schedule tomorrow → unpublished photo with scheduled_publish_time", scheduled?.params.published === "false" && Math.abs(Number(scheduled.params.scheduled_publish_time) - expected) <= 120, `${scheduled?.params.scheduled_publish_time} vs ${expected}`);
+
+// ---- story without a cover ----
+const picker = await get(PAGE);
+const ids = [...picker.text.matchAll(/story=(\d+)/g)].map((m) => Number(m[1]));
+let bare = 0;
+for (const id of new Set(ids)) { const p = await get(`${PAGE}&story=${id}`); if (!/name="with_cover"/.test(p.text) && /name="source"/.test(p.text)) { bare = id; page = p; break; } }
+if (bare) {
+  const t = JSON.parse(decode((page.text.match(/id="sw-fb-texts">([\s\S]*?)<\/script>/) ?? [])[1] ?? "{}"));
+  const key = Object.keys(t)[0];
+  r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonceFor(page.text, "storyweb_fb_publish"), story: String(bare), source: key, message: t[key], when: "" });
+  calls = await mock(true);
+  const feed = calls.find((c) => c.path === "111/feed");
+  ok("story without a cover → text post with the story link", feed?.params.message === t[key] && /\/truyen\/[a-z0-9-]+\/$/.test(feed?.params.link ?? "") && !calls.some((c) => c.path === "111/photos"));
+} else ok("story without a cover found in the sample", false);
+
+// ---- disconnect, then a pasted Page token ----
+page = await get(PAGE);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_disconnect", _wpnonce: nonceFor(page.text, "storyweb_fb_disconnect") });
+page = await get(PAGE);
+ok("disconnect → connect form again", /name="app_id"/.test(page.text) && !/Đang đăng lên Page/.test(page.text));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_connect", _wpnonce: nonceFor(page.text, "storyweb_fb_connect"), page_id: "111", page_token: "WRONG" });
+page = await get(PAGE);
+ok("pasted Page token that Facebook rejects → error, not connected", /Facebook báo lỗi 190/.test(page.text) && /name="app_id"/.test(page.text));
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_connect", _wpnonce: nonceFor(page.text, "storyweb_fb_connect"), page_id: "111", page_token: "PAGE-TOKEN-111" });
+page = await get(PAGE);
+ok("pasted Page ID + token → connected", /Đang đăng lên Page <strong>Trạm Truyện 2D<\/strong>/.test(page.text) && !page.text.includes("PAGE-TOKEN-111"));
+await mock(true);
+
+console.log(`\n${pass} passed, ${fail} failed`);
+process.exitCode = fail ? 1 : 0;

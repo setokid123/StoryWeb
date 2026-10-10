@@ -15,7 +15,8 @@ Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs
 ## Kiểm tra
 
 - `npm test` — logic trang đọc.
-- WordPress Playground + 4 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin, mở khóa bằng link): xem `scripts/wp/README.md`.
+- WordPress Playground + 5 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin, mở khóa bằng link, đăng Facebook với `mock-facebook.php` thay Facebook): xem `scripts/wp/README.md`.
+- Đăng Facebook (`storyweb-core/inc/facebook*.php`) chỉ lấy giới thiệu truyện hoặc chương **miễn phí**; mã Page không bao giờ in ra trang.
 - Đóng gói tải lên wp-admin: `node scripts/wp/package.mjs`.
 
 ## MCP Context7 và Memory

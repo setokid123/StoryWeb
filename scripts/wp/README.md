@@ -36,6 +36,13 @@ node scripts/wp/check-content.mjs     # số truyện, tìm kiếm, phân trang;
 OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
 WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
 WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 28 kiểm tra mở khóa bằng link
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 28 kiểm tra Truyện → Đăng Facebook
+```
+
+`check-facebook.mjs` cần `mock-facebook.php` làm must-use plugin của site thử (nó trả lời thay Facebook và ghi lại các lệnh gọi). Thêm bước sau vào cuối blueprint, **không bao giờ** cài file này lên site thật:
+
+```json
+{ "step": "runPHP", "code": "<?php @mkdir('/wordpress/wp-content/mu-plugins'); copy('/seed/mock-facebook.php', '/wordpress/wp-content/mu-plugins/mock-facebook.php');" }
 ```
 
 `check-unlock.mjs` cần site **mới khởi động**: nó đổi cài đặt Mở khóa chương (tắt lại ở cuối) và dùng hết giới hạn 15 lượt mở khóa/giờ của IP máy. Chạy nó trước `check-content.mjs`.

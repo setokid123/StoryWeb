@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       StoryWeb Core
- * Description:       Truyện và chương: kiểu nội dung, đường dẫn /truyen/ và /doc/, khóa chương phía máy chủ, mở khóa bằng link (Truyện → Mở khóa chương).
- * Version:           0.2.1
+ * Description:       Truyện và chương: kiểu nội dung, đường dẫn /truyen/ và /doc/, khóa chương phía máy chủ, mở khóa bằng link (Truyện → Mở khóa chương), đăng truyện lên Page Facebook (Truyện → Đăng Facebook).
+ * Version:           0.3.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Author:            StoryWeb
@@ -17,16 +17,18 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STORYWEB_CORE_VERSION', '0.2.1' );
+define( 'STORYWEB_CORE_VERSION', '0.3.0' );
 define( 'STORYWEB_CORE_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once STORYWEB_CORE_DIR . 'inc/content-model.php';
 require_once STORYWEB_CORE_DIR . 'inc/routing.php';
 require_once STORYWEB_CORE_DIR . 'inc/access.php';
 require_once STORYWEB_CORE_DIR . 'inc/unlock.php';
+require_once STORYWEB_CORE_DIR . 'inc/facebook.php';
 require_once STORYWEB_CORE_DIR . 'inc/hardening.php';
 require_once STORYWEB_CORE_DIR . 'inc/admin.php';
 require_once STORYWEB_CORE_DIR . 'inc/unlock-admin.php';
+require_once STORYWEB_CORE_DIR . 'inc/facebook-admin.php';
 
 register_activation_hook(
 	__FILE__,
