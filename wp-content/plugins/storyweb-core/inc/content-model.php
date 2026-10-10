@@ -298,20 +298,17 @@ add_action(
 	2
 );
 
+// deleted_post passes the deleted row. (A closure added from before_delete_post on every delete stayed attached, so
+// the k-th delete in one request refreshed the counters k times: deleting 9k chapters ran at ~1 per second.)
 add_action(
-	'before_delete_post',
-	static function ( $post_id ) {
-		$post = get_post( $post_id );
-		if ( $post && 'chapter' === $post->post_type && $post->post_parent ) {
-			$parent = $post->post_parent;
-			add_action(
-				'deleted_post',
-				static function () use ( $parent ) {
-					storyweb_refresh_story_counters( $parent );
-				}
-			);
+	'deleted_post',
+	static function ( $post_id, $post ) {
+		if ( $post instanceof WP_Post && 'chapter' === $post->post_type && $post->post_parent ) {
+			storyweb_refresh_story_counters( $post->post_parent );
 		}
-	}
+	},
+	10,
+	2
 );
 
 add_action(

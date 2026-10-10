@@ -45,14 +45,21 @@ Plugin đụng tới nội dung hoặc trang đọc (SEO, cache, quảng cáo...
 
 ## Nhập truyện từ bot
 
-`bot-to-wxr.mjs` đổi thư mục kết quả của bot (`chapters/<truyện>/chuong-N.txt`, có thể kèm `stories.json`) thành file WXR. Bạn nhập file này trong wp-admin → **Công cụ → Nhập → WordPress** (plugin WordPress Importer):
+`bot-to-wxr.mjs` đổi thư mục kết quả của bot (`chapters/<truyện>/chuong-N.txt`, có thể kèm `stories.json` và `index.csv`) thành file WXR. Bạn nhập file này trong wp-admin → **Công cụ → Nhập → WordPress** (plugin WordPress Importer):
 
 ```bash
-node scripts/wp/bot-to-wxr.mjs --out dist/wp/import [--free 1|all] <thư mục bot>...
+node scripts/wp/bot-to-wxr.mjs --out dist/wp/import [--free 1|all] [--completed] [--min-chars 2000] <thư mục bot>...
+# ví dụ: --free 2 --completed chapter/output_full/nhatruyenhay chapter/output_truyentop chapter/output_zhihu
 ```
 
-- Mỗi file khoảng 300 chương. Một truyện và mọi chương của nó luôn nằm chung một file. Nhập lại cùng một file thì bỏ qua phần đã có.
-- `--free`: số chương miễn phí của mỗi truyện; `all` là mở hết.
-- Script báo số truyện chưa có tên thật (bot chỉ lưu slug), số chương bị cắt vì popup của trang nguồn, và số truyện chưa có thể loại.
+- Đưa mọi thư mục vào cùng một lần chạy: truyện trùng (cùng tên và cùng đoạn mở đầu, ở hai nguồn hoặc bot cào hai lần) chỉ giữ bản nhiều chữ hơn, gộp thể loại. Cùng tên mà khác nội dung thì giữ cả hai.
+- Mỗi file khoảng 300 chương (`--max-chapters` để đổi). Một truyện và mọi chương của nó luôn nằm chung một file. Nhập lại cùng một file thì bỏ qua phần đã có; tạo lại file thì ngày đăng đổi, nhập lại sẽ thành bản trùng.
+- `--free`: số chương miễn phí của mỗi truyện; `all` là mở hết. `--completed`: đánh dấu mọi truyện "Hoàn thành".
+- `--min-chars`: chương ngắn hơn số ký tự này (mặc định 2000, khoảng 400 chữ) gộp vào chương trước (chương đầu thì gộp chương sau), rồi đánh số lại 1..N.
+- Tên truyện lấy từ `title` trong `stories.json`: tên viết HOA cả câu đổi thành viết hoa chữ đầu (giữ CEO, ICU, NYC...), bỏ mã nguồn kiểu `#TOP_T 21` và chữ `FULL` ở cuối. Slug tạo từ tên (bỏ dấu). Thể loại lấy từ `categories`.
+- Chưa có tên thật (bot chỉ lưu slug) thì tên tạm lấy từ slug, bỏ mã nguồn ở đầu (`top-166`, `ttop-1142`); mã lấy từ cột `chapter_title` của `index.csv` (`#TOP 166`) để không cắt nhầm số trong tên.
+- Trang nguồn bọc từng chữ trong thẻ riêng nên bot ghi một đoạn thành nhiều dòng ngắn. Script ghép lại: xuống đoạn khi dòng trước hết câu và dòng sau bắt đầu câu mới. Tiêu đề chương bên trong ("Chương 3", `**…**`) và số mục in đậm, dòng ngăn cảnh thành `* * *`; `*nghiêng*` thành chữ nghiêng; đoạn dài quá 1200 ký tự được tách theo câu.
+- Chữ bị che để lọt bộ lọc ("x/ác", "m.á.u", "tr..eo", "hànhz") được ghép lại khi từ ghép ra có trong chính kho truyện từ 3 lần; dấu `*` chỉ sửa các chữ rõ nghĩa (ch\*t, gi\*t, tự t\*, tự s\*t...), chửi thề che sao để nguyên. Bỏ link và dòng "Đọc full tại ..." của trang nguồn, header `CHAPTER_INDEX`/`DOMAIN`, thêm dấu cách thiếu sau dấu câu.
+- Script báo số chương đã gộp, số truyện trùng đã bỏ, số truyện chưa có tên thật, số chương bị cắt vì popup của trang nguồn, và số truyện chưa có thể loại.
 
-Để thử trên máy, mount thư mục file WXR vào `/import` và dùng bước `importWxr` của blueprint. Sau đó chạy `node scripts/wp/check-import.mjs <thư mục bot>...`: với khoảng 12 truyện, chương 1 đọc được, chương 2 khóa và không lộ chữ nào (trang, `<head>`, REST của Yoast, tìm kiếm, feed, sitemap).
+Để thử trên máy, mount thư mục file WXR vào `/import` và dùng bước `importWxr` của blueprint. Sau đó chạy `FREE=<số chương free> [COMPLETED=1] node scripts/wp/check-import.mjs <thư mục bot>...` (cùng các thư mục đã đưa cho `bot-to-wxr.mjs`): với khoảng 12 truyện, các chương free đọc được, chương kế tiếp khóa và không lộ chữ nào (trang, `<head>`, REST của Yoast, tìm kiếm, feed, sitemap).

@@ -1,11 +1,13 @@
 // Leak checks on real stories imported from the story bot (local Playground, 127.0.0.1 only). For ~12 stories that
-// have chapters 1 and 2: chapter 1 is served; chapter 2 is locked and none of its text appears in the page (<head>
-// included), in SEO plugin side doors, search, feeds or sitemaps.
-// Usage: node scripts/wp/check-import.mjs <bot dir>...   (the dirs given to bot-to-wxr.mjs, free chapters = 1)
-import { readBotDir } from "./bot-to-wxr.mjs";
+// have one chapter past the free ones: the free chapters are served; the next one is locked and none of its text
+// appears in the page (<head> included), in SEO plugin side doors, search, feeds or sitemaps.
+// Usage: [FREE=1] [COMPLETED=1] node scripts/wp/check-import.mjs <bot dir>...
+// (the dirs and --free given to bot-to-wxr.mjs; COMPLETED=1 when it ran with --completed)
+import { readBotDirs } from "./bot-to-wxr.mjs";
 
 const B = process.env.BASE ?? "http://127.0.0.1:9400";
 if (!/^http:\/\/127\.0\.0\.1(:\d+)?$/.test(B)) throw new Error("local only");
+const FREE = Number(process.env.FREE ?? 1);
 const dirs = process.argv.slice(2);
 if (!dirs.length) throw new Error("usage: node scripts/wp/check-import.mjs <bot dir>...");
 
@@ -21,26 +23,29 @@ const words = (t) => t
 const opening = (c) => words(c.paragraphs.find((p) => words(p).split(" ").length >= 8) ?? c.paragraphs.join(" ")).split(" ").slice(0, 8).join(" ");
 const has = (text, c) => words(text).includes(opening(c));
 
-const stories = dirs.flatMap(readBotDir).filter((s) => s.chapters[0]?.number === 1 && s.chapters[1]?.number === 2);
+const stories = readBotDirs(dirs).filter((s) => s.chapters.length > FREE);
 const step = Math.max(1, Math.ceil(stories.length / 12));
 const pick = stories.filter((_, i) => i % step === 0);
-ok(`picked ${pick.length} of ${stories.length} stories with chapters 1 and 2`, pick.length > 0);
+ok(`picked ${pick.length} of ${stories.length} stories with more than ${FREE} chapters`, pick.length > 0);
 
 for (const s of pick) {
-  const [c1, c2] = s.chapters;
+  const locked = s.chapters[FREE];
   const story = await get(`/truyen/${s.slug}/`);
   ok(`${s.slug}: story page lists ${s.chapters.length} chapters`, story.status === 200 && story.text.includes(`${s.chapters.length} chương`), `status ${story.status}`);
-  const p1 = await get(`/doc/${s.slug}/1/`);
-  ok(`${s.slug}: chương 1 served`, p1.status === 200 && has(p1.text, c1), `status ${p1.status}`);
-  const p2 = await get(`/doc/${s.slug}/2/`);
-  ok(`${s.slug}: chương 2 locked, none of its text in the page`, p2.status === 200 && p2.text.includes("data-unlock-gate") && !has(p2.text, c2), `status ${p2.status}`);
-  ok(`${s.slug}: chương 2 noindex`, /<meta name=['"]robots['"][^>]*noindex/.test(p2.text));
-  const head = await get(`/wp-json/yoast/v1/get_head?url=${encodeURIComponent(`${B}/doc/${s.slug}/2/`)}`);
-  ok(`${s.slug}: no chương 2 text via Yoast REST head`, !has(head.text, c2), `status ${head.status}`);
+  if (process.env.COMPLETED) ok(`${s.slug}: marked completed`, story.text.includes("Hoàn thành"));
+  for (const c of s.chapters.slice(0, FREE)) {
+    const p = await get(`/doc/${s.slug}/${c.number}/`);
+    ok(`${s.slug}: chương ${c.number} served`, p.status === 200 && has(p.text, c) && !p.text.includes("data-unlock-gate"), `status ${p.status}`);
+  }
+  const p = await get(`/doc/${s.slug}/${locked.number}/`);
+  ok(`${s.slug}: chương ${locked.number} locked, none of its text in the page`, p.status === 200 && p.text.includes("data-unlock-gate") && !has(p.text, locked), `status ${p.status}`);
+  ok(`${s.slug}: chương ${locked.number} noindex`, /<meta name=['"]robots['"][^>]*noindex/.test(p.text));
+  const head = await get(`/wp-json/yoast/v1/get_head?url=${encodeURIComponent(`${B}/doc/${s.slug}/${locked.number}/`)}`);
+  ok(`${s.slug}: no chương ${locked.number} text via Yoast REST head`, !has(head.text, locked), `status ${head.status}`);
 }
 
 // Search, REST search and feeds with real words from a locked chapter.
-const probe = pick[0].chapters[1];
+const probe = pick[0].chapters[FREE];
 const q = encodeURIComponent(opening(probe).split(" ").slice(0, 3).join(" "));
 for (const [name, path] of [["WP search", `/?s=${q}`], ["REST search", `/wp-json/wp/v2/search?search=${q}`], ["feed", "/feed/"], ["Yoast REST head of story", `/wp-json/yoast/v1/get_head?url=${encodeURIComponent(`${B}/truyen/${pick[0].slug}/`)}`]]) {
   const r = await get(path);
