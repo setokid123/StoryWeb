@@ -275,9 +275,18 @@ if (locked && gate && !gateFocused) {
   gateFocused = true;
 }
 
-// Link mode opens the destination in another tab; reload with the new grant when the reader comes back.
+// Link mode opens the destination in another tab (or the Shopee app); reload with the new grant when the reader comes
+// back. Phones often fire no window focus on the way back, so also: the page turning visible again, or coming back
+// from the back/forward cache.
 if (locked && data.mode === "link") {
-  window.addEventListener("focus", () => window.location.reload());
+  let left = false;
+  const reload = () => window.location.reload();
+  window.addEventListener("focus", reload);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") left = true;
+    else if (left) reload();
+  });
+  window.addEventListener("pageshow", (event) => { if (event.persisted) reload(); });
 }
 
 // ---------- grant expiry: remove the body at expiry even if the network is slow, then ask the server again ----------

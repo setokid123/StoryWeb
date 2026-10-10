@@ -59,7 +59,7 @@ Nếu mở domain mà thấy site **đã cài** dù bạn chưa cài: xóa servi
 
 ## Cấu hình trong thư mục này
 
-- `wp-config-railway.php`: nhận HTTPS sau proxy của Railway (tránh lặp chuyển hướng); đặt địa chỉ site theo `SITE_DOMAIN`, nếu không có thì theo domain Railway; cho WordPress cài plugin không cần FTP; tắt trình sửa code PHP trong wp-admin. File được nạp qua biến `WORDPRESS_CONFIG_EXTRA` (xem `entrypoint.sh`). Nếu tự đặt biến này trong Railway, nó thay toàn bộ file.
+- `wp-config-railway.php`: nhận HTTPS sau proxy của Railway (tránh lặp chuyển hướng); đặt địa chỉ site theo `SITE_DOMAIN`, nếu không có thì theo domain Railway (khi có `SITE_DOMAIN`, mọi địa chỉ `*.up.railway.app` khác của service chuyển hẳn sang đó bằng 301); cho WordPress cài plugin không cần FTP; tắt trình sửa code PHP trong wp-admin. File được nạp qua biến `WORDPRESS_CONFIG_EXTRA` (xem `entrypoint.sh`). Nếu tự đặt biến này trong Railway, nó thay toàn bộ file.
 - `apache-railway.conf`: tin proxy của Railway (dải `100.64.0.0/10`) để WordPress thấy IP thật của khách. Thiếu file này, mọi người đều mang IP của proxy: plugin chặn đăng nhập sai sẽ khóa tất cả cùng lúc.
 - `php.ini`: tải lên tối đa 32 MB, bộ nhớ 256 MB.
 - `entrypoint.sh`: chỉ bật MPM prefork của Apache (trên Railway, image php-apache có thể khởi động với hai MPM và báo lỗi `AH00534: More than one MPM loaded`), cho Apache nghe cổng `$PORT`, thay theme/plugin trên volume bằng bản trong image.
@@ -67,6 +67,8 @@ Nếu mở domain mà thấy site **đã cài** dù bạn chưa cài: xóa servi
 ## Domain riêng
 
 Service wordpress → **Settings → Networking → Custom Domain**, trỏ DNS theo hướng dẫn của Railway. Sau đó thêm biến `SITE_DOMAIN=truyen.tenmien.com` (không có `https://`) để WordPress dùng domain này.
+
+Từ 2026-10-10 site dùng `SITE_DOMAIN=tramtruyen2d.up.railway.app`: Google Safe Browsing đã đánh dấu domain sinh tự động đầu tiên (`wordpress-production-c96b.up.railway.app`) là trang lừa đảo, Chrome hiện cảnh báo đỏ. Kiểm tra site không bị nhiễm mã (file lõi khớp checksum, một tài khoản admin, không script lạ). Domain cũ giờ chuyển 301 sang domain mới. Có domain riêng thì đổi `SITE_DOMAIN` sang domain đó (cần cho AdSense).
 
 ## Lưu ý
 

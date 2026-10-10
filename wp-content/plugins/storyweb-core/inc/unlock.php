@@ -8,9 +8,9 @@
  *   "v3.<revision>.<expires>.<HMAC>" keyed with the site's salts, valid only while the feature is on, for the current
  *   revision, before expiry and never longer than the configured duration. Anything else fails closed.
  * - /mo-khoa/ grants only for a reader's own click on the gate: a nonce printed in the gate, a link index (never a
- *   URL, so no open redirect), and Fetch Metadata of a same-origin user navigation (browsers without Fetch Metadata,
- *   e.g. Safari before 16.4: a same-origin Referer). A scraper can fake those headers, so grants are rate limited per
- *   IP (storyweb_unlock_rate_limit, default 15 an hour).
+ *   URL, so no open redirect), and Fetch Metadata of a top-level navigation that no other site started (browsers
+ *   without Fetch Metadata, e.g. Safari before 16.4: a same-origin Referer). A scraper can fake those headers, so
+ *   grants are rate limited per IP (storyweb_unlock_rate_limit, default 15 an hour).
  * - Switching the feature, changing the links or "Thu hồi" bumps the revision: earlier grants stop working at once.
  * - As in the old app the site cannot know whether the reader looked at the destination: it is a soft gate.
  *
@@ -151,14 +151,23 @@ add_filter(
 	}
 );
 
-/** Whether this request is the reader's own click on a page of this site (see the file comment). */
+/**
+ * Whether this request is the reader's own click on a page of this site (see the file comment): a top-level navigation
+ * from this site, or from outside any site ("none": an in-app browser handing the link to the phone's browser), never
+ * from another site, a frame or a prefetch. Sec-Fetch-User only counts when sent: Safari, and so every iPhone browser,
+ * sends the other Fetch Metadata headers but never this one.
+ */
 function storyweb_unlock_user_click() {
 	$header = static function ( $key ) {
 		return isset( $_SERVER[ $key ] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER[ $key ] ) ) ) : '';
 	};
+	if ( str_contains( $header( 'HTTP_SEC_PURPOSE' ) . $header( 'HTTP_PURPOSE' ) . $header( 'HTTP_X_MOZ' ), 'prefetch' ) ) {
+		return false;
+	}
 	$site = $header( 'HTTP_SEC_FETCH_SITE' );
 	if ( '' !== $site ) {
-		return 'same-origin' === $site && 'navigate' === $header( 'HTTP_SEC_FETCH_MODE' ) && '?1' === $header( 'HTTP_SEC_FETCH_USER' ) && 'document' === $header( 'HTTP_SEC_FETCH_DEST' );
+		$user = $header( 'HTTP_SEC_FETCH_USER' );
+		return in_array( $site, array( 'same-origin', 'none' ), true ) && 'navigate' === $header( 'HTTP_SEC_FETCH_MODE' ) && 'document' === $header( 'HTTP_SEC_FETCH_DEST' ) && ( '' === $user || '?1' === $user );
 	}
 	$referer = wp_get_raw_referer();
 	return $referer && wp_parse_url( $referer, PHP_URL_HOST ) === wp_parse_url( home_url(), PHP_URL_HOST );

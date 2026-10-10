@@ -112,6 +112,14 @@ ok("chapter list API shows chapters unlocked for the grant", api.chapters?.[1]?.
 const old = new Jar();
 r = await get(path, { jar: old, headers: { referer: `${B}/doc/${S}/2/` } });
 ok("browser without Fetch Metadata: same-origin Referer accepted", r.status === 303 && old.c.has("storyweb_unlock"), `status ${r.status}`);
+const iphone = new Jar();
+r = await get(path, { jar: iphone, headers: { "sec-fetch-site": "same-origin", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document" } });
+ok("iPhone/Safari tap (no Sec-Fetch-User, Safari never sends it) → 303 + grant", r.status === 303 && iphone.c.has("storyweb_unlock"), `status ${r.status}`);
+const app = new Jar();
+r = await get(path, { jar: app, headers: { ...click, "sec-fetch-site": "none" } });
+ok("link handed over by an in-app browser (Sec-Fetch-Site: none) → 303 + grant", r.status === 303 && app.c.has("storyweb_unlock"), `status ${r.status}`);
+r = await get(path, { headers: { "sec-fetch-site": "same-origin", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document", "sec-purpose": "prefetch" } });
+ok("prefetch → 400, no grant", r.status === 400 && !r.setCookie.length, `status ${r.status}`);
 
 // ---- forged and revoked grants ----
 const forged = new Jar();
@@ -127,7 +135,7 @@ ok("'Thu hồi' → the earlier grant stops working", /revoked=1/.test(saved.loc
 
 // ---- per-IP rate limit (SEC1) ----
 let limited = 0;
-let grants = 2; // the two grants above
+let grants = 4; // the four grants above
 for (let i = 0; i < 20 && !limited; i++) {
   const g = await get(gateLink((await get(`/doc/${S}/2/`)).text).replace(B, ""), { headers: click });
   if (g.status === 429) limited = grants + 1; else if (g.status === 303) grants++;

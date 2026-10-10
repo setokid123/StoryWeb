@@ -35,7 +35,7 @@ Chờ vài giây sau khi trang chủ trả 200 (dữ liệu mẫu nạp sau khi 
 node scripts/wp/check-content.mjs     # số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
 OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
 WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
-WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 25 kiểm tra mở khóa bằng link
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 28 kiểm tra mở khóa bằng link
 ```
 
 `check-unlock.mjs` cần site **mới khởi động**: nó đổi cài đặt Mở khóa chương (tắt lại ở cuối) và dùng hết giới hạn 15 lượt mở khóa/giờ của IP máy. Chạy nó trước `check-content.mjs`.
