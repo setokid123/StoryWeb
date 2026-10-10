@@ -39,7 +39,8 @@ ok("discover: old Next.js genre link (by name) still filters", oldGenre.text.inc
 const story = await get(`/truyen/${S}/`);
 ok("story: 100 chapter rows on page 1", count(story.text, /class="chapter-row"/g) === 100, `${count(story.text, /class="chapter-row"/g)}`);
 ok("story: '120 chương · 1 chương miễn phí'", story.text.includes("120 chương · 1 chương miễn phí"));
-ok("story: chapter 1 free, chapter 2 locked", /chapter-row__index">01<\/span><span class="chapter-row__name">[^<]*<\/span>\s*<span class="chapter-row__status">Miễn phí/.test(story.text.replace(/\n\t*/g, "")) && story.text.includes("chapter-row__status--locked"));
+const compact = story.text.replace(/>\s+</g, "><"); // whitespace/line endings between tags do not matter
+ok("story: chapter 1 free, chapters 2–100 locked", /chapter-row__index">01<\/span><span class="chapter-row__name">[^<]*<\/span><span class="chapter-row__status">Miễn phí/.test(compact) && count(compact, /chapter-row__status--locked/g) === 99, `${count(compact, /chapter-row__status--locked/g)} locked`);
 ok("story: pager to page 2", story.text.includes("trang-chuong=2"));
 const story2 = await get(`/truyen/${S}/?trang-chuong=2`);
 ok("story: page 2 has 20 rows", count(story2.text, /class="chapter-row"/g) === 20, `${count(story2.text, /class="chapter-row"/g)}`);
