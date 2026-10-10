@@ -2,6 +2,11 @@
 # Railway runtime prep, then hand off to the official WordPress entrypoint.
 set -euo pipefail
 
+# On Railway, Apache in php-apache images can start with more than one MPM enabled and refuse to run
+# ("AH00534: More than one MPM loaded"). mod_php needs prefork only; fix it here, at start time.
+a2dismod -q mpm_event mpm_worker >/dev/null 2>&1 || true
+a2enmod -q mpm_prefork >/dev/null
+
 # Railway routes the public domain to $PORT; Apache in the base image listens on 80.
 port="${PORT:-80}"
 sed -ri "s/^Listen 80\$/Listen ${port}/" /etc/apache2/ports.conf
