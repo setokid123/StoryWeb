@@ -62,4 +62,19 @@ node scripts/wp/bot-to-wxr.mjs --out dist/wp/import [--free 1|all] [--completed]
 - Chữ bị che để lọt bộ lọc ("x/ác", "m.á.u", "tr..eo", "hànhz") được ghép lại khi từ ghép ra có trong chính kho truyện từ 3 lần; dấu `*` chỉ sửa các chữ rõ nghĩa (ch\*t, gi\*t, tự t\*, tự s\*t...), chửi thề che sao để nguyên. Bỏ link và dòng "Đọc full tại ..." của trang nguồn, header `CHAPTER_INDEX`/`DOMAIN`, thêm dấu cách thiếu sau dấu câu.
 - Script báo số chương đã gộp, số truyện trùng đã bỏ, số truyện chưa có tên thật, số chương bị cắt vì popup của trang nguồn, và số truyện chưa có thể loại.
 
+### Ảnh bìa
+
+Bot ảnh bìa ghi vào `chapter/covers/<nguồn>/` (ảnh + `_log.json`: slug nguồn → file). Đổi thành WebP rồi gắn làm ảnh đại diện trên server:
+
+```bash
+node scripts/wp/covers-to-webp.mjs --covers chapter/covers --out dist/wp/covers <cùng các thư mục bot như trên>
+# trên server (thư mục chứa manifest.json + .webp đã chép lên, ví dụ /tmp/covers):
+su -s /bin/sh -c 'php attach-covers.php /tmp/covers' www-data
+```
+
+- Mỗi truyện một file WebP rộng 600 px (bìa lớn nhất 295 px CSS, đủ cho màn hình 2x), chất lượng 75, bỏ metadata: trung bình ~25 KB thay vì ~460 KB. WordPress tự tạo thêm bản 150 px và ~168×300 cho `srcset`. Không dùng AVIF: chỉ nhỏ hơn thêm ~6 KB/ảnh mà iPhone dưới iOS 16.4 không hiển thị được.
+- Ảnh 1200×630 của nhatruyenhay là ảnh chia sẻ (bìa dọc ở giữa, nền mờ hai bên): chỉ giữ phần bìa. Ảnh ngang hoặc vuông được cắt về khung bìa (295:425) quanh vùng sharp thấy nổi bật (mặt người), thay vì để CSS cắt chính giữa.
+- Ảnh giống hệt nhau dùng chung một file đính kèm. Truyện bị gộp trùng lấy ảnh của bản bị bỏ nếu bản giữ không có ảnh.
+- `attach-covers.php` bỏ qua truyện đã có ảnh, chạy lại được; tham số thứ hai giới hạn số file mỗi lần. Chạy dưới user `www-data` để wp-admin còn sửa/xóa được file. Cần `sharp` (đang có trong `node_modules` của repo; nếu không, cài ngoài repo và đặt `SHARP_DIR`).
+
 Để thử trên máy, mount thư mục file WXR vào `/import` và dùng bước `importWxr` của blueprint. Sau đó chạy `FREE=<số chương free> [COMPLETED=1] node scripts/wp/check-import.mjs <thư mục bot>...` (cùng các thư mục đã đưa cho `bot-to-wxr.mjs`): với khoảng 12 truyện, các chương free đọc được, chương kế tiếp khóa và không lộ chữ nào (trang, `<head>`, REST của Yoast, tìm kiếm, feed, sitemap).
