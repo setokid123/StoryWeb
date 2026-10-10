@@ -53,7 +53,7 @@ const GLUE_AFTER = /[“‘(\[【]$/u;
 // One-sentence paragraphs for a paragraph this long: a few chapters came as a single line.
 const LONG = 1200;
 
-function reflow(lines) {
+export function reflow(lines) {
   const out = [];
   let cur = "";
   const flush = () => { if (cur) out.push(cur); cur = ""; };
@@ -107,7 +107,7 @@ export function wordCounts(texts) {
   return counts;
 }
 
-function cleanText(text, words) {
+export function cleanText(text, words) {
   let t = text.normalize("NFC");
   for (const re of FURNITURE) t = t.replace(re, "");
   t = t.replace(MASKED, (w) => {

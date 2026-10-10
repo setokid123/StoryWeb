@@ -19,6 +19,24 @@ if (clock) {
   setInterval(tick, 20_000);
 }
 
+// ---------- long story description: clamp with "Xem thêm" / "Thu gọn" ----------
+const blurb = document.querySelector("[data-blurb]");
+const blurbToggle = document.querySelector("[data-blurb-toggle]");
+if (blurb && blurbToggle) {
+  blurb.classList.add("is-clamped");
+  if (blurb.scrollHeight > blurb.clientHeight + 4) {
+    blurbToggle.hidden = false;
+    blurbToggle.addEventListener("click", () => {
+      const open = blurbToggle.getAttribute("aria-expanded") !== "true";
+      blurb.classList.toggle("is-clamped", !open);
+      blurbToggle.setAttribute("aria-expanded", String(open));
+      blurbToggle.querySelector("[data-blurb-label]").textContent = open ? "Thu gọn" : "Xem thêm";
+    });
+  } else {
+    blurb.classList.remove("is-clamped"); // short enough: no button, nothing hidden
+  }
+}
+
 // ---------- "Đọc tiếp": last chapter read on this device (stored by reader.js) ----------
 for (const link of document.querySelectorAll("[data-continue]")) {
   let number = 0;

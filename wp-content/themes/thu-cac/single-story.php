@@ -63,7 +63,8 @@ $thu_cac_continue = function_exists( 'storyweb_chapter_url' ) ? str_replace( '99
 					<?php endif; ?>
 					<span class="metric lg"><?php thu_cac_the_icon( 'route', 16 ); ?><strong><?php echo (int) $thu_cac_story['chapters']; ?></strong><small>chương</small></span>
 				</div>
-				<div class="detail__blurb"><?php echo wp_kses_post( wpautop( $thu_cac_post->post_content ? $thu_cac_post->post_content : $thu_cac_story['blurb'] ) ); ?></div>
+				<div class="detail__blurb" id="mo-ta-truyen" data-blurb><?php echo wp_kses_post( wpautop( $thu_cac_post->post_content ? $thu_cac_post->post_content : $thu_cac_story['blurb'] ) ); ?></div>
+				<button type="button" class="detail__more" data-blurb-toggle aria-controls="mo-ta-truyen" aria-expanded="false" hidden><span data-blurb-label>Xem thêm</span> <?php thu_cac_the_icon( 'chevron-down', 16 ); ?></button>
 				<?php if ( $thu_cac_story['tags'] ) : ?>
 					<div class="tag-list"><?php foreach ( $thu_cac_story['tags'] as $thu_cac_tag ) : ?><span>#<?php echo esc_html( $thu_cac_tag ); ?></span><?php endforeach; ?></div>
 				<?php endif; ?>

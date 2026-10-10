@@ -847,6 +847,11 @@ body.single-chapter .site-header { position: sticky; top: var(--admin-h); }
 .detail__blurb { max-width: 720px; font-size: 15.5px; line-height: 1.8; color: var(--ink-2); }
 .detail__blurb p { margin: 0 0 .8em; }
 .detail__blurb p:last-child { margin-bottom: 0; }
+/* Long descriptions: 3 lines (keeps the panel close to the cover's height), fading out, until "Xem thêm" (site.js adds .is-clamped only when needed). */
+.detail__blurb.is-clamped { max-height: 5.4em; overflow: hidden; -webkit-mask-image: linear-gradient(#000 35%, transparent); mask-image: linear-gradient(#000 35%, transparent); }
+.detail__more { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; margin-top: 6px; padding: 0 14px 0 0; border: 0; background: none; font: 700 14px/1 var(--font-ui); color: var(--accent); }
+.detail__more svg { transition: transform .3s var(--ease-spring); }
+.detail__more[aria-expanded="true"] svg { transform: rotate(180deg); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .tag-list span { padding: 6px 12px; border-radius: 999px; font-size: 13px; color: var(--ink-2); background: var(--row-fill); }
 .detail__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }

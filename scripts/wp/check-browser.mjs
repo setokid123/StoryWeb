@@ -148,6 +148,7 @@ try {
   await go(`${B}/truyen/${S}/`);
   await evaluate("document.querySelector('[data-bookshelf-toggle]').click()"); await sleep(300);
   g = await evaluate("({ label: document.querySelector('[data-bookshelf-label]').textContent, pressed: document.querySelector('[data-bookshelf-toggle]').getAttribute('aria-pressed'), stored: localStorage.getItem('storyweb:bookshelf') })");
+  check("short description: shown in full, no Xem thêm button", await evaluate("document.querySelector('[data-blurb-toggle]').hidden && !document.querySelector('[data-blurb]').classList.contains('is-clamped')"));
   check("bookshelf button saves the story", g.label === "Đã lưu truyện" && g.pressed === "true" && g.stored === `["${S}"]`, JSON.stringify(g));
   await go(`${B}/tu-truyen/`, 3000);
   g = await evaluate("({ cards: document.querySelectorAll('[data-bookshelf-grid] .story-card').length, empty: document.querySelector('[data-bookshelf-empty]').hidden })");
