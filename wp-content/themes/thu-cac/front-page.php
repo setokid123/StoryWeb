@@ -102,14 +102,22 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 </section>
 
 <?php if ( $thu_cac_genres ) : ?>
-<section class="section lines">
+<section class="section section--block lines">
 	<div class="container">
+		<div class="block lg">
 		<div class="section-head">
 			<div><span class="eyebrow"><i></i> Chọn tuyến</span><h2 class="section-title">Đi theo <em>cảm hứng</em></h2></div>
 			<a class="link-arrow" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Bản đồ tuyến <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
 		</div>
-		<div class="lines__track">
-			<?php foreach ( array_slice( $thu_cac_genres, 0, 14 ) as $thu_cac_genre ) : ?>
+		<?php
+		$thu_cac_lines = array_slice( $thu_cac_genres, 0, 14 );
+		$thu_cac_n     = count( $thu_cac_lines );
+		// Columns that leave no half-empty row: one row for a few lines, else two rows (wide) or three (narrower).
+		$thu_cac_c2 = $thu_cac_n <= 7 ? $thu_cac_n : (int) ceil( $thu_cac_n / 2 );
+		$thu_cac_c3 = $thu_cac_n <= 5 ? $thu_cac_n : (int) ceil( $thu_cac_n / 3 );
+		?>
+		<div class="lines__track" style="--c2:<?php echo (int) $thu_cac_c2; ?>;--c3:<?php echo (int) $thu_cac_c3; ?>">
+			<?php foreach ( $thu_cac_lines as $thu_cac_genre ) : ?>
 				<?php $thu_cac_line = thu_cac_line( $thu_cac_genre->name ); ?>
 				<a class="line-chip lg lg-glow" style="--line:<?php echo esc_attr( $thu_cac_line['color'] ); ?>" href="<?php echo esc_url( thu_cac_search_url( array( 'the-loai' => $thu_cac_genre->slug ) ) ); ?>">
 					<span class="line-chip__code"><?php echo esc_html( $thu_cac_line['code'] ); ?></span>
@@ -117,12 +125,14 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 				</a>
 			<?php endforeach; ?>
 		</div>
+		</div>
 	</div>
 </section>
 <?php endif; ?>
 
-<section class="section">
+<section class="section section--block">
 	<div class="container">
+		<div class="block lg">
 		<div class="section-head">
 			<div><span class="eyebrow"><i></i> Đề cử hôm nay</span><h2 class="section-title">Kệ vé <em>của ngày hôm nay</em></h2><p>Mỗi ngày một kệ mới, chọn từ khắp các tuyến. Lên sớm, chọn ghế đẹp.</p></div>
 			<a class="link-arrow" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Xem tất cả <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
@@ -136,6 +146,7 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 		<?php elseif ( ! $thu_cac_feat ) : ?>
 			<div class="empty-state lg"><?php thu_cac_the_icon( 'tram-front', 40, array( 'stroke-width' => '1.4' ) ); ?><h2>Sân ga đang chờ chuyến tàu đầu tiên</h2><p>Truyện sẽ hiện ở đây khi được xuất bản.</p></div>
 		<?php endif; ?>
+		</div>
 	</div>
 </section>
 
@@ -144,7 +155,7 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 <?php $thu_cac_ranked = thu_cac_ranking_available() && ( thu_cac_most_viewed( 'tuan', 1 ) || thu_cac_most_viewed( 'tat-ca', 1 ) ); ?>
 <?php if ( $thu_cac_ranked || $thu_cac_board ) : ?>
 <?php /* The station hall: two boards side by side, the busiest cars and the newest arrivals. */ ?>
-<section class="section hall<?php echo $thu_cac_ranked && $thu_cac_board ? ' hall--two' : ''; ?>">
+<section class="section section--block hall<?php echo $thu_cac_ranked && $thu_cac_board ? ' hall--two' : ''; ?>">
 	<div class="container hall__grid">
 		<?php if ( $thu_cac_ranked ) : ?>
 			<?php get_template_part( 'template-parts/ranking', null, array( 'limit' => 7, 'period' => thu_cac_most_viewed( 'tuan', 1 ) ? 'tuan' : 'tat-ca' ) ); ?>
@@ -177,8 +188,9 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 </section>
 <?php endif; ?>
 
-<section class="section cabin">
-	<div class="container cabin__grid">
+<section class="section section--block cabin">
+	<div class="container">
+		<div class="block lg cabin__grid">
 		<div class="cabin__art" aria-hidden="true">
 			<div class="phone lg">
 				<div class="phone__bar lg"><span></span><b>Chương 12</b><span></span></div>
@@ -200,6 +212,7 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 				<li><span class="cabin__icon lg"><?php thu_cac_the_icon( 'library-big', 18 ); ?></span><div><strong>Tủ truyện ngay trên máy</strong><p>Lưu truyện yêu thích, quay lại đúng chỗ bất cứ lúc nào.</p></div></li>
 			</ul>
 			<a class="button button--glass lg lg-glow" href="<?php echo esc_url( thu_cac_search_url() ); ?>">Tìm chuyến tàu của bạn <?php thu_cac_the_icon( 'arrow-right', 17 ); ?></a>
+		</div>
 		</div>
 	</div>
 </section>

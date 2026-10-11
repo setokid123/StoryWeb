@@ -91,6 +91,96 @@ add_action(
 	}
 );
 
+/*
+ * Quick switch without the Customizer: a "🎃 Halloween" item on the admin bar (on the site and in wp-admin) and
+ * Giao diện → Giao diện theo mùa. Both send a nonce-checked link to admin-post.php, then return to the same page.
+ */
+
+/** The seasonal modes and their labels. */
+function thu_cac_season_modes() {
+	return array(
+		'halloween' => 'Bật Halloween',
+		'off'       => 'Tắt (giao diện thường)',
+		'auto'      => 'Tự động 15/10 – 2/11',
+	);
+}
+
+/** Link that switches the season to $mode. */
+function thu_cac_season_switch_url( $mode ) {
+	return wp_nonce_url( admin_url( 'admin-post.php?action=thu_cac_season&mode=' . rawurlencode( $mode ) ), 'thu_cac_season' );
+}
+
+add_action(
+	'admin_post_thu_cac_season',
+	static function () {
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			wp_die( 'Tài khoản này không được đổi giao diện.', '', array( 'response' => 403 ) );
+		}
+		check_admin_referer( 'thu_cac_season' );
+		$mode = isset( $_GET['mode'] ) ? sanitize_key( wp_unslash( $_GET['mode'] ) ) : '';
+		if ( array_key_exists( $mode, thu_cac_season_modes() ) ) {
+			set_theme_mod( 'thu_cac_season', $mode );
+		}
+		$back = wp_get_referer();
+		wp_safe_redirect( $back ? $back : admin_url( 'themes.php?page=thu-cac-season' ) );
+		exit;
+	}
+);
+
+add_action(
+	'admin_bar_menu',
+	static function ( $bar ) {
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			return;
+		}
+		$mode = (string) get_theme_mod( 'thu_cac_season', 'off' );
+		$bar->add_node(
+			array(
+				'id'    => 'thu-cac-season',
+				'title' => esc_html( 'halloween' === thu_cac_season() ? '🎃 Halloween: đang bật' : '🎃 Halloween: đang tắt' ),
+				'href'  => admin_url( 'themes.php?page=thu-cac-season' ),
+			)
+		);
+		foreach ( thu_cac_season_modes() as $key => $label ) {
+			$bar->add_node(
+				array(
+					'parent' => 'thu-cac-season',
+					'id'     => 'thu-cac-season-' . $key,
+					'title'  => esc_html( ( $key === $mode ? '✓ ' : '' ) . $label ),
+					'href'   => thu_cac_season_switch_url( $key ),
+				)
+			);
+		}
+	},
+	90
+);
+
+add_action(
+	'admin_menu',
+	static function () {
+		add_theme_page( 'Giao diện theo mùa', 'Giao diện theo mùa', 'edit_theme_options', 'thu-cac-season', 'thu_cac_season_admin_page' );
+	}
+);
+
+/** Giao diện → Giao diện theo mùa: the current state and one button per mode. */
+function thu_cac_season_admin_page() {
+	$mode  = (string) get_theme_mod( 'thu_cac_season', 'off' );
+	$modes = thu_cac_season_modes();
+	?>
+	<div class="wrap">
+		<h1>Giao diện theo mùa</h1>
+		<p>Halloween: màu cam bí ngô và tím phù thủy, tàu ma ở trang chủ, dơi, bí ngô và mạng nhện. Trang đọc chỉ đổi màu.</p>
+		<p><strong>Đang dùng:</strong> <?php echo esc_html( isset( $modes[ $mode ] ) ? $modes[ $mode ] : $modes['off'] ); ?><?php echo 'auto' === $mode ? esc_html( 'halloween' === thu_cac_season() ? ' (hôm nay đang bật)' : ' (hôm nay đang tắt)' ) : ''; ?></p>
+		<p>
+			<?php foreach ( $modes as $key => $label ) : ?>
+				<a class="button<?php echo $key === $mode ? ' button-primary' : ''; ?>" href="<?php echo esc_url( thu_cac_season_switch_url( $key ) ); ?>"<?php echo $key === $mode ? ' aria-current="true"' : ''; ?>><?php echo esc_html( $label ); ?></a>
+			<?php endforeach; ?>
+		</p>
+		<p class="description">Cũng đổi được ngay trên thanh quản trị (mục 🎃 Halloween) khi đang xem trang.</p>
+	</div>
+	<?php
+}
+
 /** Link to horror stories for the hero chip ("Kinh dị" genre if there is one, else a search). */
 function thu_cac_season_link() {
 	$term = taxonomy_exists( 'the_loai' ) ? get_term_by( 'name', 'Kinh dị', 'the_loai' ) : null;

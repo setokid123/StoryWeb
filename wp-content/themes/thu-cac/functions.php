@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.3.3' );
+define( 'THU_CAC_VERSION', '0.3.4' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
