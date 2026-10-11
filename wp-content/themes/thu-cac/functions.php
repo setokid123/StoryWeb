@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.3.4' );
+define( 'THU_CAC_VERSION', '0.3.5' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
@@ -136,7 +136,7 @@ add_action(
 		?>
 <script>try{var t=localStorage.getItem('storyweb-theme');if(t!=='dark'&&t!=='light'){var l=t==='system'?null:localStorage.getItem('storyweb:night');if(l==='true')t='dark';else if(l==='false')t='light';else t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <meta name="theme-color" content="#f1ecff" data-theme-color>
-<script>(function(){var m=document.querySelector('meta[data-theme-color]'),h=document.documentElement,d=h.getAttribute('data-theme')==='dark',s=h.getAttribute('data-season')==='halloween';m.content=s?(d?'#120a16':'#fff0e2'):(d?'#0d0b22':'#f1ecff')})()</script>
+<script>(function(){var m=document.querySelector('meta[data-theme-color]'),h=document.documentElement,d=h.getAttribute('data-theme')==='dark',c={halloween:['#fff0e2','#120a16'],christmas:['#f3f7f4','#0b1916']}[h.getAttribute('data-season')]||['#f1ecff','#0d0b22'];m.content=c[d?1:0]})()</script>
 <?php if ( is_singular( 'chapter' ) ) : ?>
 <script>try{var p=JSON.parse(localStorage.getItem('storyweb:reader-prefs:v1')||'null');if(p&&p.toolbarMode==='auto')document.documentElement.setAttribute('data-reader-chrome','auto')}catch(e){}</script>
 <?php endif; ?>

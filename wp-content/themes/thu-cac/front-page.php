@@ -40,8 +40,14 @@ foreach ( $thu_cac_picks as $thu_cac_post ) {
 	<?php endif; ?>
 	<div class="container hero__grid">
 		<div class="hero__copy">
-			<?php if ( 'halloween' === thu_cac_season() ) : ?>
-				<a class="chip lg chip--season" href="<?php echo esc_url( thu_cac_season_link() ); ?>"><span aria-hidden="true">🎃</span> Đêm Halloween: chuyến tàu kinh dị đã vào ga</a>
+			<?php
+			$thu_cac_season_chips = array(
+				'halloween' => array( '🎃', 'Đêm Halloween: chuyến tàu kinh dị đã vào ga' ),
+				'christmas' => array( '🎄', 'Giáng sinh trên sân ga: chuyến tàu truyện ngọt' ),
+			);
+			?>
+			<?php if ( isset( $thu_cac_season_chips[ thu_cac_season() ] ) ) : ?>
+				<a class="chip lg chip--season" href="<?php echo esc_url( thu_cac_season_link() ); ?>"><span aria-hidden="true"><?php echo esc_html( $thu_cac_season_chips[ thu_cac_season() ][0] ); ?></span> <?php echo esc_html( $thu_cac_season_chips[ thu_cac_season() ][1] ); ?></a>
 			<?php else : ?>
 				<span class="chip lg"><span class="chip__dot"></span> Ga Trạm Truyện 2D · chuyến mới mỗi ngày</span>
 			<?php endif; ?>

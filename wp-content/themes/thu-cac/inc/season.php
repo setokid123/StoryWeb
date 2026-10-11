@@ -1,32 +1,52 @@
 <?php
 /**
- * Seasonal look (Giao diện → Tùy biến → Trạm Truyện 2D → Giao diện theo mùa): "Halloween" re-colours the whole site
- * (pumpkin orange and witch purple, in Sáng and Tối) through the CSS tokens, adds bats, pumpkins, a ghost and a
- * spider to the home scene, cobwebs in the page corners and a "Mùa Halloween" chip to horror stories. Off, on, or
- * automatic from 15 October to 2 November (site time). Layout and features stay the same; the reader page only
- * takes the colours, nothing moves while reading.
+ * Seasonal looks (Giao diện → Giao diện theo mùa, the "Giao diện mùa" item on the admin bar, or the Customizer).
+ * Each season re-colours the whole site through the CSS tokens (assets/css/season-<name>.css, Sáng and Tối) and
+ * dresses the home scene (template-parts/scene.php):
+ * - Halloween: pumpkin orange and witch purple; bats, pumpkins, a ghost, a spider, storm and fog; cobwebs and bats
+ *   on the other pages; the hero chip leads to horror stories.
+ * - Giáng sinh: cranberry, pine and candle gold; snow, a snow-capped tram with fairy lights, a lit tree by the
+ *   rail, Santa's sleigh across the sky; snow on the blocks; the hero chip leads to sweet stories.
+ * Off, one of them, or automatic by date (site time): Halloween 15/10 – 2/11, Giáng sinh the whole of December.
+ * Layout and features stay the same; the reader page only takes the colours, nothing moves while reading.
  *
  * @package ThuCac
  */
 
 defined( 'ABSPATH' ) || exit;
 
-/** The active season ('halloween'), or ''. */
+/** The seasons: name => label. */
+function thu_cac_seasons() {
+	return array(
+		'halloween' => 'Halloween',
+		'christmas' => 'Giáng sinh',
+	);
+}
+
+/** The active season ('halloween', 'christmas'), or ''. */
 function thu_cac_season() {
 	static $season = null;
 	if ( null !== $season ) {
 		return $season;
 	}
 	$mode = (string) get_theme_mod( 'thu_cac_season', 'off' );
-	if ( 'halloween' === $mode ) {
-		$season = 'halloween';
+	if ( array_key_exists( $mode, thu_cac_seasons() ) ) {
+		$season = $mode;
 	} elseif ( 'auto' === $mode ) {
-		$day    = (int) wp_date( 'md' ); // e.g. 1031 for 31 October, site time
-		$season = ( $day >= 1015 && $day <= 1102 ) ? 'halloween' : '';
+		$day = (int) wp_date( 'md' ); // e.g. 1031 for 31 October, site time
+		if ( $day >= 1015 && $day <= 1102 ) {
+			$season = 'halloween';
+		} elseif ( $day >= 1201 ) {
+			$season = 'christmas';
+		} else {
+			$season = '';
+		}
 	} else {
 		$season = '';
 	}
-	return (string) apply_filters( 'thu_cac_season', $season );
+	$season = (string) apply_filters( 'thu_cac_season', $season );
+	$season = array_key_exists( $season, thu_cac_seasons() ) ? $season : '';
+	return $season;
 }
 
 add_action(
@@ -36,21 +56,17 @@ add_action(
 			'thu_cac_season',
 			array(
 				'default'           => 'off',
-				'sanitize_callback' => static fn( $value ) => in_array( $value, array( 'off', 'halloween', 'auto' ), true ) ? $value : 'off',
+				'sanitize_callback' => static fn( $value ) => array_key_exists( $value, thu_cac_season_modes() ) ? $value : 'off',
 			)
 		);
 		$wp_customize->add_control(
 			'thu_cac_season',
 			array(
 				'label'       => 'Giao diện theo mùa',
-				'description' => 'Halloween: màu cam bí ngô và tím phù thủy, dơi, bí ngô, ma và mạng nhện. Tự động: bật từ 15/10 đến hết 2/11.',
+				'description' => 'Halloween: cam bí ngô và tím phù thủy, dơi, bí ngô, ma. Giáng sinh: đỏ, xanh thông và vàng nến, tuyết, cây thông, xe tuần lộc. Tự động: Halloween 15/10 – 2/11, Giáng sinh cả tháng 12.',
 				'section'     => 'thu_cac',
 				'type'        => 'radio',
-				'choices'     => array(
-					'off'       => 'Tắt (giao diện thường)',
-					'halloween' => 'Halloween',
-					'auto'      => 'Tự động theo ngày',
-				),
+				'choices'     => thu_cac_season_modes(),
 			)
 		);
 	}
@@ -67,8 +83,9 @@ add_filter(
 add_action(
 	'wp_enqueue_scripts',
 	static function () {
-		if ( 'halloween' === thu_cac_season() ) {
-			wp_enqueue_style( 'thu-cac-halloween', get_theme_file_uri( 'assets/css/season-halloween.css' ), array( 'thu-cac' ), THU_CAC_VERSION );
+		$season = thu_cac_season();
+		if ( $season ) {
+			wp_enqueue_style( 'thu-cac-season', get_theme_file_uri( 'assets/css/season-' . $season . '.css' ), array( 'thu-cac' ), THU_CAC_VERSION );
 		}
 	},
 	20
@@ -92,7 +109,7 @@ add_action(
 );
 
 /*
- * Quick switch without the Customizer: a "🎃 Halloween" item on the admin bar (on the site and in wp-admin) and
+ * Quick switch without the Customizer: a "Giao diện mùa" item on the admin bar (on the site and in wp-admin) and
  * Giao diện → Giao diện theo mùa. Both send a nonce-checked link to admin-post.php, then return to the same page.
  */
 
@@ -100,8 +117,9 @@ add_action(
 function thu_cac_season_modes() {
 	return array(
 		'halloween' => 'Bật Halloween',
+		'christmas' => 'Bật Giáng sinh',
 		'off'       => 'Tắt (giao diện thường)',
-		'auto'      => 'Tự động 15/10 – 2/11',
+		'auto'      => 'Tự động theo ngày (Halloween 15/10 – 2/11, Giáng sinh tháng 12)',
 	);
 }
 
@@ -133,11 +151,16 @@ add_action(
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			return;
 		}
-		$mode = (string) get_theme_mod( 'thu_cac_season', 'off' );
+		$mode   = (string) get_theme_mod( 'thu_cac_season', 'off' );
+		$active = thu_cac_season();
+		$icons  = array(
+			'halloween' => '🎃',
+			'christmas' => '🎄',
+		);
 		$bar->add_node(
 			array(
 				'id'    => 'thu-cac-season',
-				'title' => esc_html( 'halloween' === thu_cac_season() ? '🎃 Halloween: đang bật' : '🎃 Halloween: đang tắt' ),
+				'title' => esc_html( $active ? $icons[ $active ] . ' ' . thu_cac_seasons()[ $active ] . ': đang bật' : '🎨 Giao diện mùa: tắt' ),
 				'href'  => admin_url( 'themes.php?page=thu-cac-season' ),
 			)
 		);
@@ -169,20 +192,31 @@ function thu_cac_season_admin_page() {
 	?>
 	<div class="wrap">
 		<h1>Giao diện theo mùa</h1>
-		<p>Halloween: màu cam bí ngô và tím phù thủy, tàu ma ở trang chủ, dơi, bí ngô và mạng nhện. Trang đọc chỉ đổi màu.</p>
-		<p><strong>Đang dùng:</strong> <?php echo esc_html( isset( $modes[ $mode ] ) ? $modes[ $mode ] : $modes['off'] ); ?><?php echo 'auto' === $mode ? esc_html( 'halloween' === thu_cac_season() ? ' (hôm nay đang bật)' : ' (hôm nay đang tắt)' ) : ''; ?></p>
+		<p>Halloween: cam bí ngô và tím phù thủy, tàu ma ở trang chủ, dơi, bí ngô và mạng nhện.</p>
+		<p>Giáng sinh: đỏ, xanh thông và vàng nến, tuyết rơi, tàu phủ tuyết với dây đèn, cây thông và xe tuần lộc.</p>
+		<p>Trang đọc chỉ đổi màu, không có gì chuyển động.</p>
+		<p><strong>Đang dùng:</strong> <?php echo esc_html( isset( $modes[ $mode ] ) ? $modes[ $mode ] : $modes['off'] ); ?><?php echo 'auto' === $mode ? esc_html( thu_cac_season() ? ' (hôm nay: ' . thu_cac_seasons()[ thu_cac_season() ] . ')' : ' (hôm nay: giao diện thường)' ) : ''; ?></p>
 		<p>
 			<?php foreach ( $modes as $key => $label ) : ?>
 				<a class="button<?php echo $key === $mode ? ' button-primary' : ''; ?>" href="<?php echo esc_url( thu_cac_season_switch_url( $key ) ); ?>"<?php echo $key === $mode ? ' aria-current="true"' : ''; ?>><?php echo esc_html( $label ); ?></a>
 			<?php endforeach; ?>
 		</p>
-		<p class="description">Cũng đổi được ngay trên thanh quản trị (mục 🎃 Halloween) khi đang xem trang.</p>
+		<p class="description">Cũng đổi được ngay trên thanh quản trị (mục Giao diện mùa) khi đang xem trang.</p>
 	</div>
 	<?php
 }
 
-/** Link to horror stories for the hero chip ("Kinh dị" genre if there is one, else a search). */
+/**
+ * Where the hero chip leads in this season: horror stories at Halloween, sweet ones at Christmas (the first of these
+ * genres that exists, else a search).
+ */
 function thu_cac_season_link() {
-	$term = taxonomy_exists( 'the_loai' ) ? get_term_by( 'name', 'Kinh dị', 'the_loai' ) : null;
-	return $term ? thu_cac_search_url( array( 'the-loai' => $term->slug ) ) : thu_cac_search_url( array( 'q' => 'kinh dị' ) );
+	$genres = 'christmas' === thu_cac_season() ? array( 'Ngọt', 'Sủng', 'HE', 'Ngôn tình' ) : array( 'Kinh dị' );
+	foreach ( $genres as $name ) {
+		$term = taxonomy_exists( 'the_loai' ) ? get_term_by( 'name', $name, 'the_loai' ) : null;
+		if ( $term && $term->count > 0 ) {
+			return thu_cac_search_url( array( 'the-loai' => $term->slug ) );
+		}
+	}
+	return thu_cac_search_url( array( 'q' => 'christmas' === thu_cac_season() ? 'ngọt' : 'kinh dị' ) );
 }

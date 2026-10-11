@@ -43,9 +43,10 @@ export function applyTheme() {
   else document.documentElement.removeAttribute("data-theme");
   const meta = document.querySelector("meta[data-theme-color]");
   if (meta) {
-    const halloween = document.documentElement.getAttribute("data-season") === "halloween";
-    if (resolved === "dark") meta.content = halloween ? "#120a16" : "#0d0b22";
-    else meta.content = halloween ? "#fff0e2" : "#f1ecff";
+    // Sáng, Tối: the page background of the season (inc/season.php), or of the plain look.
+    const seasons = { halloween: ["#fff0e2", "#120a16"], christmas: ["#f3f7f4", "#0b1916"] };
+    const colors = seasons[document.documentElement.getAttribute("data-season")] ?? ["#f1ecff", "#0d0b22"];
+    meta.content = colors[resolved === "dark" ? 1 : 0];
   }
   for (const button of document.querySelectorAll("[data-theme-toggle]")) {
     button.setAttribute("aria-label", resolved === "dark" ? "Chế độ sáng" : "Chế độ tối");

@@ -2,12 +2,16 @@
 /**
  * "Sân ga trên mây": the home hero illustration, drawn for Trạm Truyện 2D. A dreamy illustrated sky (sun or moon,
  * power lines, flying pages, sparkles) and a tram arriving on a rail above the clouds. Colours come from CSS variables
- * (--sc-*), so it follows Sáng/Tối. Decorative only. Used once per page (ids are fixed).
+ * (--sc-*), so it follows Sáng/Tối. Seasonal dressing (inc/season.php): Halloween (bats, pumpkins, ghost, storm)
+ * and Giáng sinh (snow, fairy lights on the tram, a tree by the rail, Santa's sleigh). Decorative only. Used once
+ * per page (ids are fixed).
  *
  * @package ThuCac
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$thu_cac_season = function_exists( 'thu_cac_season' ) ? thu_cac_season() : '';
 ?>
 <svg class="scene" viewBox="0 0 1440 720" aria-hidden="true" focusable="false">
 	<defs>
@@ -92,6 +96,14 @@ defined( 'ABSPATH' ) || exit;
 			<circle class="sc-light" cx="9" cy="74" r="5"/>
 			<rect class="sc-bogie" x="40" y="88" width="96" height="10" rx="5"/>
 			<rect class="sc-bogie" x="244" y="88" width="96" height="10" rx="5"/>
+			<?php if ( 'christmas' === $thu_cac_season ) : ?>
+			<g class="sc-xmas-tram">
+				<path class="sc-snowcap" d="M8 3c-2-6 4-10 12-9 6-6 16-5 22-1 8-5 18-4 24 0 7-4 17-4 23 1 8-4 18-3 24 2 5-2 9-2 12-1h40c4-2 9-2 13 0 7-5 17-5 23 0 8-4 18-4 24 1 7-4 17-3 23 1 8-4 18-3 22 2 8-3 14 0 14 5v3H8z"/>
+				<path class="sc-wire-lights" d="M16 3Q45 12 74 3Q103 12 132 3Q161 12 190 3Q219 12 248 3Q277 12 306 3Q335 12 364 3"/>
+				<g class="sc-bulbs"><g class="sc-bulb sc-bulb--r" style="--b:0"><rect x="28.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="30.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--y" style="--b:1"><rect x="57.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="59.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--g" style="--b:2"><rect x="86.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="88.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--b" style="--b:3"><rect x="115.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="117.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--r" style="--b:4"><rect x="144.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="146.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--y" style="--b:5"><rect x="173.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="175.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--g" style="--b:6"><rect x="202.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="204.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--b" style="--b:7"><rect x="231.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="233.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--r" style="--b:8"><rect x="260.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="262.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--y" style="--b:9"><rect x="289.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="291.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--g" style="--b:10"><rect x="318.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="320.5" cy="12.9" rx="3.2" ry="4.4"/></g><g class="sc-bulb sc-bulb--b" style="--b:11"><rect x="347.5" y="6.4" width="4" height="3" rx="1"/><ellipse cx="349.5" cy="12.9" rx="3.2" ry="4.4"/></g></g>
+				<g class="sc-wreath" transform="translate(354 46)"><circle r="8.5"/><path class="sc-wreath__bow" d="M0 7l-6 5 1-6zM0 7l6 5-1-6z"/><circle class="sc-wreath__berry" cx="-5" cy="-5" r="1.6"/><circle class="sc-wreath__berry" cx="6" cy="-2" r="1.6"/></g>
+			</g>
+			<?php endif; ?>
 			<g class="sc-brake"><use href="#sc-spark" x="30" y="86" width="16" height="16"/><use href="#sc-spark" x="132" y="90" width="10" height="10"/><use href="#sc-spark" x="236" y="87" width="13" height="13"/></g>
 		</g></g>
 	</g>
@@ -102,7 +114,7 @@ defined( 'ABSPATH' ) || exit;
 		<circle cx="1470" cy="676" r="112"/><circle cx="1370" cy="724" r="84"/><circle cx="880" cy="770" r="96"/><circle cx="1010" cy="760" r="80"/>
 	</g>
 
-	<?php if ( function_exists( 'thu_cac_season' ) && 'halloween' === thu_cac_season() ) : ?>
+	<?php if ( 'halloween' === $thu_cac_season ) : ?>
 	<g class="sc-halloween">
 		<defs>
 			<radialGradient id="sc-fog"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
@@ -141,6 +153,55 @@ defined( 'ABSPATH' ) || exit;
 			<use class="sc-jack" style="--j:1" href="#sc-jack" x="146" y="582" width="62" height="54"/>
 			<use class="sc-jack" style="--j:2" href="#sc-jack" x="700" y="410" width="56" height="48"/>
 		</g>
+	</g>
+	<?php endif; ?>
+
+	<?php if ( 'christmas' === $thu_cac_season ) : ?>
+	<?php
+	// Snow: two layers of flakes (far: small and slow, near: bigger and faster), each drawn twice one scene-height
+	// apart so the fall loops without a seam. Fixed seed: the same sky on every page view.
+	$thu_cac_seed  = 20261225;
+	$thu_cac_rand  = static function () use ( &$thu_cac_seed ) {
+		$thu_cac_seed = ( $thu_cac_seed * 1103515245 + 12345 ) % 2147483648;
+		return $thu_cac_seed / 2147483648;
+	};
+	$thu_cac_flakes = static function ( $count, $min, $max ) use ( $thu_cac_rand ) {
+		$out = '';
+		for ( $i = 0; $i < $count; $i++ ) {
+			$out .= sprintf( '<circle cx="%.0f" cy="%.0f" r="%.1f"/>', $thu_cac_rand() * 1440, $thu_cac_rand() * 720, $min + $thu_cac_rand() * ( $max - $min ) );
+		}
+		return $out;
+	};
+	?>
+	<g class="sc-christmas">
+		<defs>
+			<linearGradient id="sc-pine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a9f6f"/><stop offset="1" stop-color="#145a3c"/></linearGradient>
+		</defs>
+		<g class="sc-sleigh-path" transform="translate(1470 22)"><g class="sc-sleigh">
+			<path class="sc-sleigh__reins" d="M8 15Q60 6 104 20"/>
+			<g class="sc-sleigh__deer"><ellipse cx="20" cy="20" rx="12" ry="5.5"/><circle cx="7" cy="13" r="4"/><path d="M6 9l-3-6M6 9l2-6M4 5l-3 1M8 4l3-2M13 24l-4 8M17 25l1 8M26 24l3 8M30 23l5 7"/></g>
+			<g class="sc-sleigh__deer" transform="translate(40 2)"><ellipse cx="20" cy="20" rx="12" ry="5.5"/><circle cx="7" cy="13" r="4"/><path d="M6 9l-3-6M6 9l2-6M4 5l-3 1M8 4l3-2M13 24l-4 8M17 25l1 8M26 24l3 8M30 23l5 7"/></g>
+			<path class="sc-sleigh__body" d="M98 18h34c6 0 8-6 9-12l3 2c-1 12-5 22-16 22h-24c-4 0-6-4-6-12z"/>
+			<path class="sc-sleigh__runner" d="M92 34h40c5 0 7-3 8-6"/>
+			<circle class="sc-sleigh__body" cx="114" cy="11" r="7"/><circle class="sc-sleigh__body" cx="114" cy="1" r="4"/>
+			<use class="sc-sleigh__trail" href="#sc-spark" x="150" y="14" width="12" height="12"/><use class="sc-sleigh__trail" href="#sc-spark" x="170" y="8" width="8" height="8"/>
+		</g></g>
+		<g class="sc-tree">
+			<rect class="sc-tree__trunk" x="692" y="630" width="16" height="14" rx="2"/>
+			<polygon points="636,640 764,640 700,560" fill="url(#sc-pine)"/>
+			<polygon points="650,592 750,592 700,518" fill="url(#sc-pine)"/>
+			<polygon points="664,546 736,546 700,480" fill="url(#sc-pine)"/>
+			<path class="sc-tree__snow" d="M640 638H760M654 590H746M668 544H732"/>
+			<path class="sc-tree__garland" d="M662 606Q700 622 742 600M674 560Q700 574 728 556"/>
+			<g class="sc-ornaments"><circle class="sc-ornament sc-ornament--r" style="--o:0" cx="672" cy="620" r="5"/><circle class="sc-ornament sc-ornament--y" style="--o:1" cx="716" cy="628" r="5"/><circle class="sc-ornament sc-ornament--b" style="--o:2" cx="742" cy="612" r="5"/><circle class="sc-ornament sc-ornament--r" style="--o:3" cx="690" cy="600" r="5"/><circle class="sc-ornament sc-ornament--y" style="--o:4" cx="668" cy="578" r="4"/><circle class="sc-ornament sc-ornament--b" style="--o:5" cx="728" cy="572" r="4"/><circle class="sc-ornament sc-ornament--r" style="--o:6" cx="700" cy="556" r="4"/><circle class="sc-ornament sc-ornament--y" style="--o:7" cx="684" cy="532" r="4"/><circle class="sc-ornament sc-ornament--b" style="--o:8" cx="716" cy="528" r="4"/><circle class="sc-ornament sc-ornament--r" style="--o:9" cx="700" cy="506" r="4"/></g>
+			<g transform="translate(700 476)"><g class="sc-tree__star"><use href="#sc-spark" x="-13" y="-13" width="26" height="26"/></g></g>
+		</g>
+		<g class="sc-gifts">
+			<rect class="sc-gift sc-gift--r" x="770" y="614" width="30" height="26" rx="3"/><path class="sc-gift__ribbon" d="M785 614v26M770 625h30M785 614c-6-8-12-4-6 0M785 614c6-8 12-4 6 0"/>
+			<rect class="sc-gift sc-gift--g" x="804" y="622" width="24" height="18" rx="3"/><path class="sc-gift__ribbon" d="M816 622v18M804 630h24"/>
+		</g>
+		<g class="sc-snow sc-snow--far"><g class="sc-snow__sway"><g id="sc-flakes-far"><?php echo $thu_cac_flakes( 48, 1.2, 2.4 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- numbers only. ?></g><use href="#sc-flakes-far" y="-720"/></g></g>
+		<g class="sc-snow sc-snow--near"><g class="sc-snow__sway"><g id="sc-flakes-near"><?php echo $thu_cac_flakes( 22, 2.6, 4.4 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- numbers only. ?></g><use href="#sc-flakes-near" y="-720"/></g></g>
 	</g>
 	<?php endif; ?>
 </svg>
