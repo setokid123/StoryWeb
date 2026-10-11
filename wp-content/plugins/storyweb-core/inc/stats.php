@@ -2,10 +2,11 @@
 /**
  * Thống kê: daily counters for the unlock flow, plus the reading figures Post Views Counter already keeps.
  *
- * Our table {prefix}storyweb_stats holds one row per day, metric and item, nothing about the person (no IP, no
- * cookie): "gate" (a locked chapter showed the link gate; item = story ID), "click" (a reader's click on the gate
- * granted access; item = story ID), "link" (which unlock link was opened; item = the link) and "refused" (a
- * /mo-khoa/ request turned down; item = reason). Days are UTC, like Post Views Counter's, so the charts line up.
+ * Our table {prefix}storyweb_stats holds one row per day, metric and item, nothing about the person (no IP; the
+ * only cookie is the ID of the last gated chapter, see below): "gate" (a reader opened a locked chapter and saw
+ * the link gate; reloads of the same chapter are not counted again; item = story ID), "click" (a reader's click on
+ * the gate granted access; item = story ID), "link" (which unlock link was opened; item = the link) and "refused"
+ * (a /mo-khoa/ request turned down; item = reason). Days are UTC, like Post Views Counter's, so the charts line up.
  * Rows older than STORYWEB_STATS_KEEP_DAYS are deleted once a day.
  *
  * @package StoryWebCore
@@ -71,7 +72,14 @@ function storyweb_stats_is_bot() {
 		|| (bool) preg_match( '/bot|crawl|spider|slurp|preview|facebookexternalhit|embedly|headless|lighthouse|uptime|monitor|curl|wget|python|java\/|okhttp|go-http/i', $agent );
 }
 
-// A locked chapter showed the link gate to a reader (not to editors, who can read it, nor to bots).
+/*
+ * A locked chapter showed the link gate to a reader (not to editors, who can read it, nor to bots). The reader page
+ * reloads itself while the gate waits (each time the reader comes back from another app or tab), so a session
+ * cookie remembers the last gated chapter: reloading it is not counted again. A grant clears it, so meeting the
+ * gate again after the grant runs out counts. The cookie holds a post ID only.
+ */
+const STORYWEB_STATS_GATE_COOKIE = 'storyweb_gate';
+
 add_action(
 	'template_redirect',
 	static function () {
@@ -82,11 +90,35 @@ add_action(
 		if ( storyweb_can_read_chapter( $chapter ) || storyweb_stats_is_bot() ) {
 			return;
 		}
+		$seen = isset( $_COOKIE[ STORYWEB_STATS_GATE_COOKIE ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ STORYWEB_STATS_GATE_COOKIE ] ) ) : '';
+		if ( (string) $chapter->ID === $seen ) {
+			return;
+		}
+		storyweb_stats_gate_cookie( (string) $chapter->ID );
 		$story = storyweb_chapter_story( $chapter );
 		storyweb_stats_hit( 'gate', $story ? $story->ID : 0 );
 	},
 	20
 );
+
+/** Sets (or, with '', clears) the "last gated chapter" session cookie. */
+function storyweb_stats_gate_cookie( $value ) {
+	if ( headers_sent() ) {
+		return;
+	}
+	setcookie(
+		STORYWEB_STATS_GATE_COOKIE,
+		$value,
+		array(
+			'expires'  => '' === $value ? time() - HOUR_IN_SECONDS : 0,
+			'path'     => COOKIEPATH ? COOKIEPATH : '/',
+			'domain'   => COOKIE_DOMAIN ? COOKIE_DOMAIN : '',
+			'secure'   => is_ssl(),
+			'httponly' => true,
+			'samesite' => 'Lax',
+		)
+	);
+}
 
 // Old rows go once a day.
 add_action(

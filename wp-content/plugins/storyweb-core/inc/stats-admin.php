@@ -173,12 +173,12 @@ function storyweb_stats_admin_page() {
 				<a class="button" href="<?php echo esc_url( add_query_arg( 'khoang', $key ) ); ?>"<?php echo $key === $days ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $label ); ?></a>
 			<?php endforeach; ?>
 		</nav>
-		<p class="sw-stats__note">Một ngày tính theo giờ quốc tế (UTC): từ 7:00 sáng hôm nay đến 7:00 sáng hôm sau, giờ Việt Nam. Lượt gặp chương khóa không tính bot, link xem trước và người đã mở khóa.</p>
+		<p class="sw-stats__note">Một ngày tính theo giờ quốc tế (UTC): từ 7:00 sáng hôm nay đến 7:00 sáng hôm sau, giờ Việt Nam. Lượt thấy popup khóa không tính bot, link xem trước, người đang trong thời gian mở khóa, và không tính thêm khi người đọc tải lại cùng một chương.</p>
 
 		<div class="sw-stats__cards">
 			<div class="sw-stats__card"><span>Lượt đọc <?php echo esc_html( $period ); ?></span><b><?php echo esc_html( $read['available'] ? storyweb_stats_number( $read['total'] ) : '–' ); ?></b><small><?php echo esc_html( $read['available'] ? 'Hôm nay ' . storyweb_stats_number( $read['daily'][ $today ]['story'] + $read['daily'][ $today ]['chapter'] ) . ' · từ trước tới nay ' . storyweb_stats_number( $read['all_time'] ) : 'Cần bật plugin Post Views Counter' ); ?></small></div>
-			<div class="sw-stats__card"><span>Lượt bấm link mở khóa</span><b><?php echo esc_html( storyweb_stats_number( $unlock['click'] ) ); ?></b><small><?php echo esc_html( 'Hôm nay ' . storyweb_stats_number( $unlock['daily'][ $today ]['click'] ) . ' · bị chặn ' . storyweb_stats_number( $refused ) ); ?></small></div>
-			<div class="sw-stats__card"><span>Tỉ lệ bấm mở khóa</span><b><?php echo esc_html( storyweb_stats_percent( $unlock['click'], $unlock['gate'] ) ); ?></b><small><?php echo esc_html( storyweb_stats_number( $unlock['gate'] ) . ' lần gặp chương khóa, ' . storyweb_stats_number( $unlock['click'] ) . ' lần bấm link' ); ?></small></div>
+			<div class="sw-stats__card"><span>Bấm link mở khóa thành công</span><b><?php echo esc_html( storyweb_stats_number( $unlock['click'] ) ); ?></b><small><?php echo esc_html( 'Hôm nay ' . storyweb_stats_number( $unlock['daily'][ $today ]['click'] ) . ' · bị chặn ' . storyweb_stats_number( $refused ) ); ?></small></div>
+			<div class="sw-stats__card"><span>Tỉ lệ bấm mở khóa</span><b><?php echo esc_html( storyweb_stats_percent( $unlock['click'], $unlock['gate'] ) ); ?></b><small><?php echo esc_html( storyweb_stats_number( $unlock['gate'] ) . ' lần thấy popup khóa, ' . storyweb_stats_number( $unlock['click'] ) . ' lần bấm link' ); ?></small></div>
 			<div class="sw-stats__card"><span>Kho truyện</span><b><?php echo esc_html( storyweb_stats_number( $content['stories'] ) . ' truyện' ); ?></b><small><?php echo esc_html( storyweb_stats_number( $content['chapters'] ) . ' chương · mới ' . $period . ': ' . storyweb_stats_number( $content['new_stories'] ) . ' truyện, ' . storyweb_stats_number( $content['new_chapters'] ) . ' chương' ); ?></small></div>
 		</div>
 
@@ -207,17 +207,17 @@ function storyweb_stats_admin_page() {
 			</section>
 			<section class="sw-stats__panel">
 				<h2>Mở khóa mỗi ngày</h2>
-				<p class="sw-stats__muted">Số lần người đọc gặp chương khóa và số lần họ bấm link.</p>
+				<p class="sw-stats__muted">Số lần người đọc thấy popup khóa và số lần bấm link thành công.</p>
 				<?php
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with esc_* in storyweb_stats_chart().
 				echo storyweb_stats_chart(
 					$list,
 					array(
-						'Gặp chương khóa' => array_map( static fn( $d ) => $d['gate'], $unlock['daily'] ),
-						'Bấm link'        => array_map( static fn( $d ) => $d['click'], $unlock['daily'] ),
+						'Thấy popup khóa' => array_map( static fn( $d ) => $d['gate'], $unlock['daily'] ),
+						'Bấm link thành công' => array_map( static fn( $d ) => $d['click'], $unlock['daily'] ),
 					),
 					array( '#d7c6f0', '#7b2cbf' ),
-					sprintf( 'Mở khóa mỗi ngày %s: %s lần gặp chương khóa, %s lần bấm link', $period, storyweb_stats_number( $unlock['gate'] ), storyweb_stats_number( $unlock['click'] ) ),
+					sprintf( 'Mở khóa mỗi ngày %s: %s lần thấy popup khóa, %s lần bấm link thành công', $period, storyweb_stats_number( $unlock['gate'] ), storyweb_stats_number( $unlock['click'] ) ),
 					false
 				);
 				?>
@@ -245,7 +245,7 @@ function storyweb_stats_admin_page() {
 
 			<section class="sw-stats__panel">
 				<h2>Truyện được bấm mở khóa nhiều nhất</h2>
-				<p class="sw-stats__muted">Người đọc gặp chương khóa ở truyện nào, và bao nhiêu người bấm link.</p>
+				<p class="sw-stats__muted">Thấy popup khóa: số lần người đọc mở một chương khóa khi chưa mở khóa, chưa phải là bấm. Bấm link thành công: số lần mở khóa được; bấm một lần đọc được mọi chương trong thời gian đã cài, nên trong lúc đó không có lượt bấm mới.</p>
 				<?php
 				// Most clicks first, then most locked-chapter views.
 				$stories = array_keys( $unlock['items']['click'] + $unlock['items']['gate'] );
@@ -257,7 +257,7 @@ function storyweb_stats_admin_page() {
 				?>
 				<?php if ( $unlock['items']['gate'] || $unlock['items']['click'] ) : ?>
 					<table class="widefat striped">
-						<thead><tr><th scope="col">Truyện</th><th scope="col" class="num">Gặp chương khóa</th><th scope="col" class="num">Bấm link</th><th scope="col" class="num">Tỉ lệ</th></tr></thead>
+						<thead><tr><th scope="col">Truyện</th><th scope="col" class="num">Thấy popup khóa</th><th scope="col" class="num">Bấm link thành công</th><th scope="col" class="num">Tỉ lệ</th></tr></thead>
 						<tbody>
 							<?php foreach ( $stories as $story_id ) : ?>
 								<?php
@@ -269,7 +269,7 @@ function storyweb_stats_admin_page() {
 						</tbody>
 					</table>
 				<?php else : ?>
-					<p>Chưa có ai gặp chương khóa <?php echo esc_html( $period ); ?>. Mở khóa bằng link cần đang bật (Truyện → Mở khóa chương).</p>
+					<p>Chưa có ai thấy popup khóa <?php echo esc_html( $period ); ?>. Mở khóa bằng link cần đang bật (Truyện → Mở khóa chương).</p>
 				<?php endif; ?>
 			</section>
 

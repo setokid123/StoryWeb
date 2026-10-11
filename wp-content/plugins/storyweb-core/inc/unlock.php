@@ -253,6 +253,7 @@ add_action(
 		$story = ( $from && 'chapter' === $from->post_type ) ? storyweb_chapter_story( $from ) : null;
 		storyweb_stats_hit( 'click', $story ? $story->ID : 0 );
 		storyweb_stats_hit( 'link', $links[ $index ] );
+		storyweb_stats_gate_cookie( '' ); // Meeting the gate again after this grant runs out counts again.
 		header( 'Referrer-Policy: origin' );
 		wp_redirect( $links[ $index ], 303, 'StoryWeb' ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- only a link the admin saved (validated https), chosen by index.
 		exit;

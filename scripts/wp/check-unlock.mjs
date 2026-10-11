@@ -146,11 +146,20 @@ ok("rate limit: grant number 16 from one IP within the hour → 429", limited ==
 // ---- Thống kê (Truyện → Thống kê) counts what happened above ----
 const statsPage = (await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats&khoang=7", { jar: admin })).text;
 const card = (label) => Number(((statsPage.match(new RegExp(label + "</span><b>([\\d.,]+)")) ?? [])[1] ?? "-1").replace(/[.,]/g, ""));
-ok("Thống kê: every grant counted as a click", card("Lượt bấm link mở khóa") === grants, `clicks ${card("Lượt bấm link mở khóa")}, grants ${grants}`);
+ok("Thống kê: every grant counted as a click", card("Bấm link mở khóa thành công") === grants, `clicks ${card("Bấm link mở khóa thành công")}, grants ${grants}`);
 ok("Thống kê: refusals listed by reason (not a click, too many)", statsPage.includes("Không phải cú bấm trên trang đọc") && statsPage.includes("Một mạng bấm quá 15 lần"));
 ok("Thống kê: the clicks are put on the story and the links", statsPage.includes("Truyện được bấm mở khóa nhiều nhất") && statsPage.includes('<td class="link"><a href="https://') && !statsPage.includes("Không rõ truyện"));
 ok("Thống kê: locked-chapter views counted for the rate", /Tỉ lệ bấm mở khóa<\/span><b>\d/.test(statsPage));
-ok("Thống kê: administrators only", (await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).status !== 200 || !(await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).text.includes("Lượt bấm link mở khóa"));
+ok("Thống kê: administrators only", (await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).status !== 200 || !(await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).text.includes("Bấm link mở khóa thành công"));
+// The reader page reloads itself while the gate waits: reloading the same locked chapter is one view, another chapter is a new one.
+const gateViews = async () => Number(((await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats&khoang=7", { jar: admin })).text.match(/([\d.,]+) lần thấy popup khóa/) ?? [])[1]?.replace(/[.,]/g, "") ?? -1);
+const visitor = new Jar();
+const before = await gateViews();
+for (let i = 0; i < 3; i++) await get(`/doc/${S}/2/`, { jar: visitor });
+const afterReloads = await gateViews();
+await get(`/doc/${S}/3/`, { jar: visitor });
+const afterOther = await gateViews();
+ok("Thống kê: reloading a locked chapter counts once, another locked chapter counts again", afterReloads - before === 1 && afterOther - afterReloads === 1, `+${afterReloads - before} for 3 loads, +${afterOther - afterReloads} for the next chapter`);
 
 // ---- switched off ----
 saved = await save({ ...settings, "links[]": LINKS, enabled: "" });

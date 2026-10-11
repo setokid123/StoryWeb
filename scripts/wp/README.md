@@ -35,7 +35,7 @@ Chờ vài giây sau khi trang chủ trả 200 (dữ liệu mẫu nạp sau khi 
 node scripts/wp/check-content.mjs     # 69 kiểm tra: số truyện, tìm kiếm, phân trang; chương khóa không lộ qua 21 đường, kể cả <head> và đường của plugin SEO
 OUT=<thư mục ảnh> node scripts/wp/check-browser.mjs   # 53 kiểm tra trên Chrome headless + ảnh 1280/360, Sáng/Tối
 WP_TEST_USER=admin WP_TEST_PASS=password OUT=<thư mục ảnh> node scripts/wp/check-admin.mjs   # 13 kiểm tra wp-admin
-WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 33 kiểm tra mở khóa bằng link (cả Truyện → Thống kê đếm lượt bấm)
+WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-unlock.mjs   # 34 kiểm tra mở khóa bằng link (cả Truyện → Thống kê đếm lượt bấm)
 WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 74 kiểm tra Truyện → Đăng Facebook (bình luận, tự động đăng lên lịch Facebook, sửa bài, ô chọn truyện)
 ```
 
