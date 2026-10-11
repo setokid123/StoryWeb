@@ -404,6 +404,50 @@ html[data-season="halloween"][data-theme="dark"] .eyebrow i { filter: drop-shado
   html[data-season="halloween"] body:not(.single-chapter) .section:nth-child(even) .eyebrow i::after { animation-delay: -1.3s; }
 }
 
+/* Reveal (tram.css §19): the jack-o'-lanterns of a docking frame plonk down and their candles catch; a spider still
+   below the screen at load waits up its silk until its spot comes into view (reveal.js observes an empty .rv-spider
+   in its place and sets [data-rv-spider] wait / drop on the frame), then lowers from the frame's edge and bungees
+   before it swings. The glint over a dealt card is candle light. */
+html[data-season="halloween"] { --rv-sheen: rgba(255, 180, 110, .42); }
+html[data-season="halloween"][data-theme="dark"] { --rv-sheen: rgba(255, 150, 70, .22); }
+.rv-spider { position: absolute; top: 100%; right: 14%; width: 18px; height: 34px; pointer-events: none; }
+@media (max-width: 600px) { .rv-spider { height: 20px; } }
+@media screen and (prefers-reduced-motion: no-preference) {
+  html.reveal-on[data-season="halloween"] :is(.lines .block, .hall .board)[data-rv-spider="wait"]::after { translate: 0 -100%; clip-path: inset(100% 0 0 0); }
+  html.reveal-on[data-season="halloween"] :is(.lines .block, .hall .board)[data-rv-spider="drop"]::after {
+    animation:
+      hw-swing 4.6s ease-in-out infinite alternate,
+      rv-hw-drop calc(.9s * var(--rv-sk, 1)) linear calc(var(--rv-sd, 0ms) + 150ms * var(--rv-sk, 1)) backwards;
+  }
+  html.reveal-on[data-season="halloween"] .hall .board[data-rv-spider="drop"]::after { animation-delay: -2.3s, calc(var(--rv-sd, 0ms) + 150ms * var(--rv-sk, 1)); }
+  html.reveal-on[data-season="halloween"] :is([data-rv] > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]) .eyebrow i { transform-origin: 50% 100%; }
+  html.reveal-on[data-season="halloween"] :is([data-rv]:not(.is-in) > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]:not(.is-in)) .eyebrow i { scale: .55; rotate: -16deg; }
+  html.reveal-on[data-season="halloween"] :is([data-rv]:not(.is-in) > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]:not(.is-in)) .eyebrow i::after { animation: none; opacity: 0; }
+  html.reveal-on[data-season="halloween"] :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .eyebrow i { animation: rv-hw-plonk calc(.7s * var(--rv-k, 1)) ease calc(var(--rv-d, 0ms) + 60ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on[data-season="halloween"] :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .eyebrow i::after {
+    animation:
+      hw-flicker 2.6s steps(1) infinite,
+      rv-hw-catch calc(.8s * var(--rv-k, 1)) ease calc(var(--rv-d, 0ms) + 300ms * var(--rv-k, 1)) backwards;
+  }
+}
+/* The body shows first and the silk grows above it, always hanging from the frame's edge: it falls, the silk catches
+   and stretches it well past its rest, then one bounce back up and it settles. */
+@keyframes rv-hw-drop {
+  0% { translate: 0 -100%; clip-path: inset(100% 0 0 0); scale: 1 1; animation-timing-function: cubic-bezier(.5, 0, .9, .6); }
+  36% { translate: 0 0; clip-path: inset(0); scale: 1 1; animation-timing-function: cubic-bezier(.15, .7, .35, 1); }
+  52% { scale: 1 1.32; animation-timing-function: ease-in-out; }
+  72% { scale: 1 .9; animation-timing-function: ease-in-out; }
+  88% { scale: 1 1.03; }
+  100% { translate: none; clip-path: inset(0); scale: none; }
+}
+@keyframes rv-hw-plonk {
+  0% { scale: .55; rotate: -16deg; animation-timing-function: cubic-bezier(.3, 1.5, .6, 1); }
+  45% { scale: 1.14; rotate: 9deg; animation-timing-function: ease-in-out; }
+  72% { scale: .97; rotate: -4deg; }
+  100% { scale: none; rotate: none; }
+}
+@keyframes rv-hw-catch { 0% { opacity: 0; } 10% { opacity: .9; } 18% { opacity: .1; } 30% { opacity: 1; } 42% { opacity: .45; } 58%, 100% { opacity: 1; } }
+
 /* ---------- 4. Page-wide layer: "Ga nửa đêm" (template-parts/decor-halloween.php) ---------- */
 /* Fixed behind every block (inc/decor.php); --sy is the scroll offset in px. Paint order = DOM order. */
 .decor--halloween > :not(.hw-sprite), .hw-night > * { position: absolute; }

@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.4.1' );
+define( 'THU_CAC_VERSION', '0.5.0' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
@@ -106,6 +106,9 @@ add_action(
 		wp_enqueue_script_module( 'thu-cac-site', $uri . '/js/site.js', array( 'thu-cac-theme' ), THU_CAC_VERSION );
 		if ( is_singular( 'chapter' ) ) {
 			wp_enqueue_script_module( 'thu-cac-reader', $uri . '/js/reader.js', array( 'thu-cac-theme', 'thu-cac-reader-core' ), THU_CAC_VERSION );
+		} else {
+			// Scroll reveal (tram.css §19): blocks dock as they come into view. Never on the reader, which keeps calm.
+			wp_enqueue_script_module( 'thu-cac-reveal', $uri . '/js/reveal.js', array(), THU_CAC_VERSION );
 		}
 	}
 );

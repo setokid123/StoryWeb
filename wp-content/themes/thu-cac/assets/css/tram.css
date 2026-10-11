@@ -7,6 +7,7 @@
  *  4. Liquid glass material     10. Footer                   16. Responsive
  *  5. Controls                  11. Hero + scene             17. Motion, transparency, forced colours
  *  6. Header + tab bar          12. Pages (discover, shelf, 404, generic)
+ *                               18. Plain-look decoration     19. Scroll reveal
  *
  * Glass = translucent fill + backdrop blur/saturate + specular rim (.lg). In Chromium, glass.js adds real
  * refraction to [data-refract] elements through an SVG displacement map (html.lg-refract).
@@ -1538,6 +1539,10 @@ html:not([data-season]) {
   --orn-gold: #f2a93b;
   --orn-glow: rgba(255, 111, 165, .45);
   --orn-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath fill='%23f2a93b' d='M0-10C.9-3.2 3.2-.9 10 0 3.2.9.9 3.2 0 10-.9 3.2-3.2.9-10 0-3.2-.9-.9-3.2 0-10z'/%3E%3Ccircle r='1.5' fill='%23fff'/%3E%3C/svg%3E");
+  /* The bead of light that runs along a rail as its frame docks (§19). */
+  --orn-head: radial-gradient(closest-side, #fff 25%, color-mix(in srgb, var(--orn-gold) 85%, transparent) 55%, transparent);
+  --orn-z: 22px; /* star size */
+  --orn-g: 26px; /* where the line stops short of the star's far edge */
   --sc-ray: #ffffff;
   --sc-ray-o: .34;
 }
@@ -1547,12 +1552,19 @@ html:not([data-season])[data-theme="dark"] {
   --orn-gold: #ffd27a;
   --orn-glow: rgba(255, 146, 192, .5);
   --orn-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath fill='%23ffd27a' d='M0-10C.9-3.2 3.2-.9 10 0 3.2.9.9 3.2 0 10-.9 3.2-3.2.9-10 0-3.2-.9-.9-3.2 0-10z'/%3E%3Ccircle r='1.5' fill='%23fff'/%3E%3C/svg%3E");
+  --orn-head: radial-gradient(closest-side, #fff 25%, color-mix(in srgb, var(--orn-b) 85%, transparent) 55%, transparent);
   --sc-ray: #c4b2ff;
   --sc-ray-o: .14;
 }
+@media (max-width: 600px) {
+  html:not([data-season]) { --orn-z: 18px; --orn-g: 21px; }
+}
 /* Light rail: a 2px neon line on the straight part of the top rim (between the rounded corners) ending in a gold
    star sitting on the edge. Drawn with backgrounds (not a mask), so the glow follows the line and the star. In the
-   hall the ranking's rail is mirrored, so the two stars sit on the outer corners. */
+   hall the ranking's rail is mirrored, so the two stars sit on the outer corners. Three layers: the bead (size 0 at
+   rest), the star and the line. --rv-p (how far the line runs), --rv-s (star scale) and --rv-h (bead) are animated by
+   the scroll reveal (§19); the fallbacks are the lit rail, so a browser without @property (or without the reveal)
+   shows the rail exactly as it was. */
 html:not([data-season]) :is(.block, .hall .board, .ranking)::after {
   content: "";
   position: absolute;
@@ -1562,23 +1574,26 @@ html:not([data-season]) :is(.block, .hall .board, .ranking)::after {
   height: 22px;
   pointer-events: none;
   background:
-    var(--orn-star) right center / 22px 22px no-repeat,
-    linear-gradient(90deg, transparent, var(--orn-a) 16%, var(--orn-b) 58%, var(--orn-gold)) left center / calc(100% - 26px) 2px no-repeat;
+    var(--orn-head) calc((100% - var(--orn-g) + 24px * var(--rv-h, 0)) * var(--rv-p, 1) - 12px * var(--rv-h, 0)) center / calc(24px * var(--rv-h, 0)) calc(12px * var(--rv-h, 0)) no-repeat,
+    var(--orn-star) right calc(var(--orn-z) / 2 * (1 - var(--rv-s, 1))) center / calc(var(--orn-z) * var(--rv-s, 1)) calc(var(--orn-z) * var(--rv-s, 1)) no-repeat,
+    linear-gradient(90deg, transparent, var(--orn-a) 16%, var(--orn-b) 58%, var(--orn-gold)) left center / calc((100% - var(--orn-g)) * var(--rv-p, 1)) 2px no-repeat;
   filter: drop-shadow(0 0 5px var(--orn-glow));
 }
 html:not([data-season]) .hall .ranking::after {
   background:
-    var(--orn-star) left center / 22px 22px no-repeat,
-    linear-gradient(270deg, transparent, var(--orn-a) 16%, var(--orn-b) 58%, var(--orn-gold)) right center / calc(100% - 26px) 2px no-repeat;
+    var(--orn-head) right calc((100% - var(--orn-g) + 24px * var(--rv-h, 0)) * var(--rv-p, 1) - 12px * var(--rv-h, 0)) center / calc(24px * var(--rv-h, 0)) calc(12px * var(--rv-h, 0)) no-repeat,
+    var(--orn-star) left calc(var(--orn-z) / 2 * (1 - var(--rv-s, 1))) center / calc(var(--orn-z) * var(--rv-s, 1)) calc(var(--orn-z) * var(--rv-s, 1)) no-repeat,
+    linear-gradient(270deg, transparent, var(--orn-a) 16%, var(--orn-b) 58%, var(--orn-gold)) right center / calc((100% - var(--orn-g)) * var(--rv-p, 1)) 2px no-repeat;
 }
+/* Breathing out of step (a variable, so the reveal's animation list can reuse it). */
+html:not([data-season]) .section--block:nth-of-type(2n) :is(.block, .board)::after { --orn-d: -3s; }
+html:not([data-season]) .hall .ranking::after { --orn-d: -1.5s; }
 @media (prefers-reduced-motion: no-preference) {
-  html:not([data-season]) :is(.block, .hall .board, .ranking)::after { animation: orn-breathe 6s ease-in-out infinite alternate; }
-  html:not([data-season]) .section--block:nth-of-type(2n) :is(.block, .board)::after { animation-delay: -3s; }
-  html:not([data-season]) .hall .ranking::after { animation-delay: -1.5s; }
+  html:not([data-season]) :is(.block, .hall .board, .ranking)::after { animation: orn-breathe 6s ease-in-out var(--orn-d, 0s) infinite alternate; }
 }
 @keyframes orn-breathe { from { opacity: .7; } to { opacity: 1; } }
 @media (max-width: 600px) {
-  html:not([data-season]) :is(.block, .hall .board, .ranking)::after { left: 24px; right: 24px; top: -9px; height: 18px; background-size: 18px 18px, calc(100% - 21px) 2px; }
+  html:not([data-season]) :is(.block, .hall .board, .ranking)::after { left: 24px; right: 24px; top: -9px; height: 18px; }
 }
 /* Signal lamp in the eyebrows. */
 html:not([data-season]) .eyebrow i {
@@ -1620,3 +1635,280 @@ html:not([data-season]) .sc-launch { fill: none; stroke: var(--sc-ring); stroke-
 @keyframes sc-ray-sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
 @keyframes sc-dial { to { transform: rotate(360deg); } }
 @keyframes sc-launch { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }
+
+/* ---------- 19. Scroll reveal: "Vào ga – đèn lên sân ga" ---------- */
+/* assets/js/reveal.js (every page but the reader) tags only what is below the first screen at load: [data-rv] units
+   (frames, the cabin art and copy, the genre track) and [data-rv-item] items (story cards, departure board rows,
+   ranked rows, route stops). As each one reaches the lower part of the screen it gets .is-in, --rv-d (its delay) and
+   --rv-k (1; .55 for a fling; 0 when it comes in from above, so every duration and offset below is 0 and it just
+   appears), and loses all of it again once its animations have ended. One choreography: every frame docks like the
+   hero tram braking, then its look switches its own lights on (the plain rail here, the spider and the snow eave in
+   season-*.css), then its contents arrive, one station action per kind.
+   Laws: hidden states and animations exist only in this media query, under html.reveal-on, on tagged elements (no
+   JS, no IntersectionObserver, print, reduced motion: the page as it always was); only the individual translate /
+   rotate / scale properties (hover and tilt transforms still compose), plus opacity and clip-path on leaves or on a
+   .lg element itself, never on a plain parent of glass (its glass would lose its backdrop), and frames never fade;
+   fill-mode backwards only (keyframe 0% holds through the delay, then the normal stylesheet takes over again);
+   nothing waits more than 480ms, and pointer-events never change. */
+@property --rv-p { syntax: "<number>"; inherits: false; initial-value: 1; }
+@property --rv-s { syntax: "<number>"; inherits: false; initial-value: 1; }
+@property --rv-h { syntax: "<number>"; inherits: false; initial-value: 0; }
+:root {
+  --rv-brake: cubic-bezier(.22, .7, .3, 1); /* travel: the hero tram's own curve */
+  --ease-wipe: cubic-bezier(.65, 0, .35, 1);
+  --rv-pop: cubic-bezier(.3, 1.45, .5, 1); /* lamps, dots, bubbles */
+  --rv-sheen: rgba(255, 255, 255, .5); /* the laminate glint on a dealt ticket */
+  --rv-dock: 36px;
+  --rv-dock-t: .85s;
+  --rv-deal: 50px;
+  --rv-pull: 20px;
+  --rv-lift: 70px;
+}
+[data-theme="dark"] { --rv-sheen: rgba(214, 200, 255, .22); }
+@media (max-width: 600px) {
+  :root { --rv-dock: 22px; --rv-dock-t: .75s; --rv-deal: 32px; --rv-pull: 10px; --rv-lift: 50px; }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html.reveal-on main { overflow-x: clip; } /* clip, not hidden: sticky and vertical overflow are untouched */
+  .rv-express { --rv-k: .55; }
+  .rv-quiet { --rv-k: 0; --rv-d: 0ms; }
+
+  /* A. Frames dock: solid things, not ghosts (translate only, never opacity). */
+  html.reveal-on [data-rv="frame"]:not(.is-in) { translate: 0 var(--rv-dock); }
+  html.reveal-on [data-rv="frame"].is-in { animation: rv-dock calc(var(--rv-dock-t) * var(--rv-k, 1)) linear var(--rv-d, 0ms) backwards; }
+  html.reveal-on .site-footer__panel[data-rv] { --rv-dock: 24px; }
+
+  /* B. Signage, owned by the unit that directly holds the head (child combinators: nested units never cross-fire). */
+  html.reveal-on :is([data-rv]:not(.is-in) > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]:not(.is-in)) .eyebrow { opacity: 0; translate: 0 10px; }
+  html.reveal-on :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .eyebrow { animation: rv-rise calc(.45s * var(--rv-k, 1)) var(--ease-out) var(--rv-d, 0ms) backwards; }
+  html.reveal-on:not([data-season]) :is([data-rv] > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]) .eyebrow i { transform-origin: 0 50%; }
+  html.reveal-on:not([data-season]) :is([data-rv]:not(.is-in) > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]:not(.is-in)) .eyebrow i { opacity: .25; scale: 0 1; }
+  html.reveal-on:not([data-season]) :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .eyebrow i { animation: rv-lamp calc(.5s * var(--rv-k, 1)) var(--rv-pop) calc(var(--rv-d, 0ms) + 40ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on:not([data-season])[data-theme="dark"] :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .eyebrow i { animation: rv-lamp-neon calc(.7s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 40ms * var(--rv-k, 1)) backwards; }
+  /* Reading order while the frame is still braking: eyebrow (+0), lamp (+40), title (+60), the controls that head
+     the contents (ranking tabs, board column header: +70), the contents (+110, reveal.js), paragraph (+300), then the
+     links and live marks beside or below them (+340); the rail runs once the frame has docked (+160).
+     The title is painted on in the rail's direction, front-loaded so most of it reads within a quarter second; the
+     clip box overhangs the text (stacked diacritics, the night neon glow), so nothing pops when the clip lets go. */
+  html.reveal-on :is([data-rv]:not(.is-in) > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]:not(.is-in)) .section-title { clip-path: inset(-.6em 100% -.6em -.6em); translate: -10px 0; }
+  html.reveal-on :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .section-title { animation: rv-sign calc(.55s * var(--rv-k, 1)) cubic-bezier(.3, .7, .25, 1) calc(var(--rv-d, 0ms) + 60ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on :is([data-rv]:not(.is-in) > .section-head p, .cabin__copy[data-rv]:not(.is-in) > p) { opacity: 0; translate: 0 10px; }
+  html.reveal-on :is([data-rv].is-in > .section-head p, .cabin__copy[data-rv].is-in > p) { animation: rv-rise calc(.55s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + 300ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on :is([data-rv] > :is(.section-head, .ranking__head, .board__head) :is(.link-arrow, .ranking__tabs, .live), [data-rv] > :is(.ranking__foot, .board__cols)) { --rv-y: 6px; }
+  html.reveal-on :is([data-rv]:not(.is-in) > :is(.section-head, .ranking__head, .board__head) :is(.link-arrow, .ranking__tabs, .live), [data-rv]:not(.is-in) > :is(.ranking__foot, .board__cols)) { opacity: 0; translate: 0 6px; }
+  html.reveal-on :is([data-rv].is-in > :is(.section-head, .ranking__head, .board__head) :is(.link-arrow, .live), [data-rv].is-in > .ranking__foot) { animation: rv-rise calc(.45s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + 340ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on :is([data-rv].is-in > .ranking__head .ranking__tabs, [data-rv].is-in > .board__cols) { animation: rv-rise calc(.35s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + 70ms * var(--rv-k, 1)) backwards; }
+  /* The board clock drops in like a flap. */
+  html.reveal-on [data-rv] > .board__head .board__clock { perspective: 600px; }
+  html.reveal-on [data-rv] > .board__head .board__clock time { transform-origin: 50% 0; backface-visibility: hidden; }
+  html.reveal-on [data-rv]:not(.is-in) > .board__head .board__clock time { opacity: 0; rotate: x 92deg; }
+  html.reveal-on [data-rv].is-in > .board__head .board__clock time { animation: rv-flap calc(.62s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 200ms * var(--rv-k, 1)) backwards; }
+
+  /* C1. Genre lines: each chip shows its route roundel first, then its name board unfolds (the chip is glass itself,
+     so clipping it is safe). Driven by the frame, or by the track when the frame was already on screen. */
+  html.reveal-on .lines [data-rv]:not(.is-in) .line-chip { clip-path: inset(50% calc(100% - 29px) 50% 29px round 999px); }
+  html.reveal-on .lines [data-rv]:not(.is-in) .line-chip__code { opacity: 0; scale: .3; }
+  html.reveal-on .lines [data-rv]:not(.is-in) .line-chip__text { opacity: 0; translate: -12px 0; }
+  html.reveal-on .lines [data-rv].is-in .line-chip {
+    --rv-cd: calc(var(--rv-d, 0ms) + (var(--rv-cb, 130ms) + var(--i, 0) * var(--rv-cs, 35ms)) * var(--rv-k, 1));
+    animation: rv-unfold calc(.7s * var(--rv-k, 1)) cubic-bezier(.22, 1, .36, 1) var(--rv-cd) backwards;
+  }
+  html.reveal-on .lines [data-rv].is-in .line-chip__code { animation: rv-pop-in calc(.5s * var(--rv-k, 1)) var(--rv-pop) var(--rv-cd) backwards; }
+  html.reveal-on .lines [data-rv].is-in .line-chip__text { animation: rv-slide calc(.45s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-cd) + 140ms * var(--rv-k, 1)) backwards; }
+
+  /* C2. Story cards: solid tickets dealt onto the shelf, each flicked in from its own side with a clear tilt that
+     swings past level as it lands; the cover is opaque for almost all of its travel, the caption plate sticks on
+     after, a glint runs over the laminate. */
+  html.reveal-on [data-rv-item="card"] { --rv-tilt: -6deg; --rv-dx: -16px; transform-origin: 50% 100%; }
+  html.reveal-on [data-rv-item="card"]:nth-child(4n+2) { --rv-tilt: 4deg; --rv-dx: 10px; }
+  html.reveal-on [data-rv-item="card"]:nth-child(4n+3) { --rv-tilt: -3deg; --rv-dx: -10px; }
+  html.reveal-on [data-rv-item="card"]:nth-child(4n) { --rv-tilt: 5deg; --rv-dx: 16px; }
+  html.reveal-on [data-rv-item="card"]:not(.is-in) { translate: var(--rv-dx, 0px) var(--rv-deal); rotate: var(--rv-tilt); scale: .94; }
+  html.reveal-on [data-rv-item="card"]:not(.is-in) .story-card__media { opacity: 0; }
+  html.reveal-on [data-rv-item="card"]:not(.is-in) .story-card__info { opacity: 0; translate: 0 18px; }
+  html.reveal-on [data-rv-item="card"].is-in { animation: rv-deal calc(.78s * var(--rv-k, 1)) var(--ease-out) var(--rv-d, 0ms) backwards; }
+  html.reveal-on [data-rv-item="card"].is-in .story-card__media { animation: rv-fade calc(.16s * var(--rv-k, 1)) linear var(--rv-d, 0ms) backwards; }
+  html.reveal-on [data-rv-item="card"].is-in .story-card__info { --rv-y: 18px; animation: rv-rise calc(.55s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + 120ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on [data-rv-item="card"].is-in .story-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 38%, var(--rv-sheen) 50%, transparent 62%);
+    translate: 130% 0;
+    animation: rv-glint calc(1s * var(--rv-k, 1)) cubic-bezier(.4, 0, .2, 1) calc(var(--rv-d, 0ms) + 320ms * var(--rv-k, 1)) backwards;
+  }
+
+  /* C3. Departure board: each row pulls in from the right and brakes, its time drops in as a flap (then reveal.js
+     spins the digits like a split-flap display). */
+  html.reveal-on [data-rv-item="row"] { perspective: 520px; }
+  html.reveal-on [data-rv-item="row"] .board-row__time { transform-origin: 50% 0; backface-visibility: hidden; }
+  html.reveal-on [data-rv-item="row"]:not(.is-in) { opacity: 0; translate: var(--rv-pull) 0; }
+  html.reveal-on [data-rv-item="row"]:not(.is-in) .board-row__time { opacity: 0; rotate: x 92deg; }
+  html.reveal-on [data-rv-item="row"].is-in { animation: rv-pull calc(.7s * var(--rv-k, 1)) linear var(--rv-d, 0ms) backwards; }
+  html.reveal-on [data-rv-item="row"].is-in .board-row__time { animation: rv-flap calc(.62s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 140ms * var(--rv-k, 1)) backwards; }
+
+  /* C4. Ranking: the cars couple in from the left (the two hall boards face each other), the medals flip like coins. */
+  html.reveal-on [data-rv-item="rank"] { perspective: 320px; }
+  html.reveal-on [data-rv-item="rank"] .rank-row__no.is-top { backface-visibility: hidden; }
+  html.reveal-on [data-rv-item="rank"]:not(.is-in) { opacity: 0; translate: calc(var(--rv-pull) * -1) 0; }
+  html.reveal-on [data-rv-item="rank"]:not(.is-in) .rank-row__no.is-top { opacity: 0; rotate: y 100deg; scale: .6; }
+  html.reveal-on [data-rv-item="rank"].is-in { animation: rv-couple calc(.65s * var(--rv-k, 1)) linear var(--rv-d, 0ms) backwards; }
+  html.reveal-on [data-rv-item="rank"].is-in .rank-row__no.is-top { animation: rv-medal calc(.7s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 150ms * var(--rv-k, 1)) backwards; }
+
+  /* C5. Reading cabin: the porthole opens, the phone is lifted into place and its page writes itself, the bubbles
+     pop out of it; the list's icons pop and their lines follow. The art, the phone and the list rows never fade: the
+     phone is glass holding glass (its bar and dock would lose their backdrop), and it starts below the screen anyway
+     (the art docks when its top crosses 92% of the viewport, the phone sits --rv-lift lower). */
+  html.reveal-on .cabin__art[data-rv] .phone__page i { transform-origin: 0 50%; }
+  html.reveal-on .cabin__art[data-rv]:not(.is-in)::before { opacity: 0; scale: .55; }
+  html.reveal-on .cabin__art[data-rv]:not(.is-in) .phone { translate: 0 var(--rv-lift); rotate: 7deg; }
+  html.reveal-on .cabin__art[data-rv]:not(.is-in) .phone__page i { scale: 0 1; }
+  html.reveal-on .cabin__art[data-rv]:not(.is-in) .cabin__bubble { opacity: 0; scale: .5; }
+  html.reveal-on .cabin__art[data-rv].is-in::before { animation: rv-porthole calc(1s * var(--rv-k, 1)) var(--ease-out) var(--rv-d, 0ms) backwards; }
+  html.reveal-on .cabin__art[data-rv].is-in .phone { animation: rv-phone calc(.95s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 80ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on .cabin__art[data-rv].is-in .phone__page i { animation: rv-grow calc(.4s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + (380ms + var(--i, 0) * 30ms) * var(--rv-k, 1)) backwards; }
+  html.reveal-on .cabin__art[data-rv].is-in .cabin__bubble { transform-origin: 0 100%; animation: rv-bubble calc(.55s * var(--rv-k, 1)) var(--rv-pop) calc(var(--rv-d, 0ms) + 560ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on .cabin__art[data-rv].is-in .cabin__bubble--b { transform-origin: 100% 0; animation-delay: calc(var(--rv-d, 0ms) + 680ms * var(--rv-k, 1)); }
+  html.reveal-on .cabin__copy[data-rv]:not(.is-in) .cabin__icon { opacity: 0; scale: .4; rotate: -14deg; }
+  html.reveal-on .cabin__copy[data-rv]:not(.is-in) .cabin__list li > div { opacity: 0; translate: 0 10px; }
+  html.reveal-on .cabin__copy[data-rv]:not(.is-in) > .button { opacity: 0; translate: 0 8px; }
+  html.reveal-on .cabin__copy[data-rv].is-in .cabin__icon { animation: rv-icon calc(.5s * var(--rv-k, 1)) var(--rv-pop) calc(var(--rv-d, 0ms) + (300ms + var(--i, 0) * 90ms) * var(--rv-k, 1)) backwards; }
+  html.reveal-on .cabin__copy[data-rv].is-in .cabin__list li > div { animation: rv-rise calc(.5s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + (360ms + var(--i, 0) * 90ms) * var(--rv-k, 1)) backwards; }
+  html.reveal-on .cabin__copy[data-rv].is-in > .button { --rv-y: 8px; animation: rv-rise calc(.45s * var(--rv-k, 1)) var(--ease-out) calc(var(--rv-d, 0ms) + 620ms * var(--rv-k, 1)) backwards; }
+
+  /* C6. Story route: the line draws itself down and the stations light up; chapter names and status never hide. */
+  html.reveal-on [data-rv-item="stop"]::before { transform-origin: 50% 0; }
+  html.reveal-on [data-rv-item="stop"]:not(.is-in)::before { scale: 1 0; }
+  html.reveal-on [data-rv-item="stop"]:not(.is-in) .stop__dot { scale: 0; }
+  html.reveal-on [data-rv-item="stop"]:not(.is-in) .stop__index { opacity: 0; }
+  html.reveal-on [data-rv-item="stop"].is-in::before { animation: rv-track calc(.35s * var(--rv-k, 1)) var(--ease-out) var(--rv-d, 0ms) backwards; }
+  html.reveal-on [data-rv-item="stop"].is-in .stop__dot { animation: rv-dot calc(.45s * var(--rv-k, 1)) var(--rv-pop) calc(var(--rv-d, 0ms) + 120ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on [data-rv-item="stop"].is-in .stop__index { animation: rv-fade calc(.25s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 80ms * var(--rv-k, 1)) backwards; }
+
+  /* C7. Footer, "Ga cuối": the two tracks run in to the terminus and its sign is stamped. */
+  html.reveal-on .site-footer__panel[data-rv] .site-footer__line { transform-origin: 0 50%; }
+  html.reveal-on .site-footer__panel[data-rv] .site-footer__line:last-child { transform-origin: 100% 50%; }
+  html.reveal-on .site-footer__panel[data-rv]:not(.is-in) .site-footer__line { scale: 0 1; }
+  html.reveal-on .site-footer__panel[data-rv]:not(.is-in) .site-footer__stop { opacity: 0; scale: 1.6; rotate: -8deg; }
+  html.reveal-on .site-footer__panel[data-rv].is-in .site-footer__line { animation: rv-grow calc(.8s * var(--rv-k, 1)) var(--ease-wipe) calc(var(--rv-d, 0ms) + 100ms * var(--rv-k, 1)) backwards; }
+  html.reveal-on .site-footer__panel[data-rv].is-in .site-footer__stop { animation: rv-stamp calc(.5s * var(--rv-k, 1)) cubic-bezier(.3, 1.5, .5, 1) calc(var(--rv-d, 0ms) + 700ms * var(--rv-k, 1)) backwards; }
+
+  /* Plain look: a bead of light runs along the frame's rail to its star, which pops (the seasons light their own). */
+  html.reveal-on:not([data-season]) :is(.block, .board, .ranking)[data-rv]:not(.is-in)::after { --rv-p: 0; --rv-s: 0; }
+  html.reveal-on:not([data-season]) :is(.block, .board, .ranking)[data-rv].is-in::after {
+    animation:
+      orn-breathe 6s ease-in-out var(--orn-d, 0s) infinite alternate,
+      rv-rail calc(.95s * var(--rv-k, 1)) linear calc(var(--rv-d, 0ms) + 160ms * var(--rv-k, 1)) backwards;
+  }
+  /* Home, plain look, the genre frame already on the first screen: its rail takes the current from the hero's
+     pantograph spark (2.75s) and its star lands as the tram settles, before the bell. CSS only, so no script can
+     strand it; a frame the reveal docks (or has docked: .rv-done) runs its own rail instead. */
+  html:not([data-season]) body.home .lines .block:not([data-rv], .rv-done)::after {
+    --rv-p: 1;
+    --rv-s: 1;
+    animation:
+      orn-breathe 6s ease-in-out var(--orn-d, 0s) infinite alternate,
+      rv-rail .95s linear 2.75s backwards;
+  }
+}
+@media screen and (max-width: 600px) and (prefers-reduced-motion: no-preference) {
+  html.reveal-on .site-footer__panel[data-rv] { --rv-dock: 16px; }
+  html.reveal-on [data-rv-item="card"]:nth-child(odd) { --rv-tilt: -3.5deg; --rv-dx: -8px; }
+  html.reveal-on [data-rv-item="card"]:nth-child(even) { --rv-tilt: 3.5deg; --rv-dx: 8px; }
+}
+/* Titles wrap on phones (the home ones up to about 630px wide): the sign drops from its top edge so it is painted line
+   by line, not both lines at once. Every title on the page does the same, wrapped or not. */
+@media screen and (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  html.reveal-on :is([data-rv]:not(.is-in) > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv]:not(.is-in)) .section-title { clip-path: inset(-.6em -1em calc(100% + .6em) -.6em); translate: 0 -6px; }
+  html.reveal-on :is([data-rv].is-in > :is(.section-head, .board__head, .ranking__head), .cabin__copy[data-rv].is-in) .section-title { animation-name: rv-sign-down; }
+}
+
+@keyframes rv-dock {
+  0% { translate: 0 var(--rv-dock); animation-timing-function: cubic-bezier(.22, .7, .3, 1); }
+  72% { translate: 0 -3px; animation-timing-function: ease-in-out; }
+  90% { translate: 0 1px; }
+  100% { translate: none; }
+}
+@keyframes rv-rise { from { opacity: 0; translate: 0 var(--rv-y, 10px); } }
+@keyframes rv-fade { from { opacity: 0; } }
+@keyframes rv-lamp { 0% { opacity: .25; scale: 0 1; } 40% { opacity: 1; scale: 1.12 1; } 100% { opacity: 1; scale: 1 1; } }
+@keyframes rv-lamp-neon {
+  0% { opacity: 0; scale: 0 1; }
+  30% { opacity: 1; scale: 1 1; }
+  44% { opacity: .25; }
+  54% { opacity: 1; }
+  64% { opacity: .45; }
+  74%, 100% { opacity: 1; scale: 1 1; }
+}
+@keyframes rv-sign {
+  0% { clip-path: inset(-.6em 100% -.6em -.6em); translate: -10px 0; }
+  100% { clip-path: inset(-.6em -1em -.6em -.6em); translate: none; }
+}
+@keyframes rv-sign-down {
+  0% { clip-path: inset(-.6em -1em calc(100% + .6em) -.6em); translate: 0 -6px; }
+  100% { clip-path: inset(-.6em -1em -.6em -.6em); translate: none; }
+}
+@keyframes rv-flap {
+  0% { opacity: 0; rotate: x 92deg; animation-timing-function: cubic-bezier(.5, 0, .85, .45); }
+  25% { opacity: 1; }
+  62% { rotate: x -14deg; animation-timing-function: ease-in-out; }
+  80% { rotate: x 6deg; animation-timing-function: ease-in-out; }
+  92% { rotate: x -2deg; }
+  100% { opacity: 1; rotate: none; }
+}
+@keyframes rv-unfold {
+  0% { clip-path: inset(50% calc(100% - 29px) 50% 29px round 999px); }
+  30% { clip-path: inset(0 calc(100% - 54px) 0 0 round 999px); }
+  100% { clip-path: inset(-12px -12px -18px -12px round 999px); }
+}
+@keyframes rv-pop-in { from { opacity: 0; scale: .3; } }
+@keyframes rv-slide { from { opacity: 0; translate: -12px 0; } }
+@keyframes rv-deal {
+  0% { translate: var(--rv-dx, 0px) var(--rv-deal); rotate: var(--rv-tilt, 0deg); scale: .94; }
+  65% { translate: 0 -4px; rotate: calc(var(--rv-tilt, 0deg) * -.12); scale: 1.005; }
+  100% { translate: none; rotate: none; scale: none; }
+}
+@keyframes rv-glint { from { translate: -130% 0; } to { translate: 130% 0; } }
+@keyframes rv-pull {
+  0% { opacity: 0; translate: var(--rv-pull) 0; animation-timing-function: cubic-bezier(.22, .7, .3, 1); }
+  30% { opacity: 1; }
+  80% { translate: -3px 0; animation-timing-function: ease-in-out; }
+  100% { opacity: 1; translate: none; }
+}
+@keyframes rv-couple {
+  0% { opacity: 0; translate: calc(var(--rv-pull) * -1) 0; animation-timing-function: cubic-bezier(.22, .7, .3, 1); }
+  35% { opacity: 1; }
+  80% { translate: 3px 0; animation-timing-function: ease-in-out; }
+  100% { opacity: 1; translate: none; }
+}
+@keyframes rv-medal {
+  0% { opacity: 0; rotate: y 100deg; scale: .6; animation-timing-function: cubic-bezier(.2, .7, .3, 1); }
+  55% { opacity: 1; rotate: y -18deg; scale: 1.12; animation-timing-function: ease-in-out; }
+  80% { rotate: y 6deg; scale: .98; animation-timing-function: ease-in-out; }
+  100% { opacity: 1; rotate: none; scale: none; }
+}
+@keyframes rv-porthole { from { opacity: 0; scale: .55; } }
+@keyframes rv-phone {
+  0% { translate: 0 var(--rv-lift); rotate: 7deg; animation-timing-function: cubic-bezier(.22, .7, .3, 1); }
+  78% { translate: 0 -4px; rotate: -.6deg; animation-timing-function: ease-in-out; }
+  100% { translate: none; rotate: none; }
+}
+@keyframes rv-grow { from { scale: 0 1; } }
+@keyframes rv-bubble { from { opacity: 0; scale: .5; } }
+@keyframes rv-icon { from { opacity: 0; scale: .4; rotate: -14deg; } }
+@keyframes rv-track { from { scale: 1 0; } }
+@keyframes rv-dot { from { scale: 0; } }
+@keyframes rv-stamp {
+  0% { opacity: 0; scale: 1.6; rotate: -8deg; }
+  60% { opacity: 1; scale: .94; }
+  100% { opacity: 1; scale: none; rotate: none; }
+}
+/* The bead runs to the end of the line, then the star pops to 1.5x and settles while the bead fades out. */
+@keyframes rv-rail {
+  0% { --rv-p: 0; --rv-h: 1; --rv-s: 0; animation-timing-function: cubic-bezier(.55, 0, .2, 1); }
+  76% { --rv-p: 1; --rv-h: 1; --rv-s: 0; animation-timing-function: cubic-bezier(.2, 1.6, .45, 1); }
+  90% { --rv-s: 1.5; --rv-h: .5; }
+  100% { --rv-p: 1; --rv-h: 0; --rv-s: 1; }
+}
