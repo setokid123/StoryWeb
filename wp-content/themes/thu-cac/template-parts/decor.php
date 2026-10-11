@@ -4,7 +4,7 @@
  * section "Plain look"). The whole page is the sky the tram crosses: three sheets of stars that drift down-left
  * like calm snow (by night), sun rays and glitter (by day), lamp-like bokeh or glass bubbles that glow through the
  * frosted blocks, tumbling story pages, sparkles, comets falling across the whole screen once the hero is scrolled
- * away, the "TUYẾN 2D" monogram and a tram drawn as constellations, a
+ * away, the "TRUYỆN 2D" monogram and a tram drawn as constellations, a
  * cloud sea with a tiny tram that rises once the hero is left behind, and now and then a shooting star, a paper
  * plane, and the Sao Băng Express (night) or a paper squadron (day). Positions come from thu_cac_decor_rng(), so
  * the sky is the same on every load. Decorative only; every number is printed with sprintf.
@@ -291,11 +291,11 @@ $thu_cac_dc_spark = '<path d="M0-10C.9-3.2 3.2-.9 10 0 3.2.9.9 3.2 0 10-.9 3.2-3
 <svg class="dc-field dc-field--near" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#dc-pat-near)"/></svg>
 <div class="dc-consts">
 	<?php // The "2D" monogram, drawn like a star chart: two D's side by side (overlapping a little, like the logo), soft stars on a fine line, three bright ones, and the route's name beside them. ?>
-	<i class="dc-p dc-const dc-const--2d" style="--k:.30;--m:18lvh"><svg viewBox="-6 -6 146 84" width="161" height="92" aria-hidden="true" focusable="false">
+	<i class="dc-p dc-const dc-const--2d" style="--k:.30;--m:18lvh"><svg viewBox="-6 -6 186 84" width="205" height="92" aria-hidden="true" focusable="false">
 		<path class="dc-c-line" d="M0 0V60C24 60 40 47 40 30S24 0 0 0ZM32 0V60C56 60 72 47 72 30S56 0 32 0Z"/>
 		<?php echo $thu_cac_dc_stars( array( array( 0, 0 ), array( 29, 8.6 ), array( 40, 30 ), array( 29, 51.4 ), array( 0, 60 ), array( 32, 0 ), array( 61, 8.6 ), array( 72, 30 ), array( 61, 51.4 ), array( 32, 60 ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- numbers printed with sprintf. ?>
 		<g class="dc-c-bright"><use href="#dc-spark" x="-5" y="-5" width="10" height="10"/><use href="#dc-spark" x="34" y="24" width="12" height="12"/><use href="#dc-spark" x="66" y="24" width="12" height="12"/></g>
-		<text class="dc-c-label" x="86" y="33.5">TUYẾN 2D</text>
+		<text class="dc-c-label" x="84" y="34">TRUYỆN 2D</text>
 		<g class="dc-bead" transform="translate(0 0)"><circle class="dc-bead__halo" r="7"/><circle class="dc-bead__core" r="2.6"/></g>
 	</svg></i>
 	<i class="dc-p dc-const dc-const--tram" style="--x:calc((50% - 620px) / 2 - 62px);--y:128lvh;--k:.30;--m:18lvh"><svg viewBox="-12 -8 120 76" width="120" height="76" aria-hidden="true" focusable="false">

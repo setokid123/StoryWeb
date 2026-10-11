@@ -265,7 +265,7 @@ body:not(.home) .decor--default .dc-fly--tz { opacity: clamp(0, calc((var(--sy) 
 [data-theme="dark"] .decor--default .dc-fly--b { --core: #ffe2a8; --tail: rgba(255, 210, 122, .55); --glow: rgba(255, 236, 190, .6); --halo: rgba(255, 210, 122, .36); }
 [data-theme="dark"] .decor--default .dc-fly--c { --core: #ffc2dd; --tail: rgba(255, 146, 192, .55); --glow: rgba(255, 214, 232, .6); --halo: rgba(255, 146, 192, .4); }
 
-/* 4. Constellations: "TUYẾN 2D" (the two D's of the founders) and a tram car, with a lit bead riding the line and
+/* 4. Constellations: "TRUYỆN 2D" (the two D's of the founders) and a tram car, with a lit bead riding the line and
    pausing at every station. */
 .decor--default .dc-const { width: auto; height: auto; }
 .decor--default .dc-const svg { display: block; overflow: visible; }
@@ -275,7 +275,7 @@ body:not(.home) .decor--default .dc-fly--tz { opacity: clamp(0, calc((var(--sy) 
 .dc-c-halos { fill: var(--dc-stn-halo); }
 .dc-c-stns { fill: var(--dc-stn-core); }
 .dc-c-bright { fill: var(--dc-spark); }
-.dc-c-label { fill: var(--dc-label); font: 700 7.5px var(--font-display); letter-spacing: .3em; }
+.dc-c-label { fill: var(--dc-label); font: 700 11px var(--font-ui); letter-spacing: .12em; } /* the UI face: its Vietnamese marks (Ệ) stay clear at this size */
 .dc-bead__core { fill: var(--dc-bead); }
 .dc-bead__halo { fill: var(--dc-bead-halo); }
 .decor--default .dc-const--2d .dc-bead { animation: dc-route-2d 16s ease-in-out infinite; }
