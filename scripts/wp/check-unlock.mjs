@@ -20,7 +20,7 @@ class Jar {
 }
 // GETs go through node:http: fetch() rewrites Sec-Fetch-Mode to "cors", so it cannot play a browser navigation.
 const get = (path, { jar, headers = {} } = {}) => new Promise((resolve, reject) => {
-  const req = http.get(B + path, { headers: { ...headers, ...(jar ? { cookie: jar.header() } : {}) } }, (res) => {
+  const req = http.get(B + path, { headers: { "user-agent": "Mozilla/5.0 (check-unlock)", ...headers, ...(jar ? { cookie: jar.header() } : {}) } }, (res) => {
     let text = "";
     res.setEncoding("utf8");
     res.on("data", (d) => { text += d; });
@@ -78,7 +78,7 @@ const visit = gateLink(ch2.text);
 ok("locked chapter: popup with the admin's title, text, link text, image and button", ch2.text.includes("Mở khóa thử nghiệm") && ch2.text.includes("<strong>CLICK</strong>") && ch2.text.includes("Mở Shopee") && ch2.text.includes("cf.shopee.vn/file/test.jpg") && ch2.text.includes("Cảm ơn bạn!") && /class="locked-panel__url"/.test(ch2.text));
 ok("admin text is filtered (no <script>, not even its code as text)", !/<script>alert\('x'\)/.test(ch2.text) && !ch2.text.includes("alert('x')"));
 ok("locked chapter: still no body", !ch2.text.includes(marker(2)) && !ch2.text.includes("data-reader-text"));
-ok("gate links go through /mo-khoa/ with an index and a nonce", /\/mo-khoa\/\?i=\d+&n=[a-f0-9]+$/.test(visit), visit);
+ok("gate links go through /mo-khoa/ with an index, a nonce and the chapter", /\/mo-khoa\/\?i=\d+&n=[a-f0-9]+&c=\d+$/.test(visit), visit);
 const seen = new Set();
 for (let i = 0; i < 24; i++) seen.add((gateLink((await get(`/doc/${S}/2/`)).text).match(/i=(\d+)/) ?? [])[1]);
 ok("a random link per page view", seen.size >= 3, `${seen.size} different links in 24 views`);
@@ -142,6 +142,15 @@ for (let i = 0; i < 20 && !limited; i++) {
   if (g.status === 429) limited = grants + 1; else if (g.status === 303) grants++;
 }
 ok("rate limit: grant number 16 from one IP within the hour → 429", limited === 16, `limited at grant ${limited}`);
+
+// ---- Thống kê (Truyện → Thống kê) counts what happened above ----
+const statsPage = (await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats&khoang=7", { jar: admin })).text;
+const card = (label) => Number(((statsPage.match(new RegExp(label + "</span><b>([\\d.,]+)")) ?? [])[1] ?? "-1").replace(/[.,]/g, ""));
+ok("Thống kê: every grant counted as a click", card("Lượt bấm link mở khóa") === grants, `clicks ${card("Lượt bấm link mở khóa")}, grants ${grants}`);
+ok("Thống kê: refusals listed by reason (not a click, too many)", statsPage.includes("Không phải cú bấm trên trang đọc") && statsPage.includes("Một mạng bấm quá 15 lần"));
+ok("Thống kê: the clicks are put on the story and the links", statsPage.includes("Truyện được bấm mở khóa nhiều nhất") && statsPage.includes('<td class="link"><a href="https://') && !statsPage.includes("Không rõ truyện"));
+ok("Thống kê: locked-chapter views counted for the rate", /Tỉ lệ bấm mở khóa<\/span><b>\d/.test(statsPage));
+ok("Thống kê: administrators only", (await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).status !== 200 || !(await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).text.includes("Lượt bấm link mở khóa"));
 
 // ---- switched off ----
 saved = await save({ ...settings, "links[]": LINKS, enabled: "" });

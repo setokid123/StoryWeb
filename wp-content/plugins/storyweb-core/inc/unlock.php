@@ -124,17 +124,18 @@ add_filter(
 		$links  = array_values( $settings['links'] );
 		$index  = wp_rand( 0, count( $links ) - 1 );
 		$expiry = storyweb_unlock_grant_expiry();
+		$args   = array(
+			'i' => $index,
+			'n' => wp_create_nonce( 'storyweb_unlock' ),
+		);
+		if ( is_singular( 'chapter' ) ) {
+			$args['c'] = get_queried_object_id(); // Only for Thống kê: which story the click came from.
+		}
 		return array_merge(
 			$state,
 			array(
 				'mode'           => 'link',
-				'visit_url'      => add_query_arg(
-					array(
-						'i' => $index,
-						'n' => wp_create_nonce( 'storyweb_unlock' ),
-					),
-					home_url( user_trailingslashit( 'mo-khoa' ) )
-				),
+				'visit_url'      => add_query_arg( $args, home_url( user_trailingslashit( 'mo-khoa' ) ) ),
 				'link'           => $links[ $index ],
 				'expires_at'     => $expiry ? $expiry : null,
 				'access_minutes' => (int) $settings['minutes'],
@@ -200,7 +201,7 @@ function storyweb_unlock_fail( $status, $message ) {
 	);
 }
 
-/** GET /mo-khoa/?i=<link index>&n=<nonce>: grant cookie, then 303 to the link. */
+/** GET /mo-khoa/?i=<link index>&n=<nonce>[&c=<chapter ID>]: grant cookie, then 303 to the link. Counted in Thống kê. */
 add_action(
 	'template_redirect',
 	static function () {
@@ -222,12 +223,15 @@ add_action(
 		// phpcs:enable
 		$links = array_values( $settings['links'] );
 		if ( $index < 0 || $index >= count( $links ) || ! wp_verify_nonce( $nonce, 'storyweb_unlock' ) ) {
+			storyweb_stats_hit( 'refused', 'invalid' );
 			storyweb_unlock_fail( 400, 'Liên kết mở khóa không hợp lệ hoặc đã cũ. Hãy quay lại chương và bấm lại.' );
 		}
 		if ( ! storyweb_unlock_user_click() ) {
+			storyweb_stats_hit( 'refused', 'not_click' );
 			storyweb_unlock_fail( 400, 'Hãy bấm liên kết ngay trên trang đọc truyện.' );
 		}
 		if ( ! storyweb_unlock_rate_ok() ) {
+			storyweb_stats_hit( 'refused', 'rate' );
 			storyweb_unlock_fail( 429, 'Bạn đã mở khóa quá nhiều lần. Vui lòng thử lại sau ít phút.' );
 		}
 		$revision = (int) $settings['revision'];
@@ -244,6 +248,11 @@ add_action(
 				'samesite' => 'Lax',
 			)
 		);
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- verified above; only a number for the figures.
+		$from  = isset( $_GET['c'] ) && ctype_digit( (string) wp_unslash( $_GET['c'] ) ) ? get_post( (int) $_GET['c'] ) : null;
+		$story = ( $from && 'chapter' === $from->post_type ) ? storyweb_chapter_story( $from ) : null;
+		storyweb_stats_hit( 'click', $story ? $story->ID : 0 );
+		storyweb_stats_hit( 'link', $links[ $index ] );
 		header( 'Referrer-Policy: origin' );
 		wp_redirect( $links[ $index ], 303, 'StoryWeb' ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect -- only a link the admin saved (validated https), chosen by index.
 		exit;

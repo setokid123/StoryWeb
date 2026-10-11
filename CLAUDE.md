@@ -11,6 +11,7 @@ Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs
 - Giá trị hiển thị do admin nhập phải được `esc_*` khi in ra; dữ liệu vào phải `sanitize_*`. Truy vấn DB dùng `$wpdb->prepare`.
 - Logic trang đọc (tùy chỉnh đọc, ẩn/hiện toolbar) là JS thuần trong `assets/js/reader-core.js`, có unit test (`npm test`). Sửa logic thì cập nhật test.
 - Mở khóa bằng link nằm ở plugin: `inc/unlock.php` (cookie ký HMAC, `/mo-khoa/`, **giới hạn tần suất** theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`) và trang cài đặt `inc/unlock-admin.php` (Truyện → Mở khóa chương). Quyền đọc luôn kiểm phía server; sửa thì chạy `scripts/wp/check-unlock.mjs` trên site Playground mới.
+- Thống kê (Truyện → Thống kê, `inc/stats.php` + `inc/stats-admin.php`): lượt đọc lấy từ Post Views Counter; lượt gặp chương khóa, lượt bấm, link được mở và lượt bị chặn do plugin tự đếm theo ngày (bảng `{prefix}storyweb_stats`, không lưu IP).
 
 ## Kiểm tra
 
