@@ -1,12 +1,17 @@
 /*
- * Mùa Halloween (inc/season.php): loaded after tram.css when the season is on, everything under
+ * Mùa Halloween, "Ga nửa đêm" (inc/season.php): loaded after tram.css when the season is on, everything under
  * html[data-season="halloween"]. Colours through the same tokens as Sáng/Tối, so every component follows:
- * pumpkin orange and witch purple. Then the home scene's bats, pumpkins, ghost and spider, and the page cobwebs.
- * The home hero becomes a ghost train pulling in: bats burst out of the moon, the pumpkins light one by one, the
- * tram's headlight cuts through drifting fog, a storm flashes now and then, and at night a lantern follows the mouse.
+ * pumpkin orange and witch purple; Sáng is candle-lit paper shadow-play, Tối a moonlit night.
+ * 1. Tokens. 2. The home hero: a ghost train pulling in (bats burst out of the moon, the pumpkins light one by one,
+ *    ghost riders in the windows, a witch crosses once, storm and fog, at night a lantern follows the mouse).
+ * 3. Candle-lit glass frames, spiders in the gaps, jack-o'-lantern eyebrows. 4. The page-wide layer
+ *    (template-parts/decor-halloween.php): night wash, embers/stars and dust, fog, a cut-paper horizon, the moon and
+ *    the ghost express, rising ghosts, candle/spirit glows under the glass, wisps, lone bats, a corner web with a
+ *    spider that lowers as you scroll.
+ * Text tokens (--ink*, --accent, --paper*) keep AA contrast; decoration only animates transform and opacity.
  */
 
-/* ---------- Sáng: warm candle-lit paper ---------- */
+/* ---------- 1. Sáng: candle-lit paper shadow-play ---------- */
 html[data-season="halloween"]:not([data-theme="dark"]) {
   --bg: #fff0e2;
   --ink: #2b1430;
@@ -20,11 +25,13 @@ html[data-season="halloween"]:not([data-theme="dark"]) {
   --grad-text: linear-gradient(100deg, #f76707 0%, #d9480f 46%, #7b2cbf 94%);
 
   --orb-a: rgba(255, 160, 70, .62);
-  --orb-b: rgba(170, 100, 255, .42);
+  --orb-b: rgba(170, 100, 255, .24); /* lighter, so the moon in the top-right corner keeps its paper edge */
   --orb-c: rgba(255, 210, 120, .5);
   --tone: rgba(120, 50, 20, .14);
 
   --glass-fill-solid: #fff8f1;
+  --glass-edge: rgba(255, 214, 160, .95);
+  --glass-edge-soft: rgba(255, 214, 160, .16);
   --glass-shadow: 0 18px 40px -18px rgba(120, 45, 20, .36), 0 2px 8px rgba(120, 45, 20, .08);
   --seg-track: rgba(110, 40, 20, .08);
   --paper-ink: #2b1430;
@@ -46,14 +53,74 @@ html[data-season="halloween"]:not([data-theme="dark"]) {
   --hw-fog: #ffffff;
   --hw-flash: #2b1430;
   --hw-bolt: #7b2cbf;
+
+  --hw-candle: rgba(255, 170, 60, .2);
+  --hw-spirit-glow: rgba(176, 120, 255, .1);
+  --hw-silhouette: #2b1430;
+  --hw-cut: #ff922b;
+  --hw-cut-o: .35;
+  --hw-cut-x: 2px;
+  --hw-cut-y: 2.5px;
+  --hw-ghost: #fffaf5;
+  --hw-ghost-line: rgba(43, 20, 48, .4);
+  --hw-ghost-eye: #2b1430;
+  --hw-ghost-cut: #ffc9a3;
+  --hw-ghost-halo: transparent;
+  --hw-blush: #ffb3a0;
+  --hw-bail: rgba(43, 20, 48, .6);
+  --hw-wisp-core: #fffbe6;
+  --hw-wisp: #ffb347;
+  --hw-wisp-alt: rgba(255, 143, 171, .7);
+  --hw-wisp-alt-core: #fffbe6;
+  --hw-star: #f76707;
+  --hw-dust-o: .55;
+  --hw-glow-c: rgba(255, 170, 60, .18);
+  --hw-glow-c2: rgba(255, 140, 190, .09);
+  --hw-sky-o: .6;
+  --hw-moon-a: #fff3dc;
+  --hw-moon-b: #ffd9a8;
+  --hw-moon-c: #ffb870;
+  --hw-moon-o: 1;
+  --hw-halo: rgba(255, 170, 90, .35);
+  --hw-crater: rgba(217, 72, 15, .1);
+  --hw-ring: rgba(43, 20, 48, .18);
+  --hw-ribbon: #ffffff;
+  --hw-ribbon-rim: #ffd9bd;
+  --hw-express: rgba(43, 20, 48, .85);
+  --hw-express-line: transparent;
+  --hw-express-win: #ffb347;
+  --hw-panto: rgba(43, 20, 48, .85);
+  --hw-bogie: rgba(43, 20, 48, .85);
+  --hw-passenger: #fff8f1;
+  --hw-express-glow: rgba(255, 170, 80, .3);
+  --hw-lamp: #ffd166;
+  --hw-zap: #ffb347;
+  --hw-beam: rgba(255, 179, 71, .3);
+  --hw-mist: rgba(255, 201, 163, .45);
+  --hw-rail: rgba(43, 20, 48, .35);
+  --hw-fog-1: rgba(255, 255, 255, .72);
+  --hw-fog-2: rgba(255, 255, 255, .82);
+  --hw-fog-under: rgba(233, 216, 255, .55);
+  --hw-web: rgba(43, 20, 48, .16);
+  --hw-dew: #b8430a;
+  --hw-spider: #2b1430;
+  --hw-thread: rgba(74, 35, 64, .5);
+  --hw-win-a: #fff1b8;
+  --hw-win-b: #ffb347;
+  --hw-rider: #fff8f1;
+  --hw-rider-line: rgba(43, 20, 48, .4);
+  --hw-wash:
+    radial-gradient(60% 50% at 0% 100%, rgba(255, 150, 60, .22), transparent 70%),
+    radial-gradient(50% 45% at 100% 0%, rgba(255, 120, 170, .14), transparent 70%),
+    linear-gradient(to top, rgba(255, 190, 110, .25), transparent 40%);
 }
 
-/* ---------- Tối: a moonlit night ---------- */
+/* ---------- 1. Tối: a moonlit night ---------- */
 html[data-season="halloween"][data-theme="dark"] {
-  --bg: #120a16;
+  --bg: #0e0814;
   --ink: #fff3e6;
   --ink-2: #dcc4d6;
-  --ink-3: #a98fa6;
+  --ink-3: #c0a8bd;
   --line-color: rgba(255, 230, 210, .1);
   --accent: #ff922b;
   --focus: #ffa94d;
@@ -70,7 +137,9 @@ html[data-season="halloween"][data-theme="dark"] {
   --glass-fill: rgba(48, 24, 44, .44);
   --glass-fill-strong: rgba(30, 15, 30, .78);
   --glass-fill-solid: #22121f;
-  --glass-glow: rgba(255, 160, 80, .26);
+  --glass-edge: rgba(255, 190, 120, .55);
+  --glass-edge-soft: rgba(255, 190, 120, .14);
+  --glass-glow: rgba(255, 150, 60, .3);
   --paper: rgba(26, 13, 26, .88);
   --paper-ink: #fbeee4;
   --veil-tint: rgba(18, 10, 22, .5);
@@ -93,7 +162,71 @@ html[data-season="halloween"][data-theme="dark"] {
   --hw-fog: #b9a3dc;
   --hw-flash: #efe2ff;
   --hw-bolt: #fff3c4;
+
+  --hw-candle: rgba(255, 140, 40, .16);
+  --hw-spirit-glow: rgba(124, 245, 196, .08);
+  --hw-silhouette: #120612;
+  --hw-cut: #ff922b;
+  --hw-cut-o: .45;
+  --hw-cut-x: 0px;
+  --hw-cut-y: -1px;
+  --hw-ghost: rgba(244, 236, 255, .45);
+  --hw-ghost-line: transparent;
+  --hw-ghost-eye: #0e0814;
+  --hw-ghost-halo: rgba(200, 170, 255, .16);
+  --hw-blush: rgba(255, 120, 160, .45);
+  --hw-bail: rgba(244, 236, 255, .55);
+  --hw-wisp-core: #eafff4;
+  --hw-wisp: #6dffb5;
+  --hw-wisp-alt: #a66bff;
+  --hw-wisp-alt-core: #f3e8ff;
+  --hw-star: #ffe8cc;
+  --hw-dust-o: .7;
+  --hw-glow-c: rgba(255, 140, 40, .26);
+  --hw-glow-c2: rgba(124, 245, 196, .14);
+  --hw-sky-o: .8;
+  --hw-moon-a: #fff6dc;
+  --hw-moon-b: #ffd9a0;
+  --hw-moon-c: #ffb04a;
+  --hw-moon-o: .95;
+  --hw-halo: rgba(255, 160, 70, .38);
+  --hw-crater: rgba(201, 106, 26, .18);
+  --hw-ring: rgba(255, 190, 120, .3);
+  --hw-ribbon: rgba(74, 42, 92, .82);
+  --hw-ribbon-rim: rgba(255, 200, 150, .55);
+  --hw-express: rgba(185, 163, 220, .18);
+  --hw-express-line: rgba(200, 182, 255, .75);
+  --hw-express-win: #8dffc4;
+  --hw-panto: rgba(200, 182, 255, .75);
+  --hw-bogie: rgba(200, 182, 255, .4);
+  --hw-passenger: #ffffff;
+  --hw-express-glow: rgba(141, 255, 196, .32);
+  --hw-lamp: #fffbe6;
+  --hw-zap: #8dffc4;
+  --hw-beam: rgba(220, 255, 236, .45);
+  --hw-mist: rgba(185, 163, 220, .35);
+  --hw-rail: rgba(200, 182, 255, .55);
+  --hw-fog-1: rgba(185, 163, 220, .16);
+  --hw-fog-2: rgba(185, 163, 220, .24);
+  --hw-fog-under: rgba(70, 200, 110, .06);
+  --hw-web: rgba(255, 224, 200, .22);
+  --hw-dew: #ffd8a8;
+  --hw-spider: #6b3f78;
+  --hw-thread: rgba(255, 210, 170, .6);
+  --hw-win-a: #d9ffe9;
+  --hw-win-b: #7cf5c4;
+  --hw-rider: rgba(255, 255, 255, .92);
+  --hw-rider-line: rgba(20, 70, 50, .3);
+  --hw-wash:
+    linear-gradient(to top, rgba(40, 12, 48, .75), transparent 45%),
+    radial-gradient(70% 12% at 50% 62%, rgba(109, 255, 176, .05), rgba(143, 69, 232, .07) 50%, transparent 100%);
 }
+
+/* The page-wide night runs on one 75s cycle: the express, the bat burst, the halo, the rail and the fog swell. On
+   the home page it starts later and only shows once the hero moon has scrolled away (see .hw-night). */
+/* --hw-gutter: the space beside the .container blocks (min(100% - 48px, 1240px)). */
+html[data-season="halloween"] { --hw-cycle: 75s; --hw-start: 6s; --hw-tile: max(100lvh, 640px); --hw-gutter: max(24px, (100vw - 1240px) / 2); }
+body.home .decor--halloween { --hw-start: 18s; }
 
 /* The tram goes pumpkin to purple. */
 html[data-season="halloween"] #sc-tram stop:nth-child(1) { stop-color: #ff9a3c; }
@@ -104,7 +237,7 @@ html[data-season="halloween"] #sc-tram stop:nth-child(3) { stop-color: #7b2cbf; 
 .chip--season { color: var(--ink); text-decoration: none; transition: transform .4s var(--ease-spring); }
 .chip--season:hover { transform: translateY(-2px); }
 
-/* ---------- Home scene: bats, spider, ghost, pumpkins ---------- */
+/* ---------- 2. Home scene: bats, spider, ghost, pumpkins ---------- */
 .sc-halloween .sc-bat { fill: #2b1430; transform-box: fill-box; transform-origin: center; animation: hw-flap .32s ease-in-out infinite alternate, hw-drift 7s ease-in-out infinite; }
 html[data-theme="dark"] .sc-halloween .sc-bat { fill: #0b0510; }
 .sc-halloween .sc-bat--b { animation-duration: .27s, 9s; animation-delay: 0s, -3s; }
@@ -125,7 +258,28 @@ html[data-theme="dark"] .sc-ghost { fill: rgba(245, 235, 255, .88); filter: drop
 .sc-jack__face { fill: #ffe066; animation: hw-flicker 2.6s steps(1) infinite; }
 html[data-theme="dark"] .sc-jack__face { filter: drop-shadow(0 0 6px #ffb347); }
 
-/* ---------- The ghost train pulls in ---------- */
+/* Craters and cloud strips on the hero moon; they share the moon's depth (--d) when the pointer moves. */
+.sc-hw-moon circle { fill: var(--hw-crater); }
+.sc-hw-strip path { fill: var(--sc-cloud); }
+.sc-hw-strip .sc-hw-strip__rim { fill: none; stroke: var(--sc-cloud-hi); stroke-width: 2; stroke-linecap: round; }
+.sc-hw-strip { transform-box: fill-box; }
+/* Riders: a ghost in every lit window, a cat in the middle one. */
+html[data-season="halloween"] .sc-window { fill: url(#sc-hw-win); }
+html[data-season="halloween"] .sc-window[style*="--i:3"] { fill: url(#sc-hw-win-cat); }
+#sc-hw-wing stop:first-child { stop-color: var(--hw-win-a); }
+#sc-hw-wing stop:last-child { stop-color: var(--hw-win-b); }
+.sc-hw-rider { fill: var(--hw-rider); stroke: var(--hw-rider-line); stroke-width: .025; }
+.sc-hw-rider__eye { fill: #2b1430; }
+/* Candle pools under the pumpkins. */
+.sc-hw-pool { fill: url(#sc-hw-pool); }
+/* The witch's prologue: once in a while she crosses above the ticket, her cat on the broom. */
+.sc-hw-witch { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.sc-hw-witch__fig { fill: #2b1430; }
+html[data-theme="dark"] .sc-hw-witch__fig { fill: #0b0510; stroke: #c79bff; stroke-opacity: .5; stroke-width: 1; stroke-linejoin: round; }
+.sc-hw-witch__spark { fill: #ffd43b; }
+.sc-hw-scarf { transform-box: fill-box; transform-origin: 0 50%; }
+
+/* ---------- 2. The ghost train pulls in ---------- */
 #sc-fog stop { stop-color: var(--hw-fog); }
 .sc-flash { fill: var(--hw-flash); opacity: 0; }
 .sc-bolt { fill: var(--hw-bolt); opacity: 0; }
@@ -142,10 +296,19 @@ html[data-season="halloween"] .sc-visitors { display: none; } /* bats own the sk
   .sc-bat-burst:nth-child(3) { animation-delay: .74s; }
   .sc-bat-burst:nth-child(4) { animation-delay: .86s; }
   .sc-jack__face { animation: hw-ignite 1s linear calc(1.2s + var(--j, 0) * .45s) both, hw-flicker 2.6s steps(1) calc(2.2s + var(--j, 0) * .45s) infinite; }
+  .sc-hw-pool { animation: hw-pool-on 1s linear calc(1.2s + var(--j, 0) * .45s) both, hw-flicker 2.6s steps(1) calc(2.2s + var(--j, 0) * .45s) infinite; }
   .sc-fog__a { animation: hw-fog 19s ease-in-out infinite alternate; }
   .sc-fog__b { animation: hw-fog 24s ease-in-out -8s infinite alternate-reverse; }
   .sc-flash { animation: hw-flash 13s linear 5s 4; }
   .sc-bolt { animation: hw-bolt 13s linear 5s 4; }
+  .sc-hw-strip--a { animation: hw-strip 30s ease-in-out infinite alternate; }
+  .sc-hw-strip--b { animation: hw-strip 41s ease-in-out -12s infinite alternate-reverse; }
+  .sc-hw-witch { animation: hw-witch 30s linear 3.4s 3 both; }
+  .sc-hw-scarf { animation: hw-scarf .5s ease-in-out infinite alternate; }
+  .sc-hw-scarf + .sc-hw-scarf { animation-delay: -.25s; }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .sc-hw-moon { translate: calc(var(--px, 0) * var(--d, 0px)) calc(var(--py, 0) * var(--d, 0px) * .6); transition: translate .9s var(--ease-out); }
 }
 
 /* At night a lantern follows the mouse over the hero: the scene sinks into the dark around it (glass.js sets
@@ -159,42 +322,548 @@ html[data-season="halloween"] .sc-visitors { display: none; } /* bats own the sk
   html[data-theme="dark"] .hero.is-lit .hw-lantern { opacity: 1; }
 }
 
-/* ---------- Page corners: cobwebs; now and then a bat crosses ---------- */
-.halloween-deco { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-.halloween-web { position: absolute; width: 150px; height: 150px; color: var(--ink); opacity: .16; }
-.halloween-web svg, .halloween-bat svg { display: block; width: 100%; height: 100%; }
-.halloween-web--tl { top: calc(var(--admin-h) + 0px); left: 0; }
-.halloween-web--br { right: 0; bottom: 0; transform: rotate(180deg); }
-.halloween-bat { position: absolute; top: 22%; left: -80px; width: 54px; height: 24px; color: var(--ink); opacity: 0; animation: hw-cross 26s linear 3; }
-.halloween-bat svg { animation: hw-flap .3s ease-in-out infinite alternate; transform-origin: center; }
-.halloween-bat--b { top: 38%; width: 40px; animation-delay: -9s; animation-duration: 31s; }
-.halloween-bat--c { top: 14%; width: 34px; animation-delay: -18s; animation-duration: 37s; }
+/* ---------- 3. Candle-lit frames: a corner web, candle light at the web, a spirit glow opposite ---------- */
+/* background-image only: .lg keeps its glass colour (and its solid fallback). The webs are data URIs, one per theme. */
+html[data-season="halloween"] :is(.block, .hall .board, .hall .ranking) {
+  background-repeat: no-repeat;
+  background-position: right top, 0 0, 0 0;
+  background-size: 112px 112px, auto, auto;
+}
+html[data-season="halloween"]:not([data-theme="dark"]) :is(.block, .hall .board) {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Cpath fill='none' stroke='%232b1430' stroke-opacity='.14' d='M112 0L-57.9 5.9M112 0L-51.4 46.9M112 0L-35.2 85M112 0L-8.2 120.2M112 0L27 147.2M112 0L65.1 163.4M112 0L106.1 169.9M92 0.7Q94.1 2.8 91.5 5.9Q94.2 7.5 92.4 11.3Q95.8 12.5 95.1 16.9Q98.8 17.1 99.4 21.8Q103.1 20.9 104.7 25.5Q108.3 23.6 111 27.8M71 1.4Q75.8 5.7 71.3 11.7Q77.2 14.8 74.2 21.8Q81.1 23.7 80.3 31.7Q87.6 31.8 88.9 40Q95.9 38 98.9 45.7Q105.4 41.9 110.3 48.8M48 2.2Q55.8 8.9 49.2 18Q58.6 22.7 54.3 33.3Q65 36 64 48Q75.3 47.9 77.4 59.9Q88 56.6 92.6 67.8Q102.2 61.8 109.5 71.8M22.1 3.1Q33.2 12.5 24.2 25.2Q37.5 31.6 31.8 46.3Q46.9 50 45.6 66.4Q61.3 66 64.4 82.4Q79 77.6 85.4 92.8Q98.6 84.4 108.6 97.7'/%3E%3C/svg%3E"),
+    radial-gradient(260px 190px at 100% 0%, var(--hw-candle), transparent),
+    radial-gradient(340px 220px at 0% 100%, var(--hw-spirit-glow), transparent);
+}
+html[data-season="halloween"][data-theme="dark"] :is(.block, .hall .board) {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Cpath fill='none' stroke='%23ffe0c8' stroke-opacity='.2' d='M112 0L-57.9 5.9M112 0L-51.4 46.9M112 0L-35.2 85M112 0L-8.2 120.2M112 0L27 147.2M112 0L65.1 163.4M112 0L106.1 169.9M92 0.7Q94.1 2.8 91.5 5.9Q94.2 7.5 92.4 11.3Q95.8 12.5 95.1 16.9Q98.8 17.1 99.4 21.8Q103.1 20.9 104.7 25.5Q108.3 23.6 111 27.8M71 1.4Q75.8 5.7 71.3 11.7Q77.2 14.8 74.2 21.8Q81.1 23.7 80.3 31.7Q87.6 31.8 88.9 40Q95.9 38 98.9 45.7Q105.4 41.9 110.3 48.8M48 2.2Q55.8 8.9 49.2 18Q58.6 22.7 54.3 33.3Q65 36 64 48Q75.3 47.9 77.4 59.9Q88 56.6 92.6 67.8Q102.2 61.8 109.5 71.8M22.1 3.1Q33.2 12.5 24.2 25.2Q37.5 31.6 31.8 46.3Q46.9 50 45.6 66.4Q61.3 66 64.4 82.4Q79 77.6 85.4 92.8Q98.6 84.4 108.6 97.7'/%3E%3C/svg%3E"),
+    radial-gradient(260px 190px at 100% 0%, var(--hw-candle), transparent),
+    radial-gradient(340px 220px at 0% 100%, var(--hw-spirit-glow), transparent);
+}
+/* The ranking mirrors it (web and candle on the left), so the two hall boards face each other. */
+html[data-season="halloween"] .hall .ranking { background-position: left top, 0 0, 0 0; }
+html[data-season="halloween"]:not([data-theme="dark"]) .hall .ranking {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Cpath fill='none' stroke='%232b1430' stroke-opacity='.14' d='M0 0L169.9 5.9M0 0L163.4 46.9M0 0L147.2 85M0 0L120.2 120.2M0 0L85 147.2M0 0L46.9 163.4M0 0L5.9 169.9M20 0.7Q17.9 2.8 20.5 5.9Q17.8 7.5 19.6 11.3Q16.2 12.5 16.9 16.9Q13.2 17.1 12.6 21.8Q8.9 20.9 7.3 25.5Q3.7 23.6 1 27.8M41 1.4Q36.2 5.7 40.7 11.7Q34.8 14.8 37.8 21.8Q30.9 23.7 31.7 31.7Q24.4 31.8 23.1 40Q16.1 38 13.1 45.7Q6.6 41.9 1.7 48.8M64 2.2Q56.2 8.9 62.8 18Q53.4 22.7 57.7 33.3Q47 36 48 48Q36.7 47.9 34.6 59.9Q24 56.6 19.4 67.8Q9.8 61.8 2.5 71.8M89.9 3.1Q78.8 12.5 87.8 25.2Q74.5 31.6 80.2 46.3Q65.1 50 66.4 66.4Q50.7 66 47.6 82.4Q33 77.6 26.6 92.8Q13.4 84.4 3.4 97.7'/%3E%3C/svg%3E"),
+    radial-gradient(260px 190px at 0% 0%, var(--hw-candle), transparent),
+    radial-gradient(340px 220px at 100% 100%, var(--hw-spirit-glow), transparent);
+}
+html[data-season="halloween"][data-theme="dark"] .hall .ranking {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Cpath fill='none' stroke='%23ffe0c8' stroke-opacity='.2' d='M0 0L169.9 5.9M0 0L163.4 46.9M0 0L147.2 85M0 0L120.2 120.2M0 0L85 147.2M0 0L46.9 163.4M0 0L5.9 169.9M20 0.7Q17.9 2.8 20.5 5.9Q17.8 7.5 19.6 11.3Q16.2 12.5 16.9 16.9Q13.2 17.1 12.6 21.8Q8.9 20.9 7.3 25.5Q3.7 23.6 1 27.8M41 1.4Q36.2 5.7 40.7 11.7Q34.8 14.8 37.8 21.8Q30.9 23.7 31.7 31.7Q24.4 31.8 23.1 40Q16.1 38 13.1 45.7Q6.6 41.9 1.7 48.8M64 2.2Q56.2 8.9 62.8 18Q53.4 22.7 57.7 33.3Q47 36 48 48Q36.7 47.9 34.6 59.9Q24 56.6 19.4 67.8Q9.8 61.8 2.5 71.8M89.9 3.1Q78.8 12.5 87.8 25.2Q74.5 31.6 80.2 46.3Q65.1 50 66.4 66.4Q50.7 66 47.6 82.4Q33 77.6 26.6 92.8Q13.4 84.4 3.4 97.7'/%3E%3C/svg%3E"),
+    radial-gradient(260px 190px at 0% 0%, var(--hw-candle), transparent),
+    radial-gradient(340px 220px at 100% 100%, var(--hw-spirit-glow), transparent);
+}
 @media (max-width: 600px) {
-  .halloween-web { width: 96px; height: 96px; }
-  .halloween-web--br { display: none; } /* the tab bar sits there */
+  html[data-season="halloween"] :is(.block, .hall .board, .hall .ranking) { background-size: 72px 72px, auto, auto; }
 }
 
+/* Spiders hanging into the gaps under the lines block and the departure board (::after is free outside Giáng sinh). */
+html[data-season="halloween"] :is(.lines .block, .hall .board)::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 14%;
+  width: 18px;
+  height: 34px;
+  pointer-events: none;
+  background: no-repeat center bottom / 18px 34px;
+  transform-origin: top center;
+}
+html[data-season="halloween"]:not([data-theme="dark"]) :is(.lines .block, .hall .board)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 34'%3E%3Cpath d='M9 0v22' stroke='%234a2340' stroke-opacity='.5'/%3E%3Cpath fill='none' stroke='%232b1430' stroke-width='1.1' stroke-linecap='round' d='M6.4 24.6Q3 21.4 1.4 23.6M5.8 26.2Q2 25.2.6 27.8M5.8 27.8Q2.2 29 1.6 32.4M6.8 29.4Q4.6 31.8 4.2 33.6M11.6 24.6Q15 21.4 16.6 23.6M12.2 26.2Q16 25.2 17.4 27.8M12.2 27.8Q15.8 29 16.4 32.4M11.2 29.4Q13.4 31.8 13.8 33.6'/%3E%3Ccircle cx='9' cy='21.6' r='2.4' fill='%232b1430'/%3E%3Ccircle cx='9' cy='26.8' r='4' fill='%232b1430'/%3E%3Ccircle cx='8.1' cy='21.2' r='.5' fill='%23ff922b'/%3E%3Ccircle cx='9.9' cy='21.2' r='.5' fill='%23ff922b'/%3E%3C/svg%3E");
+}
+html[data-season="halloween"][data-theme="dark"] :is(.lines .block, .hall .board)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 34'%3E%3Cpath d='M9 0v22' stroke='%23ffd2aa' stroke-opacity='.6'/%3E%3Cpath fill='none' stroke='%236b3f78' stroke-width='1.1' stroke-linecap='round' d='M6.4 24.6Q3 21.4 1.4 23.6M5.8 26.2Q2 25.2.6 27.8M5.8 27.8Q2.2 29 1.6 32.4M6.8 29.4Q4.6 31.8 4.2 33.6M11.6 24.6Q15 21.4 16.6 23.6M12.2 26.2Q16 25.2 17.4 27.8M12.2 27.8Q15.8 29 16.4 32.4M11.2 29.4Q13.4 31.8 13.8 33.6'/%3E%3Cg fill='%236b3f78' stroke='%23ffaa5a' stroke-opacity='.8' stroke-width='.6'%3E%3Ccircle cx='9' cy='21.6' r='2.4'/%3E%3Ccircle cx='9' cy='26.8' r='4'/%3E%3C/g%3E%3Ccircle cx='8.1' cy='21.2' r='.55' fill='%23ffd166'/%3E%3Ccircle cx='9.9' cy='21.2' r='.55' fill='%23ffd166'/%3E%3C/svg%3E");
+}
+@media (max-width: 600px) {
+  html[data-season="halloween"] :is(.lines .block, .hall .board)::after { height: 20px; }
+}
+
+/* Eyebrows: a little jack-o'-lantern instead of the gradient pill; its face flickers (not on the reader page). */
+html[data-season="halloween"] .eyebrow i {
+  position: relative;
+  width: 22px;
+  height: 14px;
+  border-radius: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 14'%3E%3Cpath fill='%233f6b2a' d='M10.2 2.8Q10.3.6 12.5.4l.4 1Q11.5 1.8 11.5 3z'/%3E%3Cellipse cx='6.6' cy='8.2' rx='5.8' ry='5.6' fill='%23f76707'/%3E%3Cellipse cx='15.4' cy='8.2' rx='5.8' ry='5.6' fill='%23f76707'/%3E%3Cellipse cx='11' cy='8.1' rx='5.4' ry='5.9' fill='%23ff8a1f'/%3E%3Cpath fill='%23ffb000' d='M6.4 7.4l2-2.4 1.3 2.6zM15.6 7.4l-2-2.4-1.3 2.6zM5.8 9.6q5.2 4.4 10.4 0l-1.3.8-1.2-.8-1.3 1-1.4-1-1.3 1-1.3-1-1.2.8z'/%3E%3C/svg%3E") center / 22px 14px no-repeat;
+}
+html[data-season="halloween"] .eyebrow i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 14'%3E%3Cpath fill='%23ffe066' d='M6.4 7.4l2-2.4 1.3 2.6zM15.6 7.4l-2-2.4-1.3 2.6zM5.8 9.6q5.2 4.4 10.4 0l-1.3.8-1.2-.8-1.3 1-1.4-1-1.3 1-1.3-1-1.2.8z'/%3E%3C/svg%3E") center / 22px 14px no-repeat;
+}
+html[data-season="halloween"][data-theme="dark"] .eyebrow i { filter: drop-shadow(0 0 5px #ff8a1f); }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-season="halloween"] :is(.lines .block, .hall .board)::after { animation: hw-swing 4.6s ease-in-out infinite alternate; }
+  html[data-season="halloween"] .hall .board::after { animation-delay: -2.3s; }
+  html[data-season="halloween"] body:not(.single-chapter) .eyebrow i::after { animation: hw-flicker 2.6s steps(1) infinite; }
+  html[data-season="halloween"] body:not(.single-chapter) .section:nth-child(even) .eyebrow i::after { animation-delay: -1.3s; }
+}
+
+/* ---------- 4. Page-wide layer: "Ga nửa đêm" (template-parts/decor-halloween.php) ---------- */
+/* Fixed behind every block (inc/decor.php); --sy is the scroll offset in px. Paint order = DOM order. */
+.decor--halloween > :not(.hw-sprite), .hw-night > * { position: absolute; }
+.hw-wash { inset: 0; background: var(--hw-wash); }
+
+/* Cut paper: every figure is drawn twice, the copy offset under it (paper edge in Sáng, rim light in Tối). */
+:where(.decor--halloween svg:not(.hw-sprite)) { display: block; width: 100%; height: 100%; overflow: visible; }
+.decor--halloween .hw-cut { fill: var(--hw-cut); opacity: var(--hw-cut-o); transform: translate(var(--hw-cut-x), var(--hw-cut-y)); }
+.hw-bat use:not(.hw-cut) { fill: var(--hw-silhouette); }
+/* At night a bat is a dusk-purple body under a full moonlit rim, with an ember glow behind it, so it reads as a bat
+   anywhere in the sky, not only against the moon. */
+html[data-theme="dark"] .hw-bat use:not(.hw-cut) { fill: #3a1d44; }
+html[data-theme="dark"] .hw-bat .hw-cut { opacity: 1; transform: translate(0, -2px); }
+html[data-theme="dark"] .hw-bat::before { content: ""; position: absolute; z-index: -1; inset: -60% -25%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 146, 43, .32), transparent); }
+
+/* Far field (depth .12): embers in Sáng, stars in Tối. Two identical tiles, so the drift loops without a seam. */
+.hw-far, .hw-near { left: 0; top: 0; width: 100%; height: calc(var(--hw-tile) * 2); will-change: translate; }
+.hw-far { translate: 0 calc(-1 * mod(calc(var(--sy) * .12px), var(--hw-tile))); }
+.hw-near { translate: 0 calc(-1 * mod(calc(var(--sy) * .35px), var(--hw-tile))); }
+.hw-far__tile, .hw-near__tile { position: absolute; left: 0; top: 0; width: 100%; height: var(--hw-tile); }
+.hw-far__tile + .hw-far__tile, .hw-near__tile + .hw-near__tile { top: var(--hw-tile); }
+.hw-star { position: absolute; width: var(--s); height: var(--s); border-radius: 50%; background: var(--hw-star); opacity: var(--o); }
+/* Sáng: embers big enough to see on the cream ground, each with a paper-pale ring and a warm glow (static). */
+html:not([data-theme="dark"]) .hw-star { opacity: .85; width: calc(var(--s) + 1.5px); height: calc(var(--s) + 1.5px); box-shadow: 0 0 0 1px rgba(255, 214, 160, .7), 0 0 8px 2px rgba(255, 146, 43, .45); }
+.hw-star--t { animation: hw-twinkle var(--td) ease-in-out var(--tdl) infinite alternate; }
+.hw-star--b { width: calc(var(--s) + 1px); height: calc(var(--s) + 1px); }
+html[data-theme="dark"] :is(.hw-star--t, .hw-star--b) { box-shadow: 0 0 6px 1px rgba(255, 232, 204, .6); } /* static */
+/* Dust: a fine star field (Tối) or ember haze (Sáng) painted once per tile, no animation. Co-prime tile sizes keep
+   the repeat from reading as a grid. */
+.hw-far__tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--hw-dust-o);
+  background-image:
+    radial-gradient(1px 1px at 13% 21%, var(--hw-star), transparent),
+    radial-gradient(1px 1px at 37% 64%, var(--hw-star), transparent),
+    radial-gradient(1.5px 1.5px at 71% 12%, var(--hw-star), transparent),
+    radial-gradient(1px 1px at 88% 47%, var(--hw-star), transparent),
+    radial-gradient(1.5px 1.5px at 4% 83%, var(--hw-star), transparent),
+    radial-gradient(1px 1px at 56% 91%, var(--hw-star), transparent);
+  background-size: 233px 271px, 307px 349px, 389px 233px, 271px 307px, 349px 389px, 211px 251px;
+}
+.decor--halloween .hw-spark { position: absolute; width: 8px; height: 8px; fill: var(--hw-star); opacity: .8; }
+
+/* Fog: a 200%-wide band of two identical tiles drifting left; lobes at 0% and 100% join across the seam. Each band
+   reaches 80px below the screen, so lifting it on scroll never shows its edge. */
+.hw-fog { left: 0; bottom: -80px; width: 200%; background-repeat: repeat-x; background-size: 50% 100%; pointer-events: none; }
+.hw-fog--back {
+  height: calc(30vh + 80px);
+  background-image:
+    radial-gradient(18% 46% at 0% 66%, var(--hw-fog-1), transparent),
+    radial-gradient(18% 46% at 100% 66%, var(--hw-fog-1), transparent),
+    radial-gradient(21% 42% at 33% 70%, var(--hw-fog-1), transparent),
+    radial-gradient(20% 50% at 67% 62%, var(--hw-fog-1), transparent),
+    radial-gradient(64% 46% at 50% 100%, var(--hw-fog-under), transparent);
+  animation: hw-fogdrift 170s linear infinite;
+  translate: 0 clamp(-35px, calc(var(--sy) * -.015px), 0px);
+}
+.hw-fog--front {
+  height: calc(26vh + 80px);
+  opacity: .8;
+  background-image:
+    radial-gradient(16% 44% at 0% 74%, var(--hw-fog-2), transparent),
+    radial-gradient(16% 44% at 100% 74%, var(--hw-fog-2), transparent),
+    radial-gradient(20% 40% at 30% 80%, var(--hw-fog-2), transparent),
+    radial-gradient(22% 46% at 66% 72%, var(--hw-fog-2), transparent);
+  animation: hw-fogdrift 120s linear infinite, hw-fogswell var(--hw-cycle) linear var(--hw-start) 3 both;
+  translate: 0 clamp(-70px, calc(var(--sy) * -.03px), 0px);
+}
+
+/* The night: moon, rail, the express and the bat burst. Inner pages: up from the start, a little parallax. Home:
+   it rises and fades in only after the hero moon has scrolled away, so there are never two moons.
+   --hw-mr anchors the moon to the gutter: its round left limb starts just outside the blocks' edge, so it is whole on
+   wide screens, cropped by the screen edge on narrower ones, and never sits behind text (a bright moon seen through
+   the Tối glass drops ink-3 and the accent below 4.5:1). The burst and the express stop follow it. */
+.hw-night { inset: 0; will-change: translate, opacity; translate: 0 clamp(-40px, calc(var(--sy) * -.05px), 0px); --hw-mr: calc(var(--hw-gutter) - 330px); }
+body.home .hw-night { translate: 0 calc(clamp(0, 900 - var(--sy), 900) * .45px); opacity: clamp(0, calc((var(--sy) - 350) / 400), 1); }
+
+/* A big harvest moon rising off the right edge: the 440px disc sits in a 660px box (centre at 330), its left limb
+   on the blocks' edge (box x 157, the mask is opaque from x 150), the rest beyond the screen on narrower desktops, so
+   the arc in the gutter reads as one big moon. Its halo is a sibling with the same box and no mask: the moonlight
+   bleeds warmly through the right edge of every block. */
+:is(.hw-moon, .hw-moon-halo) { position: absolute; width: 660px; height: 660px; right: calc(var(--hw-mr) - 180px); top: calc(var(--admin-h) + 13vh - 180px); }
+.hw-moon {
+  --hw-moon-edge: 150px;
+  -webkit-mask-image: linear-gradient(to right, transparent calc(var(--hw-moon-edge) - 32px), #000 var(--hw-moon-edge));
+  mask-image: linear-gradient(to right, transparent calc(var(--hw-moon-edge) - 32px), #000 var(--hw-moon-edge));
+}
+.hw-moon-halo::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(closest-side, var(--hw-halo), transparent); opacity: .6; animation: hw-halo var(--hw-cycle) linear var(--hw-start) 3 both; }
+.decor--halloween .hw-moon__svg { position: absolute; left: 110px; top: 110px; width: 440px; height: 440px; opacity: var(--hw-moon-o); }
+.hw-moon__ring { fill: none; stroke: var(--hw-ring); stroke-width: 1; stroke-dasharray: 3 7; vector-effect: non-scaling-stroke; }
+.hw-moon__rim { fill: var(--hw-moon-c); display: none; }
+/* Sáng: a cut-paper harvest moon, the face lifted off an orange paper edge, the cloud bands outlined in ink. */
+html:not([data-theme="dark"]) .hw-moon__rim { display: inline; fill: #ff922b; opacity: .55; }
+html:not([data-theme="dark"]) .hw-moon__face { transform: translate(-7px, -7px); }
+html:not([data-theme="dark"]) .hw-ribbon path:not(.hw-ribbon__rim) { stroke: rgba(43, 20, 48, .18); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.hw-moon__crater { fill: var(--hw-crater); }
+.hw-ribbon { fill: var(--hw-ribbon); transform-box: fill-box; animation: hw-ribbon 38s linear -11s infinite; }
+.hw-ribbon .hw-ribbon__rim { fill: none; stroke: var(--hw-ribbon-rim); stroke-width: 2; stroke-linecap: round; }
+.hw-ribbon--2 { animation-duration: 52s; animation-delay: -30s; }
+.hw-ribbon--3 { animation-duration: 66s; animation-delay: -47s; }
+/* At rest (reduced motion) a single band of cloud crosses the moon. */
+
+.hw-rail {
+  left: 0;
+  right: 0;
+  height: 2px;
+  top: calc(var(--admin-h) + 13vh + 222px);
+  background: repeating-linear-gradient(90deg, var(--hw-rail) 0 3px, transparent 3px 10px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  opacity: 0;
+  animation: hw-railfade var(--hw-cycle) linear var(--hw-start) 3 both;
+}
+
+/* The ghost express (nose on the left, like the hero tram): glides in, pauses over the moon, departs. */
+.hw-express {
+  left: 0;
+  top: calc(var(--admin-h) + 13vh + 152px);
+  width: 240px;
+  height: 72px;
+  opacity: 0;
+  --hw-x-stop: min(calc(100vw - var(--hw-mr) - 270px), calc(100vw - 270px)); /* over the moon, or at the edge */
+  animation: hw-express var(--hw-cycle) linear var(--hw-start) 3 both;
+}
+.hwd-xbody { fill: var(--hw-express); stroke: var(--hw-express-line); stroke-width: 1.5; }
+.hwd-panto { fill: none; stroke: var(--hw-panto); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.decor--halloween { --hw-win-paint: url(#hwd-win-g); }
+.hwd-wins { fill: var(--hw-win-paint); }
+.hwd-plate { fill: var(--hw-express-win); }
+.hwd-plate { opacity: .5; }
+.hwd-rider { fill: var(--hw-passenger); }
+.hwd-bogie { fill: var(--hw-bogie); }
+.hwd-wheels { fill: var(--hw-bogie); stroke: var(--hw-express-line); stroke-width: 1.2; }
+.hwd-lamp { fill: var(--hw-lamp); }
+.hwd-wins { animation: hw-winflick 2.7s steps(1) infinite; }
+.hwd-zap { fill: var(--hw-zap); transform-box: fill-box; transform-origin: center; transform: scale(0); animation: hw-zap var(--hw-cycle) linear var(--hw-start) 3 both; }
+/* The cut copy: the whole silhouette in Sáng; in Tối only a rim of the outline, so the ghost stays see-through. */
+.hw-express .hw-cut { --hw-express: var(--hw-cut); --hw-express-win: var(--hw-cut); --hw-win-paint: var(--hw-cut); --hw-passenger: var(--hw-cut); --hw-ghost-eye: var(--hw-cut); --hw-bogie: var(--hw-cut); --hw-panto: var(--hw-cut); --hw-lamp: var(--hw-cut); }
+html[data-theme="dark"] .hw-express .hw-cut { --hw-express: transparent; --hw-express-line: var(--hw-cut); --hw-express-win: transparent; --hw-win-paint: transparent; --hw-passenger: transparent; --hw-ghost-eye: transparent; --hw-bogie: transparent; --hw-lamp: transparent; }
+
+/* Bats burst out of the moon as the express reaches it. */
+.hw-burst { right: calc(var(--hw-mr) + 150px); top: calc(var(--admin-h) + 13vh + 150px); width: 0; height: 0; }
+.hw-burst .hw-bat { position: absolute; left: 0; top: 0; width: 44px; height: 20px; opacity: 0; animation: hw-burstout var(--hw-cycle) cubic-bezier(.2, .7, .3, 1) calc(var(--hw-start) + var(--i) * .25s) 3 both; }
+.hw-bat svg { transform-origin: center; animation: hw-flapd .28s ease-in-out infinite alternate; }
+.hw-burst .hw-bat:nth-child(3n + 1) svg { animation-duration: .24s; }
+.hw-burst .hw-bat:nth-child(3n + 2) svg { animation-duration: .34s; }
+
+/* Home, 601-1640px: the cover cards fill the band the express crosses and the gutter (24-200px) would only show a
+   slab of the big moon, so the moment is restaged in the right gutter. The moon shrinks to 0.6 around its centre,
+   its limb still on the blocks' edge, so the gutter holds its left half (whole from about 1600px); the express glides
+   in across it, docks with its nose at the blocks' edge (lamp and beam glowing through the glass, the ghost rider and
+   the cat in the gutter), then departs behind the blocks; the bats burst from the moon and stream up and down the
+   gutter, the ones flying left diving behind the glass. */
+@media (min-width: 601px) and (max-width: 1640px) {
+  body.home :is(.hw-moon, .hw-moon-halo) { scale: .6; right: calc(var(--hw-gutter) - 438px); }
+  body.home .hw-rail { display: none; }
+  body.home .hw-express { top: calc(var(--admin-h) + 13vh + 112px); --hw-x-dock: calc(100vw - var(--hw-gutter) - 8px); animation-name: hw-express-dock; }
+  body.home .hw-burst { right: calc(var(--hw-gutter) * .45); }
+  body.home .hw-burst .hw-bat { width: 52px; height: 24px; animation-name: hw-burstout-gutter; }
+}
+
+/* Ghosts rising out of the fog (the front band sits above them). --rest is where they wait with reduced motion. */
+.hw-ghosts { inset: 0; }
+.hw-ghost { position: absolute; left: var(--gx); bottom: 0; width: var(--gw); aspect-ratio: 100 / 110; transform: translateY(var(--rest)); animation: hw-rise var(--gd) ease-in-out var(--gdl) infinite; }
+.hw-ghost__in { position: relative; display: block; width: 100%; height: 100%; opacity: var(--go, 1); }
+.hw-ghost__in::before { content: ""; position: absolute; z-index: -1; inset: -30%; border-radius: 50%; background: radial-gradient(closest-side, var(--hw-ghost-halo), transparent); }
+/* A hugs the blocks' left edge and only rises to mid-screen (hw-rise-low): the top of the left gutter belongs to the
+   web and its spider, so they never meet however narrow the gutter. */
+.hw-ghost--a {
+  --gw: clamp(52px, calc(var(--hw-gutter) - 36px), 84px);
+  --gx: max(-26px, calc(var(--hw-gutter) - var(--gw) - 14px));
+  --rest: -22vh;
+  --gd: 41s;
+  --gdl: -6s;
+  animation-name: hw-rise-low;
+}
+/* B (with the lantern) stays whole inside the right gutter, clear of the right-aligned pills and links. */
+.hw-ghost--b { --gw: clamp(64px, calc(var(--hw-gutter) - 12px), 118px); --gx: calc(100% - var(--gw) - 6px); --rest: -12vh; --gd: 55s; --gdl: -31s; aspect-ratio: 128 / 120; }
+/* Home: at load A is already up beside the headline, past the hero's pumpkins; B waits (dissolved) and only shows
+   once the hero, with its catenary pole in the right gutter, has scrolled away. */
+body.home .hw-ghost--a { --gdl: -24s; --rest: -40vh; } /* at rest beside the lede, above the pumpkins */
+body.home .hw-ghost--b { --gdl: -48s; }
+@media (min-width: 601px) {
+  body.home .hw-ghost--b .hw-ghost__in { opacity: calc(var(--go, 1) * clamp(0, (var(--sy) - 400) / 300, 1)); }
+}
+.hw-ghost--c { --gw: 46px; --go: .4; --rest: -12vh; --gd: 34s; --gdl: -14s; }
+.hw-ghost--d { --gw: 58px; --go: .35; --rest: -40vh; --gd: 47s; --gdl: -40s; }
+.hwd-gbody { fill: var(--hw-ghost); stroke: var(--hw-ghost-line); stroke-width: 1.5; stroke-linejoin: round; }
+.hwd-eye { fill: var(--hw-ghost-eye); }
+.hwd-blush { fill: var(--hw-blush); }
+.hwd-bail { fill: none; stroke: var(--hw-bail); stroke-width: 1.4; stroke-linecap: round; }
+.hwd-jackface { fill: #ffe066; animation: hw-flicker 2.6s steps(1) infinite; }
+.hw-ghost .hw-cut { --hw-ghost: var(--hw-ghost-cut); --hw-ghost-line: transparent; --hw-ghost-eye: var(--hw-ghost-cut); --hw-blush: transparent; --hw-bail: transparent; }
+html[data-theme="dark"] .hw-ghost .hw-cut { display: none; }
+
+/* The horizon: a static cut-paper skyline at the foot of the screen (a bare tree with a lit pumpkin, gravestones,
+   crooked fences, a stop with a witch-hat roof, a station lamp), under the front fog, so the ghosts rise from the
+   mist behind it. Two ends anchored to the screen edges: they show in the gutters and through the gaps. */
+.hw-skyline { left: 0; right: 0; bottom: 0; height: 90px; opacity: var(--hw-sky-o); }
+.hw-skyline > span { position: absolute; bottom: 0; width: 420px; height: 90px; }
+@media (min-width: 1200px) {
+  .hw-skyline { height: 108px; }
+  .hw-skyline > span { width: 504px; height: 108px; }
+}
+.hw-skyline__l { left: 0; }
+.hw-skyline__r { right: 0; }
+html:not([data-theme="dark"]) .hw-skyline__l {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(var(--hw-gutter) - 8px), rgba(0, 0, 0, .3) calc(var(--hw-gutter) + 28px));
+  mask-image: linear-gradient(to right, #000 calc(var(--hw-gutter) - 8px), rgba(0, 0, 0, .3) calc(var(--hw-gutter) + 28px));
+}
+html:not([data-theme="dark"]) .hw-skyline__r {
+  -webkit-mask-image: linear-gradient(to left, #000 calc(var(--hw-gutter) - 8px), rgba(0, 0, 0, .3) calc(var(--hw-gutter) + 28px));
+  mask-image: linear-gradient(to left, #000 calc(var(--hw-gutter) - 8px), rgba(0, 0, 0, .3) calc(var(--hw-gutter) + 28px));
+}
+.hw-skyline use:not(.hw-cut) { fill: var(--hw-silhouette); stroke: var(--hw-silhouette); }
+.hw-skyline .hw-cut { stroke: var(--hw-cut); --hw-lamp: var(--hw-cut); --hw-sky-glow: none; }
+.hwd-lampglow { fill: var(--hw-sky-glow, url(#hwd-lampglow-g)); }
+/* A narrow gutter only has room for the lamp and its glow: the witch-hat stop would poke out of the block's corner. */
+@media (max-width: 1640px) {
+  .hwd-stop { display: none; }
+}
+
+/* Near field (depth .35): two big glows per tile, candle light and spirit light, drifting under the blocks' glass
+   (the glass blurs them into light passing behind it); then the wisps. */
+.hw-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  margin: -210px 0 0 -210px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--hw-glow-c), transparent);
+  opacity: .9;
+  animation: hw-glowdrift 70s ease-in-out infinite alternate;
+}
+.hw-glow--alt { --hw-glow-c: var(--hw-glow-c2); animation-duration: 93s; animation-delay: -40s; }
+
+/* Wisps: spirit wisps in Tối, candle flames in Sáng, in the gutters and the right half. */
+.hw-wisp {
+  position: absolute;
+  width: var(--w);
+  height: calc(var(--w) * 1.2);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle, var(--hw-wisp-core) 0 16%, var(--hw-wisp) 36%, transparent 70%);
+  opacity: .6;
+  animation: hw-wisp var(--wd) ease-in-out var(--wdl) infinite;
+}
+.hw-wisp--alt { --hw-wisp: var(--hw-wisp-alt); --hw-wisp-core: var(--hw-wisp-alt-core); }
+html[data-theme="dark"] .hw-wisp { background: radial-gradient(circle, var(--hw-wisp-core) 0 9%, var(--hw-wisp) 28%, transparent 64%); }
+html[data-theme="dark"] .hw-wisp::after { opacity: .22; }
+.hw-wisp::after { content: ""; position: absolute; z-index: -1; inset: -70%; border-radius: 50%; background: radial-gradient(closest-side, var(--hw-wisp), transparent); opacity: .3; }
+/* Sáng: each wisp is a small floating candle flame: a teardrop (a square with one sharp corner, turned so the
+   point is up) with a hot yellow core low in it, fading to a soft orange tip. */
+html:not([data-theme="dark"]) .hw-wisp {
+  width: calc(var(--w) * .62);
+  height: calc(var(--w) * .62);
+  border-radius: 0 50% 50% 50%;
+  rotate: 45deg;
+  background: radial-gradient(circle at 64% 64%, #fff3b0 0 14%, #ffd75e 30%, var(--hw-wisp) 54%, rgba(255, 140, 30, .4) 80%, rgba(255, 140, 30, 0) 100%);
+}
+html:not([data-theme="dark"]) .hw-wisp::after { opacity: .18; }
+
+/* Two lone bats far behind, frozen mid-sky with reduced motion. */
+.hw-lone { inset: 0; }
+.hw-lone .hw-bat { position: absolute; left: 0; top: 34%; width: 40px; height: 18px; opacity: .5; transform: translate(26vw, 0); animation: hw-cross2 48s linear -20s infinite; }
+.hw-lone .hw-bat + .hw-bat { top: 58%; width: 30px; height: 14px; transform: translate(64vw, 0); animation-duration: 61s; animation-delay: -44s; }
+.hw-lone .hw-bat svg { animation-duration: .3s; }
+
+/* The corner web, and a spider that lowers on its thread as the page scrolls (and climbs back up). The foot of the
+   right gutter is the horizon's (lamp, fence), so there is no second web. */
+.decor--halloween .hw-web { width: 140px; height: 140px; overflow: hidden; }
+.hw-web--tl { left: 0; top: var(--admin-h); }
+.hwd-web { fill: none; stroke: var(--hw-web); stroke-width: 1; }
+.hwd-dew { fill: var(--hw-dew); }
+.hw-thread { left: 64px; top: calc(var(--admin-h) + 40px); width: 1px; height: 32px; background: var(--hw-thread); transform-origin: top; scale: 1 calc(1 + min(var(--sy), 900) * .00625); }
+.decor--halloween .hw-spider { left: 55px; top: calc(var(--admin-h) + 62px); width: 18px; height: 20px; fill: var(--hw-spider); translate: 0 calc(min(var(--sy), 900) * .2px); animation: hw-bob 4s ease-in-out infinite alternate; }
+.hw-spider__legs { fill: none; stroke: var(--hw-spider); stroke-width: 1.2; stroke-linecap: round; }
+.hw-spider__eye { fill: #ff922b; }
+/* Tối: a moonlit rim on the body, like the bats' rim, and amber eyes. */
+html[data-theme="dark"] .decor--halloween .hw-spider circle:not(.hw-spider__eye) { stroke: rgba(255, 170, 90, .7); stroke-width: .7; }
+html[data-theme="dark"] .hw-spider__eye { fill: #ffd166; }
+
+@media (max-width: 600px) {
+  /* Phones: the blocks fill the width, so the night moves above the page head. The moon rises behind the header pill
+     (glass), its lower limb peeking below it on the right, and fades out as the content scrolls in (with reduced
+     motion --sy stays 0, so the mask comes back instead). The express runs in the band between the pill and the
+     eyebrow, clear of the title, and stops over the moon; the bats burst out from behind the pill. */
+  :is(.hw-moon, .hw-moon-halo) { width: 330px; height: 330px; right: -150px; top: calc(var(--admin-h) - 120px); opacity: clamp(0, 1 - var(--sy) / 240, 1); }
+  .hw-moon { --hw-moon-edge: calc(200px - var(--hw-gutter)); -webkit-mask-image: none; mask-image: none; }
+  html[data-season="halloween"][data-theme="dark"] { --hw-moon-o: .7; --hw-halo: rgba(255, 150, 60, .2); }
+  /* Home: the night (and its moon) only comes once the hero is gone, so the moon stays and peeks in the corner,
+     behind the blocks, dimmer at night. */
+  body.home :is(.hw-moon, .hw-moon-halo) { opacity: 1; }
+  html[data-theme="dark"] body.home .decor--halloween { --hw-moon-o: .3; --hw-halo: rgba(255, 160, 70, .16); } /* AA for the text over it, measured */
+  .decor--halloween .hw-moon__svg { left: 65px; top: 65px; width: 200px; height: 200px; }
+  .hw-ribbon--3 { display: none; }
+  .hw-rail { top: calc(var(--admin-h) + 70px + 33px); }
+  .hw-express { width: 116px; height: 35px; top: calc(var(--admin-h) + 70px); --hw-x-stop: calc(100vw - 132px); }
+  .hwd-wins { animation: none; }
+  .hw-burst { right: 15px; top: calc(var(--admin-h) + 40px); }
+  .hw-burst .hw-bat:nth-child(n + 5) { display: none; }
+  body.home .hw-night { translate: 0 calc(clamp(0, 1100 - var(--sy), 1100) * .3px); opacity: clamp(0, calc((var(--sy) - 700) / 300), 1); }
+  /* Edge peekers: half of each ghost shows in the 16px margin, the rest glows through the blocks' glass, never under
+     a line of text. B is mirrored so its lantern faces in. */
+  .hw-ghost--a { left: -26px; --gw: 64px; --go: .9; }
+  .hw-ghost--b { left: auto; right: -30px; --gw: 72px; --go: .9; animation-name: hw-rise-low; } /* stays below the page head */
+  .hw-ghost--b .hw-ghost__in { scale: -1 1; }
+  html[data-theme="dark"] :is(.hw-ghost--a, .hw-ghost--b) { --go: .6; }
+  .hw-ghost--c, .hw-ghost--d { display: none; }
+  /* Wisps in the two edge lanes only (odd ones right, even ones left), swaying a little, so they show beside the
+     blocks and bloom through the glass. */
+  .hw-near__tile .hw-wisp { left: calc(var(--lane, 0) * (100% - 14px) - 6px) !important; width: 22px; height: 26px; animation-name: hw-wisp-edge; }
+  .hw-near__tile .hw-wisp:nth-child(odd) { --lane: 1; width: 20px; height: 24px; }
+  html:not([data-theme="dark"]) .hw-near__tile .hw-wisp { width: 15px; height: 15px; }
+  html:not([data-theme="dark"]) .hw-near__tile .hw-wisp:nth-child(odd) { width: 13px; height: 13px; }
+  .hw-near__tile .hw-wisp:nth-child(n + 6) { display: none; } /* 2 glows, then 3 wisps */
+  .hw-glow { width: 220px; height: 220px; margin: -110px 0 0 -110px; }
+  .hw-glow--alt { display: none; }
+  .hw-skyline { height: 56px; }
+  .hw-skyline > span { width: 261px; height: 56px; }
+  .hw-far__tile .hw-star:nth-of-type(n + 9) { display: none; }
+  .hw-star--t { animation: none; }
+  .hw-lone, .hw-fog--back { display: none; }
+  .hw-fog--front { height: calc(18vh + 80px); }
+  .decor--halloween .hw-web { width: 92px; height: 92px; }
+  .hw-thread { left: 42px; }
+  .decor--halloween .hw-spider { left: 33px; }
+}
+
+/* ---------- Keyframes ---------- */
 @keyframes hw-flap { from { transform: scaleY(1); } to { transform: scaleY(.45); } }
+@keyframes hw-flapd { from { transform: scaleY(1); } to { transform: scaleY(.35); } }
 @keyframes hw-drift { 0%, 100% { translate: 0 0; } 50% { translate: -18px 10px; } }
 @keyframes hw-dangle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(26px); } }
 @keyframes hw-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
 @keyframes hw-flicker { 0%, 100% { opacity: 1; } 42% { opacity: .78; } 44% { opacity: 1; } 71% { opacity: .86; } }
 @keyframes hw-burst { from { transform: translate(var(--fx), var(--fy)) scale(.15) rotate(-25deg); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
 @keyframes hw-ignite { 0% { fill: #5a2408; } 22% { fill: #ffe066; } 30% { fill: #5a2408; } 46% { fill: #ffd43b; } 54% { fill: #7a3510; } 70%, 100% { fill: #ffe066; } }
+@keyframes hw-pool-on { 0% { opacity: 0; } 22% { opacity: .8; } 30% { opacity: .1; } 46% { opacity: .9; } 54% { opacity: .3; } 70%, 100% { opacity: 1; } }
 @keyframes hw-fog { from { transform: translateX(-60px); } to { transform: translateX(80px); } }
 @keyframes hw-flash { 0%, 100% { opacity: 0; } .6% { opacity: .2; } 1.4% { opacity: 0; } 2.4% { opacity: .12; } 3.6% { opacity: 0; } }
 @keyframes hw-bolt { 0%, 100% { opacity: 0; } .6% { opacity: 1; } 1.4% { opacity: 0; } 2.4% { opacity: .7; } 3.6% { opacity: 0; } }
 html:not([data-theme="dark"]) .sc-flash { animation-name: hw-flash-day; }
 @keyframes hw-flash-day { 0%, 100% { opacity: 0; } .6% { opacity: .12; } 1.4% { opacity: 0; } 2.4% { opacity: .08; } 3.6% { opacity: 0; } }
-@keyframes hw-cross {
-  0% { transform: translate(0, 0); opacity: 0; }
-  2% { opacity: .55; }
-  18% { transform: translate(calc(100vw + 160px), -60px); opacity: .55; }
-  19%, 100% { transform: translate(calc(100vw + 160px), -60px); opacity: 0; }
+@keyframes hw-strip { from { transform: translateX(-60px); } to { transform: translateX(60px); } }
+@keyframes hw-scarf { from { transform: skewX(-8deg); } to { transform: skewX(8deg); } }
+@keyframes hw-witch {
+  0% { transform: translate(240px, 4px) rotate(0deg); opacity: 0; }
+  1.5% { opacity: 1; }
+  12% { transform: translate(-120px, -8px) rotate(-4deg); }
+  24% { transform: translate(-480px, -22px) rotate(-1deg); opacity: 1; }
+  25%, 100% { transform: translate(-480px, -22px) rotate(-1deg); opacity: 0; }
 }
+@keyframes hw-swing { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+
+@keyframes hw-twinkle { from { opacity: .25; } to { opacity: 1; } }
+@keyframes hw-fogdrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes hw-fogswell { 0%, 100% { opacity: .8; } 2%, 12% { opacity: 1; } 14% { opacity: .8; } }
+@keyframes hw-halo { 0%, 2.5%, 9%, 100% { opacity: .6; } 4%, 7% { opacity: 1; } }
+@keyframes hw-ribbon { 0% { transform: translateX(55%); opacity: 0; } 10%, 90% { opacity: 1; } 100% { transform: translateX(-55%); opacity: 0; } }
+@keyframes hw-railfade { 0%, 14%, 100% { opacity: 0; } 1%, 12% { opacity: .5; } }
+/* Arrival eases out onto the moon, departure eases in, like a train leaving a platform. The wheels stay on the rail. */
+@keyframes hw-express {
+  0% { transform: translateX(calc(100vw + 40px)); opacity: 0; animation-timing-function: cubic-bezier(.25, .7, .35, 1); }
+  1% { opacity: 1; }
+  3.2% { transform: translateX(var(--hw-x-stop)); animation-timing-function: cubic-bezier(.55, 0, .8, .5); }
+  13% { transform: translateX(-300px); opacity: 1; }
+  13.5%, 100% { transform: translateX(-300px); opacity: 0; }
+}
+/* Home, narrow gutter: in over the moon, a dwell at the platform edge, then off behind the blocks. */
+@keyframes hw-express-dock {
+  0% { transform: translateX(calc(100vw + 40px)); opacity: 0; animation-timing-function: cubic-bezier(.25, .7, .35, 1); }
+  1% { opacity: 1; }
+  3.2%, 9% { transform: translateX(var(--hw-x-dock)); animation-timing-function: cubic-bezier(.55, 0, .8, .5); }
+  13% { transform: translateX(-300px); opacity: 1; }
+  13.5%, 100% { transform: translateX(-300px); opacity: 0; }
+}
+@keyframes hw-winflick { 0%, 16%, 50%, 85%, 100% { opacity: 1; } 12%, 81% { opacity: .55; } 47% { opacity: .7; } }
+@keyframes hw-zap {
+  0%, 1.5%, 2.2%, 5%, 5.6%, 9%, 9.6%, 100% { transform: scale(0); }
+  1.85%, 5.3%, 9.3% { transform: scale(1); }
+}
+@keyframes hw-burstout {
+  0%, 2.8% { transform: translate(-50%, -50%) rotate(0deg) scale(.3); opacity: 0; }
+  3.4% { opacity: .95; }
+  9% { opacity: .9; }
+  12%, 100% { transform: translate(var(--tx), var(--ty)) rotate(var(--r)) scale(var(--s)); opacity: 0; }
+}
+/* Narrow gutter: the swarm streams up and down the gutter column; the flights that head left dive behind the glass. */
+@keyframes hw-burstout-gutter {
+  0%, 2.8% { transform: translate(-50%, -50%) rotate(0deg) scale(.3); opacity: 0; }
+  3.4% { opacity: .95; }
+  9% { opacity: .9; }
+  12%, 100% { transform: translate(calc(var(--ux) * var(--hw-gutter) * .8), calc(var(--ty) * .9)) rotate(var(--r)) scale(var(--s)); opacity: 0; }
+}
+/* They dissolve around -80vh, before reaching the header. */
+@keyframes hw-rise {
+  0% { transform: translate(0, 30vh) rotate(0deg); opacity: 0; }
+  8% { opacity: 1; }
+  12% { transform: translate(18px, 13vh) rotate(4deg); }
+  25% { transform: translate(-22px, -5vh) rotate(-5deg); }
+  38% { transform: translate(28px, -23vh) rotate(3deg); }
+  50% { transform: translate(-18px, -40vh) rotate(-4deg); }
+  63% { transform: translate(22px, -58vh) rotate(4deg); }
+  72% { opacity: 1; }
+  76% { transform: translate(-26px, -76vh) rotate(-3deg); }
+  86%, 100% { opacity: 0; }
+  100% { transform: translate(0, -110vh) rotate(0deg); }
+}
+/* Ghost A: a calmer sway, dissolving by mid-screen (its top never above about 40% of the screen). */
+@keyframes hw-rise-low {
+  0% { transform: translate(0, 30vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  16% { transform: translate(14px, 12vh) rotate(4deg); }
+  33% { transform: translate(-16px, -8vh) rotate(-5deg); }
+  50% { transform: translate(14px, -26vh) rotate(3deg); }
+  66% { transform: translate(-12px, -42vh) rotate(-4deg); opacity: 1; }
+  80%, 100% { opacity: 0; }
+  100% { transform: translate(0, -62vh) rotate(0deg); }
+}
+@keyframes hw-glowdrift { from { transform: translate(-60px, -30px) scale(.9); } to { transform: translate(60px, 40px) scale(1.1); } }
+@keyframes hw-wisp {
+  0%, 100% { transform: translate(0, 0); opacity: .35; }
+  20% { transform: translate(21px, 51px); opacity: .9; }
+  40% { transform: translate(-34px, 32px); opacity: .5; }
+  60% { transform: translate(34px, -32px); opacity: .8; }
+  80% { transform: translate(-21px, -51px); opacity: .4; }
+}
+@keyframes hw-cross2 {
+  0% { transform: translate(-80px, 0); opacity: 0; }
+  1% { opacity: .5; }
+  6% { transform: translate(25vw, -30px); }
+  12% { transform: translate(55vw, 20px); }
+  18% { transform: translate(80vw, -16px); }
+  22% { transform: translate(calc(100vw + 80px), 0); opacity: .5; }
+  22.5%, 100% { transform: translate(calc(100vw + 80px), 0); opacity: 0; }
+}
+@keyframes hw-wisp-edge {
+  0%, 100% { transform: translate(0, 0); opacity: .35; }
+  20% { transform: translate(6px, 51px); opacity: .9; }
+  40% { transform: translate(-8px, 32px); opacity: .5; }
+  60% { transform: translate(8px, -32px); opacity: .8; }
+  80% { transform: translate(-6px, -51px); opacity: .4; }
+}
+@keyframes hw-bob { from { transform: translateY(-3px); } to { transform: translateY(3px); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .sc-halloween *, .sc-halloween, .halloween-bat, .halloween-bat svg { animation: none !important; }
-  .halloween-bat { display: none; }
+  .hw-ribbon--1, .hw-ribbon--3 { display: none; }
+  /* decor.css freezes .decor * but not pseudo-elements: the halo's flash runs on ::before. */
+  .hw-moon-halo::before { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 600px) {
+  .hw-moon {
+    -webkit-mask-image: linear-gradient(to right, transparent calc(var(--hw-moon-edge) - 10px), #000 calc(var(--hw-moon-edge) + 16px));
+    mask-image: linear-gradient(to right, transparent calc(var(--hw-moon-edge) - 10px), #000 calc(var(--hw-moon-edge) + 16px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-halloween *, .sc-halloween { animation: none !important; }
   .hw-lantern { transition: none; }
+  html[data-season="halloween"] .eyebrow i::after, html[data-season="halloween"] :is(.block, .hall .board)::after { animation: none; }
 }

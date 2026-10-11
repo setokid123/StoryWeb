@@ -3,10 +3,11 @@
  * Seasonal looks (Giao diện → Giao diện theo mùa, the "Giao diện mùa" item on the admin bar, or the Customizer).
  * Each season re-colours the whole site through the CSS tokens (assets/css/season-<name>.css, Sáng and Tối) and
  * dresses the home scene (template-parts/scene.php):
- * - Halloween: pumpkin orange and witch purple; bats, pumpkins, a ghost, a spider, storm and fog; cobwebs and bats
- *   on the other pages; the hero chip leads to horror stories.
+ * - Halloween: pumpkin orange and witch purple; bats, pumpkins, a ghost, a spider, storm and fog; the hero chip
+ *   leads to horror stories.
  * - Giáng sinh: cranberry, pine and candle gold; snow, a snow-capped tram with fairy lights, a lit tree by the
  *   rail, Santa's sleigh across the sky; snow on the blocks; the hero chip leads to sweet stories.
+ * Each season also has its page-wide decoration (inc/decor.php, template-parts/decor-<name>.php).
  * Off, one of them, or automatic by date (site time): Halloween 15/10 – 2/11, Giáng sinh the whole of December.
  * Layout and features stay the same; the reader page only takes the colours, nothing moves while reading.
  *
@@ -91,22 +92,6 @@ add_action(
 	20
 );
 
-// Cobwebs in two page corners and a few bats crossing the sky now and then (not on the reader page).
-add_action(
-	'wp_footer',
-	static function () {
-		if ( 'halloween' !== thu_cac_season() || is_singular( 'chapter' ) ) {
-			return;
-		}
-		$web = '<svg viewBox="0 0 120 120"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M0 0L120 120M0 0L120 40M0 0L40 120M0 0L120 80M0 0L80 120"/><path d="M0 22Q14 16 22 0M0 46Q30 34 46 0M0 72Q46 54 72 0M0 98Q62 74 98 0" /><path d="M14 30Q24 26 30 14M30 62Q50 52 62 30M46 94Q76 78 94 46"/></g></svg>';
-		$bat = '<svg viewBox="0 0 64 28"><path fill="currentColor" d="M32 10c2-4 4-5 4-5l1 4c3-1 6 0 8 2 3-5 10-8 19-6-5 2-8 6-8 10-4-2-9-1-12 2-2-3-6-4-9-2-3-2-7-1-9 2-3-3-8-4-12-2 0-4-3-8-8-10 9-2 16 1 19 6 2-2 5-3 8-2l1-4s2 1 4 5z"/></svg>';
-		printf(
-			'<div class="halloween-deco" aria-hidden="true"><span class="halloween-web halloween-web--tl">%1$s</span><span class="halloween-web halloween-web--br">%1$s</span><span class="halloween-bat halloween-bat--a">%2$s</span><span class="halloween-bat halloween-bat--b">%2$s</span><span class="halloween-bat halloween-bat--c">%2$s</span></div>',
-			$web, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed SVG markup.
-			$bat // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed SVG markup.
-		);
-	}
-);
 
 /*
  * Quick switch without the Customizer: a "Giao diện mùa" item on the admin bar (on the site and in wp-admin) and

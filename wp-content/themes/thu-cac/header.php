@@ -27,7 +27,7 @@ if ( current_user_can( 'edit_posts' ) ) {
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div class="sky" aria-hidden="true"><i class="sky__orb sky__orb--a"></i><i class="sky__orb sky__orb--b"></i><i class="sky__orb sky__orb--c"></i><i class="sky__tone"></i></div>
+<div class="sky" aria-hidden="true"><i class="sky__orb sky__orb--a"></i><i class="sky__orb sky__orb--b"></i><i class="sky__orb sky__orb--c"></i><i class="sky__tone"></i><?php thu_cac_decor_layer(); ?></div>
 <a class="skip-link screen-reader-text" href="#main-content">Bỏ qua tới nội dung</a>
 <header class="site-header">
 	<div class="site-header__bar">

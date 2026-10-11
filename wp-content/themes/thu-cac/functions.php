@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THU_CAC_VERSION', '0.3.5' );
+define( 'THU_CAC_VERSION', '0.4.0' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/template-tags.php';
@@ -17,6 +17,7 @@ require_once get_template_directory() . '/inc/rest.php';
 require_once get_template_directory() . '/inc/share.php';
 require_once get_template_directory() . '/inc/ranking.php';
 require_once get_template_directory() . '/inc/season.php';
+require_once get_template_directory() . '/inc/decor.php';
 
 add_action(
 	'after_setup_theme',

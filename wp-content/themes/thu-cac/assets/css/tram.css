@@ -35,8 +35,8 @@
   --grad-text: linear-gradient(100deg, #5a49ff 0%, #a23cf0 48%, #e8457f 92%);
 
   --orb-a: rgba(255, 168, 214, .78);
-  --orb-b: rgba(150, 190, 255, .72);
-  --orb-c: rgba(200, 170, 255, .7);
+  --orb-b: rgba(138, 198, 255, .74);
+  --orb-c: rgba(255, 200, 170, .6);
   --tone: rgba(84, 58, 190, .16);
 
   --glass-fill: rgba(255, 255, 255, .48);
@@ -54,9 +54,9 @@
   --paper: rgba(255, 255, 255, .86);
   --paper-ink: #231f48;
 
-  --sc-glow: #ffc4e2;
+  --sc-glow: #ffcdd0;
   --sc-sun-a: #fffaf2;
-  --sc-sun-b: #ffb3d4;
+  --sc-sun-b: #ffb2a8;
   --sc-ring: rgba(255, 255, 255, .78);
   --sc-wire: rgba(44, 30, 110, .5);
   --sc-pole: #3b2f86;
@@ -83,7 +83,7 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0d0b22;
+  --bg: #0a0920;
   --ink: #f1eeff;
   --ink-2: #bdb6e6;
   --ink-3: #9a93c7;
@@ -97,7 +97,7 @@
 
   --orb-a: rgba(96, 52, 230, .55);
   --orb-b: rgba(255, 46, 136, .26);
-  --orb-c: rgba(0, 150, 255, .24);
+  --orb-c: rgba(34, 196, 255, .22);
   --tone: rgba(205, 190, 255, .1);
 
   --glass-fill: rgba(34, 28, 80, .42);
@@ -114,9 +114,9 @@
   --seg-track: rgba(0, 0, 0, .28);
   --paper: rgba(21, 17, 49, .86);
   --paper-ink: #ebe7ff;
-  --veil-tint: rgba(13, 11, 34, .5);
+  --veil-tint: rgba(10, 9, 32, .5);
 
-  --sc-glow: #5434d4;
+  --sc-glow: #5b3de2;
   --sc-sun-a: #f6f2ff;
   --sc-sun-b: #b4a2ff;
   --sc-ring: rgba(196, 178, 255, .36);
@@ -128,7 +128,7 @@
   --sc-page: #ebe5ff;
   --sc-page-ink: #8f78ff;
   --sc-spark: #fff3c4;
-  --sc-star: rgba(255, 255, 255, .85);
+  --sc-star: rgba(255, 255, 255, .95);
   --sc-window: #ffcf6e;
   --sc-rail: rgba(205, 195, 255, .35);
 }
@@ -1527,3 +1527,96 @@ html[data-reader-chrome="auto"] .reader-veil { display: none; }
   .lg, .button, .reader-article, .pager .page-numbers { border: 1px solid CanvasText; }
   .lg::before, .lg-glow::after { display: none; }
 }
+
+/* ---------- 18. Plain-look decoration ---------- */
+/* Only for the plain look (no data-season; seasons dress the same frames their own way): a neon "light rail" with a
+   gold star perched on every frame's top edge, a lit signal lamp in the eyebrows, neon headings and departure board
+   by night, metal medals for the top three, and the hero's sun rays and bell ring. The page-wide sky is decor.css. */
+html:not([data-season]) {
+  --orn-a: #7c5cff;
+  --orn-b: #ff5fa2;
+  --orn-gold: #f2a93b;
+  --orn-glow: rgba(255, 111, 165, .45);
+  --orn-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath fill='%23f2a93b' d='M0-10C.9-3.2 3.2-.9 10 0 3.2.9.9 3.2 0 10-.9 3.2-3.2.9-10 0-3.2-.9-.9-3.2 0-10z'/%3E%3Ccircle r='1.5' fill='%23fff'/%3E%3C/svg%3E");
+  --sc-ray: #ffffff;
+  --sc-ray-o: .34;
+}
+html:not([data-season])[data-theme="dark"] {
+  --orn-a: #a58bff;
+  --orn-b: #ff92c0;
+  --orn-gold: #ffd27a;
+  --orn-glow: rgba(255, 146, 192, .5);
+  --orn-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath fill='%23ffd27a' d='M0-10C.9-3.2 3.2-.9 10 0 3.2.9.9 3.2 0 10-.9 3.2-3.2.9-10 0-3.2-.9-.9-3.2 0-10z'/%3E%3Ccircle r='1.5' fill='%23fff'/%3E%3C/svg%3E");
+  --sc-ray: #c4b2ff;
+  --sc-ray-o: .14;
+}
+/* Light rail: a 2px neon line on the straight part of the top rim (between the rounded corners) ending in a gold
+   star sitting on the edge. Drawn with backgrounds (not a mask), so the glow follows the line and the star. In the
+   hall the ranking's rail is mirrored, so the two stars sit on the outer corners. */
+html:not([data-season]) :is(.block, .hall .board, .ranking)::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  top: -11px;
+  height: 22px;
+  pointer-events: none;
+  background:
+    var(--orn-star) right center / 22px 22px no-repeat,
+    linear-gradient(90deg, transparent, var(--orn-a) 16%, var(--orn-b) 58%, var(--orn-gold)) left center / calc(100% - 26px) 2px no-repeat;
+  filter: drop-shadow(0 0 5px var(--orn-glow));
+}
+html:not([data-season]) .hall .ranking::after {
+  background:
+    var(--orn-star) left center / 22px 22px no-repeat,
+    linear-gradient(270deg, transparent, var(--orn-a) 16%, var(--orn-b) 58%, var(--orn-gold)) right center / calc(100% - 26px) 2px no-repeat;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-season]) :is(.block, .hall .board, .ranking)::after { animation: orn-breathe 6s ease-in-out infinite alternate; }
+  html:not([data-season]) .section--block:nth-of-type(2n) :is(.block, .board)::after { animation-delay: -3s; }
+  html:not([data-season]) .hall .ranking::after { animation-delay: -1.5s; }
+}
+@keyframes orn-breathe { from { opacity: .7; } to { opacity: 1; } }
+@media (max-width: 600px) {
+  html:not([data-season]) :is(.block, .hall .board, .ranking)::after { left: 24px; right: 24px; top: -9px; height: 18px; background-size: 18px 18px, calc(100% - 21px) 2px; }
+}
+/* Signal lamp in the eyebrows. */
+html:not([data-season]) .eyebrow i {
+  background: linear-gradient(90deg, var(--orn-a), var(--orn-b) 60%, var(--orn-gold));
+  box-shadow: 0 0 10px var(--orn-glow), inset 0 1px 0 rgba(255, 255, 255, .55);
+}
+/* Night: neon headings and a glowing departure board (the clock is gradient text: a filter, never text-shadow). */
+html:not([data-season])[data-theme="dark"] :is(.hero__title, .section-title, .page-title) em {
+  filter: drop-shadow(0 0 14px rgba(255, 111, 165, .28)) drop-shadow(0 0 2px rgba(199, 155, 255, .45));
+}
+html:not([data-season])[data-theme="dark"] .board__clock time { filter: drop-shadow(0 0 12px rgba(199, 155, 255, .5)); }
+html:not([data-season])[data-theme="dark"] .board-row__time { text-shadow: 0 0 12px rgba(165, 139, 255, .45); }
+/* Gold, silver and bronze for the top three (large text, at least 3:1). background-image only: .is-top clips the
+   background to the text. */
+html:not([data-season]) .rank-row__no.is-top-1 { background-image: linear-gradient(160deg, #c2680a, #db2777); }
+html:not([data-season]) .rank-row__no.is-top-2 { background-image: linear-gradient(160deg, #5b5f9a, #8b7fd0); }
+html:not([data-season]) .rank-row__no.is-top-3 { background-image: linear-gradient(160deg, #b4532a, #c2417a); }
+html:not([data-season])[data-theme="dark"] .rank-row__no.is-top-1 { background-image: linear-gradient(160deg, #ffd27a, #ff92c0); }
+html:not([data-season])[data-theme="dark"] .rank-row__no.is-top-2 { background-image: linear-gradient(160deg, #f1eeff, #a9a3d6); }
+html:not([data-season])[data-theme="dark"] .rank-row__no.is-top-3 { background-image: linear-gradient(160deg, #ffb38a, #ff8fb0); }
+/* Hero: the illustration fades in at its top too, so the sun's glow and its rays never end on a hard horizontal edge
+   (9% of 720 = 65 units, above the moon's top at y 68). */
+html:not([data-season]) .scene {
+  -webkit-mask-image: linear-gradient(transparent 0, #000 9%, #000 78%, transparent);
+  mask-image: linear-gradient(transparent 0, #000 9%, #000 78%, transparent);
+}
+/* Hero: light shafts by day, moonbeams by night, swaying slowly (they continue the page-wide ray fan); the dashed
+   dial turns; the bell ring pulses once when the tram has arrived (4.2s), just before the Express leaves (4.5s). */
+html:not([data-season]) .sc-rays { opacity: var(--sc-ray-o); }
+html:not([data-season]) .sc-launch { fill: none; stroke: var(--sc-ring); stroke-width: 2; opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-season]) .sc-rays { transform-box: view-box; transform-origin: 1110px 210px; animation: sc-ray-sway 36s ease-in-out infinite alternate; }
+  html:not([data-season]) .sc-ring--dash { transform-box: fill-box; transform-origin: center; animation: sc-dial 180s linear infinite; }
+  html:not([data-season]) .sc-launch { transform-box: fill-box; transform-origin: center; animation: sc-launch 1.2s ease-out 4.2s 1 both; }
+}
+@media (prefers-reduced-motion: no-preference) and (max-width: 600px) {
+  html:not([data-season]) .sc-rays { animation: none; }
+}
+@keyframes sc-ray-sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes sc-dial { to { transform: rotate(360deg); } }
+@keyframes sc-launch { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }

@@ -1,0 +1,651 @@
+/*
+ * Page-wide decoration layer (inc/decor.php). It sits inside .sky (position fixed, z-index -1), after the orbs,
+ * so it is behind every block: the glass blurs what drifts behind it and text is never covered. --sy is the page's
+ * scroll offset (a px number, set by assets/js/decor.js) for parallax: e.g. translate: 0 calc(var(--sy) * -.2px).
+ * Seasons style their own layer in season-<name>.css.
+ */
+
+.decor { position: absolute; inset: 0; overflow: hidden; pointer-events: none; --sy: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .decor, .decor *, .decor *::before, .decor *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Plain look (.decor--default, template-parts/decor.php) ---------- */
+/* "Sân ga trên mây": the whole page is the sky the tram crosses. Particles (.dc-p) sit at --x / --y and rise at
+   their own depth (--k) while the page scrolls, wrapping around a band --m taller than the screen above and below,
+   so the sky never runs out. Ambient keyframes run on the particle's inner child (transform / opacity only); the
+   scroll offset moves the wrapper (translate). Day (Sáng) and night (Tối) show different parts (.dc-day / .dc-night). */
+.decor--default {
+  /* Day: violet, pink and gold confetti (white would vanish on the pale sky behind white glass). */
+  --dc-far: #c4b5fd;
+  --dc-w: #a78bfa;
+  --dc-warm: #f2a93b;
+  --dc-rose: #f472b6;
+  --dc-cool: #60a5fa;
+  --dc-twin: transparent;
+  --dc-halo: rgba(196, 181, 253, .32);
+  --dc-near: #8b5cf6;
+  --dc-near-stroke: transparent;
+  --dc-spark: #8b5cf6;
+  --dc-spark-b: #ec4899;
+  --dc-spark-o: .95;
+  --dc-line-a: #5b6cff;
+  --dc-line-b: #9a4dff;
+  --dc-line-c: #ff5fa2;
+  --dc-line-o: .5;
+  --dc-stn-core: #8b5cf6;
+  --dc-stn-halo: rgba(167, 139, 250, .3);
+  --dc-stn-stroke: #7c5cff;
+  --dc-label: rgba(106, 61, 245, .6);
+  --dc-bead: #f2a93b;
+  --dc-bead-halo: rgba(255, 255, 255, .9);
+  --dc-page: #ffffff;
+  --dc-page-ink: #b3a0ff;
+  --dc-spark-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 20 20'%3E%3Cpath d='M0-10C.9-3.2 3.2-.9 10 0 3.2.9.9 3.2 0 10-.9 3.2-3.2.9-10 0-3.2-.9-.9-3.2 0-10z'/%3E%3C/svg%3E");
+  /* Sao Băng Express / paper squadron. Flight 1 enters at x0/y0, bends at xm/ym and leaves at y1; flights 2 and 3
+     cross the whole screen (f2*, f3*). Every page starts top right; the home page launches it from the moon. */
+  --x0: 108vw;
+  --y0: 30px;
+  --a0: -4deg;
+  --xm: 60vw;
+  --ym: 96px;
+  --am: 1deg;
+  --y1: 120px;
+  --a1: -2deg;
+  --xdl: 8s;
+  --xsc: 1;
+  --f2y0: 16vh;
+  --f2y1: 74vh;
+  --f2a: -13deg;
+  --f3y0: calc(100vh - 150px);
+  --f3y1: calc(100vh - 120px);
+  --f3a: -1deg;
+}
+[data-theme="dark"] .decor--default {
+  --dc-far: #d9d0ff;
+  --dc-w: #ffffff;
+  --dc-warm: #ffe2b0;
+  --dc-rose: #ffb3d6;
+  --dc-cool: #bfe3ff;
+  --dc-twin: transparent;
+  --dc-halo: rgba(255, 255, 255, .16);
+  --dc-near: #ffffff;
+  --dc-near-stroke: transparent;
+  --dc-spark: #fff3c4;
+  --dc-spark-b: #ffffff;
+  --dc-spark-o: .7;
+  --dc-line-a: #93a2ff;
+  --dc-line-b: #c79bff;
+  --dc-line-c: #ff92c0;
+  --dc-line-o: .5;
+  --dc-stn-core: #ffffff;
+  --dc-stn-halo: rgba(255, 255, 255, .2);
+  --dc-stn-stroke: #ffffff;
+  --dc-label: rgba(241, 238, 255, .5);
+  --dc-bead: #ffcf6e;
+  --dc-bead-halo: rgba(255, 231, 168, .45);
+  --dc-page: #ebe5ff;
+  --dc-page-ink: #8f78ff;
+}
+[data-theme="dark"] .decor--default .dc-day { display: none; }
+:root:not([data-theme="dark"]) .decor--default .dc-night { display: none; }
+
+/* The sheets are wider than the screen and the Express hangs off a zero-size point: no max-width from the base rule. */
+.decor--default svg { max-width: none; }
+/* The shared shapes. Its own --sy stays 0, so a scroll does not restyle the pattern tiles. */
+.decor--default .dc-defs { position: absolute; width: 0; height: 0; overflow: hidden; --sy: 0; }
+
+/* Particle engine: the wrapper drifts with the scroll and wraps around; its child carries the ambient motion. */
+.decor--default .dc-p {
+  position: absolute;
+  left: var(--x);
+  top: calc(-1 * var(--m, 8lvh));
+  width: var(--s);
+  height: var(--s);
+  translate: 0 mod(calc(var(--y) - var(--sy) * var(--k) * 1px), calc(100lvh + 2 * var(--m, 8lvh)));
+  will-change: transform;
+}
+
+/* 1. Milky Way (night) and sun rays (day): they only slide or tilt while scrolling. */
+.decor--default .dc-milky {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: 160vmax;
+  height: 34vh;
+  margin: -17vh 0 0 -80vmax;
+  transform: rotate(-24deg);
+  /* Only the coloured band: the far star sheet is its dust (a dot grid here would beat against the screentone). */
+  background: linear-gradient(90deg, transparent, rgba(150, 170, 255, .16) 30%, rgba(255, 190, 230, .2) 55%, rgba(110, 200, 255, .14) 75%, transparent);
+  -webkit-mask-image: linear-gradient(transparent, #000 35%, #000 65%, transparent);
+  mask-image: linear-gradient(transparent, #000 35%, #000 65%, transparent);
+  translate: 0 max(-30vh, calc(var(--sy) * -.05px));
+  will-change: transform;
+}
+.decor--default .dc-rays {
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(60% 50% at 82% 0, rgba(255, 214, 196, .45), transparent);
+  transform-origin: 82% -6%;
+  rotate: max(-8deg, calc(var(--sy) * -.006deg));
+  will-change: transform;
+}
+.decor--default .dc-rays::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Each ray feathers out at its edge, so a block cutting across it never leaves a hard stripe. */
+  background: repeating-conic-gradient(from 200deg at 82% -6%, rgba(255, 255, 255, .42) 0 1.6deg, rgba(255, 255, 255, .14) 3.4deg, transparent 5deg 11deg);
+  -webkit-mask-image: radial-gradient(circle at 82% -6%, #000 0, transparent 52%);
+  mask-image: radial-gradient(circle at 82% -6%, #000 0, transparent 52%);
+}
+/* Home: the hero's sun has its own fan; this one takes over as the hero scrolls away (no crossing lattices). */
+body.home .decor--default .dc-rays::before { opacity: clamp(0, calc((var(--sy) - 200) / 500), 1); }
+
+/* 2. Star sheets: three pattern tiles at three depths. Mid and near stream down-left from the moon's corner (about
+   7 and 17px a second), like snow; behind the frosted blocks they turn into moving glitter. Each moving sheet is one
+   tile larger than the screen on every side it can slide from (scroll: up, stream: down-left). */
+.decor--default .dc-field { position: absolute; left: 0; overflow: visible; will-change: transform; }
+.decor--default .dc-field--far { top: 0; width: 100%; height: calc(100% + 480px); translate: 0 calc(-1 * mod(var(--sy) * .03px, 480px)); }
+.decor--default .dc-field--mid {
+  top: -560px;
+  width: calc(100% + 560px);
+  height: calc(100% + 1120px);
+  translate: 0 calc(-1 * mod(var(--sy) * .06px, 560px));
+  animation: dc-stream-mid 80s linear infinite;
+}
+.decor--default .dc-field--near {
+  top: -1120px;
+  width: calc(100% + 1120px);
+  height: calc(100% + 2240px);
+  translate: 0 calc(-1 * mod(var(--sy) * .1px, 1120px));
+  animation: dc-stream-near 64s linear infinite;
+}
+@keyframes dc-stream-mid { to { transform: translate3d(-560px, 560px, 0); } }
+@keyframes dc-stream-near { to { transform: translate3d(-1120px, 1120px, 0); } }
+.dc-s-far { fill: var(--dc-far); }
+.dc-s-w { fill: var(--dc-w); }
+.dc-s-warm { fill: var(--dc-warm); }
+.dc-s-rose { fill: var(--dc-rose); }
+.dc-s-cool { fill: var(--dc-cool); }
+.dc-s-twin { fill: var(--dc-twin); }
+.dc-s-halo { fill: var(--dc-halo); }
+.dc-s-near { fill: var(--dc-near); stroke: var(--dc-near-stroke); stroke-width: .6; }
+.dc-s-spark { fill: var(--dc-spark); opacity: var(--dc-spark-o); }
+.dc-s-spark--b { fill: var(--dc-spark-b); }
+
+/* 3. Sparkles: a four-point star with a soft halo, breathing. */
+.decor--default .dc-tw::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--s) * -1);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--halo), transparent);
+}
+.decor--default .dc-tw > b {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--core);
+  opacity: .85;
+  -webkit-mask: var(--dc-spark-mask) center / contain no-repeat;
+  mask: var(--dc-spark-mask) center / contain no-repeat;
+  animation: dc-twinkle var(--t) ease-in-out var(--dl) infinite alternate;
+}
+.decor--default .dc-tw--flash > b { animation-name: dc-twinkle-flash; }
+@keyframes dc-twinkle { from { opacity: .35; transform: scale(.55); } to { opacity: 1; transform: scale(1.1); } }
+@keyframes dc-twinkle-flash { from { opacity: .35; transform: scale(.55); } to { opacity: 1; transform: scale(1.1) rotate(45deg); } }
+.decor--default .dc-tw--a { --core: #ffffff; --halo: rgba(124, 92, 255, .38); }
+.decor--default .dc-tw--b { --core: #8b5cf6; --halo: rgba(255, 255, 255, .85); }
+.decor--default .dc-tw--c { --core: #ec4899; --halo: rgba(255, 255, 255, .85); }
+.decor--default .dc-tw--d { --core: #e8a020; --halo: rgba(255, 255, 255, .8); }
+[data-theme="dark"] .decor--default .dc-tw--a { --core: #ffffff; --halo: rgba(196, 181, 253, .45); }
+[data-theme="dark"] .decor--default .dc-tw--b { --core: #ffe2a8; --halo: rgba(255, 210, 122, .35); }
+[data-theme="dark"] .decor--default .dc-tw--c { --core: #ffc2dd; --halo: rgba(255, 146, 192, .38); }
+[data-theme="dark"] .decor--default .dc-tw--d { --core: #c9e6ff; --halo: rgba(120, 200, 255, .35); }
+
+/* 3b. Flying stars: comets falling down-left across the whole screen, steady like the bats and the snow. Each is a
+   sparkle with a tail and a wide soft glow, so behind the frosted blocks it still passes as a moving light. Invisible
+   over the home headline: they fade in from 220px of scroll; other pages start them at 45% (they are hidden with
+   reduced motion). The path keeps one angle on every screen (both legs in lvh), so the
+   tail points straight back. */
+.decor--default .dc-flys { position: absolute; inset: 0; opacity: clamp(0, calc((var(--sy) - 220) / 380), 1); }
+body:not(.home) .decor--default .dc-flys { opacity: clamp(.45, calc((var(--sy) + 30) / 300), 1); }
+/* Inner pages: comets starting left of 66% would cross the unglazed page title and its subtitle at scroll 0, so they
+   wait for the title to scroll away; the ones further right only brush its end and sparkle from the start. */
+body:not(.home) .decor--default .dc-fly--tz { opacity: clamp(0, calc((var(--sy) - 140) / 260), 1); }
+.decor--default .dc-fly {
+  position: absolute;
+  left: var(--x);
+  top: -14lvh;
+  width: var(--s);
+  height: var(--s);
+  animation: dc-fly var(--t) linear var(--dl) infinite;
+  will-change: transform;
+}
+.decor--default .dc-fly::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--s) * 7);
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--core), var(--tail) 22%, transparent);
+  transform-origin: 0 50%;
+  rotate: -77.7deg;
+}
+.decor--default .dc-fly::after {
+  content: "";
+  position: absolute;
+  inset: -300%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--glow) 0, var(--halo) 13%, color-mix(in srgb, var(--halo) 45%, transparent) 36%, color-mix(in srgb, var(--halo) 15%, transparent) 62%, transparent);
+}
+.decor--default .dc-fly > b {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--core);
+  rotate: var(--r);
+  -webkit-mask: var(--dc-spark-mask) center / contain no-repeat;
+  mask: var(--dc-spark-mask) center / contain no-repeat;
+}
+@keyframes dc-fly { to { transform: translate(-28lvh, 128lvh); } }
+@keyframes dc-fly-edge { to { transform: translateY(128lvh); } }
+.decor--default .dc-fly--a { --core: #8b5cf6; --tail: rgba(139, 92, 246, .5); --glow: rgba(255, 255, 255, .95); --halo: rgba(167, 139, 250, .42); }
+.decor--default .dc-fly--b { --core: #ec4899; --tail: rgba(236, 72, 153, .45); --glow: rgba(255, 255, 255, .95); --halo: rgba(244, 114, 182, .38); }
+.decor--default .dc-fly--c { --core: #f2a93b; --tail: rgba(242, 169, 59, .5); --glow: rgba(255, 255, 255, .95); --halo: rgba(251, 191, 36, .38); }
+[data-theme="dark"] .decor--default .dc-fly--a { --core: #ffffff; --tail: rgba(196, 181, 253, .6); --glow: rgba(255, 255, 255, .6); --halo: rgba(196, 181, 253, .42); }
+[data-theme="dark"] .decor--default .dc-fly--b { --core: #ffe2a8; --tail: rgba(255, 210, 122, .55); --glow: rgba(255, 236, 190, .6); --halo: rgba(255, 210, 122, .36); }
+[data-theme="dark"] .decor--default .dc-fly--c { --core: #ffc2dd; --tail: rgba(255, 146, 192, .55); --glow: rgba(255, 214, 232, .6); --halo: rgba(255, 146, 192, .4); }
+
+/* 4. Constellations: "TUYẾN 2D" (the two D's of the founders) and a tram car, with a lit bead riding the line and
+   pausing at every station. */
+.decor--default .dc-const { width: auto; height: auto; }
+.decor--default .dc-const svg { display: block; overflow: visible; }
+/* A star chart, not a node graph: a dotted figure, soft stars (halo + small core) and three bright sparks. */
+.dc-c-line { fill: none; stroke: url(#dc-line-grad); stroke-width: 1.1; stroke-opacity: var(--dc-line-o); stroke-linecap: round; stroke-linejoin: round; }
+.dc-c-line--dash { stroke: var(--dc-stn-stroke); stroke-opacity: .3; stroke-dasharray: 1 6; }
+.dc-c-halos { fill: var(--dc-stn-halo); }
+.dc-c-stns { fill: var(--dc-stn-core); }
+.dc-c-bright { fill: var(--dc-spark); }
+.dc-c-label { fill: var(--dc-label); font: 700 7.5px var(--font-display); letter-spacing: .3em; }
+.dc-bead__core { fill: var(--dc-bead); }
+.dc-bead__halo { fill: var(--dc-bead-halo); }
+.decor--default .dc-const--2d .dc-bead { animation: dc-route-2d 16s ease-in-out infinite; }
+.decor--default .dc-const--tram .dc-bead { animation: dc-route-tram 20s ease-in-out -7s infinite; }
+@keyframes dc-route-2d {
+  0%, 3.75% { transform: translate(0, 0); }
+  10.64%, 14.39% { transform: translate(29px, 8.6px); }
+  19.87%, 23.62% { transform: translate(40px, 30px); }
+  29.09%, 32.84% { transform: translate(29px, 51.4px); }
+  39.73%, 43.48% { transform: translate(0, 60px); }
+  50%, 53.75% { transform: translate(32px, 60px); }
+  60.64%, 64.39% { transform: translate(61px, 51.4px); }
+  69.87%, 73.62% { transform: translate(72px, 30px); }
+  79.09%, 82.84% { transform: translate(61px, 8.6px); }
+  89.73%, 93.48% { transform: translate(32px, 0); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes dc-route-tram {
+  0%, 3% { transform: translate(0, 20px); }
+  19.47%, 22.47% { transform: translate(48px, 4px); }
+  38.93%, 41.93% { transform: translate(96px, 20px); }
+  52.34%, 55.34% { transform: translate(96px, 52px); }
+  86.59%, 89.59% { transform: translate(0, 52px); }
+  100% { transform: translate(0, 20px); }
+}
+/* Home: between the header and the headline, right of the chip. Other pages have cards up there: the monogram only
+   shows where the right gutter is wide enough for it (never behind a card), centred in it; the tram likewise, in the
+   left gutter (in the right one it would ride along with a tumbling page drifting at nearly the same rate). */
+@media (max-width: 1099.98px) { .decor--default .dc-const--2d { display: none; } }
+@media (max-width: 1599.98px) {
+  body:not(.home) .decor--default .dc-const--2d,
+  .decor--default .dc-const--tram { display: none; }
+}
+.decor--default .dc-const--2d { --x: calc(max(24px, 50% - 620px) + 360px); --y: calc(96px + 18lvh); }
+/* Home: it belongs to the hero, so it drifts away with it instead of wrapping round (its label would turn up in
+   the gaps between blocks further down). */
+body.home .decor--default .dc-const--2d { translate: 0 calc(var(--y) - var(--sy) * var(--k) * 1px); }
+body:not(.home) .decor--default .dc-const--2d { --x: calc(50% + 620px + (50% - 620px) / 2 - 72px); --y: calc(140px + 18lvh); }
+body:not(.home) .decor--default .dc-const--2d svg { width: 144px; height: 83px; }
+
+/* 5. Bokeh (night): lamp light seen through the glass. Glass bubbles (day): a highlight, a bright ring and an
+   iridescent rim. */
+.decor--default .dc-orb > b {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .95) 0 5%, transparent 14%),
+    radial-gradient(closest-side, transparent 72%, rgba(255, 255, 255, .55) 86%, transparent 96%),
+    radial-gradient(closest-side, var(--bub) 0, rgba(255, 255, 255, .12) 70%, transparent);
+  animation: dc-float var(--t) ease-in-out var(--dl) infinite alternate;
+}
+.decor--default .dc-orb > b::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(#ff9ad5, #9be7ff, #c4b5fd, #ffe3a3, #ff9ad5);
+  opacity: .6;
+  -webkit-mask: radial-gradient(closest-side, transparent 92%, #000 94% 98%, transparent);
+  mask: radial-gradient(closest-side, transparent 92%, #000 94% 98%, transparent);
+}
+.decor--default .dc-orb--a { --bub: rgba(196, 181, 253, .34); --o1: rgba(165, 139, 255, .42); --o2: rgba(165, 139, 255, .16); }
+.decor--default .dc-orb--b { --bub: rgba(255, 154, 213, .3); --o1: rgba(255, 111, 165, .36); --o2: rgba(255, 111, 165, .14); }
+.decor--default .dc-orb--c { --bub: rgba(155, 231, 255, .32); --o1: rgba(110, 200, 255, .32); --o2: rgba(110, 200, 255, .12); }
+.decor--default .dc-orb--d { --bub: rgba(255, 227, 163, .36); --o1: rgba(255, 207, 110, .32); --o2: rgba(255, 207, 110, .12); }
+[data-theme="dark"] .decor--default .dc-orb > b { background: radial-gradient(closest-side, var(--o1) 0, var(--o2) 45%, transparent); }
+[data-theme="dark"] .decor--default .dc-orb > b::after { display: none; }
+@keyframes dc-float { from { transform: translate(-12px, 8px) scale(.96); } to { transform: translate(12px, -10px) scale(1.04); } }
+
+/* 6. Story pages tumbling slowly upward. */
+.decor--default .dc-page { height: calc(var(--s) * 1.3); }
+.decor--default .dc-page svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: rotate(var(--r0));
+  animation: dc-tumble var(--t) ease-in-out var(--dl) infinite alternate;
+}
+@keyframes dc-tumble {
+  0% { transform: rotate(var(--r0)); }
+  50% { transform: translate(var(--dx), -30px) rotate(calc(var(--r0) + 20deg)); }
+  100% { transform: translate(calc(var(--dx) * -.4), -60px) rotate(calc(var(--r0) - 8deg)); }
+}
+.dc-page__sheet { fill: var(--dc-page); }
+.dc-page__ink { fill: none; stroke: var(--dc-page-ink); stroke-width: 2; stroke-linecap: round; }
+:root:not([data-theme="dark"]) .decor--default .dc-page svg { filter: drop-shadow(0 4px 6px rgba(84, 58, 190, .18)); }
+[data-theme="dark"] .decor--default .dc-page svg { opacity: .75; }
+[data-theme="dark"] .decor--default .dc-page::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 207, 110, .22), transparent);
+}
+
+/* 7. Cloud sea: rises at the bottom of the screen once the hero is left behind (hidden at the top of the page, so
+   it never doubles the hero's clouds), in the hero's own cloud colours, with a tiny tram on its rail. */
+.decor--default .dc-sea {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  translate: 0 max(0px, calc(170px - var(--sy) * .35px));
+  will-change: transform;
+}
+.decor--default .dc-sea > * { position: absolute; left: 0; bottom: 0; }
+.decor--default .dc-sea__strip { width: 4320px; height: 140px; overflow: visible; }
+.decor--default .dc-sea__strip--back { animation: dc-sea-drift 140s linear infinite; }
+.decor--default .dc-sea__strip--front { animation: dc-sea-drift 90s linear infinite; }
+@keyframes dc-sea-drift { to { transform: translateX(-1440px); } }
+.dc-sea__strip--back .dc-sea__fill { fill: var(--sc-cloud-lo); opacity: .85; }
+.dc-sea__strip--back .dc-sea__rim { fill: var(--sc-cloud-hi); opacity: .6; }
+.dc-sea__strip--front .dc-sea__fill { fill: var(--sc-cloud); }
+.dc-sea__strip--front .dc-sea__rim { fill: var(--sc-cloud-hi); }
+.dc-sea__pole { fill: var(--sc-pole); opacity: .35; }
+.decor--default .dc-sea__wire { width: 100%; height: 140px; overflow: visible; }
+.dc-sea__wire line { stroke: var(--sc-rail); stroke-width: 1.2; }
+.dc-sea__wire .dc-sea__ties { stroke-width: 3; stroke-dasharray: 2 10; }
+.dc-sea__wire .dc-sea__cat { stroke-dasharray: 1 5; stroke-linecap: round; }
+/* --mt-x is where it rests (reduced motion): in the right gutter, clear of the blocks' rails. */
+.decor--default .dc-minitram {
+  --mt-x: 93vw;
+  left: var(--mt-x);
+  bottom: 53px;
+  width: 70px;
+  height: 22px;
+  transform-origin: 50% 100%;
+  animation: dc-minitram 54s linear 20s infinite backwards;
+}
+.decor--default .dc-minitram__bob { display: block; overflow: visible; animation: dc-bob 2.4s ease-in-out infinite alternate; }
+.dc-minitram__panto { fill: none; stroke: var(--sc-pole); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.dc-minitram__win { fill: var(--sc-window); }
+.dc-minitram__bogie { fill: var(--sc-pole); }
+@keyframes dc-minitram {
+  0% { transform: translateX(calc(100vw - var(--mt-x) + 90px)); }
+  48% { transform: translateX(calc(-1 * var(--mt-x) - 90px)); }
+  48.01%, 100% { transform: translateX(calc(-1 * var(--mt-x) - 90px)); }
+}
+@keyframes dc-bob { from { transform: translateY(0); } to { transform: translateY(-1px); } }
+
+/* 8. Events, now and then. */
+/* Shooting stars (night), falling down-left from the moon's corner. */
+.decor--default .dc-shoot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 180px;
+  height: 1.5px;
+  border-radius: 2px;
+  opacity: 0;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, .55) 10%, transparent);
+  transform: rotate(var(--a));
+  animation: dc-shoot var(--t) ease-in var(--dl) 6 both;
+}
+.decor--default .dc-shoot::before {
+  content: "";
+  position: absolute;
+  left: -1.5px;
+  top: -.75px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px #fff;
+}
+.decor--default .dc-shoot--warm { background: linear-gradient(90deg, #ffe2b0, rgba(255, 226, 176, .55) 10%, transparent); }
+.decor--default .dc-shoot--warm::before { background: #ffe2b0; box-shadow: 0 0 6px #ffe2b0; }
+@keyframes dc-shoot {
+  0% { opacity: 0; transform: rotate(var(--a)) translateX(0); }
+  1% { opacity: 1; }
+  5%, 100% { opacity: 0; transform: rotate(var(--a)) translateX(-560px); }
+}
+/* Paper planes (day), crossing left to right with a dotted trail. */
+.decor--default .dc-plane {
+  position: absolute;
+  left: 0;
+  top: var(--y);
+  width: 26px;
+  height: 17px;
+  opacity: 0;
+  animation: dc-plane-cross var(--t) linear var(--dl) 3 both;
+}
+.decor--default .dc-plane svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.decor--default .dc-plane::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  width: 160px;
+  height: 2px;
+  background: radial-gradient(circle, rgba(106, 61, 245, .32) 1px, transparent 1.5px) 0 50% / 8px 2px repeat-x;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+  mask-image: linear-gradient(90deg, transparent, #000);
+}
+.dc-plane__body { fill: #fff; stroke: #b3a0ff; stroke-width: 1.2; stroke-linejoin: round; }
+.dc-plane__fold { fill: none; stroke: #b3a0ff; stroke-width: 1.2; }
+@keyframes dc-plane-cross {
+  0% { opacity: 0; transform: translate(-12vw, 0) rotate(-6deg); }
+  2% { opacity: 1; }
+  10% { transform: translate(20vw, -4vh) rotate(6deg); }
+  20% { transform: translate(50vw, 2vh) rotate(-5deg); }
+  30% { transform: translate(80vw, -3vh) rotate(4deg); }
+  38% { opacity: 1; }
+  40%, 100% { opacity: 0; transform: translate(112vw, 0); }
+}
+/* Sao Băng Express (night) / Phi đội giấy (day): three flights in one 150s run, then never again. The Express faces
+   left: its head is the element's origin and its tails stretch to the right. Crumbs follow the same path a moment
+   later. */
+.decor--default .dc-express, .decor--default .dc-crumb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  animation: dc-express 150s linear var(--xdl) 1 both;
+}
+.decor--default .dc-express { width: 0; height: 0; }
+.decor--default .dc-express > div { position: absolute; left: 0; top: 0; }
+@keyframes dc-express {
+  0% { opacity: 0; transform: translate(var(--x0), var(--y0)) rotate(var(--a0)) scale(calc(var(--xsc) * .4)); animation-timing-function: ease-out; }
+  .15% { opacity: 1; }
+  .55% { transform: translate(var(--xm), var(--ym)) rotate(var(--am)) scale(var(--xsc)); animation-timing-function: ease-in; }
+  2.4% { opacity: 1; }
+  2.5% { opacity: 0; transform: translate(-45vw, var(--y1)) rotate(var(--a1)) scale(var(--xsc)); }
+  2.51%, 33.3% { opacity: 0; transform: translate(112vw, var(--f2y0)) rotate(var(--f2a)) scale(var(--xsc)); }
+  33.45%, 35.9% { opacity: 1; }
+  36% { opacity: 0; transform: translate(-45vw, var(--f2y1)) rotate(var(--f2a)) scale(var(--xsc)); }
+  36.01%, 66.6% { opacity: 0; transform: translate(112vw, var(--f3y0)) rotate(var(--f3a)) scale(var(--xsc)); }
+  66.75%, 69.3% { opacity: 1; }
+  69.4%, 100% { opacity: 0; transform: translate(-45vw, var(--f3y1)) rotate(var(--f3a)) scale(var(--xsc)); }
+}
+.decor--default .dc-x-glow {
+  position: absolute;
+  left: -32px;
+  top: -32px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 236, 190, .55), transparent);
+}
+.decor--default .dc-x-tail {
+  position: absolute;
+  left: 8px;
+  top: -5px;
+  width: 420px;
+  height: 10px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, .95), #ffe7a8 12%, rgba(255, 111, 165, .75) 42%, rgba(165, 139, 255, .35) 70%, transparent);
+  clip-path: polygon(0 0, 100% 45%, 100% 55%, 0 100%);
+}
+.decor--default .dc-x-ion {
+  position: absolute;
+  left: 8px;
+  top: 1px;
+  width: 300px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(142, 203, 255, .8), transparent);
+  clip-path: polygon(0 0, 100% 45%, 100% 55%, 0 100%);
+  transform: rotate(-2.5deg);
+  transform-origin: 0 50%;
+}
+.decor--default .dc-x-tram { position: absolute; left: -22px; top: -9px; overflow: visible; }
+.decor--default .dc-express__day svg { position: absolute; left: 0; top: -22px; overflow: visible; filter: drop-shadow(0 6px 8px rgba(84, 58, 190, .22)); }
+.decor--default .dc-crumb { width: 8px; height: 8px; margin-left: -4px; }
+.decor--default .dc-crumb--1 { animation-delay: calc(var(--xdl) + .12s); margin-top: -10px; }
+.decor--default .dc-crumb--2 { animation-delay: calc(var(--xdl) + .24s); margin-top: 8px; }
+.decor--default .dc-crumb--3 { animation-delay: calc(var(--xdl) + .36s); margin-top: -4px; }
+.decor--default .dc-crumb--4 { animation-delay: calc(var(--xdl) + .48s); margin-top: 12px; }
+/* Night: two sparks and two pages. Day: three pages with a line of ink and one glint. */
+[data-theme="dark"] .decor--default :is(.dc-crumb--1, .dc-crumb--3),
+:root:not([data-theme="dark"]) .decor--default .dc-crumb--4 {
+  background: #fff3c4;
+  -webkit-mask: var(--dc-spark-mask) center / contain no-repeat;
+  mask: var(--dc-spark-mask) center / contain no-repeat;
+}
+:root:not([data-theme="dark"]) .decor--default .dc-crumb--4 { width: 10px; height: 10px; background: #fff; }
+[data-theme="dark"] .decor--default :is(.dc-crumb--2, .dc-crumb--4) { width: 10px; height: 13px; border-radius: 2px; background: #ebe5ff; }
+:root:not([data-theme="dark"]) .decor--default :is(.dc-crumb--1, .dc-crumb--2, .dc-crumb--3) {
+  width: 10px;
+  height: 13px;
+  border-radius: 2px;
+  background: linear-gradient(#b3a0ff, #b3a0ff) 2.5px 4px / 5px 1.5px no-repeat, linear-gradient(#b3a0ff, #b3a0ff) 2.5px 7.5px / 5px 1.5px no-repeat, #fff;
+  box-shadow: 0 2px 4px rgba(84, 58, 190, .2);
+}
+/* Home, wide screens: the Express leaves the moon behind the featured ticket (seen refracted), clears the ticket's
+   top and flies left between the header and the "Ga Trạm Truyện" chip, never across the headline. */
+@media (min-width: 1200px) {
+  body.home .decor--default { --x0: 77vw; --y0: 250px; --a0: 30deg; --xm: 60vw; --ym: 112px; --am: 6deg; --y1: 92px; --a1: 1deg; --xdl: 4.5s; --xsc: 1.35; }
+}
+
+/* Narrow gutters (blocks up to the gutter's edge): a soft cloud bank, not a dotted wire cut off by a block. */
+@media (min-width: 601px) and (max-width: 1599.98px) {
+  .decor--default .dc-sea__cat { display: none; }
+  .decor--default .dc-sea__ties { opacity: .4; }
+}
+
+/* Tablets and phones: the mini tram rides just above the tab bar. */
+@media (max-width: 900px) {
+  .decor--default .dc-sea__wire { bottom: 39px; }
+  .decor--default .dc-minitram { bottom: 92px; }
+}
+/* Phones: fewer particles, one stream, the hero headline kept clear, static clouds behind the tab bar (so its glass
+   is not re-blurred all the time) and a shorter Express flying behind the header glass. */
+@media (max-width: 600px) {
+  .decor--default .dc-field--mid,
+  .decor--default .dc-tws > :nth-child(n+7),
+  .decor--default .dc-orbs > :nth-child(n+5),
+  .decor--default .dc-pages > :nth-child(n+4),
+  .decor--default .dc-in-hero-m,
+  .decor--default .dc-shoot--3,
+  .decor--default .dc-plane--2,
+  .decor--default .dc-crumb--3,
+  .decor--default .dc-crumb--4,
+  .decor--default .dc-flys > :nth-child(n+9) { display: none; }
+  .decor--default .dc-orb { width: calc(var(--s) * .7); height: calc(var(--s) * .7); }
+  /* Bigger comets with a long tail and a wide glow, so they still read as moving lights through the frost. Half
+     of them (dc-fly--edge) fall straight down the 16px side gutters, hugging the blocks' glass like sparklers:
+     visible the whole way down. */
+  .decor--default .dc-fly { width: calc(var(--s) * 1.5); height: calc(var(--s) * 1.5); }
+  .decor--default .dc-fly::before { width: calc(var(--s) * 13); height: 4px; margin-top: -2px; }
+  .decor--default .dc-fly::after { inset: -500%; }
+  .decor--default .dc-fly--edge { left: calc(var(--xe) - var(--s) * .75); animation-name: dc-fly-edge; }
+  .decor--default .dc-fly--edge::before { rotate: -90deg; }
+  .decor--default .dc-fly--a { --halo: rgba(167, 139, 250, .55); }
+  .decor--default .dc-fly--b { --halo: rgba(244, 114, 182, .55); }
+  .decor--default .dc-fly--c { --halo: rgba(251, 191, 36, .55); }
+  [data-theme="dark"] .decor--default .dc-fly--a { --halo: rgba(196, 181, 253, .65); --glow: rgba(255, 255, 255, .85); }
+  [data-theme="dark"] .decor--default .dc-fly--b { --halo: rgba(255, 210, 122, .6); --glow: rgba(255, 236, 190, .85); }
+  [data-theme="dark"] .decor--default .dc-fly--c { --halo: rgba(255, 146, 192, .6); --glow: rgba(255, 214, 232, .85); }
+  /* Inner pages: the title spans the whole width here, so only the gutter runners sparkle at scroll 0. */
+  body:not(.home) .decor--default .dc-fly:not(.dc-fly--edge) { opacity: clamp(0, calc((var(--sy) - 140) / 260), 1); }
+  .decor--default .dc-x-tail { width: 260px; }
+  .decor--default .dc-x-glow { left: -22px; top: -22px; width: 44px; height: 44px; }
+  .decor--default {
+    --x0: 104vw;
+    --y0: 22px;
+    --a0: -1deg;
+    --xm: 50vw;
+    --ym: 34px;
+    --y1: 48px;
+    --a1: 0deg;
+    --f2y0: 30vh;
+    --f2y1: 62vh;
+    --f2a: -24deg;
+    --f3y0: calc(100vh - 200px);
+    --f3y1: calc(100vh - 200px);
+    --f3a: 0deg;
+  }
+  .decor--default .dc-sea { bottom: env(safe-area-inset-bottom, 0px); height: 96px; }
+  .decor--default .dc-sea__strip { width: 2962px; height: 96px; animation: none; }
+  .decor--default .dc-minitram { --mt-x: 72vw; scale: .8; }
+  .decor--default .dc-sea__cat { transform: translateY(4.4px); }
+  .decor--default .dc-rays { background: radial-gradient(60% 50% at 90% 0, rgba(255, 214, 196, .45), transparent); transform-origin: 90% -4%; }
+  .decor--default .dc-rays::before {
+    background: repeating-conic-gradient(from 200deg at 90% -4%, rgba(255, 255, 255, .42) 0 1.6deg, rgba(255, 255, 255, .14) 3.4deg, transparent 5deg 11deg);
+    -webkit-mask-image: radial-gradient(circle at 90% -4%, #000 0, transparent 52%);
+    mask-image: radial-gradient(circle at 90% -4%, #000 0, transparent 52%);
+  }
+  .decor--default .dc-milky { width: 220vmax; margin-left: -110vmax; transform: rotate(-38deg); }
+}
+
+@supports not (translate: 0 mod(1px, 2px)) {
+  .decor--default .dc-p { translate: 0 var(--y); }
+  .decor--default .dc-field { translate: none; }
+}
+/* Reduced motion: everything rests at a visible base (sparkles lit, beads on a station, pages at their angle); the
+   Express, crumbs, shooting stars and planes stay hidden. The cloud sea simply stays up. */
+@media (prefers-reduced-motion: reduce) {
+  .decor--default .dc-sea { translate: none; }
+  /* Comets are pure motion: at rest they would only be a glow peeking in at the top edge. */
+  .decor--default .dc-flys { display: none; }
+}
