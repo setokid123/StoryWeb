@@ -109,10 +109,26 @@ add_filter(
 			if ( ! $page_ok ) {
 				return $error( 190, 'Invalid OAuth access token.' );
 			}
+			// Reading a post's comments: the ones this mock accepted for it, written by the Page.
+			$comments = (array) get_option( 'sw_fb_mock_comments', array() );
+			if ( 'GET' === $method ) {
+				$data = array();
+				foreach ( (array) ( $comments[ $m[1] ] ?? array() ) as $i => $text ) {
+					$data[] = array( 'id' => $m[1] . '_c' . ( $i + 1 ), 'message' => $text, 'from' => array( 'id' => '111', 'name' => 'Trạm Truyện 2D' ) );
+				}
+				return $reply( array( 'data' => $data ) );
+			}
+			// sw_fb_mock_comments_down plays Facebook holding the app (the developer account asked to verify itself).
+			if ( get_option( 'sw_fb_mock_comments_down' ) ) {
+				return $error( 200, '(#200) Provide valid app ID' );
+			}
 			// A comment containing FAIL-COMMENT plays a token without pages_manage_engagement.
-			return false !== strpos( (string) ( $params['message'] ?? '' ), 'FAIL-COMMENT' )
-				? $error( 200, '(#200) Permissions error' )
-				: $reply( array( 'id' => $m[1] . '_c1' ) );
+			if ( false !== strpos( (string) ( $params['message'] ?? '' ), 'FAIL-COMMENT' ) ) {
+				return $error( 200, '(#200) Permissions error' );
+			}
+			$comments[ $m[1] ][] = (string) ( $params['message'] ?? '' );
+			update_option( 'sw_fb_mock_comments', $comments, false );
+			return $reply( array( 'id' => $m[1] . '_c' . count( $comments[ $m[1] ] ) ) );
 		}
 		return $error( 100, 'Unknown path ' . $path );
 	},
@@ -120,12 +136,21 @@ add_filter(
 	3
 );
 
-// The test script lists, and runs now, the first comments waiting in WP-Cron for scheduled posts.
+// The test script lists, and runs now, the comments waiting in WP-Cron for scheduled posts (first tries and retries).
+// down=1 / down=0 makes Facebook refuse comments / accept them again.
 add_action(
 	'wp_ajax_sw_fb_mock_cron',
 	static function () {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( '', '', array( 'response' => 403 ) );
+		}
+		if ( isset( $_GET['down'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- local test helper.
+			update_option( 'sw_fb_mock_comments_down', '1' === $_GET['down'] ? 1 : 0, false ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		}
+		// again=1&post=…&msg=…: runs one retry (attempt 1) of that comment now.
+		if ( ! empty( $_GET['again'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- local test helper.
+			do_action( 'storyweb_fb_scheduled_comment', sanitize_text_field( wp_unslash( $_GET['post'] ?? '' ) ), sanitize_text_field( wp_unslash( $_GET['msg'] ?? '' ) ), 1 ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			wp_send_json( array() );
 		}
 		$events = array();
 		foreach ( (array) _get_cron_array() as $time => $hooks ) {

@@ -435,16 +435,75 @@ function storyweb_fb_comment( $object_id, $message ) {
 	return (string) ( $result['id'] ?? '' );
 }
 
+/*
+ * When Facebook refuses a scheduled comment (the app held for a developer check, a network glitch, a rate limit),
+ * WP-Cron tries again after these delays, about 15 hours in all, then gives up and leaves the error in the history.
+ */
+const STORYWEB_FB_COMMENT_RETRIES = array( 10 * MINUTE_IN_SECONDS, 30 * MINUTE_IN_SECONDS, HOUR_IN_SECONDS, 2 * HOUR_IN_SECONDS, 4 * HOUR_IN_SECONDS, 8 * HOUR_IN_SECONDS );
+
+/** Whether the Page already has this comment under the post, so a retry never posts it twice. */
+function storyweb_fb_has_comment( $object_id, $message ) {
+	$s      = storyweb_fb_settings();
+	$result = storyweb_fb_request(
+		'GET',
+		rawurlencode( (string) $object_id ) . '/comments',
+		array(
+			'access_token' => $s['page_token'],
+			'fields'       => 'message,from',
+			'filter'       => 'stream',
+			'limit'        => 100,
+		)
+	);
+	if ( is_wp_error( $result ) ) {
+		return false;
+	}
+	$norm = static fn( $text ) => preg_replace( '/\s+/u', ' ', trim( (string) $text ) );
+	$want = $norm( mb_substr( trim( (string) $message ), 0, STORYWEB_FB_MAX_COMMENT ) );
+	foreach ( (array) ( $result['data'] ?? array() ) as $comment ) {
+		if ( (string) ( $comment['from']['id'] ?? '' ) === (string) $s['page_id'] && $norm( $comment['message'] ?? '' ) === $want ) {
+			return true;
+		}
+	}
+	return false;
+}
+
 // A scheduled post can only be commented on once Facebook has published it: WP-Cron comments a little later.
+// $attempt counts the retries (0 = the first try).
 add_action(
 	'storyweb_fb_scheduled_comment',
-	static function ( $object_id, $message ) {
+	static function ( $object_id, $message, $attempt = 0 ) {
+		$attempt = (int) $attempt;
+		if ( $attempt > 0 && storyweb_fb_has_comment( $object_id, $message ) ) {
+			storyweb_fb_log_update( $object_id, array( 'comment' => 'Đã bình luận' ) );
+			return;
+		}
 		$result = storyweb_fb_comment( $object_id, $message );
-		storyweb_fb_log_update( $object_id, array( 'comment' => is_wp_error( $result ) ? 'Lỗi: ' . $result->get_error_message() : 'Đã bình luận' ) );
+		if ( ! is_wp_error( $result ) ) {
+			storyweb_fb_log_update( $object_id, array( 'comment' => 'Đã bình luận' ) );
+			return;
+		}
+		if ( $attempt < count( STORYWEB_FB_COMMENT_RETRIES ) ) {
+			$when = time() + STORYWEB_FB_COMMENT_RETRIES[ $attempt ];
+			wp_schedule_single_event( $when, 'storyweb_fb_scheduled_comment', array( (string) $object_id, (string) $message, $attempt + 1 ) );
+			storyweb_fb_log_update( $object_id, array( 'comment' => sprintf( 'Lỗi, sẽ tự thử lại lúc %s: %s', wp_date( 'H:i d/m', $when ), $result->get_error_message() ) ) );
+			return;
+		}
+		storyweb_fb_log_update( $object_id, array( 'comment' => 'Lỗi: ' . $result->get_error_message() ) );
 	},
 	10,
-	2
+	3
 );
+
+/** Drops every comment still waiting in WP-Cron for this post (first tries and retries). */
+function storyweb_fb_unschedule_comments( $object_id ) {
+	foreach ( (array) _get_cron_array() as $time => $hooks ) {
+		foreach ( (array) ( $hooks['storyweb_fb_scheduled_comment'] ?? array() ) as $event ) {
+			if ( (string) ( $event['args'][0] ?? '' ) === (string) $object_id ) {
+				wp_unschedule_event( $time, 'storyweb_fb_scheduled_comment', $event['args'] );
+			}
+		}
+	}
+}
 
 /** Schedules the first comment of a post that Facebook publishes at `$when`. */
 function storyweb_fb_schedule_comment( $object_id, $message, $when ) {

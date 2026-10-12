@@ -138,6 +138,26 @@ calls = await mock(true);
 page = await get(`${PAGE}&story=${storyId}`);
 ok("when WP-Cron runs: comment sent, history updated", calls.some((c) => c.path === `${scheduledPost}/comments` && c.params.message === "Bình luận hẹn giờ") && /hẹn [^<]*<\/span><\/td>\s*<td>[^<]*<\/td>\s*<td>[^<]*<\/td>\s*<td>Đã bình luận<\/td>/.test(page.text));
 
+// ---- Facebook holds the app for a while (developer verification): the comment is retried, never doubled ----
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about.without, with_cover: "1", when: local(24 * 60), comment_on: "1", comment: "Bình luận thử lại" });
+await mock(true);
+let held = JSON.parse((await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron&down=1")).text);
+const heldPost = held[0]?.args[0] ?? "";
+await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron&run=1");
+held = JSON.parse((await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron")).text);
+page = await get(`${PAGE}&story=${storyId}`);
+ok("comment refused while the app is held → retried 10 minutes later, history says so", held.length === 1 && held[0].args[0] === heldPost && held[0].args[1] === "Bình luận thử lại" && held[0].args[2] === 1 && Math.abs(held[0].time - (Date.now() / 1000 + 600)) <= 120 && /Lỗi, sẽ tự thử lại lúc/.test(page.text), JSON.stringify(held));
+await mock(true); // forget the refused first try
+await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron&down=0&run=1");
+calls = await mock(true);
+held = JSON.parse((await get("/wp-admin/admin-ajax.php?action=sw_fb_mock_cron")).text);
+page = await get(`${PAGE}&story=${storyId}`);
+ok("app back → the retry sends the comment once, nothing left waiting", calls.filter((c) => c.method === "POST" && c.path === `${heldPost}/comments`).length === 1 && held.length === 0 && /<td>Đã bình luận<\/td>/.test(page.text), JSON.stringify({ held, comments: calls.filter((c) => c.path.endsWith("/comments")).map((c) => `${c.method} ${c.path}`), lastRow: (page.text.match(/<td>(Đã bình luận|Lỗi[^<]*|[^<]*bình luận[^<]*)<\/td>/) ?? [""])[0] }));
+// A retry that finds the comment already there (sent, but Facebook's answer was lost) does not post it again.
+await get(`/wp-admin/admin-ajax.php?action=sw_fb_mock_cron&again=1&post=${encodeURIComponent(heldPost)}&msg=${encodeURIComponent("Bình luận thử lại")}`);
+calls = await mock(true);
+ok("a retry for a comment already on the post does not post it twice", calls.some((c) => c.method === "GET" && c.path === `${heldPost}/comments`) && !calls.some((c) => c.method === "POST" && c.path === `${heldPost}/comments`));
+
 // ---- comment off, and a new template ----
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_publish", _wpnonce: nonce, story: String(storyId), source: "about", message: texts.about.with, with_cover: "1", when: "", comment: "không gửi", comment_template: "Mẫu mới: {ten_truyen} → {link_truyen}" });
 calls = await mock(true);

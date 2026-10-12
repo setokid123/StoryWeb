@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       StoryWeb Core
  * Description:       Truyện và chương: kiểu nội dung, mã truyện TT2D1, TT2D2…, đường dẫn /truyen/ và /doc/, khóa chương phía máy chủ, mở khóa bằng link (Truyện → Mở khóa chương), đăng truyện lên Page Facebook, tay hoặc tự động theo mã (Truyện → Đăng Facebook), thống kê lượt đọc và lượt bấm mở khóa (Truyện → Thống kê).
- * Version:           0.5.1
+ * Version:           0.5.2
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Author:            StoryWeb
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STORYWEB_CORE_VERSION', '0.5.1' );
+define( 'STORYWEB_CORE_VERSION', '0.5.2' );
 define( 'STORYWEB_CORE_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once STORYWEB_CORE_DIR . 'inc/content-model.php';

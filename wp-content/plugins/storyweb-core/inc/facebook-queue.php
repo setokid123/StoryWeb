@@ -226,13 +226,7 @@ function storyweb_fb_queue_cancel() {
 			if ( (int) $post['at'] <= time() + MINUTE_IN_SECONDS ) {
 				continue; // already live (or about to be): it stays
 			}
-			foreach ( (array) $post['comments'] as $comment ) {
-				$args = array( (string) $post['post'], (string) $comment );
-				$time = wp_next_scheduled( 'storyweb_fb_scheduled_comment', $args );
-				if ( $time ) {
-					wp_unschedule_event( $time, 'storyweb_fb_scheduled_comment', $args );
-				}
-			}
+			storyweb_fb_unschedule_comments( $post['post'] );
 			$deleted = storyweb_fb_request( 'DELETE', rawurlencode( (string) $post['object'] ), array( 'access_token' => $s['page_token'] ) );
 			if ( is_wp_error( $deleted ) ) {
 				++$counts['failed'];
