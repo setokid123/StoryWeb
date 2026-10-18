@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 112 / 150 truyện (6.02% tổng kho - 1429 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:35:38 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 113 / 150 truyện (6.08% tổng kho - 1437 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:37:22 18/10/2026
 
 ---
 
@@ -128,7 +128,7 @@
 | 110 | **TT2D110** | Căn Nhà Bị Mở Khóa Sai Cách | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-18T13:31:22.459Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d110/2/) |
 | 111 | **TT2D111** | Căn Nhà Bừa Bộn Và Cuộc Hôn Nhân | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:34:03.820Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d111/2/) |
 | 112 | **TT2D112** | Căn Nhà Không Bán Cho Ai | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:35:38.734Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d112/2/) |
-| 113 | **TT2D113** | Căn Nhà Tôi Mua Bị Chiếm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 113 | **TT2D113** | Căn Nhà Tôi Mua Bị Chiếm | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:37:22.472Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d113/2/) |
 | 114 | **TT2D114** | Căn Nhà Trước Hôn Nhân | 18 (viết lại 17) | ⚪ Chờ | — | — |
 | 115 | **TT2D115** | Cảnh Báo Từ Người Vô Gia Cư | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 116 | **TT2D116** | Cánh Cửa Hé Mở Mỗi Lần | 9 (viết lại 8) | ⚪ Chờ | — | — |
