@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 135 / 150 truyện (7.26% tổng kho - 1684 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:21:38 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 136 / 150 truyện (7.32% tổng kho - 1687 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:22:47 18/10/2026
 
 ---
 
@@ -151,7 +151,7 @@
 | 133 | **TT2D133** | Chiếc Bánh Trung Thu Mốc Xanh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T14:18:48.488Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d133/2/) |
 | 134 | **TT2D134** | Chiếc Đồng Hồ Của Người Cũ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T14:20:14.722Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d134/2/) |
 | 135 | **TT2D135** | Chiếc Két Sắt Giấu Chấp Trời | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T14:21:38.686Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d135/2/) |
-| 136 | **TT2D136** | Chiếc Nhẫn Vàng Trên Tay | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 136 | **TT2D136** | Chiếc Nhẫn Vàng Trên Tay | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-18T14:22:47.459Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d136/2/) |
 | 137 | **TT2D137** | Chiếc Taxi Bùa Vàng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 138 | **TT2D138** | Chiếc Xe Nôi Dưới Tấm Chăn | 19 (viết lại 18) | ⚪ Chờ | — | — |
 | 139 | **TT2D139** | Chiếu Cờ Định Mệnh | 12 (viết lại 11) | ⚪ Chờ | — | — |
