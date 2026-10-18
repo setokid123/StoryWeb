@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 269 / 300 truyện (14.47% tổng kho - 2921 chương đã viết lại)
-- **Cập nhật lần cuối:** 03:07:50 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 270 / 300 truyện (14.52% tổng kho - 2925 chương đã viết lại)
+- **Cập nhật lần cuối:** 03:11:05 19/10/2026
 
 ---
 
@@ -285,7 +285,7 @@
 | 267 | **TT2D267** | Giấy kết hôn chưa từng tồn tại | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T20:02:13.926Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d267/2/) |
 | 268 | **TT2D268** | Giếng Thịt Bí Ẩn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T20:05:22.530Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d268/2/) |
 | 269 | **TT2D269** | Gió Âm Trong Nồi Súp | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T20:07:50.347Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d269/2/) |
-| 270 | **TT2D270** | Giữa Lòng Hai Thế Tử | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 270 | **TT2D270** | Giữa Lòng Hai Thế Tử | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-18T20:11:05.045Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d270/2/) |
 | 271 | **TT2D271** | Góa Phụ Tìm Đến Nhà Tôi | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 272 | **TT2D272** | Gót Giày Gãy Trước Hôn Lễ | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 273 | **TT2D273** | Hai Cái Tát Đánh Mất Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
