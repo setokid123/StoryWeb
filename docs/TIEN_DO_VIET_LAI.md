@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 264 / 300 truyện (14.20% tổng kho - 2875 chương đã viết lại)
-- **Cập nhật lần cuối:** 02:53:24 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 265 / 300 truyện (14.25% tổng kho - 2888 chương đã viết lại)
+- **Cập nhật lần cuối:** 02:56:49 19/10/2026
 
 ---
 
@@ -280,7 +280,7 @@
 | 262 | **TT2D262** | Giao Ước Bên Ánh Đèn Sang Trọng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T19:47:30.237Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d262/2/) |
 | 263 | **TT2D263** | Giáo Viên Chủ Nhiệm Là Quái Vật | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T19:50:22.424Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d263/2/) |
 | 264 | **TT2D264** | Giáo Viên Và Án Mạng Tầng 8 | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T19:53:24.531Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d264/2/) |
-| 265 | **TT2D265** | Giấy Chứng Nhận Gây Sóng Gió | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 265 | **TT2D265** | Giấy Chứng Nhận Gây Sóng Gió | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T19:56:49.523Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d265/2/) |
 | 266 | **TT2D266** | Giày đỏ dẫn lối tự do | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 267 | **TT2D267** | Giấy kết hôn chưa từng tồn tại | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 268 | **TT2D268** | Giếng Thịt Bí Ẩn | 11 (viết lại 10) | ⚪ Chờ | — | — |
