@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 208 / 250 truyện (11.19% tổng kho - 2344 chương đã viết lại)
-- **Cập nhật lần cuối:** 00:07:05 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 209 / 250 truyện (11.24% tổng kho - 2351 chương đã viết lại)
+- **Cập nhật lần cuối:** 00:09:09 19/10/2026
 
 ---
 
@@ -224,7 +224,7 @@
 | 206 | **TT2D206** | Đám Cưới Bị Biến Thành Hot Search | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T17:01:45.932Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d206/2/) |
 | 207 | **TT2D207** | Đám Cưới Của Chồng Cũ Tôi | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T17:04:58.446Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d207/2/) |
 | 208 | **TT2D208** | Đám Cưới Ireland Đổi Chú Rể | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T17:07:01.673Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d208/2/) |
-| 209 | **TT2D209** | Đám Cưới Và Mái Tóc Lở Lói | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 209 | **TT2D209** | Đám Cưới Và Mái Tóc Lở Lói | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T17:09:05.587Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d209/2/) |
 | 210 | **TT2D210** | Đảo Ngược Số Mệnh Đêm Cưới | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 211 | **TT2D211** | Dấu Ấn Trên Mu Bàn Tay | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 212 | **TT2D212** | Đậu Hũ Non Trong Tầng Hầm | 9 (viết lại 8) | ⚪ Chờ | — | — |
