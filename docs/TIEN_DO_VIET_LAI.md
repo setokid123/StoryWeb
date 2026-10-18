@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 78 / 100 truyện (720 chương đã viết lại)
-- **Cập nhật lần cuối:** 19:32:37 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 79 / 100 truyện (728 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:34:35 18/10/2026
 
 ---
 
@@ -94,7 +94,7 @@
 | 76 | **TT2D76** | Bí Mật Trang Trại Heo | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 12:29:04 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d76/2/) |
 | 77 | **TT2D77** | Bí Mật Trong Bữa Cơm Nhà | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 12:30:37 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d77/2/) |
 | 78 | **TT2D78** | Bí Mật Trong Căn Hộ Cao Cấp | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-18 12:32:33 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d78/2/) |
-| 79 | **TT2D79** | Bí Mật Trong Chuồng Bò | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 79 | **TT2D79** | Bí Mật Trong Chuồng Bò | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 12:34:08 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d79/2/) |
 | 80 | **TT2D80** | Bí Mật Trong Chuồng Bò Cũ | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 81 | **TT2D81** | Bí Mật Trong Quan Tài Nhỏ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 82 | **TT2D82** | Biệt Thự Của Tôi Bị Chiếm | 354 (viết lại 353) | ⚪ Chờ | — | — |
