@@ -1,0 +1,16 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "steps": [
+    { "step": "setSiteLanguage", "language": "vi" },
+    { "step": "setSiteOptions", "options": { "blogname": "Thư Các", "blogdescription": "Đọc một câu chuyện hay", "permalink_structure": "/%postname%/", "timezone_string": "Asia/Ho_Chi_Minh" } },
+    { "step": "activatePlugin", "pluginPath": "/wordpress/wp-content/plugins/storyweb-core/storyweb-core.php" },
+    { "step": "activateTheme", "themeFolderName": "thu-cac" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/seed-sample.php';" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/seed-covers.php';" },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "post-views-counter" }, "options": { "activate": true } },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/setup-post-views.php';" },
+    { "step": "runPHP", "code": "<?php @mkdir('/wordpress/wp-content/mu-plugins'); copy('/seed/mock-facebook.php', '/wordpress/wp-content/mu-plugins/mock-facebook.php');" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; require '/seed/seed-views.php';" }
+  ]
+}

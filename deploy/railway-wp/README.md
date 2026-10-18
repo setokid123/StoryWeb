@@ -72,6 +72,7 @@ Từ 2026-10-10 site dùng `SITE_DOMAIN=tramtruyen2d.up.railway.app`: Google Saf
 
 ## Lưu ý
 
+- **Xem, sửa dữ liệu trên site đang chạy** (SSH vào container, chạy script PHP có chạy thử và sao lưu, đọc log): `docs/VAN_HANH_RAILWAY.md`, mục 4–5. Công cụ: `scripts/wp/railway-php.sh`, mẫu `scripts/wp/server-script-template.php`.
 - **Email**: image không gửi được mail (quên mật khẩu, thông báo). Khi cần, cài một plugin SMTP.
 - **Sao lưu**: bật lịch backup cho volume của wordpress và MySQL (tab **Backups** của từng service, nếu gói có).
 - **Chi phí**: hai service chạy 24/7 tính vào gói. Theo dõi **Usage**.

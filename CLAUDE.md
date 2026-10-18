@@ -15,6 +15,7 @@ Website đọc truyện trên **WordPress tự host**. Đọc `README.md`, `docs
 
 ## Kiểm tra
 
+- Sổ tay vận hành (máy mới, site thử, deploy, SSH vào Railway, sửa dữ liệu thật bằng script có chạy thử và sao lưu): `docs/VAN_HANH_RAILWAY.md`.
 - `npm test` — logic trang đọc.
 - WordPress Playground + 5 script trong `scripts/wp/` (nội dung/chống lộ, trình duyệt, wp-admin, mở khóa bằng link, đăng Facebook với `mock-facebook.php` thay Facebook): xem `scripts/wp/README.md`.
 - Đăng Facebook (`storyweb-core/inc/facebook*.php`, cả tự động theo mã) chỉ lấy giới thiệu truyện hoặc chương **miễn phí**; mã Page không bao giờ in ra trang.

@@ -49,6 +49,8 @@ WP_TEST_USER=admin WP_TEST_PASS=password node scripts/wp/check-facebook.mjs # 81
 
 Các script chỉ chạy với `127.0.0.1`. `check-browser.mjs` nhận thêm `PROD=<URL web Next.js>` để chụp ảnh đối chiếu (chỉ đọc).
 
+`blueprint-dev.json` dựng site thử đầy đủ cho **mọi** bộ kiểm tra trong một lần: như `blueprint.json`, thêm ảnh bìa mẫu (`seed-covers.php`, TT2D1–6), Post Views Counter với lượt xem mẫu, và `mock-facebook.php`. Dùng nó thay `--blueprint=scripts/wp/blueprint.json` trong lệnh ở mục Chạy. Sổ tay đầy đủ (máy mới, deploy, SSH vào Railway, sửa dữ liệu thật): `docs/VAN_HANH_RAILWAY.md`.
+
 ## Thử plugin ngoài
 
 Plugin đụng tới nội dung hoặc trang đọc (SEO, cache, quảng cáo...) phải qua `check-content.mjs` trước khi cài lên site thật (xem `docs/PLUGINS.md`). `blueprint-plugins.json` giống `blueprint.json` nhưng cài thêm Yoast SEO, WP Super Cache và Ad Inserter từ wordpress.org: thay `--blueprint` trong lệnh trên rồi chạy lại các kiểm tra. Blueprint nạp truyện mẫu trước rồi mới cài plugin: có Yoast từ trước thì bước nạp rất chậm.
