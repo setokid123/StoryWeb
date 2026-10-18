@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 201 / 250 truyện (10.81% tổng kho - 2279 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:49:42 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 202 / 250 truyện (10.87% tổng kho - 2302 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:53:20 18/10/2026
 
 ---
 
@@ -217,7 +217,7 @@
 | 199 | **TT2D199** | Cuộc Hôn Nhân Với Anh Trai Anh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:44:22.065Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d199/2/) |
 | 200 | **TT2D200** | Cuộc tình một chiều của Khâu Khiết | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T16:46:31.812Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d200/2/) |
 | 201 | **TT2D201** | Cuộc Tranh Luận Về Sự Sống | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:49:42.126Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d201/2/) |
-| 202 | **TT2D202** | Cưới Nhầm Chú Rể Sĩ Diện | 24 (viết lại 23) | ⚪ Chờ | — | — |
+| 202 | **TT2D202** | Cưới Nhầm Chú Rể Sĩ Diện | 24 (viết lại 23) | 🟢 **Đã Live** | 2026-10-18T16:53:20.691Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d202/2/) |
 | 203 | **TT2D203** | Cưới Nhầm Thái Tử Gia Giả Ngốc | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 204 | **TT2D204** | Cuốn Sổ Của Người Chồng Lạnh Nhạt | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 205 | **TT2D205** | Đại Sư Bắt Quỷ Giúp Tôi Làm Giàu | 7 (viết lại 6) | ⚪ Chờ | — | — |
