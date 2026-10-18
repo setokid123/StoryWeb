@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 82 / 100 truyện (1096 chương đã viết lại)
-- **Cập nhật lần cuối:** 19:41:45 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 83 / 100 truyện (1116 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:44:08 18/10/2026
 
 ---
 
@@ -98,7 +98,7 @@
 | 80 | **TT2D80** | Bí Mật Trong Chuồng Bò Cũ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 12:35:59 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d80/2/) |
 | 81 | **TT2D81** | Bí Mật Trong Quan Tài Nhỏ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 12:38:07 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d81/2/) |
 | 82 | **TT2D82** | Biệt Thự Của Tôi Bị Chiếm | 354 (viết lại 353) | 🟢 **Đã Live** | 2026-10-18 12:41:41 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d82/2/) |
-| 83 | **TT2D83** | Biệt Thự Và Cuộc Gọi Bất Ngờ | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 83 | **TT2D83** | Biệt Thự Và Cuộc Gọi Bất Ngờ | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-18 12:44:04 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d83/2/) |
 | 84 | **TT2D84** | Bình Luận Bí Ẩn: Lời Cảnh Báo Từ Bóng Tối | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 85 | **TT2D85** | Bình Luận Trực Tiếp Trên Giường | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 86 | **TT2D86** | Bình Phong Che Một Đời Tình | 21 (viết lại 20) | ⚪ Chờ | — | — |
