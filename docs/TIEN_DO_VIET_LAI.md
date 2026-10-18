@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 69 / 100 truyện (626 chương đã viết lại)
-- **Cập nhật lần cuối:** 19:15:25 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 70 / 100 truyện (637 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:17:15 18/10/2026
 
 ---
 
@@ -85,7 +85,7 @@
 | 67 | **TT2D67** | Bí Mật Noãn Nữ Trong Thôn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 12:09:02 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d67/2/) |
 | 68 | **TT2D68** | Bí Mật Phá Chi Dương | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 12:12:08 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d68/2/) |
 | 69 | **TT2D69** | Bí Mật Sau Ba Cậu Con Trai | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-18 12:15:22 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d69/2/) |
-| 70 | **TT2D70** | Bí Mật Sau Bữa Cơm Nguội | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 70 | **TT2D70** | Bí Mật Sau Bữa Cơm Nguội | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 12:17:12 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d70/2/) |
 | 71 | **TT2D71** | Bí mật sau cánh cửa đỏ | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 72 | **TT2D72** | Bí Mật Sau Chuyến Bay Về Nhà | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 73 | **TT2D73** | Bí Mật Sau Lời Đốt | 8 (viết lại 7) | ⚪ Chờ | — | — |
