@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 291 / 300 truyện (15.65% tổng kho - 3091 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:01:03 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 292 / 300 truyện (15.71% tổng kho - 3099 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:03:11 19/10/2026
 
 ---
 
@@ -307,7 +307,7 @@
 | 289 | **TT2D289** | Hồn già trong thân trẻ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T20:56:57.301Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d289/2/) |
 | 290 | **TT2D290** | Hôn Lễ Thiêng Liêng Nhất | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T20:58:54.335Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d290/2/) |
 | 291 | **TT2D291** | Hôn Nhân Không Giới Hạn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:01:03.158Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d291/2/) |
-| 292 | **TT2D292** | Hôn Sự Năm 1970 Đổ Vỡ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 292 | **TT2D292** | Hôn Sự Năm 1970 Đổ Vỡ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:03:11.389Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d292/2/) |
 | 293 | **TT2D293** | Hộp Bánh Giả Từ Nước Ngoài | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 294 | **TT2D294** | Hợp Đồng Bán Nhà Mang Tên Tôi | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 295 | **TT2D295** | Hợp Đồng Ghi Tên Bố Mẹ Chồng | 23 (viết lại 22) | ⚪ Chờ | — | — |
