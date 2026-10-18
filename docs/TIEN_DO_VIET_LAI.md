@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 139 / 150 truyện (7.48% tổng kho - 1723 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:27:52 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 140 / 150 truyện (7.53% tổng kho - 1730 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:29:35 18/10/2026
 
 ---
 
@@ -155,7 +155,7 @@
 | 137 | **TT2D137** | Chiếc Taxi Bùa Vàng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:24:05.597Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d137/2/) |
 | 138 | **TT2D138** | Chiếc Xe Nôi Dưới Tấm Chăn | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-18T14:26:10.657Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d138/2/) |
 | 139 | **TT2D139** | Chiếu Cờ Định Mệnh | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T14:27:52.526Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d139/2/) |
-| 140 | **TT2D140** | Chiêu Đệ Và Chiếc Đồng Hồ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 140 | **TT2D140** | Chiêu Đệ Và Chiếc Đồng Hồ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:29:34.994Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d140/2/) |
 | 141 | **TT2D141** | Chín Mươi Bảy Đèn Mệnh Tắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 142 | **TT2D142** | Chồng Cũ Vẫn Đẹp Như Xưa | 20 (viết lại 19) | ⚪ Chờ | — | — |
 | 143 | **TT2D143** | Chồng Hờ Hững, Em Chồng Tự Ý | 11 (viết lại 10) | ⚪ Chờ | — | — |
