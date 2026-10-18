@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 197 / 200 truyện (10.60% tổng kho - 2252 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:40:38 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 198 / 200 truyện (10.65% tổng kho - 2259 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:42:38 18/10/2026
 
 ---
 
@@ -213,6 +213,6 @@
 | 195 | **TT2D195** | Cuộc Chiến Giữa Lửa Và Tình | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T16:35:17.016Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d195/2/) |
 | 196 | **TT2D196** | Cuộc Giao Chiến Thối Rữa | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T16:38:19.364Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d196/2/) |
 | 197 | **TT2D197** | Cuộc Gọi Báo Án Lúc Nửa Đêm | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:40:38.510Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d197/2/) |
-| 198 | **TT2D198** | Cuộc Gọi Lúc Ba Giờ Sáng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 198 | **TT2D198** | Cuộc Gọi Lúc Ba Giờ Sáng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T16:42:38.319Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d198/2/) |
 | 199 | **TT2D199** | Cuộc Hôn Nhân Với Anh Trai Anh | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 200 | **TT2D200** | Cuộc tình một chiều của Khâu Khiết | 9 (viết lại 8) | ⚪ Chờ | — | — |
