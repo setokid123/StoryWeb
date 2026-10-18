@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 117 / 150 truyện (6.29% tổng kho - 1490 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:46:43 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 118 / 150 truyện (6.35% tổng kho - 1501 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:48:37 18/10/2026
 
 ---
 
@@ -133,7 +133,7 @@
 | 115 | **TT2D115** | Cảnh Báo Từ Người Vô Gia Cư | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T13:42:30.689Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d115/2/) |
 | 116 | **TT2D116** | Cánh Cửa Hé Mở Mỗi Lần | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:44:17.046Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d116/2/) |
 | 117 | **TT2D117** | Cánh Cửa Nhà Họ Tần Mở Lại | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T13:46:43.157Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d117/2/) |
-| 118 | **TT2D118** | Cánh Cửa Thời Gian Bí Ẩn | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 118 | **TT2D118** | Cánh Cửa Thời Gian Bí Ẩn | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T13:48:37.611Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d118/2/) |
 | 119 | **TT2D119** | Canh Mạnh Bà Và Sổ Tiền | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 120 | **TT2D120** | Cảnh Sát Và Lời Đe Dọa | 19 (viết lại 18) | ⚪ Chờ | — | — |
 | 121 | **TT2D121** | Cảnh Sát Và Pháp Y Ruột | 9 (viết lại 8) | ⚪ Chờ | — | — |
