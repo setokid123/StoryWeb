@@ -7,7 +7,7 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1:** 50 truyện (TT2D1 ➔ TT2D50)
-- **Đã hoàn thành & lên sóng Live:** 26 / 50 truyện (221 chương đã viết lại)
+- **Đã hoàn thành & lên sóng Live:** 31 / 50 truyện (267 chương đã viết lại)
 - **Cập nhật lần cuối:** 18/10/2026 17:21
 
 ---
@@ -42,11 +42,11 @@
 | 24 | **TT2D24** | Ba Mươi Văn Tiền Cầu Cưới | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d24/2/) |
 | 25 | **TT2D25** | Ba Năm Bên Người Mù | 1 (viết lại 0) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d25/2/) |
 | 26 | **TT2D26** | Ba Năm Bên Thái Tử Gia | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d26/2/) |
-| 27 | **TT2D27** | Ba Năm Làm Vợ Hợp Đồng | 18 (viết lại 17) | ⚪ Chờ | — | — |
-| 28 | **TT2D28** | Ba Năm Tù Đổi Một Kẻ Phản Bội | 6 (viết lại 5) | ⚪ Chờ | — | — |
-| 29 | **TT2D29** | Ba Năm Yêu Một Người Cứng Đầu | 7 (viết lại 6) | ⚪ Chờ | — | — |
-| 30 | **TT2D30** | Ba Ngày Để Bán Hết Nhà | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 31 | **TT2D31** | Bà Nội Trợ Bước Ra Ngoài | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 27 | **TT2D27** | Ba Năm Làm Vợ Hợp Đồng | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d27/2/) |
+| 28 | **TT2D28** | Ba Năm Tù Đổi Một Kẻ Phản Bội | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d28/2/) |
+| 29 | **TT2D29** | Ba Năm Yêu Một Người Cứng Đầu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d29/2/) |
+| 30 | **TT2D30** | Ba Ngày Để Bán Hết Nhà | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d30/2/) |
+| 31 | **TT2D31** | Bà Nội Trợ Bước Ra Ngoài | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d31/2/) |
 | 32 | **TT2D32** | Bạch Nguyệt Quang Chiếm Sóng Đêm | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 33 | **TT2D33** | Bản Án Từ Loa Phát Thanh | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 34 | **TT2D34** | Bạn Cùng Bàn Và Mùi Hương Quái Dị | 7 (viết lại 6) | ⚪ Chờ | — | — |
