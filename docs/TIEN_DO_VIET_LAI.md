@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 354 / 400 truyện (19.04% tổng kho - 3695 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:30:23 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 355 / 400 truyện (19.10% tổng kho - 3703 chương đã viết lại)
+- **Cập nhật lần cuối:** 06:32:30 19/10/2026
 
 ---
 
@@ -370,7 +370,7 @@
 | 352 | **TT2D352** | Lời Nguyền Đại Tiên | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T23:25:48.867Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d352/2/) |
 | 353 | **TT2D353** | Lời Nói Khiến Anh Nổi Giận | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T23:28:23.539Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d353/2/) |
 | 354 | **TT2D354** | Lời Rao Hàng Trong Đêm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T23:30:23.825Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d354/2/) |
-| 355 | **TT2D355** | Lời Ru Của Quá Khứ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 355 | **TT2D355** | Lời Ru Của Quá Khứ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T23:32:30.455Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d355/2/) |
 | 356 | **TT2D356** | Lời Thề Hôn Nhân Và Căn Nhà Không Tên Tôi | 20 (viết lại 19) | ⚪ Chờ | — | — |
 | 357 | **TT2D357** | Lời thề muộn màng của người con gái | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 358 | **TT2D358** | Lời Thì Thầm Trong Nhà Vệ Sinh | 8 (viết lại 7) | ⚪ Chờ | — | — |
