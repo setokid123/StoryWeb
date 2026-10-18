@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 144 / 150 truyện (7.75% tổng kho - 1784 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:38:03 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 145 / 150 truyện (7.80% tổng kho - 1791 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:39:43 18/10/2026
 
 ---
 
@@ -160,7 +160,7 @@
 | 142 | **TT2D142** | Chồng Cũ Vẫn Đẹp Như Xưa | 20 (viết lại 19) | 🟢 **Đã Live** | 2026-10-18T14:33:45.574Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d142/2/) |
 | 143 | **TT2D143** | Chồng Hờ Hững, Em Chồng Tự Ý | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T14:35:29.142Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d143/2/) |
 | 144 | **TT2D144** | Chồng im lặng, tôi mỉm cười mang theo tất cả | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-18T14:38:03.848Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d144/2/) |
-| 145 | **TT2D145** | Chồng Muốn Vào Công Ty Của Bố Vợ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 145 | **TT2D145** | Chồng Muốn Vào Công Ty Của Bố Vợ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:39:43.748Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d145/2/) |
 | 146 | **TT2D146** | Chồng Sắp Cưới Và Chiếc Móc Khóa | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 147 | **TT2D147** | Chồng Tôi Có Một Đứa Con Trai | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 148 | **TT2D148** | Chồng Tôi Đi Với Phương Dao | 12 (viết lại 11) | ⚪ Chờ | — | — |
