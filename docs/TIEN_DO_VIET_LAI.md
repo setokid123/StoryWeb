@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 176 / 200 truyện (9.47% tổng kho - 2065 chương đã viết lại)
-- **Cập nhật lần cuối:** 22:43:25 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 177 / 200 truyện (9.52% tổng kho - 2074 chương đã viết lại)
+- **Cập nhật lần cuối:** 22:46:19 18/10/2026
 
 ---
 
@@ -192,7 +192,7 @@
 | 174 | **TT2D174** | Cô Gái Bị Gán Tội Yêu Đương | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T15:37:13.348Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d174/2/) |
 | 175 | **TT2D175** | Cô Gái Bí Mật Của Tổng Tư Lệnh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T15:39:54.198Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d175/2/) |
 | 176 | **TT2D176** | Cô Gái Nhà Bên Nhặt Anh Về | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T15:43:13.795Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d176/2/) |
-| 177 | **TT2D177** | Cô Gái Tôi Nuôi Ba Năm | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 177 | **TT2D177** | Cô Gái Tôi Nuôi Ba Năm | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T15:46:15.932Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d177/2/) |
 | 178 | **TT2D178** | Cô Ngốc Của Tạ Nghiễn Từ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 179 | **TT2D179** | Cổ Phần Nhà Máy Thiếu Một Người | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 180 | **TT2D180** | Cô Ta Là Tiểu Tam | 14 (viết lại 13) | ⚪ Chờ | — | — |
