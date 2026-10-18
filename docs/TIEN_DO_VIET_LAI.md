@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 192 / 200 truyện (10.33% tổng kho - 2202 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:27:12 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 193 / 200 truyện (10.38% tổng kho - 2218 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:30:49 18/10/2026
 
 ---
 
@@ -208,7 +208,7 @@
 | 190 | **TT2D190** | Con Lợn Nái Và Ngôi Mộ Cũ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T16:22:51.334Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d190/2/) |
 | 191 | **TT2D191** | Con Tằm Quý Giá Nhất Làng | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:24:55.741Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d191/2/) |
 | 192 | **TT2D192** | Công Lược 25 Năm Thất Bại | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T16:27:12.072Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d192/2/) |
-| 193 | **TT2D193** | Cú Đẩy Chặt Đứt Ba Năm | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 193 | **TT2D193** | Cú Đẩy Chặt Đứt Ba Năm | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-18T16:30:49.865Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d193/2/) |
 | 194 | **TT2D194** | Cục Quản Lý Yêu Quái Đổi Chủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 195 | **TT2D195** | Cuộc Chiến Giữa Lửa Và Tình | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 196 | **TT2D196** | Cuộc Giao Chiến Thối Rữa | 16 (viết lại 15) | ⚪ Chờ | — | — |
