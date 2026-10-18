@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 360 / 400 truyện (19.37% tổng kho - 3757 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:47:41 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 361 / 400 truyện (19.42% tổng kho - 3767 chương đã viết lại)
+- **Cập nhật lần cuối:** 06:50:19 19/10/2026
 
 ---
 
@@ -376,7 +376,7 @@
 | 358 | **TT2D358** | Lời Thì Thầm Trong Nhà Vệ Sinh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T23:41:17.189Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d358/2/) |
 | 359 | **TT2D359** | Lời Thỉnh Cầu Trong Mơ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T23:44:17.960Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d359/2/) |
 | 360 | **TT2D360** | Lời Yêu Cầu Trước Cửa Đăng Ký | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T23:47:41.888Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d360/2/) |
-| 361 | **TT2D361** | Lớp Học Câm Điếc Có Kẻ Nói Dối | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 361 | **TT2D361** | Lớp Học Câm Điếc Có Kẻ Nói Dối | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T23:50:19.069Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d361/2/) |
 | 362 | **TT2D362** | Lương Hưu 6.800 Tệ Của Ông | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 363 | **TT2D363** | Ly Hôn Ngay Sau Đám Cưới | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 364 | **TT2D364** | Ly Hôn Rồi Mới Biết | 10 (viết lại 9) | ⚪ Chờ | — | — |
