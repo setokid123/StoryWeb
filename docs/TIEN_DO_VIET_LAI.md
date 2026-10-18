@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 170 / 200 truyện (9.14% tổng kho - 2014 chương đã viết lại)
-- **Cập nhật lần cuối:** 22:26:52 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 171 / 200 truyện (9.20% tổng kho - 2027 chương đã viết lại)
+- **Cập nhật lần cuối:** 22:28:27 18/10/2026
 
 ---
 
@@ -186,7 +186,7 @@
 | 168 | **TT2D168** | Chuyến Xe Buýt Cuối Cùng | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T15:23:17.953Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d168/2/) |
 | 169 | **TT2D169** | Chuyến Xe Cuối Cùng Của Vợ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T15:25:30.010Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d169/2/) |
 | 170 | **TT2D170** | Cô Bé Gặp Quỷ Giữa Đêm Tết | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T15:26:52.177Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d170/2/) |
-| 171 | **TT2D171** | Cô Bé Mồ Côi Và Nhiệm Vụ | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 171 | **TT2D171** | Cô Bé Mồ Côi Và Nhiệm Vụ | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T15:28:27.289Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d171/2/) |
 | 172 | **TT2D172** | Cô Dâu Và Bộ Da Mới | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 173 | **TT2D173** | Cô Đồng Nghiệp Và Thỏi Son Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 174 | **TT2D174** | Cô Gái Bị Gán Tội Yêu Đương | 7 (viết lại 6) | ⚪ Chờ | — | — |
