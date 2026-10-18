@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 61 / 100 truyện (547 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:58:57 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 62 / 100 truyện (555 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:00:31 18/10/2026
 
 ---
 
@@ -77,7 +77,7 @@
 | 59 | **TT2D59** | Bí Ẩn Từ Tương Lai | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18 11:55:33 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d59/2/) |
 | 60 | **TT2D60** | Bí Ẩn Xác Tàu Đắm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 11:56:57 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d60/2/) |
 | 61 | **TT2D61** | Bị Bỏ Lại Giữa Gió Tuyết | 22 (viết lại 21) | 🟢 **Đã Live** | 2026-10-18 11:58:57 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d61/2/) |
-| 62 | **TT2D62** | Bị Ép Làm Vợ Ma | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 62 | **TT2D62** | Bị Ép Làm Vợ Ma | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 12:00:31 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d62/2/) |
 | 63 | **TT2D63** | Bí Mật Dưới Dòng Sông | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 64 | **TT2D64** | Bí mật dưới tấm áo trường bào | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 65 | **TT2D65** | Bí Mật Giấu Suốt 13 Năm | 11 (viết lại 10) | ⚪ Chờ | — | — |
