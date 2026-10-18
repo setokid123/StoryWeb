@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 303 / 350 truyện (16.30% tổng kho - 3204 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:29:56 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 304 / 350 truyện (16.35% tổng kho - 3213 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:32:01 19/10/2026
 
 ---
 
@@ -319,7 +319,7 @@
 | 301 | **TT2D301** | Kẻ Thay Đổi Phiếu Khám Thai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:26:04.779Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d301/2/) |
 | 302 | **TT2D302** | Kẻ Thù Thành Chồng Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T21:27:54.042Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d302/2/) |
 | 303 | **TT2D303** | Kẻ Trộm Và Người Sát Nhân | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T21:29:56.553Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d303/2/) |
-| 304 | **TT2D304** | Kết Hôn Trong Im Lặng | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 304 | **TT2D304** | Kết Hôn Trong Im Lặng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:32:01.442Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d304/2/) |
 | 305 | **TT2D305** | Kết Hôn Với Người Ghét Mình | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 306 | **TT2D306** | Khách VIP Và Viên Sapphire | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 307 | **TT2D307** | Khi Anh Chọn Cố Ninh | 10 (viết lại 9) | ⚪ Chờ | — | — |
