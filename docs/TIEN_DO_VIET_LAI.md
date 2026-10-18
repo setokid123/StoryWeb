@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 245 / 250 truyện (13.18% tổng kho - 2702 chương đã viết lại)
-- **Cập nhật lần cuối:** 01:44:21 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 246 / 250 truyện (13.23% tổng kho - 2708 chương đã viết lại)
+- **Cập nhật lần cuối:** 01:48:39 19/10/2026
 
 ---
 
@@ -261,7 +261,7 @@
 | 243 | **TT2D243** | Đứa Trẻ Bị Gọi Nhầm Tên | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T18:38:42.377Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d243/2/) |
 | 244 | **TT2D244** | Đứa Trẻ Bị Nhắm Từ Lâu | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T18:41:00.454Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d244/2/) |
 | 245 | **TT2D245** | Đứa Trẻ Không Thuộc Về Ai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T18:44:16.878Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d245/2/) |
-| 246 | **TT2D246** | Đừng Chạm Vào Con Tôi | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 246 | **TT2D246** | Đừng Chạm Vào Con Tôi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T18:48:39.580Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d246/2/) |
 | 247 | **TT2D247** | Đường Núi Và Bóng Đỏ | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 248 | **TT2D248** | Duyên Nợ Âm Dương | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 249 | **TT2D249** | Em Gái Sinh Đôi Của Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
