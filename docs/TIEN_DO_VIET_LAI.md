@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 300 / 300 truyện (16.14% tổng kho - 3183 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:21:36 19/10/2026
+- **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
+- **Đã hoàn thành & lên sóng Live:** 301 / 350 truyện (16.19% tổng kho - 3192 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:26:04 19/10/2026
 
 ---
 
-## Danh sách chi tiết 300 truyện (TT2D1 ➔ TT2D300)
+## Danh sách chi tiết 350 truyện (TT2D1 ➔ TT2D350)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -316,3 +316,53 @@
 | 298 | **TT2D298** | Hương Vị Lạ Từ Quán Cơm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T21:17:32.221Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d298/2/) |
 | 299 | **TT2D299** | Kẻ Chơi Khăm Và Sự Thật Đen Tối | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:19:25.289Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d299/2/) |
 | 300 | **TT2D300** | Kẻ Đứng Sau Cánh Cửa | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:21:36.582Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d300/2/) |
+| 301 | **TT2D301** | Kẻ Thay Đổi Phiếu Khám Thai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:26:04.779Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d301/2/) |
+| 302 | **TT2D302** | Kẻ Thù Thành Chồng Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 303 | **TT2D303** | Kẻ Trộm Và Người Sát Nhân | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 304 | **TT2D304** | Kết Hôn Trong Im Lặng | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 305 | **TT2D305** | Kết Hôn Với Người Ghét Mình | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 306 | **TT2D306** | Khách VIP Và Viên Sapphire | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 307 | **TT2D307** | Khi Anh Chọn Cố Ninh | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 308 | **TT2D308** | Khi Anh Chọn Mẹ Con Họ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 309 | **TT2D309** | Khi Anh Vứt Em Lại Đó | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 310 | **TT2D310** | Khi Bạn Gái Về Ra Mắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 311 | **TT2D311** | Khi Bạn Trai Trở Thành Hung Thủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 312 | **TT2D312** | Khi Cả Trường Tin Lời Cô Ta | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 313 | **TT2D313** | Khi Chồng Muốn Giữ Người Khác Lại | 23 (viết lại 22) | ⚪ Chờ | — | — |
+| 314 | **TT2D314** | Khi Chồng Tôi Đòi Tôi Ở Lại | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 315 | **TT2D315** | Khi Công Lý Đến Quá Muộn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 316 | **TT2D316** | Khi Hoàng Đế Mang Mùi Tử Thi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 317 | **TT2D317** | Khi Ký Ức Bị Dọn Đi | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 318 | **TT2D318** | Khi Mẹ Chồng Đòi Người Nhà Chăm | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 319 | **TT2D319** | Khi Mẹ Chồng Ra Tay | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 320 | **TT2D320** | Khi Mẹ Đứng Về Phía Hung Thủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 321 | **TT2D321** | Khi Người Luôn Ghét Chờ Đợi | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 322 | **TT2D322** | Khi Tiền Học Phí Cũng Phải Chờ Duyệt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 323 | **TT2D323** | Khi Tình Cảm Bị Lấn Chỗ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 324 | **TT2D324** | Khi Tôi Chấp Nhận Người Thế Thân | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 325 | **TT2D325** | Khi Tôi Trở Về Thăm Con Gái | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 326 | **TT2D326** | Khi Tôi Trở Về Từ Bóng Tối | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 327 | **TT2D327** | Kiếp Này Chị Chọn Cổ Linh Lung | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 328 | **TT2D328** | Kiếp Này Ta Chọn Không Nhường | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 329 | **TT2D329** | Kiếp Này Tôi Chỉ Muốn Chờ Cha Về | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 330 | **TT2D330** | Kiếp Này Tôi Không Để Chị Dâu Bị Hại | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 331 | **TT2D331** | Kiếp Này Tôi Không Im Lặng | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 332 | **TT2D332** | Kiếp Này Tôi Không Nhường Hôn Sự | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 333 | **TT2D333** | Kỳ Nghỉ Trung Thu Của Công Ty Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 334 | **TT2D334** | Ký Nhận Nhầm Một Kiện Hàng | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 335 | **TT2D335** | Ký Túc Xá Nữ Tòa 6 | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 336 | **TT2D336** | Ký Ức Đen Của Gia Hào | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 337 | **TT2D337** | Ký ức ly hôn giữa đường đi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 338 | **TT2D338** | Ký Ức Và Trò Chơi Của Sự Phản Bội | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 339 | **TT2D339** | Lá Thư Chị Giấu Mười Hai Năm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 340 | **TT2D340** | Lần Này Tôi Không Nhượng Bộ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 341 | **TT2D341** | Lặng Lẽ Ở Bên Anh | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 342 | **TT2D342** | Lão Tổ Sư Chọn Vợ Cho Đạo Trưởng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 343 | **TT2D343** | Lễ Hội Đêm Trăng Đen | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 344 | **TT2D344** | Lễ Mừng Thọ Và Tấm Vé Rời Đi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 345 | **TT2D345** | Lễ Thọ Thành Buổi Sỉ Nhục | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 346 | **TT2D346** | Lệnh Điều Chuyển Của Bạn Trai | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 347 | **TT2D347** | Livestream Bóc Mẹ Chồng Keo Kiệt | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 348 | **TT2D348** | Livestream Giữa Khu Nuôi Hổ | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 349 | **TT2D349** | Lời Khai Sau Kỳ Thi Đặc Biệt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 350 | **TT2D350** | Lời Khai Trái Ngược | 26 (viết lại 25) | ⚪ Chờ | — | — |
