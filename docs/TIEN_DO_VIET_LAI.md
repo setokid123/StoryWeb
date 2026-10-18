@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 218 / 250 truyện (11.73% tổng kho - 2421 chương đã viết lại)
-- **Cập nhật lần cuối:** 00:26:53 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 219 / 250 truyện (11.78% tổng kho - 2431 chương đã viết lại)
+- **Cập nhật lần cuối:** 00:28:48 19/10/2026
 
 ---
 
@@ -234,7 +234,7 @@
 | 216 | **TT2D216** | Đêm Cấm Vào Nhà Dân | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T17:23:06.509Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d216/2/) |
 | 217 | **TT2D217** | Đêm Cưới Tôi Bị Ép Rời Đi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T17:24:59.621Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d217/2/) |
 | 218 | **TT2D218** | Đêm không lối thoát | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T17:26:50.212Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d218/2/) |
-| 219 | **TT2D219** | Đêm Mưa Có Người Lạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 219 | **TT2D219** | Đêm Mưa Có Người Lạ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T17:28:44.338Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d219/2/) |
 | 220 | **TT2D220** | Đêm Tôi Biết Mình Bị Phản Bội | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 221 | **TT2D221** | Đêm Về Tang Gia | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 222 | **TT2D222** | Đến Lượt Tôi Phản Kích Rồi | 8 (viết lại 7) | ⚪ Chờ | — | — |
