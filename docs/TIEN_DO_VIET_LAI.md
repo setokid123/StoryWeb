@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 101 / 150 truyện (5.43% tổng kho - 1321 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:18:54 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 102 / 150 truyện (5.49% tổng kho - 1334 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:20:14 18/10/2026
 
 ---
 
@@ -117,7 +117,7 @@
 | 99 | **TT2D99** | Bước Qua Cánh Cửa Lạ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:10:37.768Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d99/2/) |
 | 100 | **TT2D100** | Bước Qua Tình Cũ | 24 (viết lại 23) | 🟢 **Đã Live** | 2026-10-18T13:12:49.159Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d100/2/) |
 | 101 | **TT2D101** | Bước Ra Khỏi Ký Ức | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-18T13:18:54.595Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d101/2/) |
-| 102 | **TT2D102** | Cá Biến Mất Trong Tủ Đông | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 102 | **TT2D102** | Cá Biến Mất Trong Tủ Đông | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T13:20:14.539Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d102/2/) |
 | 103 | **TT2D103** | Cả Nhà Đều Lấy Đồ Của Tôi | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 104 | **TT2D104** | Cả Nhà Đòi Cắt Tiền Hoa Hồng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 105 | **TT2D105** | Cái Bẫy Duyên Âm Lộ Ra | 9 (viết lại 8) | ⚪ Chờ | — | — |
