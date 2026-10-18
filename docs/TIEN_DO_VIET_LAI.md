@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 182 / 200 truyện (9.79% tổng kho - 2128 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:01:38 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 183 / 200 truyện (9.84% tổng kho - 2134 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:03:52 18/10/2026
 
 ---
 
@@ -198,7 +198,7 @@
 | 180 | **TT2D180** | Cô Ta Là Tiểu Tam | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T15:56:15.211Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d180/2/) |
 | 181 | **TT2D181** | Cố Thâm Và Bản Hợp Đồng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T15:58:37.176Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d181/2/) |
 | 182 | **TT2D182** | Cố Tổng Muộn Một Bước | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-18T16:01:33.182Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d182/2/) |
-| 183 | **TT2D183** | Cô Vợ Lạ Của Bác Cả | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 183 | **TT2D183** | Cô Vợ Lạ Của Bác Cả | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:03:47.032Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d183/2/) |
 | 184 | **TT2D184** | Cô Vợ Vô Dụng Của Nhà Họ Cố | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 185 | **TT2D185** | Cơm Đoàn Viên Thiếu Một Người | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 186 | **TT2D186** | Con Gái Câm Của Gia Tộc Thẩm | 9 (viết lại 8) | ⚪ Chờ | — | — |
