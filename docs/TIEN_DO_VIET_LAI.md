@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 351 / 400 truyện (18.88% tổng kho - 3659 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:22:42 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 352 / 400 truyện (18.93% tổng kho - 3674 chương đã viết lại)
+- **Cập nhật lần cuối:** 06:25:48 19/10/2026
 
 ---
 
@@ -367,7 +367,7 @@
 | 349 | **TT2D349** | Lời Khai Sau Kỳ Thi Đặc Biệt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T23:16:01.072Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d349/2/) |
 | 350 | **TT2D350** | Lời Khai Trái Ngược | 26 (viết lại 25) | 🟢 **Đã Live** | 2026-10-18T23:19:41.800Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d350/2/) |
 | 351 | **TT2D351** | Lời Nguyền Cô Giáo Lưu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T23:22:41.976Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d351/2/) |
-| 352 | **TT2D352** | Lời Nguyền Đại Tiên | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 352 | **TT2D352** | Lời Nguyền Đại Tiên | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T23:25:48.867Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d352/2/) |
 | 353 | **TT2D353** | Lời Nói Khiến Anh Nổi Giận | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 354 | **TT2D354** | Lời Rao Hàng Trong Đêm | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 355 | **TT2D355** | Lời Ru Của Quá Khứ | 9 (viết lại 8) | ⚪ Chờ | — | — |
