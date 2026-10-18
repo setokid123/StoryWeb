@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 316 / 350 truyện (17.00% tổng kho - 3345 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:58:11 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 317 / 350 truyện (17.05% tổng kho - 3353 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:00:26 19/10/2026
 
 ---
 
@@ -332,7 +332,7 @@
 | 314 | **TT2D314** | Khi Chồng Tôi Đòi Tôi Ở Lại | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T21:54:03.651Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d314/2/) |
 | 315 | **TT2D315** | Khi Công Lý Đến Quá Muộn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:55:49.119Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d315/2/) |
 | 316 | **TT2D316** | Khi Hoàng Đế Mang Mùi Tử Thi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:58:11.026Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d316/2/) |
-| 317 | **TT2D317** | Khi Ký Ức Bị Dọn Đi | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 317 | **TT2D317** | Khi Ký Ức Bị Dọn Đi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T22:00:26.750Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d317/2/) |
 | 318 | **TT2D318** | Khi Mẹ Chồng Đòi Người Nhà Chăm | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 319 | **TT2D319** | Khi Mẹ Chồng Ra Tay | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 320 | **TT2D320** | Khi Mẹ Đứng Về Phía Hung Thủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
