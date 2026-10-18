@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 250 / 250 truyện (13.45% tổng kho - 2737 chương đã viết lại)
-- **Cập nhật lần cuối:** 02:01:39 19/10/2026
+- **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
+- **Đã hoàn thành & lên sóng Live:** 250 / 300 truyện (13.45% tổng kho - 2737 chương đã viết lại)
+- **Cập nhật lần cuối:** 02:02:32 19/10/2026
 
 ---
 
-## Danh sách chi tiết 250 truyện (TT2D1 ➔ TT2D250)
+## Danh sách chi tiết 300 truyện (TT2D1 ➔ TT2D300)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -266,3 +266,53 @@
 | 248 | **TT2D248** | Duyên Nợ Âm Dương | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T18:55:56.538Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d248/2/) |
 | 249 | **TT2D249** | Em Gái Sinh Đôi Của Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T18:59:18.432Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d249/2/) |
 | 250 | **TT2D250** | Gả Cho Anh Nhà Họ Thẩm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T19:01:39.251Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d250/2/) |
+| 251 | **TT2D251** | Gà Mẹ Gửi, Nhà Chồng Chia | 20 (viết lại 19) | ⚪ Chờ | — | — |
+| 252 | **TT2D252** | Gả Nhầm Một Đời Ta Càng Thua | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 253 | **TT2D253** | Gặp Bố Trong Căn Nhà Lạ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 254 | **TT2D254** | Gặp Lại Ở Tầng Cao Nhất | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 255 | **TT2D255** | Gặp Mẹ Ở Tập Đoàn | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 256 | **TT2D256** | Ghế Phụ Luôn Dành Cho Cô Ấy | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 257 | **TT2D257** | Ghi Sổ Những Kẻ Quay Lưng | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 258 | **TT2D258** | Gia Phả Gọi Tên Tôi | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 259 | **TT2D259** | Gia Quy Dưỡng Sinh Nhà Họ Cố | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 260 | **TT2D260** | Gia Yến Nhà Họ Cố | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 261 | **TT2D261** | Giấc mơ bị đánh cắp | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 262 | **TT2D262** | Giao Ước Bên Ánh Đèn Sang Trọng | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 263 | **TT2D263** | Giáo Viên Chủ Nhiệm Là Quái Vật | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 264 | **TT2D264** | Giáo Viên Và Án Mạng Tầng 8 | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 265 | **TT2D265** | Giấy Chứng Nhận Gây Sóng Gió | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 266 | **TT2D266** | Giày đỏ dẫn lối tự do | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 267 | **TT2D267** | Giấy kết hôn chưa từng tồn tại | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 268 | **TT2D268** | Giếng Thịt Bí Ẩn | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 269 | **TT2D269** | Gió Âm Trong Nồi Súp | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 270 | **TT2D270** | Giữa Lòng Hai Thế Tử | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 271 | **TT2D271** | Góa Phụ Tìm Đến Nhà Tôi | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 272 | **TT2D272** | Gót Giày Gãy Trước Hôn Lễ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 273 | **TT2D273** | Hai Cái Tát Đánh Mất Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 274 | **TT2D274** | Hai Đêm Bán Bánh Ú | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 275 | **TT2D275** | Hai Đứa Con Không Phải Tôi Sinh | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 276 | **TT2D276** | Hai Trăm Roi Mây Trong Từ Đường | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 277 | **TT2D277** | Hai Trăm Triệu Tệ Ly Hôn | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 278 | **TT2D278** | Hàn Thế Chu Và Con Lừa Xám | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 279 | **TT2D279** | Hầu Phủ Tuyệt Hậu Hữu Tử | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 280 | **TT2D280** | Hiện Trường Không Bình Thường | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 281 | **TT2D281** | Hiện Trường Ở Trong Trường Học | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 282 | **TT2D282** | Hiệu Trưởng Bị Gọi Lên | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 283 | **TT2D283** | Hiệu Trưởng Đột Nhiên Phát Điên | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 284 | **TT2D284** | Hồ Sơ Tội Ác Của Dì Kế | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 285 | **TT2D285** | Hồ Sơ Vụ Án Lâm Hạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 286 | **TT2D286** | Hóa Đơn Đỏ Trong Ký Túc Xá | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 287 | **TT2D287** | Hóa Ra Phá Sản Chỉ Là Màn Kịch | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 288 | **TT2D288** | Học Bá Giả Mạo Suốt Ba Năm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 289 | **TT2D289** | Hồn già trong thân trẻ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 290 | **TT2D290** | Hôn Lễ Thiêng Liêng Nhất | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 291 | **TT2D291** | Hôn Nhân Không Giới Hạn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 292 | **TT2D292** | Hôn Sự Năm 1970 Đổ Vỡ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 293 | **TT2D293** | Hộp Bánh Giả Từ Nước Ngoài | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 294 | **TT2D294** | Hợp Đồng Bán Nhà Mang Tên Tôi | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 295 | **TT2D295** | Hợp Đồng Ghi Tên Bố Mẹ Chồng | 23 (viết lại 22) | ⚪ Chờ | — | — |
+| 296 | **TT2D296** | Huấn luyện quân sự và những bí mật | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 297 | **TT2D297** | Hung Thủ Bắt Chước Trong Chung Cư | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 298 | **TT2D298** | Hương Vị Lạ Từ Quán Cơm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 299 | **TT2D299** | Kẻ Chơi Khăm Và Sự Thật Đen Tối | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 300 | **TT2D300** | Kẻ Đứng Sau Cánh Cửa | 9 (viết lại 8) | ⚪ Chờ | — | — |
