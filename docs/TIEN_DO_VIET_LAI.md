@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 156 / 200 truyện (8.39% tổng kho - 1895 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:57:43 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 157 / 200 truyện (8.45% tổng kho - 1902 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:58:53 18/10/2026
 
 ---
 
@@ -172,7 +172,7 @@
 | 154 | **TT2D154** | Chồng tôi và ván cờ ở trường thi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T14:55:04.907Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d154/2/) |
 | 155 | **TT2D155** | Chồng Về Nhà Bị Vạch Trần | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T14:56:17.840Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d155/2/) |
 | 156 | **TT2D156** | Chú Bán Lợn Nuôi Tôi Học Đại Học | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T14:57:43.820Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d156/2/) |
-| 157 | **TT2D157** | Chủ Nhà Bị Ép Ở Trọ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 157 | **TT2D157** | Chủ Nhà Bị Ép Ở Trọ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:58:53.016Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d157/2/) |
 | 158 | **TT2D158** | Chuỗi Hạt Và Lời Cảnh Báo | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 159 | **TT2D159** | Chuyển Ba Con Sói Cho Em Gái | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 160 | **TT2D160** | Chuyến Bay Quay Về Quá Khứ | 7 (viết lại 6) | ⚪ Chờ | — | — |
