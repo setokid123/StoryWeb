@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 293 / 300 truyện (15.76% tổng kho - 3105 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:05:05 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 294 / 300 truyện (15.81% tổng kho - 3115 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:07:20 19/10/2026
 
 ---
 
@@ -309,7 +309,7 @@
 | 291 | **TT2D291** | Hôn Nhân Không Giới Hạn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:01:03.158Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d291/2/) |
 | 292 | **TT2D292** | Hôn Sự Năm 1970 Đổ Vỡ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:03:11.389Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d292/2/) |
 | 293 | **TT2D293** | Hộp Bánh Giả Từ Nước Ngoài | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T21:05:05.182Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d293/2/) |
-| 294 | **TT2D294** | Hợp Đồng Bán Nhà Mang Tên Tôi | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 294 | **TT2D294** | Hợp Đồng Bán Nhà Mang Tên Tôi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T21:07:20.113Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d294/2/) |
 | 295 | **TT2D295** | Hợp Đồng Ghi Tên Bố Mẹ Chồng | 23 (viết lại 22) | ⚪ Chờ | — | — |
 | 296 | **TT2D296** | Huấn luyện quân sự và những bí mật | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 297 | **TT2D297** | Hung Thủ Bắt Chước Trong Chung Cư | 13 (viết lại 12) | ⚪ Chờ | — | — |
