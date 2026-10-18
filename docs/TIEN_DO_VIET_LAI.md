@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 223 / 250 truyện (12.00% tổng kho - 2463 chương đã viết lại)
-- **Cập nhật lần cuối:** 00:36:28 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 224 / 250 truyện (12.05% tổng kho - 2472 chương đã viết lại)
+- **Cập nhật lần cuối:** 00:38:30 19/10/2026
 
 ---
 
@@ -239,7 +239,7 @@
 | 221 | **TT2D221** | Đêm Về Tang Gia | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T17:32:17.916Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d221/2/) |
 | 222 | **TT2D222** | Đến Lượt Tôi Phản Kích Rồi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T17:34:04.336Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d222/2/) |
 | 223 | **TT2D223** | Di Chúc 16 Căn Biệt Thự | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T17:36:19.044Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d223/2/) |
-| 224 | **TT2D224** | Dị Ứng Hay Là Lời Nguyền | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 224 | **TT2D224** | Dị Ứng Hay Là Lời Nguyền | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T17:38:26.283Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d224/2/) |
 | 225 | **TT2D225** | Đĩa Thịt Kho Trước Mặt Ông | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 226 | **TT2D226** | Dịch Vụ Trả Thù | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 227 | **TT2D227** | Điều khuất sau cánh cửa | 13 (viết lại 12) | ⚪ Chờ | — | — |
