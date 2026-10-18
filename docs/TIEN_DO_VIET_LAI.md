@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 165 / 200 truyện (8.88% tổng kho - 1962 chương đã viết lại)
-- **Cập nhật lần cuối:** 22:10:39 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 166 / 200 truyện (8.93% tổng kho - 1974 chương đã viết lại)
+- **Cập nhật lần cuối:** 22:12:13 18/10/2026
 
 ---
 
@@ -181,7 +181,7 @@
 | 163 | **TT2D163** | Chuyện Nhà Hàng Xóm Mới | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T15:07:51.592Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d163/2/) |
 | 164 | **TT2D164** | Chuyến Tàu Đưa Em Về Nhà | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T15:08:57.611Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d164/2/) |
 | 165 | **TT2D165** | Chuyến Taxi Đến Khu Dân Cư | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T15:10:39.524Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d165/2/) |
-| 166 | **TT2D166** | Chuyện Tình Giữa Hai Thế Giới | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 166 | **TT2D166** | Chuyện Tình Giữa Hai Thế Giới | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T15:12:13.569Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d166/2/) |
 | 167 | **TT2D167** | Chuyến Trăng Mật Ở Đông Sơn | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 168 | **TT2D168** | Chuyến Xe Buýt Cuối Cùng | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 169 | **TT2D169** | Chuyến Xe Cuối Cùng Của Vợ | 9 (viết lại 8) | ⚪ Chờ | — | — |
