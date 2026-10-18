@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 97 / 100 truyện (1264 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:08:04 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 98 / 100 truyện (1274 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:09:28 18/10/2026
 
 ---
 
@@ -113,6 +113,6 @@
 | 95 | **TT2D95** | Bữa Omakase Và Cuộc Gọi Xin Tiền | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:05:03.483Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d95/2/) |
 | 96 | **TT2D96** | Bữa Tất Niên Có Người Thứ Ba | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T13:06:27.318Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d96/2/) |
 | 97 | **TT2D97** | Bữa Tối Kỷ Niệm Một Mình | 20 (viết lại 19) | 🟢 **Đã Live** | 2026-10-18T13:08:04.403Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d97/2/) |
-| 98 | **TT2D98** | Bức Thư Giấu Trong Giá Sách | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 98 | **TT2D98** | Bức Thư Giấu Trong Giá Sách | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T13:09:28.141Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d98/2/) |
 | 99 | **TT2D99** | Bước Qua Cánh Cửa Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 100 | **TT2D100** | Bước Qua Tình Cũ | 24 (viết lại 23) | ⚪ Chờ | — | — |
