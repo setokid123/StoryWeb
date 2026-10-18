@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 296 / 300 truyện (15.92% tổng kho - 3148 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:12:48 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 297 / 300 truyện (15.98% tổng kho - 3160 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:15:35 19/10/2026
 
 ---
 
@@ -312,7 +312,7 @@
 | 294 | **TT2D294** | Hợp Đồng Bán Nhà Mang Tên Tôi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T21:07:20.113Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d294/2/) |
 | 295 | **TT2D295** | Hợp Đồng Ghi Tên Bố Mẹ Chồng | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-18T21:10:20.431Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d295/2/) |
 | 296 | **TT2D296** | Huấn luyện quân sự và những bí mật | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T21:12:48.871Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d296/2/) |
-| 297 | **TT2D297** | Hung Thủ Bắt Chước Trong Chung Cư | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 297 | **TT2D297** | Hung Thủ Bắt Chước Trong Chung Cư | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T21:15:35.091Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d297/2/) |
 | 298 | **TT2D298** | Hương Vị Lạ Từ Quán Cơm | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 299 | **TT2D299** | Kẻ Chơi Khăm Và Sự Thật Đen Tối | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 300 | **TT2D300** | Kẻ Đứng Sau Cánh Cửa | 9 (viết lại 8) | ⚪ Chờ | — | — |
