@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 128 / 150 truyện (6.89% tổng kho - 1616 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:10:09 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 129 / 150 truyện (6.94% tổng kho - 1632 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:12:24 18/10/2026
 
 ---
 
@@ -144,7 +144,7 @@
 | 126 | **TT2D126** | Cháo Khoai Lang Đêm Giao Thừa | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T14:05:33.066Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d126/2/) |
 | 127 | **TT2D127** | Chén Trà Và Lời Vu Oan | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:07:20.678Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d127/2/) |
 | 128 | **TT2D128** | Chị Chồng Mang Thai Chiếm Nhà Tôi | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-18T14:10:09.130Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d128/2/) |
-| 129 | **TT2D129** | Chị Dâu Cả Làm Vỡ Bữa Cơm | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 129 | **TT2D129** | Chị Dâu Cả Làm Vỡ Bữa Cơm | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-18T14:12:24.419Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d129/2/) |
 | 130 | **TT2D130** | Chị Hai Không Giao Thẻ Lương | 17 (viết lại 16) | ⚪ Chờ | — | — |
 | 131 | **TT2D131** | Chỉ Một Viên Đường Cũng Đủ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 132 | **TT2D132** | Chị Tôi Yêu Nhầm Tội Phạm | 8 (viết lại 7) | ⚪ Chờ | — | — |
