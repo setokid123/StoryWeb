@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 343 / 350 truyện (18.45% tổng kho - 3575 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:00:37 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 344 / 350 truyện (18.50% tổng kho - 3584 chương đã viết lại)
+- **Cập nhật lần cuối:** 06:04:27 19/10/2026
 
 ---
 
@@ -359,7 +359,7 @@
 | 341 | **TT2D341** | Lặng Lẽ Ở Bên Anh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T22:56:22.255Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d341/2/) |
 | 342 | **TT2D342** | Lão Tổ Sư Chọn Vợ Cho Đạo Trưởng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:58:42.873Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d342/2/) |
 | 343 | **TT2D343** | Lễ Hội Đêm Trăng Đen | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T23:00:37.769Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d343/2/) |
-| 344 | **TT2D344** | Lễ Mừng Thọ Và Tấm Vé Rời Đi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 344 | **TT2D344** | Lễ Mừng Thọ Và Tấm Vé Rời Đi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T23:04:27.003Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d344/2/) |
 | 345 | **TT2D345** | Lễ Thọ Thành Buổi Sỉ Nhục | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 346 | **TT2D346** | Lệnh Điều Chuyển Của Bạn Trai | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 347 | **TT2D347** | Livestream Bóc Mẹ Chồng Keo Kiệt | 9 (viết lại 8) | ⚪ Chờ | — | — |
