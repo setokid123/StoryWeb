@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 262 / 300 truyện (14.09% tổng kho - 2855 chương đã viết lại)
-- **Cập nhật lần cuối:** 02:47:30 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 263 / 300 truyện (14.15% tổng kho - 2863 chương đã viết lại)
+- **Cập nhật lần cuối:** 02:50:22 19/10/2026
 
 ---
 
@@ -278,7 +278,7 @@
 | 260 | **TT2D260** | Gia Yến Nhà Họ Cố | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T19:41:09.173Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d260/2/) |
 | 261 | **TT2D261** | Giấc mơ bị đánh cắp | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T19:44:16.524Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d261/2/) |
 | 262 | **TT2D262** | Giao Ước Bên Ánh Đèn Sang Trọng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T19:47:30.237Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d262/2/) |
-| 263 | **TT2D263** | Giáo Viên Chủ Nhiệm Là Quái Vật | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 263 | **TT2D263** | Giáo Viên Chủ Nhiệm Là Quái Vật | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T19:50:22.424Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d263/2/) |
 | 264 | **TT2D264** | Giáo Viên Và Án Mạng Tầng 8 | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 265 | **TT2D265** | Giấy Chứng Nhận Gây Sóng Gió | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 266 | **TT2D266** | Giày đỏ dẫn lối tự do | 9 (viết lại 8) | ⚪ Chờ | — | — |
