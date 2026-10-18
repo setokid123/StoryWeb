@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 185 / 200 truyện (9.95% tổng kho - 2147 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:08:31 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 186 / 200 truyện (10.01% tổng kho - 2155 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:10:55 18/10/2026
 
 ---
 
@@ -201,7 +201,7 @@
 | 183 | **TT2D183** | Cô Vợ Lạ Của Bác Cả | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:03:47.032Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d183/2/) |
 | 184 | **TT2D184** | Cô Vợ Vô Dụng Của Nhà Họ Cố | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T16:06:06.357Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d184/2/) |
 | 185 | **TT2D185** | Cơm Đoàn Viên Thiếu Một Người | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:08:27.111Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d185/2/) |
-| 186 | **TT2D186** | Con Gái Câm Của Gia Tộc Thẩm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 186 | **TT2D186** | Con Gái Câm Của Gia Tộc Thẩm | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T16:10:44.634Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d186/2/) |
 | 187 | **TT2D187** | Con Gái Thất Lạc Của Cố Gia | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 188 | **TT2D188** | Con Gái Tôi Không Dễ Bắt Nạt | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 189 | **TT2D189** | Con Là Đứa Đòi Nợ | 7 (viết lại 6) | ⚪ Chờ | — | — |
