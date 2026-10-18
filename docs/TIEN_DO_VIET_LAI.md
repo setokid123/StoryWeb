@@ -7,7 +7,7 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1:** 50 truyện (TT2D1 ➔ TT2D50)
-- **Đã hoàn thành & lên sóng Live:** 31 / 50 truyện (267 chương đã viết lại)
+- **Đã hoàn thành & lên sóng Live:** 36 / 50 truyện (308 chương đã viết lại)
 - **Cập nhật lần cuối:** 18/10/2026 17:21
 
 ---
@@ -47,11 +47,11 @@
 | 29 | **TT2D29** | Ba Năm Yêu Một Người Cứng Đầu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d29/2/) |
 | 30 | **TT2D30** | Ba Ngày Để Bán Hết Nhà | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d30/2/) |
 | 31 | **TT2D31** | Bà Nội Trợ Bước Ra Ngoài | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 10:48:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d31/2/) |
-| 32 | **TT2D32** | Bạch Nguyệt Quang Chiếm Sóng Đêm | 10 (viết lại 9) | ⚪ Chờ | — | — |
-| 33 | **TT2D33** | Bản Án Từ Loa Phát Thanh | 12 (viết lại 11) | ⚪ Chờ | — | — |
-| 34 | **TT2D34** | Bạn Cùng Bàn Và Mùi Hương Quái Dị | 7 (viết lại 6) | ⚪ Chờ | — | — |
-| 35 | **TT2D35** | Bạn cùng phòng thích chụp lén hại tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 36 | **TT2D36** | Bạn Thân Của Mẹ Không Thể Cứu | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 32 | **TT2D32** | Bạch Nguyệt Quang Chiếm Sóng Đêm | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d32/2/) |
+| 33 | **TT2D33** | Bản Án Từ Loa Phát Thanh | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d33/2/) |
+| 34 | **TT2D34** | Bạn Cùng Bàn Và Mùi Hương Quái Dị | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d34/2/) |
+| 35 | **TT2D35** | Bạn cùng phòng thích chụp lén hại tôi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d35/2/) |
+| 36 | **TT2D36** | Bạn Thân Của Mẹ Không Thể Cứu | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d36/2/) |
 | 37 | **TT2D37** | Bạn Thân Tôi Lấy Nhầm Người | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 38 | **TT2D38** | Bạn Trai Cũ Bỗng Dẫn Theo Tình Địch | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 39 | **TT2D39** | Bạn Trai Cũ Ở Sân Bay | 7 (viết lại 6) | ⚪ Chờ | — | — |
