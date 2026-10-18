@@ -56,6 +56,7 @@ ok("sources: description, opening of chapter 1, whole chapter 1 — not locked c
 ok("locked chapter 2 text is nowhere in the composer", !page.text.includes(marker(2)) && texts["chapter-1"]?.with.includes(marker(1)));
 ok("default text: title, chapter, text, read-on link to chapter 2, hashtags", /^📖 .+ · Chương 1\n\n/.test(texts["chapter-1"]?.with ?? "") && texts["chapter-1"].with.includes(`👉 Đọc tiếp chương 2: ${B}/doc/${S}/2/`) && /#TrạmTruyện2D/.test(texts["chapter-1"].with));
 ok("with a first comment the post has no read-on line (the comment has it)", !texts["chapter-1"]?.without.includes("👉") && texts["chapter-1"]?.without.includes(marker(1)) && /\n#TrạmTruyện2D[^\n]*$/.test(texts["chapter-1"]?.without ?? ""));
+ok("composer offers 'Tạo bài để tự đăng': kit with the cover as a JPEG to download, three copy buttons", /data-make-kit/.test(page.text) && /data-manual-kit/.test(page.text) && /href="[^"]*\/storyweb-fb\/[^"]+\.jpg" download="tt2d\d+\.jpg"/.test(page.text) && (page.text.match(/data-copy="/g) ?? []).length === 3);
 ok("opening of chapter 1 is a short excerpt", (texts.start?.with ?? "").length < (texts["chapter-1"]?.with ?? "").length && texts.start.with.includes("…"));
 const textarea = (html, id) => decode((html.match(new RegExp(`<textarea id="${id}"[^>]*>([\\s\\S]*?)</textarea>`)) ?? [])[1] ?? "");
 ok("first comment on by default, filled from the template with the read-on link", /id="sw-fb-comment-on"[^>]*checked/.test(page.text) && textarea(page.text, "sw-fb-comment").startsWith("👉 Đọc truyện: ") && /\{link_doc_tiep\}/.test(textarea(page.text, "sw-fb-comment-template")));
@@ -284,6 +285,16 @@ page = await get(PAGE);
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_disconnect", _wpnonce: nonceFor(page.text, "storyweb_fb_disconnect") });
 page = await get(PAGE);
 ok("disconnect → connect form again", /name="app_id"/.test(page.text) && !/Đang đăng lên Page/.test(page.text));
+
+// ---- no Page connected (or Facebook holding the app): the kit to post by hand still works ----
+ok("not connected: picker to make a post by hand", /Tạo bài để tự đăng/.test(page.text) && /&amp;story=\d+|&#038;story=\d+/.test(page.text));
+page = await get(`${PAGE}&story=${storyId}`);
+ok("not connected: composer makes the kit only (no publish button, no schedule), free text only", /data-manual-kit/.test(page.text) && /data-make-kit/.test(page.text) && !/value="Đăng lên Facebook"/.test(page.text) && !/name="when"/.test(page.text) && !page.text.includes(marker(2)));
+await mock(true);
+r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_manual", _wpnonce: nonceFor(page.text, "storyweb_fb_manual"), story: String(storyId), source: "chapter-1" });
+calls = await mock(true);
+page = await get(PAGE);
+ok("'Đánh dấu đã đăng tay' → history row, 'Đã tự đăng' in the picker, nothing sent to Facebook", calls.length === 0 && /<td>Tự đăng tay<\/td>/.test(page.text) && /Đã tự đăng \d\d:\d\d/.test(page.text));
 r = await post("/wp-admin/admin-post.php", { action: "storyweb_fb_connect", _wpnonce: nonceFor(page.text, "storyweb_fb_connect"), page_id: "111", page_token: "WRONG" });
 page = await get(PAGE);
 ok("pasted Page token that Facebook rejects → error, not connected", /Facebook báo lỗi 190/.test(page.text) && /name="app_id"/.test(page.text));

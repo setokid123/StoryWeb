@@ -4,11 +4,17 @@
  * opening of chapter 1, a whole free chapter), edit the text and post it with the cover, now or at a set time, with
  * an optional first comment from a template (the "read on" link then moves from the post to the comment).
  * Also a "Đăng Facebook" link under each story in Truyện → Tất cả truyện. Logic in inc/facebook.php.
+ * "Tạo bài để tự đăng" makes the same post as a kit to post by hand (text, cover JPEG, comments, each with a copy
+ * button); nothing goes to Facebook, so it works without a connected Page. Stories marked as posted by hand show it
+ * in the picker.
  *
  * @package StoryWebCore
  */
 
 defined( 'ABSPATH' ) || exit;
+
+/** Story meta: when the story was last marked as posted by hand ("Đánh dấu đã đăng tay"). */
+const STORYWEB_FB_META_MANUAL = '_sw_fb_manual_at';
 
 add_action(
 	'admin_menu',
@@ -33,6 +39,7 @@ add_action( 'admin_post_storyweb_fb_connect', 'storyweb_fb_admin_connect' );
 add_action( 'admin_post_storyweb_fb_choose', 'storyweb_fb_admin_choose' );
 add_action( 'admin_post_storyweb_fb_disconnect', 'storyweb_fb_admin_disconnect' );
 add_action( 'admin_post_storyweb_fb_publish', 'storyweb_fb_admin_publish' );
+add_action( 'admin_post_storyweb_fb_manual', 'storyweb_fb_admin_manual' );
 
 function storyweb_fb_admin_url( $args = array() ) {
 	return add_query_arg( array_merge( array( 'post_type' => 'story', 'page' => 'storyweb-facebook' ), $args ), admin_url( 'edit.php' ) );
@@ -185,6 +192,23 @@ function storyweb_fb_admin_publish() {
 	storyweb_fb_back( array( 'story' => $story->ID ) );
 }
 
+/** "Đánh dấu đã đăng tay": a post made by hand from the kit goes into the history and the story is marked. */
+function storyweb_fb_admin_manual() {
+	storyweb_fb_admin_guard( 'storyweb_fb_manual' );
+	// phpcs:ignore WordPress.Security.NonceVerification.Missing -- checked in storyweb_fb_admin_guard().
+	$story = get_post( isset( $_POST['story'] ) ? absint( $_POST['story'] ) : 0 );
+	if ( ! $story || 'story' !== $story->post_type || 'publish' !== $story->post_status ) {
+		storyweb_fb_notice( 'error', 'Không tìm thấy truyện.' );
+		storyweb_fb_back();
+	}
+	$sources = storyweb_fb_sources( $story );
+	$source  = storyweb_fb_field( 'source' );
+	storyweb_fb_log( $story, isset( $sources[ $source ] ) ? $sources[ $source ]['label'] : 'Tự đăng', '', 0, 'Tự đăng tay' );
+	update_post_meta( $story->ID, STORYWEB_FB_META_MANUAL, time() );
+	storyweb_fb_notice( 'success', sprintf( 'Đã ghi "%s" là đã tự đăng. Chọn truyện tiếp theo.', get_the_title( $story ) ) );
+	storyweb_fb_back();
+}
+
 /** POSTed plain text (message, comment, template): tags stripped, invalid UTF-8 dropped, kept otherwise as typed. */
 function storyweb_fb_text_field( $key ) {
 	// phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- callers checked the nonce; plain text, links with % and line breaks kept.
@@ -247,6 +271,18 @@ function storyweb_fb_admin_page() {
 			</form>
 		<?php elseif ( ! storyweb_fb_connected() ) : ?>
 			<?php storyweb_fb_admin_connect_form(); ?>
+			<hr style="margin:28px 0">
+			<?php
+			// No Page connected (or Facebook holding the app): the kit to post by hand still works.
+			$story = $story_id ? get_post( $story_id ) : null;
+			if ( $story && 'story' === $story->post_type && 'publish' === $story->post_status ) {
+				storyweb_fb_admin_composer( $story, $s, false );
+			} else {
+				echo '<h2>Tạo bài để tự đăng</h2><p class="description">Không cần kết nối Page: chọn truyện, bấm <strong>Tạo bài để tự đăng</strong>, rồi chép nội dung, ảnh và bình luận lên Facebook.</p>';
+				storyweb_fb_admin_picker( $search );
+			}
+			storyweb_fb_admin_history();
+			?>
 		<?php else : ?>
 			<p>Đang đăng lên Page <strong><?php echo esc_html( $s['page_name'] ); ?></strong> <code><?php echo esc_html( $s['page_id'] ); ?></code>, kết nối lúc <?php echo esc_html( wp_date( 'H:i d/m/Y', (int) $s['connected_at'] ) ); ?>.</p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin-bottom:16px">
@@ -381,8 +417,9 @@ function storyweb_fb_admin_picker( $search ) {
 			<?php $post = get_post( $id ); ?>
 			<tr>
 				<td style="width:56px"><?php echo get_the_post_thumbnail( $post, array( 48, 69 ), array( 'style' => 'width:48px;height:auto;border-radius:6px' ) ); ?></td>
-				<td><strong><?php echo esc_html( get_the_title( $post ) ); ?></strong><br><span class="description"><?php echo (int) storyweb_story_meta( $post )['chapter_count']; ?> chương</span></td>
-				<td style="text-align:right"><a class="button" href="<?php echo esc_url( storyweb_fb_admin_url( array( 'story' => $post->ID ) ) ); ?>">Chọn</a></td>
+				<?php $manual_at = (int) get_post_meta( $post->ID, STORYWEB_FB_META_MANUAL, true ); ?>
+				<td><strong><?php echo esc_html( get_the_title( $post ) ); ?></strong><br><span class="description"><?php echo (int) storyweb_story_meta( $post )['chapter_count']; ?> chương</span><?php if ( $manual_at ) : ?> · <span style="color:#008a20;font-weight:600">Đã tự đăng <?php echo esc_html( wp_date( 'H:i d/m/Y', $manual_at ) ); ?></span><?php endif; ?></td>
+				<td style="text-align:right"><a class="button" href="<?php echo esc_url( storyweb_fb_admin_url( array( 'story' => $post->ID ) ) ); ?>"><?php echo esc_html( storyweb_fb_connected() ? 'Chọn' : 'Tạo bài' ); ?></a></td>
 			</tr>
 		<?php endforeach; ?>
 		<?php if ( ! $shown ) : ?>
@@ -396,7 +433,11 @@ function storyweb_fb_admin_picker( $search ) {
 	<?php
 }
 
-function storyweb_fb_admin_composer( $story, $s ) {
+/**
+ * The post composer. With `$connected` false (no Page, or Facebook holding the app) it only makes the kit to post by
+ * hand: no publish button, no schedule.
+ */
+function storyweb_fb_admin_composer( $story, $s, $connected = true ) {
 	$sources = storyweb_fb_sources( $story );
 	$cover   = get_the_post_thumbnail_url( $story, 'medium' );
 	// Per source: the post text with and without the "read on" line (the first comment carries it), and the values
@@ -419,7 +460,7 @@ function storyweb_fb_admin_composer( $story, $s ) {
 		<p>Truyện chưa có giới thiệu hay chương miễn phí nào để đăng.</p>
 		<?php return; ?>
 	<?php endif; ?>
-	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="storyweb-fb-compose" style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="storyweb-fb-compose" style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start"<?php echo $connected ? '' : ' onsubmit="return false"'; ?>>
 		<input type="hidden" name="action" value="storyweb_fb_publish">
 		<input type="hidden" name="story" value="<?php echo (int) $story->ID; ?>">
 		<?php wp_nonce_field( 'storyweb_fb_publish' ); ?>
@@ -442,10 +483,17 @@ function storyweb_fb_admin_composer( $story, $s ) {
 			<p class="description"><span id="sw-fb-count">0</span> / <?php echo (int) STORYWEB_FB_MAX_TEXT; ?> ký tự. Đổi lựa chọn ở trên sẽ thay nội dung trong ô này.</p>
 			<?php storyweb_fb_admin_comment_boxes( $s, $texts[ $first ]['vars'] ?? array() ); ?>
 			<p><label for="sw-fb-tags">Hashtag mặc định</label><br><input id="sw-fb-tags" name="hashtags_default" value="<?php echo esc_attr( $s['hashtags'] ); ?>" class="regular-text"> <span class="description">dùng cho các bài sau; thể loại của truyện được thêm tự động.</span></p>
-			<p><label for="sw-fb-when">Hẹn giờ đăng (bỏ trống để đăng ngay)</label><br><input id="sw-fb-when" type="datetime-local" name="when"> <span class="description">giờ Việt Nam, từ 10 phút đến 75 ngày tới (Facebook giữ bài và tự đăng đúng giờ).</span></p>
-			<?php submit_button( 'Đăng lên Facebook', 'primary', 'submit', false ); ?>
+			<?php if ( $connected ) : ?>
+				<p><label for="sw-fb-when">Hẹn giờ đăng (bỏ trống để đăng ngay)</label><br><input id="sw-fb-when" type="datetime-local" name="when"> <span class="description">giờ Việt Nam, từ 10 phút đến 75 ngày tới (Facebook giữ bài và tự đăng đúng giờ).</span></p>
+				<?php submit_button( 'Đăng lên Facebook', 'primary', 'submit', false ); ?>
+			<?php endif; ?>
+			<button type="button" class="button <?php echo $connected ? '' : 'button-primary'; ?>" data-make-kit>Tạo bài để tự đăng</button>
+			<?php if ( $connected ) : ?>
+				<p class="description">Tự đăng: không gửi gì lên Facebook, chỉ tạo sẵn nội dung, ảnh và bình luận để bạn chép và đăng tay (đỡ bị Facebook quét như đăng tự động).</p>
+			<?php endif; ?>
 		</div>
 	</form>
+	<?php storyweb_fb_admin_kit( $story ); ?>
 	<script type="application/json" id="sw-fb-texts"><?php echo wp_json_encode( $texts, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE ); ?></script>
 	<script>
 	( function () {
@@ -479,8 +527,136 @@ function storyweb_fb_admin_composer( $story, $s ) {
 			wrap.querySelector( '[data-comment-template]' ).addEventListener( 'input', fillComments );
 		} );
 		box.addEventListener( 'input', update );
-		when.addEventListener( 'input', function () { button.value = when.value ? 'Hẹn giờ đăng' : 'Đăng lên Facebook'; } );
+		if ( when && button ) {
+			when.addEventListener( 'input', function () { button.value = when.value ? 'Hẹn giờ đăng' : 'Đăng lên Facebook'; } );
+		}
 		update();
+	} )();
+	</script>
+	<?php
+}
+
+/**
+ * The kit to post by hand, under the composer: the cover as a JPEG (download or copy), the post text and the
+ * comments as they are in the composer, each with a copy button, and "Đánh dấu đã đăng tay". Hidden until
+ * "Tạo bài để tự đăng"; filled from the composer in the browser, so it is exactly what would have been posted.
+ */
+function storyweb_fb_admin_kit( $story ) {
+	$jpeg = storyweb_fb_cover_url( $story );
+	$code = (string) get_post_meta( $story->ID, defined( 'STORYWEB_META_CODE' ) ? STORYWEB_META_CODE : '_sw_code', true );
+	$file = sanitize_file_name( strtolower( '' !== $code ? $code : 'truyen-' . $story->ID ) ) . '.jpg';
+	$box  = 'margin:0 0 16px;padding:12px 14px;background:#f6f7f7;border:1px solid #dcdcde;border-radius:8px';
+	?>
+	<div class="storyweb-fb-kit" data-manual-kit hidden style="max-width:1010px;margin:24px 0;padding:18px 20px;background:#fff;border:1px solid #c3c4c7;border-radius:10px">
+		<h2 style="margin-top:0">Bài để tự đăng</h2>
+		<p class="description">Trên Facebook: mở Page → <strong>Tạo bài viết</strong>, dán nội dung, thêm ảnh, đăng. Rồi dán lần lượt từng bình luận dưới bài. Không có gì được gửi lên Facebook từ đây. Muốn đổi nội dung thì sửa ở khung trên rồi bấm <strong>Tạo lại bài</strong>.</p>
+		<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
+			<div style="flex:0 0 220px">
+				<?php if ( $jpeg ) : ?>
+					<img src="<?php echo esc_url( $jpeg ); ?>" alt="<?php echo esc_attr( 'Ảnh bìa ' . get_the_title( $story ) ); ?>" style="width:220px;height:auto;border-radius:12px;display:block">
+					<p><a class="button" href="<?php echo esc_url( $jpeg ); ?>" download="<?php echo esc_attr( $file ); ?>" data-kit-download>Tải ảnh (JPG)</a> <button type="button" class="button" data-copy-image="<?php echo esc_url( $jpeg ); ?>">Sao chép ảnh</button></p>
+				<?php else : ?>
+					<p class="description">Truyện chưa có ảnh bìa: đăng kèm link truyện, Facebook tự hiện ảnh xem trước của site.</p>
+				<?php endif; ?>
+			</div>
+			<div style="flex:1 1 520px;max-width:760px">
+				<div style="<?php echo esc_attr( $box ); ?>">
+					<p style="margin-top:0"><label for="sw-kit-message"><strong>Nội dung bài</strong></label> <button type="button" class="button button-small" data-copy="message">Sao chép nội dung</button></p>
+					<textarea id="sw-kit-message" rows="12" class="large-text" readonly data-kit="message"></textarea>
+				</div>
+				<div style="<?php echo esc_attr( $box ); ?>" data-kit-wrap="comment">
+					<p style="margin-top:0"><label for="sw-kit-comment"><strong>Bình luận 1</strong></label> <button type="button" class="button button-small" data-copy="comment">Sao chép bình luận 1</button></p>
+					<textarea id="sw-kit-comment" rows="3" class="large-text" readonly data-kit="comment"></textarea>
+				</div>
+				<div style="<?php echo esc_attr( $box ); ?>" data-kit-wrap="comment2">
+					<p style="margin-top:0"><label for="sw-kit-comment2"><strong>Bình luận 2</strong></label> <button type="button" class="button button-small" data-copy="comment2">Sao chép bình luận 2</button></p>
+					<textarea id="sw-kit-comment2" rows="3" class="large-text" readonly data-kit="comment2"></textarea>
+				</div>
+				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+					<input type="hidden" name="action" value="storyweb_fb_manual">
+					<?php wp_nonce_field( 'storyweb_fb_manual' ); ?>
+					<input type="hidden" name="story" value="<?php echo (int) $story->ID; ?>">
+					<input type="hidden" name="source" value="" data-kit-source>
+					<button type="submit" class="button button-primary">Đánh dấu đã đăng tay</button>
+					<span class="description">Ghi vào lịch sử và đánh dấu truyện trong danh sách, để khỏi đăng trùng.</span>
+				</form>
+				<p class="screen-reader-text" aria-live="polite" data-kit-status></p>
+			</div>
+		</div>
+	</div>
+	<script>
+	( function () {
+		var kit = document.querySelector( '[data-manual-kit]' );
+		var make = document.querySelector( '[data-make-kit]' );
+		if ( ! kit || ! make ) {
+			return;
+		}
+		var status = kit.querySelector( '[data-kit-status]' );
+		var flash = function ( button, text ) {
+			var old = button.dataset.label || button.textContent;
+			button.dataset.label = old;
+			button.textContent = text;
+			status.textContent = text;
+			clearTimeout( button._t );
+			button._t = setTimeout( function () { button.textContent = old; }, 1800 );
+		};
+		var fill = function () {
+			kit.querySelector( '[data-kit="message"]' ).value = document.getElementById( 'sw-fb-message' ).value.trim();
+			[ [ '', 'comment' ], [ '2', 'comment2' ] ].forEach( function ( pair ) {
+				var tick = document.getElementById( 'sw-fb-comment' + pair[ 0 ] + '-on' );
+				var text = document.getElementById( 'sw-fb-comment' + pair[ 0 ] );
+				var wrap = kit.querySelector( '[data-kit-wrap="' + pair[ 1 ] + '"]' );
+				var value = tick && tick.checked && text ? text.value.trim() : '';
+				wrap.hidden = '' === value;
+				wrap.querySelector( 'textarea' ).value = value;
+			} );
+			var radio = document.querySelector( '.storyweb-fb-compose [name=source]:checked' );
+			kit.querySelector( '[data-kit-source]' ).value = radio ? radio.value : '';
+		};
+		make.addEventListener( 'click', function () {
+			fill();
+			kit.hidden = false;
+			make.textContent = 'Tạo lại bài';
+			kit.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+		} );
+		// Text: the Clipboard API where the page is secure (https, localhost), else the old select-and-copy.
+		kit.querySelectorAll( '[data-copy]' ).forEach( function ( button ) {
+			button.addEventListener( 'click', function () {
+				var area = kit.querySelector( '[data-kit="' + button.dataset.copy + '"]' );
+				var fallback = function () { area.focus(); area.select(); var ok = document.execCommand( 'copy' ); flash( button, ok ? 'Đã chép ✓' : 'Hãy bôi đen rồi chép' ); };
+				if ( navigator.clipboard && window.isSecureContext ) {
+					navigator.clipboard.writeText( area.value ).then( function () { flash( button, 'Đã chép ✓' ); }, fallback );
+				} else {
+					fallback();
+				}
+			} );
+		} );
+		// Image: the JPEG redrawn as PNG (what browsers can put on the clipboard). Phones: use the download button.
+		var copyImage = kit.querySelector( '[data-copy-image]' );
+		if ( copyImage ) {
+			copyImage.addEventListener( 'click', function () {
+				if ( ! ( navigator.clipboard && window.ClipboardItem && window.isSecureContext ) ) {
+					flash( copyImage, 'Không chép được, hãy tải ảnh' );
+					return;
+				}
+				var png = new Promise( function ( resolve, reject ) {
+					var picture = new Image();
+					picture.onload = function () {
+						var canvas = document.createElement( 'canvas' );
+						canvas.width = picture.naturalWidth;
+						canvas.height = picture.naturalHeight;
+						canvas.getContext( '2d' ).drawImage( picture, 0, 0 );
+						canvas.toBlob( function ( blob ) { return blob ? resolve( blob ) : reject( new Error( 'png' ) ); }, 'image/png' );
+					};
+					picture.onerror = reject;
+					picture.src = copyImage.dataset.copyImage;
+				} );
+				navigator.clipboard.write( [ new ClipboardItem( { 'image/png': png } ) ] ).then(
+					function () { flash( copyImage, 'Đã chép ảnh ✓' ); },
+					function () { flash( copyImage, 'Không chép được, hãy tải ảnh' ); }
+				);
+			} );
+		}
 	} )();
 	</script>
 	<?php
