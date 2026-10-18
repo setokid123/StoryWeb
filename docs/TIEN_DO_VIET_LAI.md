@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 283 / 300 truyện (15.22% tổng kho - 3031 chương đã viết lại)
-- **Cập nhật lần cuối:** 03:41:31 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 284 / 300 truyện (15.28% tổng kho - 3038 chương đã viết lại)
+- **Cập nhật lần cuối:** 03:43:48 19/10/2026
 
 ---
 
@@ -299,7 +299,7 @@
 | 281 | **TT2D281** | Hiện Trường Ở Trong Trường Học | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T20:36:11.194Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d281/2/) |
 | 282 | **TT2D282** | Hiệu Trưởng Bị Gọi Lên | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T20:39:01.870Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d282/2/) |
 | 283 | **TT2D283** | Hiệu Trưởng Đột Nhiên Phát Điên | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T20:41:31.952Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d283/2/) |
-| 284 | **TT2D284** | Hồ Sơ Tội Ác Của Dì Kế | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 284 | **TT2D284** | Hồ Sơ Tội Ác Của Dì Kế | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T20:43:48.865Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d284/2/) |
 | 285 | **TT2D285** | Hồ Sơ Vụ Án Lâm Hạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 286 | **TT2D286** | Hóa Đơn Đỏ Trong Ký Túc Xá | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 287 | **TT2D287** | Hóa Ra Phá Sản Chỉ Là Màn Kịch | 8 (viết lại 7) | ⚪ Chờ | — | — |
