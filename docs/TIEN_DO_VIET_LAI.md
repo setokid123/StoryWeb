@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 149 / 150 truyện (8.02% tổng kho - 1831 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:46:22 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 150 / 150 truyện (8.07% tổng kho - 1841 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:47:44 18/10/2026
 
 ---
 
@@ -165,4 +165,4 @@
 | 147 | **TT2D147** | Chồng Tôi Có Một Đứa Con Trai | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T14:43:08.858Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d147/2/) |
 | 148 | **TT2D148** | Chồng Tôi Đi Với Phương Dao | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T14:44:35.781Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d148/2/) |
 | 149 | **TT2D149** | Chồng Tôi Đứng Về Phía Ai | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T14:46:22.101Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d149/2/) |
-| 150 | **TT2D150** | Chồng Tôi Hóa Ra Là Chu Lâm | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 150 | **TT2D150** | Chồng Tôi Hóa Ra Là Chu Lâm | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T14:47:43.968Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d150/2/) |
