@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 308 / 350 truyện (16.57% tổng kho - 3255 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:40:41 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 309 / 350 truyện (16.62% tổng kho - 3273 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:44:10 19/10/2026
 
 ---
 
@@ -324,7 +324,7 @@
 | 306 | **TT2D306** | Khách VIP Và Viên Sapphire | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T21:36:37.620Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d306/2/) |
 | 307 | **TT2D307** | Khi Anh Chọn Cố Ninh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:38:39.210Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d307/2/) |
 | 308 | **TT2D308** | Khi Anh Chọn Mẹ Con Họ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:40:41.686Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d308/2/) |
-| 309 | **TT2D309** | Khi Anh Vứt Em Lại Đó | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 309 | **TT2D309** | Khi Anh Vứt Em Lại Đó | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-18T21:44:10.810Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d309/2/) |
 | 310 | **TT2D310** | Khi Bạn Gái Về Ra Mắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 311 | **TT2D311** | Khi Bạn Trai Trở Thành Hung Thủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 312 | **TT2D312** | Khi Cả Trường Tin Lời Cô Ta | 9 (viết lại 8) | ⚪ Chờ | — | — |
