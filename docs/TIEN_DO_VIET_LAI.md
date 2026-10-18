@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 150 / 200 truyện (8.07% tổng kho - 1841 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:49:48 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 151 / 200 truyện (8.12% tổng kho - 1850 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:51:16 18/10/2026
 
 ---
 
@@ -166,7 +166,7 @@
 | 148 | **TT2D148** | Chồng Tôi Đi Với Phương Dao | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T14:44:35.781Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d148/2/) |
 | 149 | **TT2D149** | Chồng Tôi Đứng Về Phía Ai | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T14:46:22.101Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d149/2/) |
 | 150 | **TT2D150** | Chồng Tôi Hóa Ra Là Chu Lâm | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T14:47:43.968Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d150/2/) |
-| 151 | **TT2D151** | Chồng Tôi Mất Tích Khi Cha Bệnh | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 151 | **TT2D151** | Chồng Tôi Mất Tích Khi Cha Bệnh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T14:51:16.675Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d151/2/) |
 | 152 | **TT2D152** | Chồng Tôi, Người Xa Lạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 153 | **TT2D153** | Chồng Tôi Nợ Tiền Cưới Chính Mình | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 154 | **TT2D154** | Chồng tôi và ván cờ ở trường thi | 10 (viết lại 9) | ⚪ Chờ | — | — |
