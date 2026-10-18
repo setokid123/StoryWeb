@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 234 / 250 truyện (12.59% tổng kho - 2595 chương đã viết lại)
-- **Cập nhật lần cuối:** 01:09:37 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 235 / 250 truyện (12.64% tổng kho - 2604 chương đã viết lại)
+- **Cập nhật lần cuối:** 01:12:18 19/10/2026
 
 ---
 
@@ -250,7 +250,7 @@
 | 232 | **TT2D232** | Đón Mẹ Lên Thành Phố Dưỡng Già | 29 (viết lại 28) | 🟢 **Đã Live** | 2026-10-18 18:05:07 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d232/2/) |
 | 233 | **TT2D233** | Đóng Học Phí Và Cái Bẫy | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 18:07:23 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d233/2/) |
 | 234 | **TT2D234** | Dư Âm Của Nỗi Đau | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 18:09:33 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d234/2/) |
-| 235 | **TT2D235** | Đứa Bé Mất Tích Trong Thôn | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 235 | **TT2D235** | Đứa Bé Mất Tích Trong Thôn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 18:12:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d235/2/) |
 | 236 | **TT2D236** | Đứa Cháu Mới Về Nhà | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 237 | **TT2D237** | Đứa Con Gái Thật Trở Về | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 238 | **TT2D238** | Đứa Con Không Thuộc Về Anh Tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
