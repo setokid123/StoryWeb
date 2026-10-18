@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 89 / 100 truyện (1174 chương đã viết lại)
-- **Cập nhật lần cuối:** 19:55:42 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 90 / 100 truyện (1181 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:56:57 18/10/2026
 
 ---
 
@@ -105,7 +105,7 @@
 | 87 | **TT2D87** | Bố Chồng Nhập Viện Tôi Không Nói | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T12:52:16.355Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d87/2/) |
 | 88 | **TT2D88** | Bộ Đồ Ngủ Mẹ Chồng Đưa | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T12:54:08.919Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d88/2/) |
 | 89 | **TT2D89** | Bó Hoa Muộn Màng Của Người Chồng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T12:55:42.778Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d89/2/) |
-| 90 | **TT2D90** | Bọ Ngựa Và Đêm Săn Mồi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 90 | **TT2D90** | Bọ Ngựa Và Đêm Săn Mồi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T12:56:57.738Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d90/2/) |
 | 91 | **TT2D91** | Bóng Ma Hoa Mai | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 92 | **TT2D92** | Bữa Cơm Đầu Ở Nhà Chồng | 22 (viết lại 21) | ⚪ Chờ | — | — |
 | 93 | **TT2D93** | Bữa Cơm Nhà Bỗng Lạnh Ngắt | 12 (viết lại 11) | ⚪ Chờ | — | — |
