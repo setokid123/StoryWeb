@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 159 / 200 truyện (8.55% tổng kho - 1917 chương đã viết lại)
-- **Cập nhật lần cuối:** 22:01:20 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 160 / 200 truyện (8.61% tổng kho - 1923 chương đã viết lại)
+- **Cập nhật lần cuối:** 22:02:31 18/10/2026
 
 ---
 
@@ -175,7 +175,7 @@
 | 157 | **TT2D157** | Chủ Nhà Bị Ép Ở Trọ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:58:53.016Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d157/2/) |
 | 158 | **TT2D158** | Chuỗi Hạt Và Lời Cảnh Báo | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T15:00:06.470Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d158/2/) |
 | 159 | **TT2D159** | Chuyển Ba Con Sói Cho Em Gái | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T15:01:20.748Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d159/2/) |
-| 160 | **TT2D160** | Chuyến Bay Quay Về Quá Khứ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 160 | **TT2D160** | Chuyến Bay Quay Về Quá Khứ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T15:02:31.835Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d160/2/) |
 | 161 | **TT2D161** | Chuyện Của Giám Đốc Thẩm | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 162 | **TT2D162** | Chuyển Lương Cho Chị Dâu Cả | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 163 | **TT2D163** | Chuyện Nhà Hàng Xóm Mới | 11 (viết lại 10) | ⚪ Chờ | — | — |
