@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 273 / 300 truyện (14.69% tổng kho - 2947 chương đã viết lại)
-- **Cập nhật lần cuối:** 03:17:09 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 274 / 300 truyện (14.74% tổng kho - 2960 chương đã viết lại)
+- **Cập nhật lần cuối:** 03:20:04 19/10/2026
 
 ---
 
@@ -289,7 +289,7 @@
 | 271 | **TT2D271** | Góa Phụ Tìm Đến Nhà Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T20:13:24.607Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d271/2/) |
 | 272 | **TT2D272** | Gót Giày Gãy Trước Hôn Lễ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T20:15:28.975Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d272/2/) |
 | 273 | **TT2D273** | Hai Cái Tát Đánh Mất Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T20:17:09.274Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d273/2/) |
-| 274 | **TT2D274** | Hai Đêm Bán Bánh Ú | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 274 | **TT2D274** | Hai Đêm Bán Bánh Ú | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T20:20:04.718Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d274/2/) |
 | 275 | **TT2D275** | Hai Đứa Con Không Phải Tôi Sinh | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 276 | **TT2D276** | Hai Trăm Roi Mây Trong Từ Đường | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 277 | **TT2D277** | Hai Trăm Triệu Tệ Ly Hôn | 6 (viết lại 5) | ⚪ Chờ | — | — |
