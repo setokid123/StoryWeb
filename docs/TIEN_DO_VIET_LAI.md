@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 57 / 100 truyện (507 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:52:49 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 58 / 100 truyện (514 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:54:11 18/10/2026
 
 ---
 
@@ -73,7 +73,7 @@
 | 55 | **TT2D55** | Bí Ẩn Sau Lời Nói Dối Cuối Cùng | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 11:50:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d55/2/) |
 | 56 | **TT2D56** | Bí Ẩn Thùng Gỗ Long Não | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 11:51:23 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d56/2/) |
 | 57 | **TT2D57** | Bí Ẩn Trong Biệt Thự Tối Mịt | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 11:52:49 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d57/2/) |
-| 58 | **TT2D58** | Bí Ẩn Trong Ngôi Nhà Già | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 58 | **TT2D58** | Bí Ẩn Trong Ngôi Nhà Già | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 11:54:11 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d58/2/) |
 | 59 | **TT2D59** | Bí Ẩn Từ Tương Lai | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 60 | **TT2D60** | Bí Ẩn Xác Tàu Đắm | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 61 | **TT2D61** | Bị Bỏ Lại Giữa Gió Tuyết | 22 (viết lại 21) | ⚪ Chờ | — | — |
