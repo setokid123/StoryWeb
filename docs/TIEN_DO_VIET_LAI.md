@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 93 / 100 truyện (1219 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:02:22 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 94 / 100 truyện (1226 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:03:45 18/10/2026
 
 ---
 
@@ -109,7 +109,7 @@
 | 91 | **TT2D91** | Bóng Ma Hoa Mai | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T12:58:09.208Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d91/2/) |
 | 92 | **TT2D92** | Bữa Cơm Đầu Ở Nhà Chồng | 22 (viết lại 21) | 🟢 **Đã Live** | 2026-10-18T13:00:42.694Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d92/2/) |
 | 93 | **TT2D93** | Bữa Cơm Nhà Bỗng Lạnh Ngắt | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T13:02:22.873Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d93/2/) |
-| 94 | **TT2D94** | Bữa Cơm Trung Thu Gióng Lên | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 94 | **TT2D94** | Bữa Cơm Trung Thu Gióng Lên | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:03:45.530Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d94/2/) |
 | 95 | **TT2D95** | Bữa Omakase Và Cuộc Gọi Xin Tiền | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 96 | **TT2D96** | Bữa Tất Niên Có Người Thứ Ba | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 97 | **TT2D97** | Bữa Tối Kỷ Niệm Một Mình | 20 (viết lại 19) | ⚪ Chờ | — | — |
