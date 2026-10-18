@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 225 / 250 truyện (12.10% tổng kho - 2477 chương đã viết lại)
-- **Cập nhật lần cuối:** 00:43:22 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 226 / 250 truyện (12.16% tổng kho - 2484 chương đã viết lại)
+- **Cập nhật lần cuối:** 00:47:30 19/10/2026
 
 ---
 
@@ -241,7 +241,7 @@
 | 223 | **TT2D223** | Di Chúc 16 Căn Biệt Thự | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T17:36:19.044Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d223/2/) |
 | 224 | **TT2D224** | Dị Ứng Hay Là Lời Nguyền | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T17:38:26.283Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d224/2/) |
 | 225 | **TT2D225** | Đĩa Thịt Kho Trước Mặt Ông | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18 17:43:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d225/2/) |
-| 226 | **TT2D226** | Dịch Vụ Trả Thù | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 226 | **TT2D226** | Dịch Vụ Trả Thù | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 17:47:20 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d226/2/) |
 | 227 | **TT2D227** | Điều khuất sau cánh cửa | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 228 | **TT2D228** | Đời Này Tôi Tác Thành Cho Họ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 229 | **TT2D229** | Đổi Nhà Cho Em Gái Anh | 20 (viết lại 19) | ⚪ Chờ | — | — |
