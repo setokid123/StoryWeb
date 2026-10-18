@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 103 / 150 truyện (5.54% tổng kho - 1349 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:21:54 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 104 / 150 truyện (5.59% tổng kho - 1356 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:23:12 18/10/2026
 
 ---
 
@@ -119,7 +119,7 @@
 | 101 | **TT2D101** | Bước Ra Khỏi Ký Ức | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-18T13:18:54.595Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d101/2/) |
 | 102 | **TT2D102** | Cá Biến Mất Trong Tủ Đông | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T13:20:14.539Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d102/2/) |
 | 103 | **TT2D103** | Cả Nhà Đều Lấy Đồ Của Tôi | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T13:21:54.258Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d103/2/) |
-| 104 | **TT2D104** | Cả Nhà Đòi Cắt Tiền Hoa Hồng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 104 | **TT2D104** | Cả Nhà Đòi Cắt Tiền Hoa Hồng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:23:12.414Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d104/2/) |
 | 105 | **TT2D105** | Cái Bẫy Duyên Âm Lộ Ra | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 106 | **TT2D106** | Cái Tát Ngày Thứ Mười Ba | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 107 | **TT2D107** | Cầm Tiền Sang Mỹ Định Cư | 8 (viết lại 7) | ⚪ Chờ | — | — |
