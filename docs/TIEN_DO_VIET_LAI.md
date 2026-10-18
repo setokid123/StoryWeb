@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 306 / 350 truyện (16.46% tổng kho - 3237 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:36:37 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 307 / 350 truyện (16.51% tổng kho - 3246 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:38:39 19/10/2026
 
 ---
 
@@ -322,7 +322,7 @@
 | 304 | **TT2D304** | Kết Hôn Trong Im Lặng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:32:01.442Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d304/2/) |
 | 305 | **TT2D305** | Kết Hôn Với Người Ghét Mình | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T21:34:07.232Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d305/2/) |
 | 306 | **TT2D306** | Khách VIP Và Viên Sapphire | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T21:36:37.620Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d306/2/) |
-| 307 | **TT2D307** | Khi Anh Chọn Cố Ninh | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 307 | **TT2D307** | Khi Anh Chọn Cố Ninh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:38:39.210Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d307/2/) |
 | 308 | **TT2D308** | Khi Anh Chọn Mẹ Con Họ | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 309 | **TT2D309** | Khi Anh Vứt Em Lại Đó | 19 (viết lại 18) | ⚪ Chờ | — | — |
 | 310 | **TT2D310** | Khi Bạn Gái Về Ra Mắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
