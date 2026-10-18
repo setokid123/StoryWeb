@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 242 / 250 truyện (13.02% tổng kho - 2675 chương đã viết lại)
-- **Cập nhật lần cuối:** 01:35:48 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 243 / 250 truyện (13.07% tổng kho - 2686 chương đã viết lại)
+- **Cập nhật lần cuối:** 01:38:46 19/10/2026
 
 ---
 
@@ -258,7 +258,7 @@
 | 240 | **TT2D240** | Đứa Trẻ Ba Tuổi Biết Gì | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T18:30:49.796Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d240/2/) |
 | 241 | **TT2D241** | Đứa Trẻ Bị Bỏ Lại Lần Nữa | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T18:32:57.247Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d241/2/) |
 | 242 | **TT2D242** | Đứa Trẻ Bị Chấm Đèn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T18:35:43.958Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d242/2/) |
-| 243 | **TT2D243** | Đứa Trẻ Bị Gọi Nhầm Tên | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 243 | **TT2D243** | Đứa Trẻ Bị Gọi Nhầm Tên | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T18:38:42.377Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d243/2/) |
 | 244 | **TT2D244** | Đứa Trẻ Bị Nhắm Từ Lâu | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 245 | **TT2D245** | Đứa Trẻ Không Thuộc Về Ai | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 246 | **TT2D246** | Đừng Chạm Vào Con Tôi | 7 (viết lại 6) | ⚪ Chờ | — | — |
