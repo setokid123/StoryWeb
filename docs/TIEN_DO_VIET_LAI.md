@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 249 / 250 truyện (13.39% tổng kho - 2730 chương đã viết lại)
-- **Cập nhật lần cuối:** 01:59:18 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 250 / 250 truyện (13.45% tổng kho - 2737 chương đã viết lại)
+- **Cập nhật lần cuối:** 02:01:39 19/10/2026
 
 ---
 
@@ -265,4 +265,4 @@
 | 247 | **TT2D247** | Đường Núi Và Bóng Đỏ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T18:52:34.611Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d247/2/) |
 | 248 | **TT2D248** | Duyên Nợ Âm Dương | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T18:55:56.538Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d248/2/) |
 | 249 | **TT2D249** | Em Gái Sinh Đôi Của Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T18:59:18.432Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d249/2/) |
-| 250 | **TT2D250** | Gả Cho Anh Nhà Họ Thẩm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 250 | **TT2D250** | Gả Cho Anh Nhà Họ Thẩm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T19:01:39.251Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d250/2/) |
