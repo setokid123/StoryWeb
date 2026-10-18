@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 334 / 350 truyện (17.97% tổng kho - 3512 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:38:35 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 335 / 350 truyện (18.02% tổng kho - 3521 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:41:24 19/10/2026
 
 ---
 
@@ -350,7 +350,7 @@
 | 332 | **TT2D332** | Kiếp Này Tôi Không Nhường Hôn Sự | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:32:48.348Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d332/2/) |
 | 333 | **TT2D333** | Kỳ Nghỉ Trung Thu Của Công Ty Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:35:42.550Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d333/2/) |
 | 334 | **TT2D334** | Ký Nhận Nhầm Một Kiện Hàng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T22:38:35.533Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d334/2/) |
-| 335 | **TT2D335** | Ký Túc Xá Nữ Tòa 6 | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 335 | **TT2D335** | Ký Túc Xá Nữ Tòa 6 | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:41:24.459Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d335/2/) |
 | 336 | **TT2D336** | Ký Ức Đen Của Gia Hào | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 337 | **TT2D337** | Ký ức ly hôn giữa đường đi | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 338 | **TT2D338** | Ký Ức Và Trò Chơi Của Sự Phản Bội | 8 (viết lại 7) | ⚪ Chờ | — | — |
