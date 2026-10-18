@@ -7,7 +7,7 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1:** 50 truyện (TT2D1 ➔ TT2D50)
-- **Đã hoàn thành & lên sóng Live:** 36 / 50 truyện (308 chương đã viết lại)
+- **Đã hoàn thành & lên sóng Live:** 50 / 50 truyện (439 chương đã viết lại)
 - **Cập nhật lần cuối:** 18/10/2026 17:21
 
 ---
@@ -52,17 +52,17 @@
 | 34 | **TT2D34** | Bạn Cùng Bàn Và Mùi Hương Quái Dị | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d34/2/) |
 | 35 | **TT2D35** | Bạn cùng phòng thích chụp lén hại tôi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d35/2/) |
 | 36 | **TT2D36** | Bạn Thân Của Mẹ Không Thể Cứu | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 10:54:13 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d36/2/) |
-| 37 | **TT2D37** | Bạn Thân Tôi Lấy Nhầm Người | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 38 | **TT2D38** | Bạn Trai Cũ Bỗng Dẫn Theo Tình Địch | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 39 | **TT2D39** | Bạn Trai Cũ Ở Sân Bay | 7 (viết lại 6) | ⚪ Chờ | — | — |
-| 40 | **TT2D40** | Bạn Trai Nhu Cầu Thấp Của Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
-| 41 | **TT2D41** | Bạn Trai Tôi Không Phải Người Hán | 7 (viết lại 6) | ⚪ Chờ | — | — |
-| 42 | **TT2D42** | Bạn Trai Tôi Và Mạnh Viện | 9 (viết lại 8) | ⚪ Chờ | — | — |
-| 43 | **TT2D43** | Bạn Trai Và Chiếc SUV Đen | 23 (viết lại 22) | ⚪ Chờ | — | — |
-| 44 | **TT2D44** | Bảo Vệ Em Đến Hết Đời | 6 (viết lại 5) | ⚪ Chờ | — | — |
-| 45 | **TT2D45** | Bát Canh Cầu Con Kỳ Lạ | 12 (viết lại 11) | ⚪ Chờ | — | — |
-| 46 | **TT2D46** | Bát Canh Đổi Lấy Lòng Người | 9 (viết lại 8) | ⚪ Chờ | — | — |
-| 47 | **TT2D47** | Bát Tự Của Vợ Đã Mất | 9 (viết lại 8) | ⚪ Chờ | — | — |
-| 48 | **TT2D48** | Bảy Năm Hôn Nhân Đổi Lấy 200.000 Tệ | 11 (viết lại 10) | ⚪ Chờ | — | — |
-| 49 | **TT2D49** | Bảy Năm Hôn Nhân Đổi Lấy Hai Trăm Nghìn | 12 (viết lại 11) | ⚪ Chờ | — | — |
-| 50 | **TT2D50** | Bảy Năm Sau Vụ Nổ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 37 | **TT2D37** | Bạn Thân Tôi Lấy Nhầm Người | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d37/2/) |
+| 38 | **TT2D38** | Bạn Trai Cũ Bỗng Dẫn Theo Tình Địch | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d38/2/) |
+| 39 | **TT2D39** | Bạn Trai Cũ Ở Sân Bay | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d39/2/) |
+| 40 | **TT2D40** | Bạn Trai Nhu Cầu Thấp Của Tôi | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d40/2/) |
+| 41 | **TT2D41** | Bạn Trai Tôi Không Phải Người Hán | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d41/2/) |
+| 42 | **TT2D42** | Bạn Trai Tôi Và Mạnh Viện | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d42/2/) |
+| 43 | **TT2D43** | Bạn Trai Và Chiếc SUV Đen | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d43/2/) |
+| 44 | **TT2D44** | Bảo Vệ Em Đến Hết Đời | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d44/2/) |
+| 45 | **TT2D45** | Bát Canh Cầu Con Kỳ Lạ | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d45/2/) |
+| 46 | **TT2D46** | Bát Canh Đổi Lấy Lòng Người | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d46/2/) |
+| 47 | **TT2D47** | Bát Tự Của Vợ Đã Mất | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d47/2/) |
+| 48 | **TT2D48** | Bảy Năm Hôn Nhân Đổi Lấy 200.000 Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d48/2/) |
+| 49 | **TT2D49** | Bảy Năm Hôn Nhân Đổi Lấy Hai Trăm Nghìn | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d49/2/) |
+| 50 | **TT2D50** | Bảy Năm Sau Vụ Nổ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d50/2/) |
