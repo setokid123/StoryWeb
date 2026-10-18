@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 122 / 150 truyện (6.56% tổng kho - 1543 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:56:56 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 123 / 150 truyện (6.62% tổng kho - 1560 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:59:03 18/10/2026
 
 ---
 
@@ -138,7 +138,7 @@
 | 120 | **TT2D120** | Cảnh Sát Và Lời Đe Dọa | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-18T13:53:03.130Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d120/2/) |
 | 121 | **TT2D121** | Cảnh Sát Và Pháp Y Ruột | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:55:23.385Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d121/2/) |
 | 122 | **TT2D122** | Cáo Phó Ngày Cưới | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:56:56.364Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d122/2/) |
-| 123 | **TT2D123** | Cao Trường Sinh Của Trương Cường | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 123 | **TT2D123** | Cao Trường Sinh Của Trương Cường | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-18T13:59:03.879Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d123/2/) |
 | 124 | **TT2D124** | Cấp Dưỡng Sau Ly Hôn | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 125 | **TT2D125** | Chân dung không tên | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 126 | **TT2D126** | Cháo Khoai Lang Đêm Giao Thừa | 9 (viết lại 8) | ⚪ Chờ | — | — |
