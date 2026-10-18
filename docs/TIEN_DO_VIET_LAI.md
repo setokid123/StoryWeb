@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 257 / 300 truyện (13.82% tổng kho - 2810 chương đã viết lại)
-- **Cập nhật lần cuối:** 02:29:39 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 258 / 300 truyện (13.88% tổng kho - 2816 chương đã viết lại)
+- **Cập nhật lần cuối:** 02:33:04 19/10/2026
 
 ---
 
@@ -273,7 +273,7 @@
 | 255 | **TT2D255** | Gặp Mẹ Ở Tập Đoàn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T19:20:05.123Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d255/2/) |
 | 256 | **TT2D256** | Ghế Phụ Luôn Dành Cho Cô Ấy | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T19:24:12.681Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d256/2/) |
 | 257 | **TT2D257** | Ghi Sổ Những Kẻ Quay Lưng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T19:29:39.784Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d257/2/) |
-| 258 | **TT2D258** | Gia Phả Gọi Tên Tôi | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 258 | **TT2D258** | Gia Phả Gọi Tên Tôi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T19:33:04.710Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d258/2/) |
 | 259 | **TT2D259** | Gia Quy Dưỡng Sinh Nhà Họ Cố | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 260 | **TT2D260** | Gia Yến Nhà Họ Cố | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 261 | **TT2D261** | Giấc mơ bị đánh cắp | 11 (viết lại 10) | ⚪ Chờ | — | — |
