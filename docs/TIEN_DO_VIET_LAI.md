@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 85 / 100 truyện (1129 chương đã viết lại)
-- **Cập nhật lần cuối:** 19:47:20 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 86 / 100 truyện (1149 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:49:39 18/10/2026
 
 ---
 
@@ -101,7 +101,7 @@
 | 83 | **TT2D83** | Biệt Thự Và Cuộc Gọi Bất Ngờ | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-18 12:44:04 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d83/2/) |
 | 84 | **TT2D84** | Bình Luận Bí Ẩn: Lời Cảnh Báo Từ Bóng Tối | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18 12:45:35 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d84/2/) |
 | 85 | **TT2D85** | Bình Luận Trực Tiếp Trên Giường | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 12:47:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d85/2/) |
-| 86 | **TT2D86** | Bình Phong Che Một Đời Tình | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 86 | **TT2D86** | Bình Phong Che Một Đời Tình | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-18 12:49:34 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d86/2/) |
 | 87 | **TT2D87** | Bố Chồng Nhập Viện Tôi Không Nói | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 88 | **TT2D88** | Bộ Đồ Ngủ Mẹ Chồng Đưa | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 89 | **TT2D89** | Bó Hoa Muộn Màng Của Người Chồng | 11 (viết lại 10) | ⚪ Chờ | — | — |
