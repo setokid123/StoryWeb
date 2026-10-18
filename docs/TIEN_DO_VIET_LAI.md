@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 339 / 350 truyện (18.24% tổng kho - 3551 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:51:34 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 340 / 350 truyện (18.29% tổng kho - 3557 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:54:04 19/10/2026
 
 ---
 
@@ -355,7 +355,7 @@
 | 337 | **TT2D337** | Ký ức ly hôn giữa đường đi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:46:43.945Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d337/2/) |
 | 338 | **TT2D338** | Ký Ức Và Trò Chơi Của Sự Phản Bội | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:49:06.852Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d338/2/) |
 | 339 | **TT2D339** | Lá Thư Chị Giấu Mười Hai Năm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:51:34.154Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d339/2/) |
-| 340 | **TT2D340** | Lần Này Tôi Không Nhượng Bộ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 340 | **TT2D340** | Lần Này Tôi Không Nhượng Bộ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T22:54:04.470Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d340/2/) |
 | 341 | **TT2D341** | Lặng Lẽ Ở Bên Anh | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 342 | **TT2D342** | Lão Tổ Sư Chọn Vợ Cho Đạo Trưởng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 343 | **TT2D343** | Lễ Hội Đêm Trăng Đen | 6 (viết lại 5) | ⚪ Chờ | — | — |
