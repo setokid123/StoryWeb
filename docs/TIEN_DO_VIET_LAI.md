@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 278 / 300 truyện (14.95% tổng kho - 2987 chương đã viết lại)
-- **Cập nhật lần cuối:** 03:28:36 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 279 / 300 truyện (15.01% tổng kho - 2994 chương đã viết lại)
+- **Cập nhật lần cuối:** 03:30:58 19/10/2026
 
 ---
 
@@ -294,7 +294,7 @@
 | 276 | **TT2D276** | Hai Trăm Roi Mây Trong Từ Đường | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T20:24:39.297Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d276/2/) |
 | 277 | **TT2D277** | Hai Trăm Triệu Tệ Ly Hôn | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T20:26:22.609Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d277/2/) |
 | 278 | **TT2D278** | Hàn Thế Chu Và Con Lừa Xám | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T20:28:36.745Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d278/2/) |
-| 279 | **TT2D279** | Hầu Phủ Tuyệt Hậu Hữu Tử | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 279 | **TT2D279** | Hầu Phủ Tuyệt Hậu Hữu Tử | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T20:30:58.731Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d279/2/) |
 | 280 | **TT2D280** | Hiện Trường Không Bình Thường | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 281 | **TT2D281** | Hiện Trường Ở Trong Trường Học | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 282 | **TT2D282** | Hiệu Trưởng Bị Gọi Lên | 10 (viết lại 9) | ⚪ Chờ | — | — |
