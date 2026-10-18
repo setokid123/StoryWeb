@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 230 / 250 truyện (12.37% tổng kho - 2530 chương đã viết lại)
-- **Cập nhật lần cuối:** 01:00:00 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 231 / 250 truyện (12.43% tổng kho - 2551 chương đã viết lại)
+- **Cập nhật lần cuối:** 01:02:28 19/10/2026
 
 ---
 
@@ -246,7 +246,7 @@
 | 228 | **TT2D228** | Đời Này Tôi Tác Thành Cho Họ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 17:53:42 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d228/2/) |
 | 229 | **TT2D229** | Đổi Nhà Cho Em Gái Anh | 20 (viết lại 19) | 🟢 **Đã Live** | 2026-10-18 17:57:04 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d229/2/) |
 | 230 | **TT2D230** | Đổi Vận Bằng Ngày Sinh | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 17:59:56 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d230/2/) |
-| 231 | **TT2D231** | Đơn Ly Hôn Trên Bàn Tiệc | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 231 | **TT2D231** | Đơn Ly Hôn Trên Bàn Tiệc | 22 (viết lại 21) | 🟢 **Đã Live** | 2026-10-18 18:02:25 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d231/2/) |
 | 232 | **TT2D232** | Đón Mẹ Lên Thành Phố Dưỡng Già | 29 (viết lại 28) | ⚪ Chờ | — | — |
 | 233 | **TT2D233** | Đóng Học Phí Và Cái Bẫy | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 234 | **TT2D234** | Dư Âm Của Nỗi Đau | 9 (viết lại 8) | ⚪ Chờ | — | — |
