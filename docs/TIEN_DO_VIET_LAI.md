@@ -7,7 +7,7 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1:** 50 truyện (TT2D1 ➔ TT2D50)
-- **Đã hoàn thành & lên sóng Live:** 20 / 50 truyện (180 chương đã viết lại)
+- **Đã hoàn thành & lên sóng Live:** 26 / 50 truyện (221 chương đã viết lại)
 - **Cập nhật lần cuối:** 18/10/2026 17:21
 
 ---
@@ -36,12 +36,12 @@
 | 18 | **TT2D18** | Ánh Trăng Sáng Của Anh Ta Là Tôi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d18/2/) |
 | 19 | **TT2D19** | Ánh Trăng Sáng Năm Ấy | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d19/2/) |
 | 20 | **TT2D20** | Ánh Trăng Sáng Trở Về Nhà | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d20/2/) |
-| 21 | **TT2D21** | Ánh Trăng Sáng Tự Hại Mình | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 22 | **TT2D22** | Anh Vẫn Gọi Tôi Là Người Cũ | 10 (viết lại 9) | ⚪ Chờ | — | — |
-| 23 | **TT2D23** | Bà Ba Coi Bói Ở Trong Hang | 7 (viết lại 6) | ⚪ Chờ | — | — |
-| 24 | **TT2D24** | Ba Mươi Văn Tiền Cầu Cưới | 10 (viết lại 9) | ⚪ Chờ | — | — |
-| 25 | **TT2D25** | Ba Năm Bên Người Mù | 1 (viết lại 0) | ⚪ Chờ | — | — |
-| 26 | **TT2D26** | Ba Năm Bên Thái Tử Gia | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 21 | **TT2D21** | Ánh Trăng Sáng Tự Hại Mình | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d21/2/) |
+| 22 | **TT2D22** | Anh Vẫn Gọi Tôi Là Người Cũ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d22/2/) |
+| 23 | **TT2D23** | Bà Ba Coi Bói Ở Trong Hang | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d23/2/) |
+| 24 | **TT2D24** | Ba Mươi Văn Tiền Cầu Cưới | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d24/2/) |
+| 25 | **TT2D25** | Ba Năm Bên Người Mù | 1 (viết lại 0) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d25/2/) |
+| 26 | **TT2D26** | Ba Năm Bên Thái Tử Gia | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 10:41:01 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d26/2/) |
 | 27 | **TT2D27** | Ba Năm Làm Vợ Hợp Đồng | 18 (viết lại 17) | ⚪ Chờ | — | — |
 | 28 | **TT2D28** | Ba Năm Tù Đổi Một Kẻ Phản Bội | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 29 | **TT2D29** | Ba Năm Yêu Một Người Cứng Đầu | 7 (viết lại 6) | ⚪ Chờ | — | — |
