@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 319 / 350 truyện (17.16% tổng kho - 3377 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:04:51 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 320 / 350 truyện (17.21% tổng kho - 3383 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:06:30 19/10/2026
 
 ---
 
@@ -335,7 +335,7 @@
 | 317 | **TT2D317** | Khi Ký Ức Bị Dọn Đi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T22:00:26.750Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d317/2/) |
 | 318 | **TT2D318** | Khi Mẹ Chồng Đòi Người Nhà Chăm | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T22:02:52.293Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d318/2/) |
 | 319 | **TT2D319** | Khi Mẹ Chồng Ra Tay | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T22:04:51.911Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d319/2/) |
-| 320 | **TT2D320** | Khi Mẹ Đứng Về Phía Hung Thủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 320 | **TT2D320** | Khi Mẹ Đứng Về Phía Hung Thủ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T22:06:30.095Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d320/2/) |
 | 321 | **TT2D321** | Khi Người Luôn Ghét Chờ Đợi | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 322 | **TT2D322** | Khi Tiền Học Phí Cũng Phải Chờ Duyệt | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 323 | **TT2D323** | Khi Tình Cảm Bị Lấn Chỗ | 8 (viết lại 7) | ⚪ Chờ | — | — |
