@@ -5,14 +5,14 @@
 > 2. Từ chương 2 trở đi được viết lại mới hoàn toàn, nâng cấp sâu văn phong, logic và chiều sâu cảm xúc.
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
-- **Tổng kho truyện:** 1.859 truyện
-- **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 100 / 100 truyện (1304 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:12:49 18/10/2026
+- **Tổng kho truyện:** 1859 truyện
+- **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
+- **Đã hoàn thành & lên sóng Live:** 100 / 150 truyện (5.38% tổng kho - 1304 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:17:17 18/10/2026
 
 ---
 
-## Danh sách chi tiết 100 truyện (TT2D1 ➔ TT2D100)
+## Danh sách chi tiết 150 truyện (TT2D1 ➔ TT2D150)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -116,3 +116,53 @@
 | 98 | **TT2D98** | Bức Thư Giấu Trong Giá Sách | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T13:09:28.141Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d98/2/) |
 | 99 | **TT2D99** | Bước Qua Cánh Cửa Lạ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:10:37.768Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d99/2/) |
 | 100 | **TT2D100** | Bước Qua Tình Cũ | 24 (viết lại 23) | 🟢 **Đã Live** | 2026-10-18T13:12:49.159Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d100/2/) |
+| 101 | **TT2D101** | Bước Ra Khỏi Ký Ức | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 102 | **TT2D102** | Cá Biến Mất Trong Tủ Đông | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 103 | **TT2D103** | Cả Nhà Đều Lấy Đồ Của Tôi | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 104 | **TT2D104** | Cả Nhà Đòi Cắt Tiền Hoa Hồng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 105 | **TT2D105** | Cái Bẫy Duyên Âm Lộ Ra | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 106 | **TT2D106** | Cái Tát Ngày Thứ Mười Ba | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 107 | **TT2D107** | Cầm Tiền Sang Mỹ Định Cư | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 108 | **TT2D108** | Căn Nhà 501 Không Còn Nhịn Nữa | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 109 | **TT2D109** | Căn Nhà Bị Bán Và Đêm Mưa Trước Cửa | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 110 | **TT2D110** | Căn Nhà Bị Mở Khóa Sai Cách | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 111 | **TT2D111** | Căn Nhà Bừa Bộn Và Cuộc Hôn Nhân | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 112 | **TT2D112** | Căn Nhà Không Bán Cho Ai | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 113 | **TT2D113** | Căn Nhà Tôi Mua Bị Chiếm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 114 | **TT2D114** | Căn Nhà Trước Hôn Nhân | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 115 | **TT2D115** | Cảnh Báo Từ Người Vô Gia Cư | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 116 | **TT2D116** | Cánh Cửa Hé Mở Mỗi Lần | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 117 | **TT2D117** | Cánh Cửa Nhà Họ Tần Mở Lại | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 118 | **TT2D118** | Cánh Cửa Thời Gian Bí Ẩn | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 119 | **TT2D119** | Canh Mạnh Bà Và Sổ Tiền | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 120 | **TT2D120** | Cảnh Sát Và Lời Đe Dọa | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 121 | **TT2D121** | Cảnh Sát Và Pháp Y Ruột | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 122 | **TT2D122** | Cáo Phó Ngày Cưới | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 123 | **TT2D123** | Cao Trường Sinh Của Trương Cường | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 124 | **TT2D124** | Cấp Dưỡng Sau Ly Hôn | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 125 | **TT2D125** | Chân dung không tên | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 126 | **TT2D126** | Cháo Khoai Lang Đêm Giao Thừa | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 127 | **TT2D127** | Chén Trà Và Lời Vu Oan | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 128 | **TT2D128** | Chị Chồng Mang Thai Chiếm Nhà Tôi | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 129 | **TT2D129** | Chị Dâu Cả Làm Vỡ Bữa Cơm | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 130 | **TT2D130** | Chị Hai Không Giao Thẻ Lương | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 131 | **TT2D131** | Chỉ Một Viên Đường Cũng Đủ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 132 | **TT2D132** | Chị Tôi Yêu Nhầm Tội Phạm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 133 | **TT2D133** | Chiếc Bánh Trung Thu Mốc Xanh | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 134 | **TT2D134** | Chiếc Đồng Hồ Của Người Cũ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 135 | **TT2D135** | Chiếc Két Sắt Giấu Chấp Trời | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 136 | **TT2D136** | Chiếc Nhẫn Vàng Trên Tay | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 137 | **TT2D137** | Chiếc Taxi Bùa Vàng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 138 | **TT2D138** | Chiếc Xe Nôi Dưới Tấm Chăn | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 139 | **TT2D139** | Chiếu Cờ Định Mệnh | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 140 | **TT2D140** | Chiêu Đệ Và Chiếc Đồng Hồ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 141 | **TT2D141** | Chín Mươi Bảy Đèn Mệnh Tắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 142 | **TT2D142** | Chồng Cũ Vẫn Đẹp Như Xưa | 20 (viết lại 19) | ⚪ Chờ | — | — |
+| 143 | **TT2D143** | Chồng Hờ Hững, Em Chồng Tự Ý | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 144 | **TT2D144** | Chồng im lặng, tôi mỉm cười mang theo tất cả | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 145 | **TT2D145** | Chồng Muốn Vào Công Ty Của Bố Vợ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 146 | **TT2D146** | Chồng Sắp Cưới Và Chiếc Móc Khóa | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 147 | **TT2D147** | Chồng Tôi Có Một Đứa Con Trai | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 148 | **TT2D148** | Chồng Tôi Đi Với Phương Dao | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 149 | **TT2D149** | Chồng Tôi Đứng Về Phía Ai | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 150 | **TT2D150** | Chồng Tôi Hóa Ra Là Chu Lâm | 11 (viết lại 10) | ⚪ Chờ | — | — |
