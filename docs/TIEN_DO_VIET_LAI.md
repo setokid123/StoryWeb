@@ -7,7 +7,7 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1:** 50 truyện (TT2D1 ➔ TT2D50)
-- **Đã hoàn thành & lên sóng Live:** 15 / 50 truyện (137 chương đã viết lại)
+- **Đã hoàn thành & lên sóng Live:** 20 / 50 truyện (180 chương đã viết lại)
 - **Cập nhật lần cuối:** 18/10/2026 17:21
 
 ---
@@ -31,11 +31,11 @@
 | 13 | **TT2D13** | Anh Tô Và Nữ MC Livestream Đêm Khuya | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18 10:27:58 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d13/2/) |
 | 14 | **TT2D14** | Anh Trai Bạn Cùng Phòng Là Người Cũ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 10:27:58 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d14/2/) |
 | 15 | **TT2D15** | Anh Trai Mượn Tiền Tôi | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18 10:27:58 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d15/2/) |
-| 16 | **TT2D16** | Anh Trai Sinh Đôi Và Đại Ca | 5 (viết lại 4) | ⚪ Chờ | — | — |
-| 17 | **TT2D17** | Ánh Trăng Sáng Của Anh Ấy | 7 (viết lại 6) | ⚪ Chờ | — | — |
-| 18 | **TT2D18** | Ánh Trăng Sáng Của Anh Ta Là Tôi | 11 (viết lại 10) | ⚪ Chờ | — | — |
-| 19 | **TT2D19** | Ánh Trăng Sáng Năm Ấy | 13 (viết lại 12) | ⚪ Chờ | — | — |
-| 20 | **TT2D20** | Ánh Trăng Sáng Trở Về Nhà | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 16 | **TT2D16** | Anh Trai Sinh Đôi Và Đại Ca | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d16/2/) |
+| 17 | **TT2D17** | Ánh Trăng Sáng Của Anh Ấy | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d17/2/) |
+| 18 | **TT2D18** | Ánh Trăng Sáng Của Anh Ta Là Tôi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d18/2/) |
+| 19 | **TT2D19** | Ánh Trăng Sáng Năm Ấy | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d19/2/) |
+| 20 | **TT2D20** | Ánh Trăng Sáng Trở Về Nhà | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 10:35:32 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d20/2/) |
 | 21 | **TT2D21** | Ánh Trăng Sáng Tự Hại Mình | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 22 | **TT2D22** | Anh Vẫn Gọi Tôi Là Người Cũ | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 23 | **TT2D23** | Bà Ba Coi Bói Ở Trong Hang | 7 (viết lại 6) | ⚪ Chờ | — | — |
