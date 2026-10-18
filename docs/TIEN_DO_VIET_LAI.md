@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 350 / 350 truyện (18.83% tổng kho - 3653 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:19:41 19/10/2026
+- **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
+- **Đã hoàn thành & lên sóng Live:** 350 / 400 truyện (18.83% tổng kho - 3653 chương đã viết lại)
+- **Cập nhật lần cuối:** 06:20:51 19/10/2026
 
 ---
 
-## Danh sách chi tiết 350 truyện (TT2D1 ➔ TT2D350)
+## Danh sách chi tiết 400 truyện (TT2D1 ➔ TT2D400)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -366,3 +366,53 @@
 | 348 | **TT2D348** | Livestream Giữa Khu Nuôi Hổ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T23:13:58.900Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d348/2/) |
 | 349 | **TT2D349** | Lời Khai Sau Kỳ Thi Đặc Biệt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T23:16:01.072Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d349/2/) |
 | 350 | **TT2D350** | Lời Khai Trái Ngược | 26 (viết lại 25) | 🟢 **Đã Live** | 2026-10-18T23:19:41.800Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d350/2/) |
+| 351 | **TT2D351** | Lời Nguyền Cô Giáo Lưu | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 352 | **TT2D352** | Lời Nguyền Đại Tiên | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 353 | **TT2D353** | Lời Nói Khiến Anh Nổi Giận | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 354 | **TT2D354** | Lời Rao Hàng Trong Đêm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 355 | **TT2D355** | Lời Ru Của Quá Khứ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 356 | **TT2D356** | Lời Thề Hôn Nhân Và Căn Nhà Không Tên Tôi | 20 (viết lại 19) | ⚪ Chờ | — | — |
+| 357 | **TT2D357** | Lời thề muộn màng của người con gái | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 358 | **TT2D358** | Lời Thì Thầm Trong Nhà Vệ Sinh | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 359 | **TT2D359** | Lời Thỉnh Cầu Trong Mơ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 360 | **TT2D360** | Lời Yêu Cầu Trước Cửa Đăng Ký | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 361 | **TT2D361** | Lớp Học Câm Điếc Có Kẻ Nói Dối | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 362 | **TT2D362** | Lương Hưu 6.800 Tệ Của Ông | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 363 | **TT2D363** | Ly Hôn Ngay Sau Đám Cưới | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 364 | **TT2D364** | Ly Hôn Rồi Mới Biết | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 365 | **TT2D365** | Ly Hôn Rồi Mới Biết | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 366 | **TT2D366** | Ly Hôn Rồi Mới Biết Anh Ta | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 367 | **TT2D367** | Ly Hôn Trước Khi Quá Muộn | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 368 | **TT2D368** | Ly Hôn Với Gã Ăn Hại | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 369 | **TT2D369** | Ly Rượu Đỏ Và Lời Chia Tay | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 370 | **TT2D370** | Mâm Cơm Tất Niên Bị Dọn Sạch | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 371 | **TT2D371** | Mang Thai Giữa Đêm Đau Đớn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 372 | **TT2D372** | Mang Thai Tám Tháng Mới Nói | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 373 | **TT2D373** | Manh Mối Từ Cống Thoát Nước | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 374 | **TT2D374** | Manh Mối Từ Tài Xế Taxi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 375 | **TT2D375** | Mặt Nạ Ngọc Trắng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 376 | **TT2D376** | Mất Trí Rồi Anh Vẫn Theo Đuổi Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 377 | **TT2D377** | Mẫu Thân Muốn Hòa Ly Rồi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 378 | **TT2D378** | Máy Chiếu Trong Buổi Họp Lớp | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 379 | **TT2D379** | Mẹ chồng nghe chuyện con dâu thẳng tay | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 380 | **TT2D380** | Mẹ Chồng Nhận Nhà Con Dâu Mất Trắng | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 381 | **TT2D381** | Mẹ Chồng Ở Lại Với Con Trai | 23 (viết lại 22) | ⚪ Chờ | — | — |
+| 382 | **TT2D382** | Mẹ Chồng Tuyên Bố Chia Sai Di Sản | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 383 | **TT2D383** | Mẹ chồng vô tâm, tôi gồng mình bảo vệ con gái | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 384 | **TT2D384** | Mẹ Chồng Xin Mượn Nhà | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 385 | **TT2D385** | Mẹ Đơn Thân Và Đứa Bé Ấy | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 386 | **TT2D386** | Mẹ Kế Bất Đắc Dĩ Của Song Sinh | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 387 | **TT2D387** | Mẹ tôi, cái tên và định mệnh | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 388 | **TT2D388** | Mẹ Tôi Là Người Mất Tích | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 389 | **TT2D389** | Miếng Bánh Đổi Nhân | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 390 | **TT2D390** | Minh Hôn Vào Lăng Mộ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 391 | **TT2D391** | Minh Tinh Hạng Xịt Và Chồng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 392 | **TT2D392** | Mộ Bố Mẹ Bị Đổi Vận | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 393 | **TT2D393** | Mộ Nứt Toác Giữa Đêm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 394 | **TT2D394** | Mối Tình Ảo Và Sự Thật | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 395 | **TT2D395** | Mối Tình Bảy Năm Trong Bí Mật | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 396 | **TT2D396** | Mối Tình Cũ Trên Phim Trường | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 397 | **TT2D397** | Mối Tình Đơn Phương Hết Hạn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 398 | **TT2D398** | Mối Tình Nhận Nhầm Trớ Trêu | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 399 | **TT2D399** | Mối Tình Qua Mạng Gặp Biến | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 400 | **TT2D400** | Món Nợ Mang Tên Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
