@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 211 / 250 truyện (11.35% tổng kho - 2367 chương đã viết lại)
-- **Cập nhật lần cuối:** 00:13:13 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 212 / 250 truyện (11.40% tổng kho - 2375 chương đã viết lại)
+- **Cập nhật lần cuối:** 00:15:08 19/10/2026
 
 ---
 
@@ -227,7 +227,7 @@
 | 209 | **TT2D209** | Đám Cưới Và Mái Tóc Lở Lói | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T17:09:05.587Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d209/2/) |
 | 210 | **TT2D210** | Đảo Ngược Số Mệnh Đêm Cưới | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T17:11:16.086Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d210/2/) |
 | 211 | **TT2D211** | Dấu Ấn Trên Mu Bàn Tay | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T17:13:10.327Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d211/2/) |
-| 212 | **TT2D212** | Đậu Hũ Non Trong Tầng Hầm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 212 | **TT2D212** | Đậu Hũ Non Trong Tầng Hầm | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T17:15:04.935Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d212/2/) |
 | 213 | **TT2D213** | Dấu vết từ lòng bàn tay | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 214 | **TT2D214** | Đêm 20/5 Ở Khách Sạn Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 215 | **TT2D215** | Đêm Âm Hôn Và Con Tích | 8 (viết lại 7) | ⚪ Chờ | — | — |
