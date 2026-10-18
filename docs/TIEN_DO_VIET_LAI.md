@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
-- **Đã hoàn thành & lên sóng Live:** 200 / 200 truyện (10.76% tổng kho - 2273 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:46:31 18/10/2026
+- **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
+- **Đã hoàn thành & lên sóng Live:** 200 / 250 truyện (10.76% tổng kho - 2273 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:48:00 18/10/2026
 
 ---
 
-## Danh sách chi tiết 200 truyện (TT2D1 ➔ TT2D200)
+## Danh sách chi tiết 250 truyện (TT2D1 ➔ TT2D250)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -216,3 +216,53 @@
 | 198 | **TT2D198** | Cuộc Gọi Lúc Ba Giờ Sáng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T16:42:38.319Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d198/2/) |
 | 199 | **TT2D199** | Cuộc Hôn Nhân Với Anh Trai Anh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:44:22.065Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d199/2/) |
 | 200 | **TT2D200** | Cuộc tình một chiều của Khâu Khiết | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T16:46:31.812Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d200/2/) |
+| 201 | **TT2D201** | Cuộc Tranh Luận Về Sự Sống | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 202 | **TT2D202** | Cưới Nhầm Chú Rể Sĩ Diện | 24 (viết lại 23) | ⚪ Chờ | — | — |
+| 203 | **TT2D203** | Cưới Nhầm Thái Tử Gia Giả Ngốc | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 204 | **TT2D204** | Cuốn Sổ Của Người Chồng Lạnh Nhạt | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 205 | **TT2D205** | Đại Sư Bắt Quỷ Giúp Tôi Làm Giàu | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 206 | **TT2D206** | Đám Cưới Bị Biến Thành Hot Search | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 207 | **TT2D207** | Đám Cưới Của Chồng Cũ Tôi | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 208 | **TT2D208** | Đám Cưới Ireland Đổi Chú Rể | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 209 | **TT2D209** | Đám Cưới Và Mái Tóc Lở Lói | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 210 | **TT2D210** | Đảo Ngược Số Mệnh Đêm Cưới | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 211 | **TT2D211** | Dấu Ấn Trên Mu Bàn Tay | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 212 | **TT2D212** | Đậu Hũ Non Trong Tầng Hầm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 213 | **TT2D213** | Dấu vết từ lòng bàn tay | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 214 | **TT2D214** | Đêm 20/5 Ở Khách Sạn Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 215 | **TT2D215** | Đêm Âm Hôn Và Con Tích | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 216 | **TT2D216** | Đêm Cấm Vào Nhà Dân | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 217 | **TT2D217** | Đêm Cưới Tôi Bị Ép Rời Đi | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 218 | **TT2D218** | Đêm không lối thoát | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 219 | **TT2D219** | Đêm Mưa Có Người Lạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 220 | **TT2D220** | Đêm Tôi Biết Mình Bị Phản Bội | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 221 | **TT2D221** | Đêm Về Tang Gia | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 222 | **TT2D222** | Đến Lượt Tôi Phản Kích Rồi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 223 | **TT2D223** | Di Chúc 16 Căn Biệt Thự | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 224 | **TT2D224** | Dị Ứng Hay Là Lời Nguyền | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 225 | **TT2D225** | Đĩa Thịt Kho Trước Mặt Ông | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 226 | **TT2D226** | Dịch Vụ Trả Thù | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 227 | **TT2D227** | Điều khuất sau cánh cửa | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 228 | **TT2D228** | Đời Này Tôi Tác Thành Cho Họ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 229 | **TT2D229** | Đổi Nhà Cho Em Gái Anh | 20 (viết lại 19) | ⚪ Chờ | — | — |
+| 230 | **TT2D230** | Đổi Vận Bằng Ngày Sinh | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 231 | **TT2D231** | Đơn Ly Hôn Trên Bàn Tiệc | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 232 | **TT2D232** | Đón Mẹ Lên Thành Phố Dưỡng Già | 29 (viết lại 28) | ⚪ Chờ | — | — |
+| 233 | **TT2D233** | Đóng Học Phí Và Cái Bẫy | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 234 | **TT2D234** | Dư Âm Của Nỗi Đau | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 235 | **TT2D235** | Đứa Bé Mất Tích Trong Thôn | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 236 | **TT2D236** | Đứa Cháu Mới Về Nhà | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 237 | **TT2D237** | Đứa Con Gái Thật Trở Về | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 238 | **TT2D238** | Đứa Con Không Thuộc Về Anh Tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 239 | **TT2D239** | Đứa Con Ngoài Ý Muốn | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 240 | **TT2D240** | Đứa Trẻ Ba Tuổi Biết Gì | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 241 | **TT2D241** | Đứa Trẻ Bị Bỏ Lại Lần Nữa | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 242 | **TT2D242** | Đứa Trẻ Bị Chấm Đèn | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 243 | **TT2D243** | Đứa Trẻ Bị Gọi Nhầm Tên | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 244 | **TT2D244** | Đứa Trẻ Bị Nhắm Từ Lâu | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 245 | **TT2D245** | Đứa Trẻ Không Thuộc Về Ai | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 246 | **TT2D246** | Đừng Chạm Vào Con Tôi | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 247 | **TT2D247** | Đường Núi Và Bóng Đỏ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 248 | **TT2D248** | Duyên Nợ Âm Dương | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 249 | **TT2D249** | Em Gái Sinh Đôi Của Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 250 | **TT2D250** | Gả Cho Anh Nhà Họ Thẩm | 8 (viết lại 7) | ⚪ Chờ | — | — |
