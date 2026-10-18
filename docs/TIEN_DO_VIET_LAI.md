@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 301 / 350 truyện (16.19% tổng kho - 3192 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:26:04 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 302 / 350 truyện (16.25% tổng kho - 3197 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:27:54 19/10/2026
 
 ---
 
@@ -317,7 +317,7 @@
 | 299 | **TT2D299** | Kẻ Chơi Khăm Và Sự Thật Đen Tối | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:19:25.289Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d299/2/) |
 | 300 | **TT2D300** | Kẻ Đứng Sau Cánh Cửa | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T21:21:36.582Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d300/2/) |
 | 301 | **TT2D301** | Kẻ Thay Đổi Phiếu Khám Thai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:26:04.779Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d301/2/) |
-| 302 | **TT2D302** | Kẻ Thù Thành Chồng Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 302 | **TT2D302** | Kẻ Thù Thành Chồng Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T21:27:54.042Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d302/2/) |
 | 303 | **TT2D303** | Kẻ Trộm Và Người Sát Nhân | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 304 | **TT2D304** | Kết Hôn Trong Im Lặng | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 305 | **TT2D305** | Kết Hôn Với Người Ghét Mình | 11 (viết lại 10) | ⚪ Chờ | — | — |
