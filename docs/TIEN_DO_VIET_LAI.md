@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 348 / 350 truyện (18.72% tổng kho - 3621 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:13:58 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 349 / 350 truyện (18.77% tổng kho - 3628 chương đã viết lại)
+- **Cập nhật lần cuối:** 06:16:01 19/10/2026
 
 ---
 
@@ -364,5 +364,5 @@
 | 346 | **TT2D346** | Lệnh Điều Chuyển Của Bạn Trai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T23:10:08.366Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d346/2/) |
 | 347 | **TT2D347** | Livestream Bóc Mẹ Chồng Keo Kiệt | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T23:12:14.547Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d347/2/) |
 | 348 | **TT2D348** | Livestream Giữa Khu Nuôi Hổ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-18T23:13:58.900Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d348/2/) |
-| 349 | **TT2D349** | Lời Khai Sau Kỳ Thi Đặc Biệt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 349 | **TT2D349** | Lời Khai Sau Kỳ Thi Đặc Biệt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T23:16:01.072Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d349/2/) |
 | 350 | **TT2D350** | Lời Khai Trái Ngược | 26 (viết lại 25) | ⚪ Chờ | — | — |
