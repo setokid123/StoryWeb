@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 300 truyện (TT2D1 ➔ TT2D300)
-- **Đã hoàn thành & lên sóng Live:** 250 / 300 truyện (13.45% tổng kho - 2737 chương đã viết lại)
-- **Cập nhật lần cuối:** 02:02:32 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 251 / 300 truyện (13.50% tổng kho - 2756 chương đã viết lại)
+- **Cập nhật lần cuối:** 02:05:37 19/10/2026
 
 ---
 
@@ -266,7 +266,7 @@
 | 248 | **TT2D248** | Duyên Nợ Âm Dương | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T18:55:56.538Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d248/2/) |
 | 249 | **TT2D249** | Em Gái Sinh Đôi Của Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T18:59:18.432Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d249/2/) |
 | 250 | **TT2D250** | Gả Cho Anh Nhà Họ Thẩm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T19:01:39.251Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d250/2/) |
-| 251 | **TT2D251** | Gà Mẹ Gửi, Nhà Chồng Chia | 20 (viết lại 19) | ⚪ Chờ | — | — |
+| 251 | **TT2D251** | Gà Mẹ Gửi, Nhà Chồng Chia | 20 (viết lại 19) | 🟢 **Đã Live** | 2026-10-18T19:05:37.719Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d251/2/) |
 | 252 | **TT2D252** | Gả Nhầm Một Đời Ta Càng Thua | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 253 | **TT2D253** | Gặp Bố Trong Căn Nhà Lạ | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 254 | **TT2D254** | Gặp Lại Ở Tầng Cao Nhất | 10 (viết lại 9) | ⚪ Chờ | — | — |
