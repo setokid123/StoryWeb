@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1.859 truyện
-- **Mục tiêu đợt 1:** 50 truyện (TT2D1 ➔ TT2D50)
-- **Đã hoàn thành & lên sóng Live:** 50 / 50 truyện (439 chương đã viết lại)
-- **Cập nhật lần cuối:** 18/10/2026 17:21
+- **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
+- **Đã hoàn thành & lên sóng Live:** 51 / 100 truyện (447 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:41:55 18/10/2026
 
 ---
 
-## Danh sách chi tiết 50 truyện Đợt 1 (TT2D1 ➔ TT2D50)
+## Danh sách chi tiết 100 truyện (TT2D1 ➔ TT2D100)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -66,3 +66,53 @@
 | 48 | **TT2D48** | Bảy Năm Hôn Nhân Đổi Lấy 200.000 Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d48/2/) |
 | 49 | **TT2D49** | Bảy Năm Hôn Nhân Đổi Lấy Hai Trăm Nghìn | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d49/2/) |
 | 50 | **TT2D50** | Bảy Năm Sau Vụ Nổ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18 18:31:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d50/2/) |
+| 51 | **TT2D51** | Bẫy rập khuê phòng hầu môn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18 11:41:55 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d51/2/) |
+| 52 | **TT2D52** | Bẫy thời gian ở tầng 18 | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 53 | **TT2D53** | Bệnh Viện Gọi Đến Tôi Tắt Máy | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 54 | **TT2D54** | Bí Ẩn Khu Tắm Rửa Nữ | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 55 | **TT2D55** | Bí Ẩn Sau Lời Nói Dối Cuối Cùng | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 56 | **TT2D56** | Bí Ẩn Thùng Gỗ Long Não | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 57 | **TT2D57** | Bí Ẩn Trong Biệt Thự Tối Mịt | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 58 | **TT2D58** | Bí Ẩn Trong Ngôi Nhà Già | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 59 | **TT2D59** | Bí Ẩn Từ Tương Lai | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 60 | **TT2D60** | Bí Ẩn Xác Tàu Đắm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 61 | **TT2D61** | Bị Bỏ Lại Giữa Gió Tuyết | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 62 | **TT2D62** | Bị Ép Làm Vợ Ma | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 63 | **TT2D63** | Bí Mật Dưới Dòng Sông | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 64 | **TT2D64** | Bí mật dưới tấm áo trường bào | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 65 | **TT2D65** | Bí Mật Giấu Suốt 13 Năm | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 66 | **TT2D66** | Bí Mật Làng Dương Thủy | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 67 | **TT2D67** | Bí Mật Noãn Nữ Trong Thôn | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 68 | **TT2D68** | Bí Mật Phá Chi Dương | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 69 | **TT2D69** | Bí Mật Sau Ba Cậu Con Trai | 23 (viết lại 22) | ⚪ Chờ | — | — |
+| 70 | **TT2D70** | Bí Mật Sau Bữa Cơm Nguội | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 71 | **TT2D71** | Bí mật sau cánh cửa đỏ | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 72 | **TT2D72** | Bí Mật Sau Chuyến Bay Về Nhà | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 73 | **TT2D73** | Bí Mật Sau Lời Đốt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 74 | **TT2D74** | Bí Mật Sau Những Thùng Hàng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 75 | **TT2D75** | Bí Mật Tòa Chung Cư Cũ | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 76 | **TT2D76** | Bí Mật Trang Trại Heo | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 77 | **TT2D77** | Bí Mật Trong Bữa Cơm Nhà | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 78 | **TT2D78** | Bí Mật Trong Căn Hộ Cao Cấp | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 79 | **TT2D79** | Bí Mật Trong Chuồng Bò | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 80 | **TT2D80** | Bí Mật Trong Chuồng Bò Cũ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 81 | **TT2D81** | Bí Mật Trong Quan Tài Nhỏ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 82 | **TT2D82** | Biệt Thự Của Tôi Bị Chiếm | 354 (viết lại 353) | ⚪ Chờ | — | — |
+| 83 | **TT2D83** | Biệt Thự Và Cuộc Gọi Bất Ngờ | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 84 | **TT2D84** | Bình Luận Bí Ẩn: Lời Cảnh Báo Từ Bóng Tối | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 85 | **TT2D85** | Bình Luận Trực Tiếp Trên Giường | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 86 | **TT2D86** | Bình Phong Che Một Đời Tình | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 87 | **TT2D87** | Bố Chồng Nhập Viện Tôi Không Nói | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 88 | **TT2D88** | Bộ Đồ Ngủ Mẹ Chồng Đưa | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 89 | **TT2D89** | Bó Hoa Muộn Màng Của Người Chồng | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 90 | **TT2D90** | Bọ Ngựa Và Đêm Săn Mồi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 91 | **TT2D91** | Bóng Ma Hoa Mai | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 92 | **TT2D92** | Bữa Cơm Đầu Ở Nhà Chồng | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 93 | **TT2D93** | Bữa Cơm Nhà Bỗng Lạnh Ngắt | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 94 | **TT2D94** | Bữa Cơm Trung Thu Gióng Lên | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 95 | **TT2D95** | Bữa Omakase Và Cuộc Gọi Xin Tiền | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 96 | **TT2D96** | Bữa Tất Niên Có Người Thứ Ba | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 97 | **TT2D97** | Bữa Tối Kỷ Niệm Một Mình | 20 (viết lại 19) | ⚪ Chờ | — | — |
+| 98 | **TT2D98** | Bức Thư Giấu Trong Giá Sách | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 99 | **TT2D99** | Bước Qua Cánh Cửa Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 100 | **TT2D100** | Bước Qua Tình Cũ | 24 (viết lại 23) | ⚪ Chờ | — | — |
