@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 131 / 150 truyện (7.05% tổng kho - 1655 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:16:00 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 132 / 150 truyện (7.10% tổng kho - 1662 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:17:28 18/10/2026
 
 ---
 
@@ -147,7 +147,7 @@
 | 129 | **TT2D129** | Chị Dâu Cả Làm Vỡ Bữa Cơm | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-18T14:12:24.419Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d129/2/) |
 | 130 | **TT2D130** | Chị Hai Không Giao Thẻ Lương | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-18T14:14:33.768Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d130/2/) |
 | 131 | **TT2D131** | Chỉ Một Viên Đường Cũng Đủ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:16:00.201Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d131/2/) |
-| 132 | **TT2D132** | Chị Tôi Yêu Nhầm Tội Phạm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 132 | **TT2D132** | Chị Tôi Yêu Nhầm Tội Phạm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T14:17:28.391Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d132/2/) |
 | 133 | **TT2D133** | Chiếc Bánh Trung Thu Mốc Xanh | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 134 | **TT2D134** | Chiếc Đồng Hồ Của Người Cũ | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 135 | **TT2D135** | Chiếc Két Sắt Giấu Chấp Trời | 9 (viết lại 8) | ⚪ Chờ | — | — |
