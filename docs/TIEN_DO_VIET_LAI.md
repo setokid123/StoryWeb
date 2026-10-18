@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 150 / 150 truyện (8.07% tổng kho - 1841 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:47:44 18/10/2026
+- **Mục tiêu hiện tại:** 200 truyện (TT2D1 ➔ TT2D200)
+- **Đã hoàn thành & lên sóng Live:** 150 / 200 truyện (8.07% tổng kho - 1841 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:49:48 18/10/2026
 
 ---
 
-## Danh sách chi tiết 150 truyện (TT2D1 ➔ TT2D150)
+## Danh sách chi tiết 200 truyện (TT2D1 ➔ TT2D200)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -166,3 +166,53 @@
 | 148 | **TT2D148** | Chồng Tôi Đi Với Phương Dao | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-18T14:44:35.781Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d148/2/) |
 | 149 | **TT2D149** | Chồng Tôi Đứng Về Phía Ai | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18T14:46:22.101Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d149/2/) |
 | 150 | **TT2D150** | Chồng Tôi Hóa Ra Là Chu Lâm | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T14:47:43.968Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d150/2/) |
+| 151 | **TT2D151** | Chồng Tôi Mất Tích Khi Cha Bệnh | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 152 | **TT2D152** | Chồng Tôi, Người Xa Lạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 153 | **TT2D153** | Chồng Tôi Nợ Tiền Cưới Chính Mình | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 154 | **TT2D154** | Chồng tôi và ván cờ ở trường thi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 155 | **TT2D155** | Chồng Về Nhà Bị Vạch Trần | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 156 | **TT2D156** | Chú Bán Lợn Nuôi Tôi Học Đại Học | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 157 | **TT2D157** | Chủ Nhà Bị Ép Ở Trọ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 158 | **TT2D158** | Chuỗi Hạt Và Lời Cảnh Báo | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 159 | **TT2D159** | Chuyển Ba Con Sói Cho Em Gái | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 160 | **TT2D160** | Chuyến Bay Quay Về Quá Khứ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 161 | **TT2D161** | Chuyện Của Giám Đốc Thẩm | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 162 | **TT2D162** | Chuyển Lương Cho Chị Dâu Cả | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 163 | **TT2D163** | Chuyện Nhà Hàng Xóm Mới | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 164 | **TT2D164** | Chuyến Tàu Đưa Em Về Nhà | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 165 | **TT2D165** | Chuyến Taxi Đến Khu Dân Cư | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 166 | **TT2D166** | Chuyện Tình Giữa Hai Thế Giới | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 167 | **TT2D167** | Chuyến Trăng Mật Ở Đông Sơn | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 168 | **TT2D168** | Chuyến Xe Buýt Cuối Cùng | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 169 | **TT2D169** | Chuyến Xe Cuối Cùng Của Vợ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 170 | **TT2D170** | Cô Bé Gặp Quỷ Giữa Đêm Tết | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 171 | **TT2D171** | Cô Bé Mồ Côi Và Nhiệm Vụ | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 172 | **TT2D172** | Cô Dâu Và Bộ Da Mới | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 173 | **TT2D173** | Cô Đồng Nghiệp Và Thỏi Son Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 174 | **TT2D174** | Cô Gái Bị Gán Tội Yêu Đương | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 175 | **TT2D175** | Cô Gái Bí Mật Của Tổng Tư Lệnh | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 176 | **TT2D176** | Cô Gái Nhà Bên Nhặt Anh Về | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 177 | **TT2D177** | Cô Gái Tôi Nuôi Ba Năm | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 178 | **TT2D178** | Cô Ngốc Của Tạ Nghiễn Từ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 179 | **TT2D179** | Cổ Phần Nhà Máy Thiếu Một Người | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 180 | **TT2D180** | Cô Ta Là Tiểu Tam | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 181 | **TT2D181** | Cố Thâm Và Bản Hợp Đồng | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 182 | **TT2D182** | Cố Tổng Muộn Một Bước | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 183 | **TT2D183** | Cô Vợ Lạ Của Bác Cả | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 184 | **TT2D184** | Cô Vợ Vô Dụng Của Nhà Họ Cố | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 185 | **TT2D185** | Cơm Đoàn Viên Thiếu Một Người | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 186 | **TT2D186** | Con Gái Câm Của Gia Tộc Thẩm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 187 | **TT2D187** | Con Gái Thất Lạc Của Cố Gia | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 188 | **TT2D188** | Con Gái Tôi Không Dễ Bắt Nạt | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 189 | **TT2D189** | Con Là Đứa Đòi Nợ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 190 | **TT2D190** | Con Lợn Nái Và Ngôi Mộ Cũ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 191 | **TT2D191** | Con Tằm Quý Giá Nhất Làng | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 192 | **TT2D192** | Công Lược 25 Năm Thất Bại | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 193 | **TT2D193** | Cú Đẩy Chặt Đứt Ba Năm | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 194 | **TT2D194** | Cục Quản Lý Yêu Quái Đổi Chủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 195 | **TT2D195** | Cuộc Chiến Giữa Lửa Và Tình | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 196 | **TT2D196** | Cuộc Giao Chiến Thối Rữa | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 197 | **TT2D197** | Cuộc Gọi Báo Án Lúc Nửa Đêm | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 198 | **TT2D198** | Cuộc Gọi Lúc Ba Giờ Sáng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 199 | **TT2D199** | Cuộc Hôn Nhân Với Anh Trai Anh | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 200 | **TT2D200** | Cuộc tình một chiều của Khâu Khiết | 9 (viết lại 8) | ⚪ Chờ | — | — |
