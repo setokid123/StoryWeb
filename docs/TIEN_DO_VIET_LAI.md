@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 323 / 350 truyện (17.37% tổng kho - 3405 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:11:36 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 324 / 350 truyện (17.43% tổng kho - 3414 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:13:27 19/10/2026
 
 ---
 
@@ -339,7 +339,7 @@
 | 321 | **TT2D321** | Khi Người Luôn Ghét Chờ Đợi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T22:08:12.887Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d321/2/) |
 | 322 | **TT2D322** | Khi Tiền Học Phí Cũng Phải Chờ Duyệt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:09:55.111Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d322/2/) |
 | 323 | **TT2D323** | Khi Tình Cảm Bị Lấn Chỗ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:11:36.533Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d323/2/) |
-| 324 | **TT2D324** | Khi Tôi Chấp Nhận Người Thế Thân | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 324 | **TT2D324** | Khi Tôi Chấp Nhận Người Thế Thân | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:13:27.274Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d324/2/) |
 | 325 | **TT2D325** | Khi Tôi Trở Về Thăm Con Gái | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 326 | **TT2D326** | Khi Tôi Trở Về Từ Bóng Tối | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 327 | **TT2D327** | Kiếp Này Chị Chọn Cổ Linh Lung | 7 (viết lại 6) | ⚪ Chờ | — | — |
