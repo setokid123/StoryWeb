@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 250 truyện (TT2D1 ➔ TT2D250)
-- **Đã hoàn thành & lên sóng Live:** 204 / 250 truyện (10.97% tổng kho - 2314 chương đã viết lại)
-- **Cập nhật lần cuối:** 23:57:21 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 205 / 250 truyện (11.03% tổng kho - 2320 chương đã viết lại)
+- **Cập nhật lần cuối:** 23:59:08 18/10/2026
 
 ---
 
@@ -220,7 +220,7 @@
 | 202 | **TT2D202** | Cưới Nhầm Chú Rể Sĩ Diện | 24 (viết lại 23) | 🟢 **Đã Live** | 2026-10-18T16:53:20.691Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d202/2/) |
 | 203 | **TT2D203** | Cưới Nhầm Thái Tử Gia Giả Ngốc | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:55:19.942Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d203/2/) |
 | 204 | **TT2D204** | Cuốn Sổ Của Người Chồng Lạnh Nhạt | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:57:21.575Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d204/2/) |
-| 205 | **TT2D205** | Đại Sư Bắt Quỷ Giúp Tôi Làm Giàu | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 205 | **TT2D205** | Đại Sư Bắt Quỷ Giúp Tôi Làm Giàu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T16:59:08.773Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d205/2/) |
 | 206 | **TT2D206** | Đám Cưới Bị Biến Thành Hot Search | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 207 | **TT2D207** | Đám Cưới Của Chồng Cũ Tôi | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 208 | **TT2D208** | Đám Cưới Ireland Đổi Chú Rể | 8 (viết lại 7) | ⚪ Chờ | — | — |
