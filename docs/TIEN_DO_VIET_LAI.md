@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1.859 truyện
 - **Mục tiêu đợt 1 & 2:** 100 truyện (TT2D1 ➔ TT2D100)
-- **Đã hoàn thành & lên sóng Live:** 74 / 100 truyện (671 chương đã viết lại)
-- **Cập nhật lần cuối:** 19:24:22 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 75 / 100 truyện (685 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:27:34 18/10/2026
 
 ---
 
@@ -90,7 +90,7 @@
 | 72 | **TT2D72** | Bí Mật Sau Chuyến Bay Về Nhà | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-18 12:21:06 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d72/2/) |
 | 73 | **TT2D73** | Bí Mật Sau Lời Đốt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 12:22:35 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d73/2/) |
 | 74 | **TT2D74** | Bí Mật Sau Những Thùng Hàng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18 12:24:19 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d74/2/) |
-| 75 | **TT2D75** | Bí Mật Tòa Chung Cư Cũ | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 75 | **TT2D75** | Bí Mật Tòa Chung Cư Cũ | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18 12:27:31 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d75/2/) |
 | 76 | **TT2D76** | Bí Mật Trang Trại Heo | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 77 | **TT2D77** | Bí Mật Trong Bữa Cơm Nhà | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 78 | **TT2D78** | Bí Mật Trong Căn Hộ Cao Cấp | 21 (viết lại 20) | ⚪ Chờ | — | — |
