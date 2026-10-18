@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 150 truyện (TT2D1 ➔ TT2D150)
-- **Đã hoàn thành & lên sóng Live:** 108 / 150 truyện (5.81% tổng kho - 1386 chương đã viết lại)
-- **Cập nhật lần cuối:** 20:28:08 18/10/2026
+- **Đã hoàn thành & lên sóng Live:** 109 / 150 truyện (5.86% tổng kho - 1398 chương đã viết lại)
+- **Cập nhật lần cuối:** 20:29:34 18/10/2026
 
 ---
 
@@ -124,7 +124,7 @@
 | 106 | **TT2D106** | Cái Tát Ngày Thứ Mười Ba | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:25:37.624Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d106/2/) |
 | 107 | **TT2D107** | Cầm Tiền Sang Mỹ Định Cư | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T13:26:50.708Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d107/2/) |
 | 108 | **TT2D108** | Căn Nhà 501 Không Còn Nhịn Nữa | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T13:28:08.635Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d108/2/) |
-| 109 | **TT2D109** | Căn Nhà Bị Bán Và Đêm Mưa Trước Cửa | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 109 | **TT2D109** | Căn Nhà Bị Bán Và Đêm Mưa Trước Cửa | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-18T13:29:34.168Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d109/2/) |
 | 110 | **TT2D110** | Căn Nhà Bị Mở Khóa Sai Cách | 17 (viết lại 16) | ⚪ Chờ | — | — |
 | 111 | **TT2D111** | Căn Nhà Bừa Bộn Và Cuộc Hôn Nhân | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 112 | **TT2D112** | Căn Nhà Không Bán Cho Ai | 8 (viết lại 7) | ⚪ Chờ | — | — |
