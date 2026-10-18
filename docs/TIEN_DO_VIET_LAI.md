@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 331 / 350 truyện (17.81% tổng kho - 3486 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:29:22 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 332 / 350 truyện (17.86% tổng kho - 3493 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:32:48 19/10/2026
 
 ---
 
@@ -347,7 +347,7 @@
 | 329 | **TT2D329** | Kiếp Này Tôi Chỉ Muốn Chờ Cha Về | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-18T22:25:31.228Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d329/2/) |
 | 330 | **TT2D330** | Kiếp Này Tôi Không Để Chị Dâu Bị Hại | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T22:27:11.563Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d330/2/) |
 | 331 | **TT2D331** | Kiếp Này Tôi Không Im Lặng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:29:22.598Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d331/2/) |
-| 332 | **TT2D332** | Kiếp Này Tôi Không Nhường Hôn Sự | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 332 | **TT2D332** | Kiếp Này Tôi Không Nhường Hôn Sự | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:32:48.348Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d332/2/) |
 | 333 | **TT2D333** | Kỳ Nghỉ Trung Thu Của Công Ty Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 334 | **TT2D334** | Ký Nhận Nhầm Một Kiện Hàng | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 335 | **TT2D335** | Ký Túc Xá Nữ Tòa 6 | 10 (viết lại 9) | ⚪ Chờ | — | — |
