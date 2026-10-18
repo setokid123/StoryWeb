@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 337 / 350 truyện (18.13% tổng kho - 3537 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:46:43 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 338 / 350 truyện (18.18% tổng kho - 3544 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:49:06 19/10/2026
 
 ---
 
@@ -353,7 +353,7 @@
 | 335 | **TT2D335** | Ký Túc Xá Nữ Tòa 6 | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:41:24.459Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d335/2/) |
 | 336 | **TT2D336** | Ký Ức Đen Của Gia Hào | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:43:49.201Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d336/2/) |
 | 337 | **TT2D337** | Ký ức ly hôn giữa đường đi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:46:43.945Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d337/2/) |
-| 338 | **TT2D338** | Ký Ức Và Trò Chơi Của Sự Phản Bội | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 338 | **TT2D338** | Ký Ức Và Trò Chơi Của Sự Phản Bội | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T22:49:06.852Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d338/2/) |
 | 339 | **TT2D339** | Lá Thư Chị Giấu Mười Hai Năm | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 340 | **TT2D340** | Lần Này Tôi Không Nhượng Bộ | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 341 | **TT2D341** | Lặng Lẽ Ở Bên Anh | 7 (viết lại 6) | ⚪ Chờ | — | — |
