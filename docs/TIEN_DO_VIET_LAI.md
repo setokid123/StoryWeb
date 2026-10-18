@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 310 / 350 truyện (16.68% tổng kho - 3280 chương đã viết lại)
-- **Cập nhật lần cuối:** 04:45:48 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 311 / 350 truyện (16.73% tổng kho - 3286 chương đã viết lại)
+- **Cập nhật lần cuối:** 04:47:25 19/10/2026
 
 ---
 
@@ -326,7 +326,7 @@
 | 308 | **TT2D308** | Khi Anh Chọn Mẹ Con Họ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T21:40:41.686Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d308/2/) |
 | 309 | **TT2D309** | Khi Anh Vứt Em Lại Đó | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-18T21:44:10.810Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d309/2/) |
 | 310 | **TT2D310** | Khi Bạn Gái Về Ra Mắt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-18T21:45:48.199Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d310/2/) |
-| 311 | **TT2D311** | Khi Bạn Trai Trở Thành Hung Thủ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 311 | **TT2D311** | Khi Bạn Trai Trở Thành Hung Thủ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T21:47:25.386Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d311/2/) |
 | 312 | **TT2D312** | Khi Cả Trường Tin Lời Cô Ta | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 313 | **TT2D313** | Khi Chồng Muốn Giữ Người Khác Lại | 23 (viết lại 22) | ⚪ Chờ | — | — |
 | 314 | **TT2D314** | Khi Chồng Tôi Đòi Tôi Ở Lại | 13 (viết lại 12) | ⚪ Chờ | — | — |
