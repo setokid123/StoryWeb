@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 350 truyện (TT2D1 ➔ TT2D350)
-- **Đã hoàn thành & lên sóng Live:** 326 / 350 truyện (17.54% tổng kho - 3431 chương đã viết lại)
-- **Cập nhật lần cuối:** 05:17:11 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 327 / 350 truyện (17.59% tổng kho - 3437 chương đã viết lại)
+- **Cập nhật lần cuối:** 05:19:17 19/10/2026
 
 ---
 
@@ -342,7 +342,7 @@
 | 324 | **TT2D324** | Khi Tôi Chấp Nhận Người Thế Thân | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:13:27.274Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d324/2/) |
 | 325 | **TT2D325** | Khi Tôi Trở Về Thăm Con Gái | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-18T22:15:14.110Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d325/2/) |
 | 326 | **TT2D326** | Khi Tôi Trở Về Từ Bóng Tối | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T22:17:11.432Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d326/2/) |
-| 327 | **TT2D327** | Kiếp Này Chị Chọn Cổ Linh Lung | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 327 | **TT2D327** | Kiếp Này Chị Chọn Cổ Linh Lung | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-18T22:19:17.926Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d327/2/) |
 | 328 | **TT2D328** | Kiếp Này Ta Chọn Không Nhường | 22 (viết lại 21) | ⚪ Chờ | — | — |
 | 329 | **TT2D329** | Kiếp Này Tôi Chỉ Muốn Chờ Cha Về | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 330 | **TT2D330** | Kiếp Này Tôi Không Để Chị Dâu Bị Hại | 7 (viết lại 6) | ⚪ Chờ | — | — |
