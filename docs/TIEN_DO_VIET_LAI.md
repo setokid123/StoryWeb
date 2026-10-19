@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 600 / 600 truyện (32.28% tổng kho - 6101 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:30:21 19/10/2026
+- **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
+- **Đã hoàn thành & lên sóng Live:** 600 / 650 truyện (32.28% tổng kho - 6101 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:34:16 19/10/2026
 
 ---
 
-## Danh sách chi tiết 600 truyện (TT2D1 ➔ TT2D600)
+## Danh sách chi tiết 650 truyện (TT2D1 ➔ TT2D650)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -616,3 +616,53 @@
 | 598 | **TT2D598** | Trưởng Tàu Và Kẻ Lừa Đảo | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T09:27:23.220Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d598/2/) |
 | 599 | **TT2D599** | Trưởng Thôn Đuổi Theo Ba Con Phố | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:28:49.986Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d599/2/) |
 | 600 | **TT2D600** | Từ Bóng Tối Đến Tổ Ấm | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:30:21.181Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d600/2/) |
+| 601 | **TT2D601** | Tứ Tiểu Thư Phủ Đốc Quân | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 602 | **TT2D602** | Túi Hàng Hiệu Và Lời Mỉa Mai | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 603 | **TT2D603** | Tượng Thần Nứt Vì Một Câu Hỏi | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 604 | **TT2D604** | Tuyển Thành Viên 18cm | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 605 | **TT2D605** | Ứng Dụng Quay Lén Kỳ Lạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 606 | **TT2D606** | Về Quê Tết Gặp Phốt Hot | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 607 | **TT2D607** | Vết Thương Dưới Lớp Giáp | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 608 | **TT2D608** | Vết Thương Không Lời | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 609 | **TT2D609** | Vết Xước Bí Ẩn | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 610 | **TT2D610** | Vị Hôn Phu Của Tôi Dị Ứng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 611 | **TT2D611** | Vị Hôn Phu Của Tôi Quá Tự Tin | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 612 | **TT2D612** | Vị Hôn Phu Đứng Hình | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 613 | **TT2D613** | Vị Hôn Phu Và Người Tạm Trú | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 614 | **TT2D614** | Vị Lạ Trong Con Cua | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 615 | **TT2D615** | Vị Trí Giám Đốc Về Tay Ai | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 616 | **TT2D616** | Video Call Nhầm Người Tôi Thích | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 617 | **TT2D617** | Vợ Anh Không Còn Là Ngoại Lệ | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 618 | **TT2D618** | Vợ Cố Thiếu Gia Quá Khó Nuôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 619 | **TT2D619** | Vợ Mặc Vest Cũ Đi Bắt Gian | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 620 | **TT2D620** | Vợ Yêu Của Sát Thủ Hạng Đầu | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 621 | **TT2D621** | Voi Già Trong Khu Nuôi | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 622 | **TT2D622** | Vòng Cổ Của Con Golden | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 623 | **TT2D623** | Vòng Tay Sơ Sinh Và Bí Mật | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 624 | **TT2D624** | Vụ Án Ở Quán Mì Vương Ký | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 625 | **TT2D625** | Xuyên Sách Thành Vợ Hoắc Chấn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 626 | **TT2D626** | Yêu Nhầm Nam Thần Giảng Viên | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 627 | **TT2D627** | Bước thứ mười tám | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 628 | **TT2D628** | Ba mươi năm ly hôn, chỉ mình tôi không biết | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 629 | **TT2D629** | Bạch Nguyệt Quang Trở Về, Anh Lại Giữ Tôi Ở Bên | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 630 | **TT2D630** | Tết Có Bạn Trai Bản Limited | 3 (viết lại 2) | ⚪ Chờ | — | — |
+| 631 | **TT2D631** | Yêu Anh Thêm Một Lần Nữa | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 632 | **TT2D632** | Mùa hè thứ năm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 633 | **TT2D633** | Anh rể của bạn thân | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 634 | **TT2D634** | Chạm Lại Vào Thanh Xuân | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 635 | **TT2D635** | Tình Yêu Bắt Đầu Từ Một Cú Gài Bẫy | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 636 | **TT2D636** | Mẹ của Châu Sinh Nhạc | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 637 | **TT2D637** | Cậu Nhỏ Nhà Tôi | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 638 | **TT2D638** | Your Rating | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 639 | **TT2D639** | Bí Mật Về 3 Hạt Óc Chó | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 640 | **TT2D640** | Một Bát Sủi Cảo Định Mệnh | 3 (viết lại 2) | ⚪ Chờ | — | — |
+| 641 | **TT2D641** | Không Ngoảnh Lại | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 642 | **TT2D642** | Nữ Chính Succubus Và Cún Con Vụng Về Của Nàng | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 643 | **TT2D643** | Tạm Biệt Không Ngày Gặp Lại | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 644 | **TT2D644** | Năm Năm Đợi Một Lời Yêu | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 645 | **TT2D645** | Không Là Em | 3 (viết lại 2) | ⚪ Chờ | — | — |
+| 646 | **TT2D646** | Trời Nam Thành Mang Họ Thẩm | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 647 | **TT2D647** | Nữ Chính Trên Bục Thánh | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 648 | **TT2D648** | Tôi Đưa Chồng Lên Hot Search | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 649 | **TT2D649** | Tay Nắm Tay Rời | 3 (viết lại 2) | ⚪ Chờ | — | — |
+| 650 | **TT2D650** | Tâm Linh Phù Hộ | 5 (viết lại 4) | ⚪ Chờ | — | — |
