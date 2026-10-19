@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 543 / 550 truyện (29.21% tổng kho - 5574 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:09:09 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 544 / 550 truyện (29.26% tổng kho - 5581 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:11:34 19/10/2026
 
 ---
 
@@ -559,7 +559,7 @@
 | 541 | **TT2D541** | Thiên Kim Nhỏ Của Gia Tộc Bí Ẩn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:02:37.146Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d541/2/) |
 | 542 | **TT2D542** | Thợ Khóa Và Căn Hộ 1404 | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:06:42.414Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d542/2/) |
 | 543 | **TT2D543** | Thỏa Thuận Tiền Hôn Nhân | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T07:09:09.566Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d543/2/) |
-| 544 | **TT2D544** | Thủ Khoa Tỉnh Đến Kinh Đại | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 544 | **TT2D544** | Thủ Khoa Tỉnh Đến Kinh Đại | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T07:11:34.370Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d544/2/) |
 | 545 | **TT2D545** | Thư Tình Từ Cậu Ấm Tai Tiếng | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 546 | **TT2D546** | Thức Ăn Mèo Bị Đổi Độc | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 547 | **TT2D547** | Thực Tập Sinh Tố Sai Tài Xế | 10 (viết lại 9) | ⚪ Chờ | — | — |
