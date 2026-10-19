@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 651 / 700 truyện (35.02% tổng kho - 6458 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:05:36 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 652 / 700 truyện (35.07% tổng kho - 6461 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:06:55 19/10/2026
 
 ---
 
@@ -667,7 +667,7 @@
 | 649 | **TT2D649** | Tay Nắm Tay Rời | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T11:01:41.767Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d649/2/) |
 | 650 | **TT2D650** | Tâm Linh Phù Hộ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:03:06.589Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d650/2/) |
 | 651 | **TT2D651** | Gửi Anh | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:05:36.572Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d651/2/) |
-| 652 | **TT2D652** | Tan Vỡ | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 652 | **TT2D652** | Tan Vỡ | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:06:55.857Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d652/2/) |
 | 653 | **TT2D653** | Người chiến thắng là tôi | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 654 | **TT2D654** | Một Đời An Nhiên | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 655 | **TT2D655** | Để cho anh đi | 5 (viết lại 4) | ⚪ Chờ | — | — |
