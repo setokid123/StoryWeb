@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 434 / 450 truyện (23.35% tổng kho - 4471 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:18:10 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 435 / 450 truyện (23.40% tổng kho - 4480 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:20:13 19/10/2026
 
 ---
 
@@ -450,7 +450,7 @@
 | 432 | **TT2D432** | Ngày Mẹ Tôi Định Trốn Khỏi Nhà | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T02:14:02.335Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d432/2/) |
 | 433 | **TT2D433** | Ngày Nhà Chồng Tương Lai Sụp Mặt | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-19T02:16:49.311Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d433/2/) |
 | 434 | **TT2D434** | Ngày Nhập Hộ Khẩu Bị Trì Hoãn | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:18:09.977Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d434/2/) |
-| 435 | **TT2D435** | Ngày tôi trở thành chủ hộ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 435 | **TT2D435** | Ngày tôi trở thành chủ hộ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T02:20:13.119Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d435/2/) |
 | 436 | **TT2D436** | Nghề Khâu Xác Trong Làng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 437 | **TT2D437** | Nghiệt Duyên Của Thím Út | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 438 | **TT2D438** | Ngọc Bội Gieo Lời Thề | 6 (viết lại 5) | ⚪ Chờ | — | — |
