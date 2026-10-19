@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 375 / 400 truyện (20.17% tổng kho - 3911 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:29:00 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 376 / 400 truyện (20.23% tổng kho - 3923 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:32:04 19/10/2026
 
 ---
 
@@ -391,7 +391,7 @@
 | 373 | **TT2D373** | Manh Mối Từ Cống Thoát Nước | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-19T00:24:38.771Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d373/2/) |
 | 374 | **TT2D374** | Manh Mối Từ Tài Xế Taxi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:26:54.376Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d374/2/) |
 | 375 | **TT2D375** | Mặt Nạ Ngọc Trắng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:28:59.982Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d375/2/) |
-| 376 | **TT2D376** | Mất Trí Rồi Anh Vẫn Theo Đuổi Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 376 | **TT2D376** | Mất Trí Rồi Anh Vẫn Theo Đuổi Tôi | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T00:32:04.733Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d376/2/) |
 | 377 | **TT2D377** | Mẫu Thân Muốn Hòa Ly Rồi | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 378 | **TT2D378** | Máy Chiếu Trong Buổi Họp Lớp | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 379 | **TT2D379** | Mẹ chồng nghe chuyện con dâu thẳng tay | 11 (viết lại 10) | ⚪ Chờ | — | — |
