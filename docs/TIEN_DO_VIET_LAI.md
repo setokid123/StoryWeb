@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 424 / 450 truyện (22.81% tổng kho - 4384 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:58:53 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 425 / 450 truyện (22.86% tổng kho - 4392 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:01:53 19/10/2026
 
 ---
 
@@ -440,7 +440,7 @@
 | 422 | **TT2D422** | Mười Tám Năm Bị Bỏ Quên | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:56:11.152Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d422/2/) |
 | 423 | **TT2D423** | Mười Tám Năm Bị Chiếm Chỗ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T01:57:28.744Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d423/2/) |
 | 424 | **TT2D424** | Mượn Mạng Trên Xe Buýt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:58:53.951Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d424/2/) |
-| 425 | **TT2D425** | Năm Năm Yêu Xa Đổ Vỡ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 425 | **TT2D425** | Năm Năm Yêu Xa Đổ Vỡ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T02:01:53.020Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d425/2/) |
 | 426 | **TT2D426** | Năm Phút Giữa Hai Thế Giới | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 427 | **TT2D427** | Nam Thần Trường Ăn Chặn Trợ Cấp | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 428 | **TT2D428** | Nàng Dâu Từng Là Công Chúa | 10 (viết lại 9) | ⚪ Chờ | — | — |
