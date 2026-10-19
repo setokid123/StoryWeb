@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 678 / 700 truyện (36.47% tổng kho - 6608 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:53:48 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 679 / 700 truyện (36.53% tổng kho - 6617 chương đã viết lại)
+- **Cập nhật lần cuối:** 19:37:51 19/10/2026
 
 ---
 
@@ -694,7 +694,7 @@
 | 676 | **TT2D676** | Người Buông Trước Là Anh | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T11:50:41.461Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d676/2/) |
 | 677 | **TT2D677** | Ông Chồng Hư Hỏng | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:52:09.601Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d677/2/) |
 | 678 | **TT2D678** | Nhắc Nhở | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:53:48.695Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d678/2/) |
-| 679 | **TT2D679** | Ly Hôn Giả | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 679 | **TT2D679** | Ly Hôn Giả | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T12:37:45.417Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d679/2/) |
 | 680 | **TT2D680** | Tám Năm Không Bằng Một Câu Nợ | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 681 | **TT2D681** | Tôi Đã Thấy Ánh Trăng Rơi | 5 (viết lại 4) | ⚪ Chờ | — | — |
 | 682 | **TT2D682** | Cái Kết Của Kẻ Phản Bội | 6 (viết lại 5) | ⚪ Chờ | — | — |
