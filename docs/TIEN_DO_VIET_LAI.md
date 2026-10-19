@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 491 / 500 truyện (26.41% tổng kho - 4997 chương đã viết lại)
-- **Cập nhật lần cuối:** 11:14:29 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 492 / 500 truyện (26.47% tổng kho - 5001 chương đã viết lại)
+- **Cập nhật lần cuối:** 11:16:20 19/10/2026
 
 ---
 
@@ -507,7 +507,7 @@
 | 489 | **TT2D489** | Phong Ấn Giếng Cũ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T04:10:41.198Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d489/2/) |
 | 490 | **TT2D490** | Phòng Khám Thú Y Của Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T04:12:34.317Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d490/2/) |
 | 491 | **TT2D491** | Phúc Tinh Trong Nhà Và Bi Kịch Em Gái | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:14:29.677Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d491/2/) |
-| 492 | **TT2D492** | Quà Kỷ Niệm Bị Bỏ Quên | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 492 | **TT2D492** | Quà Kỷ Niệm Bị Bỏ Quên | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T04:16:20.273Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d492/2/) |
 | 493 | **TT2D493** | Quà Lãnh Đạo Tặng | 22 (viết lại 21) | ⚪ Chờ | — | — |
 | 494 | **TT2D494** | Quả Sầu Riêng Bị Ăn Sạch | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 495 | **TT2D495** | Quán Bánh Ú Có Hồ Tiên | 9 (viết lại 8) | ⚪ Chờ | — | — |
