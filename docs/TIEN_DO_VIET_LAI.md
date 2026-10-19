@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 469 / 500 truyện (25.23% tổng kho - 4815 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:31:15 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 470 / 500 truyện (25.28% tổng kho - 4821 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:33:04 19/10/2026
 
 ---
 
@@ -485,7 +485,7 @@
 | 467 | **TT2D467** | Nhà Họ Giang Không Thể Định Đoạt | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T03:26:36.447Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d467/2/) |
 | 468 | **TT2D468** | Nhà Ngoại Nợ Một Cái Họ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:28:28.703Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d468/2/) |
 | 469 | **TT2D469** | Nhà Tôi Bị Bán Mất Rồi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T03:31:15.004Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d469/2/) |
-| 470 | **TT2D470** | Nhà Tôi Có Bà Nội Hóa Quái | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 470 | **TT2D470** | Nhà Tôi Có Bà Nội Hóa Quái | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T03:33:03.939Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d470/2/) |
 | 471 | **TT2D471** | Nhà Tôi Không Phải Của Anh | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 472 | **TT2D472** | Nhà Trọ Suối Nước Nóng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 473 | **TT2D473** | Nhầm Bạn Trai Qua Mạng | 8 (viết lại 7) | ⚪ Chờ | — | — |
