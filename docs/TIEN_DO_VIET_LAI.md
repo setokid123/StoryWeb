@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 668 / 700 truyện (35.93% tổng kho - 6559 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:35:05 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 669 / 700 truyện (35.99% tổng kho - 6566 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:37:11 19/10/2026
 
 ---
 
@@ -684,7 +684,7 @@
 | 666 | **TT2D666** | Đi phá xem mắt, ai ngờ gặp lại anh trai năm xưa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T11:31:08.927Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d666/2/) |
 | 667 | **TT2D667** | Thanh Mai Không Bằng Người Kế Bên | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T11:33:00.741Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d667/2/) |
 | 668 | **TT2D668** | Kết Hôn Chớp Nhoáng Với Lãnh Đạo Lạnh Lùng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T11:35:05.262Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d668/2/) |
-| 669 | **TT2D669** | Bạn Trai Bí Ẩn Của Tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 669 | **TT2D669** | Bạn Trai Bí Ẩn Của Tôi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T11:37:11.724Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d669/2/) |
 | 670 | **TT2D670** | Phu Nhân Tổng Tài Không Muốn Công Khai | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 671 | **TT2D671** | Rời Đi Không Bao Giờ Ngoảnh Lại | 5 (viết lại 4) | ⚪ Chờ | — | — |
 | 672 | **TT2D672** | Vệ Sĩ Của Tôi Là Thiếu Gia Ngầm | 11 (viết lại 10) | ⚪ Chờ | — | — |
