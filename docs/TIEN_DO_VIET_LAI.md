@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 546 / 550 truyện (29.37% tổng kho - 5598 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:22:15 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 547 / 550 truyện (29.42% tổng kho - 5607 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:25:41 19/10/2026
 
 ---
 
@@ -562,7 +562,7 @@
 | 544 | **TT2D544** | Thủ Khoa Tỉnh Đến Kinh Đại | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T07:11:34.370Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d544/2/) |
 | 545 | **TT2D545** | Thư Tình Từ Cậu Ấm Tai Tiếng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T07:17:09.013Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d545/2/) |
 | 546 | **TT2D546** | Thức Ăn Mèo Bị Đổi Độc | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:22:15.384Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d546/2/) |
-| 547 | **TT2D547** | Thực Tập Sinh Tố Sai Tài Xế | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 547 | **TT2D547** | Thực Tập Sinh Tố Sai Tài Xế | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:25:41.342Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d547/2/) |
 | 548 | **TT2D548** | Thủy Quỷ Và Tên Câm Nhỏ | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 549 | **TT2D549** | Tiệc Đầy Tháng Và Món Quà 6,6 | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 550 | **TT2D550** | Tiệc Thọ Và Hai Trăm Tệ | 11 (viết lại 10) | ⚪ Chờ | — | — |
