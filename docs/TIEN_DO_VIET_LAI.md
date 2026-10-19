@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 488 / 500 truyện (26.25% tổng kho - 4973 chương đã viết lại)
-- **Cập nhật lần cuối:** 11:08:53 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 489 / 500 truyện (26.30% tổng kho - 4980 chương đã viết lại)
+- **Cập nhật lần cuối:** 11:10:41 19/10/2026
 
 ---
 
@@ -504,7 +504,7 @@
 | 486 | **TT2D486** | Phí Đại Diện Hai Trăm Tệ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T04:05:13.473Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d486/2/) |
 | 487 | **TT2D487** | Phó Bản Cô Nhi Viện Ấm Áp | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T04:07:09.453Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d487/2/) |
 | 488 | **TT2D488** | Phòng 524 và Bí Ẩn Đêm Sinh Nhật | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:08:53.581Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d488/2/) |
-| 489 | **TT2D489** | Phong Ấn Giếng Cũ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 489 | **TT2D489** | Phong Ấn Giếng Cũ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T04:10:41.198Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d489/2/) |
 | 490 | **TT2D490** | Phòng Khám Thú Y Của Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 491 | **TT2D491** | Phúc Tinh Trong Nhà Và Bi Kịch Em Gái | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 492 | **TT2D492** | Quà Kỷ Niệm Bị Bỏ Quên | 5 (viết lại 4) | ⚪ Chờ | — | — |
