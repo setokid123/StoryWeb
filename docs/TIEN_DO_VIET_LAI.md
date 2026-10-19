@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 372 / 400 truyện (20.01% tổng kho - 3883 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:21:29 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 373 / 400 truyện (20.06% tổng kho - 3897 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:24:38 19/10/2026
 
 ---
 
@@ -388,7 +388,7 @@
 | 370 | **TT2D370** | Mâm Cơm Tất Niên Bị Dọn Sạch | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:14:04.696Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d370/2/) |
 | 371 | **TT2D371** | Mang Thai Giữa Đêm Đau Đớn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T00:17:12.086Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d371/2/) |
 | 372 | **TT2D372** | Mang Thai Tám Tháng Mới Nói | 22 (viết lại 21) | 🟢 **Đã Live** | 2026-10-19T00:21:29.035Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d372/2/) |
-| 373 | **TT2D373** | Manh Mối Từ Cống Thoát Nước | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 373 | **TT2D373** | Manh Mối Từ Cống Thoát Nước | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-19T00:24:38.771Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d373/2/) |
 | 374 | **TT2D374** | Manh Mối Từ Tài Xế Taxi | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 375 | **TT2D375** | Mặt Nạ Ngọc Trắng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 376 | **TT2D376** | Mất Trí Rồi Anh Vẫn Theo Đuổi Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
