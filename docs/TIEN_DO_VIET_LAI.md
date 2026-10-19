@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 650 / 650 truyện (34.97% tổng kho - 6455 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:03:06 19/10/2026
+- **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
+- **Đã hoàn thành & lên sóng Live:** 651 / 700 truyện (35.02% tổng kho - 6458 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:05:36 19/10/2026
 
 ---
 
-## Danh sách chi tiết 650 truyện (TT2D1 ➔ TT2D650)
+## Danh sách chi tiết 700 truyện (TT2D1 ➔ TT2D700)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -666,3 +666,53 @@
 | 648 | **TT2D648** | Tôi Đưa Chồng Lên Hot Search | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:00:25.632Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d648/2/) |
 | 649 | **TT2D649** | Tay Nắm Tay Rời | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T11:01:41.767Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d649/2/) |
 | 650 | **TT2D650** | Tâm Linh Phù Hộ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:03:06.589Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d650/2/) |
+| 651 | **TT2D651** | Gửi Anh | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:05:36.572Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d651/2/) |
+| 652 | **TT2D652** | Tan Vỡ | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 653 | **TT2D653** | Người chiến thắng là tôi | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 654 | **TT2D654** | Một Đời An Nhiên | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 655 | **TT2D655** | Để cho anh đi | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 656 | **TT2D656** | Nghe Rồi, Cảm Ơn Mẹ! | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 657 | **TT2D657** | Không Như Vẻ Ngoài | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 658 | **TT2D658** | Ngủ Quên | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 659 | **TT2D659** | Một Ngàn Năm Chờ Đợi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 660 | **TT2D660** | Trở Về Để Tìm Lại Con | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 661 | **TT2D661** | Đêm Giao Thừa, Tôi Đã Phá Thai | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 662 | **TT2D662** | Anh Em Chí Cốt, Em Lại Là Con Gái?! | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 663 | **TT2D663** | Tôi Kết Hôn Với Tổng Tài | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 664 | **TT2D664** | Người Chồng Trở Về Sau Nửa Năm Biến Mất | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 665 | **TT2D665** | Bạn cùng phòng của anh trai là của tôi | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 666 | **TT2D666** | Đi phá xem mắt, ai ngờ gặp lại anh trai năm xưa | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 667 | **TT2D667** | Thanh Mai Không Bằng Người Kế Bên | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 668 | **TT2D668** | Kết Hôn Chớp Nhoáng Với Lãnh Đạo Lạnh Lùng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 669 | **TT2D669** | Bạn Trai Bí Ẩn Của Tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 670 | **TT2D670** | Phu Nhân Tổng Tài Không Muốn Công Khai | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 671 | **TT2D671** | Rời Đi Không Bao Giờ Ngoảnh Lại | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 672 | **TT2D672** | Vệ Sĩ Của Tôi Là Thiếu Gia Ngầm | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 673 | **TT2D673** | Cuốn Theo Dòng Lũ | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 674 | **TT2D674** | Cháu Gái Trà Xanh Của Chú Út | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 675 | **TT2D675** | Mẹ Con Tôi Không Dễ Nuốt | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 676 | **TT2D676** | Người Buông Trước Là Anh | 3 (viết lại 2) | ⚪ Chờ | — | — |
+| 677 | **TT2D677** | Ông Chồng Hư Hỏng | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 678 | **TT2D678** | Nhắc Nhở | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 679 | **TT2D679** | Ly Hôn Giả | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 680 | **TT2D680** | Tám Năm Không Bằng Một Câu Nợ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 681 | **TT2D681** | Tôi Đã Thấy Ánh Trăng Rơi | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 682 | **TT2D682** | Cái Kết Của Kẻ Phản Bội | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 683 | **TT2D683** | Tình Đầu Ngọt Ngào Của Anh Cảnh Sát | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 684 | **TT2D684** | Mẹ Đơn Thân | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 685 | **TT2D685** | Anh Trai Bạn Thân Là Bố Con Tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 686 | **TT2D686** | Lạc Lạc Không Dứt | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 687 | **TT2D687** | Ảnh Đế Là Tên Cuồng Vợ | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 688 | **TT2D688** | Bí Mật Đứa Trẻ Năm Tuổi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 689 | **TT2D689** | Lần Đầu Của Anh, Em Cướp Rồi Đấy | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 690 | **TT2D690** | 10 Năm Hôn Nhân, Như Bát Nước Hất Đi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 691 | **TT2D691** | Tôi Là Người Thay Thế Em Gái | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 692 | **TT2D692** | Sau Khi Tôi Bỏ Đi, Anh Mới Biết Thế Nào Là Mất Tất Cả | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 693 | **TT2D693** | Trước Khi Bị Ép Rời Khỏi Sân Khấu, Tôi Đã Trộm Một Đứa Nhỏ. | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 694 | **TT2D694** | 3,5 Giây Của Sự Thật | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 695 | **TT2D695** | Phía Sau Chiến Tuyến | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 696 | **TT2D696** | Bạn Trai Thu Hồi Bằng Bắn Tỉa | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 697 | **TT2D697** | Sau Khi Trúng Giải Độc Đắc Tôi Photoshop 1 Tờ Thông Báo Nợ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 698 | **TT2D698** | Bà Nội Có Khả Năng Tiên Tri | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 699 | **TT2D699** | Cuối Con Đường Luôn Là Anh | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 700 | **TT2D700** | Ế chỏng chơ từ trong bụng mẹ | 6 (viết lại 5) | ⚪ Chờ | — | — |
