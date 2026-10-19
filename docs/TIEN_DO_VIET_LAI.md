@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 555 / 600 truyện (29.85% tổng kho - 5666 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:46:18 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 556 / 600 truyện (29.91% tổng kho - 5674 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:50:07 19/10/2026
 
 ---
 
@@ -571,7 +571,7 @@
 | 553 | **TT2D553** | Tiền tiết kiệm và cái giá phản bội | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T07:42:10.938Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d553/2/) |
 | 554 | **TT2D554** | Tiếng Động Trong Phòng Kế Bên | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T07:44:04.387Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d554/2/) |
 | 555 | **TT2D555** | Tiếng Gõ Đêm Khuya | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T07:46:18.101Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d555/2/) |
-| 556 | **TT2D556** | Tiếng Gõ Trong Đêm Hồi Hồn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 556 | **TT2D556** | Tiếng Gõ Trong Đêm Hồi Hồn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T07:50:07.810Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d556/2/) |
 | 557 | **TT2D557** | Tiếng Gọi Từ Cánh Cửa Phòng Tắm | 17 (viết lại 16) | ⚪ Chờ | — | — |
 | 558 | **TT2D558** | Tiếng Thét Trong Ngõ Hẻm | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 559 | **TT2D559** | Tiếng Thì Thầm Từ Mặt Gương | 9 (viết lại 8) | ⚪ Chờ | — | — |
