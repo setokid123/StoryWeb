@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 471 / 500 truyện (25.34% tổng kho - 4828 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:34:55 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 472 / 500 truyện (25.39% tổng kho - 4835 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:36:16 19/10/2026
 
 ---
 
@@ -487,7 +487,7 @@
 | 469 | **TT2D469** | Nhà Tôi Bị Bán Mất Rồi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T03:31:15.004Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d469/2/) |
 | 470 | **TT2D470** | Nhà Tôi Có Bà Nội Hóa Quái | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T03:33:03.939Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d470/2/) |
 | 471 | **TT2D471** | Nhà Tôi Không Phải Của Anh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:34:55.793Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d471/2/) |
-| 472 | **TT2D472** | Nhà Trọ Suối Nước Nóng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 472 | **TT2D472** | Nhà Trọ Suối Nước Nóng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:36:16.124Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d472/2/) |
 | 473 | **TT2D473** | Nhầm Bạn Trai Qua Mạng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 474 | **TT2D474** | Nhầm Vợ Trong Phòng Bệnh | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 475 | **TT2D475** | Nhân Chứng Mù Của Đêm Mưa | 8 (viết lại 7) | ⚪ Chờ | — | — |
