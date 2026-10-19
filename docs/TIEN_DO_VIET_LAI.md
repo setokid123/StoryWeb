@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 383 / 400 truyện (20.60% tổng kho - 4008 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:53:13 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 384 / 400 truyện (20.66% tổng kho - 4018 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:54:48 19/10/2026
 
 ---
 
@@ -399,7 +399,7 @@
 | 381 | **TT2D381** | Mẹ Chồng Ở Lại Với Con Trai | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-19T00:45:57.314Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d381/2/) |
 | 382 | **TT2D382** | Mẹ Chồng Tuyên Bố Chia Sai Di Sản | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-19T00:50:17.613Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d382/2/) |
 | 383 | **TT2D383** | Mẹ chồng vô tâm, tôi gồng mình bảo vệ con gái | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T00:53:13.949Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d383/2/) |
-| 384 | **TT2D384** | Mẹ Chồng Xin Mượn Nhà | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 384 | **TT2D384** | Mẹ Chồng Xin Mượn Nhà | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T00:54:48.104Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d384/2/) |
 | 385 | **TT2D385** | Mẹ Đơn Thân Và Đứa Bé Ấy | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 386 | **TT2D386** | Mẹ Kế Bất Đắc Dĩ Của Song Sinh | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 387 | **TT2D387** | Mẹ tôi, cái tên và định mệnh | 8 (viết lại 7) | ⚪ Chờ | — | — |
