@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 661 / 700 truyện (35.56% tổng kho - 6503 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:19:30 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 662 / 700 truyện (35.61% tổng kho - 6510 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:21:36 19/10/2026
 
 ---
 
@@ -677,7 +677,7 @@
 | 659 | **TT2D659** | Một Ngàn Năm Chờ Đợi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T11:16:34.875Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d659/2/) |
 | 660 | **TT2D660** | Trở Về Để Tìm Lại Con | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T11:18:08.428Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d660/2/) |
 | 661 | **TT2D661** | Đêm Giao Thừa, Tôi Đã Phá Thai | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T11:19:30.160Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d661/2/) |
-| 662 | **TT2D662** | Anh Em Chí Cốt, Em Lại Là Con Gái?! | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 662 | **TT2D662** | Anh Em Chí Cốt, Em Lại Là Con Gái?! | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T11:21:36.414Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d662/2/) |
 | 663 | **TT2D663** | Tôi Kết Hôn Với Tổng Tài | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 664 | **TT2D664** | Người Chồng Trở Về Sau Nửa Năm Biến Mất | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 665 | **TT2D665** | Bạn cùng phòng của anh trai là của tôi | 11 (viết lại 10) | ⚪ Chờ | — | — |
