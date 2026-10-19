@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 477 / 500 truyện (25.66% tổng kho - 4875 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:46:37 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 478 / 500 truyện (25.71% tổng kho - 4884 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:47:56 19/10/2026
 
 ---
 
@@ -493,7 +493,7 @@
 | 475 | **TT2D475** | Nhân Chứng Mù Của Đêm Mưa | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:42:49.270Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d475/2/) |
 | 476 | **TT2D476** | Nhặt Lại Cuộc Đời Cũ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T03:44:50.063Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d476/2/) |
 | 477 | **TT2D477** | Nhặt Nhầm Một Vị Tổng Đốc | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T03:46:37.612Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d477/2/) |
-| 478 | **TT2D478** | Nữ Kỹ Sư Bị Tối Ưu Hóa | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 478 | **TT2D478** | Nữ Kỹ Sư Bị Tối Ưu Hóa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T03:47:56.919Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d478/2/) |
 | 479 | **TT2D479** | Nữ phụ phản công trong phòng tiệc | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 480 | **TT2D480** | Nữ Sinh Cầm Máy Quay Tìm Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 481 | **TT2D481** | Nữ Thư Ký Ngủ Phòng Chính | 12 (viết lại 11) | ⚪ Chờ | — | — |
