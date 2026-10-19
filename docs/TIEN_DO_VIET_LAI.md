@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 431 / 450 truyện (23.18% tổng kho - 4438 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:12:17 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 432 / 450 truyện (23.24% tổng kho - 4443 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:14:02 19/10/2026
 
 ---
 
@@ -447,7 +447,7 @@
 | 429 | **TT2D429** | Ngã Rẽ Định Mệnh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:08:25.636Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d429/2/) |
 | 430 | **TT2D430** | Nga Tổ: Bí Ẩn Bướm Đêm | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T02:10:49.816Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d430/2/) |
 | 431 | **TT2D431** | Ngày Đầu Đi Làm Lại | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:12:17.578Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d431/2/) |
-| 432 | **TT2D432** | Ngày Mẹ Tôi Định Trốn Khỏi Nhà | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 432 | **TT2D432** | Ngày Mẹ Tôi Định Trốn Khỏi Nhà | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T02:14:02.335Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d432/2/) |
 | 433 | **TT2D433** | Ngày Nhà Chồng Tương Lai Sụp Mặt | 23 (viết lại 22) | ⚪ Chờ | — | — |
 | 434 | **TT2D434** | Ngày Nhập Hộ Khẩu Bị Trì Hoãn | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 435 | **TT2D435** | Ngày tôi trở thành chủ hộ | 10 (viết lại 9) | ⚪ Chờ | — | — |
