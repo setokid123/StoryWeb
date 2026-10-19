@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 633 / 650 truyện (34.05% tổng kho - 6381 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:35:50 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 634 / 650 truyện (34.10% tổng kho - 6384 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:37:55 19/10/2026
 
 ---
 
@@ -649,7 +649,7 @@
 | 631 | **TT2D631** | Yêu Anh Thêm Một Lần Nữa | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T10:32:01.606Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d631/2/) |
 | 632 | **TT2D632** | Mùa hè thứ năm | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T10:34:28.639Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d632/2/) |
 | 633 | **TT2D633** | Anh rể của bạn thân | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:35:49.975Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d633/2/) |
-| 634 | **TT2D634** | Chạm Lại Vào Thanh Xuân | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 634 | **TT2D634** | Chạm Lại Vào Thanh Xuân | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:37:55.874Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d634/2/) |
 | 635 | **TT2D635** | Tình Yêu Bắt Đầu Từ Một Cú Gài Bẫy | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 636 | **TT2D636** | Mẹ của Châu Sinh Nhạc | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 637 | **TT2D637** | Cậu Nhỏ Nhà Tôi | 5 (viết lại 4) | ⚪ Chờ | — | — |
