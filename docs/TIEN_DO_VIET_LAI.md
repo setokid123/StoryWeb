@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 549 / 550 truyện (29.53% tổng kho - 5626 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:31:44 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 550 / 550 truyện (29.59% tổng kho - 5636 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:34:55 19/10/2026
 
 ---
 
@@ -565,4 +565,4 @@
 | 547 | **TT2D547** | Thực Tập Sinh Tố Sai Tài Xế | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:25:41.342Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d547/2/) |
 | 548 | **TT2D548** | Thủy Quỷ Và Tên Câm Nhỏ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:29:02.195Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d548/2/) |
 | 549 | **TT2D549** | Tiệc Đầy Tháng Và Món Quà 6,6 | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T07:31:44.322Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d549/2/) |
-| 550 | **TT2D550** | Tiệc Thọ Và Hai Trăm Tệ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 550 | **TT2D550** | Tiệc Thọ Và Hai Trăm Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T07:34:55.097Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d550/2/) |
