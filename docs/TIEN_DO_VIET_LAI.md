@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 449 / 450 truyện (24.15% tổng kho - 4596 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:48:33 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 450 / 450 truyện (24.21% tổng kho - 4604 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:50:10 19/10/2026
 
 ---
 
@@ -465,4 +465,4 @@
 | 447 | **TT2D447** | Người Cũ Của Năm Lớp 11 | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T02:44:20.409Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d447/2/) |
 | 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-19T02:46:56.490Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d448/2/) |
 | 449 | **TT2D449** | Người Được Chọn Cuối Cùng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T02:48:33.184Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d449/2/) |
-| 450 | **TT2D450** | Người Già Trong Nhà Tôi | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 450 | **TT2D450** | Người Già Trong Nhà Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T02:50:10.713Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d450/2/) |
