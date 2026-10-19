@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 613 / 650 truyện (32.97% tổng kho - 6213 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:56:30 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 614 / 650 truyện (33.03% tổng kho - 6233 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:59:48 19/10/2026
 
 ---
 
@@ -629,7 +629,7 @@
 | 611 | **TT2D611** | Vị Hôn Phu Của Tôi Quá Tự Tin | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T09:52:29.977Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d611/2/) |
 | 612 | **TT2D612** | Vị Hôn Phu Đứng Hình | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T09:54:25.374Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d612/2/) |
 | 613 | **TT2D613** | Vị Hôn Phu Và Người Tạm Trú | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T09:56:30.326Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d613/2/) |
-| 614 | **TT2D614** | Vị Lạ Trong Con Cua | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 614 | **TT2D614** | Vị Lạ Trong Con Cua | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-19T09:59:48.673Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d614/2/) |
 | 615 | **TT2D615** | Vị Trí Giám Đốc Về Tay Ai | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 616 | **TT2D616** | Video Call Nhầm Người Tôi Thích | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 617 | **TT2D617** | Vợ Anh Không Còn Là Ngoại Lệ | 16 (viết lại 15) | ⚪ Chờ | — | — |
