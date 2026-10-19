@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 626 / 650 truyện (33.67% tổng kho - 6346 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:24:23 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 627 / 650 truyện (33.73% tổng kho - 6349 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:26:03 19/10/2026
 
 ---
 
@@ -642,7 +642,7 @@
 | 624 | **TT2D624** | Vụ Án Ở Quán Mì Vương Ký | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T10:20:25.481Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d624/2/) |
 | 625 | **TT2D625** | Xuyên Sách Thành Vợ Hoắc Chấn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T10:22:11.552Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d625/2/) |
 | 626 | **TT2D626** | Yêu Nhầm Nam Thần Giảng Viên | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T10:24:23.091Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d626/2/) |
-| 627 | **TT2D627** | Bước thứ mười tám | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 627 | **TT2D627** | Bước thứ mười tám | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:26:03.293Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d627/2/) |
 | 628 | **TT2D628** | Ba mươi năm ly hôn, chỉ mình tôi không biết | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 629 | **TT2D629** | Bạch Nguyệt Quang Trở Về, Anh Lại Giữ Tôi Ở Bên | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 630 | **TT2D630** | Tết Có Bạn Trai Bản Limited | 3 (viết lại 2) | ⚪ Chờ | — | — |
