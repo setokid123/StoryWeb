@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 483 / 500 truyện (25.98% tổng kho - 4933 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:59:44 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 484 / 500 truyện (26.04% tổng kho - 4942 chương đã viết lại)
+- **Cập nhật lần cuối:** 11:01:47 19/10/2026
 
 ---
 
@@ -499,7 +499,7 @@
 | 481 | **TT2D481** | Nữ Thư Ký Ngủ Phòng Chính | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T03:54:28.297Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d481/2/) |
 | 482 | **TT2D482** | Nửa Năm Ở Chỗ Tôi | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-19T03:57:43.846Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d482/2/) |
 | 483 | **TT2D483** | Oan Sai Gấp Mười Lần | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T03:59:44.624Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d483/2/) |
-| 484 | **TT2D484** | Ông Xã Cấm Dục Rất Khó Dỗ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 484 | **TT2D484** | Ông Xã Cấm Dục Rất Khó Dỗ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T04:01:47.056Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d484/2/) |
 | 485 | **TT2D485** | Phân Nhà Cuối Cùng | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 486 | **TT2D486** | Phí Đại Diện Hai Trăm Tệ | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 487 | **TT2D487** | Phó Bản Cô Nhi Viện Ấm Áp | 10 (viết lại 9) | ⚪ Chờ | — | — |
