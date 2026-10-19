@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 553 / 600 truyện (29.75% tổng kho - 5653 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:42:10 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 554 / 600 truyện (29.80% tổng kho - 5660 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:44:04 19/10/2026
 
 ---
 
@@ -569,7 +569,7 @@
 | 551 | **TT2D551** | Tiệm Hoa Hợp Hoan Và Vụ Mất Tích | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T07:38:36.912Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d551/2/) |
 | 552 | **TT2D552** | Tiền Hưu Và Lòng Người | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T07:40:38.528Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d552/2/) |
 | 553 | **TT2D553** | Tiền tiết kiệm và cái giá phản bội | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T07:42:10.938Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d553/2/) |
-| 554 | **TT2D554** | Tiếng Động Trong Phòng Kế Bên | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 554 | **TT2D554** | Tiếng Động Trong Phòng Kế Bên | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T07:44:04.387Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d554/2/) |
 | 555 | **TT2D555** | Tiếng Gõ Đêm Khuya | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 556 | **TT2D556** | Tiếng Gõ Trong Đêm Hồi Hồn | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 557 | **TT2D557** | Tiếng Gọi Từ Cánh Cửa Phòng Tắm | 17 (viết lại 16) | ⚪ Chờ | — | — |
