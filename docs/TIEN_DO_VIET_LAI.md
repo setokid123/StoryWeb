@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 658 / 700 truyện (35.40% tổng kho - 6481 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:14:41 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 659 / 700 truyện (35.45% tổng kho - 6490 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:16:34 19/10/2026
 
 ---
 
@@ -674,7 +674,7 @@
 | 656 | **TT2D656** | Nghe Rồi, Cảm Ơn Mẹ! | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:12:12.706Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d656/2/) |
 | 657 | **TT2D657** | Không Như Vẻ Ngoài | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:13:28.299Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d657/2/) |
 | 658 | **TT2D658** | Ngủ Quên | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:14:41.635Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d658/2/) |
-| 659 | **TT2D659** | Một Ngàn Năm Chờ Đợi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 659 | **TT2D659** | Một Ngàn Năm Chờ Đợi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T11:16:34.875Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d659/2/) |
 | 660 | **TT2D660** | Trở Về Để Tìm Lại Con | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 661 | **TT2D661** | Đêm Giao Thừa, Tôi Đã Phá Thai | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 662 | **TT2D662** | Anh Em Chí Cốt, Em Lại Là Con Gái?! | 8 (viết lại 7) | ⚪ Chờ | — | — |
