@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 519 / 550 truyện (27.92% tổng kho - 5310 chương đã viết lại)
-- **Cập nhật lần cuối:** 12:49:54 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 520 / 550 truyện (27.97% tổng kho - 5315 chương đã viết lại)
+- **Cập nhật lần cuối:** 12:52:04 19/10/2026
 
 ---
 
@@ -535,7 +535,7 @@
 | 517 | **TT2D517** | Sinh Nhật Định Mệnh | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T05:41:19.555Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d517/2/) |
 | 518 | **TT2D518** | Sổ Đỏ Đứng Tên Em Chồng | 29 (viết lại 28) | 🟢 **Đã Live** | 2026-10-19T05:46:13.437Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d518/2/) |
 | 519 | **TT2D519** | Sợi Dây Chuyền Khắc Tên Tôi | 26 (viết lại 25) | 🟢 **Đã Live** | 2026-10-19T05:49:54.659Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d519/2/) |
-| 520 | **TT2D520** | Sống Lại Tôi Mua Bảo Hiểm | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 520 | **TT2D520** | Sống Lại Tôi Mua Bảo Hiểm | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T05:52:04.548Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d520/2/) |
 | 521 | **TT2D521** | Song Tu Với Hồ Tiên | 18 (viết lại 17) | ⚪ Chờ | — | — |
 | 522 | **TT2D522** | Sự Thật Sau Lời Chạy Đi | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 523 | **TT2D523** | Tác Thành Hay Bước Qua? | 8 (viết lại 7) | ⚪ Chờ | — | — |
