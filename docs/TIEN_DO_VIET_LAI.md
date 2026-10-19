@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 367 / 400 truyện (19.74% tổng kho - 3831 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:06:15 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 368 / 400 truyện (19.80% tổng kho - 3838 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:08:26 19/10/2026
 
 ---
 
@@ -383,7 +383,7 @@
 | 365 | **TT2D365** | Ly Hôn Rồi Mới Biết | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:00:49.006Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d365/2/) |
 | 366 | **TT2D366** | Ly Hôn Rồi Mới Biết Anh Ta | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-19T00:03:41.349Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d366/2/) |
 | 367 | **TT2D367** | Ly Hôn Trước Khi Quá Muộn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T00:06:15.791Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d367/2/) |
-| 368 | **TT2D368** | Ly Hôn Với Gã Ăn Hại | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 368 | **TT2D368** | Ly Hôn Với Gã Ăn Hại | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:08:26.833Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d368/2/) |
 | 369 | **TT2D369** | Ly Rượu Đỏ Và Lời Chia Tay | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 370 | **TT2D370** | Mâm Cơm Tất Niên Bị Dọn Sạch | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 371 | **TT2D371** | Mang Thai Giữa Đêm Đau Đớn | 9 (viết lại 8) | ⚪ Chờ | — | — |
