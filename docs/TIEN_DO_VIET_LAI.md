@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 592 / 600 truyện (31.85% tổng kho - 6025 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:15:52 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 593 / 600 truyện (31.90% tổng kho - 6030 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:17:07 19/10/2026
 
 ---
 
@@ -608,7 +608,7 @@
 | 590 | **TT2D590** | Tro Tàn Của Một Cuộc Hôn Nhân | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T09:12:37.247Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d590/2/) |
 | 591 | **TT2D591** | Trở Về Hào Môn | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:14:17.273Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d591/2/) |
 | 592 | **TT2D592** | Trở Về Năm Tuổi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:15:52.573Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d592/2/) |
-| 593 | **TT2D593** | Trở Về Ngày Đòi Ly Hôn | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 593 | **TT2D593** | Trở Về Ngày Đòi Ly Hôn | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T09:17:07.480Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d593/2/) |
 | 594 | **TT2D594** | Trốn Chạy Sau Một Đêm | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 595 | **TT2D595** | Trọng Sinh Đòi Lại Tiền | 24 (viết lại 23) | ⚪ Chờ | — | — |
 | 596 | **TT2D596** | Trọng Sinh Trở Lại Đám Cưới | 6 (viết lại 5) | ⚪ Chờ | — | — |
