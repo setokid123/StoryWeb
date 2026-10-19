@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 700 / 700 truyện (37.65% tổng kho - 6746 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:08:18 19/10/2026
+- **Mục tiêu hiện tại:** 750 truyện (TT2D1 ➔ TT2D750)
+- **Đã hoàn thành & lên sóng Live:** 750 / 750 truyện (40.34% tổng kho - 7042 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:17:15 19/10/2026
 
 ---
 
-## Danh sách chi tiết 700 truyện (TT2D1 ➔ TT2D700)
+## Danh sách chi tiết 750 truyện (TT2D1 ➔ TT2D750)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -716,3 +716,53 @@
 | 698 | **TT2D698** | Bà Nội Có Khả Năng Tiên Tri | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d698/2/) |
 | 699 | **TT2D699** | Cuối Con Đường Luôn Là Anh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d699/2/) |
 | 700 | **TT2D700** | Ế chỏng chơ từ trong bụng mẹ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d700/2/) |
+| 701 | **TT2D701** | Anh Trai Dìu Em Đi Hết Thanh Xuân | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.889Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d701/2/) |
+| 702 | **TT2D702** | Nợ Đào Hoa | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d702/2/) |
+| 703 | **TT2D703** | Dọn Vào Tim Em | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d703/2/) |
+| 704 | **TT2D704** | Dọn Vào Tim Em (Phần 2) | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d704/2/) |
+| 705 | **TT2D705** | Đơn Ly Hôn và Cú Phản Đòn | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d705/2/) |
+| 706 | **TT2D706** | Tình Yêu Còn Mãi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d706/2/) |
+| 707 | **TT2D707** | Hôm Nay Tôi Không Tha Thứ | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d707/2/) |
+| 708 | **TT2D708** | Vợ Cũ Trở Mình | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d708/2/) |
+| 709 | **TT2D709** | Chúng Ta Cùng Nhau Bắt Đầu Lại | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d709/2/) |
+| 710 | **TT2D710** | Đám Cưới Ba Người | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d710/2/) |
+| 711 | **TT2D711** | Cưng Chiều Em Hết Mực | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d711/2/) |
+| 712 | **TT2D712** | Nam Phụ Mất Trí Lại Muốn Theo Đuổi Vợ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d712/2/) |
+| 713 | **TT2D713** | Sống Một Đời Thật Rạng Rỡ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d713/2/) |
+| 714 | **TT2D714** | Anh Không Còn Là Nhà | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d714/2/) |
+| 715 | **TT2D715** | Rời Xa Quân Khu, Tôi Được Bình Yên | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d715/2/) |
+| 716 | **TT2D716** | Khi Con Mèo Xoay Người | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d716/2/) |
+| 717 | **TT2D717** | Tôi Đi Du Học Ba Năm | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d717/2/) |
+| 718 | **TT2D718** | Kẻ Rình Mò Tầng 17 | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d718/2/) |
+| 719 | **TT2D719** | Sếp Tôi, Ngoài Lạnh Trong Nóng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d719/2/) |
+| 720 | **TT2D720** | Dưới Tầng Mây Đen | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d720/2/) |
+| 721 | **TT2D721** | Tôi Kẹp Đơn Ly Hôn Trong Hợp Đồng Nhận Phòng | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d721/2/) |
+| 722 | **TT2D722** | Khi Anh Biến Tôi Thành Kịch Bản | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d722/2/) |
+| 723 | **TT2D723** | Đừng Đến Đám Cưới Tôi | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d723/2/) |
+| 724 | **TT2D724** | Chạm Vào Ký Ức | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d724/2/) |
+| 725 | **TT2D725** | Thẩm Thính Hạ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d725/2/) |
+| 726 | **TT2D726** | Ly Hôn Cho Tôi 200 Tệ? Tôi Dắt Theo Cặp Song Sinh Đòi Lại 200 Tỷ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d726/2/) |
+| 727 | **TT2D727** | Mười Năm Sau Ly Hôn, Chồng Cũ Trao Giải Cho Con Trai | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d727/2/) |
+| 728 | **TT2D728** | Tờ Quảng Cáo Ven Đường Dẫn Tôi Vào Hào Môn | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d728/2/) |
+| 729 | **TT2D729** | Rời Đi Để Thấy Giá Trị | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d729/2/) |
+| 730 | **TT2D730** | Gian Tình Giữa Chồng Và Thực Tập Sinh | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d730/2/) |
+| 731 | **TT2D731** | Trái Tim Bị Đánh Cắp | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d731/2/) |
+| 732 | **TT2D732** | Mẹ bỏ đi rồi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d732/2/) |
+| 733 | **TT2D733** | Mẹ Chồng Dạy Cách Rời Đi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d733/2/) |
+| 734 | **TT2D734** | Tôi Có Một Ông Anh Trùm Tăng Ca | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d734/2/) |
+| 735 | **TT2D735** | Ngày Tôi Sinh, Chồng Tôi Đăng Ảnh Con Người Khác | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d735/2/) |
+| 736 | **TT2D736** | Chuyến Bay Trễ Hai Năm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d736/2/) |
+| 737 | **TT2D737** | Tái Hôn Với Tổng Tài, Tặng Kèm Hai Bé Cưng | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d737/2/) |
+| 738 | **TT2D738** | Căn Nhà Ghi Tên Ba | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d738/2/) |
+| 739 | **TT2D739** | Người Xen Vào Giữa Chúng Ta | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d739/2/) |
+| 740 | **TT2D740** | Bàn Cờ Đảo Chiều: Cô Kỹ Thuật Viên Và Kẻ Nằm Xuống | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d740/2/) |
+| 741 | **TT2D741** | Sau Khi Không Còn Anh | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d741/2/) |
+| 742 | **TT2D742** | Tặng Anh Cho Cô Ấy Luôn | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d742/2/) |
+| 743 | **TT2D743** | Yêu anh cần bao nhiêu dũng khí | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d743/2/) |
+| 744 | **TT2D744** | Trúng 10 Triệu, Về Nhà Thì Nhà Không Còn | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d744/2/) |
+| 745 | **TT2D745** | Kiều Hạ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d745/2/) |
+| 746 | **TT2D746** | Lật Án | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d746/2/) |
+| 747 | **TT2D747** | Bạn Trai Bảo Tôi Trả Tiền Đám Cưới Cho Em Gái | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d747/2/) |
+| 748 | **TT2D748** | Tôi Tự Mình Rạng Rỡ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d748/2/) |
+| 749 | **TT2D749** | Lời Hứa Thứ Chín Mươi Chín | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d749/2/) |
+| 750 | **TT2D750** | Chiếc Lược Gỗ Và Sợi Dây Chuyền Vàng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:17:09.890Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d750/2/) |
