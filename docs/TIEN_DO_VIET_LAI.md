@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 522 / 550 truyện (28.08% tổng kho - 5344 chương đã viết lại)
-- **Cập nhật lần cuối:** 12:57:46 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 523 / 550 truyện (28.13% tổng kho - 5351 chương đã viết lại)
+- **Cập nhật lần cuối:** 13:00:15 19/10/2026
 
 ---
 
@@ -538,7 +538,7 @@
 | 520 | **TT2D520** | Sống Lại Tôi Mua Bảo Hiểm | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T05:52:04.548Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d520/2/) |
 | 521 | **TT2D521** | Song Tu Với Hồ Tiên | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-19T05:55:09.822Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d521/2/) |
 | 522 | **TT2D522** | Sự Thật Sau Lời Chạy Đi | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T05:57:46.061Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d522/2/) |
-| 523 | **TT2D523** | Tác Thành Hay Bước Qua? | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 523 | **TT2D523** | Tác Thành Hay Bước Qua? | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T06:00:15.269Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d523/2/) |
 | 524 | **TT2D524** | Tách Trà Và Lời Hứa Đứt Vỡ | 19 (viết lại 18) | ⚪ Chờ | — | — |
 | 525 | **TT2D525** | Tài Khoản Cũ Và Sự Thật | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 526 | **TT2D526** | Tài Sản Mẹ Để Lại Cho Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
