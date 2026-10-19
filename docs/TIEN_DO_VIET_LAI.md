@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 628 / 650 truyện (33.78% tổng kho - 6355 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:27:29 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 629 / 650 truyện (33.84% tổng kho - 6364 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:29:17 19/10/2026
 
 ---
 
@@ -644,7 +644,7 @@
 | 626 | **TT2D626** | Yêu Nhầm Nam Thần Giảng Viên | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T10:24:23.091Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d626/2/) |
 | 627 | **TT2D627** | Bước thứ mười tám | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:26:03.293Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d627/2/) |
 | 628 | **TT2D628** | Ba mươi năm ly hôn, chỉ mình tôi không biết | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T10:27:29.327Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d628/2/) |
-| 629 | **TT2D629** | Bạch Nguyệt Quang Trở Về, Anh Lại Giữ Tôi Ở Bên | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 629 | **TT2D629** | Bạch Nguyệt Quang Trở Về, Anh Lại Giữ Tôi Ở Bên | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T10:29:17.793Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d629/2/) |
 | 630 | **TT2D630** | Tết Có Bạn Trai Bản Limited | 3 (viết lại 2) | ⚪ Chờ | — | — |
 | 631 | **TT2D631** | Yêu Anh Thêm Một Lần Nữa | 5 (viết lại 4) | ⚪ Chờ | — | — |
 | 632 | **TT2D632** | Mùa hè thứ năm | 9 (viết lại 8) | ⚪ Chờ | — | — |
