@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 675 / 700 truyện (36.31% tổng kho - 6600 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:49:08 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 676 / 700 truyện (36.36% tổng kho - 6602 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:50:41 19/10/2026
 
 ---
 
@@ -691,7 +691,7 @@
 | 673 | **TT2D673** | Cuốn Theo Dòng Lũ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:45:55.799Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d673/2/) |
 | 674 | **TT2D674** | Cháu Gái Trà Xanh Của Chú Út | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:47:20.933Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d674/2/) |
 | 675 | **TT2D675** | Mẹ Con Tôi Không Dễ Nuốt | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:49:08.460Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d675/2/) |
-| 676 | **TT2D676** | Người Buông Trước Là Anh | 3 (viết lại 2) | ⚪ Chờ | — | — |
+| 676 | **TT2D676** | Người Buông Trước Là Anh | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T11:50:41.461Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d676/2/) |
 | 677 | **TT2D677** | Ông Chồng Hư Hỏng | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 678 | **TT2D678** | Nhắc Nhở | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 679 | **TT2D679** | Ly Hôn Giả | 10 (viết lại 9) | ⚪ Chờ | — | — |
