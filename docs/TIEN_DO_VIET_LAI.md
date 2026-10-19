@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 458 / 500 truyện (24.64% tổng kho - 4698 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:07:46 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 459 / 500 truyện (24.69% tổng kho - 4709 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:11:21 19/10/2026
 
 ---
 
@@ -474,7 +474,7 @@
 | 456 | **TT2D456** | Người Phụ Nữ Dưới Tầng Nhà Tôi | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-19T03:04:25.588Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d456/2/) |
 | 457 | **TT2D457** | Người Phụ Nữ Mặc Quần Tất Đỏ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:05:49.598Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d457/2/) |
 | 458 | **TT2D458** | Người Sống Sót Trở Về Báo Thù | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-19T03:07:46.855Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d458/2/) |
-| 459 | **TT2D459** | Người Thân Hay Kẻ Thù? | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 459 | **TT2D459** | Người Thân Hay Kẻ Thù? | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T03:11:21.489Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d459/2/) |
 | 460 | **TT2D460** | Người Thợ Điện Mang Tên Bác | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 461 | **TT2D461** | Người Tình Cũ Ở Sân Khấu | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 462 | **TT2D462** | Người Tôi Thầm Thích Hận Tôi | 23 (viết lại 22) | ⚪ Chờ | — | — |
