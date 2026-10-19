@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 500 / 500 truyện (26.90% tổng kho - 5079 chương đã viết lại)
-- **Cập nhật lần cuối:** 11:53:02 19/10/2026
+- **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
+- **Đã hoàn thành & lên sóng Live:** 501 / 550 truyện (26.95% tổng kho - 5087 chương đã viết lại)
+- **Cập nhật lần cuối:** 11:53:38 19/10/2026
 
 ---
 
-## Danh sách chi tiết 500 truyện (TT2D1 ➔ TT2D500)
+## Danh sách chi tiết 550 truyện (TT2D1 ➔ TT2D550)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -516,3 +516,53 @@
 | 498 | **TT2D498** | Quán Mỳ Ở Trạm Xăng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T04:29:19.488Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d498/2/) |
 | 499 | **TT2D499** | Quay Lại Giữa Mùa Lũ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:31:14.574Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d499/2/) |
 | 500 | **TT2D500** | Quay Về Trước Đêm Bị Đuổi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:50:25.705Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d500/2/) |
+| 501 | **TT2D501** | Quỷ Đói Lạc Vào Hậu Cung | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:53:38.626Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d501/2/) |
+| 502 | **TT2D502** | Quy Tắc Lạ Ở Nhà Bạn Trai | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 503 | **TT2D503** | Ra Mắt Nhà Bạn Trai Và Lời Nhắc | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 504 | **TT2D504** | Rằm Tháng Bảy Trong Phòng Tang Lễ | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 505 | **TT2D505** | Rời Khỏi Nhà Họ Lục | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 506 | **TT2D506** | Sàn Bếp Lạnh Ngắt Đêm Tết | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 507 | **TT2D507** | Sau Ba Năm Uống Nhầm Thuốc | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 508 | **TT2D508** | Sau Hôn Lễ Tôi Chọn Rời Đi | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 509 | **TT2D509** | Sau Khi Chết Mới Lên Hot Search | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 510 | **TT2D510** | Sau Khi Ly Hôn Tôi Biết Rồi | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 511 | **TT2D511** | Sau Khi Nhận Di Ngôn | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 512 | **TT2D512** | Sau Lần Thất Vọng Cuối Cùng | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 513 | **TT2D513** | Sáu Năm Hôn Nhân Và Lời Nói Dối | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 514 | **TT2D514** | Shipper Và Căn Phòng Niêm Phong | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 515 | **TT2D515** | Sinh Đôi Và Trang Ảnh Cắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 516 | **TT2D516** | Sinh Nhật Bị Lãng Quên Suốt Ba Năm | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 517 | **TT2D517** | Sinh Nhật Định Mệnh | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 518 | **TT2D518** | Sổ Đỏ Đứng Tên Em Chồng | 29 (viết lại 28) | ⚪ Chờ | — | — |
+| 519 | **TT2D519** | Sợi Dây Chuyền Khắc Tên Tôi | 26 (viết lại 25) | ⚪ Chờ | — | — |
+| 520 | **TT2D520** | Sống Lại Tôi Mua Bảo Hiểm | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 521 | **TT2D521** | Song Tu Với Hồ Tiên | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 522 | **TT2D522** | Sự Thật Sau Lời Chạy Đi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 523 | **TT2D523** | Tác Thành Hay Bước Qua? | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 524 | **TT2D524** | Tách Trà Và Lời Hứa Đứt Vỡ | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 525 | **TT2D525** | Tài Khoản Cũ Và Sự Thật | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 526 | **TT2D526** | Tài Sản Mẹ Để Lại Cho Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 527 | **TT2D527** | Tài Sản Nhà Họ Cố Bị Khóa | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 528 | **TT2D528** | Tái Sinh Trong Cùng Một Ngày | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 529 | **TT2D529** | Tấm Lòng Mười Sáu Năm | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 530 | **TT2D530** | Tấm Thẻ Cưới Bị Khóa | 27 (viết lại 26) | ⚪ Chờ | — | — |
+| 531 | **TT2D531** | Tể Tướng Giữ Bí Mật Trong Phòng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 532 | **TT2D532** | Thanh Mai Bỗng Thành Người Lạ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 533 | **TT2D533** | Thanh Mai Trúc Mã Lạc Lối | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 534 | **TT2D534** | Thanh Mai Trúc Mã Và Váy Cưới | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 535 | **TT2D535** | Thất Nghiệp Để Thành Công | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 536 | **TT2D536** | Thẻ Lương Bị Chụp Ảnh Trong Đêm | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 537 | **TT2D537** | Thẻ Tiết Kiệm Bị Mẹ Chồng Giữ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 538 | **TT2D538** | Thiên Kim Giả Thèm Tiền Như Mạng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 539 | **TT2D539** | Thiên Kim Lưu Lạc Không Đơn Giản | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 540 | **TT2D540** | Thiên Kim Mất Tích Trong Há Cảo | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 541 | **TT2D541** | Thiên Kim Nhỏ Của Gia Tộc Bí Ẩn | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 542 | **TT2D542** | Thợ Khóa Và Căn Hộ 1404 | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 543 | **TT2D543** | Thỏa Thuận Tiền Hôn Nhân | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 544 | **TT2D544** | Thủ Khoa Tỉnh Đến Kinh Đại | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 545 | **TT2D545** | Thư Tình Từ Cậu Ấm Tai Tiếng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 546 | **TT2D546** | Thức Ăn Mèo Bị Đổi Độc | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 547 | **TT2D547** | Thực Tập Sinh Tố Sai Tài Xế | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 548 | **TT2D548** | Thủy Quỷ Và Tên Câm Nhỏ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 549 | **TT2D549** | Tiệc Đầy Tháng Và Món Quà 6,6 | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 550 | **TT2D550** | Tiệc Thọ Và Hai Trăm Tệ | 11 (viết lại 10) | ⚪ Chờ | — | — |
