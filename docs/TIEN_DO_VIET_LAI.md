@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 387 / 400 truyện (20.82% tổng kho - 4046 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:59:44 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 388 / 400 truyện (20.87% tổng kho - 4053 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:01:33 19/10/2026
 
 ---
 
@@ -403,7 +403,7 @@
 | 385 | **TT2D385** | Mẹ Đơn Thân Và Đứa Bé Ấy | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T00:56:30.911Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d385/2/) |
 | 386 | **TT2D386** | Mẹ Kế Bất Đắc Dĩ Của Song Sinh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T00:58:09.381Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d386/2/) |
 | 387 | **TT2D387** | Mẹ tôi, cái tên và định mệnh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:59:44.836Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d387/2/) |
-| 388 | **TT2D388** | Mẹ Tôi Là Người Mất Tích | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 388 | **TT2D388** | Mẹ Tôi Là Người Mất Tích | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:01:33.008Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d388/2/) |
 | 389 | **TT2D389** | Miếng Bánh Đổi Nhân | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 390 | **TT2D390** | Minh Hôn Vào Lăng Mộ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 391 | **TT2D391** | Minh Tinh Hạng Xịt Và Chồng | 8 (viết lại 7) | ⚪ Chờ | — | — |
