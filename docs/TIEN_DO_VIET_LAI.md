@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 643 / 650 truyện (34.59% tổng kho - 6426 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:54:16 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 644 / 650 truyện (34.64% tổng kho - 6436 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:55:51 19/10/2026
 
 ---
 
@@ -659,7 +659,7 @@
 | 641 | **TT2D641** | Không Ngoảnh Lại | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:51:26.007Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d641/2/) |
 | 642 | **TT2D642** | Nữ Chính Succubus Và Cún Con Vụng Về Của Nàng | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T10:52:47.111Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d642/2/) |
 | 643 | **TT2D643** | Tạm Biệt Không Ngày Gặp Lại | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T10:54:16.350Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d643/2/) |
-| 644 | **TT2D644** | Năm Năm Đợi Một Lời Yêu | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 644 | **TT2D644** | Năm Năm Đợi Một Lời Yêu | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T10:55:51.617Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d644/2/) |
 | 645 | **TT2D645** | Không Là Em | 3 (viết lại 2) | ⚪ Chờ | — | — |
 | 646 | **TT2D646** | Trời Nam Thành Mang Họ Thẩm | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 647 | **TT2D647** | Nữ Chính Trên Bục Thánh | 6 (viết lại 5) | ⚪ Chờ | — | — |
