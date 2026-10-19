@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 525 / 550 truyện (28.24% tổng kho - 5376 chương đã viết lại)
-- **Cập nhật lần cuối:** 13:06:59 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 526 / 550 truyện (28.29% tổng kho - 5388 chương đã viết lại)
+- **Cập nhật lần cuối:** 13:10:05 19/10/2026
 
 ---
 
@@ -541,7 +541,7 @@
 | 523 | **TT2D523** | Tác Thành Hay Bước Qua? | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T06:00:15.269Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d523/2/) |
 | 524 | **TT2D524** | Tách Trà Và Lời Hứa Đứt Vỡ | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-19T06:04:52.875Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d524/2/) |
 | 525 | **TT2D525** | Tài Khoản Cũ Và Sự Thật | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T06:06:59.452Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d525/2/) |
-| 526 | **TT2D526** | Tài Sản Mẹ Để Lại Cho Tôi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 526 | **TT2D526** | Tài Sản Mẹ Để Lại Cho Tôi | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T06:10:05.360Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d526/2/) |
 | 527 | **TT2D527** | Tài Sản Nhà Họ Cố Bị Khóa | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 528 | **TT2D528** | Tái Sinh Trong Cùng Một Ngày | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 529 | **TT2D529** | Tấm Lòng Mười Sáu Năm | 15 (viết lại 14) | ⚪ Chờ | — | — |
