@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 447 / 450 truyện (24.05% tổng kho - 4571 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:44:20 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 448 / 450 truyện (24.10% tổng kho - 4589 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:46:56 19/10/2026
 
 ---
 
@@ -463,6 +463,6 @@
 | 445 | **TT2D445** | Người Chồng Ở Rể Của Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T02:40:49.173Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d445/2/) |
 | 446 | **TT2D446** | Người Con Gái Bị Giấu Đi Kết Quả | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:42:16.559Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d446/2/) |
 | 447 | **TT2D447** | Người Cũ Của Năm Lớp 11 | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T02:44:20.409Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d447/2/) |
-| 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-19T02:46:56.490Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d448/2/) |
 | 449 | **TT2D449** | Người Được Chọn Cuối Cùng | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 450 | **TT2D450** | Người Già Trong Nhà Tôi | 9 (viết lại 8) | ⚪ Chờ | — | — |
