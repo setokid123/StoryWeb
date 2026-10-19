@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 561 / 600 truyện (30.18% tổng kho - 5732 chương đã viết lại)
-- **Cập nhật lần cuối:** 15:03:59 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 562 / 600 truyện (30.23% tổng kho - 5739 chương đã viết lại)
+- **Cập nhật lần cuối:** 15:06:00 19/10/2026
 
 ---
 
@@ -577,7 +577,7 @@
 | 559 | **TT2D559** | Tiếng Thì Thầm Từ Mặt Gương | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T07:59:03.427Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d559/2/) |
 | 560 | **TT2D560** | Tiếng Thở Trong Bóng Tối | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T08:01:58.283Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d560/2/) |
 | 561 | **TT2D561** | Tiểu Thư Giả Và Trùm Phản Diện | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T08:03:59.026Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d561/2/) |
-| 562 | **TT2D562** | Tiểu Thư Xa Hoa Biến Hình | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 562 | **TT2D562** | Tiểu Thư Xa Hoa Biến Hình | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:06:00.301Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d562/2/) |
 | 563 | **TT2D563** | Tin Nhắn Cuối Của Bạn Thân | 31 (viết lại 30) | ⚪ Chờ | — | — |
 | 564 | **TT2D564** | Tin Nhắn Cuối Cùng Của Mẹ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 565 | **TT2D565** | Tin Nhắn Lúc Nửa Đêm | 12 (viết lại 11) | ⚪ Chờ | — | — |
