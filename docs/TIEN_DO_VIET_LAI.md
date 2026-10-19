@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 400 / 400 truyện (21.52% tổng kho - 4153 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:24:19 19/10/2026
+- **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
+- **Đã hoàn thành & lên sóng Live:** 400 / 450 truyện (21.52% tổng kho - 4153 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:25:49 19/10/2026
 
 ---
 
-## Danh sách chi tiết 400 truyện (TT2D1 ➔ TT2D400)
+## Danh sách chi tiết 450 truyện (TT2D1 ➔ TT2D450)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -416,3 +416,53 @@
 | 398 | **TT2D398** | Mối Tình Nhận Nhầm Trớ Trêu | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T01:19:53.120Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d398/2/) |
 | 399 | **TT2D399** | Mối Tình Qua Mạng Gặp Biến | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:21:27.713Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d399/2/) |
 | 400 | **TT2D400** | Món Nợ Mang Tên Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:24:19.463Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d400/2/) |
+| 401 | **TT2D401** | Món Quà Sinh Nhật Cho Người Khác | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 402 | **TT2D402** | Một Cái Tát Giữa Nhà Hàng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 403 | **TT2D403** | Một Câu Nói Gây Họa | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 404 | **TT2D404** | Một Đêm Nhầm Lẫn Với Sếp Tổng | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 405 | **TT2D405** | Một Đêm Nhận Nhầm Người | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 406 | **TT2D406** | Một Đêm Sai Lầm Với Chu Minh An | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 407 | **TT2D407** | Một Đêm Say Nhầm Phòng | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 408 | **TT2D408** | Một Đêm Uống Nhầm Rượu | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 409 | **TT2D409** | Một Lần Tin Nhầm Cả Đời Tàn Phế | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 410 | **TT2D410** | Một Ngày Cao Thêm 0.1 Mét | 32 (viết lại 31) | ⚪ Chờ | — | — |
+| 411 | **TT2D411** | Một Ngày Của Sinh Viên Nghèo Kiệt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 412 | **TT2D412** | Một Tháng Ở Cữ Trong Nhà | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 413 | **TT2D413** | Một Tháng Theo Đuổi Tống Trì | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 414 | **TT2D414** | Một Trăm Lượng Và Cái Bẫy | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 415 | **TT2D415** | Một Vé Bay Đến Paris | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 416 | **TT2D416** | Mưa Đổ Đêm Tầng Hầm | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 417 | **TT2D417** | Mùa Đông Năm Ấy Tôi Gặp Anh | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 418 | **TT2D418** | Mùi Hôi Từ Chỗ Ngồi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 419 | **TT2D419** | Mùi Hương Bí Ẩn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 420 | **TT2D420** | Mười Lăm Năm Kết Thúc | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 421 | **TT2D421** | Mười Năm Sau Gặp Lại Anh | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 422 | **TT2D422** | Mười Tám Năm Bị Bỏ Quên | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 423 | **TT2D423** | Mười Tám Năm Bị Chiếm Chỗ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 424 | **TT2D424** | Mượn Mạng Trên Xe Buýt | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 425 | **TT2D425** | Năm Năm Yêu Xa Đổ Vỡ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 426 | **TT2D426** | Năm Phút Giữa Hai Thế Giới | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 427 | **TT2D427** | Nam Thần Trường Ăn Chặn Trợ Cấp | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 428 | **TT2D428** | Nàng Dâu Từng Là Công Chúa | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 429 | **TT2D429** | Ngã Rẽ Định Mệnh | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 430 | **TT2D430** | Nga Tổ: Bí Ẩn Bướm Đêm | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 431 | **TT2D431** | Ngày Đầu Đi Làm Lại | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 432 | **TT2D432** | Ngày Mẹ Tôi Định Trốn Khỏi Nhà | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 433 | **TT2D433** | Ngày Nhà Chồng Tương Lai Sụp Mặt | 23 (viết lại 22) | ⚪ Chờ | — | — |
+| 434 | **TT2D434** | Ngày Nhập Hộ Khẩu Bị Trì Hoãn | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 435 | **TT2D435** | Ngày tôi trở thành chủ hộ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 436 | **TT2D436** | Nghề Khâu Xác Trong Làng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 437 | **TT2D437** | Nghiệt Duyên Của Thím Út | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 438 | **TT2D438** | Ngọc Bội Gieo Lời Thề | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 439 | **TT2D439** | Ngụm Canh Đầu Tiên | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 440 | **TT2D440** | Người Anh Chọn Đưa Về Nhà | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 441 | **TT2D441** | Người Anh Chọn Không Phải Là Tôi | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 442 | **TT2D442** | Người Bị Gán Tội Từ Khi Sinh Ra | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 443 | **TT2D443** | Người Chồng Chỉ Để Lại 8.000 Tệ | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 444 | **TT2D444** | Người Chồng Chọn Sai Lần Cứu Hộ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 445 | **TT2D445** | Người Chồng Ở Rể Của Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 446 | **TT2D446** | Người Con Gái Bị Giấu Đi Kết Quả | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 447 | **TT2D447** | Người Cũ Của Năm Lớp 11 | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | ⚪ Chờ | — | — |
+| 449 | **TT2D449** | Người Được Chọn Cuối Cùng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 450 | **TT2D450** | Người Già Trong Nhà Tôi | 9 (viết lại 8) | ⚪ Chờ | — | — |
