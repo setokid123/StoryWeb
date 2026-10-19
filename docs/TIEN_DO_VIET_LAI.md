@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 590 / 600 truyện (31.74% tổng kho - 6013 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:12:37 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 591 / 600 truyện (31.79% tổng kho - 6019 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:14:17 19/10/2026
 
 ---
 
@@ -606,7 +606,7 @@
 | 588 | **TT2D588** | Trở Lại Ngày Tráo Con | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T09:08:00.461Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d588/2/) |
 | 589 | **TT2D589** | Trở Lại Trước Ngày Xuất Phát | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:10:16.620Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d589/2/) |
 | 590 | **TT2D590** | Tro Tàn Của Một Cuộc Hôn Nhân | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T09:12:37.247Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d590/2/) |
-| 591 | **TT2D591** | Trở Về Hào Môn | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 591 | **TT2D591** | Trở Về Hào Môn | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:14:17.273Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d591/2/) |
 | 592 | **TT2D592** | Trở Về Năm Tuổi | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 593 | **TT2D593** | Trở Về Ngày Đòi Ly Hôn | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 594 | **TT2D594** | Trốn Chạy Sau Một Đêm | 9 (viết lại 8) | ⚪ Chờ | — | — |
