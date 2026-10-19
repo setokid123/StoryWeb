@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 419 / 450 truyện (22.54% tổng kho - 4352 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:52:07 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 420 / 450 truyện (22.59% tổng kho - 4357 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:53:18 19/10/2026
 
 ---
 
@@ -435,7 +435,7 @@
 | 417 | **TT2D417** | Mùa Đông Năm Ấy Tôi Gặp Anh | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T01:49:37.517Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d417/2/) |
 | 418 | **TT2D418** | Mùi Hôi Từ Chỗ Ngồi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:50:55.231Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d418/2/) |
 | 419 | **TT2D419** | Mùi Hương Bí Ẩn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:52:07.814Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d419/2/) |
-| 420 | **TT2D420** | Mười Lăm Năm Kết Thúc | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 420 | **TT2D420** | Mười Lăm Năm Kết Thúc | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T01:53:18.460Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d420/2/) |
 | 421 | **TT2D421** | Mười Năm Sau Gặp Lại Anh | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 422 | **TT2D422** | Mười Tám Năm Bị Bỏ Quên | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 423 | **TT2D423** | Mười Tám Năm Bị Chiếm Chỗ | 7 (viết lại 6) | ⚪ Chờ | — | — |
