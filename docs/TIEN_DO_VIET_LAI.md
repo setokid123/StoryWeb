@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 422 / 450 truyện (22.70% tổng kho - 4371 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:56:11 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 423 / 450 truyện (22.75% tổng kho - 4377 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:57:28 19/10/2026
 
 ---
 
@@ -438,7 +438,7 @@
 | 420 | **TT2D420** | Mười Lăm Năm Kết Thúc | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T01:53:18.460Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d420/2/) |
 | 421 | **TT2D421** | Mười Năm Sau Gặp Lại Anh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:54:49.498Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d421/2/) |
 | 422 | **TT2D422** | Mười Tám Năm Bị Bỏ Quên | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:56:11.152Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d422/2/) |
-| 423 | **TT2D423** | Mười Tám Năm Bị Chiếm Chỗ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 423 | **TT2D423** | Mười Tám Năm Bị Chiếm Chỗ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T01:57:28.744Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d423/2/) |
 | 424 | **TT2D424** | Mượn Mạng Trên Xe Buýt | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 425 | **TT2D425** | Năm Năm Yêu Xa Đổ Vỡ | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 426 | **TT2D426** | Năm Phút Giữa Hai Thế Giới | 9 (viết lại 8) | ⚪ Chờ | — | — |
