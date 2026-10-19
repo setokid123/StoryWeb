@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 501 / 550 truyện (26.95% tổng kho - 5087 chương đã viết lại)
-- **Cập nhật lần cuối:** 11:53:38 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 502 / 550 truyện (27.00% tổng kho - 5095 chương đã viết lại)
+- **Cập nhật lần cuối:** 11:57:35 19/10/2026
 
 ---
 
@@ -517,7 +517,7 @@
 | 499 | **TT2D499** | Quay Lại Giữa Mùa Lũ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:31:14.574Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d499/2/) |
 | 500 | **TT2D500** | Quay Về Trước Đêm Bị Đuổi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:50:25.705Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d500/2/) |
 | 501 | **TT2D501** | Quỷ Đói Lạc Vào Hậu Cung | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:53:38.626Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d501/2/) |
-| 502 | **TT2D502** | Quy Tắc Lạ Ở Nhà Bạn Trai | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 502 | **TT2D502** | Quy Tắc Lạ Ở Nhà Bạn Trai | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:57:35.544Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d502/2/) |
 | 503 | **TT2D503** | Ra Mắt Nhà Bạn Trai Và Lời Nhắc | 18 (viết lại 17) | ⚪ Chờ | — | — |
 | 504 | **TT2D504** | Rằm Tháng Bảy Trong Phòng Tang Lễ | 19 (viết lại 18) | ⚪ Chờ | — | — |
 | 505 | **TT2D505** | Rời Khỏi Nhà Họ Lục | 11 (viết lại 10) | ⚪ Chờ | — | — |
