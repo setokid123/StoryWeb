@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 655 / 700 truyện (35.23% tổng kho - 6471 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:10:49 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 656 / 700 truyện (35.29% tổng kho - 6475 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:12:12 19/10/2026
 
 ---
 
@@ -671,7 +671,7 @@
 | 653 | **TT2D653** | Người chiến thắng là tôi | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:08:04.530Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d653/2/) |
 | 654 | **TT2D654** | Một Đời An Nhiên | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:09:29.300Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d654/2/) |
 | 655 | **TT2D655** | Để cho anh đi | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:10:49.222Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d655/2/) |
-| 656 | **TT2D656** | Nghe Rồi, Cảm Ơn Mẹ! | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 656 | **TT2D656** | Nghe Rồi, Cảm Ơn Mẹ! | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:12:12.706Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d656/2/) |
 | 657 | **TT2D657** | Không Như Vẻ Ngoài | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 658 | **TT2D658** | Ngủ Quên | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 659 | **TT2D659** | Một Ngàn Năm Chờ Đợi | 10 (viết lại 9) | ⚪ Chờ | — | — |
