@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 454 / 500 truyện (24.42% tổng kho - 4641 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:58:58 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 455 / 500 truyện (24.48% tổng kho - 4661 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:02:03 19/10/2026
 
 ---
 
@@ -470,7 +470,7 @@
 | 452 | **TT2D452** | Người Mất Vân Tay Trong Nhà | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T02:55:29.213Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d452/2/) |
 | 453 | **TT2D453** | Người Ngoại Tỉnh Vào Cơ Quan | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T02:57:01.480Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d453/2/) |
 | 454 | **TT2D454** | Người Ngồi Bên Cạnh Là Ai | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T02:58:58.670Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d454/2/) |
-| 455 | **TT2D455** | Người Nhà Không Mở Miệng | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 455 | **TT2D455** | Người Nhà Không Mở Miệng | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-19T03:02:03.791Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d455/2/) |
 | 456 | **TT2D456** | Người Phụ Nữ Dưới Tầng Nhà Tôi | 17 (viết lại 16) | ⚪ Chờ | — | — |
 | 457 | **TT2D457** | Người Phụ Nữ Mặc Quần Tất Đỏ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 458 | **TT2D458** | Người Sống Sót Trở Về Báo Thù | 15 (viết lại 14) | ⚪ Chờ | — | — |
