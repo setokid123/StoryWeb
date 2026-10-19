@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 504 / 550 truyện (27.11% tổng kho - 5130 chương đã viết lại)
-- **Cập nhật lần cuối:** 12:06:41 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 505 / 550 truyện (27.17% tổng kho - 5140 chương đã viết lại)
+- **Cập nhật lần cuối:** 12:09:02 19/10/2026
 
 ---
 
@@ -520,7 +520,7 @@
 | 502 | **TT2D502** | Quy Tắc Lạ Ở Nhà Bạn Trai | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:57:35.544Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d502/2/) |
 | 503 | **TT2D503** | Ra Mắt Nhà Bạn Trai Và Lời Nhắc | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-19T05:01:47.311Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d503/2/) |
 | 504 | **TT2D504** | Rằm Tháng Bảy Trong Phòng Tang Lễ | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-19T05:06:41.740Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d504/2/) |
-| 505 | **TT2D505** | Rời Khỏi Nhà Họ Lục | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 505 | **TT2D505** | Rời Khỏi Nhà Họ Lục | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T05:09:02.222Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d505/2/) |
 | 506 | **TT2D506** | Sàn Bếp Lạnh Ngắt Đêm Tết | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 507 | **TT2D507** | Sau Ba Năm Uống Nhầm Thuốc | 17 (viết lại 16) | ⚪ Chờ | — | — |
 | 508 | **TT2D508** | Sau Hôn Lễ Tôi Chọn Rời Đi | 12 (viết lại 11) | ⚪ Chờ | — | — |
