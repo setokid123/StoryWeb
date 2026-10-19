@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 558 / 600 truyện (30.02% tổng kho - 5703 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:56:57 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 559 / 600 truyện (30.07% tổng kho - 5711 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:59:03 19/10/2026
 
 ---
 
@@ -574,7 +574,7 @@
 | 556 | **TT2D556** | Tiếng Gõ Trong Đêm Hồi Hồn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T07:50:07.810Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d556/2/) |
 | 557 | **TT2D557** | Tiếng Gọi Từ Cánh Cửa Phòng Tắm | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-19T07:53:56.973Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d557/2/) |
 | 558 | **TT2D558** | Tiếng Thét Trong Ngõ Hẻm | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T07:56:57.378Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d558/2/) |
-| 559 | **TT2D559** | Tiếng Thì Thầm Từ Mặt Gương | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 559 | **TT2D559** | Tiếng Thì Thầm Từ Mặt Gương | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T07:59:03.427Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d559/2/) |
 | 560 | **TT2D560** | Tiếng Thở Trong Bóng Tối | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 561 | **TT2D561** | Tiểu Thư Giả Và Trùm Phản Diện | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 562 | **TT2D562** | Tiểu Thư Xa Hoa Biến Hình | 8 (viết lại 7) | ⚪ Chờ | — | — |
