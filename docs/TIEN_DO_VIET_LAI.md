@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 537 / 550 truyện (28.89% tổng kho - 5520 chương đã viết lại)
-- **Cập nhật lần cuối:** 13:47:18 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 538 / 550 truyện (28.94% tổng kho - 5528 chương đã viết lại)
+- **Cập nhật lần cuối:** 13:50:26 19/10/2026
 
 ---
 
@@ -553,7 +553,7 @@
 | 535 | **TT2D535** | Thất Nghiệp Để Thành Công | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-19T06:39:38.013Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d535/2/) |
 | 536 | **TT2D536** | Thẻ Lương Bị Chụp Ảnh Trong Đêm | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-19T06:45:03.627Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d536/2/) |
 | 537 | **TT2D537** | Thẻ Tiết Kiệm Bị Mẹ Chồng Giữ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T06:47:18.591Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d537/2/) |
-| 538 | **TT2D538** | Thiên Kim Giả Thèm Tiền Như Mạng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 538 | **TT2D538** | Thiên Kim Giả Thèm Tiền Như Mạng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T06:50:26.612Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d538/2/) |
 | 539 | **TT2D539** | Thiên Kim Lưu Lạc Không Đơn Giản | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 540 | **TT2D540** | Thiên Kim Mất Tích Trong Há Cảo | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 541 | **TT2D541** | Thiên Kim Nhỏ Của Gia Tộc Bí Ẩn | 10 (viết lại 9) | ⚪ Chờ | — | — |
