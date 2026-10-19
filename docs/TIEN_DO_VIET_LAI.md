@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 550 / 550 truyện (29.59% tổng kho - 5636 chương đã viết lại)
-- **Cập nhật lần cuối:** 14:38:13 19/10/2026
+- **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
+- **Đã hoàn thành & lên sóng Live:** 551 / 600 truyện (29.64% tổng kho - 5642 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:38:36 19/10/2026
 
 ---
 
-## Danh sách chi tiết 550 truyện (TT2D1 ➔ TT2D550)
+## Danh sách chi tiết 600 truyện (TT2D1 ➔ TT2D600)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -566,3 +566,53 @@
 | 548 | **TT2D548** | Thủy Quỷ Và Tên Câm Nhỏ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:29:02.195Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d548/2/) |
 | 549 | **TT2D549** | Tiệc Đầy Tháng Và Món Quà 6,6 | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T07:31:44.322Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d549/2/) |
 | 550 | **TT2D550** | Tiệc Thọ Và Hai Trăm Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T07:34:55.097Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d550/2/) |
+| 551 | **TT2D551** | Tiệm Hoa Hợp Hoan Và Vụ Mất Tích | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T07:38:36.912Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d551/2/) |
+| 552 | **TT2D552** | Tiền Hưu Và Lòng Người | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 553 | **TT2D553** | Tiền tiết kiệm và cái giá phản bội | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 554 | **TT2D554** | Tiếng Động Trong Phòng Kế Bên | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 555 | **TT2D555** | Tiếng Gõ Đêm Khuya | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 556 | **TT2D556** | Tiếng Gõ Trong Đêm Hồi Hồn | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 557 | **TT2D557** | Tiếng Gọi Từ Cánh Cửa Phòng Tắm | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 558 | **TT2D558** | Tiếng Thét Trong Ngõ Hẻm | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 559 | **TT2D559** | Tiếng Thì Thầm Từ Mặt Gương | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 560 | **TT2D560** | Tiếng Thở Trong Bóng Tối | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 561 | **TT2D561** | Tiểu Thư Giả Và Trùm Phản Diện | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 562 | **TT2D562** | Tiểu Thư Xa Hoa Biến Hình | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 563 | **TT2D563** | Tin Nhắn Cuối Của Bạn Thân | 31 (viết lại 30) | ⚪ Chờ | — | — |
+| 564 | **TT2D564** | Tin Nhắn Cuối Cùng Của Mẹ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 565 | **TT2D565** | Tin Nhắn Lúc Nửa Đêm | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 566 | **TT2D566** | Tin Nhắn Nửa Đêm Và Người Cũ | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 567 | **TT2D567** | Tờ Giấy Ghi Tên Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 568 | **TT2D568** | Tờ Hóa Đơn 367 Tệ 5 Hào | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 569 | **TT2D569** | Tôi Bán Nhà Cưới Để Cắt Lỗ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 570 | **TT2D570** | Tôi Cắt Toàn Bộ Chi Tiêu | 24 (viết lại 23) | ⚪ Chờ | — | — |
+| 571 | **TT2D571** | Tôi Chỉ Là Đồng Nghiệp Của Anh | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 572 | **TT2D572** | Tôi Gặp Lại Chồng Ở Đám Tang | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 573 | **TT2D573** | Tôi Không Muốn Làm Trò Đùa | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 574 | **TT2D574** | Tôi Không Nhường Em Trai Đâu | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 575 | **TT2D575** | Tôi Là Nữ Phụ Trong Kịch Bản Họ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 576 | **TT2D576** | Tôi Nuôi Dưỡng Kẻ Thắng Cuộc | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 577 | **TT2D577** | Tôi Quay Lại Để Trả Thù | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 578 | **TT2D578** | Tôi Quay Về Ngày Bị Con Gái Vu Oan | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 579 | **TT2D579** | Tôi Thành Bạn Gái Trong Lời Nói Dối | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 580 | **TT2D580** | Tống Thanh Hòa Biến Mất Rồi | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 581 | **TT2D581** | Top 1 Server Vào Cuộc | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 582 | **TT2D582** | Trại Cải Tạo Và Mảnh Đời | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 583 | **TT2D583** | Trang Cuối Của Bảng Khảo Sát | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 584 | **TT2D584** | Trò Đùa Đẫm Nước Mắt | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 585 | **TT2D585** | Trở Lại Để Diệt Kẻ Cùng Hung | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 586 | **TT2D586** | Trở Lại Đêm Anh Ta Nói Thật | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 587 | **TT2D587** | Trở Lại Đêm Mưa Đó | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 588 | **TT2D588** | Trở Lại Ngày Tráo Con | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 589 | **TT2D589** | Trở Lại Trước Ngày Xuất Phát | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 590 | **TT2D590** | Tro Tàn Của Một Cuộc Hôn Nhân | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 591 | **TT2D591** | Trở Về Hào Môn | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 592 | **TT2D592** | Trở Về Năm Tuổi | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 593 | **TT2D593** | Trở Về Ngày Đòi Ly Hôn | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 594 | **TT2D594** | Trốn Chạy Sau Một Đêm | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 595 | **TT2D595** | Trọng Sinh Đòi Lại Tiền | 24 (viết lại 23) | ⚪ Chờ | — | — |
+| 596 | **TT2D596** | Trọng Sinh Trở Lại Đám Cưới | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 597 | **TT2D597** | Trọng Sinh Về Năm Sáu Tuổi | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 598 | **TT2D598** | Trưởng Tàu Và Kẻ Lừa Đảo | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 599 | **TT2D599** | Trưởng Thôn Đuổi Theo Ba Con Phố | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 600 | **TT2D600** | Từ Bóng Tối Đến Tổ Ấm | 7 (viết lại 6) | ⚪ Chờ | — | — |
