@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 402 / 450 truyện (21.62% tổng kho - 4169 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:28:49 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 403 / 450 truyện (21.68% tổng kho - 4176 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:30:07 19/10/2026
 
 ---
 
@@ -418,7 +418,7 @@
 | 400 | **TT2D400** | Món Nợ Mang Tên Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:24:19.463Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d400/2/) |
 | 401 | **TT2D401** | Món Quà Sinh Nhật Cho Người Khác | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:27:19.079Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d401/2/) |
 | 402 | **TT2D402** | Một Cái Tát Giữa Nhà Hàng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:28:49.407Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d402/2/) |
-| 403 | **TT2D403** | Một Câu Nói Gây Họa | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 403 | **TT2D403** | Một Câu Nói Gây Họa | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:30:07.358Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d403/2/) |
 | 404 | **TT2D404** | Một Đêm Nhầm Lẫn Với Sếp Tổng | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 405 | **TT2D405** | Một Đêm Nhận Nhầm Người | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 406 | **TT2D406** | Một Đêm Sai Lầm Với Chu Minh An | 10 (viết lại 9) | ⚪ Chờ | — | — |
