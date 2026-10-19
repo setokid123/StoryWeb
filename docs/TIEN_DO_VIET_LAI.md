@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 497 / 500 truyện (26.73% tổng kho - 5056 chương đã viết lại)
-- **Cập nhật lần cuối:** 11:27:33 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 498 / 500 truyện (26.79% tổng kho - 5063 chương đã viết lại)
+- **Cập nhật lần cuối:** 11:29:19 19/10/2026
 
 ---
 
@@ -513,6 +513,6 @@
 | 495 | **TT2D495** | Quán Bánh Ú Có Hồ Tiên | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T04:23:30.817Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d495/2/) |
 | 496 | **TT2D496** | Quán Lẩu Chỉ Mở Lúc Nửa Đêm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T04:25:15.852Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d496/2/) |
 | 497 | **TT2D497** | Quán mì đầu phố và món tôi chưa từng gọi | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T04:27:33.433Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d497/2/) |
-| 498 | **TT2D498** | Quán Mỳ Ở Trạm Xăng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 498 | **TT2D498** | Quán Mỳ Ở Trạm Xăng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T04:29:19.488Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d498/2/) |
 | 499 | **TT2D499** | Quay Lại Giữa Mùa Lũ | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 500 | **TT2D500** | Quay Về Trước Đêm Bị Đuổi | 9 (viết lại 8) | ⚪ Chờ | — | — |
