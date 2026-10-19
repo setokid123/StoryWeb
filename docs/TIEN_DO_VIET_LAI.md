@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 636 / 650 truyện (34.21% tổng kho - 6392 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:43:58 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 637 / 650 truyện (34.27% tổng kho - 6396 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:45:30 19/10/2026
 
 ---
 
@@ -652,7 +652,7 @@
 | 634 | **TT2D634** | Chạm Lại Vào Thanh Xuân | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:37:55.874Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d634/2/) |
 | 635 | **TT2D635** | Tình Yêu Bắt Đầu Từ Một Cú Gài Bẫy | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T10:40:11.747Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d635/2/) |
 | 636 | **TT2D636** | Mẹ của Châu Sinh Nhạc | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:43:58.206Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d636/2/) |
-| 637 | **TT2D637** | Cậu Nhỏ Nhà Tôi | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 637 | **TT2D637** | Cậu Nhỏ Nhà Tôi | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T10:45:30.329Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d637/2/) |
 | 638 | **TT2D638** | Your Rating | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 639 | **TT2D639** | Bí Mật Về 3 Hạt Óc Chó | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 640 | **TT2D640** | Một Bát Sủi Cảo Định Mệnh | 3 (viết lại 2) | ⚪ Chờ | — | — |
