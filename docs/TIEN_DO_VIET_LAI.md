@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 415 / 450 truyện (22.32% tổng kho - 4313 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:46:36 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 416 / 450 truyện (22.38% tổng kho - 4325 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:48:14 19/10/2026
 
 ---
 
@@ -431,7 +431,7 @@
 | 413 | **TT2D413** | Một Tháng Theo Đuổi Tống Trì | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T01:43:37.249Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d413/2/) |
 | 414 | **TT2D414** | Một Trăm Lượng Và Cái Bẫy | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:45:08.192Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d414/2/) |
 | 415 | **TT2D415** | Một Vé Bay Đến Paris | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T01:46:36.752Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d415/2/) |
-| 416 | **TT2D416** | Mưa Đổ Đêm Tầng Hầm | 13 (viết lại 12) | ⚪ Chờ | — | — |
+| 416 | **TT2D416** | Mưa Đổ Đêm Tầng Hầm | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T01:48:14.359Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d416/2/) |
 | 417 | **TT2D417** | Mùa Đông Năm Ấy Tôi Gặp Anh | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 418 | **TT2D418** | Mùi Hôi Từ Chỗ Ngồi | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 419 | **TT2D419** | Mùi Hương Bí Ẩn | 9 (viết lại 8) | ⚪ Chờ | — | — |
