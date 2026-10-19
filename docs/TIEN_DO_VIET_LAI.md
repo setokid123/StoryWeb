@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 540 / 550 truyện (29.05% tổng kho - 5549 chương đã viết lại)
-- **Cập nhật lần cuối:** 13:58:44 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 541 / 550 truyện (29.10% tổng kho - 5558 chương đã viết lại)
+- **Cập nhật lần cuối:** 14:02:37 19/10/2026
 
 ---
 
@@ -556,7 +556,7 @@
 | 538 | **TT2D538** | Thiên Kim Giả Thèm Tiền Như Mạng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T06:50:26.612Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d538/2/) |
 | 539 | **TT2D539** | Thiên Kim Lưu Lạc Không Đơn Giản | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T06:54:34.076Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d539/2/) |
 | 540 | **TT2D540** | Thiên Kim Mất Tích Trong Há Cảo | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T06:58:44.536Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d540/2/) |
-| 541 | **TT2D541** | Thiên Kim Nhỏ Của Gia Tộc Bí Ẩn | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 541 | **TT2D541** | Thiên Kim Nhỏ Của Gia Tộc Bí Ẩn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T07:02:37.146Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d541/2/) |
 | 542 | **TT2D542** | Thợ Khóa Và Căn Hộ 1404 | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 543 | **TT2D543** | Thỏa Thuận Tiền Hôn Nhân | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 544 | **TT2D544** | Thủ Khoa Tỉnh Đến Kinh Đại | 8 (viết lại 7) | ⚪ Chờ | — | — |
