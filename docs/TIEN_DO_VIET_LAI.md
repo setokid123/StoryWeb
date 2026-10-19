@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 649 / 650 truyện (34.91% tổng kho - 6451 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:01:41 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 650 / 650 truyện (34.97% tổng kho - 6455 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:03:06 19/10/2026
 
 ---
 
@@ -665,4 +665,4 @@
 | 647 | **TT2D647** | Nữ Chính Trên Bục Thánh | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T10:59:15.340Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d647/2/) |
 | 648 | **TT2D648** | Tôi Đưa Chồng Lên Hot Search | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T11:00:25.632Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d648/2/) |
 | 649 | **TT2D649** | Tay Nắm Tay Rời | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T11:01:41.767Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d649/2/) |
-| 650 | **TT2D650** | Tâm Linh Phù Hộ | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 650 | **TT2D650** | Tâm Linh Phù Hộ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:03:06.589Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d650/2/) |
