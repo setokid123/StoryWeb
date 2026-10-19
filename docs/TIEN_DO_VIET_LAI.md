@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 576 / 600 truyện (30.98% tổng kho - 5898 chương đã viết lại)
-- **Cập nhật lần cuối:** 15:45:31 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 577 / 600 truyện (31.04% tổng kho - 5902 chương đã viết lại)
+- **Cập nhật lần cuối:** 15:47:00 19/10/2026
 
 ---
 
@@ -592,7 +592,7 @@
 | 574 | **TT2D574** | Tôi Không Nhường Em Trai Đâu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T08:41:32.864Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d574/2/) |
 | 575 | **TT2D575** | Tôi Là Nữ Phụ Trong Kịch Bản Họ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T08:43:29.141Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d575/2/) |
 | 576 | **TT2D576** | Tôi Nuôi Dưỡng Kẻ Thắng Cuộc | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T08:45:31.090Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d576/2/) |
-| 577 | **TT2D577** | Tôi Quay Lại Để Trả Thù | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 577 | **TT2D577** | Tôi Quay Lại Để Trả Thù | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T08:47:00.173Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d577/2/) |
 | 578 | **TT2D578** | Tôi Quay Về Ngày Bị Con Gái Vu Oan | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 579 | **TT2D579** | Tôi Thành Bạn Gái Trong Lời Nói Dối | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 580 | **TT2D580** | Tống Thanh Hòa Biến Mất Rồi | 8 (viết lại 7) | ⚪ Chờ | — | — |
