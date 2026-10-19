@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 413 / 450 truyện (22.22% tổng kho - 4293 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:43:37 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 414 / 450 truyện (22.27% tổng kho - 4301 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:45:08 19/10/2026
 
 ---
 
@@ -429,7 +429,7 @@
 | 411 | **TT2D411** | Một Ngày Của Sinh Viên Nghèo Kiệt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:41:21.774Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d411/2/) |
 | 412 | **TT2D412** | Một Tháng Ở Cữ Trong Nhà | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:42:36.452Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d412/2/) |
 | 413 | **TT2D413** | Một Tháng Theo Đuổi Tống Trì | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T01:43:37.249Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d413/2/) |
-| 414 | **TT2D414** | Một Trăm Lượng Và Cái Bẫy | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 414 | **TT2D414** | Một Trăm Lượng Và Cái Bẫy | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:45:08.192Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d414/2/) |
 | 415 | **TT2D415** | Một Vé Bay Đến Paris | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 416 | **TT2D416** | Mưa Đổ Đêm Tầng Hầm | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 417 | **TT2D417** | Mùa Đông Năm Ấy Tôi Gặp Anh | 11 (viết lại 10) | ⚪ Chờ | — | — |
