@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 563 / 600 truyện (30.29% tổng kho - 5769 chương đã viết lại)
-- **Cập nhật lần cuối:** 15:11:11 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 564 / 600 truyện (30.34% tổng kho - 5776 chương đã viết lại)
+- **Cập nhật lần cuối:** 15:13:11 19/10/2026
 
 ---
 
@@ -579,7 +579,7 @@
 | 561 | **TT2D561** | Tiểu Thư Giả Và Trùm Phản Diện | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T08:03:59.026Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d561/2/) |
 | 562 | **TT2D562** | Tiểu Thư Xa Hoa Biến Hình | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:06:00.301Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d562/2/) |
 | 563 | **TT2D563** | Tin Nhắn Cuối Của Bạn Thân | 31 (viết lại 30) | 🟢 **Đã Live** | 2026-10-19T08:11:11.431Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d563/2/) |
-| 564 | **TT2D564** | Tin Nhắn Cuối Cùng Của Mẹ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 564 | **TT2D564** | Tin Nhắn Cuối Cùng Của Mẹ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:13:11.078Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d564/2/) |
 | 565 | **TT2D565** | Tin Nhắn Lúc Nửa Đêm | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 566 | **TT2D566** | Tin Nhắn Nửa Đêm Và Người Cũ | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 567 | **TT2D567** | Tờ Giấy Ghi Tên Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
