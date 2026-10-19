@@ -1,0 +1,24 @@
+{
+  "stories": {
+    "TT2D683": {
+      "is_done": true,
+      "completed_at": "2026-10-19T14:01:06.081Z"
+    },
+    "TT2D679": {
+      "is_done": true,
+      "completed_at": "2026-10-19T14:01:05.914Z"
+    },
+    "TT2D680": {
+      "is_done": true,
+      "completed_at": "2026-10-19T14:01:05.954Z"
+    },
+    "TT2D681": {
+      "is_done": true,
+      "completed_at": "2026-10-19T14:01:05.994Z"
+    },
+    "TT2D682": {
+      "is_done": true,
+      "completed_at": "2026-10-19T14:01:06.038Z"
+    }
+  }
+}
