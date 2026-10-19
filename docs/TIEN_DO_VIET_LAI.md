@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 400 / 450 truyện (21.52% tổng kho - 4153 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:25:49 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 401 / 450 truyện (21.57% tổng kho - 4161 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:27:19 19/10/2026
 
 ---
 
@@ -416,7 +416,7 @@
 | 398 | **TT2D398** | Mối Tình Nhận Nhầm Trớ Trêu | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T01:19:53.120Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d398/2/) |
 | 399 | **TT2D399** | Mối Tình Qua Mạng Gặp Biến | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:21:27.713Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d399/2/) |
 | 400 | **TT2D400** | Món Nợ Mang Tên Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:24:19.463Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d400/2/) |
-| 401 | **TT2D401** | Món Quà Sinh Nhật Cho Người Khác | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 401 | **TT2D401** | Món Quà Sinh Nhật Cho Người Khác | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:27:19.079Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d401/2/) |
 | 402 | **TT2D402** | Một Cái Tát Giữa Nhà Hàng | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 403 | **TT2D403** | Một Câu Nói Gây Họa | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 404 | **TT2D404** | Một Đêm Nhầm Lẫn Với Sếp Tổng | 14 (viết lại 13) | ⚪ Chờ | — | — |
