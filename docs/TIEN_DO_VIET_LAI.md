@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 406 / 450 truyện (21.84% tổng kho - 4206 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:34:41 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 407 / 450 truyện (21.89% tổng kho - 4226 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:36:37 19/10/2026
 
 ---
 
@@ -422,7 +422,7 @@
 | 404 | **TT2D404** | Một Đêm Nhầm Lẫn Với Sếp Tổng | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T01:31:46.776Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d404/2/) |
 | 405 | **TT2D405** | Một Đêm Nhận Nhầm Người | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:33:19.442Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d405/2/) |
 | 406 | **TT2D406** | Một Đêm Sai Lầm Với Chu Minh An | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:34:41.866Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d406/2/) |
-| 407 | **TT2D407** | Một Đêm Say Nhầm Phòng | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 407 | **TT2D407** | Một Đêm Say Nhầm Phòng | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-19T01:36:37.710Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d407/2/) |
 | 408 | **TT2D408** | Một Đêm Uống Nhầm Rượu | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 409 | **TT2D409** | Một Lần Tin Nhầm Cả Đời Tàn Phế | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 410 | **TT2D410** | Một Ngày Cao Thêm 0.1 Mét | 32 (viết lại 31) | ⚪ Chờ | — | — |
