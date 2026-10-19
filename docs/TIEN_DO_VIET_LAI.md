@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 379 / 400 truyện (20.39% tổng kho - 3953 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:39:10 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 380 / 400 truyện (20.44% tổng kho - 3959 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:40:59 19/10/2026
 
 ---
 
@@ -395,7 +395,7 @@
 | 377 | **TT2D377** | Mẫu Thân Muốn Hòa Ly Rồi | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T00:34:42.475Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d377/2/) |
 | 378 | **TT2D378** | Máy Chiếu Trong Buổi Họp Lớp | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T00:36:45.644Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d378/2/) |
 | 379 | **TT2D379** | Mẹ chồng nghe chuyện con dâu thẳng tay | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T00:39:10.331Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d379/2/) |
-| 380 | **TT2D380** | Mẹ Chồng Nhận Nhà Con Dâu Mất Trắng | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 380 | **TT2D380** | Mẹ Chồng Nhận Nhà Con Dâu Mất Trắng | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T00:40:59.469Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d380/2/) |
 | 381 | **TT2D381** | Mẹ Chồng Ở Lại Với Con Trai | 23 (viết lại 22) | ⚪ Chờ | — | — |
 | 382 | **TT2D382** | Mẹ Chồng Tuyên Bố Chia Sai Di Sản | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 383 | **TT2D383** | Mẹ chồng vô tâm, tôi gồng mình bảo vệ con gái | 13 (viết lại 12) | ⚪ Chờ | — | — |
