@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 466 / 500 truyện (25.07% tổng kho - 4790 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:24:59 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 467 / 500 truyện (25.12% tổng kho - 4798 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:26:36 19/10/2026
 
 ---
 
@@ -482,7 +482,7 @@
 | 464 | **TT2D464** | Người Vợ Trên Danh Nghĩa | 18 (viết lại 17) | 🟢 **Đã Live** | 2026-10-19T03:21:07.509Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d464/2/) |
 | 465 | **TT2D465** | Nhà Bạn Gái Có Bí Mật | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T03:23:18.585Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d465/2/) |
 | 466 | **TT2D466** | Nhà Cưới Sửa Xong Lại Lỗ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:24:59.691Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d466/2/) |
-| 467 | **TT2D467** | Nhà Họ Giang Không Thể Định Đoạt | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 467 | **TT2D467** | Nhà Họ Giang Không Thể Định Đoạt | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T03:26:36.447Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d467/2/) |
 | 468 | **TT2D468** | Nhà Ngoại Nợ Một Cái Họ | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 469 | **TT2D469** | Nhà Tôi Bị Bán Mất Rồi | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 470 | **TT2D470** | Nhà Tôi Có Bà Nội Hóa Quái | 7 (viết lại 6) | ⚪ Chờ | — | — |
