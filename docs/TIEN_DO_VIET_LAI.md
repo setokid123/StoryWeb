@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 508 / 550 truyện (27.33% tổng kho - 5182 chương đã viết lại)
-- **Cập nhật lần cuối:** 12:17:57 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 509 / 550 truyện (27.38% tổng kho - 5191 chương đã viết lại)
+- **Cập nhật lần cuối:** 12:19:59 19/10/2026
 
 ---
 
@@ -524,7 +524,7 @@
 | 506 | **TT2D506** | Sàn Bếp Lạnh Ngắt Đêm Tết | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-19T05:12:05.931Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d506/2/) |
 | 507 | **TT2D507** | Sau Ba Năm Uống Nhầm Thuốc | 17 (viết lại 16) | 🟢 **Đã Live** | 2026-10-19T05:15:56.909Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d507/2/) |
 | 508 | **TT2D508** | Sau Hôn Lễ Tôi Chọn Rời Đi | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T05:17:57.255Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d508/2/) |
-| 509 | **TT2D509** | Sau Khi Chết Mới Lên Hot Search | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 509 | **TT2D509** | Sau Khi Chết Mới Lên Hot Search | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T05:19:59.111Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d509/2/) |
 | 510 | **TT2D510** | Sau Khi Ly Hôn Tôi Biết Rồi | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 511 | **TT2D511** | Sau Khi Nhận Di Ngôn | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 512 | **TT2D512** | Sau Lần Thất Vọng Cuối Cùng | 12 (viết lại 11) | ⚪ Chờ | — | — |
