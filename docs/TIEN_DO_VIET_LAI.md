@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 399 / 400 truyện (21.46% tổng kho - 4144 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:21:27 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 400 / 400 truyện (21.52% tổng kho - 4153 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:24:19 19/10/2026
 
 ---
 
@@ -415,4 +415,4 @@
 | 397 | **TT2D397** | Mối Tình Đơn Phương Hết Hạn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T01:17:41.056Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d397/2/) |
 | 398 | **TT2D398** | Mối Tình Nhận Nhầm Trớ Trêu | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T01:19:53.120Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d398/2/) |
 | 399 | **TT2D399** | Mối Tình Qua Mạng Gặp Biến | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:21:27.713Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d399/2/) |
-| 400 | **TT2D400** | Món Nợ Mang Tên Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 400 | **TT2D400** | Món Nợ Mang Tên Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T01:24:19.463Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d400/2/) |
