@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 640 / 650 truyện (34.43% tổng kho - 6408 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:50:22 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 641 / 650 truyện (34.48% tổng kho - 6411 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:51:26 19/10/2026
 
 ---
 
@@ -656,7 +656,7 @@
 | 638 | **TT2D638** | Your Rating | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:46:44.518Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d638/2/) |
 | 639 | **TT2D639** | Bí Mật Về 3 Hạt Óc Chó | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T10:48:20.239Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d639/2/) |
 | 640 | **TT2D640** | Một Bát Sủi Cảo Định Mệnh | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T10:50:22.439Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d640/2/) |
-| 641 | **TT2D641** | Không Ngoảnh Lại | 4 (viết lại 3) | ⚪ Chờ | — | — |
+| 641 | **TT2D641** | Không Ngoảnh Lại | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T10:51:26.007Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d641/2/) |
 | 642 | **TT2D642** | Nữ Chính Succubus Và Cún Con Vụng Về Của Nàng | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 643 | **TT2D643** | Tạm Biệt Không Ngày Gặp Lại | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 644 | **TT2D644** | Năm Năm Đợi Một Lời Yêu | 11 (viết lại 10) | ⚪ Chờ | — | — |
