@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 569 / 600 truyện (30.61% tổng kho - 5829 chương đã viết lại)
-- **Cập nhật lần cuối:** 15:27:58 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 570 / 600 truyện (30.66% tổng kho - 5852 chương đã viết lại)
+- **Cập nhật lần cuối:** 15:32:41 19/10/2026
 
 ---
 
@@ -585,7 +585,7 @@
 | 567 | **TT2D567** | Tờ Giấy Ghi Tên Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T08:21:39.167Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d567/2/) |
 | 568 | **TT2D568** | Tờ Hóa Đơn 367 Tệ 5 Hào | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-19T08:24:26.101Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d568/2/) |
 | 569 | **TT2D569** | Tôi Bán Nhà Cưới Để Cắt Lỗ | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T08:27:58.136Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d569/2/) |
-| 570 | **TT2D570** | Tôi Cắt Toàn Bộ Chi Tiêu | 24 (viết lại 23) | ⚪ Chờ | — | — |
+| 570 | **TT2D570** | Tôi Cắt Toàn Bộ Chi Tiêu | 24 (viết lại 23) | 🟢 **Đã Live** | 2026-10-19T08:32:41.072Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d570/2/) |
 | 571 | **TT2D571** | Tôi Chỉ Là Đồng Nghiệp Của Anh | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 572 | **TT2D572** | Tôi Gặp Lại Chồng Ở Đám Tang | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 573 | **TT2D573** | Tôi Không Muốn Làm Trò Đùa | 7 (viết lại 6) | ⚪ Chờ | — | — |
