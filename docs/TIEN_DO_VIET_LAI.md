@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 684 / 700 truyện (36.79% tổng kho - 6647 chương đã viết lại)
-- **Cập nhật lần cuối:** 21:06:40 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 700 / 700 truyện (37.65% tổng kho - 6746 chương đã viết lại)
+- **Cập nhật lần cuối:** 21:08:18 19/10/2026
 
 ---
 
@@ -700,19 +700,19 @@
 | 682 | **TT2D682** | Cái Kết Của Kẻ Phản Bội | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:05:23.765Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d682/2/) |
 | 683 | **TT2D683** | Tình Đầu Ngọt Ngào Của Anh Cảnh Sát | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T14:05:23.766Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d683/2/) |
 | 684 | **TT2D684** | Mẹ Đơn Thân | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:06:20.345Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d684/2/) |
-| 685 | **TT2D685** | Anh Trai Bạn Thân Là Bố Con Tôi | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 686 | **TT2D686** | Lạc Lạc Không Dứt | 5 (viết lại 4) | ⚪ Chờ | — | — |
-| 687 | **TT2D687** | Ảnh Đế Là Tên Cuồng Vợ | 5 (viết lại 4) | ⚪ Chờ | — | — |
-| 688 | **TT2D688** | Bí Mật Đứa Trẻ Năm Tuổi | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 689 | **TT2D689** | Lần Đầu Của Anh, Em Cướp Rồi Đấy | 4 (viết lại 3) | ⚪ Chờ | — | — |
-| 690 | **TT2D690** | 10 Năm Hôn Nhân, Như Bát Nước Hất Đi | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 691 | **TT2D691** | Tôi Là Người Thay Thế Em Gái | 10 (viết lại 9) | ⚪ Chờ | — | — |
-| 692 | **TT2D692** | Sau Khi Tôi Bỏ Đi, Anh Mới Biết Thế Nào Là Mất Tất Cả | 5 (viết lại 4) | ⚪ Chờ | — | — |
-| 693 | **TT2D693** | Trước Khi Bị Ép Rời Khỏi Sân Khấu, Tôi Đã Trộm Một Đứa Nhỏ. | 6 (viết lại 5) | ⚪ Chờ | — | — |
-| 694 | **TT2D694** | 3,5 Giây Của Sự Thật | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 695 | **TT2D695** | Phía Sau Chiến Tuyến | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 696 | **TT2D696** | Bạn Trai Thu Hồi Bằng Bắn Tỉa | 10 (viết lại 9) | ⚪ Chờ | — | — |
-| 697 | **TT2D697** | Sau Khi Trúng Giải Độc Đắc Tôi Photoshop 1 Tờ Thông Báo Nợ | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 698 | **TT2D698** | Bà Nội Có Khả Năng Tiên Tri | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 699 | **TT2D699** | Cuối Con Đường Luôn Là Anh | 8 (viết lại 7) | ⚪ Chờ | — | — |
-| 700 | **TT2D700** | Ế chỏng chơ từ trong bụng mẹ | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 685 | **TT2D685** | Anh Trai Bạn Thân Là Bố Con Tôi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.345Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d685/2/) |
+| 686 | **TT2D686** | Lạc Lạc Không Dứt | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:08:13.345Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d686/2/) |
+| 687 | **TT2D687** | Ảnh Đế Là Tên Cuồng Vợ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:08:13.345Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d687/2/) |
+| 688 | **TT2D688** | Bí Mật Đứa Trẻ Năm Tuổi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d688/2/) |
+| 689 | **TT2D689** | Lần Đầu Của Anh, Em Cướp Rồi Đấy | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d689/2/) |
+| 690 | **TT2D690** | 10 Năm Hôn Nhân, Như Bát Nước Hất Đi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d690/2/) |
+| 691 | **TT2D691** | Tôi Là Người Thay Thế Em Gái | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d691/2/) |
+| 692 | **TT2D692** | Sau Khi Tôi Bỏ Đi, Anh Mới Biết Thế Nào Là Mất Tất Cả | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d692/2/) |
+| 693 | **TT2D693** | Trước Khi Bị Ép Rời Khỏi Sân Khấu, Tôi Đã Trộm Một Đứa Nhỏ. | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d693/2/) |
+| 694 | **TT2D694** | 3,5 Giây Của Sự Thật | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d694/2/) |
+| 695 | **TT2D695** | Phía Sau Chiến Tuyến | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d695/2/) |
+| 696 | **TT2D696** | Bạn Trai Thu Hồi Bằng Bắn Tỉa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d696/2/) |
+| 697 | **TT2D697** | Sau Khi Trúng Giải Độc Đắc Tôi Photoshop 1 Tờ Thông Báo Nợ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d697/2/) |
+| 698 | **TT2D698** | Bà Nội Có Khả Năng Tiên Tri | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d698/2/) |
+| 699 | **TT2D699** | Cuối Con Đường Luôn Là Anh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d699/2/) |
+| 700 | **TT2D700** | Ế chỏng chơ từ trong bụng mẹ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T14:08:13.346Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d700/2/) |
