@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 381 / 400 truyện (20.49% tổng kho - 3981 chương đã viết lại)
-- **Cập nhật lần cuối:** 07:45:57 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 382 / 400 truyện (20.55% tổng kho - 3996 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:50:17 19/10/2026
 
 ---
 
@@ -397,7 +397,7 @@
 | 379 | **TT2D379** | Mẹ chồng nghe chuyện con dâu thẳng tay | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T00:39:10.331Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d379/2/) |
 | 380 | **TT2D380** | Mẹ Chồng Nhận Nhà Con Dâu Mất Trắng | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T00:40:59.469Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d380/2/) |
 | 381 | **TT2D381** | Mẹ Chồng Ở Lại Với Con Trai | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-19T00:45:57.314Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d381/2/) |
-| 382 | **TT2D382** | Mẹ Chồng Tuyên Bố Chia Sai Di Sản | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 382 | **TT2D382** | Mẹ Chồng Tuyên Bố Chia Sai Di Sản | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-19T00:50:17.613Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d382/2/) |
 | 383 | **TT2D383** | Mẹ chồng vô tâm, tôi gồng mình bảo vệ con gái | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 384 | **TT2D384** | Mẹ Chồng Xin Mượn Nhà | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 385 | **TT2D385** | Mẹ Đơn Thân Và Đứa Bé Ấy | 13 (viết lại 12) | ⚪ Chờ | — | — |
