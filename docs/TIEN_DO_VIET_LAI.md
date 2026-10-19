@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 566 / 600 truyện (30.45% tổng kho - 5798 chương đã viết lại)
-- **Cập nhật lần cuối:** 15:17:46 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 567 / 600 truyện (30.50% tổng kho - 5807 chương đã viết lại)
+- **Cập nhật lần cuối:** 15:21:39 19/10/2026
 
 ---
 
@@ -582,7 +582,7 @@
 | 564 | **TT2D564** | Tin Nhắn Cuối Cùng Của Mẹ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:13:11.078Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d564/2/) |
 | 565 | **TT2D565** | Tin Nhắn Lúc Nửa Đêm | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T08:15:44.541Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d565/2/) |
 | 566 | **TT2D566** | Tin Nhắn Nửa Đêm Và Người Cũ | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T08:17:46.789Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d566/2/) |
-| 567 | **TT2D567** | Tờ Giấy Ghi Tên Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 567 | **TT2D567** | Tờ Giấy Ghi Tên Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T08:21:39.167Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d567/2/) |
 | 568 | **TT2D568** | Tờ Hóa Đơn 367 Tệ 5 Hào | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 569 | **TT2D569** | Tôi Bán Nhà Cưới Để Cắt Lỗ | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 570 | **TT2D570** | Tôi Cắt Toàn Bộ Chi Tiêu | 24 (viết lại 23) | ⚪ Chờ | — | — |
