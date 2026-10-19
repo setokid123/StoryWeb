@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 581 / 600 truyện (31.25% tổng kho - 5930 chương đã viết lại)
-- **Cập nhật lần cuối:** 15:54:02 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 582 / 600 truyện (31.31% tổng kho - 5940 chương đã viết lại)
+- **Cập nhật lần cuối:** 15:56:11 19/10/2026
 
 ---
 
@@ -597,7 +597,7 @@
 | 579 | **TT2D579** | Tôi Thành Bạn Gái Trong Lời Nói Dối | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:50:29.551Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d579/2/) |
 | 580 | **TT2D580** | Tống Thanh Hòa Biến Mất Rồi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:52:25.773Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d580/2/) |
 | 581 | **TT2D581** | Top 1 Server Vào Cuộc | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:54:02.810Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d581/2/) |
-| 582 | **TT2D582** | Trại Cải Tạo Và Mảnh Đời | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 582 | **TT2D582** | Trại Cải Tạo Và Mảnh Đời | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T08:56:11.572Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d582/2/) |
 | 583 | **TT2D583** | Trang Cuối Của Bảng Khảo Sát | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 584 | **TT2D584** | Trò Đùa Đẫm Nước Mắt | 14 (viết lại 13) | ⚪ Chờ | — | — |
 | 585 | **TT2D585** | Trở Lại Để Diệt Kẻ Cùng Hung | 7 (viết lại 6) | ⚪ Chờ | — | — |
