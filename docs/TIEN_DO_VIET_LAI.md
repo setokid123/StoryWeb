@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 516 / 550 truyện (27.76% tổng kho - 5252 chương đã viết lại)
-- **Cập nhật lần cuối:** 12:38:51 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 517 / 550 truyện (27.81% tổng kho - 5257 chương đã viết lại)
+- **Cập nhật lần cuối:** 12:41:19 19/10/2026
 
 ---
 
@@ -532,7 +532,7 @@
 | 514 | **TT2D514** | Shipper Và Căn Phòng Niêm Phong | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T05:33:59.187Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d514/2/) |
 | 515 | **TT2D515** | Sinh Đôi Và Trang Ảnh Cắt | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T05:36:31.528Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d515/2/) |
 | 516 | **TT2D516** | Sinh Nhật Bị Lãng Quên Suốt Ba Năm | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T05:38:51.349Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d516/2/) |
-| 517 | **TT2D517** | Sinh Nhật Định Mệnh | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 517 | **TT2D517** | Sinh Nhật Định Mệnh | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T05:41:19.555Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d517/2/) |
 | 518 | **TT2D518** | Sổ Đỏ Đứng Tên Em Chồng | 29 (viết lại 28) | ⚪ Chờ | — | — |
 | 519 | **TT2D519** | Sợi Dây Chuyền Khắc Tên Tôi | 26 (viết lại 25) | ⚪ Chờ | — | — |
 | 520 | **TT2D520** | Sống Lại Tôi Mua Bảo Hiểm | 6 (viết lại 5) | ⚪ Chờ | — | — |
