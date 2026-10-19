@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 392 / 400 truyện (21.09% tổng kho - 4084 chương đã viết lại)
-- **Cập nhật lần cuối:** 08:08:27 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 393 / 400 truyện (21.14% tổng kho - 4091 chương đã viết lại)
+- **Cập nhật lần cuối:** 08:10:09 19/10/2026
 
 ---
 
@@ -408,7 +408,7 @@
 | 390 | **TT2D390** | Minh Hôn Vào Lăng Mộ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:05:08.901Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d390/2/) |
 | 391 | **TT2D391** | Minh Tinh Hạng Xịt Và Chồng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:06:57.954Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d391/2/) |
 | 392 | **TT2D392** | Mộ Bố Mẹ Bị Đổi Vận | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T01:08:27.576Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d392/2/) |
-| 393 | **TT2D393** | Mộ Nứt Toác Giữa Đêm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 393 | **TT2D393** | Mộ Nứt Toác Giữa Đêm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T01:10:09.536Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d393/2/) |
 | 394 | **TT2D394** | Mối Tình Ảo Và Sự Thật | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 395 | **TT2D395** | Mối Tình Bảy Năm Trong Bí Mật | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 396 | **TT2D396** | Mối Tình Cũ Trên Phim Trường | 9 (viết lại 8) | ⚪ Chờ | — | — |
