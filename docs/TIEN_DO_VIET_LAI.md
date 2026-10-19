@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 600 / 650 truyện (32.28% tổng kho - 6101 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:34:16 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 601 / 650 truyện (32.33% tổng kho - 6114 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:36:38 19/10/2026
 
 ---
 
@@ -616,7 +616,7 @@
 | 598 | **TT2D598** | Trưởng Tàu Và Kẻ Lừa Đảo | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T09:27:23.220Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d598/2/) |
 | 599 | **TT2D599** | Trưởng Thôn Đuổi Theo Ba Con Phố | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:28:49.986Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d599/2/) |
 | 600 | **TT2D600** | Từ Bóng Tối Đến Tổ Ấm | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:30:21.181Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d600/2/) |
-| 601 | **TT2D601** | Tứ Tiểu Thư Phủ Đốc Quân | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 601 | **TT2D601** | Tứ Tiểu Thư Phủ Đốc Quân | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T09:36:38.536Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d601/2/) |
 | 602 | **TT2D602** | Túi Hàng Hiệu Và Lời Mỉa Mai | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 603 | **TT2D603** | Tượng Thần Nứt Vì Một Câu Hỏi | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 604 | **TT2D604** | Tuyển Thành Viên 18cm | 4 (viết lại 3) | ⚪ Chờ | — | — |
