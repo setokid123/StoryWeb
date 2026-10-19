@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 462 / 500 truyện (24.85% tổng kho - 4753 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:17:09 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 463 / 500 truyện (24.91% tổng kho - 4762 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:18:43 19/10/2026
 
 ---
 
@@ -478,7 +478,7 @@
 | 460 | **TT2D460** | Người Thợ Điện Mang Tên Bác | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:12:41.996Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d460/2/) |
 | 461 | **TT2D461** | Người Tình Cũ Ở Sân Khấu | 16 (viết lại 15) | 🟢 **Đã Live** | 2026-10-19T03:14:26.923Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d461/2/) |
 | 462 | **TT2D462** | Người Tôi Thầm Thích Hận Tôi | 23 (viết lại 22) | 🟢 **Đã Live** | 2026-10-19T03:17:08.995Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d462/2/) |
-| 463 | **TT2D463** | Người Vợ Hai Tám Tuổi Của Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 463 | **TT2D463** | Người Vợ Hai Tám Tuổi Của Tôi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T03:18:43.169Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d463/2/) |
 | 464 | **TT2D464** | Người Vợ Trên Danh Nghĩa | 18 (viết lại 17) | ⚪ Chờ | — | — |
 | 465 | **TT2D465** | Nhà Bạn Gái Có Bí Mật | 5 (viết lại 4) | ⚪ Chờ | — | — |
 | 466 | **TT2D466** | Nhà Cưới Sửa Xong Lại Lỗ | 8 (viết lại 7) | ⚪ Chờ | — | — |
