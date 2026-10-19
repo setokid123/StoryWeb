@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 550 truyện (TT2D1 ➔ TT2D550)
-- **Đã hoàn thành & lên sóng Live:** 511 / 550 truyện (27.49% tổng kho - 5211 chương đã viết lại)
-- **Cập nhật lần cuối:** 12:24:24 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 512 / 550 truyện (27.54% tổng kho - 5222 chương đã viết lại)
+- **Cập nhật lần cuối:** 12:27:53 19/10/2026
 
 ---
 
@@ -527,7 +527,7 @@
 | 509 | **TT2D509** | Sau Khi Chết Mới Lên Hot Search | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T05:19:59.111Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d509/2/) |
 | 510 | **TT2D510** | Sau Khi Ly Hôn Tôi Biết Rồi | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T05:21:57.459Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d510/2/) |
 | 511 | **TT2D511** | Sau Khi Nhận Di Ngôn | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T05:24:24.141Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d511/2/) |
-| 512 | **TT2D512** | Sau Lần Thất Vọng Cuối Cùng | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 512 | **TT2D512** | Sau Lần Thất Vọng Cuối Cùng | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T05:27:53.581Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d512/2/) |
 | 513 | **TT2D513** | Sáu Năm Hôn Nhân Và Lời Nói Dối | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 514 | **TT2D514** | Shipper Và Căn Phòng Niêm Phong | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 515 | **TT2D515** | Sinh Đôi Và Trang Ảnh Cắt | 8 (viết lại 7) | ⚪ Chờ | — | — |
