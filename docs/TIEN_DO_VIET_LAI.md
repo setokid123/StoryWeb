@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 474 / 500 truyện (25.50% tổng kho - 4849 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:40:55 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 475 / 500 truyện (25.55% tổng kho - 4856 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:42:49 19/10/2026
 
 ---
 
@@ -490,7 +490,7 @@
 | 472 | **TT2D472** | Nhà Trọ Suối Nước Nóng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:36:16.124Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d472/2/) |
 | 473 | **TT2D473** | Nhầm Bạn Trai Qua Mạng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:39:25.063Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d473/2/) |
 | 474 | **TT2D474** | Nhầm Vợ Trong Phòng Bệnh | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:40:55.803Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d474/2/) |
-| 475 | **TT2D475** | Nhân Chứng Mù Của Đêm Mưa | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 475 | **TT2D475** | Nhân Chứng Mù Của Đêm Mưa | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T03:42:49.270Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d475/2/) |
 | 476 | **TT2D476** | Nhặt Lại Cuộc Đời Cũ | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 477 | **TT2D477** | Nhặt Nhầm Một Vị Tổng Đốc | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 478 | **TT2D478** | Nữ Kỹ Sư Bị Tối Ưu Hóa | 10 (viết lại 9) | ⚪ Chờ | — | — |
