@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 444 / 450 truyện (23.88% tổng kho - 4549 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:39:01 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 445 / 450 truyện (23.94% tổng kho - 4554 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:40:49 19/10/2026
 
 ---
 
@@ -460,7 +460,7 @@
 | 442 | **TT2D442** | Người Bị Gán Tội Từ Khi Sinh Ra | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:33:22.972Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d442/2/) |
 | 443 | **TT2D443** | Người Chồng Chỉ Để Lại 8.000 Tệ | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T02:36:22.857Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d443/2/) |
 | 444 | **TT2D444** | Người Chồng Chọn Sai Lần Cứu Hộ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T02:39:01.873Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d444/2/) |
-| 445 | **TT2D445** | Người Chồng Ở Rể Của Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 445 | **TT2D445** | Người Chồng Ở Rể Của Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T02:40:49.173Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d445/2/) |
 | 446 | **TT2D446** | Người Con Gái Bị Giấu Đi Kết Quả | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 447 | **TT2D447** | Người Cũ Của Năm Lớp 11 | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | ⚪ Chờ | — | — |
