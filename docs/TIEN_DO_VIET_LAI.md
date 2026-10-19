@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 450 / 500 truyện (24.21% tổng kho - 4604 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:51:30 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 451 / 500 truyện (24.26% tổng kho - 4614 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:53:16 19/10/2026
 
 ---
 
@@ -466,7 +466,7 @@
 | 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-19T02:46:56.490Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d448/2/) |
 | 449 | **TT2D449** | Người Được Chọn Cuối Cùng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T02:48:33.184Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d449/2/) |
 | 450 | **TT2D450** | Người Già Trong Nhà Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T02:50:10.713Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d450/2/) |
-| 451 | **TT2D451** | Người Lạ Dưới Bãi Xe | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 451 | **TT2D451** | Người Lạ Dưới Bãi Xe | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T02:53:16.771Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d451/2/) |
 | 452 | **TT2D452** | Người Mất Vân Tay Trong Nhà | 12 (viết lại 11) | ⚪ Chờ | — | — |
 | 453 | **TT2D453** | Người Ngoại Tỉnh Vào Cơ Quan | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 454 | **TT2D454** | Người Ngồi Bên Cạnh Là Ai | 9 (viết lại 8) | ⚪ Chờ | — | — |
