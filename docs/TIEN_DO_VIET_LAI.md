@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
-- **Đã hoàn thành & lên sóng Live:** 480 / 500 truyện (25.82% tổng kho - 4899 chương đã viết lại)
-- **Cập nhật lần cuối:** 10:52:15 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 481 / 500 truyện (25.87% tổng kho - 4910 chương đã viết lại)
+- **Cập nhật lần cuối:** 10:54:28 19/10/2026
 
 ---
 
@@ -496,7 +496,7 @@
 | 478 | **TT2D478** | Nữ Kỹ Sư Bị Tối Ưu Hóa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T03:47:56.919Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d478/2/) |
 | 479 | **TT2D479** | Nữ phụ phản công trong phòng tiệc | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T03:50:18.629Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d479/2/) |
 | 480 | **TT2D480** | Nữ Sinh Cầm Máy Quay Tìm Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T03:52:15.573Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d480/2/) |
-| 481 | **TT2D481** | Nữ Thư Ký Ngủ Phòng Chính | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 481 | **TT2D481** | Nữ Thư Ký Ngủ Phòng Chính | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T03:54:28.297Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d481/2/) |
 | 482 | **TT2D482** | Nửa Năm Ở Chỗ Tôi | 16 (viết lại 15) | ⚪ Chờ | — | — |
 | 483 | **TT2D483** | Oan Sai Gấp Mười Lần | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 484 | **TT2D484** | Ông Xã Cấm Dục Rất Khó Dỗ | 10 (viết lại 9) | ⚪ Chờ | — | — |
