@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 700 truyện (TT2D1 ➔ TT2D700)
-- **Đã hoàn thành & lên sóng Live:** 671 / 700 truyện (36.09% tổng kho - 6579 chương đã viết lại)
-- **Cập nhật lần cuối:** 18:41:22 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 672 / 700 truyện (36.15% tổng kho - 6589 chương đã viết lại)
+- **Cập nhật lần cuối:** 18:43:53 19/10/2026
 
 ---
 
@@ -687,7 +687,7 @@
 | 669 | **TT2D669** | Bạn Trai Bí Ẩn Của Tôi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T11:37:11.724Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d669/2/) |
 | 670 | **TT2D670** | Phu Nhân Tổng Tài Không Muốn Công Khai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T11:39:18.451Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d670/2/) |
 | 671 | **TT2D671** | Rời Đi Không Bao Giờ Ngoảnh Lại | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-19T11:41:22.785Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d671/2/) |
-| 672 | **TT2D672** | Vệ Sĩ Của Tôi Là Thiếu Gia Ngầm | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 672 | **TT2D672** | Vệ Sĩ Của Tôi Là Thiếu Gia Ngầm | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T11:43:53.221Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d672/2/) |
 | 673 | **TT2D673** | Cuốn Theo Dòng Lũ | 5 (viết lại 4) | ⚪ Chờ | — | — |
 | 674 | **TT2D674** | Cháu Gái Trà Xanh Của Chú Út | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 675 | **TT2D675** | Mẹ Con Tôi Không Dễ Nuốt | 5 (viết lại 4) | ⚪ Chờ | — | — |
