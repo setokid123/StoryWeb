@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 450 / 450 truyện (24.21% tổng kho - 4604 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:50:10 19/10/2026
+- **Mục tiêu hiện tại:** 500 truyện (TT2D1 ➔ TT2D500)
+- **Đã hoàn thành & lên sóng Live:** 450 / 500 truyện (24.21% tổng kho - 4604 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:51:30 19/10/2026
 
 ---
 
-## Danh sách chi tiết 450 truyện (TT2D1 ➔ TT2D450)
+## Danh sách chi tiết 500 truyện (TT2D1 ➔ TT2D500)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -466,3 +466,53 @@
 | 448 | **TT2D448** | Người Đàn Ông Tôi Đã Tin | 19 (viết lại 18) | 🟢 **Đã Live** | 2026-10-19T02:46:56.490Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d448/2/) |
 | 449 | **TT2D449** | Người Được Chọn Cuối Cùng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T02:48:33.184Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d449/2/) |
 | 450 | **TT2D450** | Người Già Trong Nhà Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T02:50:10.713Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d450/2/) |
+| 451 | **TT2D451** | Người Lạ Dưới Bãi Xe | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 452 | **TT2D452** | Người Mất Vân Tay Trong Nhà | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 453 | **TT2D453** | Người Ngoại Tỉnh Vào Cơ Quan | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 454 | **TT2D454** | Người Ngồi Bên Cạnh Là Ai | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 455 | **TT2D455** | Người Nhà Không Mở Miệng | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 456 | **TT2D456** | Người Phụ Nữ Dưới Tầng Nhà Tôi | 17 (viết lại 16) | ⚪ Chờ | — | — |
+| 457 | **TT2D457** | Người Phụ Nữ Mặc Quần Tất Đỏ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 458 | **TT2D458** | Người Sống Sót Trở Về Báo Thù | 15 (viết lại 14) | ⚪ Chờ | — | — |
+| 459 | **TT2D459** | Người Thân Hay Kẻ Thù? | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 460 | **TT2D460** | Người Thợ Điện Mang Tên Bác | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 461 | **TT2D461** | Người Tình Cũ Ở Sân Khấu | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 462 | **TT2D462** | Người Tôi Thầm Thích Hận Tôi | 23 (viết lại 22) | ⚪ Chờ | — | — |
+| 463 | **TT2D463** | Người Vợ Hai Tám Tuổi Của Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 464 | **TT2D464** | Người Vợ Trên Danh Nghĩa | 18 (viết lại 17) | ⚪ Chờ | — | — |
+| 465 | **TT2D465** | Nhà Bạn Gái Có Bí Mật | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 466 | **TT2D466** | Nhà Cưới Sửa Xong Lại Lỗ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 467 | **TT2D467** | Nhà Họ Giang Không Thể Định Đoạt | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 468 | **TT2D468** | Nhà Ngoại Nợ Một Cái Họ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 469 | **TT2D469** | Nhà Tôi Bị Bán Mất Rồi | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 470 | **TT2D470** | Nhà Tôi Có Bà Nội Hóa Quái | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 471 | **TT2D471** | Nhà Tôi Không Phải Của Anh | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 472 | **TT2D472** | Nhà Trọ Suối Nước Nóng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 473 | **TT2D473** | Nhầm Bạn Trai Qua Mạng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 474 | **TT2D474** | Nhầm Vợ Trong Phòng Bệnh | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 475 | **TT2D475** | Nhân Chứng Mù Của Đêm Mưa | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 476 | **TT2D476** | Nhặt Lại Cuộc Đời Cũ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 477 | **TT2D477** | Nhặt Nhầm Một Vị Tổng Đốc | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 478 | **TT2D478** | Nữ Kỹ Sư Bị Tối Ưu Hóa | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 479 | **TT2D479** | Nữ phụ phản công trong phòng tiệc | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 480 | **TT2D480** | Nữ Sinh Cầm Máy Quay Tìm Tôi | 6 (viết lại 5) | ⚪ Chờ | — | — |
+| 481 | **TT2D481** | Nữ Thư Ký Ngủ Phòng Chính | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 482 | **TT2D482** | Nửa Năm Ở Chỗ Tôi | 16 (viết lại 15) | ⚪ Chờ | — | — |
+| 483 | **TT2D483** | Oan Sai Gấp Mười Lần | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 484 | **TT2D484** | Ông Xã Cấm Dục Rất Khó Dỗ | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 485 | **TT2D485** | Phân Nhà Cuối Cùng | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 486 | **TT2D486** | Phí Đại Diện Hai Trăm Tệ | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 487 | **TT2D487** | Phó Bản Cô Nhi Viện Ấm Áp | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 488 | **TT2D488** | Phòng 524 và Bí Ẩn Đêm Sinh Nhật | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 489 | **TT2D489** | Phong Ấn Giếng Cũ | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 490 | **TT2D490** | Phòng Khám Thú Y Của Tôi | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 491 | **TT2D491** | Phúc Tinh Trong Nhà Và Bi Kịch Em Gái | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 492 | **TT2D492** | Quà Kỷ Niệm Bị Bỏ Quên | 5 (viết lại 4) | ⚪ Chờ | — | — |
+| 493 | **TT2D493** | Quà Lãnh Đạo Tặng | 22 (viết lại 21) | ⚪ Chờ | — | — |
+| 494 | **TT2D494** | Quả Sầu Riêng Bị Ăn Sạch | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 495 | **TT2D495** | Quán Bánh Ú Có Hồ Tiên | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 496 | **TT2D496** | Quán Lẩu Chỉ Mở Lúc Nửa Đêm | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 497 | **TT2D497** | Quán mì đầu phố và món tôi chưa từng gọi | 14 (viết lại 13) | ⚪ Chờ | — | — |
+| 498 | **TT2D498** | Quán Mỳ Ở Trạm Xăng | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 499 | **TT2D499** | Quay Lại Giữa Mùa Lũ | 9 (viết lại 8) | ⚪ Chờ | — | — |
+| 500 | **TT2D500** | Quay Về Trước Đêm Bị Đuổi | 9 (viết lại 8) | ⚪ Chờ | — | — |
