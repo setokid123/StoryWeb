@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 400 truyện (TT2D1 ➔ TT2D400)
-- **Đã hoàn thành & lên sóng Live:** 364 / 400 truyện (19.58% tổng kho - 3800 chương đã viết lại)
-- **Cập nhật lần cuối:** 06:58:25 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 365 / 400 truyện (19.63% tổng kho - 3807 chương đã viết lại)
+- **Cập nhật lần cuối:** 07:00:49 19/10/2026
 
 ---
 
@@ -380,7 +380,7 @@
 | 362 | **TT2D362** | Lương Hưu 6.800 Tệ Của Ông | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-18T23:52:46.330Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d362/2/) |
 | 363 | **TT2D363** | Ly Hôn Ngay Sau Đám Cưới | 15 (viết lại 14) | 🟢 **Đã Live** | 2026-10-18T23:55:53.716Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d363/2/) |
 | 364 | **TT2D364** | Ly Hôn Rồi Mới Biết | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-18T23:58:25.473Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d364/2/) |
-| 365 | **TT2D365** | Ly Hôn Rồi Mới Biết | 8 (viết lại 7) | ⚪ Chờ | — | — |
+| 365 | **TT2D365** | Ly Hôn Rồi Mới Biết | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T00:00:49.006Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d365/2/) |
 | 366 | **TT2D366** | Ly Hôn Rồi Mới Biết Anh Ta | 15 (viết lại 14) | ⚪ Chờ | — | — |
 | 367 | **TT2D367** | Ly Hôn Trước Khi Quá Muộn | 11 (viết lại 10) | ⚪ Chờ | — | — |
 | 368 | **TT2D368** | Ly Hôn Với Gã Ăn Hại | 8 (viết lại 7) | ⚪ Chờ | — | — |
