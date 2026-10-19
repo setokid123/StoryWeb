@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 621 / 650 truyện (33.41% tổng kho - 6306 chương đã viết lại)
-- **Cập nhật lần cuối:** 17:14:33 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 622 / 650 truyện (33.46% tổng kho - 6315 chương đã viết lại)
+- **Cập nhật lần cuối:** 17:16:48 19/10/2026
 
 ---
 
@@ -637,7 +637,7 @@
 | 619 | **TT2D619** | Vợ Mặc Vest Cũ Đi Bắt Gian | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T10:10:23.922Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d619/2/) |
 | 620 | **TT2D620** | Vợ Yêu Của Sát Thủ Hạng Đầu | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T10:12:27.326Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d620/2/) |
 | 621 | **TT2D621** | Voi Già Trong Khu Nuôi | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T10:14:33.941Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d621/2/) |
-| 622 | **TT2D622** | Vòng Cổ Của Con Golden | 10 (viết lại 9) | ⚪ Chờ | — | — |
+| 622 | **TT2D622** | Vòng Cổ Của Con Golden | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T10:16:48.801Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d622/2/) |
 | 623 | **TT2D623** | Vòng Tay Sơ Sinh Và Bí Mật | 8 (viết lại 7) | ⚪ Chờ | — | — |
 | 624 | **TT2D624** | Vụ Án Ở Quán Mì Vương Ký | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 625 | **TT2D625** | Xuyên Sách Thành Vợ Hoắc Chấn | 9 (viết lại 8) | ⚪ Chờ | — | — |
