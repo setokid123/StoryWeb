@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 438 / 450 truyện (23.56% tổng kho - 4498 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:27:00 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 439 / 450 truyện (23.61% tổng kho - 4509 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:28:58 19/10/2026
 
 ---
 
@@ -454,7 +454,7 @@
 | 436 | **TT2D436** | Nghề Khâu Xác Trong Làng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T02:23:20.065Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d436/2/) |
 | 437 | **TT2D437** | Nghiệt Duyên Của Thím Út | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:25:01.854Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d437/2/) |
 | 438 | **TT2D438** | Ngọc Bội Gieo Lời Thề | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T02:27:00.316Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d438/2/) |
-| 439 | **TT2D439** | Ngụm Canh Đầu Tiên | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 439 | **TT2D439** | Ngụm Canh Đầu Tiên | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T02:28:58.358Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d439/2/) |
 | 440 | **TT2D440** | Người Anh Chọn Đưa Về Nhà | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 441 | **TT2D441** | Người Anh Chọn Không Phải Là Tôi | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 442 | **TT2D442** | Người Bị Gán Tội Từ Khi Sinh Ra | 7 (viết lại 6) | ⚪ Chờ | — | — |
