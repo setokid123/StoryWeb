@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 608 / 650 truyện (32.71% tổng kho - 6158 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:46:54 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 609 / 650 truyện (32.76% tổng kho - 6178 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:49:05 19/10/2026
 
 ---
 
@@ -624,7 +624,7 @@
 | 606 | **TT2D606** | Về Quê Tết Gặp Phốt Hot | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:44:21.038Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d606/2/) |
 | 607 | **TT2D607** | Vết Thương Dưới Lớp Giáp | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T09:45:32.833Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d607/2/) |
 | 608 | **TT2D608** | Vết Thương Không Lời | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:46:54.707Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d608/2/) |
-| 609 | **TT2D609** | Vết Xước Bí Ẩn | 21 (viết lại 20) | ⚪ Chờ | — | — |
+| 609 | **TT2D609** | Vết Xước Bí Ẩn | 21 (viết lại 20) | 🟢 **Đã Live** | 2026-10-19T09:49:05.727Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d609/2/) |
 | 610 | **TT2D610** | Vị Hôn Phu Của Tôi Dị Ứng | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 611 | **TT2D611** | Vị Hôn Phu Của Tôi Quá Tự Tin | 9 (viết lại 8) | ⚪ Chờ | — | — |
 | 612 | **TT2D612** | Vị Hôn Phu Đứng Hình | 13 (viết lại 12) | ⚪ Chờ | — | — |
