@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 650 truyện (TT2D1 ➔ TT2D650)
-- **Đã hoàn thành & lên sóng Live:** 604 / 650 truyện (32.49% tổng kho - 6133 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:41:19 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 605 / 650 truyện (32.54% tổng kho - 6143 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:42:54 19/10/2026
 
 ---
 
@@ -620,7 +620,7 @@
 | 602 | **TT2D602** | Túi Hàng Hiệu Và Lời Mỉa Mai | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T09:38:28.034Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d602/2/) |
 | 603 | **TT2D603** | Tượng Thần Nứt Vì Một Câu Hỏi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-19T09:40:11.657Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d603/2/) |
 | 604 | **TT2D604** | Tuyển Thành Viên 18cm | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T09:41:19.613Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d604/2/) |
-| 605 | **TT2D605** | Ứng Dụng Quay Lén Kỳ Lạ | 11 (viết lại 10) | ⚪ Chờ | — | — |
+| 605 | **TT2D605** | Ứng Dụng Quay Lén Kỳ Lạ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T09:42:54.505Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d605/2/) |
 | 606 | **TT2D606** | Về Quê Tết Gặp Phốt Hot | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 607 | **TT2D607** | Vết Thương Dưới Lớp Giáp | 4 (viết lại 3) | ⚪ Chờ | — | — |
 | 608 | **TT2D608** | Vết Thương Không Lời | 7 (viết lại 6) | ⚪ Chờ | — | — |
