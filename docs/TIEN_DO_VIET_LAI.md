@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 450 truyện (TT2D1 ➔ TT2D450)
-- **Đã hoàn thành & lên sóng Live:** 429 / 450 truyện (23.08% tổng kho - 4421 chương đã viết lại)
-- **Cập nhật lần cuối:** 09:08:25 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 430 / 450 truyện (23.13% tổng kho - 4432 chương đã viết lại)
+- **Cập nhật lần cuối:** 09:10:49 19/10/2026
 
 ---
 
@@ -445,7 +445,7 @@
 | 427 | **TT2D427** | Nam Thần Trường Ăn Chặn Trợ Cấp | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:05:04.337Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d427/2/) |
 | 428 | **TT2D428** | Nàng Dâu Từng Là Công Chúa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-19T02:06:58.979Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d428/2/) |
 | 429 | **TT2D429** | Ngã Rẽ Định Mệnh | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T02:08:25.636Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d429/2/) |
-| 430 | **TT2D430** | Nga Tổ: Bí Ẩn Bướm Đêm | 12 (viết lại 11) | ⚪ Chờ | — | — |
+| 430 | **TT2D430** | Nga Tổ: Bí Ẩn Bướm Đêm | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T02:10:49.816Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d430/2/) |
 | 431 | **TT2D431** | Ngày Đầu Đi Làm Lại | 7 (viết lại 6) | ⚪ Chờ | — | — |
 | 432 | **TT2D432** | Ngày Mẹ Tôi Định Trốn Khỏi Nhà | 6 (viết lại 5) | ⚪ Chờ | — | — |
 | 433 | **TT2D433** | Ngày Nhà Chồng Tương Lai Sụp Mặt | 23 (viết lại 22) | ⚪ Chờ | — | — |
