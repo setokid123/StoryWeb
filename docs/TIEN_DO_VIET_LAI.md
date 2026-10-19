@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 584 / 600 truyện (31.41% tổng kho - 5960 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:00:04 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 585 / 600 truyện (31.47% tổng kho - 5966 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:01:42 19/10/2026
 
 ---
 
@@ -600,7 +600,7 @@
 | 582 | **TT2D582** | Trại Cải Tạo Và Mảnh Đời | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-19T08:56:11.572Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d582/2/) |
 | 583 | **TT2D583** | Trang Cuối Của Bảng Khảo Sát | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-19T08:57:48.724Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d583/2/) |
 | 584 | **TT2D584** | Trò Đùa Đẫm Nước Mắt | 14 (viết lại 13) | 🟢 **Đã Live** | 2026-10-19T09:00:04.422Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d584/2/) |
-| 585 | **TT2D585** | Trở Lại Để Diệt Kẻ Cùng Hung | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 585 | **TT2D585** | Trở Lại Để Diệt Kẻ Cùng Hung | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:01:42.784Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d585/2/) |
 | 586 | **TT2D586** | Trở Lại Đêm Anh Ta Nói Thật | 13 (viết lại 12) | ⚪ Chờ | — | — |
 | 587 | **TT2D587** | Trở Lại Đêm Mưa Đó | 10 (viết lại 9) | ⚪ Chờ | — | — |
 | 588 | **TT2D588** | Trở Lại Ngày Tráo Con | 10 (viết lại 9) | ⚪ Chờ | — | — |
