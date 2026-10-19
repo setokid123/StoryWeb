@@ -7,8 +7,8 @@
 
 - **Tổng kho truyện:** 1859 truyện
 - **Mục tiêu hiện tại:** 600 truyện (TT2D1 ➔ TT2D600)
-- **Đã hoàn thành & lên sóng Live:** 598 / 600 truyện (32.17% tổng kho - 6089 chương đã viết lại)
-- **Cập nhật lần cuối:** 16:27:23 19/10/2026
+- **Đã hoàn thành & lên sóng Live:** 599 / 600 truyện (32.22% tổng kho - 6095 chương đã viết lại)
+- **Cập nhật lần cuối:** 16:28:50 19/10/2026
 
 ---
 
@@ -614,5 +614,5 @@
 | 596 | **TT2D596** | Trọng Sinh Trở Lại Đám Cưới | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-19T09:23:56.205Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d596/2/) |
 | 597 | **TT2D597** | Trọng Sinh Về Năm Sáu Tuổi | 13 (viết lại 12) | 🟢 **Đã Live** | 2026-10-19T09:25:40.335Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d597/2/) |
 | 598 | **TT2D598** | Trưởng Tàu Và Kẻ Lừa Đảo | 12 (viết lại 11) | 🟢 **Đã Live** | 2026-10-19T09:27:23.220Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d598/2/) |
-| 599 | **TT2D599** | Trưởng Thôn Đuổi Theo Ba Con Phố | 7 (viết lại 6) | ⚪ Chờ | — | — |
+| 599 | **TT2D599** | Trưởng Thôn Đuổi Theo Ba Con Phố | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-19T09:28:49.986Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d599/2/) |
 | 600 | **TT2D600** | Từ Bóng Tối Đến Tổ Ấm | 7 (viết lại 6) | ⚪ Chờ | — | — |
