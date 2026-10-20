@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 1100 truyện (TT2D1 ➔ TT2D1100)
-- **Đã hoàn thành & lên sóng Live:** 1100 / 1100 truyện (100% mốc TT2D1 ➔ TT2D1100)
-- **Cập nhật lần cuối:** 07:00:00 20/10/2026
+- **Mục tiêu hiện tại:** 1150 truyện (TT2D1 ➔ TT2D1150)
+- **Đã hoàn thành & lên sóng Live:** 1150 / 1150 truyện (100% mốc TT2D1 ➔ TT2D1150)
+- **Cập nhật lần cuối:** 09:00:00 20/10/2026
 
 ---
 
-## Danh sách chi tiết 1100 truyện (TT2D1 ➔ TT2D1100)
+## Danh sách chi tiết 1150 truyện (TT2D1 ➔ TT2D1150)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -1116,3 +1116,53 @@
 | 1098 | **TT2D1098** | Bữa Cơm Đoàn Viên Muộn | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:28:55 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1098/2/) |
 | 1099 | **TT2D1099** | Tặng Anh Cho Cô Ta | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20 01:29:07 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1099/2/) |
 | 1100 | **TT2D1100** | Thừa Thãi Trong Tình Yêu Ba Người | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:29:20 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1100/2/) |
+| 1101 | **TT2D1101** | Ngôi Nhà Cũ Anh Đã Cho Cô Ấy! | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:35:22 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1101/2/) |
+| 1102 | **TT2D1102** | Khi Em Chồng Nổi Giận | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20 01:35:35 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1102/2/) |
+| 1103 | **TT2D1103** | Hủy Hôn Với Nhị Thiếu Gia | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:35:48 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1103/2/) |
+| 1104 | **TT2D1104** | Mẹ Chồng Muốn Quản Tiền Tôi | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:36:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1104/2/) |
+| 1105 | **TT2D1105** | Vứt Bỏ Hành Trình Đã Qua | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:36:12 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1105/2/) |
+| 1106 | **TT2D1106** | Ngày Tôi Phát Hiện Anh Ngoại Tình | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:37:57 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1106/2/) |
+| 1107 | **TT2D1107** | Nếu Sự Ưu Tiên Không thuộc Về Tôi, Thì Nên Dừng Lại | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:38:09 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1107/2/) |
+| 1108 | **TT2D1108** | Căn Nhà Cũ Chưa Ra Giá | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:38:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1108/2/) |
+| 1109 | **TT2D1109** | Tôi Có Một Lít Nước Mắt | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20 01:38:33 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1109/2/) |
+| 1110 | **TT2D1110** | Một Nhà Không Nợ Ai | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20 01:38:45 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1110/2/) |
+| 1111 | **TT2D1111** | Mẹ Chồng Không Tham Tiền | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:40:24 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1111/2/) |
+| 1112 | **TT2D1112** | Bỏ Chú Rể Tồi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20 01:40:36 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1112/2/) |
+| 1113 | **TT2D1113** | Chồng nhất quyết đi Tam Á | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:40:49 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1113/2/) |
+| 1114 | **TT2D1114** | Bà Lục Tôi Không Làm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:41:02 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1114/2/) |
+| 1115 | **TT2D1115** | Khi Tôi Là Hoàng Cẩm | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:41:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1115/2/) |
+| 1116 | **TT2D1116** | Sau Khi Sáng Mắt, Tôi Giả Mù | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:43:12 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1116/2/) |
+| 1117 | **TT2D1117** | Két An Toàn Số 1998 | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:43:25 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1117/2/) |
+| 1118 | **TT2D1118** | Đến Khi Anh Biết Sự Thật, Tôi Đã Không Còn Yêu Anh | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:43:38 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1118/2/) |
+| 1119 | **TT2D1119** | Chồng Giả Ch/e/t Để Cuỗm 1,86 Triệu Tệ Cùng Nhân Tình, Tôi Âm Thầm Phong Tỏa Toàn Bộ Tài Sản | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:43:50 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1119/2/) |
+| 1120 | **TT2D1120** | Chồng Vì Tiểu Tam Đuổi Tôi Khỏi Công Ty, Hôm Sau Tôi Rút 45 Tỷ Tệ, Cả Nhà Anh Ta Hoảng Loạn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:44:02 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1120/2/) |
+| 1121 | **TT2D1121** | Rời Khỏi Nhà Họ Cố, Tôi Lấy Lại Tất Cả | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:45:43 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1121/2/) |
+| 1122 | **TT2D1122** | Đêm Anh Trao Nhẫn Cho Thư Ký | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:45:55 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1122/2/) |
+| 1123 | **TT2D1123** | 8 Phút Trễ Và Dự Án 300 Triệu Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:46:08 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1123/2/) |
+| 1124 | **TT2D1124** | Nữ Thư Ký Gọi Chồng Tôi Là ‘Chồng’, Tôi Rút Ngay 5 Tỷ Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:46:20 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1124/2/) |
+| 1125 | **TT2D1125** | Tiệc Tân Gia, Chồng Trao Chìa Khóa Căn Nhà Của Tôi Cho Cô Thư Ký Đang Mang Thai | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20 01:46:33 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1125/2/) |
+| 1126 | **TT2D1126** | Anh Đeo Nhẫn Cho Bạch Nguyệt Quang, Tôi Rút Tên Khỏi Khoản Nợ 3,12 Triệu Tệ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:48:22 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1126/2/) |
+| 1127 | **TT2D1127** | Em Trai Tát Con Gái Tôi, Tôi Thu Hồi 800.000 Tệ Tiền Mua Nhà | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:48:34 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1127/2/) |
+| 1128 | **TT2D1128** | Khi Tiểu Tam Bảo Tôi Biết Điều Rời Đi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:48:47 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1128/2/) |
+| 1129 | **TT2D1129** | Sau Khi Tôi Đồng Ý Ly Hôn, Anh Mới Biết Mình Yêu Tôi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:48:59 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1129/2/) |
+| 1130 | **TT2D1130** | Hủy Hôn Vì 2.000 Tệ, Tôi Thu Hồi Của Hồi Môn 7,3 Triệu | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:49:12 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1130/2/) |
+| 1131 | **TT2D1131** | Mẹ Chồng Bảo Vệ Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20 01:51:02 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1131/2/) |
+| 1132 | **TT2D1132** | Vạch Mặt Nhà Chồng | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:51:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1132/2/) |
+| 1133 | **TT2D1133** | Hủy Hôn Vì Cô Em Gái Nuôi Hai Mươi Bảy Tuổi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20 01:51:26 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1133/2/) |
+| 1134 | **TT2D1134** | Mười Năm Yêu Anh, Hai Năm Đào Rỗng Đế Chế | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:51:39 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1134/2/) |
+| 1135 | **TT2D1135** | Xoay Lại Hôn Ước, Gả Cho Bố Chồng Cũ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:51:52 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1135/2/) |
+| 1136 | **TT2D1136** | Năm năm làm không công | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20 01:53:19 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1136/2/) |
+| 1137 | **TT2D1137** | Mẹ chồng thích diễn, con dâu thích phản đòn | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:53:31 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1137/2/) |
+| 1138 | **TT2D1138** | Ba Năm Rút Hộp Mù | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20 01:53:44 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1138/2/) |
+| 1139 | **TT2D1139** | Mười Năm Không Sinh Con | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:53:56 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1139/2/) |
+| 1140 | **TT2D1140** | Hủy Hôn Vì Tấm Thẻ Ngân Hàng | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:54:08 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1140/2/) |
+| 1141 | **TT2D1141** | Chồng Tin Người Hại Vợ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20 01:55:52 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1141/2/) |
+| 1142 | **TT2D1142** | Sau Lời Nói Dối | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:56:04 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1142/2/) |
+| 1143 | **TT2D1143** | Bị Tố Cáo Vì Một Cái Ngáp, Tôi Nghỉ Việc Ngay | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:56:17 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1143/2/) |
+| 1144 | **TT2D1144** | 48 Ngày Trước Đám Cưới, Tôi Phát Hiện Một Dấu Vân Tay Lạ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:56:29 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1144/2/) |
+| 1145 | **TT2D1145** | Sau Kỷ Niệm 10 Năm, Tôi Không Cần Anh Nữa | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:56:41 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1145/2/) |
+| 1146 | **TT2D1146** | Vết Thương Không Thể Tha Thứ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:59:09 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1146/2/) |
+| 1147 | **TT2D1147** | Ngày Bạn Trai Đính Hôn, Tôi Công Khai Thân Phận Thiên Kim | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:59:21 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1147/2/) |
+| 1148 | **TT2D1148** | Ngoại Lệ Không Phải Em | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20 01:59:33 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1148/2/) |
+| 1149 | **TT2D1149** | Cha Ruột Hóa Người Dưng | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20 01:59:46 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1149/2/) |
+| 1150 | **TT2D1150** | Khi Thế Thân Không Còn Quay Đầu | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20 01:59:59 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1150/2/) |
