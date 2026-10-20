@@ -6,8 +6,8 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 1450 truyện (TT2D1 ➔ TT2D1450)
-- **Đã hoàn thành & lên sóng Live:** 1450 / 1450 truyện (100% mốc TT2D1 ➔ TT2D1450) - Toàn bộ kho: 78,00%)
+- **Mục tiêu hiện tại:** 1500 truyện (TT2D1 ➔ TT2D1500)
+- **Đã hoàn thành & lên sóng Live:** 1460 / 1500 truyện (97,33% mốc TT2D1 ➔ TT2D1500) - Toàn bộ kho: 78,54%)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -1461,3 +1461,13 @@
 | 1448 | **TT2D1448** | Cả Nhà Chồng Trả Giá | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-21 00:55:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1448/2/) |
 | 1449 | **TT2D1449** | Ly Hôn Thành Sự Thật | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 00:55:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1449/2/) |
 | 1450 | **TT2D1450** | Ngày Cưới Tôi Tháo Khăn Voan | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-21 00:55:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1450/2/) |
+| 1451 | **TT2D1451** | Ly Hôn Sau Khi Trúng Giải Độc Đắc | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1451/2/) |
+| 1452 | **TT2D1452** | Sau Khi Chồng Bỏ Mặc Tôi Ở Cữ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1452/2/) |
+| 1453 | **TT2D1453** | Cô Dâu Thật Trong Hôn Lễ Giả | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1453/2/) |
+| 1454 | **TT2D1454** | Chồng Đem Phòng Cưới Tặng Chị Dâu | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1454/2/) |
+| 1455 | **TT2D1455** | Bí Mật Trong Phòng Ngủ Chính | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1455/2/) |
+| 1456 | **TT2D1456** | Sau Khi Cứu Em Chồng, Tôi Ly Hôn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1456/2/) |
+| 1457 | **TT2D1457** | Chồng Lén Cho Cháu Nhập Khẩu Vào Nhà | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1457/2/) |
+| 1458 | **TT2D1458** | Ngày Bạn Thân Lộ Mặt | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1458/2/) |
+| 1459 | **TT2D1459** | Bảo Mẫu Một Vạn Rưỡi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1459/2/) |
+| 1460 | **TT2D1460** | Chồng Tôi Yêu Chị Dâu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 01:31:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1460/2/) |
