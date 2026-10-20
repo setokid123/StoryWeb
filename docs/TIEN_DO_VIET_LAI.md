@@ -6,13 +6,13 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 950 truyện (TT2D1 ➔ TT2D950)
-- **Đã hoàn thành & lên sóng Live:** 950 / 950 truyện (100% mốc TT2D1 ➔ TT2D950)
+- **Mục tiêu hiện tại:** 1000 truyện (TT2D1 ➔ TT2D1000)
+- **Đã hoàn thành & lên sóng Live:** 1000 / 1000 truyện (100% mốc TT2D1 ➔ TT2D1000)
 - **Cập nhật lần cuối:** 07:00:00 20/10/2026
 
 ---
 
-## Danh sách chi tiết 950 truyện (TT2D1 ➔ TT2D950)
+## Danh sách chi tiết 1000 truyện (TT2D1 ➔ TT2D1000)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -966,3 +966,53 @@
 | 948 | **TT2D948** | Anh Ấy Còn Rực Rỡ Hơn Cả Ánh Mặt Trời | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-19T23:57:57.833Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d948/2/) |
 | 949 | **TT2D949** | Sau Một Tin Nhắn Gửi Nhầm, Ba Căn Nhà Đều Thuộc Về Mẹ. | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-19T23:58:10.866Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d949/2/) |
 | 950 | **TT2D950** | Mỗi Ngày Một Viên Kẹo | 2 (viết lại 1) | 🟢 **Đã Live** | 2026-10-19T23:58:22.000Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d950/2/) |
+| 951 | **TT2D951** | Tôi Không Phải Nền Cho Sự Nghiệp Của Bất Kỳ Ai | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20T00:02:45.687Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d951/2/) |
+| 952 | **TT2D952** | Dắt Tay Một Mình Rời Khỏi Tổ Ấm | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:02:57.864Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d952/2/) |
+| 953 | **TT2D953** | Ngày Tôi Không Còn Muốn Đến Nam Cực Nữa | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:03:10.329Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d953/2/) |
+| 954 | **TT2D954** | Phá Giới Chín Lần Vì Tình, Giữ Giới Cả Đời Với Tôi | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:03:23.086Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d954/2/) |
+| 955 | **TT2D955** | Ngày Ký Tên Không Phải Em | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:03:35.592Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d955/2/) |
+| 956 | **TT2D956** | Có Một Nơi Gọi Là Nhà | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20T00:05:56.688Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d956/2/) |
+| 957 | **TT2D957** | Giữa Nhân Gian, Em Chọn Anh | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20T00:06:10.053Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d957/2/) |
+| 958 | **TT2D958** | Vĩnh Viễn Không Được Quay Về | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:06:22.779Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d958/2/) |
+| 959 | **TT2D959** | Tôi Không Còn Là Cố Phu Nhân | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20T00:06:35.161Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d959/2/) |
+| 960 | **TT2D960** | 99 Lần Thử Thách Tình Yêu | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20T00:06:47.382Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d960/2/) |
+| 961 | **TT2D961** | Hai Đứa Cháu Sinh Đôi, Nhưng Có Một Đứa Không Phải Cháu Tôi. | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20T00:08:46.000Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d961/2/) |
+| 962 | **TT2D962** | Bạn Trai Thành Anh Rể Tương Lai Trong Một Đêm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:08:57.881Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d962/2/) |
+| 963 | **TT2D963** | Nuôi Con Cho Người Mười Lăm Năm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:09:09.865Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d963/2/) |
+| 964 | **TT2D964** | Sau khi đá bay tra nam, tôi trở lại với giấc mơ âm nhạc | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20T00:09:21.723Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d964/2/) |
+| 965 | **TT2D965** | Sống lại tôi trừng trị vị hôn phu cặn bã | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-20T00:09:33.710Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d965/2/) |
+| 966 | **TT2D966** | 500 vạn tiền sính lễ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20T00:12:15.043Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d966/2/) |
+| 967 | **TT2D967** | Ai sẽ làm nữ chính | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20T00:12:27.328Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d967/2/) |
+| 968 | **TT2D968** | Ảnh hậu nhà họ Kỷ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:12:39.160Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d968/2/) |
+| 969 | **TT2D969** | Bà nội thích nói dối bác sĩ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20T00:12:51.010Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d969/2/) |
+| 970 | **TT2D970** | Bạn cùng phòng thích được theo dõi | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:13:03.187Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d970/2/) |
+| 971 | **TT2D971** | Chỉ Cùng Nhau Một Chặng Đường | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:16:05.841Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d971/2/) |
+| 972 | **TT2D972** | Giam cầm giữa mùa mưa | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:16:18.101Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d972/2/) |
+| 973 | **TT2D973** | Bạn Cùng Phòng Tố Cáo Tôi Sinh Con Trong Ký Túc Xá | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:16:29.782Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d973/2/) |
+| 974 | **TT2D974** | Thư Ý | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20T00:16:42.149Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d974/2/) |
+| 975 | **TT2D975** | Tôi Là Người Đổ Vỏ Cho Tổng Tài Bá Đạo | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:16:53.964Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d975/2/) |
+| 976 | **TT2D976** | Sau khi hôn trộm bạn cùng phòng của bạn trai | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:19:23.962Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d976/2/) |
+| 977 | **TT2D977** | Sau Khi Mất Trí Nhớ | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20T00:19:36.642Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d977/2/) |
+| 978 | **TT2D978** | Mười Năm Ẩn Hôn Với Ảnh Đế | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:19:48.662Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d978/2/) |
+| 979 | **TT2D979** | Một Năm Đổi Lấy Một Đời Bên Anh | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-20T00:20:01.009Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d979/2/) |
+| 980 | **TT2D980** | Ai Nói Mục Tiêu Công Lược Chỉ Có Thể Là Nam Chính? | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-20T00:20:13.482Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d980/2/) |
+| 981 | **TT2D981** | Chín mươi chín lần khuyên chia tay | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:22:23.819Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d981/2/) |
+| 982 | **TT2D982** | Ánh Trăng Của Thiếu Tá Lục | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:22:36.003Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d982/2/) |
+| 983 | **TT2D983** | Nụ Hôn Trong Biển Lửa | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:22:47.635Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d983/2/) |
+| 984 | **TT2D984** | Thay tài xế | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:22:59.842Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d984/2/) |
+| 985 | **TT2D985** | Tiệm bánh ngọt siêu sao | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20T00:23:12.010Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d985/2/) |
+| 986 | **TT2D986** | Hai Tệ Sáu | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:24:37.190Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d986/2/) |
+| 987 | **TT2D987** | Không Cưới Nữa, Tôi Đi Đây | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:24:49.334Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d987/2/) |
+| 988 | **TT2D988** | Cành Đào Nở Sau Đông | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:25:01.512Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d988/2/) |
+| 989 | **TT2D989** | Hoa Nở Sau Giông Bão | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-20T00:25:14.286Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d989/2/) |
+| 990 | **TT2D990** | Nhà Họ Tiêu – Một Nhà Thân Thiết | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:25:26.504Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d990/2/) |
+| 991 | **TT2D991** | Bà Già Này Biết Cắn Đấy | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:26:41.518Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d991/2/) |
+| 992 | **TT2D992** | Chúc Anh Cưới Trà Xanh Vui Vẻ | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:26:53.508Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d992/2/) |
+| 993 | **TT2D993** | Gả Nhầm Nhà, Tôi Diệt Cả Ổ | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:27:05.303Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d993/2/) |
+| 994 | **TT2D994** | Sau Khi Sinh Con, Tôi Thành Bạch Nguyệt Quang | 3 (viết lại 2) | 🟢 **Đã Live** | 2026-10-20T00:27:17.601Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d994/2/) |
+| 995 | **TT2D995** | Sau Khi Mất Trí Nhớ, Chim Hoàng Yến Phản Công | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20T00:27:29.835Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d995/2/) |
+| 996 | **TT2D996** | Làm Vợ Thật Khó | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-20T00:28:57.770Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d996/2/) |
+| 997 | **TT2D997** | Bí Mật Sau Cánh Cửa Nửa Đêm | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-20T00:29:09.903Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d997/2/) |
+| 998 | **TT2D998** | Hầu hạ chồng 40 năm không bằng người nằm cùng phòng bệnh 3 năm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-20T00:29:21.727Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d998/2/) |
+| 999 | **TT2D999** | Mẹ Kế | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:29:35.047Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d999/2/) |
+| 1000 | **TT2D1000** | Gả Cho Kẻ Tội Đồ | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-20T00:29:47.254Z | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1000/2/) |
