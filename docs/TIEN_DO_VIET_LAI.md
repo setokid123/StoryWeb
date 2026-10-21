@@ -6,8 +6,8 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 1700 truyện (TT2D1 ➔ TT2D1700)
-- **Đã hoàn thành & lên sóng Live:** 1700 / 1700 truyện (100% mốc TT2D1 ➔ TT2D1700) - Toàn bộ kho: 91,45%)
+- **Mục tiêu hiện tại:** 1750 truyện (TT2D1 ➔ TT2D1750)
+- **Đã hoàn thành & lên sóng Live:** 1750 / 1750 truyện (100% mốc TT2D1 ➔ TT2D1750) - Toàn bộ kho: 94,14%)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -1711,3 +1711,53 @@
 | 1698 | **TT2D1698** | Mẹ Chồng Tuyệt Thực Đòi Đứng Tên Nhà Cưới, Tôi Bắt Bà Tự Trả Tiền | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 21:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1698/2/) |
 | 1699 | **TT2D1699** | Bà Nội Chia Gia Sản, Lại Tính Cả Quán Trà Sữa Do Tôi Tự Mở | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 21:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1699/2/) |
 | 1700 | **TT2D1700** | Bát Ăn Dặm Cá Hồi | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 21:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1700/2/) |
+| 1701 | **TT2D1701** | Em Dâu Mang Thai Sinh Đôi Con Trai, Liên Quan Gì Đến Tôi? | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1701/2/) |
+| 1702 | **TT2D1702** | Muốn Tôi Nuôi Thằng Cháu Đích Tôn, Tôi Đòi Lại Tiền, Đuổi Luôn Lũ Ăn Bám | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1702/2/) |
+| 1703 | **TT2D1703** | Bát Canh Nuôi Kẻ Vong Ân | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1703/2/) |
+| 1704 | **TT2D1704** | Mẹ Mang Cho Tôi Một Ký Gạo, Mẹ Chồng Ném Thẳng Vào Thùng Rác | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1704/2/) |
+| 1705 | **TT2D1705** | Tôi Lập Nghiệp Ở Thành Phố, Họ Hàng Kéo Tới Đòi Hưởng Phúc | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1705/2/) |
+| 1706 | **TT2D1706** | Chồng Đưa Thư Ký Về | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1706/2/) |
+| 1707 | **TT2D1707** | Mẹ Chồng Ép Tôi Trả | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1707/2/) |
+| 1708 | **TT2D1708** | Cánh Cửa Hướng Nam Lại Mở | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1708/2/) |
+| 1709 | **TT2D1709** | Căn Nhà Cưới Tôi Không Được Quyết Định, Tôi Không Cần Nữa | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1709/2/) |
+| 1710 | **TT2D1710** | Tôi Làm Bảo Mẫu Ở Cữ Năm Năm, Mẹ Bảo Tôi Về Hầu Hạ Em Dâu | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1710/2/) |
+| 1711 | **TT2D1711** | Tôi Dùng Của Hồi Môn Mua Nhà, Bạn Trai Tức Giận Rồi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1711/2/) |
+| 1712 | **TT2D1712** | Bị Vu Oan Vì Bó Hành, Tôi Khiến Con Trai Trắng Tay | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1712/2/) |
+| 1713 | **TT2D1713** | Mẹ Muốn Tôi Nhường Chồng, Chuẩn Bị Hồi Môn Cho Học Trò | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1713/2/) |
+| 1714 | **TT2D1714** | Con Gái Đòi Vay Tiền Bằng Cách Bán Nhà Của Tôi, Tôi Chọn Giữ Lại Đường Lui Cho Mình | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1714/2/) |
+| 1715 | **TT2D1715** | Mẹ Hỏi Tôi Được Chia Bao Nhiêu Tiền, Tôi Cố Ý Nói Thiếu Một Số Không | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1715/2/) |
+| 1716 | **TT2D1716** | Mẹ Chồng Cướp Đùi Gà Của Con Gái Tôi Cho Cháu Trai, Tôi Ôm Con Về Nhà Ngoại | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1716/2/) |
+| 1717 | **TT2D1717** | Nhà Bạn Trai Vay Tiền Lo Sính Lễ, Muốn Cưới Tôi Về Cùng Gánh Nợ | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1717/2/) |
+| 1718 | **TT2D1718** | Mẹ Chồng Dùng Thẻ Rỗng Đổi Mười Triệu Hồi Môn, Tôi Hủy Hôn Ngay Tại Chỗ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1718/2/) |
+| 1719 | **TT2D1719** | Chồng Bỏ Vợ Con Theo Tiểu Tam, Con Trai Lập Tức Đứng Về Phía Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1719/2/) |
+| 1720 | **TT2D1720** | Chồng Muốn Lấy 1,8 Triệu Tệ Hồi Môn Cho Em Trai, Tôi Hủy Hôn Tại Chỗ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1720/2/) |
+| 1721 | **TT2D1721** | Em Chồng Tay Không Đến Ăn Tết, Năm Thứ Tư Tôi Dẫn Chồng Ra Ngoài Ăn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1721/2/) |
+| 1722 | **TT2D1722** | Sáu Năm Con Gái Không Về Ăn Tết, Năm Thứ Bảy Tôi Khóa Cửa Đi Vân Nam | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1722/2/) |
+| 1723 | **TT2D1723** | Con Gái Tới Viện Dưỡng Lão Đòi Tiền, Tôi Cắt Luôn Mọi Khoản Trợ Cấp | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1723/2/) |
+| 1724 | **TT2D1724** | Chồng Tự Ý Đón Bố Mẹ Vào Nhà Cưới, Tôi Lập Tức Đề Nghị Ly Hôn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1724/2/) |
+| 1725 | **TT2D1725** | Bảy Năm Con Trai Ăn Tết Nhà Ngoại, Tôi Bán Nhà Định Cư Nước Ngoài | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1725/2/) |
+| 1726 | **TT2D1726** | Cho Con Trai Nhà, Con Dâu Đòi Tôi Trả Tiền Thuê | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1726/2/) |
+| 1727 | **TT2D1727** | Tôi Đi Lấy Chồng, Mẹ Ép Tôi Sang Tên Nhà Cho Em Trai Trước | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1727/2/) |
+| 1728 | **TT2D1728** | Mẹ Chồng Muốn Giữ Thẻ Lương, Tôi Chuyển Hết Tiền Tiết Kiệm Cho Mẹ Ruột | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1728/2/) |
+| 1729 | **TT2D1729** | Chồng Định Đuổi Tôi Ra Đi Tay Trắng, Không Ngờ Mẹ Chồng Đã Để Lại Tài Sản Cho Tôi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1729/2/) |
+| 1730 | **TT2D1730** | Chiếc Quần Lót Hình Voi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1730/2/) |
+| 1731 | **TT2D1731** | Cả Nhà Chị Chồng Tuần Nào Cũng Tới Ăn Chực, Còn Bắt Tôi Lo Tiền Học Cho Con Chị Ấy | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1731/2/) |
+| 1732 | **TT2D1732** | Mẹ Đem Hết Tiền Hưu Cho Chị Dâu, Tôi Bị Tính Tiền Bữa Ăn Tất Niên | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1732/2/) |
+| 1733 | **TT2D1733** | Vì Một Hộp Cua Chết, Tôi Cắt Đứt Quan Hệ Với Người Thân. | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1733/2/) |
+| 1734 | **TT2D1734** | Bạn Gái Đòi Một Nửa Căn Nhà 20 Triệu Tệ, Tôi Quay Đầu Rời Khỏi Cục Dân Chính | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1734/2/) |
+| 1735 | **TT2D1735** | 5 Căn Nhà Đều Cho Em Vợ, Đến Khi Ngân Hàng Đòi Nợ Thì Mới Nhớ Tới Con Rể | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1735/2/) |
+| 1736 | **TT2D1736** | Mẹ Chồng Dẫn Cả Nhà Em Chồng Tới Du Lịch Ké, Chồng Tôi Lập Tức Hủy Kỳ Nghỉ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1736/2/) |
+| 1737 | **TT2D1737** | Mẹ Chồng Bắt Nộp Hết Lương, Tôi Xách Vali Rời Đi Không Quay Đầu | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1737/2/) |
+| 1738 | **TT2D1738** | Chồng Gặp Tai Nạn Nhập Viện, Vợ Cũ Bất Ngờ Trở Lại | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1738/2/) |
+| 1739 | **TT2D1739** | Mẹ Tôi Nhận Được Năm Triệu, Cả Nhà Mới Lộ Rõ Lòng Người | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1739/2/) |
+| 1740 | **TT2D1740** | Nhà Tôi, Tôi Quyết Định | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1740/2/) |
+| 1741 | **TT2D1741** | Chồng Đem Hết Tiền Về Cho Bố Mẹ, Tôi Quay Lưng Sang Anh Bảy Tháng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1741/2/) |
+| 1742 | **TT2D1742** | Bí Mật Sau Cánh Cửa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1742/2/) |
+| 1743 | **TT2D1743** | Đêm Thứ Ba Hôn Mê, Tôi Nghe Được Bí Mật Của Chồng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1743/2/) |
+| 1744 | **TT2D1744** | Một Bữa Tiệc Đổi Đời | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1744/2/) |
+| 1745 | **TT2D1745** | Bỏ Theo Nhân Tình Lại Muốn Tôi Giúp Nuôi Con, Mau Cút Xuống Địa Ngục Đi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1745/2/) |
+| 1746 | **TT2D1746** | Tiệc Mừng Thọ, Bà Nội Bất Ngờ Chia Nhà Tôi Cho Anh Chồng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1746/2/) |
+| 1747 | **TT2D1747** | Coi Thường Nhà Tôi Nghèo, Đến Lúc Thanh Toán Lại Bắt Tôi Thanh Toán Tiệc | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1747/2/) |
+| 1748 | **TT2D1748** | Chị Chồng Tới Nhà Lập Quy Củ, Tôi Lập Tức Đặt Lại Ranh Giới | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1748/2/) |
+| 1749 | **TT2D1749** | Chồng Khoe Có Quý Tử, Tôi Mang Giấy Thắt Ống Dẫn Tinh Đến Chúc Mừng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1749/2/) |
+| 1750 | **TT2D1750** | Vợ Cũ Của Chồng Ngồi Ghế Chủ Vị, Tôi Quay Lưng Rời Đi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1750/2/) |
