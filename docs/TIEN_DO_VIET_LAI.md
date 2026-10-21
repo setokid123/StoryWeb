@@ -6,8 +6,8 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 1500 truyện (TT2D1 ➔ TT2D1500)
-- **Đã hoàn thành & lên sóng Live:** 1500 / 1500 truyện (100% mốc TT2D1 ➔ TT2D1500) - Toàn bộ kho: 80,69%)
+- **Mục tiêu hiện tại:** 1550 truyện (TT2D1 ➔ TT2D1550)
+- **Đã hoàn thành & lên sóng Live:** 1550 / 1550 truyện (100% mốc TT2D1 ➔ TT2D1550) - Toàn bộ kho: 83,38%)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -1511,3 +1511,53 @@
 | 1498 | **TT2D1498** | Tám Năm Không Bằng Một Tờ Hôn Thú | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 02:23:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1498/2/) |
 | 1499 | **TT2D1499** | Tôi Trả Lại Anh Cả Tình Yêu Lẫn Giấc Mơ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 02:23:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1499/2/) |
 | 1500 | **TT2D1500** | Ly Hôn Xong, Tôi Sinh Bốn Đứa Con Cho Chồng Cũ Khóc Hận | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 02:23:14 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1500/2/) |
+| 1501 | **TT2D1501** | Ngày Thứ Một Trăm, Tôi Không Quay Lại | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1501/2/) |
+| 1502 | **TT2D1502** | Tôi Chúc Phúc Cho Người Yêu Và Bạn Thân | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1502/2/) |
+| 1503 | **TT2D1503** | Cô thư ký trẻ bên cạnh Tạ Cảnh Thâm | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1503/2/) |
+| 1504 | **TT2D1504** | Ly Hôn Không Quay Đầu | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1504/2/) |
+| 1505 | **TT2D1505** | Bảy Năm Buông Bỏ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1505/2/) |
+| 1506 | **TT2D1506** | Ly Hôn Tuổi 45 | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1506/2/) |
+| 1507 | **TT2D1507** | Lần Này Tôi Đúng Giờ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1507/2/) |
+| 1508 | **TT2D1508** | Dâu Trưởng Không Gánh Nợ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1508/2/) |
+| 1509 | **TT2D1509** | Không Còn Là Ngoại Lệ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1509/2/) |
+| 1510 | **TT2D1510** | Chén Trà Không Người Uống | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1510/2/) |
+| 1511 | **TT2D1511** | Ngày Cưới Của Kẻ Phản Bội | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1511/2/) |
+| 1512 | **TT2D1512** | Bát Yến Sào Đoạt Mạng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1512/2/) |
+| 1513 | **TT2D1513** | Ly Hôn Rồi Tỏa Sáng | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1513/2/) |
+| 1514 | **TT2D1514** | Ngày Chị Gái Trở Về | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1514/2/) |
+| 1515 | **TT2D1515** | Một Chồng Hai Gia Đình | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1515/2/) |
+| 1516 | **TT2D1516** | Hôn Nhân Lệch Nhịp | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1516/2/) |
+| 1517 | **TT2D1517** | Bỗng Nhiên Thành Góa Phụ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1517/2/) |
+| 1518 | **TT2D1518** | Tôi tên là Tô Vãn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1518/2/) |
+| 1519 | **TT2D1519** | Chị Gái Dùng Chùa | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1519/2/) |
+| 1520 | **TT2D1520** | Căn Nhà Góc Không Ai Muốn | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1520/2/) |
+| 1521 | **TT2D1521** | Luật Sư Nhỏ Nhà Họ Giang | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1521/2/) |
+| 1522 | **TT2D1522** | Cái Giá Của Lời Nói | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1522/2/) |
+| 1523 | **TT2D1523** | Trở Về Đòi Công Đạo | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1523/2/) |
+| 1524 | **TT2D1524** | Cuộc Đời Sau Nghỉ Hưu | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1524/2/) |
+| 1525 | **TT2D1525** | Tin Được Mới Dám Lấy | 4 (viết lại 3) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1525/2/) |
+| 1526 | **TT2D1526** | Vì có gương mặt trẻ con | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1526/2/) |
+| 1527 | **TT2D1527** | Đứng Nhất Sau Khi Rời Đi | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1527/2/) |
+| 1528 | **TT2D1528** | Kẻ Đứng Giữa Dối Trá | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1528/2/) |
+| 1529 | **TT2D1529** | Chuyến Bay Đổi Cuộc Đời | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1529/2/) |
+| 1530 | **TT2D1530** | Rời Đi Mới Thành Danh | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1530/2/) |
+| 1531 | **TT2D1531** | Chị Nhất Định Sẽ Về | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1531/2/) |
+| 1532 | **TT2D1532** | Trạm Tiếp Theo, Vĩnh Viễn Không Gặp Lại | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1532/2/) |
+| 1533 | **TT2D1533** | Ba năm kết hôn trong bí mật | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1533/2/) |
+| 1534 | **TT2D1534** | Tôi Ly Hôn, Cả Nhà Chồng Trắng Tay | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1534/2/) |
+| 1535 | **TT2D1535** | Bí Mật Trong Chiếc Đồng Hồ 120.000 Tệ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1535/2/) |
+| 1536 | **TT2D1536** | Cái Giá Của 15 Ngày Nghỉ Phép | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1536/2/) |
+| 1537 | **TT2D1537** | 8 Triệu Tệ Và Một Cuộc Ly Hôn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1537/2/) |
+| 1538 | **TT2D1538** | Bảy Năm Hôn Nhân, Hóa Ra Chỉ Là Giả | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1538/2/) |
+| 1539 | **TT2D1539** | Đêm Giao Thừa Bị Chồng Đuổi Xuống Xe Giữa Bão Tuyết | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1539/2/) |
+| 1540 | **TT2D1540** | Chồng Cuỗm 1.200.000 Tệ, Tôi Đuổi Cả Nhà Anh Ta | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1540/2/) |
+| 1541 | **TT2D1541** | Lần Thứ 8 Mẹ Nói Hối Hận Vì Sinh Ra Tôi, Tôi Rời Đi, Cả Nhà Hoảng Loạn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1541/2/) |
+| 1542 | **TT2D1542** | 12 Triệu Tệ, Bố Cho Em Trai Tất Cả | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1542/2/) |
+| 1543 | **TT2D1543** | Hộ Khẩu Bỗng Dưng Có Thêm Một Cô Con GáI | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1543/2/) |
+| 1544 | **TT2D1544** | Anh Trao Ghế Quản Lý Cho Cô Ta, Tôi Mang 31 Khách Hàng Rời Đi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1544/2/) |
+| 1545 | **TT2D1545** | Anh Ta Cho Thanh Mai Mượn Nhà Tân Hôn Ở Cữ, Tôi Dọn Thẳng Vào Ký Túc Xá Cơ Quan | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1545/2/) |
+| 1546 | **TT2D1546** | Vị Hôn Phu Dẫn Em Họ Tôi Ra Nước Ngoài, Ba Năm Sau Trở Về Phải Gọi Tôi Là Sếp | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1546/2/) |
+| 1547 | **TT2D1547** | Chồng Tôi Lương Tháng 30.000 Tệ Đưa Hết Cho Mẹ, Chỉ Cho Tôi 10 Tệ — Bốn Ngày Sau, Tôi Sang Đức Công Tác | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1547/2/) |
+| 1548 | **TT2D1548** | Chồng Cũ Không Giữ, Nhưng Bộ Gen Này Tôi Giữ | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1548/2/) |
+| 1549 | **TT2D1549** | Ngày Tôi Bỏ Con, Chồng Đang Chăm Sóc Tình Đầu Mang Thai | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1549/2/) |
+| 1550 | **TT2D1550** | Bảy Ngày Sau Khi Lén Ly Hôn Tôi, Chồng Cưới Người Khác | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 05:02:16 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1550/2/) |
