@@ -6,8 +6,8 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 1600 truyện (TT2D1 ➔ TT2D1600)
-- **Đã hoàn thành & lên sóng Live:** 1600 / 1600 truyện (100% mốc TT2D1 ➔ TT2D1600) - Toàn bộ kho: 86,07%)
+- **Mục tiêu hiện tại:** 1650 truyện (TT2D1 ➔ TT2D1650)
+- **Đã hoàn thành & lên sóng Live:** 1650 / 1650 truyện (100% mốc TT2D1 ➔ TT2D1650) - Toàn bộ kho: 88,76%)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -1611,3 +1611,53 @@
 | 1598 | **TT2D1598** | Ngày Cưới, Bạn Thân Khác Giới Của Chồng Đến Cướp Hôn | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 13:10:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1598/2/) |
 | 1599 | **TT2D1599** | Tính Sổ Với Người Chồng Phản Bội | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 13:10:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1599/2/) |
 | 1600 | **TT2D1600** | Khi Kẻ Lừa Đảo Mạo Danh Chồng Tôi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 13:10:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1600/2/) |
+| 1601 | **TT2D1601** | Chỉ Người Cùng Họ Mới Là Người Một Nhà | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1601/2/) |
+| 1602 | **TT2D1602** | Bình Nước Định Mệnh | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1602/2/) |
+| 1603 | **TT2D1603** | Vì Hiến Tủy Cho Bạn Thân, Tôi Đã Tăng Sáu Mươi Cân | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1603/2/) |
+| 1604 | **TT2D1604** | Hai Năm Chờ Đợi | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1604/2/) |
+| 1605 | **TT2D1605** | Sau Khi Bị Hai Mươi Sáu Triệu Người Đánh Giá | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1605/2/) |
+| 1606 | **TT2D1606** | Bạch Nguyệt Quang Phá Vỡ Quy Tắc | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1606/2/) |
+| 1607 | **TT2D1607** | Khi Tôi Không Còn Làm Phiền Anh Nữa | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1607/2/) |
+| 1608 | **TT2D1608** | Nếu Hôn Lễ Không Cần Em | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1608/2/) |
+| 1609 | **TT2D1609** | Chồng Cũ Hối Hận | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1609/2/) |
+| 1610 | **TT2D1610** | Gặp Anh Sau Ly Hôn | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1610/2/) |
+| 1611 | **TT2D1611** | Trăm Lần Lỡ Hẹn | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1611/2/) |
+| 1612 | **TT2D1612** | Bảy Năm Hôn Nhân Kết Thúc Trong Một Đêm Mưa | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1612/2/) |
+| 1613 | **TT2D1613** | Mặt Nạ Thánh Nhân | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1613/2/) |
+| 1614 | **TT2D1614** | Chồng Ngoại Tình Trả Giá | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1614/2/) |
+| 1615 | **TT2D1615** | Rời Anh Đến Tây Phi | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1615/2/) |
+| 1616 | **TT2D1616** | Đồng Xu Hai Mặt Hoa | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1616/2/) |
+| 1617 | **TT2D1617** | Bố mẹ chồng chê tôi sinh con gái | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1617/2/) |
+| 1618 | **TT2D1618** | Kết hôn được hai năm. | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1618/2/) |
+| 1619 | **TT2D1619** | Tôi bị em chồng đánh đến mức phải vào cấp cứu | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1619/2/) |
+| 1620 | **TT2D1620** | Trọng Sinh Ngày Chồng Ngoại Tình, Tôi Dứt Khoát Ly Hôn | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1620/2/) |
+| 1621 | **TT2D1621** | Khi Tôi Buông Bỏ Chấp Niệm | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1621/2/) |
+| 1622 | **TT2D1622** | Bị Đơn Mới Bốn Tháng | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1622/2/) |
+| 1623 | **TT2D1623** | Khóa Lại Những Ranh Giới | 5 (viết lại 4) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1623/2/) |
+| 1624 | **TT2D1624** | Kẻ Trộm Tình Mẹ | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1624/2/) |
+| 1625 | **TT2D1625** | Vị Lạ Trong Bữa Cua Lông | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1625/2/) |
+| 1626 | **TT2D1626** | Một Bữa Cơm Đủ Đầy | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1626/2/) |
+| 1627 | **TT2D1627** | Vợ Anh Là Người Khác | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1627/2/) |
+| 1628 | **TT2D1628** | Cánh Cửa Tôi Không Mở | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1628/2/) |
+| 1629 | **TT2D1629** | Người Mẹ Chưa Từng Thương | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1629/2/) |
+| 1630 | **TT2D1630** | Cả Nhà Đưa Tiền Cho Chị Dâu | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1630/2/) |
+| 1631 | **TT2D1631** | Đợi Một Gia Đình Suốt Mười Tám Năm | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1631/2/) |
+| 1632 | **TT2D1632** | Đổi Chồng Trong Ngày Cưới | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1632/2/) |
+| 1633 | **TT2D1633** | Trở Lại Giữa Ngày Bão | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1633/2/) |
+| 1634 | **TT2D1634** | Người Thầy Của Núi Rừng | 8 (viết lại 7) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1634/2/) |
+| 1635 | **TT2D1635** | Bí Mật Sau Quán Mì | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1635/2/) |
+| 1636 | **TT2D1636** | Nén Hương Đoạt Hồn | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1636/2/) |
+| 1637 | **TT2D1637** | Tình Cũ Chung Một Mái | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1637/2/) |
+| 1638 | **TT2D1638** | Từ Biệt Người Trong Mộng | 6 (viết lại 5) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1638/2/) |
+| 1639 | **TT2D1639** | Tình Yêu Bị Xóa Sạch | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1639/2/) |
+| 1640 | **TT2D1640** | Ngày Cưới Gả Nhầm Anh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1640/2/) |
+| 1641 | **TT2D1641** | Khi Tôi Không Còn Yêu | 9 (viết lại 8) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1641/2/) |
+| 1642 | **TT2D1642** | Tang Lễ Ngày Anh Phá Sản | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1642/2/) |
+| 1643 | **TT2D1643** | Hoa Cát Tường Không Để Tên | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1643/2/) |
+| 1644 | **TT2D1644** | Trọng Sinh Đổi Một Người | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1644/2/) |
+| 1645 | **TT2D1645** | Sau Khi Tôi Chết Tâm, Anh Mới Biết Hối Hận | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1645/2/) |
+| 1646 | **TT2D1646** | Đổi Họ, Đổi Luôn Mẹ | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1646/2/) |
+| 1647 | **TT2D1647** | Bảy Ngày Đảo Ngược Số Mệnh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1647/2/) |
+| 1648 | **TT2D1648** | Sau Khi Nhìn Thấy Tương Lai, Tôi Không Còn Yêu Anh | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1648/2/) |
+| 1649 | **TT2D1649** | Thiên Kim Thật Là Chị Đại Học Thần | 7 (viết lại 6) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1649/2/) |
+| 1650 | **TT2D1650** | Cố Xuân Hòa | 10 (viết lại 9) | 🟢 **Đã Live** | 2026-10-21 20:30:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1650/2/) |
