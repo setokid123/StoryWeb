@@ -1761,3 +1761,53 @@
 | 1748 | **TT2D1748** | Chị Chồng Tới Nhà Lập Quy Củ, Tôi Lập Tức Đặt Lại Ranh Giới | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1748/2/) |
 | 1749 | **TT2D1749** | Chồng Khoe Có Quý Tử, Tôi Mang Giấy Thắt Ống Dẫn Tinh Đến Chúc Mừng | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1749/2/) |
 | 1750 | **TT2D1750** | Vợ Cũ Của Chồng Ngồi Ghế Chủ Vị, Tôi Quay Lưng Rời Đi | 11 (viết lại 10) | 🟢 **Đã Live** | 2026-10-21 22:00:00 | [Đọc chương 2](https://tramtruyen2d.up.railway.app/doc/tt2d1750/2/) |
+| tt2d1751 | TT2D1751 - Nhà Chồng Nhòm Ngó Tài Sản Trước Hôn Nhân, Tôi Khóa Chặt Quyền Sở Hữu | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1752 | TT2D1752 - Ly Hôn Xong Tôi Lập Tức Khóa Thẻ Lương, Cả Nhà Chồng Rối Loạn | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1753 | TT2D1753 - Ngày Cưới, Mẹ Chồng Muốn Tôi Nhận Lại Người Cha Rác Rưởi | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1754 | TT2D1754 - Bảy Tháng Hôn Nhân, Tôi Mới Biết Chồng Giấu Mình Một Khoản Nợ Khổng Lồ | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1755 | TT2D1755 - Giả Thất Nghiệp Bị Đuổi Khỏi Nhà, Tôi Cầm 300 Triệu Sống Sung Sướng | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1756 | TT2D1756 - Sống Thử Với Bạn Trai, Mẹ Chồng Liền Tăng Giá Tiền Hồi Môn | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1757 | TT2D1757 - Nuôi Cả Nhà 6 Năm, Vẫn Mang Tiếng Bất Hiếu | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1758 | TT2D1758 - Đêm Tân Hôn Bị Mượn | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1759 | TT2D1759 - Tôi Mới Là Chính Thất | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1760 | TT2D1760 - Ly Hôn Xong Tôi Phất Lên | 5 chương | Hoàn thành | Giữ C1, viết mới C2-C5 |
+| tt2d1761 | TT2D1761 - Phòng Cưới Bị Chiếm, Tôi Kiện | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1762 | TT2D1762 - Chia Tay Ngay Bữa Cơm | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1763 | TT2D1763 - Ba Năm Hiểu Lầm | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1764 | TT2D1764 - Chiếc Đồng Hồ Theo Dõi | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1765 | TT2D1765 - Chồng Thiên Vị Em Dâu, Tôi Lật Bàn Rời Nhà Đêm Giao Thừa | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1766 | TT2D1766 - Mang Con Tái Hôn, Mẹ Chồng Ra Oai Ngay Bữa Cơm | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1767 | TT2D1767 - Đừng Đụng Đến Con Tôi | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1768 | TT2D1768 - Sau Khi Anh Làm Cha Cho Con Người Khác, Tôi Để Con Trai Mang Họ Mình | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1769 | TT2D1769 - Mẹ Chồng Đuổi Tôi Ngủ Dưới Đất, Tôi Dắt Con Rời Khỏi Nhà Chồng | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1770 | TT2D1770 - Chồng Đưa Nhân Tình Đi Thái Lan, Tôi Quay Về Cuốn Sạch Tài Sản Chung | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1771 | TT2D1771 - Sau Hai Mươi Bảy Năm Hầu Hạ Cả Nhà, Mẹ Tôi Quyết Định Sống Cho Chính Mình | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1772 | TT2D1772 - Chồng Già Lừa Tôi Hầu Hạ Mối Tình Đầu Đang Nhập Viện | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1773 | TT2D1773 - Tôi Chỉ Làm Đúng Phận Sự, Cả Công Ty Liền Rối Loạn | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1774 | TT2D1774 - Mẹ Chồng Cho Tôi Ăn Cơm Thừa, Tôi Đẩy Luôn Sang Cho Chồng | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1775 | TT2D1775 - Chị Chồng Muốn Đuổi Tôi, Tôi Cho Cả Nhà Chồng Ra Đường | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1776 | TT2D1776 - Em Chồng Châm Ngòi Ly Hôn, Tôi Liền Tính Sạch Mọi Khoản Nợ | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1777 | TT2D1777 - Chia Gia Sản | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1778 | TT2D1778 - Sáu Triệu Rưỡi Biến Mất | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1779 | TT2D1779 - Cả Công Ty Đều Có Thưởng Cuối Năm, Chỉ Mình Tôi Bị Gạch Tên | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1780 | TT2D1780 - Mẹ Chồng Bảo Tôi Về Nhà Mẹ Đẻ Ở Cữ, Tôi Đuổi Cả Nhà Chồng Ra Khỏi Nhà | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1781 | TT2D1781 - Sau Khi Bố Mẹ Cho Tôi Biệt Thự, Nhà Bạn Trai Đến Chia Phòng | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1782 | TT2D1782 - Kết Hôn Hai Năm, Chồng Không Cho Tôi Chạm Vào Chiếc Xe Hồi Môn | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1783 | TT2D1783 - Hôn Lễ Tặng Đôi Cẩu Nam Nữ | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1784 | TT2D1784 - Đưa Mẹ Về Nhà | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1785 | TT2D1785 - Ai Hứa Người Đó Cho | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1786 | TT2D1786 - Bạn Trai Muốn Tôi Mỗi Ngày Dành Hai Tiếng Đưa Đón Anh Ta Đi Làm | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1787 | TT2D1787 - Độc Thân 40 Năm, Chỉ Để Kiếm Tiền Trả Nợ Gia Đình | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1788 | TT2D1788 - Tình Mẹ Con Cảm Động, Tôi Ly Hôn Trả Con Trai Cho Mẹ Chồng | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1789 | TT2D1789 - Chồng Trúng Số Thành Triệu Phú, Tôi Tay Trắng Nhận Nuôi Con Trai Tỷ Phú | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1790 | TT2D1790 - Chồng Trúng 1 Triệu Muốn Đổi Vợ, Tôi Bình Tĩnh Chờ 10 Triệu Tiền Giải Tỏa | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1791 | TT2D1791 - Mẹ Chồng Lấy Hủy Cưới Ép Tôi Chia Nhà, Tôi Hủy Luôn Hôn Lễ | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1792 | TT2D1792 - Mẹ Tự Ý Gọi Cả Nhà Em Trai Đi Du Lịch Chung, Tôi Trả Luôn Xe Thuê | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1793 | TT2D1793 - Ngày Tôi Mang Thai, Chồng Đeo Nhẫn Cưới Của Người Khác | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1794 | TT2D1794 - Mỗi Đêm Mẹ Chồng Đều Hâm Sữa Cho Chồng Tôi, Tôi Lén Đổi Thành Nước Lọc | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1795 | TT2D1795 - Hai Chị Chồng Ly Hôn Rồi Chiếm Nhà Tôi, Tôi Lập Tức Ly Hôn | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1796 | TT2D1796 - Bảy Năm Tiết Kiệm Của Tôi, Nhà Chồng Lại Tự Ý Đem Cho Em Trai Mua Nhà | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1797 | TT2D1797 - Sính Lễ Bố Ruột Tích Cóp Suốt Hai Mươi Năm, Hóa Ra Là Một Hộp Tiền Âm Phủ | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1798 | TT2D1798 - Mẹ Chồng Bán Sạch Của Hồi Môn, Tôi Tính Sổ Từng Món | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1799 | TT2D1799 - Tiểu Tam Hại Chết Mẹ Chồng | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1800 | TT2D1800 - Chồng Dẫn Tiểu Tam Vào Nhà Tân Hôn, Tôi Thay Khóa, Khóa Thẻ Và Gửi Luôn Đơn Ly Hôn | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
