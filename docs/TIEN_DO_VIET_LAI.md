@@ -6,8 +6,8 @@
 > 3. Tự động sao lưu dữ liệu gốc trước khi cập nhật; kiểm tra dry-run an toàn trước khi apply lên Railway live DB.
 
 - **Tổng kho truyện:** 1859 truyện
-- **Mục tiêu hiện tại:** 1750 truyện (TT2D1 ➔ TT2D1750)
-- **Đã hoàn thành & lên sóng Live:** 1750 / 1750 truyện (100% mốc TT2D1 ➔ TT2D1750) - Toàn bộ kho: 94,14%)
+- **Mục tiêu dự án:** Toàn bộ kho truyện (TT2D1 ➔ TT2D1859)
+- **Đã hoàn thành & lên sóng Live:** 1.859 / 1.859 truyện (100,00% TOÀN BỘ KHO TRUYỆN - HOÀN TẤT DỰ ÁN 🎉)
 
 | STT | Mã truyện | Tên truyện | Số chương | Trạng thái | Thời gian hoàn tất | Link kiểm tra trực tiếp |
 | :---: | :---: | :--- | :---: | :---: | :---: | :--- |
@@ -1811,3 +1811,62 @@
 | tt2d1798 | TT2D1798 - Mẹ Chồng Bán Sạch Của Hồi Môn, Tôi Tính Sổ Từng Món | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
 | tt2d1799 | TT2D1799 - Tiểu Tam Hại Chết Mẹ Chồng | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
 | tt2d1800 | TT2D1800 - Chồng Dẫn Tiểu Tam Vào Nhà Tân Hôn, Tôi Thay Khóa, Khóa Thẻ Và Gửi Luôn Đơn Ly Hôn | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1801 | TT2D1801 - Mẹ Chồng Thiên Vị Hai Con Trai, Vậy Tôi Cũng Không Làm Con Dâu Hiếu Thảo | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1802 | TT2D1802 - Ở Nhờ Thành Bà Chủ | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1803 | TT2D1803 - Em Chồng Ở Cữ Được Ăn Ba Mươi Con Gà, Đến Lượt Tôi Chỉ Có Cơm Thừa | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1804 | TT2D1804 - Bố Nói Nhà Nghèo, Tôi Gặm Bánh Màn Thầu Suốt Bốn Năm Đại Học | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1805 | TT2D1805 - Bát Rau Dại Hấp Đầu Xuân Tiễn Luôn Gã Chồng Ngoại Tình | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1806 | TT2D1806 - Bị Chồng Giả Lừa Ba Năm, Ngày Tôi Nhận Tổ Quy Tông Cả Nhà Anh Sụp Đổ | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1807 | TT2D1807 - Chồng Lén Vay Tiền Cho Em Trai, Tôi Lập Tức Khởi Kiện | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1808 | TT2D1808 - Chồng Bỏ Tôi Ở Cữ Để Chăm Mẹ, Tôi Chỉ Sống Vì Mình Và Con | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1809 | TT2D1809 - Chê Tôi Bán Đắt, Cả Làng Phải Ăn Thịt Ôi Thiu | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1810 | TT2D1810 - Mẹ Chồng Bảo Tôi Nhường Nhà Cho Con Gái, Tôi Mang Theo Toàn Bộ Giấy Tờ | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1811 | TT2D1811 - Chồng Đi Du Lịch Cùng Nhân Tình, Trở Về Với Tôi Bằng Hũ Tro | 5 chương | Hoàn thành | Giữ C1, viết mới C2-C5 |
+| tt2d1812 | TT2D1812 - Nói Tôi Là Kẻ Xúi Quẩy, Tôi Ngồi Trên Nóc Xe Cho Nhà Chồng Hít Khói | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1813 | TT2D1813 - Chồng Giấu Tôi Nuôi Người Tình, Chúng Tôi Liên Thủ Khiến Ông Ta Mất Sạch | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1814 | TT2D1814 - Vừa Nhận Giấy Kết Hôn, Chồng Đòi Tôi Sang Tên Nhà Cho Em Trai | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1815 | TT2D1815 - Anh Chị Phô Trương Hiếu Thảo, Tôi Âm Thầm Chuẩn Bị Đường Lui Cho Bố Mẹ | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1816 | TT2D1816 - Thưởng Cuối Năm Bị Cắt Sạch, Tôi Khiến Cả Công Ty Phải Đổi Quy Chế | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1817 | TT2D1817 - Bàn Tay Phải Không Thể Cứu Vãn | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1818 | TT2D1818 - Ánh Trăng Rơi Sau Lời Từ Biệt | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1819 | TT2D1819 - Ly hôn xong, tôi mang thai rồi | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1820 | TT2D1820 - Tôi Bao Cả Nhà Đi Tân Cương, Con Rể Lại Mời Họ Hàng Nhà Anh Ta | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1821 | TT2D1821 - Em Họ Mang Thai Muốn Mượn Nhà Cưới, Tôi Khóa Cửa Bán Luôn Nhà | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1822 | TT2D1822 - Chị Cả Thích Hiếu Thuận, Vậy Thì Để Chị Hiếu Cho Đủ | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1823 | TT2D1823 - Sinh Con Xong, Nhà Chồng Ép Tôi Gánh Khoản Nợ 2 Triệu Tệ | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1824 | TT2D1824 - Chồng Cũ Chê Sống Tốt Muốn Ly Hôn, Tôi Tái Hôn Với Chồng Bạc Tỷ | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1825 | TT2D1825 - Mẹ Chồng Tương Lai Tiêu Tiền Của Tôi, Tôi Ly Hôn Đòi Đủ Từng Đồng | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1826 | TT2D1826 - Chồng Có Người Khác, Tôi Âm Thầm Kiếm Tiền Chuẩn Bị Ly Hôn | 9 chương | Hoàn thành | Giữ C1, viết mới C2-C9 |
+| tt2d1827 | TT2D1827 - Chồng Đưa Nhân Tình Về Thay Tôi, Tôi Liền Tính Lại Từng Đồng Tài Sản | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1828 | TT2D1828 - Dẫn Trà Xanh Về Nhà Ra Mắt, Tôi Gả Luôn Con Trai | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1829 | TT2D1829 - Sau Khi Tôi Mua Túi Hiệu, Cả Nhà Mắng Tôi Không Biết Tiết Kiệm | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1830 | TT2D1830 - Mẹ Chồng Dùng Va Li Chặn Trước Cửa Nhà Tôi, Tôi Dán Danh Sách Quy Định Cư Trú | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1831 | TT2D1831 - Lần Thứ Bảy Hụt Buổi Ra Mắt Gia Đình, Tôi Không Chờ Nữa | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1832 | TT2D1832 - Em Dâu Đòi Đổi Khóa Biệt Thự Của Tôi, Mẹ Lập Tức Đuổi Cả Nhà Họ Ra Ngoài | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1833 | TT2D1833 - Bắt Tôi Mang Thai Hầu Hạ Em Chồng, Chồng Tôi Lập Tức Đòi Ra Riêng | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1834 | TT2D1834 - Chồng Muốn Ly Hôn Để Cưới Tình Đầu, Tôi Phong Tỏa Toàn Bộ Tài Sản | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1835 | TT2D1835 - Tiểu Tam Muốn Thêm Tên Vào Hôn Nhân Của Tôi | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1836 | TT2D1836 - Đứa Trẻ Không Được Phép Gục Ngã | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1837 | TT2D1837 - Chồng Bỏ Đi Nửa Đêm Vì Lo Cho Bạn Thân Tôi, Tôi Liền Tác Thành Cho Bọn Họ | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1838 | TT2D1838 - Mẹ Chồng Nói Đến Phụ Giúp, Nhưng Người Phải Hầu Lại Là Tôi | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1839 | TT2D1839 - Bạn Trai Không Muốn Tôi Sống Tốt, Muốn Tôi Hạ Mình Chăm Sóc Họ | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1840 | TT2D1840 - Trà Xanh Ngồi Ghế Phụ, Tôi Hủy Hôn Ngay Trong Đêm | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1841 | TT2D1841 - Ngày Cưới Tôi Đi Du Lịch, Nhà Trai Ôm Bảy Mươi Bàn Tiệc Khóc Thét | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1842 | TT2D1842 - Tôi Không Có Con, Cả Nhà Anh Trai Đã Âm Thầm Chia Sẵn Tài Sản Của Tôi | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1843 | TT2D1843 - Bố Mẹ Cho Anh Cả Toàn Bộ Tài Sản, Tôi Tự Mua Cho Mình Một Mái Nhà | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1844 | TT2D1844 - Mẹ Chồng Đòi Ở Chung Dưỡng Già, Tôi Nói Thẳng Có Bà Thì Không Có Tôi | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1845 | TT2D1845 - Ba cái vali và 100 ngày chiến tranh với mẹ chồng | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1846 | TT2D1846 - Nhân Tình Mang Thai Tìm Đến Cửa, Tôi Lập Tức Thu Dọn Rời Đi | 8 chương | Hoàn thành | Giữ C1, viết mới C2-C8 |
+| tt2d1847 | TT2D1847 - Chồng Thú Nhận Con Gái Bị Tráo, Không Ngờ Tôi Đã Biết Từ 13 Năm Trước | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1848 | TT2D1848 - Chăm Mẹ Hai Tháng, Tôi Bị Đòi Sáu Mươi Nghìn Tệ | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1849 | TT2D1849 - Tài Sản Ngàn Tỷ, Không Dành Cho Con Ngoài Giá Thú | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1850 | TT2D1850 - Dùng Tiền Của Chồng Thuê Bảo Mẫu Nam, Cả Nhà Chồng Đều Phát Điên | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
+| tt2d1851 | TT2D1851 - Tái Hôn 15 Năm, Chồng Từ Chối Giúp Con Trai Tôi Mua Nhà | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1852 | TT2D1852 - Mua Nhà Làm Của Hồi Môn Cho Con Gái, Con Bé Lại Nhất Quyết Để Tên Tôi | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1853 | TT2D1853 - Vợ Bầu Bị Mẹ Tôi Bắt Nạt, Tôi Lập Tức Dẫn Vợ Con Dọn Ra Ngoài | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1854 | TT2D1854 - Mẹ Chồng Trúng 200 Triệu Tệ, Trọng Sinh Tôi Cướp Mất Giải Độc Đắc Của Bà Ta | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1855 | TT2D1855 - Tôi Đề Nghị Chia Đều Trách Nhiệm Chăm Mẹ, Cả Nhà Lập Tức Đổi Sắc Mặt | 7 chương | Hoàn thành | Giữ C1, viết mới C2-C7 |
+| tt2d1856 | TT2D1856 - Dưới Đường Chân Trời | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1857 | TT2D1857 - Tình Yêu Không Phải Trò Đùa | 11 chương | Hoàn thành | Giữ C1, viết mới C2-C11 |
+| tt2d1858 | TT2D1858 - Người Thứ Ba Không Xa Lạ | 10 chương | Hoàn thành | Giữ C1, viết mới C2-C10 |
+| tt2d1859 | TT2D1859 - Ra Mắt Nhà Bạn Trai, Tôi Bị Ép Nhận Nuôi Em Trai Mới Sinh Của Mẹ Chồng | 6 chương | Hoàn thành | Giữ C1, viết mới C2-C6 |
