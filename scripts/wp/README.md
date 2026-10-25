@@ -87,7 +87,7 @@ su -s /bin/sh -c 'php attach-covers.php /tmp/covers' www-data
 - Mỗi truyện một file WebP rộng 600 px (bìa lớn nhất 295 px CSS, đủ cho màn hình 2x), chất lượng 75, bỏ metadata: trung bình ~25 KB thay vì ~460 KB. WordPress tự tạo thêm bản 150 px và ~168×300 cho `srcset`. Không dùng AVIF: chỉ nhỏ hơn thêm ~6 KB/ảnh mà iPhone dưới iOS 16.4 không hiển thị được.
 - Ảnh 1200×630 của nhatruyenhay là ảnh chia sẻ (bìa dọc ở giữa, nền mờ hai bên): chỉ giữ phần bìa. Ảnh ngang hoặc vuông được cắt về khung bìa (295:425) quanh vùng sharp thấy nổi bật (mặt người), thay vì để CSS cắt chính giữa.
 - Ảnh giống hệt nhau dùng chung một file đính kèm. Truyện bị gộp trùng lấy ảnh của bản bị bỏ nếu bản giữ không có ảnh.
-- `attach-covers.php` bỏ qua truyện đã có ảnh, chạy lại được; tham số thứ hai giới hạn số file mỗi lần. Chạy dưới user `www-data` để wp-admin còn sửa/xóa được file. Cần `sharp` (đang có trong `node_modules` của repo; nếu không, cài ngoài repo và đặt `SHARP_DIR`).
+- `attach-covers.php` bỏ qua truyện đã có ảnh, chạy lại được; tham số thứ hai giới hạn số file mỗi lần. Chạy dưới user `www-data` để wp-admin còn sửa/xóa được file. Cần `sharp`: cài ngoài repo (`npm i sharp@0.35.4` trong một thư mục công cụ, ví dụ cạnh Playground) rồi đặt `SHARP_DIR` là thư mục đó. Repo không còn `node_modules`.
 
 Để thử trên máy, mount thư mục file WXR vào `/import` và dùng bước `importWxr` của blueprint. Sau đó chạy `FREE=<số chương free> [COMPLETED=1] node scripts/wp/check-import.mjs <thư mục bot>...` (cùng các thư mục đã đưa cho `bot-to-wxr.mjs`): với khoảng 12 truyện, các chương free đọc được, chương kế tiếp khóa và không lộ chữ nào (trang, `<head>`, REST của Yoast, tìm kiếm, feed, sitemap).
 
