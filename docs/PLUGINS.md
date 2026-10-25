@@ -26,7 +26,7 @@ Nguyên tắc: việc gì có plugin tốt thì dùng plugin; chỉ tự code kh
 | **Post Views Counter** | Đếm lượt xem. Theme hiện "lượt xem" của mỗi truyện = trang truyện + mọi chương (thẻ truyện, vé nổi bật, trang truyện) | Chạy `scripts/wp/setup-post-views.php` sau khi bật (hoặc tự chỉnh trong Cài đặt → Post Views Counter): đếm loại `story` + `chapter`, chế độ **JavaScript** (đếm đúng cả khi có cache), **không** hiển thị tự động. Theme đọc bảng `post_views` của plugin để làm khối và trang **Xem nhiều** (`/xem-nhieu/`, `inc/ranking.php`): hôm nay, tuần, tháng, tất cả; mỗi truyện = trang truyện + mọi chương; lưu đệm 10 phút. Không dùng widget/shortcode "bài xem nhiều" cho chương: nó có thể in đoạn trích. Đã thử 2026-10-10 (bản 1.8.0): `check-content.mjs` 52/52, REST của plugin chỉ trả số |
 | **Site Kit by Google** (tùy chọn) | Google Analytics, Search Console | Không bật AdSense "Auto ads": Google sẽ tự chèn quảng cáo vào trang đọc và sát nút điều hướng |
 
-Vị trí quảng cáo theo kế hoạch cũ (`docs/ADS_UNLOCK_PLAN.md`): không chen giữa đoạn văn của chương, không đặt sát nhóm nút điều hướng. `reader_end` chỉ hiện khi chương đã được phép đọc.
+Vị trí quảng cáo theo kế hoạch cũ (`docs/archive/nextjs/ADS_UNLOCK_PLAN.md`): không chen giữa đoạn văn của chương, không đặt sát nhóm nút điều hướng. `reader_end` chỉ hiện khi chương đã được phép đọc.
 
 ## Nhập truyện
 
@@ -44,7 +44,7 @@ Nên nhập **trước khi cài Yoast SEO**: Yoast lập chỉ mục từng bài
 
 ## Tự code (không có plugin phù hợp)
 
-1. **Mở khóa bằng link** — đã làm (`storyweb-core/inc/unlock.php`, trang **Truyện → Mở khóa chương**: tối đa 10 link chọn ngẫu nhiên, nội dung cửa sổ, ảnh, thời gian đọc), kèm giới hạn tần suất theo `docs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`. Các plugin "content locker" chỉ ẩn nội dung bằng JavaScript, nội dung vẫn nằm trong HTML.
+1. **Mở khóa bằng link** — đã làm (`storyweb-core/inc/unlock.php`, trang **Truyện → Mở khóa chương**: tối đa 10 link chọn ngẫu nhiên, nội dung cửa sổ, ảnh, thời gian đọc), kèm giới hạn tần suất theo `docs/archive/nextjs/reviews/SEC1_OWASP_REVIEW_2026-10-09.md`. Các plugin "content locker" chỉ ẩn nội dung bằng JavaScript, nội dung vẫn nằm trong HTML.
 2. **Nhập chương hàng loạt**: dán hoặc tải file `.txt`, tự tách theo "Chương N", tạo chương đúng truyện và đúng số. Dùng tiếp cho việc **chuyển truyện từ database cũ**.
 3. **Đăng truyện lên Page Facebook** — đã làm (`storyweb-core/inc/facebook.php`, trang **Truyện → Đăng Facebook**): ảnh bìa + giới thiệu, đoạn mở đầu hoặc cả một chương miễn phí + link đọc tiếp, đăng ngay hoặc hẹn giờ, kèm 1 hoặc 2 bình luận theo mẫu (link đọc tiếp chuyển xuống bình luận; cần quyền `pages_manage_engagement`). **Tự động đăng theo mã** (`inc/facebook-queue.php`): từ mã nào đến mã nào, mỗi bài cách bao lâu, cùng các lựa chọn như đăng tay. Bấm xác nhận là mọi bài được gửi lên Facebook dạng bài lên lịch (Facebook nhận từ 10 phút đến 75 ngày; phần xa hơn tự gửi khi tới gần), Facebook tự đăng đúng giờ. Bình luận không hẹn được trên Facebook nên WP-Cron gửi 2–3 phút sau khi bài lên (cần có người vào site). Hủy thì xóa các bài chưa đăng khỏi lịch. Lỗi Facebook thì tạm dừng. **Sửa bài** (`inc/facebook-edit.php`): đổi chữ của bài đã đăng hoặc đã lên lịch sang nguồn khác (giới thiệu, đoạn mở đầu, cả chương miễn phí) hoặc tự gõ; ảnh, bình luận và giờ đăng giữ nguyên. Plugin đăng mạng xã hội (Blog2Social, FS Poster…) chỉ đăng link bài viết, không lấy được chữ chương và không biết chương nào bị khóa.
 4. **Quảng cáo có thưởng**: giữ tắt cho tới khi có nhà cung cấp web xác minh được phía máy chủ.

@@ -1,3 +1,12 @@
 # Design review for StoryWeb
 
-Review the current StoryWeb UI at desktop and mobile widths. Read `docs/DESIGN_SYSTEM.md` and `docs/WORKBOARD.md`. Check visual hierarchy, typography, reading comfort, keyboard access, touch targets, empty states, and chapter lock clarity. Create a short prioritized review with screenshots if available. Implement only the task you claim on the workboard, then record changed files and verification.
+Review the Trạm Truyện 2D theme (`wp-content/themes/thu-cac`) at desktop and mobile widths, in light and dark, and in each seasonal look. Use a local Playground site (`scripts/wp/README.md`, `scripts/wp/check-browser.mjs` for screenshots), or the live site read-only. Read `docs/DESIGN_SYSTEM.md` first. Check:
+
+- visual hierarchy and section framing;
+- typography and reading comfort;
+- keyboard access and touch targets;
+- empty states;
+- how clear the chapter lock is;
+- that the reader page stays calm.
+
+Write a short prioritized review with screenshots. Implement only what the user assigned, then list the changed files and the checks you ran.

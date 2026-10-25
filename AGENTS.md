@@ -1,51 +1,92 @@
-# StoryWeb — quy ước chung cho coding agents
+# StoryWeb: quy ước chung cho coding agents
 
-Đọc `README.md`, `docs/ARCHITECTURE.md`, `docs/WORKBOARD.md` trước khi nhận việc. Đây là cùng một repository được dùng bởi Codex, Claude Code và Antigravity.
+Codex, Claude Code và Antigravity dùng chung repository này. Trạm Truyện 2D là website đọc truyện chạy trên **WordPress tự host**, deploy trên Railway tại https://tramtruyen2d.up.railway.app. Đọc trước khi nhận việc:
 
-## Phân vai mặc định
+- `README.md`;
+- `docs/VAN_HANH_RAILWAY.md`: máy mới, site thử, deploy, sửa dữ liệu thật;
+- `docs/DESIGN_SYSTEM.md`, nếu sửa giao diện.
 
-- **Codex:** kiến trúc, chốt contract giữa agent, review bảo mật, tích hợp, kiểm tra build và deploy.
-- **Claude Code:** code **toàn bộ logic dự án**, gồm state phía client, server, PostgreSQL/Drizzle, xác thực, API, CMS, quyền đọc và tích hợp dịch vụ/quảng cáo.
-- **Antigravity:** thiết kế và code **giao diện**: component trình bày, bố cục, CSS, responsive, accessibility và design system. Nhận dữ liệu/callback từ lớp logic; không tự quyết định quyền truy cập hoặc trạng thái hoàn thành quảng cáo.
-
-Phân vai là mặc định để tránh sửa đè. Người dùng có thể giao việc khác. Mỗi agent cần nhận một mục trên `docs/WORKBOARD.md` trước khi sửa. Nếu phải sửa file thuộc phạm vi agent khác, ghi chú vào board và bàn giao thay đổi trước.
-
-## Quy tắc làm việc
-
-1. Giữ `main` luôn build được. Sau commit đầu tiên, mỗi agent dùng một nhánh/worktree riêng: `codex/*`, `claude/*`, `antigravity/*`.
-2. Không chạy đồng thời `npm install` hoặc sửa `package.json`, `package-lock.json`, `src/db/schema.ts`, `src/app/globals.css` từ nhiều agent. Ghi chủ sở hữu tạm thời trên workboard.
-3. Không xóa hoặc ghi đè thay đổi chưa commit của agent khác. Bàn giao bằng commit/PR hoặc ghi rõ file đã sửa và kiểm tra đã chạy.
-4. Trước khi bàn giao: chạy `npm run typecheck`, `npm run lint`, `npm run build`; nếu không chạy được, ghi lý do và lỗi cụ thể.
-5. UI phải hỗ trợ màn hình nhỏ, điều hướng bàn phím, trạng thái loading/empty/error khi có dữ liệu thật. Giữ giao diện tiếng Việt.
-6. Không gửi nội dung chương khóa xuống client nếu chưa xác thực quyền đọc trên server. Chương 1 miễn phí mặc định; các chương sau dùng cookie ký tên, hết hạn sau 5 phút ở bản dựng hiện tại. Kế hoạch hai phương thức mở khóa nằm trong `docs/ADS_UNLOCK_PLAN.md`.
-7. Luồng click mở khóa nằm sau cờ cấu hình và mặc định tắt. Chỉ cấu hình link Shopee sau khi người dùng cung cấp chấp thuận riêng; không tự mở popup hoặc tự chuyển hướng. Quảng cáo có thưởng chỉ cấp quyền sau bằng chứng mà server xác minh được; callback trình duyệt đơn thuần không đủ. Xem `docs/ARCHITECTURE.md`.
-
-## Công cụ MCP dùng chung (bắt buộc)
-
-Cả ba agent dùng **Context7** và **Memory** theo `docs/MCP_TOOLS.md`:
-
-- **Context7:** tra tài liệu đúng phiên bản trong `package.json` trước khi code API thư viện. Với Next.js, `node_modules/next/dist/docs/` được ưu tiên hơn.
-- **Memory:** `search_nodes` theo ID task/khu vực khi nhận việc; khi bàn giao ghi quyết định, bẫy kỹ thuật, contract và việc dở theo quy ước tên, rồi thêm dòng `Memory: đã cập nhật <entity>` vào ô bàn giao trên workboard. Không ghi secret, `DATABASE_URL`, cookie, dữ liệu người đọc hay nội dung chương.
-- **Kiểm chứng bàn giao:** ghi `Context7: <thư viện/phiên bản, tài liệu đã tra>` nếu đã sửa API thư viện, hoặc `Context7: không cần (không sửa API thư viện)`; ghi `Memory: đã tra <task/khu vực>; đã cập nhật <entity>` hoặc lỗi kết nối cụ thể. Codex kiểm các dòng này khi tích hợp.
-- Repo là nguồn sự thật; nếu Memory mâu thuẫn với repo thì làm theo repo và sửa Memory. Nếu tool không chạy được, tiếp tục làm việc và ghi rõ trong bàn giao.
+`CLAUDE.md` nhắc lại các quy tắc dưới đây cho Claude Code, kèm chi tiết từng tính năng.
 
 ## Cấu trúc
 
-- `src/app`: routes và page server components.
-- `src/components`: thành phần giao diện dùng lại.
-- `src/data/stories.ts`: dữ liệu mẫu.
-- `src/lib/managed-stories.ts`: truy cập truyện/chương CMS trong PostgreSQL.
-- `src/db`: schema, migration và kết nối PostgreSQL đang dùng bởi ứng dụng.
-- `docs`: quyết định kiến trúc, thiết kế và bảng việc.
+- `wp-content/themes/thu-cac`: **giao diện**, gồm PHP template, CSS và JS thuần, chỉ lo trình bày. Gồm kính lỏng, ba kiểu trang trí (thường, Halloween, Giáng sinh; chọn ở Giao diện → Giao diện theo mùa) và hiệu ứng khi cuộn.
+- `wp-content/plugins/storyweb-core`: **logic**, gồm:
+  - truyện và chương, đường dẫn, mã truyện `TT2D…`;
+  - **khóa chương phía máy chủ**;
+  - mở khóa bằng link, thống kê, đăng Facebook.
+- `deploy/railway-wp`: Docker image WordPress cho Railway.
+- `scripts/wp`:
+  - site thử bằng WordPress Playground và các bộ kiểm tra;
+  - công cụ nhập truyện từ bot;
+  - công cụ chạy script trên server (`railway-php.sh`, mẫu `server-script-template.php`).
+- `brand`: logo và ảnh cho Facebook.
+- `chapter/` (không commit): bot cào truyện và dữ liệu thô để nhập.
+- `docs/archive`: tài liệu của bản Next.js cũ và tiến độ viết lại truyện (đã xong). Chỉ để tra lịch sử, không làm theo. Xem [docs/archive/README.md](docs/archive/README.md).
 
-Ưu tiên thay đổi nhỏ, có mô tả rõ file và hành vi. Không tự tuyên bố tính năng production khi mới là bản demo.
+## Phân vai mặc định
 
-<!-- BEGIN:nextjs-agent-rules -->
+Người dùng giao việc trực tiếp cho từng agent và có thể giao khác với phân vai dưới đây. Không còn bảng việc chung: bảng cũ nằm ở `docs/archive/nextjs/WORKBOARD.md`.
 
-# This is NOT the Next.js you know
+- **Codex:** review bảo mật, kiểm tra trước và sau deploy.
+- **Claude Code:** plugin `storyweb-core`: quyền đọc, mở khóa, thống kê, tích hợp dịch vụ (Facebook, quảng cáo), script dữ liệu.
+- **Antigravity:** giao diện trong theme `thu-cac`: bố cục, CSS, responsive, accessibility. Nhận dữ liệu từ plugin; không tự quyết định quyền đọc.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## Quy tắc
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+1. **Chương khóa không bao giờ gửi body xuống client khi chưa có quyền.** Quy tắc áp dụng cho mọi đường ra: HTML, REST, RSS, embed, sitemap, tìm kiếm. Quyền đọc luôn kiểm phía server, trong plugin; đổi theme không được làm lộ chương khóa. Sửa bất cứ gì đụng nội dung hoặc trang đọc thì chạy `scripts/wp/check-content.mjs`.
+2. **Dữ liệu ra và vào.** Giá trị in ra trang phải qua `esc_*`. Dữ liệu vào phải qua `sanitize_*`. Truy vấn DB dùng `$wpdb->prepare`. Form và action trong wp-admin phải kiểm nonce và `current_user_can`.
+3. **Plugin trước, tự code sau** (`docs/PLUGINS.md`). Dùng plugin trên wordpress.org khi có plugin phù hợp. Chỉ tự code khi không có, hoặc khi plugin làm lộ chương khóa. Plugin đụng nội dung hay trang đọc phải qua `check-content.mjs` trên site thử. Việc cài plugin lên site thật do người dùng làm.
+4. **Mở khóa và quảng cáo.**
+   - Không tự mở popup hay tự chuyển hướng người đọc.
+   - Quảng cáo có thưởng chỉ cấp quyền khi server xác minh được bằng chứng; callback từ trình duyệt không đủ.
+   - Mở khóa bằng link phải giữ giới hạn tần suất và cookie ký HMAC (`inc/unlock.php`).
+5. **Facebook.** Chỉ đăng giới thiệu truyện hoặc chương **miễn phí**. Mã Page không bao giờ in ra trang hay log.
+6. **Repo công khai trên GitHub.**
+   - Không commit mật khẩu, token, khóa SSH, biến môi trường Railway hay mã instance.
+   - Không in secret ra terminal hoặc log.
+7. **Dữ liệu trên site thật** (`docs/VAN_HANH_RAILWAY.md`).
+   - Chạy script với `--dry` trước, đọc báo cáo, rồi mới `--apply`.
+   - Sao lưu bản gốc trước khi ghi.
+   - Xóa file trong `/tmp` của server sau khi dùng.
+   - Không đụng project hay database Railway của bản Next.js cũ.
+8. **Không xóa hoặc ghi đè thay đổi chưa commit của agent khác.** Xem `git status` trước khi sửa. File tạm như script sinh nội dung, bản dump hay JSON trung gian thì để trong `.scratch/` (git bỏ qua) hoặc ngoài repo, không để ở gốc repo. Xong việc thì dọn.
+9. **Giao diện.**
+   - Chữ tiếng Việt.
+   - Chạy được trên màn hình 320 px, dùng được bằng bàn phím, tôn trọng `prefers-reduced-motion`.
+   - Trang đọc giữ yên tĩnh: không trang trí nền, không hiệu ứng khi cuộn.
+   - Logic trang đọc nằm trong `assets/js/reader-core.js` và có unit test. Sửa logic thì sửa test.
 
-<!-- END:nextjs-agent-rules -->
+## Nhánh, commit, deploy
+
+- **Push lên `main` là deploy lên site thật.** Railway build lại image và thay theme và plugin trên volume; site gián đoạn vài chục giây. Chỉ đưa lên `main` những gì đã qua phần Kiểm tra bên dưới.
+- Mỗi agent làm trên nhánh riêng `codex/*`, `claude/*` hoặc `antigravity/*`. Khi hai agent chạy cùng lúc, mỗi agent dùng worktree riêng. Đưa vào `main` bằng merge fast-forward rồi push.
+- Đổi file CSS hoặc JS của theme thì tăng `Version` trong `style.css` và `THU_CAC_VERSION` trong `functions.php`, để trình duyệt tải file mới. Đổi plugin thì tăng `Version` và `STORYWEB_CORE_VERSION` trong `storyweb-core.php`.
+- Commit message nói rõ đã đổi gì và đã chạy kiểm tra nào.
+
+## Kiểm tra trước khi bàn giao
+
+- `npm test`: logic trang đọc.
+- Site thử WordPress Playground với `scripts/wp/blueprint-dev.json` và các script trong `scripts/wp/` (hướng dẫn chạy: `scripts/wp/README.md`):
+
+  | Script | Kiểm tra gì | Lưu ý |
+  | --- | --- | --- |
+  | `check-content.mjs` | nội dung và chống lộ chương khóa | |
+  | `check-browser.mjs` | giao diện ở các khổ màn hình, Sáng/Tối | |
+  | `check-admin.mjs` | wp-admin | |
+  | `check-unlock.mjs` | mở khóa bằng link | cần site mới khởi động |
+  | `check-facebook.mjs` | đăng Facebook | dùng `mock-facebook.php` thay Facebook; cần site mới khởi động |
+
+- Không có cảnh báo PHP trong log của site thử.
+- Sau khi deploy, mở site thật và kiểm: version theme và plugin, trang chủ, một chương khóa.
+- Bàn giao ghi: file đã sửa, kiểm tra đã chạy và kết quả, việc còn dở.
+
+## MCP: Context7 và Memory
+
+Theo `docs/MCP_TOOLS.md`, khai báo trong `.mcp.json`:
+
+- Tra **Memory** khi nhận việc.
+- Tra **Context7** trước khi dùng API của thư viện hay dịch vụ (WordPress, Facebook Graph, Playground…).
+- Ghi Memory khi bàn giao: quyết định, bẫy kỹ thuật, việc còn dở. Không ghi secret, dữ liệu người đọc hay nội dung chương.
+
+Repo là nguồn sự thật. Nếu Memory mâu thuẫn với repo thì làm theo repo, rồi sửa Memory.

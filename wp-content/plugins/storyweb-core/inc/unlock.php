@@ -2,7 +2,7 @@
 /**
  * Mở khóa bằng link: on a locked chapter the reader opens one of the admin's links (a Shopee affiliate link…) through
  * /mo-khoa/, which sets a signed grant cookie and redirects there; for N minutes every locked chapter can be read.
- * Port of StoryWeb M2/M4 (docs/UNLOCK_API.md) with the SEC1 fix (rate limit per IP).
+ * Port of StoryWeb M2/M4 (docs/archive/nextjs/UNLOCK_API.md) with the SEC1 fix (rate limit per IP).
  *
  * - The grant is checked on the server for every request (storyweb_has_unlock_grant): cookie
  *   "v3.<revision>.<expires>.<HMAC>" keyed with the site's salts, valid only while the feature is on, for the current

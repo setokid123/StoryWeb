@@ -15,3 +15,5 @@ content/published-stories.json
 dist/
 # Story bot output (stories to import), kept out of git.
 chapter/
+# Temporary files of agents (generators, dumps, intermediate JSON); see AGENTS.md rule 8.
+.scratch/

@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Path to the tracker JSON (relative to repository root)
-const TRACKER_PATH = path.resolve(__dirname, '../../stories_master_tracker.json');
+const TRACKER_PATH = path.resolve(__dirname, '../../docs/archive/viet-lai/stories_master_tracker.json');
 
 const storyCode = process.argv[2];
 if (!storyCode) {

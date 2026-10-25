@@ -7,7 +7,7 @@ Các mục đã hoàn tất, chuyển nguyên văn từ `docs/WORKBOARD.md` ngà
 - **Chủ trì:** Codex
 - **Việc:** Tích hợp U7/M5, kiểm tra và phát hành
 - **Trạng thái:** `main` đã push app `c2da8f5`; Railway `85873685` SUCCESS
-- **File:** [Review I18](../reviews/I18_U7_M5_DRAFT_INTEGRATION_2026-09-25.md), nhánh `codex/i18-u7-m5-integration`
+- **File:** [Review I18](reviews/I18_U7_M5_DRAFT_INTEGRATION_2026-09-25.md), nhánh `codex/i18-u7-m5-integration`
 - **Bàn giao:** Build/typecheck/lint/diff check, scroll 12/12, preferences 8/8 đạt. GitHub Railway status success; health, trang chủ, tìm kiếm, panel 200; settings 307 về panel khi chưa đăng nhập. Ảnh U7 là trang thử component, ảnh M5 là ReaderPanel với CSS cũ; QA visual bản ghép cuối vẫn còn thiếu. Không đổi DB/migration. Context7: Next 16 docs local cho preview tạm; Memory: đã tra U7/M5/I18; đã cập nhật I18.
 
 ## I17
@@ -15,7 +15,7 @@ Các mục đã hoàn tất, chuyển nguyên văn từ `docs/WORKBOARD.md` ngà
 - **Chủ trì:** Codex
 - **Việc:** Review M5 hoàn tất và U7 commit mới
 - **Trạng thái:** Logic đạt; chờ visual U7 trước tích hợp
-- **File:** [Review I17](../reviews/I17_U7_M5_REVIEW_2026-09-25.md); không sửa code agent
+- **File:** [Review I17](reviews/I17_U7_M5_REVIEW_2026-09-25.md); không sửa code agent
 - **Bàn giao:** M5 `a688614`: typecheck/lint/build/diff check, scroll 12/12, preferences 8/8 đạt; walkthrough Chrome 19/19 theo bàn giao. U7 `1808728` tăng opacity/padding nhưng chưa ghép/chụp lại. Ảnh 768px nhãn dock xuống dòng; cần chỉnh tablet, ảnh Sáng/Tối bản cuối và Context7/Memory U7. Context7: không cần (review); Memory: đã tra U7/M5/I16; đã cập nhật I17.
 
 ## I16
@@ -23,7 +23,7 @@ Các mục đã hoàn tất, chuyển nguyên văn từ `docs/WORKBOARD.md` ngà
 - **Chủ trì:** Codex
 - **Việc:** Kiểm tra bàn giao U7 và tiến độ M5
 - **Trạng thái:** Review hoàn tất; chưa tích hợp
-- **File:** [Review I16](../reviews/I16_U7_M5_CHECK_2026-09-25.md); không sửa code agent
+- **File:** [Review I16](reviews/I16_U7_M5_CHECK_2026-09-25.md); không sửa code agent
 - **Bàn giao:** U7 commit `19b58c7`, typecheck/lint/build/diff check đạt nhưng còn fallback nền Tối và bàn giao visual/MCP; toolbar ẩn vẫn nhận Tab nếu M5 chưa đặt `inert`. M5 còn ở `f38af76`, chưa có code. Chờ U7 sửa và M5 ghép rồi kiểm tra trình duyệt. Context7: không cần (review code/CSS); Memory: đã tra U7/M5/reader-navigation; đã cập nhật I16.
 
 ## I15
@@ -56,7 +56,7 @@ Các mục đã hoàn tất, chuyển nguyên văn từ `docs/WORKBOARD.md` ngà
 - **Việc:** Push M4, deploy Railway và bật cờ server để admin thử Nhấp liên kết
 - **Trạng thái:** Hoàn tất: app commit `e49dab8`, deployment sau bật cờ `812bad29` SUCCESS
 - **File:** `docs/reviews/I14_M4_PRODUCTION_RELEASE_2026-09-24.md`, `docs/WORKBOARD.md`, `docs/assignments/README.md`; không đổi logic ứng dụng
-- **Bàn giao:** Railway migration thành công, 5 route GET HTTP 200. `CLICK_UNLOCK_ENABLED=true`, secret đủ dài, Shopee flag=false. API admin read-only: master=false, effectiveMode=off, chưa lưu URL. Codex không ghi test data vào production; M4 E2E trên DB Railway riêng từ bàn giao Claude, I13 chạy unit/typecheck/lint/build. Xem [I14](../reviews/I14_M4_PRODUCTION_RELEASE_2026-09-24.md). Context7: không cần (phát hành); Memory: đã tra M4/I13; đã cập nhật I14.
+- **Bàn giao:** Railway migration thành công, 5 route GET HTTP 200. `CLICK_UNLOCK_ENABLED=true`, secret đủ dài, Shopee flag=false. API admin read-only: master=false, effectiveMode=off, chưa lưu URL. Codex không ghi test data vào production; M4 E2E trên DB Railway riêng từ bàn giao Claude, I13 chạy unit/typecheck/lint/build. Xem [I14](reviews/I14_M4_PRODUCTION_RELEASE_2026-09-24.md). Context7: không cần (phát hành); Memory: đã tra M4/I13; đã cập nhật I14.
 
 ## I13
 
@@ -64,7 +64,7 @@ Các mục đã hoàn tất, chuyển nguyên văn từ `docs/WORKBOARD.md` ngà
 - **Việc:** Review bảo mật và tích hợp M4
 - **Trạng thái:** Đã review `6a5748d`, tích hợp `main` (`e49dab8`); phát hành trong I14
 - **File:** `src/components/unlock-settings-container.tsx`, `src/components/unlock-settings-view.tsx`, `README.md`, `docs/reviews/I13_M4_INTEGRATION_2026-09-24.md`, workboard; logic M4 do Claude sở hữu
-- **Bàn giao:** URL public HTTPS, Shopee gate, body chương khóa, cookie/revision và fail-closed đã kiểm. Sửa giữ bản nháp khi 409 conflict và copy admin. Typecheck/lint/build/diff check, unit URL 7/7, rewarded 9/9 đạt; DB E2E 11/11 từ bàn giao Claude trên DB Railway riêng đã xóa. Chưa thử form M4 trên trình duyệt; cần smoke sau deploy. Context7: không cần (không đổi API thư viện); Memory: đã tra M4/unlock-grant; đã cập nhật I13. Xem [review I13](../reviews/I13_M4_INTEGRATION_2026-09-24.md).
+- **Bàn giao:** URL public HTTPS, Shopee gate, body chương khóa, cookie/revision và fail-closed đã kiểm. Sửa giữ bản nháp khi 409 conflict và copy admin. Typecheck/lint/build/diff check, unit URL 7/7, rewarded 9/9 đạt; DB E2E 11/11 từ bàn giao Claude trên DB Railway riêng đã xóa. Chưa thử form M4 trên trình duyệt; cần smoke sau deploy. Context7: không cần (không đổi API thư viện); Memory: đã tra M4/unlock-grant; đã cập nhật I13. Xem [review I13](reviews/I13_M4_INTEGRATION_2026-09-24.md).
 
 ## M4
 
