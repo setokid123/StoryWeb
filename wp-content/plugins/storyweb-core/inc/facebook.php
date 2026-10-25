@@ -268,12 +268,12 @@ function storyweb_fb_hashtags( $story ) {
 }
 
 /**
- * The post text for `$source`: title, (chapter), text, "read on" link (left out when the first comment carries it),
- * hashtags; cut to Facebook's limit.
+ * The post text for `$source`: title, (chapter, from chapter 2 on: chapter 1 is where the story starts, so it needs
+ * no label), text, "read on" link (left out when the first comment carries it), hashtags; cut to Facebook's limit.
  */
 function storyweb_fb_message( $story, $source, $with_link = true ) {
 	$title = html_entity_decode( get_the_title( $story ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
-	$head  = '📖 ' . $title . ( $source['chapter'] ? ' · Chương ' . $source['chapter'] : '' );
+	$head  = '📖 ' . $title . ( $source['chapter'] > 1 ? ' · Chương ' . $source['chapter'] : '' );
 	$tags  = storyweb_fb_hashtags( $story );
 	$foot  = $with_link ? "\n\n👉 " . $source['more'] . ': ' . $source['link'] : '';
 	$foot .= '' !== $tags ? ( $with_link ? "\n" : "\n\n" ) . $tags : '';
