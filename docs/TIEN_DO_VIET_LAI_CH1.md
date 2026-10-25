@@ -7,7 +7,7 @@
 > 4. Giữ nguyên URL slug và cấu trúc SEO link; backup trước khi ghi đè.
 
 - **Tổng kho truyện:** 1.859 truyện
-- **Tiến độ hiện tại:** 1.600 / 1.859 truyện (86,07%) - *Chính thức cán mốc 1.600 truyện!*
+- **Tiến độ hiện tại:** 1.650 / 1.859 truyện (88,76%) - *Chính thức cán mốc 1.650 truyện!*
 
 | Mã đợt | Dải truyện | Số lượng | Trạng thái |
 | :---: | :---: | :---: | :---: |
@@ -43,7 +43,7 @@
 | Batch 30 | tt2d1451 - tt2d1500 | 50 | 🟢 Hoàn thành (50/50) |
 | Batch 31 | tt2d1501 - tt2d1550 | 50 | 🟢 Hoàn thành (50/50) |
 | Batch 32 | tt2d1551 - tt2d1600 | 50 | 🟢 Hoàn thành (50/50) |
-| Batch 33 | tt2d1601 - tt2d1650 | 50 | ⏳ Chờ |
+| Batch 33 | tt2d1601 - tt2d1650 | 50 | 🟢 Hoàn thành (50/50) |
 | Batch 34 | tt2d1651 - tt2d1700 | 50 | ⏳ Chờ |
 | Batch 35 | tt2d1701 - tt2d1750 | 50 | ⏳ Chờ |
 | Batch 36 | tt2d1751 - tt2d1800 | 50 | ⏳ Chờ |
