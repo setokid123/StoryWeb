@@ -4,8 +4,9 @@
  * opening of chapter 1, a whole free chapter), edit the text and post it with the cover, now or at a set time, with
  * an optional first comment from a template (the "read on" link then moves from the post to the comment).
  * Also a "Đăng Facebook" link under each story in Truyện → Tất cả truyện. Logic in inc/facebook.php.
- * "Tạo bài để tự đăng" makes the same post as a kit to post by hand (text, cover JPEG, comments, each with a copy
- * button); nothing goes to Facebook, so it works without a connected Page. Stories marked as posted by hand show it
+ * "Tạo bài để tự đăng" makes the same post as a kit to post by hand (text ending with the read-on link, cover JPEG,
+ * each with a copy button; no comments needed, so it can be shared to groups as is); nothing goes to Facebook, so it
+ * works without a connected Page. Stories marked as posted by hand show it
  * in the picker.
  *
  * @package StoryWebCore
@@ -489,7 +490,7 @@ function storyweb_fb_admin_composer( $story, $s, $connected = true ) {
 			<?php endif; ?>
 			<button type="button" class="button <?php echo $connected ? '' : 'button-primary'; ?>" data-make-kit>Tạo bài để tự đăng</button>
 			<?php if ( $connected ) : ?>
-				<p class="description">Tự đăng: không gửi gì lên Facebook, chỉ tạo sẵn nội dung, ảnh và bình luận để bạn chép và đăng tay (đỡ bị Facebook quét như đăng tự động).</p>
+				<p class="description">Tự đăng: không gửi gì lên Facebook, chỉ tạo sẵn nội dung (link đọc tiếp nằm cuối bài, không cần bình luận) và ảnh để bạn chép và đăng tay lên Page hay nhóm (đỡ bị Facebook quét như đăng tự động).</p>
 			<?php endif; ?>
 		</div>
 	</form>
@@ -537,9 +538,10 @@ function storyweb_fb_admin_composer( $story, $s, $connected = true ) {
 }
 
 /**
- * The kit to post by hand, under the composer: the cover as a JPEG (download or copy), the post text and the
- * comments as they are in the composer, each with a copy button, and "Đánh dấu đã đăng tay". Hidden until
- * "Tạo bài để tự đăng"; filled from the composer in the browser, so it is exactly what would have been posted.
+ * The kit to post by hand, under the composer: the cover as a JPEG (download or copy), the post text with a copy
+ * button, and "Đánh dấu đã đăng tay". Hidden until "Tạo bài để tự đăng"; filled from the composer in the browser.
+ * The text always ends with the read-on link (even when the composer moves it to the first comment), so the same post
+ * can be pasted on the Page and shared to groups without any comment.
  */
 function storyweb_fb_admin_kit( $story ) {
 	$jpeg = storyweb_fb_cover_url( $story );
@@ -549,7 +551,7 @@ function storyweb_fb_admin_kit( $story ) {
 	?>
 	<div class="storyweb-fb-kit" data-manual-kit hidden style="max-width:1010px;margin:24px 0;padding:18px 20px;background:#fff;border:1px solid #c3c4c7;border-radius:10px">
 		<h2 style="margin-top:0">Bài để tự đăng</h2>
-		<p class="description">Trên Facebook: mở Page → <strong>Tạo bài viết</strong>, dán nội dung, thêm ảnh, đăng. Rồi dán lần lượt từng bình luận dưới bài. Không có gì được gửi lên Facebook từ đây. Muốn đổi nội dung thì sửa ở khung trên rồi bấm <strong>Tạo lại bài</strong>.</p>
+		<p class="description">Trên Facebook: mở Page hoặc nhóm → <strong>Tạo bài viết</strong>, dán nội dung, thêm ảnh, đăng. Link đọc tiếp đã nằm cuối bài nên không cần bình luận; đăng chéo sang nhóm khác thì dán y nguyên. Không có gì được gửi lên Facebook từ đây. Muốn đổi nội dung thì sửa ở khung trên rồi bấm <strong>Tạo lại bài</strong>.</p>
 		<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
 			<div style="flex:0 0 220px">
 				<?php if ( $jpeg ) : ?>
@@ -563,14 +565,6 @@ function storyweb_fb_admin_kit( $story ) {
 				<div style="<?php echo esc_attr( $box ); ?>">
 					<p style="margin-top:0"><label for="sw-kit-message"><strong>Nội dung bài</strong></label> <button type="button" class="button button-small" data-copy="message">Sao chép nội dung</button></p>
 					<textarea id="sw-kit-message" rows="12" class="large-text" readonly data-kit="message"></textarea>
-				</div>
-				<div style="<?php echo esc_attr( $box ); ?>" data-kit-wrap="comment">
-					<p style="margin-top:0"><label for="sw-kit-comment"><strong>Bình luận 1</strong></label> <button type="button" class="button button-small" data-copy="comment">Sao chép bình luận 1</button></p>
-					<textarea id="sw-kit-comment" rows="3" class="large-text" readonly data-kit="comment"></textarea>
-				</div>
-				<div style="<?php echo esc_attr( $box ); ?>" data-kit-wrap="comment2">
-					<p style="margin-top:0"><label for="sw-kit-comment2"><strong>Bình luận 2</strong></label> <button type="button" class="button button-small" data-copy="comment2">Sao chép bình luận 2</button></p>
-					<textarea id="sw-kit-comment2" rows="3" class="large-text" readonly data-kit="comment2"></textarea>
 				</div>
 				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 					<input type="hidden" name="action" value="storyweb_fb_manual">
@@ -600,17 +594,24 @@ function storyweb_fb_admin_kit( $story ) {
 			clearTimeout( button._t );
 			button._t = setTimeout( function () { button.textContent = old; }, 1800 );
 		};
+		// The composer text, with the read-on link put back when the composer left it to the first comment: the unedited
+		// text becomes the server's version with the link; an edited one gets the link line above its hashtag line.
+		var withLink = function ( message, c ) {
+			if ( ! c || message.indexOf( c.vars.link_doc_tiep ) !== -1 ) {
+				return message;
+			}
+			if ( message === c.without.trim() ) {
+				return c.with.trim();
+			}
+			var line = '👉 ' + c.vars.doc_tiep + ': ' + c.vars.link_doc_tiep;
+			var tags = message.match( /\n(#[^\n]*)$/ );
+			return tags ? message.slice( 0, tags.index ).trimEnd() + '\n\n' + line + '\n' + tags[ 1 ] : message + '\n\n' + line;
+		};
 		var fill = function () {
-			kit.querySelector( '[data-kit="message"]' ).value = document.getElementById( 'sw-fb-message' ).value.trim();
-			[ [ '', 'comment' ], [ '2', 'comment2' ] ].forEach( function ( pair ) {
-				var tick = document.getElementById( 'sw-fb-comment' + pair[ 0 ] + '-on' );
-				var text = document.getElementById( 'sw-fb-comment' + pair[ 0 ] );
-				var wrap = kit.querySelector( '[data-kit-wrap="' + pair[ 1 ] + '"]' );
-				var value = tick && tick.checked && text ? text.value.trim() : '';
-				wrap.hidden = '' === value;
-				wrap.querySelector( 'textarea' ).value = value;
-			} );
+			var texts = JSON.parse( document.getElementById( 'sw-fb-texts' ).textContent );
 			var radio = document.querySelector( '.storyweb-fb-compose [name=source]:checked' );
+			var message = document.getElementById( 'sw-fb-message' ).value.trim();
+			kit.querySelector( '[data-kit="message"]' ).value = withLink( message, texts[ radio ? radio.value : Object.keys( texts )[ 0 ] ] );
 			kit.querySelector( '[data-kit-source]' ).value = radio ? radio.value : '';
 		};
 		make.addEventListener( 'click', function () {
