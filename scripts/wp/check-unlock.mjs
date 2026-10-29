@@ -72,8 +72,8 @@ ok("save: good links kept, 5 bad links refused", saved.status === 302 && /saved=
 const anonForm = await post("/wp-admin/admin-post.php", { action: "storyweb_unlock_save", enabled: "1" }, new Jar());
 ok("save without login/nonce does nothing", !/saved=1/.test(anonForm.location), `status ${anonForm.status}`);
 
-// ---- reader: the gate ----
-const ch2 = await get(`/doc/${S}/2/`);
+// ---- reader: the gate (opened from the story page, as a browser does) ----
+const ch2 = await get(`/doc/${S}/2/`, { headers: click });
 const visit = gateLink(ch2.text);
 ok("locked chapter: popup with the admin's title, text, link text, image and button", ch2.text.includes("Mở khóa thử nghiệm") && ch2.text.includes("<strong>CLICK</strong>") && ch2.text.includes("Mở Shopee") && ch2.text.includes("cf.shopee.vn/file/test.jpg") && ch2.text.includes("Cảm ơn bạn!") && /class="locked-panel__url"/.test(ch2.text));
 ok("admin text is filtered (no <script>, not even its code as text)", !/<script>alert\('x'\)/.test(ch2.text) && !ch2.text.includes("alert('x')"));
@@ -148,18 +148,30 @@ const statsPage = (await get("/wp-admin/edit.php?post_type=story&page=storyweb-s
 const card = (label) => Number(((statsPage.match(new RegExp(label + "</span><b>([\\d.,]+)")) ?? [])[1] ?? "-1").replace(/[.,]/g, ""));
 ok("Thống kê: every grant counted as a click", card("Bấm link mở khóa thành công") === grants, `clicks ${card("Bấm link mở khóa thành công")}, grants ${grants}`);
 ok("Thống kê: refusals listed by reason (not a click, too many)", statsPage.includes("Không phải cú bấm trên trang đọc") && statsPage.includes("Một mạng bấm quá 15 lần"));
-ok("Thống kê: the clicks are put on the story and the links", statsPage.includes("Truyện được bấm mở khóa nhiều nhất") && statsPage.includes('<td class="link"><a href="https://') && !statsPage.includes("Không rõ truyện"));
+ok("Thống kê: the clicks are put on the story and the links", statsPage.includes("Mở khóa theo truyện") &&statsPage.includes('<td class="link"><a href="https://') && !statsPage.includes("Không rõ truyện"));
 ok("Thống kê: locked-chapter views counted for the rate", /Tỉ lệ bấm mở khóa<\/span><b>\d/.test(statsPage));
 ok("Thống kê: administrators only", (await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).status !== 200 || !(await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats")).text.includes("Bấm link mở khóa thành công"));
 // The reader page reloads itself while the gate waits: reloading the same locked chapter is one view, another chapter is a new one.
-const gateViews = async () => Number(((await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats&khoang=7", { jar: admin })).text.match(/([\d.,]+) lần thấy popup khóa/) ?? [])[1]?.replace(/[.,]/g, "") ?? -1);
+const statsCount = async (re) => Number(((await get("/wp-admin/edit.php?post_type=story&page=storyweb-stats&khoang=7", { jar: admin })).text.match(re) ?? [])[1]?.replace(/[.,]/g, "") ?? -1);
+const gateViews = () => statsCount(/([\d.,]+) lần thấy popup khóa/);
+const crawlerViews = () => statsCount(/máy quét ([\d.,]+)/);
 const visitor = new Jar();
 const before = await gateViews();
-for (let i = 0; i < 3; i++) await get(`/doc/${S}/2/`, { jar: visitor });
+for (let i = 0; i < 3; i++) await get(`/doc/${S}/2/`, { jar: visitor, headers: click });
 const afterReloads = await gateViews();
-await get(`/doc/${S}/3/`, { jar: visitor });
+await get(`/doc/${S}/3/`, { jar: visitor, headers: click });
 const afterOther = await gateViews();
 ok("Thống kê: reloading a locked chapter counts once, another locked chapter counts again", afterReloads - before === 1 && afterOther - afterReloads === 1, `+${afterReloads - before} for 3 loads, +${afterOther - afterReloads} for the next chapter`);
+// Crawlers following the home page's "Chương mới" links open the last, locked chapter straight away: no Fetch
+// Metadata, no Referer, often a browser's user agent. They are counted apart and do not lower the click rate.
+const crawlersBefore = await crawlerViews();
+await get(`/doc/${S}/4/`, { jar: new Jar() });
+await get(`/doc/${S}/5/`, { jar: new Jar(), headers: { ...click, "user-agent": "Mediapartners-Google" } });
+ok("Thống kê: a crawler with a browser's name, and the AdSense crawler, are not popup views but crawler views", (await gateViews()) === afterOther && (await crawlerViews()) - crawlersBefore === 2, `popup ${(await gateViews()) - afterOther}, crawlers +${(await crawlerViews()) - crawlersBefore}`);
+await get(`/doc/${S}/6/`, { jar: new Jar(), headers: { referer: `${B}/doc/${S}/5/` } });
+ok("Thống kê: an old browser without Fetch Metadata, coming from a page (Referer), is a reader", (await gateViews()) - afterOther === 1);
+const robots = (await get("/robots.txt")).text;
+ok("robots.txt keeps crawlers out of /mo-khoa/, in the group for every crawler", /User-agent: \*\r?\nDisallow: \/mo-khoa\/\r?\n/.test(robots), robots.split("\n").slice(0, 3).join(" | "));
 
 // ---- switched off ----
 saved = await save({ ...settings, "links[]": LINKS, enabled: "" });

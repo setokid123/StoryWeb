@@ -4,10 +4,12 @@
  *
  * Our table {prefix}storyweb_stats holds one row per day, metric and item, nothing about the person (no IP; the
  * only cookie is the ID of the last gated chapter, see below): "gate" (a reader opened a locked chapter and saw
- * the link gate; reloads of the same chapter are not counted again; item = story ID), "click" (a reader's click on
- * the gate granted access; item = story ID), "link" (which unlock link was opened; item = the link) and "refused"
- * (a /mo-khoa/ request turned down; item = reason). Days are UTC, like Post Views Counter's, so the charts line up.
- * Rows older than STORYWEB_STATS_KEEP_DAYS are deleted once a day.
+ * the link gate; reloads of the same chapter are not counted again; item = story ID), "gate_bot" (a crawler opened
+ * one, kept apart so it does not lower the click rate; item = story ID), "click" (a reader's click on the gate
+ * granted access; item = story ID), "link" (which unlock link was opened; item = the link) and "refused" (a /mo-khoa/
+ * request turned down; item = reason). Days are UTC, like Post Views Counter's, so the charts line up. Rows older
+ * than STORYWEB_STATS_KEEP_DAYS are deleted once a day. Post Views Counter does not count a locked chapter for a
+ * visitor who cannot read it, nor crawlers (storyweb_stats_is_bot): that is a gate view, not a read.
  *
  * @package StoryWebCore
  */
@@ -63,20 +65,41 @@ function storyweb_stats_hit( $metric, $item = '' ) {
 	);
 }
 
-/** Search engines, link previews, monitors and scripts: not readers. */
+/**
+ * Search engines, link previews, monitors and scripts: not readers. Some crawlers have no "bot" in their name (the
+ * AdSense crawler Mediapartners-Google, Google's inspection and read-aloud fetchers, AI assistants fetching a page for
+ * a user, scraping libraries), so they are listed.
+ */
 function storyweb_stats_is_bot() {
 	$agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
 	$hint  = ( isset( $_SERVER['HTTP_SEC_PURPOSE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_SEC_PURPOSE'] ) ) : '' )
 		. ( isset( $_SERVER['HTTP_PURPOSE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_PURPOSE'] ) ) : '' );
 	return '' === $agent || str_contains( strtolower( $hint ), 'prefetch' )
-		|| (bool) preg_match( '/bot|crawl|spider|slurp|preview|facebookexternalhit|embedly|headless|lighthouse|uptime|monitor|curl|wget|python|java\/|okhttp|go-http/i', $agent );
+		|| (bool) preg_match( '/bot|crawl|spider|slurp|preview|facebookexternalhit|embedly|headless|lighthouse|uptime|monitor|curl|wget|python|java\/|okhttp|go-http/i', $agent )
+		|| (bool) preg_match( '/mediapartners-google|google-inspectiontool|googleother|google-read-aloud|feedfetcher|google-site-verification|chatgpt-user|perplexity-user|claude-user|meta-externalagent|meta-externalfetcher|scrapy|axios|node-fetch|undici|httpclient|phantomjs|puppeteer|playwright|selenium/i', $agent );
+}
+
+/**
+ * Whether this page request came from a page, as a reader's does: a browser's top-level navigation (Fetch Metadata,
+ * sent by every current browser, including in-app ones), or, from a browser too old for that (Safari before 16.4),
+ * a navigation with a Referer. Crawlers that follow the site's links (the "Chương mới" links on the home page lead
+ * straight to the last, locked chapter of each story) send neither.
+ */
+function storyweb_stats_from_page() {
+	$header = static function ( $key ) {
+		return isset( $_SERVER[ $key ] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER[ $key ] ) ) ) : '';
+	};
+	if ( '' !== $header( 'HTTP_SEC_FETCH_SITE' ) ) {
+		return 'navigate' === $header( 'HTTP_SEC_FETCH_MODE' ) && 'document' === $header( 'HTTP_SEC_FETCH_DEST' );
+	}
+	return '' !== (string) wp_get_raw_referer();
 }
 
 /*
- * A locked chapter showed the link gate to a reader (not to editors, who can read it, nor to bots). The reader page
- * reloads itself while the gate waits (each time the reader comes back from another app or tab), so a session
- * cookie remembers the last gated chapter: reloading it is not counted again. A grant clears it, so meeting the
- * gate again after the grant runs out counts. The cookie holds a post ID only.
+ * A locked chapter showed the link gate to a reader (not to editors, who can read it). Crawlers go to "gate_bot"
+ * instead. The reader page reloads itself while the gate waits (each time the reader comes back from another app or
+ * tab), so a session cookie remembers the last gated chapter: reloading it is not counted again. A grant clears it,
+ * so meeting the gate again after the grant runs out counts. The cookie holds a post ID only.
  */
 const STORYWEB_STATS_GATE_COOKIE = 'storyweb_gate';
 
@@ -87,7 +110,12 @@ add_action(
 			return;
 		}
 		$chapter = get_queried_object();
-		if ( storyweb_can_read_chapter( $chapter ) || storyweb_stats_is_bot() ) {
+		if ( storyweb_can_read_chapter( $chapter ) ) {
+			return;
+		}
+		$story = storyweb_chapter_story( $chapter );
+		if ( storyweb_stats_is_bot() || ! storyweb_stats_from_page() ) {
+			storyweb_stats_hit( 'gate_bot', $story ? $story->ID : 0 );
 			return;
 		}
 		$seen = isset( $_COOKIE[ STORYWEB_STATS_GATE_COOKIE ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ STORYWEB_STATS_GATE_COOKIE ] ) ) : '';
@@ -95,10 +123,24 @@ add_action(
 			return;
 		}
 		storyweb_stats_gate_cookie( (string) $chapter->ID );
-		$story = storyweb_chapter_story( $chapter );
 		storyweb_stats_hit( 'gate', $story ? $story->ID : 0 );
 	},
 	20
+);
+
+// Post Views Counter: a locked chapter the visitor cannot read was not read (the gate view is counted above), and
+// crawlers do not read. In its JavaScript mode the check runs in the counting request, which carries the same cookies.
+add_filter(
+	'pvc_count_conditions_met',
+	static function ( $met, $post_id ) {
+		if ( ! $met || storyweb_stats_is_bot() ) {
+			return false;
+		}
+		$post = get_post( (int) $post_id );
+		return ! ( $post && 'chapter' === $post->post_type && ! storyweb_can_read_chapter( $post ) );
+	},
+	20,
+	2
 );
 
 /** Sets (or, with '', clears) the "last gated chapter" session cookie. */
@@ -158,7 +200,7 @@ function storyweb_stats_unlock( $days ) {
 		'daily' => array_fill_keys( $list, array( 'gate' => 0, 'click' => 0 ) ),
 		'gate'  => 0,
 		'click' => 0,
-		'items' => array( 'gate' => array(), 'click' => array(), 'link' => array(), 'refused' => array() ),
+		'items' => array( 'gate' => array(), 'gate_bot' => array(), 'click' => array(), 'link' => array(), 'refused' => array() ),
 	);
 	if ( get_option( 'storyweb_stats_db' ) !== STORYWEB_STATS_DB_VERSION ) {
 		return $result;

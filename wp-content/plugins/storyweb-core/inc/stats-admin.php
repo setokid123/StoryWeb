@@ -173,12 +173,12 @@ function storyweb_stats_admin_page() {
 				<a class="button" href="<?php echo esc_url( add_query_arg( 'khoang', $key ) ); ?>"<?php echo $key === $days ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $label ); ?></a>
 			<?php endforeach; ?>
 		</nav>
-		<p class="sw-stats__note">Một ngày tính theo giờ quốc tế (UTC): từ 7:00 sáng hôm nay đến 7:00 sáng hôm sau, giờ Việt Nam. Lượt thấy popup khóa không tính bot, link xem trước, người đang trong thời gian mở khóa, và không tính thêm khi người đọc tải lại cùng một chương.</p>
+		<p class="sw-stats__note">Một ngày tính theo giờ quốc tế (UTC): từ 7:00 sáng hôm nay đến 7:00 sáng hôm sau, giờ Việt Nam. Lượt thấy popup khóa không tính người đang trong thời gian mở khóa, và không tính thêm khi người đọc tải lại cùng một chương. Máy quét (bot, link xem trước, máy mở thẳng link chương khóa mà không đi từ trang nào) được đếm riêng, không tính vào tỉ lệ; lượt đọc cũng không tính máy quét và không tính chương khóa khi người xem chưa mở khóa.</p>
 
 		<div class="sw-stats__cards">
 			<div class="sw-stats__card"><span>Lượt đọc <?php echo esc_html( $period ); ?></span><b><?php echo esc_html( $read['available'] ? storyweb_stats_number( $read['total'] ) : '–' ); ?></b><small><?php echo esc_html( $read['available'] ? 'Hôm nay ' . storyweb_stats_number( $read['daily'][ $today ]['story'] + $read['daily'][ $today ]['chapter'] ) . ' · từ trước tới nay ' . storyweb_stats_number( $read['all_time'] ) : 'Cần bật plugin Post Views Counter' ); ?></small></div>
 			<div class="sw-stats__card"><span>Bấm link mở khóa thành công</span><b><?php echo esc_html( storyweb_stats_number( $unlock['click'] ) ); ?></b><small><?php echo esc_html( 'Hôm nay ' . storyweb_stats_number( $unlock['daily'][ $today ]['click'] ) . ' · bị chặn ' . storyweb_stats_number( $refused ) ); ?></small></div>
-			<div class="sw-stats__card"><span>Tỉ lệ bấm mở khóa</span><b><?php echo esc_html( storyweb_stats_percent( $unlock['click'], $unlock['gate'] ) ); ?></b><small><?php echo esc_html( storyweb_stats_number( $unlock['gate'] ) . ' lần thấy popup khóa, ' . storyweb_stats_number( $unlock['click'] ) . ' lần bấm link' ); ?></small></div>
+			<div class="sw-stats__card"><span>Tỉ lệ bấm mở khóa</span><b><?php echo esc_html( storyweb_stats_percent( $unlock['click'], $unlock['gate'] ) ); ?></b><small><?php echo esc_html( storyweb_stats_number( $unlock['gate'] ) . ' lần thấy popup khóa, ' . storyweb_stats_number( $unlock['click'] ) . ' lần bấm link · máy quét ' . storyweb_stats_number( array_sum( $unlock['items']['gate_bot'] ) ) ); ?></small></div>
 			<div class="sw-stats__card"><span>Kho truyện</span><b><?php echo esc_html( storyweb_stats_number( $content['stories'] ) . ' truyện' ); ?></b><small><?php echo esc_html( storyweb_stats_number( $content['chapters'] ) . ' chương · mới ' . $period . ': ' . storyweb_stats_number( $content['new_stories'] ) . ' truyện, ' . storyweb_stats_number( $content['new_chapters'] ) . ' chương' ); ?></small></div>
 		</div>
 
@@ -244,8 +244,8 @@ function storyweb_stats_admin_page() {
 			</section>
 
 			<section class="sw-stats__panel">
-				<h2>Truyện được bấm mở khóa nhiều nhất</h2>
-				<p class="sw-stats__muted">Thấy popup khóa: số lần người đọc mở một chương khóa khi chưa mở khóa, chưa phải là bấm. Bấm link thành công: số lần mở khóa được; bấm một lần đọc được mọi chương trong thời gian đã cài, nên trong lúc đó không có lượt bấm mới.</p>
+				<h2>Mở khóa theo truyện</h2>
+				<p class="sw-stats__muted">Thấy popup khóa: số lần người đọc mở một chương khóa khi chưa mở khóa, chưa phải là bấm (máy quét không tính). Bấm link thành công: số lần mở khóa được; bấm một lần đọc được mọi chương trong thời gian đã cài, nên trong lúc đó không có lượt bấm mới. Truyện nhiều lượt bấm nhất lên đầu.</p>
 				<?php
 				// Most clicks first, then most locked-chapter views.
 				$stories = array_keys( $unlock['items']['click'] + $unlock['items']['gate'] );

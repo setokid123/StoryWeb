@@ -201,6 +201,23 @@ function storyweb_unlock_fail( $status, $message ) {
 	);
 }
 
+// Crawlers that read robots.txt leave /mo-khoa/ alone (the gate links are rel="nofollow" too): in the group for
+// every crawler, next to WordPress's own rules.
+add_filter(
+	'robots_txt',
+	static function ( $output, $public ) {
+		if ( ! $public || str_contains( $output, '/mo-khoa/' ) ) {
+			return $output;
+		}
+		$path = wp_parse_url( home_url( user_trailingslashit( 'mo-khoa' ) ), PHP_URL_PATH );
+		$rule = 'Disallow: ' . $path;
+		$with = preg_replace( '/^(User-agent: \*\R)/mi', '$1' . $rule . "\n", $output, 1, $added );
+		return $added ? $with : "User-agent: *\n" . $rule . "\n\n" . $output;
+	},
+	20,
+	2
+);
+
 /** GET /mo-khoa/?i=<link index>&n=<nonce>[&c=<chapter ID>]: grant cookie, then 303 to the link. Counted in Thống kê. */
 add_action(
 	'template_redirect',
